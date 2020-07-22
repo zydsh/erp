@@ -1,0 +1,69 @@
+-- BP 7.1.6 content: Interface syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO C_I
+	VALUES ("e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	"00000000-0000-0000-0000-000000000000",
+	'CRUD',
+	'');
+INSERT INTO C_EP
+	VALUES ("ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Employee',
+	'');
+INSERT INTO C_AS
+	VALUES ("ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	'Employee',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("57f680d7-7d3c-4ffa-978d-47947d35a3e5",
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'FName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("96f16eac-1719-4d50-bb1e-96a32a3520c5",
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'LName',
+	'',
+	0,
+	'',
+	"57f680d7-7d3c-4ffa-978d-47947d35a3e5");
+INSERT INTO C_PP
+	VALUES ("690614b3-78b2-4257-a455-ff94e12f24a6",
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'National_ID',
+	'',
+	0,
+	'',
+	"96f16eac-1719-4d50-bb1e-96a32a3520c5");
+INSERT INTO C_PP
+	VALUES ("2fedc6f4-1cb7-4f59-9dd3-7001052bf4a7",
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"690614b3-78b2-4257-a455-ff94e12f24a6");
+INSERT INTO PE_PE
+	VALUES ("e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	1,
+	"d1985f9e-ae62-4494-8a33-87a2c6ca26cf",
+	"00000000-0000-0000-0000-000000000000",
+	6);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("d1985f9e-ae62-4494-8a33-87a2c6ca26cf",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'Shared',
+	'',
+	0,
+	'../Shared.xtuml');

@@ -1,0 +1,57 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("529df0e6-6f81-4d83-844e-34ad09c512ed",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'Utl',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("86782e4a-68f8-4fe5-8884-11c0b2835d85",
+	112,
+	"529df0e6-6f81-4d83-844e-34ad09c512ed",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'hrSystem::hrm::hr::Utl');
+INSERT INTO DIM_DIA
+	VALUES ("86782e4a-68f8-4fe5-8884-11c0b2835d85",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PE_PE
+	VALUES ("529df0e6-6f81-4d83-844e-34ad09c512ed",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"d878f6d3-d406-4972-80d4-d43f75abcac8",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("d878f6d3-d406-4972-80d4-d43f75abcac8",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'hr',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../hr.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'hrSystem',
+	1,
+	'../../../hrSystem.xtuml');
