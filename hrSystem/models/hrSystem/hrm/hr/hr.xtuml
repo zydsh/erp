@@ -112,7 +112,7 @@ INSERT INTO GD_GE
 	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6",
 	94,
 	0,
-	'hrSystem::hrm::hr::Port1::CRUD');
+	'hrSystem::hrm::hr::UI::CRUD');
 INSERT INTO GD_CON
 	VALUES ("c9781b81-1bb0-491c-b169-dd9c9bbd1ab1",
 	"00000000-0000-0000-0000-000000000000");
@@ -216,7 +216,7 @@ INSERT INTO DIM_DIA
 INSERT INTO C_PO
 	VALUES ("94f34965-6201-4eb9-bc44-af80048c67b7",
 	"d878f6d3-d406-4972-80d4-d43f75abcac8",
-	'Port1',
+	'UI',
 	0,
 	0);
 INSERT INTO C_IR
@@ -229,7 +229,7 @@ INSERT INTO C_P
 	'CRUD',
 	'Unnamed Interface',
 	'',
-	'hr::Port1::CRUD');
+	'hr::UI::CRUD');
 INSERT INTO SPR_PEP
 	VALUES ("afc792df-7bee-402c-9e74-ff32a0224756",
 	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
@@ -246,6 +246,24 @@ INSERT INTO C_EP_PROXY
 	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
 	-1,
 	'Employee',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("d8a1ae84-820e-419e-9e73-32eea5a887ad",
+	"6db20f00-50a9-424e-873f-1e67269ae874",
+	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6");
+INSERT INTO SPR_PS
+	VALUES ("d8a1ae84-820e-419e-9e73-32eea5a887ad",
+	'Reply',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6db20f00-50a9-424e-873f-1e67269ae874",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Reply',
 	'',
 	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO C_I_PROXY

@@ -27,7 +27,7 @@ INSERT INTO GD_MD
 	200,
 	150,
 	0,
-	'',
+	'4.1.17',
 	'HRUI::UI::UI');
 INSERT INTO GD_GE
 	VALUES ("18759159-42bc-4264-ad97-7ec0052bb618",
@@ -122,8 +122,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"f2c64955-ab82-4d16-a5cb-434a9fba7be1");
 INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
+	VALUES (5153.000000,
+	3502.000000,
 	"f2c64955-ab82-4d16-a5cb-434a9fba7be1",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -222,6 +222,24 @@ INSERT INTO C_EP_PROXY
 	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
 	-1,
 	'Employee',
+	'',
+	'../../Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("9db591dd-0140-4fd7-a1e1-f4435412456a",
+	"6db20f00-50a9-424e-873f-1e67269ae874",
+	"883cfaf4-1720-4964-b63e-4140927941f0");
+INSERT INTO SPR_RS
+	VALUES ("9db591dd-0140-4fd7-a1e1-f4435412456a",
+	'Reply',
+	'',
+	'::Reply( msg:param.msg, state:param.state );',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6db20f00-50a9-424e-873f-1e67269ae874",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Reply',
 	'',
 	'../../Shared/CRUD/CRUD.xtuml');
 INSERT INTO C_I_PROXY

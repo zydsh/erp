@@ -7,6 +7,60 @@ INSERT INTO O_OBJ
 	'Employee_Leave',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("2cbebbe4-9052-473f-8bef-be86c7202ac9",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_BATTR
+	VALUES ("2cbebbe4-9052-473f-8bef-be86c7202ac9",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_ATTR
+	VALUES ("2cbebbe4-9052-473f-8bef-be86c7202ac9",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	"00000000-0000-0000-0000-000000000000",
+	'Starting',
+	'',
+	'',
+	'Starting',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ceb62efe-bd43-4144-aa88-b838114d1638",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_BATTR
+	VALUES ("ceb62efe-bd43-4144-aa88-b838114d1638",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_ATTR
+	VALUES ("ceb62efe-bd43-4144-aa88-b838114d1638",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	"2cbebbe4-9052-473f-8bef-be86c7202ac9",
+	'Ending',
+	'',
+	'',
+	'Ending',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("fd51c832-2073-43fc-a02d-28f7b50a6ea0",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_BATTR
+	VALUES ("fd51c832-2073-43fc-a02d-28f7b50a6ea0",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_ATTR
+	VALUES ("fd51c832-2073-43fc-a02d-28f7b50a6ea0",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	"ceb62efe-bd43-4144-aa88-b838114d1638",
+	'Approved',
+	'',
+	'',
+	'Approved',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");

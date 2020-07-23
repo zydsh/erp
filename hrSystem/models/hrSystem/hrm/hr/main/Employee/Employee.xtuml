@@ -4,9 +4,253 @@ INSERT INTO O_OBJ
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'Employee',
 	2,
-	'Employee',
+	'EM',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("be9ae7cd-0096-466e-96e9-de7eda95bc04",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	'commenceEmployee',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'LOG::LogInfo(message:"An employee attempts to commence." );
+
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	//generate EM2:commencedRcvd() to employee;
+	employee.Start_Date = TIM::current_seconds();
+	//UI::Reply( msg:"Employee has commenced ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	//UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("f112e62e-b613-494c-9e97-ab4e67b80ebd",
+	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
+	'National_ID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("c5eda235-78fe-4ea0-85c1-6b44d9105c57",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'LOG::LogInfo(message:"Attempting to add a new Employee." );
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( empty employee ) and (param.Action=="NEW")
+	//create object instance employee of Employee;
+	create object instance employee of EM;
+	employee.FName = param.FName;
+	employee.LName = param.LName;
+	employee.National_ID = param.National_ID;
+	//SQL::serialize();
+	UI::Reply( msg:"Employee added successfully.", state:True);
+
+elif ( not empty employee ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Employee already exists." );	
+	UI::Reply( msg:"Employee already exists", state:False);
+
+elif ( not empty employee ) and (param.Action=="UPDATE")
+	employee.FName = param.FName;
+	employee.LName = param.LName;
+	employee.National_ID = param.National_ID;
+	
+	LOG::LogInfo(message:"Employee updated successfully." );	
+	UI::Reply( msg:"Employee updated successfully", state:True);
+elif ( not empty employee ) and (param.Action=="DELETE")
+
+	LOG::LogInfo(message:"Employee deleted successfully." );	
+	UI::Reply( msg:"Employee delete unsuccessful", state:False);
+
+ elif (empty employee )
+	LOG::LogInfo(message:"Employee does not exist." );	
+	UI::Reply( msg:"Employee does not exist.", state:False);
+ end if;
+',
+	1,
+	'',
+	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("6d5e8130-08e6-45b9-a6a4-d8e15ca46d44",
+	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
+	'FName',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("121bce11-684e-4fd4-8e16-c47dc205df16",
+	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
+	'LName',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"6d5e8130-08e6-45b9-a6a4-d8e15ca46d44",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("2da13be3-0dd6-474a-a211-c70f041aa829",
+	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
+	'National_ID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"121bce11-684e-4fd4-8e16-c47dc205df16",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("cf25bb85-0f5d-473a-8918-9c974510f586",
+	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"2da13be3-0dd6-474a-a211-c70f041aa829",
+	'');
+INSERT INTO O_TFR
+	VALUES ("a09a32cd-a57c-4c57-a3e5-43debb8df180",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	'createPayment',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'',
+	3,
+	'',
+	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("c8d7855a-0b36-49ff-bd1e-fc6e0ab8df1a",
+	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
+	'National_ID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("25fa7a52-eb64-4af1-9ca8-bd938e8926d2",
+	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"c8d7855a-0b36-49ff-bd1e-fc6e0ab8df1a",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("284b64f2-0a78-4504-87d5-d65b41918ada",
+	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
+	'Amount',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"25fa7a52-eb64-4af1-9ca8-bd938e8926d2",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("52cde002-beb4-4766-b863-6fc7332b55ba",
+	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
+	'Date',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"284b64f2-0a78-4504-87d5-d65b41918ada",
+	'');
+INSERT INTO O_TFR
+	VALUES ("9b2a8127-fc3a-470f-a20c-386a1ab29b60",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	'getSalary',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	1,
+	'',
+	3,
+	'',
+	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
+	0);
+INSERT INTO O_NBATTR
+	VALUES ("fd9cdc08-0290-402f-8e02-c13de46c7b88",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("fd9cdc08-0290-402f-8e02-c13de46c7b88",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("fd9cdc08-0290-402f-8e02-c13de46c7b88",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"00000000-0000-0000-0000-000000000000",
+	'FName',
+	'',
+	'',
+	'FName',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("2538b924-8f5d-4754-8df6-11b7637ff38a",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("2538b924-8f5d-4754-8df6-11b7637ff38a",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("2538b924-8f5d-4754-8df6-11b7637ff38a",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"fd9cdc08-0290-402f-8e02-c13de46c7b88",
+	'LName',
+	'',
+	'',
+	'LName',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("b5fd3d31-b2a5-466d-acd5-1d716b21fa12",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("b5fd3d31-b2a5-466d-acd5-1d716b21fa12",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("b5fd3d31-b2a5-466d-acd5-1d716b21fa12",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"2538b924-8f5d-4754-8df6-11b7637ff38a",
+	'Start_Date',
+	'',
+	'',
+	'Start_Date',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"b5fd3d31-b2a5-466d-acd5-1d716b21fa12",
+	'National_ID',
+	'',
+	'',
+	'National_ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");
