@@ -4,7 +4,7 @@ INSERT INTO O_OBJ
 	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
 	'Bonus_Payment',
 	8,
-	'Bonus_Payment',
+	'BP',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
@@ -59,6 +59,24 @@ INSERT INTO O_ATTR
 	'Amount',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("a9264617-5aaf-4d83-a48e-af759986a1ba",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
+INSERT INTO O_BATTR
+	VALUES ("a9264617-5aaf-4d83-a48e-af759986a1ba",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
+INSERT INTO O_ATTR
+	VALUES ("a9264617-5aaf-4d83-a48e-af759986a1ba",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	"58f34955-58fc-4444-bc7d-8a16df562292",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
 INSERT INTO O_ID
