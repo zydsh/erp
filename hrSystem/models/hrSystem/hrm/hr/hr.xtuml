@@ -217,7 +217,7 @@ INSERT INTO GD_GE
 	"b738ee35-2e9d-421e-b69d-3017ffbef31d",
 	94,
 	0,
-	'hrSystem::hrm::hr::Port1::Ops');
+	'hrSystem::hrm::hr::UI_Ops::Ops');
 INSERT INTO GD_CON
 	VALUES ("344cfe7a-656c-4d5f-a957-f583acaabce4",
 	"00000000-0000-0000-0000-000000000000");
@@ -495,7 +495,7 @@ INSERT INTO C_I_PROXY
 INSERT INTO C_PO
 	VALUES ("acf78bb5-32d7-4c49-9c87-5102e4dd65bb",
 	"d878f6d3-d406-4972-80d4-d43f75abcac8",
-	'Port1',
+	'UI_Ops',
 	0,
 	0);
 INSERT INTO C_IR
@@ -508,7 +508,7 @@ INSERT INTO C_P
 	'Ops',
 	'Unnamed Interface',
 	'',
-	'hr::Port1::Ops');
+	'hr::UI_Ops::Ops');
 INSERT INTO SPR_PEP
 	VALUES ("9a6a1cac-4906-4fba-b8e5-891006c1be35",
 	"b39132b4-2259-4b62-a9f3-6437a0d18916",
