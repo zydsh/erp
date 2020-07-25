@@ -1507,13 +1507,29 @@ INSERT INTO R_AONE
 	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
 	"2d425b83-2705-4eae-964a-66f4fd4ffed4",
 	1,
-	0,
+	1,
 	'');
+INSERT INTO O_RTIDA
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	0,
+	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
+	"2d425b83-2705-4eae-964a-66f4fd4ffed4");
+INSERT INTO O_OIDA_PROXY
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	0,
+	'National_ID',
+	'./Employee/Employee.xtuml');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
 	"2d425b83-2705-4eae-964a-66f4fd4ffed4",
-	-1);
+	0);
+INSERT INTO O_ID_PROXY
+	VALUES (0,
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	'./Employee/Employee.xtuml');
 INSERT INTO R_OIR
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
@@ -1524,13 +1540,29 @@ INSERT INTO R_AOTH
 	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
 	"8909a654-9558-4d02-9727-caeaa4dd4f0a",
 	1,
-	0,
+	1,
 	'');
+INSERT INTO O_RTIDA
+	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	0,
+	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
+	"8909a654-9558-4d02-9727-caeaa4dd4f0a");
+INSERT INTO O_OIDA_PROXY
+	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	0,
+	'Name',
+	'./Bonus/Bonus.xtuml');
 INSERT INTO R_RTO
 	VALUES ("2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
 	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
 	"8909a654-9558-4d02-9727-caeaa4dd4f0a",
-	-1);
+	0);
+INSERT INTO O_ID_PROXY
+	VALUES (0,
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	'./Bonus/Bonus.xtuml');
 INSERT INTO R_OIR
 	VALUES ("2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
 	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
@@ -1562,7 +1594,7 @@ INSERT INTO O_OBJ_PROXY
 	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
 	'Bonus_Payment',
 	8,
-	'Bonus_Payment',
+	'BP',
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'./Bonus_Payment/Bonus_Payment.xtuml');

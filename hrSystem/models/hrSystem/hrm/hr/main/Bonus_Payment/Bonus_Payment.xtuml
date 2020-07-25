@@ -7,6 +7,111 @@ INSERT INTO O_OBJ
 	'BP',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("4ab8e5a9-0f97-4c6c-97d5-0442fc67224a",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any employee from instances of EM where selected.National_ID==param.National_ID;
+
+select any bonus from instances of Bonus where selected.Name==param.Name;
+
+select any bp from instances of BP where selected.Name==param.Name and selected.National_ID==param.National_ID;
+
+if ( empty bp ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new bonus to employee." );
+
+	//create object instance employee of Employee;
+	create object instance b of BP;
+	relate employee to bonus across R4 using b;  
+
+	b.Starting = param.Starting;
+	b.Ending = param.Ending;
+
+	//SQL::serialize();
+	UI::Reply( msg:"bonus created successfully.", state:True);
+
+elif ( not empty bp ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new bonus." );
+
+	LOG::LogInfo(message:"bonus already exists." );	
+	UI::Reply( msg:"bonus already exists", state:False);
+
+elif ( not empty bp ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update bonus." );
+
+	bp.Starting = param.Starting;
+	bp.Ending = param.Ending;
+	
+	LOG::LogInfo(message:"bonus updated successfully." );	
+	UI::Reply( msg:"bonus updated successfully", state:True);
+
+elif ( not empty bp ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a bonus instance." );
+	LOG::LogInfo(message:"bonus delete in not implemented yet." );	
+	UI::Reply( msg:"bonus delete in not implemented yet", state:False);
+
+ elif (empty bp )
+	LOG::LogInfo(message:"bonus does not exist." );	
+	UI::Reply( msg:"bonus does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("a270461e-d600-4e8c-a804-1f2a73d2aeed",
+	"4ab8e5a9-0f97-4c6c-97d5-0442fc67224a",
+	'National_ID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("b0bf54ea-3c81-465d-9c71-ecf78232d3e7",
+	"4ab8e5a9-0f97-4c6c-97d5-0442fc67224a",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"a270461e-d600-4e8c-a804-1f2a73d2aeed",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c377b01f-c94b-4626-8b33-b87e63fcab15",
+	"4ab8e5a9-0f97-4c6c-97d5-0442fc67224a",
+	'Starting',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"b0bf54ea-3c81-465d-9c71-ecf78232d3e7",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("0ee2eb76-efaa-41b8-9c44-61ad7cf82023",
+	"4ab8e5a9-0f97-4c6c-97d5-0442fc67224a",
+	'Ending',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"c377b01f-c94b-4626-8b33-b87e63fcab15",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("92e01d0f-0d5c-4a4d-8056-4b61473da1e0",
+	"4ab8e5a9-0f97-4c6c-97d5-0442fc67224a",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"0ee2eb76-efaa-41b8-9c44-61ad7cf82023",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("275dc84f-af6b-42a1-b363-1e5b408fbff8",
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
@@ -79,9 +184,116 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
+INSERT INTO O_REF
+	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	0,
+	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
+	"efc6a988-e7f5-4175-963b-cd669271d7fe",
+	"2d425b83-2705-4eae-964a-66f4fd4ffed4",
+	"c3af1956-2274-4472-8d1c-69a955161002",
+	"2081014c-b082-48da-ab88-2840e9b2ba77",
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'Employee',
+	'National_ID',
+	'R4');
+INSERT INTO R_RGO_PROXY
+	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
+	"efc6a988-e7f5-4175-963b-cd669271d7fe",
+	'../main.xtuml');
+INSERT INTO O_RTIDA_PROXY
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	0,
+	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
+	"2d425b83-2705-4eae-964a-66f4fd4ffed4",
+	'../main.xtuml');
+INSERT INTO O_RATTR
+	VALUES ("c3af1956-2274-4472-8d1c-69a955161002",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	1,
+	'National_ID');
+INSERT INTO O_BATTR_PROXY
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	'../Employee/Employee.xtuml');
+INSERT INTO O_ATTR
+	VALUES ("c3af1956-2274-4472-8d1c-69a955161002",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	"a9264617-5aaf-4d83-a48e-af759986a1ba",
+	'National_ID',
+	'',
+	'',
+	'National_ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_REF
+	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	0,
+	"ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
+	"efc6a988-e7f5-4175-963b-cd669271d7fe",
+	"8909a654-9558-4d02-9727-caeaa4dd4f0a",
+	"c2733581-42e0-44de-b193-5e1734946343",
+	"276cd4bb-99bd-4075-950e-6276a5a81010",
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'Bonus',
+	'Name',
+	'R4');
+INSERT INTO O_RTIDA_PROXY
+	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	0,
+	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
+	"8909a654-9558-4d02-9727-caeaa4dd4f0a",
+	'../main.xtuml');
+INSERT INTO O_RATTR
+	VALUES ("c2733581-42e0-44de-b193-5e1734946343",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	"ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	1,
+	'Name');
+INSERT INTO O_BATTR_PROXY
+	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	'../Bonus/Bonus.xtuml');
+INSERT INTO O_ATTR
+	VALUES ("c2733581-42e0-44de-b193-5e1734946343",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	"c3af1956-2274-4472-8d1c-69a955161002",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
+INSERT INTO O_OIDA
+	VALUES ("c3af1956-2274-4472-8d1c-69a955161002",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	0,
+	'National_ID');
+INSERT INTO O_OIDA
+	VALUES ("c2733581-42e0-44de-b193-5e1734946343",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
+	0,
+	'Name');
 INSERT INTO O_ID
 	VALUES (1,
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
