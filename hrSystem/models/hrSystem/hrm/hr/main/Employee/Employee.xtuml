@@ -71,8 +71,8 @@ elif ( not empty employee ) and (param.Action=="UPDATE")
 	UI::Reply( msg:"Employee updated successfully", state:True);
 elif ( not empty employee ) and (param.Action=="DELETE")
 
-	LOG::LogInfo(message:"Employee deleted successfully." );	
-	UI::Reply( msg:"Employee delete unsuccessful", state:False);
+	LOG::LogInfo(message:"Employee delete in not implemented yet." );	
+	UI::Reply( msg:"Employee delete is not implemented yet.", state:False);
 
  elif (empty employee )
 	LOG::LogInfo(message:"Employee does not exist." );	
