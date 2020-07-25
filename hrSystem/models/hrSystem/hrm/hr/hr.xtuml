@@ -517,8 +517,19 @@ INSERT INTO SPR_PS
 	VALUES ("9a6a1cac-4906-4fba-b8e5-891006c1be35",
 	'Leave_Request',
 	'',
-	'',
-	3,
+	'//Select an employee using the National ID to deliver the event to the statemachine
+// to serve the request for leave.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM3:requestLeave(Starting:param.Starting, Ending:param.Ending, Name:param.Name, National_ID:param.National_ID) to employee;
+	UI::Reply( msg:"Employee has requested leave successfully ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b39132b4-2259-4b62-a9f3-6437a0d18916",
@@ -535,8 +546,19 @@ INSERT INTO SPR_PS
 	VALUES ("12006576-f25b-44a5-b43d-e4b4ad334906",
 	'Leave_Return',
 	'',
-	'',
-	3,
+	'//Select an employee using the National ID to deliver the event to the statemachine
+// to serve the request for leave.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM4:returnFromLeave() to employee;
+	UI::Reply( msg:"Employee request is successfull ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("70a38333-8004-469c-92f7-2882ec9995e4",
