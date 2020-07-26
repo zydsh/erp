@@ -27,12 +27,12 @@ public class Employee_JobSetImpl extends InstanceSet<Employee_JobSet,Employee_Jo
 
     // attributes
     @Override
-    public void setActive( boolean m_Active ) throws XtumlException {
-        for ( Employee_Job employee_job : this ) employee_job.setActive( m_Active );
-    }
-    @Override
     public void setAppointment_Date( int m_Appointment_Date ) throws XtumlException {
         for ( Employee_Job employee_job : this ) employee_job.setAppointment_Date( m_Appointment_Date );
+    }
+    @Override
+    public void setActive( boolean m_Active ) throws XtumlException {
+        for ( Employee_Job employee_job : this ) employee_job.setActive( m_Active );
     }
 
 

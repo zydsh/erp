@@ -18,7 +18,7 @@ INSERT INTO O_TFR
 
 select any bonus from instances of Bonus where selected.Name==param.Name;
 
-select any bp from instances of BP where (selected.Name==param.Name) and (selected.National_ID==param.National_ID);
+select any bp from instances of BP where (selected.Name==param.Name) and (selected.ID==param.National_ID);
 
 if ( empty bp ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new bonus to employee." );
@@ -26,7 +26,8 @@ if ( empty bp ) and (param.Action=="NEW")
 	//create object instance employee of Employee;
 	create object instance b of BP;
 	relate employee to bonus across R4 using b;  
-
+	b.ID = param.National_ID;
+	b.Name = param.Name;
 	b.Starting = param.Starting;
 	b.Ending = param.Ending;
 
@@ -184,99 +185,38 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
-INSERT INTO O_REF
-	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	0,
-	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
-	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
-	"efc6a988-e7f5-4175-963b-cd669271d7fe",
-	"2d425b83-2705-4eae-964a-66f4fd4ffed4",
-	"c3af1956-2274-4472-8d1c-69a955161002",
-	"2081014c-b082-48da-ab88-2840e9b2ba77",
-	"00000000-0000-0000-0000-000000000000",
-	0,
-	'',
-	'Employee',
-	'National_ID',
-	'R4');
-INSERT INTO R_RGO_PROXY
-	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
-	"efc6a988-e7f5-4175-963b-cd669271d7fe",
-	'../main.xtuml');
-INSERT INTO O_RTIDA_PROXY
-	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
-	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	0,
-	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
-	"2d425b83-2705-4eae-964a-66f4fd4ffed4",
-	'../main.xtuml');
-INSERT INTO O_RATTR
-	VALUES ("c3af1956-2274-4472-8d1c-69a955161002",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
-	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	1,
-	'National_ID');
-INSERT INTO O_BATTR_PROXY
-	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
-	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	'../Employee/Employee.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("44c25a6a-71f0-43d5-ac02-1478fc8f2c72",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
+INSERT INTO O_BATTR
+	VALUES ("44c25a6a-71f0-43d5-ac02-1478fc8f2c72",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
 INSERT INTO O_ATTR
-	VALUES ("c3af1956-2274-4472-8d1c-69a955161002",
+	VALUES ("44c25a6a-71f0-43d5-ac02-1478fc8f2c72",
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
 	"a9264617-5aaf-4d83-a48e-af759986a1ba",
-	'National_ID',
+	'Name',
 	'',
 	'',
-	'National_ID',
+	'Name',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
-INSERT INTO O_REF
-	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
-	0,
-	"ba390998-0eda-4d11-9a28-8fa2148b3f26",
-	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
-	"efc6a988-e7f5-4175-963b-cd669271d7fe",
-	"8909a654-9558-4d02-9727-caeaa4dd4f0a",
-	"c2733581-42e0-44de-b193-5e1734946343",
-	"276cd4bb-99bd-4075-950e-6276a5a81010",
-	"00000000-0000-0000-0000-000000000000",
-	0,
-	'',
-	'Bonus',
-	'Name',
-	'R4');
-INSERT INTO O_RTIDA_PROXY
-	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
-	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
-	0,
-	"18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
-	"8909a654-9558-4d02-9727-caeaa4dd4f0a",
-	'../main.xtuml');
-INSERT INTO O_RATTR
-	VALUES ("c2733581-42e0-44de-b193-5e1734946343",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	"ba390998-0eda-4d11-9a28-8fa2148b3f26",
-	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
-	1,
-	'Name');
-INSERT INTO O_BATTR_PROXY
-	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
-	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
-	'../Bonus/Bonus.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("26f3d5da-c48f-40c6-9776-ec473a29b5ab",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
+INSERT INTO O_BATTR
+	VALUES ("26f3d5da-c48f-40c6-9776-ec473a29b5ab",
+	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
 INSERT INTO O_ATTR
-	VALUES ("c2733581-42e0-44de-b193-5e1734946343",
+	VALUES ("26f3d5da-c48f-40c6-9776-ec473a29b5ab",
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	"c3af1956-2274-4472-8d1c-69a955161002",
-	'Name',
+	"44c25a6a-71f0-43d5-ac02-1478fc8f2c72",
+	'ID',
 	'',
 	'',
-	'Name',
+	'ID',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -284,16 +224,6 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
-INSERT INTO O_OIDA
-	VALUES ("c3af1956-2274-4472-8d1c-69a955161002",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	0,
-	'National_ID');
-INSERT INTO O_OIDA
-	VALUES ("c2733581-42e0-44de-b193-5e1734946343",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	0,
-	'Name');
 INSERT INTO O_ID
 	VALUES (1,
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");

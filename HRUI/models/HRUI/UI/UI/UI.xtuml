@@ -193,7 +193,7 @@ INSERT INTO GD_GE
 	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8",
 	93,
 	0,
-	'HRUI::UI::UI::Port1::Ops');
+	'HRUI::UI::UI::AppOps::Ops');
 INSERT INTO GD_CON
 	VALUES ("a6263f04-c142-4c1e-ae39-e04af9ffe896",
 	"00000000-0000-0000-0000-000000000000");
@@ -464,7 +464,7 @@ INSERT INTO C_I_PROXY
 INSERT INTO C_PO
 	VALUES ("723ef2af-9f17-4893-8c39-67c5b0d8ba35",
 	"f859e576-0e98-4f6e-9102-2f3ef0483432",
-	'Port1',
+	'AppOps',
 	0,
 	0);
 INSERT INTO C_IR
@@ -477,7 +477,7 @@ INSERT INTO C_R
 	'Ops',
 	'',
 	'Unnamed Interface',
-	'UI::Port1::Ops');
+	'UI::AppOps::Ops');
 INSERT INTO SPR_REP
 	VALUES ("6549a39c-781f-4114-a587-53a31f82de0c",
 	"b39132b4-2259-4b62-a9f3-6437a0d18916",

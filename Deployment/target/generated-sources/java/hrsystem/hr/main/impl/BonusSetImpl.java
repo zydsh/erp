@@ -25,12 +25,12 @@ public class BonusSetImpl extends InstanceSet<BonusSet,Bonus> implements BonusSe
 
     // attributes
     @Override
-    public void setPercent( double m_Percent ) throws XtumlException {
-        for ( Bonus bonus : this ) bonus.setPercent( m_Percent );
-    }
-    @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( Bonus bonus : this ) bonus.setName( m_Name );
+    }
+    @Override
+    public void setPercent( double m_Percent ) throws XtumlException {
+        for ( Bonus bonus : this ) bonus.setPercent( m_Percent );
     }
 
 
