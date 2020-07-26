@@ -86,6 +86,11 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     }
     private String m_Name;
     @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
+    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -94,12 +99,12 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
     }
-    @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
     private int m_MaximumDays;
+    @Override
+    public int getMaximumDays() throws XtumlException {
+        checkLiving();
+        return m_MaximumDays;
+    }
     @Override
     public void setMaximumDays(int m_MaximumDays) throws XtumlException {
         checkLiving();
@@ -108,11 +113,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             this.m_MaximumDays = m_MaximumDays;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_MaximumDays", oldValue, this.m_MaximumDays));
         }
-    }
-    @Override
-    public int getMaximumDays() throws XtumlException {
-        checkLiving();
-        return m_MaximumDays;
     }
 
 
@@ -217,17 +217,17 @@ class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
     public void setLeave_ID( int m_Leave_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setMaximumDays( int m_MaximumDays ) throws XtumlException {
+    public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getMaximumDays() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setMaximumDays( int m_MaximumDays ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

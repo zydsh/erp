@@ -5,6 +5,7 @@ import hrsystem.Hr;
 import hrsystem.hr.main.Bonus;
 import hrsystem.hr.main.Bonus_Payment;
 import hrsystem.hr.main.Bonus_PaymentSet;
+import hrsystem.hr.main.impl.BonusImpl;
 import hrsystem.hr.main.impl.Bonus_PaymentSetImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
@@ -123,6 +124,35 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
 
         public void crud( final String p_Name,  final double p_Percent,  final String p_Action ) throws XtumlException {
+            Bonus bonus = context().Bonus_instances().anyWhere(selected -> StringUtil.equality(((Bonus)selected).getName(), p_Name));
+            if ( bonus.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
+                context().LOG().LogInfo( "Attempting to add a new bonus to employee." );
+                Bonus b = BonusImpl.create( context() );
+                b.setName(p_Name);
+                b.setPercent(p_Percent);
+                context().UI().Reply( "bonus created successfully.", true );
+            }
+            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
+                context().LOG().LogInfo( "Attempting to add a new bonus." );
+                context().LOG().LogInfo( "bonus already exists." );
+                context().UI().Reply( "bonus already exists", false );
+            }
+            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
+                context().LOG().LogInfo( "Attempting to update bonus." );
+                bonus.setName(p_Name);
+                bonus.setPercent(p_Percent);
+                context().LOG().LogInfo( "bonus updated successfully." );
+                context().UI().Reply( "bonus updated successfully", true );
+            }
+            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
+                context().LOG().LogInfo( "Attempting to delete a bonus instance." );
+                context().LOG().LogInfo( "bonus delete in not implemented yet." );
+                context().UI().Reply( "bonus delete in not implemented yet", false );
+            }
+            else if ( bonus.isEmpty() ) {
+                context().LOG().LogInfo( "bonus does not exist." );
+                context().UI().Reply( "bonus does not exist.", false );
+            }
         }
 
 
