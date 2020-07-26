@@ -14,8 +14,52 @@ INSERT INTO O_TFR
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
-	'',
-	3,
+	'
+select any bonus from instances of Bonus where selected.Name==param.Name;
+
+if ( empty bonus ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new bonus to employee." );
+
+	//create object instance employee of Employee;
+	create object instance b of Bonus;
+
+	b.Name = param.Name;
+	b.Percent = param.Percent;
+
+	//SQL::serialize();
+	UI::Reply( msg:"bonus created successfully.", state:True);
+
+elif ( not empty bonus ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new bonus." );
+
+	LOG::LogInfo(message:"bonus already exists." );	
+	UI::Reply( msg:"bonus already exists", state:False);
+
+elif ( not empty bonus ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update bonus." );
+
+	bonus.Name = param.Name;
+	bonus.Percent = param.Percent;
+	
+	LOG::LogInfo(message:"bonus updated successfully." );	
+	UI::Reply( msg:"bonus updated successfully", state:True);
+
+elif ( not empty bonus ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a bonus instance." );
+	LOG::LogInfo(message:"bonus delete in not implemented yet." );	
+	UI::Reply( msg:"bonus delete in not implemented yet", state:False);
+
+ elif (empty bonus )
+	LOG::LogInfo(message:"bonus does not exist." );	
+	UI::Reply( msg:"bonus does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	0);
