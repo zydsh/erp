@@ -69,6 +69,11 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     // attributes
     private String m_Name;
     @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
+    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -78,17 +83,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
             if ( !R4_Bonus_Payment().isEmpty() ) R4_Bonus_Payment().setName( m_Name );
         }
     }
-    @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
     private double m_Percent;
-    @Override
-    public double getPercent() throws XtumlException {
-        checkLiving();
-        return m_Percent;
-    }
     @Override
     public void setPercent(double m_Percent) throws XtumlException {
         checkLiving();
@@ -97,6 +92,11 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
             this.m_Percent = m_Percent;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Percent", oldValue, this.m_Percent));
         }
+    }
+    @Override
+    public double getPercent() throws XtumlException {
+        checkLiving();
+        return m_Percent;
     }
 
 
@@ -211,17 +211,17 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
 class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public double getPercent() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setName( String m_Name ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setPercent( double m_Percent ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getPercent() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

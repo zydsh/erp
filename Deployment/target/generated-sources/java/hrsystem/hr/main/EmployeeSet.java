@@ -14,8 +14,8 @@ public interface EmployeeSet extends IInstanceSet<EmployeeSet,Employee> {
 
     // attributes
     public void setFName( String m_FName ) throws XtumlException;
-    public void setLName( String m_LName ) throws XtumlException;
     public void setNational_ID( int m_National_ID ) throws XtumlException;
+    public void setLName( String m_LName ) throws XtumlException;
     public void setStart_Date( int m_Start_Date ) throws XtumlException;
 
 

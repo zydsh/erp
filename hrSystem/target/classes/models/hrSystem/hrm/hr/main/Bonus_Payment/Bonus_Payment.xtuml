@@ -18,7 +18,7 @@ INSERT INTO O_TFR
 
 select any bonus from instances of Bonus where selected.Name==param.Name;
 
-select any bp from instances of BP where selected.Name==param.Name and selected.National_ID==param.National_ID;
+select any bp from instances of BP where (selected.Name==param.Name) and (selected.National_ID==param.National_ID);
 
 if ( empty bp ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new bonus to employee." );
