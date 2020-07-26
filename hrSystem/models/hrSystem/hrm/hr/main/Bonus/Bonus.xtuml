@@ -20,7 +20,7 @@ select any bonus from instances of Bonus where selected.Name==param.Name;
 if ( empty bonus ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new bonus to employee." );
 
-	//create object instance employee of Employee;
+	//create object instance bonus of Bonus;
 	create object instance b of Bonus;
 
 	b.Name = param.Name;
