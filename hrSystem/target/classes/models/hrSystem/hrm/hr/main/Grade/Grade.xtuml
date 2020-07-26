@@ -1,0 +1,109 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("cf68762b-f5bb-47be-a0da-54b9ddde60f3",
+	'Grade',
+	3,
+	'Grade',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("dbb0c869-0460-4f49-ba8a-2874977db9a4",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'LOG::LogInfo(message:"Attempting to add a new Grade." );
+select any inst from instances of Grade where selected.GValue==param.Value;
+if ( empty inst ) and (param.Action=="NEW")
+	//create object instance of Grade;
+	create object instance g of Grade;
+	g.GValue = param.Value;
+	UI::Reply( msg:"Grade: added successfully.", state:True);
+
+elif ( not empty inst ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Grade already exists." );	
+	UI::Reply( msg:"Grade already exists", state:False);
+
+elif ( not empty inst ) and (param.Action=="UPDATE")
+	
+	LOG::LogInfo(message:"Grade updated successfully." );	
+	UI::Reply( msg:"Grade updated successfully", state:True);
+elif ( not empty inst ) and (param.Action=="DELETE")
+
+	LOG::LogInfo(message:"Grade deleted successfully." );	
+	UI::Reply( msg:"Grade delete unsuccessful", state:False);
+
+ elif (empty inst )
+	LOG::LogInfo(message:"Grade does not exist." );	
+	UI::Reply( msg:"Grade does not exist.", state:False);
+ end if;
+
+	
+		
+				
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("ac90f412-eed5-4fd8-8f54-f02fb9280efc",
+	"dbb0c869-0460-4f49-ba8a-2874977db9a4",
+	'Value',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("adae11bb-e748-48b3-8d7f-1e3c33c48c6f",
+	"dbb0c869-0460-4f49-ba8a-2874977db9a4",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"ac90f412-eed5-4fd8-8f54-f02fb9280efc",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_BATTR
+	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_ATTR
+	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
+	"00000000-0000-0000-0000-000000000000",
+	'GValue',
+	'',
+	'',
+	'GValue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_ID
+	VALUES (1,
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_ID
+	VALUES (2,
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO PE_PE
+	VALUES ("cf68762b-f5bb-47be-a0da-54b9ddde60f3",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

@@ -1,0 +1,195 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
+	'Job',
+	4,
+	'Job',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("1a9526f8-2850-4921-8434-51accf68a540",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any grade from instances of Grade where selected.GValue==param.Grade;
+
+select any step from instances of Step where selected.SValue==param.Step;
+
+select any job from instances of Job where selected.Name==param.Name;
+
+if ( empty job ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new Job." );
+
+	//create object instance employee of Employee;
+	create object instance j of Job;
+	j.Name = param.Name;
+	j.Amount = param.Amount;
+	relate step to grade across R5 using j;  
+
+	//SQL::serialize();
+	UI::Reply( msg:"Job created successfully.", state:True);
+
+elif ( not empty job ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new Job." );
+
+	LOG::LogInfo(message:"Job already exists." );	
+	UI::Reply( msg:"Job already exists", state:False);
+
+elif ( not empty job ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update Job." );
+
+	job.Name = param.Name;
+	job.Amount = param.Amount;
+	
+	LOG::LogInfo(message:"Job updated successfully." );	
+	UI::Reply( msg:"Job updated successfully", state:True);
+
+elif ( not empty job ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a Job instance." );
+	LOG::LogInfo(message:"Job delete in not implemented yet." );	
+	UI::Reply( msg:"Job delete in not implemented yet", state:False);
+
+ elif (empty job )
+	LOG::LogInfo(message:"Job does not exist." );	
+	UI::Reply( msg:"Job does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("1f0fa486-4d6e-4410-b8f1-56b4651e971b",
+	"1a9526f8-2850-4921-8434-51accf68a540",
+	'Step',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("30f2a4a3-83e4-4b21-bdf8-8c8a30a6ca9d",
+	"1a9526f8-2850-4921-8434-51accf68a540",
+	'Grade',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"1f0fa486-4d6e-4410-b8f1-56b4651e971b",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("190acc94-4214-4cb5-9047-c9eed11adb6c",
+	"1a9526f8-2850-4921-8434-51accf68a540",
+	'Amount',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"30f2a4a3-83e4-4b21-bdf8-8c8a30a6ca9d",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("27f688fc-98c3-4fb4-bc46-23dd80ed1cfa",
+	"1a9526f8-2850-4921-8434-51accf68a540",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"190acc94-4214-4cb5-9047-c9eed11adb6c",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("889b1855-ca84-468c-ab64-7f9090521d50",
+	"1a9526f8-2850-4921-8434-51accf68a540",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"27f688fc-98c3-4fb4-bc46-23dd80ed1cfa",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"00000000-0000-0000-0000-000000000000",
+	'Job_ID',
+	'',
+	'',
+	'Job_ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	'Amount',
+	'',
+	'',
+	'Amount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"f31b58a3-b3d7-4683-ba34-60e5e23a6021",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_OIDA
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	0,
+	'Job_ID');
+INSERT INTO O_ID
+	VALUES (1,
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ID
+	VALUES (2,
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO PE_PE
+	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

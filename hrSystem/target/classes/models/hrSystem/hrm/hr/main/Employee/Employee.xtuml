@@ -18,13 +18,13 @@ INSERT INTO O_TFR
 
 select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( not empty employee )
-	generate EM2:commenced() to employee;
+	//generate EM2:commencedRcvd() to employee;
 	employee.Start_Date = TIM::current_seconds();
-	UI::Reply( msg:"Employee has commenced ", state:True);
+	//UI::Reply( msg:"Employee has commenced ", state:True);
 
 else 
 	LOG::LogInfo(message:"Employee is not registered!" );
-	UI::Reply( msg:"Employee is not found.", state:False);
+	//UI::Reply( msg:"Employee is not found.", state:False);
 end if;
 ',
 	1,
@@ -127,7 +127,7 @@ INSERT INTO O_TFR
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
 	'',
-	1,
+	3,
 	'',
 	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
 	0);
@@ -175,7 +175,7 @@ INSERT INTO O_TFR
 	"ba5eda7a-def5-0000-0000-000000000003",
 	1,
 	'',
-	1,
+	3,
 	'',
 	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
 	0);

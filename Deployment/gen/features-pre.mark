@@ -1,0 +1,18 @@
+*,ApplicationName
+*,ApplicationPackage
+*,AsyncApplication
+*,RootPackage
+*,SortComparator
+*,TemplateDir
+Association,Exclude
+Attribute,NonPersistent
+Component,EnableSimulatedTime
+Component,InitFunction
+Component,InstanceLoading
+Component,Version
+Model Class,Exclude
+Model Class,NonPersistent
+Model Class,UseKeyLettersForName
+Package,DoNotSerialize
+Port,BaseClass
+Port,HttpEndpoint

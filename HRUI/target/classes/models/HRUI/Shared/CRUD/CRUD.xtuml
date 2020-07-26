@@ -1,0 +1,306 @@
+-- BP 7.1.6 content: Interface syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO C_I
+	VALUES ("e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	"00000000-0000-0000-0000-000000000000",
+	'CRUD',
+	'');
+INSERT INTO C_EP
+	VALUES ("ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Employee',
+	'');
+INSERT INTO C_AS
+	VALUES ("ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	'Employee',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("57f680d7-7d3c-4ffa-978d-47947d35a3e5",
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'FName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("96f16eac-1719-4d50-bb1e-96a32a3520c5",
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'LName',
+	'',
+	0,
+	'',
+	"57f680d7-7d3c-4ffa-978d-47947d35a3e5");
+INSERT INTO C_PP
+	VALUES ("690614b3-78b2-4257-a455-ff94e12f24a6",
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'National_ID',
+	'',
+	0,
+	'',
+	"96f16eac-1719-4d50-bb1e-96a32a3520c5");
+INSERT INTO C_PP
+	VALUES ("2fedc6f4-1cb7-4f59-9dd3-7001052bf4a7",
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"690614b3-78b2-4257-a455-ff94e12f24a6");
+INSERT INTO C_EP
+	VALUES ("6db20f00-50a9-424e-873f-1e67269ae874",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Reply',
+	'');
+INSERT INTO C_AS
+	VALUES ("6db20f00-50a9-424e-873f-1e67269ae874",
+	'Reply',
+	'',
+	1,
+	"ea68d7e4-9f4f-41ac-af7d-c32086766c27");
+INSERT INTO C_PP
+	VALUES ("0f0a4180-6724-440d-8d48-74153cd89ca3",
+	"6db20f00-50a9-424e-873f-1e67269ae874",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'msg',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("a00c9ead-2b43-4df1-b482-8e5445ff7ff4",
+	"6db20f00-50a9-424e-873f-1e67269ae874",
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'state',
+	'',
+	0,
+	'',
+	"0f0a4180-6724-440d-8d48-74153cd89ca3");
+INSERT INTO C_EP
+	VALUES ("34706eaa-052c-4236-85de-301b82d64265",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Bonus',
+	'');
+INSERT INTO C_AS
+	VALUES ("34706eaa-052c-4236-85de-301b82d64265",
+	'Bonus',
+	'',
+	0,
+	"6db20f00-50a9-424e-873f-1e67269ae874");
+INSERT INTO C_PP
+	VALUES ("23a96fc0-9560-4128-8347-eea51f00d593",
+	"34706eaa-052c-4236-85de-301b82d64265",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("c1e7ab88-9e8b-4f3c-9513-5d7d0825757c",
+	"34706eaa-052c-4236-85de-301b82d64265",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Percent',
+	'',
+	0,
+	'',
+	"23a96fc0-9560-4128-8347-eea51f00d593");
+INSERT INTO C_PP
+	VALUES ("6538f37f-87aa-4e66-930c-16d393795d56",
+	"34706eaa-052c-4236-85de-301b82d64265",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"c1e7ab88-9e8b-4f3c-9513-5d7d0825757c");
+INSERT INTO C_EP
+	VALUES ("7f685e72-1b05-4224-8868-32c02f101534",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Grade',
+	'');
+INSERT INTO C_AS
+	VALUES ("7f685e72-1b05-4224-8868-32c02f101534",
+	'Grade',
+	'',
+	0,
+	"34706eaa-052c-4236-85de-301b82d64265");
+INSERT INTO C_PP
+	VALUES ("c2276a55-a0dd-4ad3-a427-d9effb8b8178",
+	"7f685e72-1b05-4224-8868-32c02f101534",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Value',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("42859c81-955b-4fe1-b0fe-a0f3bee119c4",
+	"7f685e72-1b05-4224-8868-32c02f101534",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"c2276a55-a0dd-4ad3-a427-d9effb8b8178");
+INSERT INTO C_EP
+	VALUES ("5211336b-63c3-4d8b-81bb-037a386c275d",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Step',
+	'');
+INSERT INTO C_AS
+	VALUES ("5211336b-63c3-4d8b-81bb-037a386c275d",
+	'Step',
+	'',
+	0,
+	"7f685e72-1b05-4224-8868-32c02f101534");
+INSERT INTO C_PP
+	VALUES ("76ca9046-731d-4d8d-bbc5-5344d62ff553",
+	"5211336b-63c3-4d8b-81bb-037a386c275d",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Value',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("ec34f6ad-e30d-4b81-af49-10b6a4fbd527",
+	"5211336b-63c3-4d8b-81bb-037a386c275d",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"76ca9046-731d-4d8d-bbc5-5344d62ff553");
+INSERT INTO C_EP
+	VALUES ("842025d9-c71d-4eb3-8324-6bcdba87106e",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Leave',
+	'');
+INSERT INTO C_AS
+	VALUES ("842025d9-c71d-4eb3-8324-6bcdba87106e",
+	'Leave',
+	'',
+	0,
+	"5211336b-63c3-4d8b-81bb-037a386c275d");
+INSERT INTO C_PP
+	VALUES ("f4155c6a-5466-4184-ba90-2aae9df00491",
+	"842025d9-c71d-4eb3-8324-6bcdba87106e",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("927cf478-ed5f-41bd-9ff3-a5798a668f4d",
+	"842025d9-c71d-4eb3-8324-6bcdba87106e",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'MaximumDays',
+	'',
+	0,
+	'',
+	"f4155c6a-5466-4184-ba90-2aae9df00491");
+INSERT INTO C_PP
+	VALUES ("fca7967f-26a9-4901-b099-c5b33f2435e1",
+	"842025d9-c71d-4eb3-8324-6bcdba87106e",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"927cf478-ed5f-41bd-9ff3-a5798a668f4d");
+INSERT INTO C_EP
+	VALUES ("c87981ac-6335-4f48-87fa-f11b9c394e5a",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Job',
+	'');
+INSERT INTO C_AS
+	VALUES ("c87981ac-6335-4f48-87fa-f11b9c394e5a",
+	'Job',
+	'',
+	0,
+	"842025d9-c71d-4eb3-8324-6bcdba87106e");
+INSERT INTO C_PP
+	VALUES ("7bdad444-d67e-4012-9315-b06c5d1019fe",
+	"c87981ac-6335-4f48-87fa-f11b9c394e5a",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Step',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("3b6eb326-e9ac-4d2a-a8ea-b06a0c77f69d",
+	"c87981ac-6335-4f48-87fa-f11b9c394e5a",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Grade',
+	'',
+	0,
+	'',
+	"7bdad444-d67e-4012-9315-b06c5d1019fe");
+INSERT INTO C_PP
+	VALUES ("c66f5684-77ae-4da5-a274-0eccaa6ec3ee",
+	"c87981ac-6335-4f48-87fa-f11b9c394e5a",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Amount',
+	'',
+	0,
+	'',
+	"3b6eb326-e9ac-4d2a-a8ea-b06a0c77f69d");
+INSERT INTO C_PP
+	VALUES ("83b5d803-9188-43f1-9200-7364be16582a",
+	"c87981ac-6335-4f48-87fa-f11b9c394e5a",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"c66f5684-77ae-4da5-a274-0eccaa6ec3ee");
+INSERT INTO C_PP
+	VALUES ("09272ff5-971a-44db-a3a8-b60066b8ac67",
+	"c87981ac-6335-4f48-87fa-f11b9c394e5a",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"83b5d803-9188-43f1-9200-7364be16582a");
+INSERT INTO C_EP
+	VALUES ("3ca83310-23dd-47bf-bd47-f4129792fb64",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'Payment',
+	'');
+INSERT INTO C_AS
+	VALUES ("3ca83310-23dd-47bf-bd47-f4129792fb64",
+	'Payment',
+	'',
+	0,
+	"c87981ac-6335-4f48-87fa-f11b9c394e5a");
+INSERT INTO PE_PE
+	VALUES ("e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	1,
+	"d1985f9e-ae62-4494-8a33-87a2c6ca26cf",
+	"00000000-0000-0000-0000-000000000000",
+	6);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("d1985f9e-ae62-4494-8a33-87a2c6ca26cf",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'Shared',
+	'',
+	0,
+	'../Shared.xtuml');

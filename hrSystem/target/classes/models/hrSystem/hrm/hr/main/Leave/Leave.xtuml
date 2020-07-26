@@ -1,0 +1,158 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("290f03c9-caf7-43ef-9c84-81ab915cca31",
+	'Leave',
+	5,
+	'Leave',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("137ce53d-c714-47a3-bd1c-47bab1ea00cf",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'LOG::LogInfo(message:"Attempting to add a new Leave." );
+select any inst from instances of Leave where selected.Name==param.Name;
+if ( empty inst ) and (param.Action=="NEW")
+	//create object instance of Leave;
+	create object instance l of Leave;
+	l.Name = param.Name;
+	l.MaximumDays = param.MaximumDays;
+	UI::Reply( msg:"Leave: added successfully.", state:True);
+
+elif ( not empty inst ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Leave already exists." );	
+	UI::Reply( msg:"Leave already exists", state:False);
+
+elif ( not empty inst ) and (param.Action=="UPDATE")
+	
+	LOG::LogInfo(message:"Leave updated successfully." );	
+	UI::Reply( msg:"Leave updated successfully", state:True);
+elif ( not empty inst ) and (param.Action=="DELETE")
+
+	LOG::LogInfo(message:"Leave deleted successfully." );	
+	UI::Reply( msg:"Leave delete unsuccessful", state:False);
+
+ elif (empty inst )
+	LOG::LogInfo(message:"Leave does not exist." );	
+	UI::Reply( msg:"Leave does not exist.", state:False);
+ end if;
+
+	
+		
+				
+
+
+
+ ',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("8dd1033b-3ca3-4d17-9ec2-e6c3faf449c1",
+	"137ce53d-c714-47a3-bd1c-47bab1ea00cf",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("cd7fe2a1-8ade-4f49-ac8a-9978e9cb749f",
+	"137ce53d-c714-47a3-bd1c-47bab1ea00cf",
+	'MaximumDays',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"8dd1033b-3ca3-4d17-9ec2-e6c3faf449c1",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("8cf8c372-58b3-40bc-81b9-d658e7a5ad8d",
+	"137ce53d-c714-47a3-bd1c-47bab1ea00cf",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"cd7fe2a1-8ade-4f49-ac8a-9978e9cb749f",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("a84b8106-f316-464c-b52a-697ace704dd8",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO O_BATTR
+	VALUES ("a84b8106-f316-464c-b52a-697ace704dd8",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO O_ATTR
+	VALUES ("a84b8106-f316-464c-b52a-697ace704dd8",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31",
+	"312c2012-14df-4bd4-8e8f-5f30af7e948b",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("6345e941-8ce7-4881-a30a-32df468c8693",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO O_BATTR
+	VALUES ("6345e941-8ce7-4881-a30a-32df468c8693",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO O_ATTR
+	VALUES ("6345e941-8ce7-4881-a30a-32df468c8693",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31",
+	"a84b8106-f316-464c-b52a-697ace704dd8",
+	'MaximumDays',
+	'',
+	'',
+	'MaximumDays',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("312c2012-14df-4bd4-8e8f-5f30af7e948b",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO O_BATTR
+	VALUES ("312c2012-14df-4bd4-8e8f-5f30af7e948b",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO O_ATTR
+	VALUES ("312c2012-14df-4bd4-8e8f-5f30af7e948b",
+	"290f03c9-caf7-43ef-9c84-81ab915cca31",
+	"00000000-0000-0000-0000-000000000000",
+	'Leave_ID',
+	'',
+	'',
+	'Leave_ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO O_ID
+	VALUES (1,
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO O_ID
+	VALUES (2,
+	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+INSERT INTO PE_PE
+	VALUES ("290f03c9-caf7-43ef-9c84-81ab915cca31",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');
