@@ -35,12 +35,12 @@ public class EmployeeSetImpl extends InstanceSet<EmployeeSet,Employee> implement
         for ( Employee employee : this ) employee.setFName( m_FName );
     }
     @Override
-    public void setLName( String m_LName ) throws XtumlException {
-        for ( Employee employee : this ) employee.setLName( m_LName );
-    }
-    @Override
     public void setStart_Date( int m_Start_Date ) throws XtumlException {
         for ( Employee employee : this ) employee.setStart_Date( m_Start_Date );
+    }
+    @Override
+    public void setLName( String m_LName ) throws XtumlException {
+        for ( Employee employee : this ) employee.setLName( m_LName );
     }
     @Override
     public void setNational_ID( int m_National_ID ) throws XtumlException {

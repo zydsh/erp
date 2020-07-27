@@ -31,20 +31,20 @@ public class Bonus_PaymentSetImpl extends InstanceSet<Bonus_PaymentSet,Bonus_Pay
         for ( Bonus_Payment bonus_payment : this ) bonus_payment.setEnding( m_Ending );
     }
     @Override
-    public void setStarting( int m_Starting ) throws XtumlException {
-        for ( Bonus_Payment bonus_payment : this ) bonus_payment.setStarting( m_Starting );
-    }
-    @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Bonus_Payment bonus_payment : this ) bonus_payment.setName( m_Name );
-    }
-    @Override
     public void setAmount( double m_Amount ) throws XtumlException {
         for ( Bonus_Payment bonus_payment : this ) bonus_payment.setAmount( m_Amount );
     }
     @Override
+    public void setStarting( int m_Starting ) throws XtumlException {
+        for ( Bonus_Payment bonus_payment : this ) bonus_payment.setStarting( m_Starting );
+    }
+    @Override
     public void setID( int m_ID ) throws XtumlException {
         for ( Bonus_Payment bonus_payment : this ) bonus_payment.setID( m_ID );
+    }
+    @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Bonus_Payment bonus_payment : this ) bonus_payment.setName( m_Name );
     }
 
 

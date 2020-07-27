@@ -133,6 +133,11 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     }
     private String m_LName;
     @Override
+    public String getLName() throws XtumlException {
+        checkLiving();
+        return m_LName;
+    }
+    @Override
     public void setLName(String m_LName) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_LName, this.m_LName)) {
@@ -140,11 +145,6 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             this.m_LName = m_LName;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LName", oldValue, this.m_LName));
         }
-    }
-    @Override
-    public String getLName() throws XtumlException {
-        checkLiving();
-        return m_LName;
     }
     private int m_Start_Date;
     @Override
@@ -264,7 +264,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 0;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -290,7 +290,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 1;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -398,11 +398,11 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
     public String getFName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setLName( String m_LName ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getLName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setLName( String m_LName ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getStart_Date() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

@@ -89,7 +89,7 @@ public class UI extends Component<UI> {
         return UIApp;
     }
 
-    public UIAppOps App_Ops() {
+    public UIAppOps AppOps() {
         if ( null == UIAppOps ) UIAppOps = new UIAppOps( this, null );
         return UIAppOps;
     }
@@ -158,6 +158,7 @@ public class UI extends Component<UI> {
         return this;
     }
 
+ 
 
  public void listen() throws XtumlException {
         int signal_no = poll();
