@@ -12,10 +12,10 @@ public interface Bonus_PaymentSet extends IInstanceSet<Bonus_PaymentSet,Bonus_Pa
 
     // attributes
     public void setEnding( int m_Ending ) throws XtumlException;
-    public void setAmount( double m_Amount ) throws XtumlException;
-    public void setStarting( int m_Starting ) throws XtumlException;
-    public void setID( int m_ID ) throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
+    public void setStarting( int m_Starting ) throws XtumlException;
+    public void setAmount( double m_Amount ) throws XtumlException;
+    public void setID( int m_ID ) throws XtumlException;
 
 
     // selections

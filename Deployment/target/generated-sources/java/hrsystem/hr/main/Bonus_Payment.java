@@ -14,14 +14,14 @@ public interface Bonus_Payment extends IModelInstance<Bonus_Payment,Hr> {
     // attributes
     public void setStarting( int m_Starting ) throws XtumlException;
     public int getStarting() throws XtumlException;
-    public void setEnding( int m_Ending ) throws XtumlException;
     public int getEnding() throws XtumlException;
-    public double getAmount() throws XtumlException;
+    public void setEnding( int m_Ending ) throws XtumlException;
     public void setAmount( double m_Amount ) throws XtumlException;
+    public double getAmount() throws XtumlException;
     public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
-    public int getID() throws XtumlException;
     public void setID( int m_ID ) throws XtumlException;
+    public int getID() throws XtumlException;
 
 
     // operations

@@ -16,10 +16,10 @@ public interface Job extends IModelInstance<Job,Hr> {
     // attributes
     public void setJob_ID( int m_Job_ID ) throws XtumlException;
     public int getJob_ID() throws XtumlException;
-    public void setAmount( double m_Amount ) throws XtumlException;
     public double getAmount() throws XtumlException;
-    public String getName() throws XtumlException;
+    public void setAmount( double m_Amount ) throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
+    public String getName() throws XtumlException;
 
 
     // operations

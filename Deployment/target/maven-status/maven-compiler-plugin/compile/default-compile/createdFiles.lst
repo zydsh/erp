@@ -11,6 +11,7 @@ hrsystem/UI$1.class
 hrsystem/hr/main/impl/EmployeeStateMachine.class
 shared/ICRUD.class
 shared/ICRUD$Grade.class
+hrsystem/hr/main/impl/Employee_JobImpl$CLASS.class
 hrsystem/hr/main/Employee_LeaveSet.class
 shared/ICRUD$Employee.class
 shared/IOps$Leave_Return.class
@@ -25,6 +26,7 @@ hrsystem/hr/main/impl/EmployeeSetImpl.class
 hrsystem/hr/main/EmployeeSet.class
 hrsystem/hr/main/impl/PaymentSetImpl.class
 shared/ICRUD$Reply.class
+shared/IOps$Return_Employee_Payment.class
 hrsystem/hr/main/Leave.class
 hrsystem/hr/main/Step.class
 shared/ICRUD$Bonus.class
@@ -56,6 +58,7 @@ hrsystem/Hr.class
 shared/ICRUD$Job.class
 deployment/DeploymentApplication$1.class
 hrsystem/hr/main/impl/Employee_LeaveImpl.class
+shared/IOps$Request_Employee_Payment.class
 hrsystem/hr/main/impl/EmptyEmployee.class
 deployment/DeploymentApplication.class
 hrsystem/hr/main/impl/Bonus_PaymentImpl$resumeBonus.class

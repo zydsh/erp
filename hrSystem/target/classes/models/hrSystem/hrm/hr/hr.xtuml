@@ -364,7 +364,7 @@ INSERT INTO SPR_PS
 	'Reply',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6db20f00-50a9-424e-873f-1e67269ae874",
@@ -477,7 +477,7 @@ INSERT INTO SPR_PS
 	'Payment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3ca83310-23dd-47bf-bd47-f4129792fb64",
@@ -576,7 +576,7 @@ INSERT INTO SPR_PS
 	'Employee_Job',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7a8b2a52-93db-4e92-962c-904439127495",
@@ -593,8 +593,9 @@ INSERT INTO SPR_PS
 	VALUES ("092b97d7-2ecf-42b6-9c2f-a5fa165cd89b",
 	'Employee_Bonus',
 	'',
-	'',
-	3,
+	' BP::crud(National_ID:param.National_ID, Name:param.Name, Starting:param.Starting, Ending:param.Ending, Action:param.Action);
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("91ad9e90-38b4-4680-8c47-49049aaf3fbe",
@@ -611,14 +612,57 @@ INSERT INTO SPR_PS
 	VALUES ("3651b838-5ea1-4197-b710-d25799ce3be8",
 	'Employee_Commence',
 	'',
-	'',
-	3,
+	' EM::commenceEmployee( National_ID:param.National_ID ); ',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("71d23c22-d473-42f5-b0c0-b02ad3c5e158",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
 	'Employee_Commence',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/Ops/Ops.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("5a14d534-3d23-4cf5-82c0-e95d4c5f923f",
+	"efa24004-2976-4948-bdf6-f0bf405f08fe",
+	"b738ee35-2e9d-421e-b69d-3017ffbef31d");
+INSERT INTO SPR_PS
+	VALUES ("5a14d534-3d23-4cf5-82c0-e95d4c5f923f",
+	'Request_Employee_Payment',
+	'',
+	'select any emp from instances of EM where selected.National_ID==param.National_ID;
+
+select many payments related by emp->Payment[R3];
+
+//return all payments related to employee
+for each epay in payments
+		UI_Ops::Return_Employee_Payment( Amount:epay.Amount, Name:epay.Name, Date:epay.Date); 
+end for;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("efa24004-2976-4948-bdf6-f0bf405f08fe",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'Request_Employee_Payment',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/Ops/Ops.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("c72a4a4f-b60d-4209-bdbc-386bcfdc9977",
+	"17ffcb19-fa91-46b2-b867-ee86de86db68",
+	"b738ee35-2e9d-421e-b69d-3017ffbef31d");
+INSERT INTO SPR_PS
+	VALUES ("c72a4a4f-b60d-4209-bdbc-386bcfdc9977",
+	'Return_Employee_Payment',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("17ffcb19-fa91-46b2-b867-ee86de86db68",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'Return_Employee_Payment',
 	'',
 	'../../../../../HRUI/models/HRUI/Shared/Ops/Ops.xtuml');
 INSERT INTO C_I_PROXY

@@ -108,6 +108,11 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
     }
     private int m_Ending;
     @Override
+    public int getEnding() throws XtumlException {
+        checkLiving();
+        return m_Ending;
+    }
+    @Override
     public void setEnding(int m_Ending) throws XtumlException {
         checkLiving();
         if (m_Ending != this.m_Ending) {
@@ -116,17 +121,7 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
     }
-    @Override
-    public int getEnding() throws XtumlException {
-        checkLiving();
-        return m_Ending;
-    }
     private double m_Amount;
-    @Override
-    public double getAmount() throws XtumlException {
-        checkLiving();
-        return m_Amount;
-    }
     @Override
     public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
@@ -135,6 +130,11 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
             this.m_Amount = m_Amount;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
+    }
+    @Override
+    public double getAmount() throws XtumlException {
+        checkLiving();
+        return m_Amount;
     }
     private String m_Name;
     @Override
@@ -153,11 +153,6 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
     }
     private int m_ID;
     @Override
-    public int getID() throws XtumlException {
-        checkLiving();
-        return m_ID;
-    }
-    @Override
     public void setID(int m_ID) throws XtumlException {
         checkLiving();
         if (m_ID != this.m_ID) {
@@ -165,6 +160,11 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
             this.m_ID = m_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_ID", oldValue, this.m_ID));
         }
+    }
+    @Override
+    public int getID() throws XtumlException {
+        checkLiving();
+        return m_ID;
     }
 
 
@@ -324,17 +324,17 @@ class EmptyBonus_Payment extends ModelInstance<Bonus_Payment,Hr> implements Bonu
     public int getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setEnding( int m_Ending ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public double getAmount() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setEnding( int m_Ending ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setAmount( double m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getAmount() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -342,11 +342,11 @@ class EmptyBonus_Payment extends ModelInstance<Bonus_Payment,Hr> implements Bonu
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public int getID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setID( int m_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getID() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 
