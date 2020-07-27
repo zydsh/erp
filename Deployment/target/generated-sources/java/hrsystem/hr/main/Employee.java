@@ -20,12 +20,12 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     // attributes
     public int getNational_ID() throws XtumlException;
     public void setNational_ID( int m_National_ID ) throws XtumlException;
-    public String getFName() throws XtumlException;
     public void setFName( String m_FName ) throws XtumlException;
+    public String getFName() throws XtumlException;
     public void setLName( String m_LName ) throws XtumlException;
     public String getLName() throws XtumlException;
-    public void setStart_Date( int m_Start_Date ) throws XtumlException;
     public int getStart_Date() throws XtumlException;
+    public void setStart_Date( int m_Start_Date ) throws XtumlException;
 
 
     // operations

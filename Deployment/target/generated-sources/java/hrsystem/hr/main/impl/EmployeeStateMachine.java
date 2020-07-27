@@ -71,18 +71,18 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
         return new ITransition[][] {
             { CANT_HAPPEN,
               CANT_HAPPEN,
-              (event) -> {Recruited_commenced_txn_to_Working_action();Working_entry_action();return Working;},
-              CANT_HAPPEN
+              CANT_HAPPEN,
+              (event) -> {Recruited_commenced_txn_to_Working_action();Working_entry_action();return Working;}
             },
-            { (event) -> {On_Leave_returnFromLeave_txn_to_Working_action();Working_entry_action();return Working;},
-              CANT_HAPPEN,
-              CANT_HAPPEN,
-              (event) -> {On_Leave_requestLeave_txn_to_On_Leave_action((int)event.get(0),  (int)event.get(1),  (int)event.get(2),  (String)event.get(3));On_Leave_entry_action((int)event.get(0),  (int)event.get(1),  (int)event.get(2),  (String)event.get(3));return On_Leave;}
+            { CANT_HAPPEN,
+              (event) -> {On_Leave_returnFromLeave_txn_to_Working_action();Working_entry_action();return Working;},
+              (event) -> {On_Leave_requestLeave_txn_to_On_Leave_action((int)event.get(0),  (int)event.get(1),  (int)event.get(2),  (String)event.get(3));On_Leave_entry_action((int)event.get(0),  (int)event.get(1),  (int)event.get(2),  (String)event.get(3));return On_Leave;},
+              CANT_HAPPEN
             },
             { CANT_HAPPEN,
               CANT_HAPPEN,
-              CANT_HAPPEN,
-              (event) -> {Working_requestLeave_txn_to_On_Leave_action((int)event.get(0),  (int)event.get(1),  (int)event.get(2),  (String)event.get(3));On_Leave_entry_action((int)event.get(0),  (int)event.get(1),  (int)event.get(2),  (String)event.get(3));return On_Leave;}
+              (event) -> {Working_requestLeave_txn_to_On_Leave_action((int)event.get(0),  (int)event.get(1),  (int)event.get(2),  (String)event.get(3));On_Leave_entry_action((int)event.get(0),  (int)event.get(1),  (int)event.get(2),  (String)event.get(3));return On_Leave;},
+              CANT_HAPPEN
             }
         };
     }

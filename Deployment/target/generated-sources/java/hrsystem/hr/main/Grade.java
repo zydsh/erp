@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Grade extends IModelInstance<Grade,Hr> {
 
     // attributes
-    public int getGValue() throws XtumlException;
     public void setGValue( int m_GValue ) throws XtumlException;
+    public int getGValue() throws XtumlException;
 
 
     // operations

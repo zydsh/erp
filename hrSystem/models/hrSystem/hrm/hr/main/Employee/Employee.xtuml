@@ -176,6 +176,7 @@ INSERT INTO O_TFR
 	1,
 	'
 //temprary return until the operation is implemented!
+//select one ej related by self->EJ[R1] where EJ.Active ==True ;
 return 0;',
 	1,
 	'',

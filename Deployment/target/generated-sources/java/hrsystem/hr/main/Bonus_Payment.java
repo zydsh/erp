@@ -12,10 +12,10 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Bonus_Payment extends IModelInstance<Bonus_Payment,Hr> {
 
     // attributes
-    public int getStarting() throws XtumlException;
     public void setStarting( int m_Starting ) throws XtumlException;
-    public int getEnding() throws XtumlException;
+    public int getStarting() throws XtumlException;
     public void setEnding( int m_Ending ) throws XtumlException;
+    public int getEnding() throws XtumlException;
     public double getAmount() throws XtumlException;
     public void setAmount( double m_Amount ) throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;

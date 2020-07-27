@@ -3,7 +3,7 @@ package hrsystem;
 
 import hrsystem.ui.UIApp;
 //import hrsystem.ui.UIApp_Leave;
-import hrsystem.ui.UIApp_Ops;
+import hrsystem.ui.UIAppOps;
 
 import io.ciera.runtime.summit.application.IApplication;
 import io.ciera.runtime.summit.application.IRunContext;
@@ -35,8 +35,8 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
 //import ui.shared.IEP;
-import ui.shared.ICRUD;
-import ui.shared.IOps;
+import shared.ICRUD;
+import shared.IOps;
 
 
 public class UI extends Component<UI> {
@@ -44,7 +44,7 @@ public class UI extends Component<UI> {
 	private static GuiConnection requester = null;
     private static final int SOCKET_ERROR = -1;
     private UIApp UIApp;
-    private UIApp_Ops UIApp_Ops;
+    private UIAppOps UIAppOps;
 
 
     public UI(IApplication app, IRunContext runContext, int populationId) {
@@ -53,7 +53,7 @@ public class UI extends Component<UI> {
 
 		LOG = null;
         UIApp = null;
-        UIApp_Ops =null;
+        UIAppOps =null;
 
     }
 
@@ -89,9 +89,9 @@ public class UI extends Component<UI> {
         return UIApp;
     }
 
-    public UIApp_Ops App_Ops() {
-        if ( null == UIApp_Ops ) UIApp_Ops = new UIApp_Ops( this, null );
-        return UIApp_Ops;
+    public UIAppOps App_Ops() {
+        if ( null == UIAppOps ) UIAppOps = new UIAppOps( this, null );
+        return UIAppOps;
     }
 
 

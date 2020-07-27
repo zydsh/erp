@@ -12,9 +12,9 @@ import io.ciera.runtime.summit.interfaces.Port;
 import shared.IOps;
 
 
-public class UIPort1 extends Port<UI> implements IOps {
+public class UIAppOps extends Port<UI> implements IOps {
 
-    public UIPort1( UI context, IPort<?> peer ) {
+    public UIAppOps( UI context, IPort<?> peer ) {
         super( context, peer );
     }
 
@@ -27,6 +27,11 @@ public class UIPort1 extends Port<UI> implements IOps {
         else {
         }
     }
+    public void Employee_Bonus( final int p_National_ID,  final String p_Name,  final int p_Starting,  final int p_Ending,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.Employee_Bonus(p_National_ID, p_Name, p_Starting, p_Ending, p_Action));
+        else {
+        }
+    }
     public void Employee_Job( final int p_Job_ID,  final int p_National_ID ) throws XtumlException {
         if ( satisfied() ) send(new IOps.Employee_Job(p_Job_ID, p_National_ID));
         else {
@@ -34,11 +39,6 @@ public class UIPort1 extends Port<UI> implements IOps {
     }
     public void Employee_Commence( final int p_National_ID ) throws XtumlException {
         if ( satisfied() ) send(new IOps.Employee_Commence(p_National_ID));
-        else {
-        }
-    }
-    public void Employee_Bonus( final int p_National_ID,  final String p_Name,  final int p_Starting,  final int p_Ending,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.Employee_Bonus(p_National_ID, p_Name, p_Starting, p_Ending, p_Action));
         else {
         }
     }
@@ -62,7 +62,7 @@ public class UIPort1 extends Port<UI> implements IOps {
 
     @Override
     public String getName() {
-        return "Port1";
+        return "AppOps";
     }
 
 }

@@ -2,7 +2,7 @@ package hrsystem;
 
 
 import hrsystem.ui.UIApp;
-import hrsystem.ui.UIPort1;
+import hrsystem.ui.UIAppOps;
 
 import io.ciera.runtime.summit.application.IApplication;
 import io.ciera.runtime.summit.application.IRunContext;
@@ -52,10 +52,10 @@ public class UI extends Component<UI> {
         if ( null == UIApp ) UIApp = new UIApp( this, null );
         return UIApp;
     }
-    private UIPort1 UIPort1;
-    public UIPort1 Port1() {
-        if ( null == UIPort1 ) UIPort1 = new UIPort1( this, null );
-        return UIPort1;
+    private UIAppOps UIAppOps;
+    public UIAppOps AppOps() {
+        if ( null == UIAppOps ) UIAppOps = new UIAppOps( this, null );
+        return UIAppOps;
     }
 
 

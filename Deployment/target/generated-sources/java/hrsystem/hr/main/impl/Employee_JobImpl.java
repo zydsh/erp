@@ -24,7 +24,7 @@ import io.ciera.runtime.summit.types.UniqueId;
 
 public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements Employee_Job {
 
-    public static final String KEY_LETTERS = "Employee_Job";
+    public static final String KEY_LETTERS = "EJ";
     public static final Employee_Job EMPTY_EMPLOYEE_JOB = new EmptyEmployee_Job();
 
     private Hr context;
@@ -69,11 +69,6 @@ public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements 
     // attributes
     private int m_Appointment_Date;
     @Override
-    public int getAppointment_Date() throws XtumlException {
-        checkLiving();
-        return m_Appointment_Date;
-    }
-    @Override
     public void setAppointment_Date(int m_Appointment_Date) throws XtumlException {
         checkLiving();
         if (m_Appointment_Date != this.m_Appointment_Date) {
@@ -81,6 +76,11 @@ public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements 
             this.m_Appointment_Date = m_Appointment_Date;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Appointment_Date", oldValue, this.m_Appointment_Date));
         }
+    }
+    @Override
+    public int getAppointment_Date() throws XtumlException {
+        checkLiving();
+        return m_Appointment_Date;
     }
     private boolean m_Active;
     @Override
@@ -163,11 +163,11 @@ public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements 
 class EmptyEmployee_Job extends ModelInstance<Employee_Job,Hr> implements Employee_Job {
 
     // attributes
-    public int getAppointment_Date() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setAppointment_Date( int m_Appointment_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getAppointment_Date() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public boolean getActive() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
