@@ -568,6 +568,42 @@ INSERT INTO C_EP_PROXY
 	'Employee_Commence',
 	'',
 	'../../Shared/Ops/Ops.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("4c1acdbc-bd34-4b37-af62-713cbf368e89",
+	"efa24004-2976-4948-bdf6-f0bf405f08fe",
+	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
+INSERT INTO SPR_RS
+	VALUES ("4c1acdbc-bd34-4b37-af62-713cbf368e89",
+	'Request_Employee_Payment',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("efa24004-2976-4948-bdf6-f0bf405f08fe",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'Request_Employee_Payment',
+	'',
+	'../../Shared/Ops/Ops.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("c746b09d-d6bd-4e5b-a84e-ba8933cd9f7d",
+	"17ffcb19-fa91-46b2-b867-ee86de86db68",
+	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
+INSERT INTO SPR_RS
+	VALUES ("c746b09d-d6bd-4e5b-a84e-ba8933cd9f7d",
+	'Return_Employee_Payment',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("17ffcb19-fa91-46b2-b867-ee86de86db68",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'Return_Employee_Payment',
+	'',
+	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("5c6691f2-7090-42e2-a731-ec2157c73db8",
 	"00000000-0000-0000-0000-000000000000",

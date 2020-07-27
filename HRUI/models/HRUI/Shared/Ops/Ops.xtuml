@@ -104,6 +104,24 @@ INSERT INTO C_PP
 	0,
 	'',
 	"468e9a68-a2f0-4559-9aff-10788c2f6881");
+INSERT INTO C_PP
+	VALUES ("77692a2b-eb7d-482c-b1d4-f7db21f33f2e",
+	"7a8b2a52-93db-4e92-962c-904439127495",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"f1b5a0f2-94fa-40c7-82a9-76631abb951b");
+INSERT INTO C_PP
+	VALUES ("6f78521a-2095-4b97-8288-5a241ad7aa4f",
+	"7a8b2a52-93db-4e92-962c-904439127495",
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'Active',
+	'',
+	0,
+	'',
+	"77692a2b-eb7d-482c-b1d4-f7db21f33f2e");
 INSERT INTO C_EP
 	VALUES ("91ad9e90-38b4-4680-8c47-49049aaf3fbe",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
@@ -182,6 +200,66 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("efa24004-2976-4948-bdf6-f0bf405f08fe",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'Request_Employee_Payment',
+	'');
+INSERT INTO C_AS
+	VALUES ("efa24004-2976-4948-bdf6-f0bf405f08fe",
+	'Request_Employee_Payment',
+	'',
+	0,
+	"71d23c22-d473-42f5-b0c0-b02ad3c5e158");
+INSERT INTO C_PP
+	VALUES ("7061ba7e-bfb0-478d-b1d5-b4102773353b",
+	"efa24004-2976-4948-bdf6-f0bf405f08fe",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'National_ID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("17ffcb19-fa91-46b2-b867-ee86de86db68",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'Return_Employee_Payment',
+	'');
+INSERT INTO C_AS
+	VALUES ("17ffcb19-fa91-46b2-b867-ee86de86db68",
+	'Return_Employee_Payment',
+	'',
+	1,
+	"efa24004-2976-4948-bdf6-f0bf405f08fe");
+INSERT INTO C_PP
+	VALUES ("c849dc5e-9b27-4be8-97cc-775cb04cae1e",
+	"17ffcb19-fa91-46b2-b867-ee86de86db68",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Amount',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("00f443c2-b344-47fd-acff-2ebe4dd528d3",
+	"17ffcb19-fa91-46b2-b867-ee86de86db68",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"c849dc5e-9b27-4be8-97cc-775cb04cae1e");
+INSERT INTO C_PP
+	VALUES ("4d47102f-efc5-4618-8967-118cfd182568",
+	"17ffcb19-fa91-46b2-b867-ee86de86db68",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Date',
+	'',
+	0,
+	'',
+	"00f443c2-b344-47fd-acff-2ebe4dd528d3");
 INSERT INTO PE_PE
 	VALUES ("5c6691f2-7090-42e2-a731-ec2157c73db8",
 	1,
