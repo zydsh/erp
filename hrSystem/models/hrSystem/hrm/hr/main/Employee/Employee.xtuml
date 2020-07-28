@@ -183,6 +183,7 @@ INSERT INTO O_TFR
 select any ej related by self->EJ[R1] where selected.Active ==True ;
 //select the job related to the position/job to get the salary/amount
 select one job related by ej->Job[R1] where selected.Job_ID == ej.Job_ID; 
+
 return job.Amount;',
 	1,
 	'',
