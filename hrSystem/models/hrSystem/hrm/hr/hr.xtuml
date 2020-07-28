@@ -322,7 +322,7 @@ INSERT INTO GD_GE
 	"3ad186c8-2d3e-4b5a-8219-b2f803d07d11",
 	93,
 	0,
-	'hrSystem::hrm::hr::Port1::Unnamed Interface');
+	'hrSystem::hrm::hr::HAuth::CRUD');
 INSERT INTO GD_CON
 	VALUES ("40f2ad10-9c5d-4706-a9c9-50cc2c2ea3c7",
 	"00000000-0000-0000-0000-000000000000");
@@ -448,8 +448,7 @@ INSERT INTO SPR_PS
 	VALUES ("afc792df-7bee-402c-9e74-ff32a0224756",
 	'Employee',
 	'',
-	' 
- EM::crud(FName:param.FName, LName:param.LName, National_ID:param.National_ID, Action:param.Action);
+	'EM::crud(FName:param.FName, LName:param.LName, National_ID:param.National_ID, Action:param.Action);
 ',
 	1,
 	0);
@@ -779,20 +778,62 @@ INSERT INTO C_I_PROXY
 INSERT INTO C_PO
 	VALUES ("b5a2a3c6-b816-4418-bb82-e2757fea804a",
 	"d878f6d3-d406-4972-80d4-d43f75abcac8",
-	'Port1',
+	'HAuth',
 	0,
 	0);
 INSERT INTO C_IR
 	VALUES ("3ad186c8-2d3e-4b5a-8219-b2f803d07d11",
-	"00000000-0000-0000-0000-000000000000",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	"00000000-0000-0000-0000-000000000000",
 	"b5a2a3c6-b816-4418-bb82-e2757fea804a");
 INSERT INTO C_R
 	VALUES ("3ad186c8-2d3e-4b5a-8219-b2f803d07d11",
-	'Unnamed Interface',
+	'CRUD',
 	'',
 	'Unnamed Interface',
-	'hr::Port1::Unnamed Interface');
+	'hr::HAuth::CRUD');
+INSERT INTO SPR_REP
+	VALUES ("b63ec4c2-edc7-499c-80bb-ce9fa3c8db3f",
+	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"3ad186c8-2d3e-4b5a-8219-b2f803d07d11");
+INSERT INTO SPR_RS
+	VALUES ("b63ec4c2-edc7-499c-80bb-ce9fa3c8db3f",
+	'Account',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'Account',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/CRUD/CRUD.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("027cee1d-b7a9-4c92-9526-6ff8c62c8027",
+	"33c71ef4-d154-40bf-bfc7-33de5096bb4b",
+	"3ad186c8-2d3e-4b5a-8219-b2f803d07d11");
+INSERT INTO SPR_RS
+	VALUES ("027cee1d-b7a9-4c92-9526-6ff8c62c8027",
+	'Reply',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("33c71ef4-d154-40bf-bfc7-33de5096bb4b",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'Reply',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/CRUD/CRUD.xtuml');
+INSERT INTO C_I_PROXY
+	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	"00000000-0000-0000-0000-000000000000",
+	'CRUD',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/CRUD/CRUD.xtuml');
 INSERT INTO PE_PE
 	VALUES ("d878f6d3-d406-4972-80d4-d43f75abcac8",
 	1,

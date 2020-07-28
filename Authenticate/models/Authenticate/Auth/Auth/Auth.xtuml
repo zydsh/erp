@@ -88,7 +88,7 @@ INSERT INTO GD_GE
 	"ca6f0d37-2a5a-49b9-829a-91592171dcfd",
 	94,
 	0,
-	'Authenticate::Auth::Auth::Port1::Unnamed Interface');
+	'Authenticate::Auth::Auth::Auth::CRUD');
 INSERT INTO GD_CON
 	VALUES ("2f0c3699-e735-4fa4-877d-eefa14311b75",
 	"00000000-0000-0000-0000-000000000000");
@@ -192,20 +192,62 @@ INSERT INTO DIM_DIA
 INSERT INTO C_PO
 	VALUES ("caeef995-da7c-4616-bfa8-9f35f39d349b",
 	"c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
-	'Port1',
+	'Auth',
 	0,
 	0);
 INSERT INTO C_IR
 	VALUES ("ca6f0d37-2a5a-49b9-829a-91592171dcfd",
-	"00000000-0000-0000-0000-000000000000",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	"00000000-0000-0000-0000-000000000000",
 	"caeef995-da7c-4616-bfa8-9f35f39d349b");
 INSERT INTO C_P
 	VALUES ("ca6f0d37-2a5a-49b9-829a-91592171dcfd",
-	'Unnamed Interface',
+	'CRUD',
 	'Unnamed Interface',
 	'',
-	'Auth::Port1::Unnamed Interface');
+	'Auth::Auth::CRUD');
+INSERT INTO SPR_PEP
+	VALUES ("74f96f34-1006-427c-994b-b3cd707bc2b6",
+	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
+INSERT INTO SPR_PS
+	VALUES ("74f96f34-1006-427c-994b-b3cd707bc2b6",
+	'Account',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'Account',
+	'',
+	'../../Interfaces/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("3ec0917d-cd8c-4580-9f7d-1dd6698f3552",
+	"33c71ef4-d154-40bf-bfc7-33de5096bb4b",
+	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
+INSERT INTO SPR_PS
+	VALUES ("3ec0917d-cd8c-4580-9f7d-1dd6698f3552",
+	'Reply',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("33c71ef4-d154-40bf-bfc7-33de5096bb4b",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'Reply',
+	'',
+	'../../Interfaces/CRUD/CRUD.xtuml');
+INSERT INTO C_I_PROXY
+	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	"00000000-0000-0000-0000-000000000000",
+	'CRUD',
+	'',
+	'../../Interfaces/CRUD/CRUD.xtuml');
 INSERT INTO PE_PE
 	VALUES ("c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
 	1,
