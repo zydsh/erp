@@ -57,6 +57,10 @@ if ( empty employee ) and (param.Action=="NEW")
 	employee.National_ID = param.National_ID;
 	//SQL::serialize();
 	UI::Reply( msg:"Employee added successfully.", state:True);
+	
+	//create an account for the new employee
+//	HAuth::Account( First_Name:employee.FName, Last_Name: employee.LName, National_ID:employee.National_ID); 
+
 
 elif ( not empty employee ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Employee already exists." );	

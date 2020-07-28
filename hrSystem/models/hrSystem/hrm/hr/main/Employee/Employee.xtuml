@@ -180,10 +180,10 @@ INSERT INTO O_TFR
 	1,
 	'
 //find the active position/job being appointed too 
-select any ej related by self->EJ[R1] where selected.Active ==True ;
+//select any ej related by self->EJ[R1] where selected.Active ==True ;
 //select the job related to the position/job to get the salary/amount
-select one job related by ej->Job[R1] where selected.Job_ID == ej.Job_ID; 
-return job.Amount;',
+//select one job related by ej->Job[R1] where selected.Job_ID == ej.Job_ID; 
+return 0;// job.Amount;',
 	1,
 	'',
 	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
