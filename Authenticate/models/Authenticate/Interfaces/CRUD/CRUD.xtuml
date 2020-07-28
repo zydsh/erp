@@ -1,0 +1,51 @@
+-- BP 7.1.6 content: Interface syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO C_I
+	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	"00000000-0000-0000-0000-000000000000",
+	'CRUD',
+	'');
+INSERT INTO C_EP
+	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'Account',
+	'');
+INSERT INTO C_AS
+	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	'Account',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("7f19623d-cbfb-4976-a2cf-6511ace86c51",
+	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'username',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("aea4ec01-a71f-40b9-8972-7758f99ee977",
+	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'password',
+	'',
+	0,
+	'',
+	"7f19623d-cbfb-4976-a2cf-6511ace86c51");
+INSERT INTO PE_PE
+	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	1,
+	"cd2dc3e2-9f8b-43c9-934c-d681001acf9d",
+	"00000000-0000-0000-0000-000000000000",
+	6);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("cd2dc3e2-9f8b-43c9-934c-d681001acf9d",
+	"3e560e66-cfe5-44f7-82cc-eca1014cdb41",
+	"3e560e66-cfe5-44f7-82cc-eca1014cdb41",
+	'Interfaces',
+	'',
+	0,
+	'../Interfaces.xtuml');
