@@ -1,0 +1,78 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("5a831729-369c-4a7c-92a3-4f7aab463c54",
+	"00000000-0000-0000-0000-000000000000",
+	"3e560e66-cfe5-44f7-82cc-eca1014cdb41",
+	'Tests',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("fe437462-b35d-4ed1-b248-841d0dcfe0d3",
+	112,
+	"5a831729-369c-4a7c-92a3-4f7aab463c54",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'Authenticate::Auth::Auth::Tests');
+INSERT INTO DIM_DIA
+	VALUES ("fe437462-b35d-4ed1-b248-841d0dcfe0d3",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("0e7e806a-f3b7-4ff6-bf63-f44d3d8e78df",
+	"00000000-0000-0000-0000-000000000000",
+	'testGetPassword',
+	'',
+	'//tesing getPassword utility function
+id = 1041426584;
+pwd =::getPassword( A:"Ziyad", B:"Alshaikh", N:id); 
+
+LOG::LogInfo(message:"Generated password: "+ pwd);	
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("0e7e806a-f3b7-4ff6-bf63-f44d3d8e78df",
+	1,
+	"5a831729-369c-4a7c-92a3-4f7aab463c54",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("5a831729-369c-4a7c-92a3-4f7aab463c54",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'Auth',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../Auth.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("3e560e66-cfe5-44f7-82cc-eca1014cdb41",
+	'Authenticate',
+	1,
+	'../../../Authenticate.xtuml');

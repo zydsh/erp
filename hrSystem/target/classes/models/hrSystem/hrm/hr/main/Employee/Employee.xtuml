@@ -59,7 +59,7 @@ if ( empty employee ) and (param.Action=="NEW")
 	UI::Reply( msg:"Employee added successfully.", state:True);
 	
 	//create an account for the new employee
-//	HAuth::Account( First_Name:employee.FName, Last_Name: employee.LName, National_ID:employee.National_ID); 
+	HAuth::Account( First_Name:employee.FName, Last_Name: employee.LName, National_ID:employee.National_ID); 
 
 
 elif ( not empty employee ) and (param.Action=="NEW")
@@ -183,6 +183,7 @@ INSERT INTO O_TFR
 select any ej related by self->EJ[R1] where selected.Active ==True ;
 //select the job related to the position/job to get the salary/amount
 select one job related by ej->Job[R1] where selected.Job_ID == ej.Job_ID; 
+
 return job.Amount;',
 	1,
 	'',

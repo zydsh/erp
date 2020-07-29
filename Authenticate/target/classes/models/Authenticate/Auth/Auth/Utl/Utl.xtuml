@@ -1,0 +1,143 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("8859a863-ef90-4c1d-83dc-62d6c5322fc3",
+	"00000000-0000-0000-0000-000000000000",
+	"3e560e66-cfe5-44f7-82cc-eca1014cdb41",
+	'Utl',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("4f54dd85-f390-47e7-8e50-d7077bd0785c",
+	112,
+	"8859a863-ef90-4c1d-83dc-62d6c5322fc3",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'Authenticate::Auth::Auth::Utl');
+INSERT INTO DIM_DIA
+	VALUES ("4f54dd85-f390-47e7-8e50-d7077bd0785c",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("37cd4faf-e989-4090-a668-5096bee78b2c",
+	"00000000-0000-0000-0000-000000000000",
+	'getUserName',
+	'',
+	'
+//get the first letter of the first name and add it to the last name with a dot inbetween.
+username = STRING::substr( s:param.F, begin:0, end:1)+"."+param.L;
+return username;',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("7684d4f5-1a57-4baa-a1d9-8f3d70ea256b",
+	"37cd4faf-e989-4090-a668-5096bee78b2c",
+	'F',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("19b9ed0e-0beb-4e19-abcb-85922f14554a",
+	"37cd4faf-e989-4090-a668-5096bee78b2c",
+	'L',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"7684d4f5-1a57-4baa-a1d9-8f3d70ea256b",
+	'');
+INSERT INTO PE_PE
+	VALUES ("37cd4faf-e989-4090-a668-5096bee78b2c",
+	1,
+	"8859a863-ef90-4c1d-83dc-62d6c5322fc3",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("f799c23f-358c-400a-8888-95f4f70b9eee",
+	"00000000-0000-0000-0000-000000000000",
+	'getPassword',
+	'',
+	'
+
+name = "7(!d&"+param.B;
+
+return name;
+
+',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("eaccfa4f-010e-4529-bf9f-453c80178884",
+	"f799c23f-358c-400a-8888-95f4f70b9eee",
+	'A',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("966c2a01-0309-4638-a76f-3a2db5aa4641",
+	"f799c23f-358c-400a-8888-95f4f70b9eee",
+	'B',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"eaccfa4f-010e-4529-bf9f-453c80178884",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("2c9cc1c9-5a3d-4e7c-9399-3e57361d63b5",
+	"f799c23f-358c-400a-8888-95f4f70b9eee",
+	'N',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"966c2a01-0309-4638-a76f-3a2db5aa4641",
+	'');
+INSERT INTO PE_PE
+	VALUES ("f799c23f-358c-400a-8888-95f4f70b9eee",
+	1,
+	"8859a863-ef90-4c1d-83dc-62d6c5322fc3",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("8859a863-ef90-4c1d-83dc-62d6c5322fc3",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'Auth',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../Auth.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("3e560e66-cfe5-44f7-82cc-eca1014cdb41",
+	'Authenticate',
+	1,
+	'../../../Authenticate.xtuml');

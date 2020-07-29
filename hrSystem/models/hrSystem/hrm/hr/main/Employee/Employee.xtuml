@@ -59,7 +59,7 @@ if ( empty employee ) and (param.Action=="NEW")
 	UI::Reply( msg:"Employee added successfully.", state:True);
 	
 	//create an account for the new employee
-//	HAuth::Account( First_Name:employee.FName, Last_Name: employee.LName, National_ID:employee.National_ID); 
+	//HAuth::Account( First_Name:employee.FName, Last_Name: employee.LName, National_ID:employee.National_ID); 
 
 
 elif ( not empty employee ) and (param.Action=="NEW")

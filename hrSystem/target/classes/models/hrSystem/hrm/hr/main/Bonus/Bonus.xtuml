@@ -33,7 +33,7 @@ elif ( not empty bonus ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new bonus." );
 
 	LOG::LogInfo(message:"bonus already exists." );	
-	UI::Reply( msg:"bonus already exists", state:False);
+	UI::Reply( msg:"Bonus already exists", state:False);
 
 elif ( not empty bonus ) and (param.Action=="UPDATE")
 	LOG::LogInfo(message:"Attempting to update bonus." );
