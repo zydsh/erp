@@ -87,6 +87,11 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_OIDA
+	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
+	0,
+	'GValue');
 INSERT INTO O_ID
 	VALUES (1,
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");

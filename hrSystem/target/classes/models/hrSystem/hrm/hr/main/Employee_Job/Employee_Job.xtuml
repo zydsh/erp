@@ -28,8 +28,8 @@ if ( empty ej ) and (param.Action=="NEW")
 	relate employee to job across R1 using employeePosition;  
 	employeePosition.Active = True;
 	employeePosition.Appointment_Date = TIM::current_seconds();
-	employeePosition.Job_ID = param.Job_ID;
-	employeePosition.National_ID = param.National_ID;
+	//employeePosition.Job_ID = param.Job_ID;
+	//employeePosition.National_ID = param.National_ID;
 
 	//SQL::serialize();
 	UI::Reply( msg:"job/position created successfully.", state:True);
@@ -44,8 +44,8 @@ elif ( not empty ej ) and (param.Action=="NEW")
 	employeePosition.Active = False;
 	//but it should be identfied as the latest!
 	employeePosition.Appointment_Date = TIM::current_seconds();
-	employeePosition.Job_ID = param.Job_ID;
-	employeePosition.National_ID = param.National_ID;
+	//employeePosition.Job_ID = param.Job_ID;
+	//employeePosition.National_ID = param.National_ID;
 
 
 	LOG::LogInfo(message:"Job/position assigned but inactive." );	
@@ -157,14 +157,47 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000001",
 	'',
 	'');
-INSERT INTO O_NBATTR
-	VALUES ("3887b71c-ac06-4128-bd02-979b955dee37",
-	"63ad13d3-10ff-46b3-86b1-2018487fbb6d");
-INSERT INTO O_BATTR
-	VALUES ("3887b71c-ac06-4128-bd02-979b955dee37",
-	"63ad13d3-10ff-46b3-86b1-2018487fbb6d");
+INSERT INTO O_REF
+	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	0,
+	"e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"571dd5e9-51a0-41be-b0c7-b24d607f1714",
+	"8f4f89b9-43fc-4b5b-9d66-4de21403172c",
+	"48930da5-0791-4864-b989-8a748b59d0ca",
+	"cd3965b2-9d05-487d-8d64-d828a9cdef6f",
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'Job',
+	'Job_ID',
+	'R1');
+INSERT INTO R_RGO_PROXY
+	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"571dd5e9-51a0-41be-b0c7-b24d607f1714",
+	'../main.xtuml');
+INSERT INTO O_RTIDA_PROXY
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	0,
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"8f4f89b9-43fc-4b5b-9d66-4de21403172c",
+	'../main.xtuml');
+INSERT INTO O_RATTR
+	VALUES ("48930da5-0791-4864-b989-8a748b59d0ca",
+	"63ad13d3-10ff-46b3-86b1-2018487fbb6d",
+	"e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	1,
+	'Job_ID');
+INSERT INTO O_BATTR_PROXY
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	'../Job/Job.xtuml');
 INSERT INTO O_ATTR
-	VALUES ("3887b71c-ac06-4128-bd02-979b955dee37",
+	VALUES ("48930da5-0791-4864-b989-8a748b59d0ca",
 	"63ad13d3-10ff-46b3-86b1-2018487fbb6d",
 	"59c29a9e-3a99-493d-aadd-ed979ef029b5",
 	'Job_ID',
@@ -175,16 +208,44 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
-	VALUES ("b3d2a206-10d5-49cb-9769-5219db17e394",
-	"63ad13d3-10ff-46b3-86b1-2018487fbb6d");
-INSERT INTO O_BATTR
-	VALUES ("b3d2a206-10d5-49cb-9769-5219db17e394",
-	"63ad13d3-10ff-46b3-86b1-2018487fbb6d");
-INSERT INTO O_ATTR
-	VALUES ("b3d2a206-10d5-49cb-9769-5219db17e394",
+INSERT INTO O_REF
+	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	0,
+	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"571dd5e9-51a0-41be-b0c7-b24d607f1714",
+	"9c0728bc-0b36-4717-b43f-3769e775b96f",
+	"267ecef9-4fc9-4d9a-8a43-9a0caa54937e",
+	"315363f6-db13-4bcf-994f-75fd87b75d3c",
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'Employee',
+	'National_ID',
+	'R1');
+INSERT INTO O_RTIDA_PROXY
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	0,
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"9c0728bc-0b36-4717-b43f-3769e775b96f",
+	'../main.xtuml');
+INSERT INTO O_RATTR
+	VALUES ("267ecef9-4fc9-4d9a-8a43-9a0caa54937e",
 	"63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	"3887b71c-ac06-4128-bd02-979b955dee37",
+	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	1,
+	'National_ID');
+INSERT INTO O_BATTR_PROXY
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	'../Employee/Employee.xtuml');
+INSERT INTO O_ATTR
+	VALUES ("267ecef9-4fc9-4d9a-8a43-9a0caa54937e",
+	"63ad13d3-10ff-46b3-86b1-2018487fbb6d",
+	"48930da5-0791-4864-b989-8a748b59d0ca",
 	'National_ID',
 	'',
 	'',
@@ -196,6 +257,16 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"63ad13d3-10ff-46b3-86b1-2018487fbb6d");
+INSERT INTO O_OIDA
+	VALUES ("48930da5-0791-4864-b989-8a748b59d0ca",
+	"63ad13d3-10ff-46b3-86b1-2018487fbb6d",
+	0,
+	'Job_ID');
+INSERT INTO O_OIDA
+	VALUES ("267ecef9-4fc9-4d9a-8a43-9a0caa54937e",
+	"63ad13d3-10ff-46b3-86b1-2018487fbb6d",
+	0,
+	'National_ID');
 INSERT INTO O_ID
 	VALUES (1,
 	"63ad13d3-10ff-46b3-86b1-2018487fbb6d");
