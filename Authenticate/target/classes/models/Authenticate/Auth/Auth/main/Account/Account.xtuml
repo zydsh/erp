@@ -28,7 +28,9 @@ if ( empty acc )
 	account.National_ID = param.National_ID;
 		
 else
-	// send a fail reply message because an account already exists  
+	// send a fail reply message because an account already exists 
+	LOG::LogInfo(message:"Cannot create instance because teh account already exists." );	
+ 
 end if;',
 	1,
 	'',
