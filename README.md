@@ -1,7 +1,7 @@
 <html>
 <body>
 <h3>
-To run this project you need to install: 
+The UI of this project uses: 
     <li>Apache Tomcat</li>
     <li>Maven</li>
     <li>MySQL</li>
