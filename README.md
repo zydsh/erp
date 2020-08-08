@@ -8,7 +8,7 @@ The UI of this project uses:
 </h3>
 <h2>Apache Tomcat:</h2>
 <p>
-We used Tomcat 9 in this project.<br>
+
 - To download Apache Tomcat 9 here's a <a href="https://tomcat.apache.org/download-90.cgi" target="_blank">Link</a>.<br>
 - Apache Tomcat provides a good instructions on how to run tomcat (<a href="https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt" target="_blank">running tomcat</a>).<br><br>
 After downloading Tomcat:<br>
