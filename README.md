@@ -11,7 +11,7 @@ The UI of this project uses:
 
 - Download <a href="https://tomcat.apache.org/download-90.cgi" target="_blank">Apache Tomcat 9</a>.<br>
 - Apache Tomcat provides a good instructions on <a href="https://tomcat.apache.org/tomcat-9.0-doc/RUNNING.txt" target="_blank">how to run tomcat</a>.<br><br>
-After downloading Tomcat:<br>
+<br>
 - Go to ‘apache-tomcat-9.0.35/conf’ open ‘tomcat-users.xml’ and in &#60tomcat-users&#62 &#60/tomcat-users&#62 add “<br>
 &#60role rolename="manager-gui"/&#62<br>
 &#60role rolename="manager-script"/&#62<br>
