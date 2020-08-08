@@ -1,0 +1,117 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/Deployment/home/page/style"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+    function myfunction(){
+    	var xmlhttp = new XMLHttpRequest();
+    	var breeds = {};
+    	var here
+    	function sendXHR(type, url, data, callback) {
+    		xmlhttp = new XMLHttpRequest() || new window.ActiveXObject("Microsoft.XMLHTTP");
+    		xmlhttp.open(type, url, true);
+    		xmlhttp.send(data);
+    		xmlhttp.onreadystatechange = function() { // Use onreadystatechange instead onload.
+    	      if (this.status === 200 && this.readyState === 4) {
+    	        callback(this.response);
+    	        var list = JSON.parse(xmlhttp.responseText);
+				new Vue({
+				  el: '#leaves',
+				  data: {
+				   leaves: list
+				  }
+				});				
+    	      }
+    	    };
+    	  }
+		
+		sendXHR("GET", "http://localhost:8080/Deployment/home/page/listLeave", null, function(response) {
+		breeds = JSON.parse(response);
+		});
+    }
+    </script>
+    <body onload="myfunction()">
+        <header>
+            <ul>
+                <li class="link"><a href="http://localhost:8080/Deployment/home/page/">Home</a></li>
+              </ul>
+        </header>
+        <div class="form">
+            <p class="bold">Leave Request</p>
+         <form id="signup-form" @submit.prevent="processForm" @submit="submitProduct">
+                <p>Start Date:</p>
+                <input type="text" name="start" v-model="start"/>
+                <p>End Date:</p>
+                <input type="text" name="end" v-model="end"/>
+                <p id="NID">National ID:</p>
+                <input type="text" name="NID" v-model="NID"/>
+                <p>Choose Leave</p>
+                <input list="leaves" name="leave" id="leave">
+				  <datalist id="leaves">
+				  <option v-for="leave in leaves" :value="leave"/>
+				  </datalist>
+                <div class="button-panel">
+                <input class="button" type="submit"/>
+                </div>
+            </form>
+        </div>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+     //plain javscript ==================================
+     //grab the things we need
+     const signupForm = document.getElementById('signup-form');
+     const startInput  = signupForm.querySelector('input[name=start]');
+     const endInput  = signupForm.querySelector('input[name=end]');
+     const NIDInput  = signupForm.querySelector('input[name=NID]');
+     const leaveInput  = signupForm.querySelector('input[name=leave]');
+    //listen for the submit event
+     signupForm.addEventListener('submit', processSignupForm);
+     function processSignupForm(e) {
+     e.preventDefault();
+	
+     const start =  startInput.value;
+     const end =  endInput.value;
+     const NID =  NIDInput.value;
+     const leave =  leaveInput.value;
+
+     console.log({ start, end, NID, leave});
+     alert('Processing!');
+    }
+
+   
+
+    // vue ==========================================
+    var app = new Vue({
+      el: '#signup-form',
+      data: {
+    	start: '',
+    	end: '',
+    	NID: '',
+    	leave: '',
+        errors: {
+          name: false,
+          email: false
+        }
+      },
+      methods: {
+        processForm: function() {
+          console.log({ start: this.start, end: this.end, NID: this.NID, leave: this.leave});
+          alert('Processing');
+        },
+      submitProduct: function () {
+    	  axios.post('http://localhost:8080/Deployment/home/page/saveLeaveRequest', {
+    		    start: this.start,
+    		    end: this.end,
+    		    NID: this.NID,
+    		    leave: this.leave
+            })
+        }
+      }
+    });
+
+    
+  </script>
+        
+    </body>
+</html>

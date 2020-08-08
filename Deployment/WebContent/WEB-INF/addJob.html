@@ -1,0 +1,97 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/Deployment/home/page/style"/>
+ <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <body>
+        <header>
+            <ul>
+                <li class="link"><a href="http://localhost:8080/Deployment/home/page/">Home</a></li>
+              </ul>
+        </header>
+        <div class="form">
+            <p class="bold">Add Job</p>
+             <form id="signup-form" @submit.prevent="processForm" @submit="submitProduct">
+                <p>Step:</p>
+                <input type="text" name="step" v-model="step"/>
+                <p>Grade:</p>
+                <input type="text" name="grade" v-model="grade">
+                <p>Amount:</p>
+                <input type="text" name="amount" v-model="amount">
+                <p>Action</p>
+                <input list="actions" name="action" v-model="action">
+                <datalist id="actions">
+				  <option v-for="option in options" v-bind:value="option">
+				  </option>
+				</datalist>
+				<p>Name:</p>
+                <input type="text" name="name" v-model="name">
+                <div class="button-panel">
+                <input class="button" type="submit"/>
+                </div>
+            </form>
+        </div>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+     //plain javscript ==================================
+     //grab the things we need
+     const signupForm = document.getElementById('signup-form');
+     const stepInput  = signupForm.querySelector('input[name=step]');
+     const gradeInput  = signupForm.querySelector('input[name=grade]');
+     const amountInput  = signupForm.querySelector('input[name=amount]');
+     const actionInput = signupForm.querySelector('input[name=action]');
+     const nameInput  = signupForm.querySelector('input[name=name]');
+
+    //listen for the submit event
+     signupForm.addEventListener('submit', processSignupForm);
+     function processSignupForm(e) {
+     e.preventDefault();
+
+     const step = stepInput.value;
+     const grade =  gradeInput.value;
+     const amount =  amountInput.value;
+     const action =  actionInput.value;
+     const name =  nameInput.value;
+
+     console.log({ step, grade, amount, action, name });
+     alert('Processing!');
+    }
+
+   
+
+    // vue ==========================================
+    var app = new Vue({
+      el: '#signup-form',
+      data: {
+    	step: '',
+    	grade: '',
+    	amount: '',
+        action: '',
+        options: [ 'NEW', 'UPDATE', 'DELETE' ],
+        name: '',
+        errors: {
+          name: false,
+          email: false
+        }
+      },
+      methods: {
+        processForm: function() {
+          console.log({ step: this.step, grade: this.grade, amount: this.amount, action: this.action, name: this.name});
+          alert('Processing');
+        },
+      submitProduct: function () {
+    	  axios.post('http://localhost:8080/Deployment/home/page/saveJob', {
+    		    step: this.step,
+    		    grade: this.grade,
+    		    amount: this.amount,
+            	action: this.action,
+            	name: this.name
+            })
+        }
+      }
+    });
+
+    
+  </script>
+    </body>
+</html>

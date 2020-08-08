@@ -1,0 +1,68 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/Deployment/home/page/style"/>
+ <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <body>
+        <header>
+            <ul>
+                <li class="link"><a href="http://localhost:8080/Deployment/home/page/">Home</a></li>
+              </ul>
+        </header>
+        <div class="form">
+            <p class="bold">Employee Return</p>
+        <form id="signup-form" @submit.prevent="processForm" @submit="submitProduct">
+                <p id="NID">National ID:</p>
+                <input type="text" name="NID" v-model="NID"/>
+                <div class="button-panel">
+                <input class="button" type="submit"/>
+                </div>
+            </form>
+        </div>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+     //plain javscript ==================================
+     //grab the things we need
+     const signupForm = document.getElementById('signup-form');
+     const NIDInput  = signupForm.querySelector('input[name=NID]');
+    //listen for the submit event
+     signupForm.addEventListener('submit', processSignupForm);
+     function processSignupForm(e) {
+     e.preventDefault();
+	
+     const NID =  NIDInput.value;
+
+     console.log({ NID });
+     alert('Processing!');
+    }
+
+   
+
+    // vue ==========================================
+    var app = new Vue({
+      el: '#signup-form',
+      data: {
+    	NID: '',
+        errors: {
+          name: false,
+          email: false
+        }
+      },
+      methods: {
+        processForm: function() {
+          console.log({ NID: this.NID });
+          alert('Processing');
+        },
+      submitProduct: function () {
+    	  axios.post('http://localhost:8080/Deployment/home/page/saveLeaveReturn', {
+    		    NID: this.NID
+            })
+        }
+      }
+    });
+
+    
+  </script>
+        
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/Deployment/home/page/style"/>
+ <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <body>
+        <header>
+            <ul>
+                <li class="link"><a href="http://localhost:8080/Deployment/home/page/">Home</a></li>
+              </ul>
+        </header>
+        <div class="form">
+            <p class="bold">Add Bonus to Employee</p>
+       <form id="signup-form" @submit.prevent="processForm" @submit="submitProduct">
+                <p>National ID:</p>
+                <input type="text" name="nid" v-model="nid"/>
+                <p>Bonus Name:</p>
+                <input type="text" name="bonusname" v-model="bonusname"/>
+                <p>Start:</p>
+                <input type="text" name="start" v-model="start"/>
+                <p>End:</p>
+                <input type="text" name="end" v-model="end"/>
+                <p>Action:</p>
+                <input list="actions" name="action" v-model="action">
+                <datalist id="actions">
+				  <option v-for="option in options" v-bind:value="option">
+				  </option>
+				</datalist>
+                <div class="button-panel">
+                <input class="button" type="submit"/>
+                </div>
+            </form>
+        </div>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+     //plain javscript ==================================
+     //grab the things we need
+     const signupForm = document.getElementById('signup-form');
+     const nidInput  = signupForm.querySelector('input[name=nid]');
+     const bonusnameInput  = signupForm.querySelector('input[name=bonusname]');
+     const startInput  = signupForm.querySelector('input[name=start]');
+     const endInput  = signupForm.querySelector('input[name=end]');
+     const actionInput  = signupForm.querySelector('input[name=action]');
+    //listen for the submit event
+     signupForm.addEventListener('submit', processSignupForm);
+     function processSignupForm(e) {
+     e.preventDefault();
+
+     const nid =  nidInput.value;
+     const bonusname =  bonusnameInput.value;
+     const start =  actionInput.value;
+     const end =  endInput.value;
+     const action =  actionInput.value;
+
+     console.log({ nid, bonusname});
+     alert('Processing!');
+    }
+
+   
+
+    // vue ==========================================
+    var app = new Vue({
+      el: '#signup-form',
+      data: {
+    	nid: '',
+    	bonusname: '',
+    	start: '',
+    	end:'',
+    	action: '',
+        options: [ 'NEW', 'UPDATE', 'DELETE' ],
+        errors: {
+          name: false,
+          email: false
+        }
+      },
+      methods: {
+        processForm: function() {
+          console.log({ nid: this.nid, bonusname: this.bonusname, start: this.start, end: this.end, action: this.action});
+          alert('Processing');
+        },
+      submitProduct: function () {
+    	  axios.post('http://localhost:8080/Deployment/home/page/saveEmployeeBonus', {
+    		    nid: this.nid,
+    		    bonusname: this.bonusname,
+    		    start: this.start,
+    		    end: this.end,
+    		    action: this.action
+            })
+        }
+      }
+    });
+
+    
+  </script>
+        
+    </body>
+</html>

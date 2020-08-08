@@ -1,0 +1,87 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/Deployment/home/page/style"/>
+ <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <body>
+        <header>
+            <ul>
+                <li class="link"><a href="http://localhost:8080/Deployment/home/page/">Home</a></li>
+              </ul>
+        </header>
+        <div class="form">
+            <p class="bold">Add Overtime</p>
+         <form id="signup-form" @submit.prevent="processForm" @submit="submitProduct">
+                <p>Start:</p>
+                <input type="text" name="start" v-model="start"/>
+                <p>End:</p>
+                <input type="text" name="end" v-model="end">
+                <p>Action</p>
+                <input list="actions" name="action" v-model="action">
+                <datalist id="actions">
+				  <option v-for="option in options" v-bind:value="option">
+				  </option>
+				</datalist>
+                <div class="button-panel">
+                <input class="button" type="submit"/>
+                </div>
+            </form>
+        </div>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+     //plain javscript ==================================
+     //grab the things we need
+     const signupForm = document.getElementById('signup-form');
+     const startInput  = signupForm.querySelector('input[name=start]');
+     const endInput  = signupForm.querySelector('input[name=end]');
+     const actionInput = signupForm.querySelector('input[name=action]');
+
+    //listen for the submit event
+     signupForm.addEventListener('submit', processSignupForm);
+     function processSignupForm(e) {
+     e.preventDefault();
+
+     const start =  startInput.value;
+     const end =  endInput.value;
+     const action =  actionInput.value;
+
+     console.log({ start, end, action});
+     alert('Processing!');
+    }
+
+   
+
+    // vue ==========================================
+    var app = new Vue({
+      el: '#signup-form',
+      data: {
+    	start: '',
+    	end: '',
+        action: '',
+        options: [ 'NEW', 'UPDATE', 'DELETE' ],
+        errors: {
+          name: false,
+          email: false
+        }
+      },
+      methods: {
+        processForm: function() {
+          console.log({ start: this.start, end: this.end, action: this.action});
+          alert('Processing');
+        },
+      submitProduct: function () {
+    	  axios.post('http://localhost:8080/Deployment/home/page/saveOvertime', {
+    		    start: this.start,
+    		    end: this.end,
+            	action: this.action
+            })
+        }
+      }
+    });
+
+    
+  </script>
+        
+        
+    </body>
+</html>

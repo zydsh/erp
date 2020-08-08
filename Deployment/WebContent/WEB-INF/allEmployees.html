@@ -1,0 +1,67 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/Deployment/home/page/style"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+    function myfunction(){
+    	var xmlhttp = new XMLHttpRequest();
+    	var breeds = {};
+    	var here
+    	function sendXHR(type, url, data, callback) {
+    		xmlhttp = new XMLHttpRequest() || new window.ActiveXObject("Microsoft.XMLHTTP");
+    		xmlhttp.open(type, url, true);
+    		xmlhttp.send(data);
+    		xmlhttp.onreadystatechange = function() { // Use onreadystatechange instead onload.
+    	      if (this.status === 200 && this.readyState === 4) {
+    	        callback(this.response);
+    	        var list = JSON.parse(xmlhttp.responseText);
+				new Vue({
+				  el: '#table',
+				  data: {
+				   employees: list
+				  }
+				});		
+				
+				
+    	      }
+    	    };
+    	  }
+		
+		sendXHR("GET", "http://localhost:8080/Deployment/home/page/listEmployees", null, function(response) {
+		breeds = JSON.parse(response);
+		});
+    }
+    </script>
+    <style>
+    .bold1{
+     display: inline-block;
+    margin-top: 5%;
+    margin-left: 35%;
+    margin-bottom: 0%;
+    font-weight: bold;
+    font-size: large;
+    }
+    
+    </style>
+    <body onload="myfunction()">
+        <header>
+            <ul>
+                <li class="link"><a href="http://localhost:8080/Deployment/home/page/">Home</a></li>
+              </ul>
+        </header>
+        <div class="form">
+            <p class="bold1">List of Employees</p>
+            <table id="table">
+            <tr>
+            	<th>ID</th>
+            	<th>First Name</th>
+            	<th>Last Name</th>
+            	<th>State</th>
+            </tr>
+            <tr v-for="employee in employees">
+            	<td v-for="emp in employee">{{emp}}</td>
+            </tr>
+            </table>
+        </div>
+        
+    </body>
+</html>

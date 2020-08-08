@@ -1,0 +1,85 @@
+<html>
+ <link rel="stylesheet" type="text/css" href="http://localhost:8080/Deployment/home/page/style"/>
+ <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <body>
+        <header>
+            <ul>
+                <li class="link"><a href="http://localhost:8080/Deployment/home/page/">Home</a></li>
+              </ul>
+        </header>
+        <div class="form">
+            <p class="bold">Add Bonus</p>
+            <form id="signup-form" @submit.prevent="processForm" @submit="submitProduct">
+               <p>Bonus Name:</p>
+                <input type="text" name="name" v-model="name"/>
+                 <p>Amount:</p>
+                <input type="text" name="amount" v-model="amount"/>
+                <p>Action</p>
+                <input list="actions" name="action" v-model="action">
+                <datalist id="actions">
+				  <option v-for="option in options" v-bind:value="option">
+				  </option>
+				</datalist>
+                <div class="button-panel">
+                <input class="button" type="submit"/>
+                </div>
+            </form>
+        </div>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+     //plain javscript ==================================
+     //grab the things we need
+     const signupForm = document.getElementById('signup-form');
+     const nameInput  = signupForm.querySelector('input[name=name]');
+     const amountInput = signupForm.querySelector('input[name=amount]');
+     const actionInput = signupForm.querySelector('input[name=action]');
+
+    //listen for the submit event
+     signupForm.addEventListener('submit', processSignupForm);
+     function processSignupForm(e) {
+     e.preventDefault();
+
+     const name = nameInput.value;
+     const amount = amountInput.value;
+     const action =  actionInput.value;
+
+     console.log({ name, amount, action });
+     alert('Processing!');
+    }
+
+   
+
+    // vue ==========================================
+    var app = new Vue({
+      el: '#signup-form',
+      data: {
+    	name: '',
+    	amount: '',
+        action: '',
+        options: [ 'NEW', 'UPDATE', 'DELETE' ],
+        errors: {
+          name: false,
+          email: false
+        }
+      },
+      methods: {
+        processForm: function() {
+          console.log({ name: this.name, amount: this.amount, action: this.action});
+          alert('Processing');
+        },
+      submitProduct: function () {
+    	  axios.post('http://localhost:8080/Deployment/home/page/saveBonus', {
+            	name: this.name,
+            	amount: this.amount,
+            	action: this.action
+            })
+        }
+      }
+    });
+
+    
+  </script>
+    </body>
+</html>
