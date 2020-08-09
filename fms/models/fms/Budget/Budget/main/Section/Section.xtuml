@@ -7,6 +7,72 @@ INSERT INTO O_OBJ
 	'Section',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'',
+	3,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("45e76952-19e6-4955-85bc-c5ad2cb2781e",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Code',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c383d221-997f-424d-8739-e30fcc319c90",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"45e76952-19e6-4955-85bc-c5ad2cb2781e",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("734c9219-d46e-4d71-a7be-daa94e56b96c",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Fund',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"c383d221-997f-424d-8739-e30fcc319c90",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("4de52c2e-64f2-4570-bd1f-be9981a4ca9f",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Economic_Category',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"734c9219-d46e-4d71-a7be-daa94e56b96c",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("defe22d9-ecda-43d2-9354-c0d8cea1b75f",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Comments',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"4de52c2e-64f2-4570-bd1f-be9981a4ca9f",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("59f75b61-52de-4e52-bda2-fecd6840c104",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"defe22d9-ecda-43d2-9354-c0d8cea1b75f",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("d871ea25-5e35-422d-b3bf-3f9626002b85",
 	"15b40926-a264-4d1a-860d-88315cd6eac6");
@@ -76,7 +142,7 @@ INSERT INTO O_ATTR
 	'',
 	'Economic_Category',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
 INSERT INTO O_NBATTR

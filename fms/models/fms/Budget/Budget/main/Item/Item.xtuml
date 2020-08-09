@@ -7,6 +7,63 @@ INSERT INTO O_OBJ
 	'Item',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("0da7df02-71d1-430f-8be7-8b8ba8cfacb6",
+	"ded00bde-a203-4847-b9f5-2517a7c34ec2",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'',
+	3,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("bee3712f-b614-41e3-b0ca-25f78ace2d01",
+	"0da7df02-71d1-430f-8be7-8b8ba8cfacb6",
+	'Fund',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("760e90bd-a698-483b-979a-ab8cfeb8ebbf",
+	"0da7df02-71d1-430f-8be7-8b8ba8cfacb6",
+	'Status',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"bee3712f-b614-41e3-b0ca-25f78ace2d01",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c6732494-e41b-4d39-8175-68e15e15ab5d",
+	"0da7df02-71d1-430f-8be7-8b8ba8cfacb6",
+	'Type',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"760e90bd-a698-483b-979a-ab8cfeb8ebbf",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("cd367ce5-a705-4178-82ef-38b8a6d9fb72",
+	"0da7df02-71d1-430f-8be7-8b8ba8cfacb6",
+	'Category',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"c6732494-e41b-4d39-8175-68e15e15ab5d",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("59ddd80e-79d1-44d1-874c-8a83457b7424",
+	"0da7df02-71d1-430f-8be7-8b8ba8cfacb6",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"cd367ce5-a705-4178-82ef-38b8a6d9fb72",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("31b245fc-e3f8-4d9a-9358-f361989aa5cc",
 	"ded00bde-a203-4847-b9f5-2517a7c34ec2");
