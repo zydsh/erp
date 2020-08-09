@@ -29,7 +29,7 @@ if ( empty chapter ) and (param.Action=="NEW")
 	c.Request_Fund = param.Request_Fund;
 	
 	select any budget from instances of Budget where selected.Year == param.Year;
-	relate budget to chapter across R1;  
+	relate c to budget across R1;  
 
 
 	//SQL::serialize();
@@ -143,7 +143,9 @@ INSERT INTO O_ATTR
 	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
 	"00000000-0000-0000-0000-000000000000",
 	'Name',
-	'',
+	'
+
+',
 	'',
 	'Name',
 	0,
@@ -230,7 +232,7 @@ INSERT INTO O_REF
 	"e8c6acb1-bf48-407c-987d-312a16abed98",
 	"d6659a61-5bf8-4757-b3f4-39c89de296c2",
 	"1f487b42-3fa4-4ebd-b8ea-f147fed90a9f",
-	"9412a0e0-06bb-4bfe-87c2-9e519ff5d769",
+	"0d446bf1-1cb3-4251-9431-8de9d16c834a",
 	"1092837d-5f75-40b7-a3b5-50303d744b49",
 	"00000000-0000-0000-0000-000000000000",
 	0,
@@ -251,18 +253,14 @@ INSERT INTO O_RTIDA_PROXY
 	"1f487b42-3fa4-4ebd-b8ea-f147fed90a9f",
 	'../main.xtuml');
 INSERT INTO O_RATTR
-	VALUES ("9412a0e0-06bb-4bfe-87c2-9e519ff5d769",
+	VALUES ("0d446bf1-1cb3-4251-9431-8de9d16c834a",
 	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
-	"62b58a0e-a570-4b23-8c26-f29d1cf243b6",
-	"f15f0168-076e-4ba9-b5ce-26448f40897f",
+	"c34162dc-271d-4d7f-8114-8642ddb539d6",
+	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
 	1,
-	'Year');
-INSERT INTO O_BATTR_PROXY
-	VALUES ("62b58a0e-a570-4b23-8c26-f29d1cf243b6",
-	"f15f0168-076e-4ba9-b5ce-26448f40897f",
-	'../Budget/Budget.xtuml');
+	'Name');
 INSERT INTO O_ATTR
-	VALUES ("9412a0e0-06bb-4bfe-87c2-9e519ff5d769",
+	VALUES ("0d446bf1-1cb3-4251-9431-8de9d16c834a",
 	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
 	"22d0cb7c-7265-46d0-8c91-01501564119f",
 	'Year',
