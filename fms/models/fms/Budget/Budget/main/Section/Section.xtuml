@@ -35,13 +35,13 @@ if ( empty section ) and (param.Action=="NEW")
 
 
 	//SQL::serialize();
-	UI::Reply( msg:"budget created successfully.", state:True);
+	UI_Fin::Reply( msg:"budget created successfully.", state:True);
 
 elif ( not empty section ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new section." );
 
 	LOG::LogInfo(message:"Section already exists." );	
-	UI::Reply( msg:"Section already exists", state:False);
+	UI_Fin::Reply( msg:"Section already exists", state:False);
 
 elif ( not empty section ) and (param.Action=="UPDATE")
 	LOG::LogInfo(message:"Attempting to update section." );
@@ -53,16 +53,16 @@ elif ( not empty section ) and (param.Action=="UPDATE")
 	section.Comments = param.Comments;
 	
 	LOG::LogInfo(message:"Section updated successfully." );	
-	UI::Reply( msg:"Section updated successfully", state:True);
+	UI_Fin::Reply( msg:"Section updated successfully", state:True);
 
 elif ( not empty section ) and (param.Action=="DELETE")
 	LOG::LogInfo(message:"Attempting to delete a section instance." );
 	LOG::LogInfo(message:"Section delete in not implemented yet." );	
-	UI::Reply( msg:"Section delete in not implemented yet", state:False);
+	UI_Fin::Reply( msg:"Section delete in not implemented yet", state:False);
 
  elif (empty section )
 	LOG::LogInfo(message:"Section does not exist." );	
-	UI::Reply( msg:"Section does not exist.", state:False);
+	UI_Fin::Reply( msg:"Section does not exist.", state:False);
 
 
 
