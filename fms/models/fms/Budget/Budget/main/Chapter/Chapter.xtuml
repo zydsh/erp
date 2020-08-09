@@ -35,10 +35,10 @@ INSERT INTO O_ATTR
 	VALUES ("c52c3a85-03cb-48aa-be02-169f73477579",
 	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
 	"c34162dc-271d-4d7f-8114-8642ddb539d6",
-	'Number',
+	'Code',
 	'',
 	'',
-	'Number',
+	'Code',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -94,7 +94,7 @@ INSERT INTO O_ATTR
 	'',
 	'Fund',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_ID
