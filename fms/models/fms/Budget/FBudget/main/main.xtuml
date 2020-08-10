@@ -25,14 +25,14 @@ INSERT INTO GD_MD
 	0,
 	0,
 	'4.1.17',
-	'fms::Budget::Budget::main');
+	'fms::Budget::FBudget::main');
 INSERT INTO GD_GE
 	VALUES ("6c93ee80-629e-4596-93c9-5c69bd816a4e",
 	"40b19b77-5d23-4366-b10a-1b3d6e9e79de",
 	"f15f0168-076e-4ba9-b5ce-26448f40897f",
 	21,
 	0,
-	'fms::Budget::Budget::main::Budget');
+	'fms::Budget::FBudget::main::Budget');
 INSERT INTO GD_SHP
 	VALUES ("6c93ee80-629e-4596-93c9-5c69bd816a4e");
 INSERT INTO GD_NCS
@@ -61,7 +61,7 @@ INSERT INTO GD_GE
 	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
 	21,
 	0,
-	'fms::Budget::Budget::main::Chapter');
+	'fms::Budget::FBudget::main::Chapter');
 INSERT INTO GD_SHP
 	VALUES ("79122659-457f-4203-8932-749f45012ca7");
 INSERT INTO GD_NCS
@@ -95,7 +95,7 @@ INSERT INTO GD_GE
 	"e8c6acb1-bf48-407c-987d-312a16abed98",
 	24,
 	0,
-	'fms::Budget::Budget::main::R1');
+	'fms::Budget::FBudget::main::R1');
 INSERT INTO GD_CON
 	VALUES ("d909a4c5-9867-4047-a577-8571ebeec1c9",
 	"00000000-0000-0000-0000-000000000000");
@@ -195,7 +195,7 @@ INSERT INTO GD_GE
 	"15b40926-a264-4d1a-860d-88315cd6eac6",
 	21,
 	0,
-	'fms::Budget::Budget::main::Section');
+	'fms::Budget::FBudget::main::Section');
 INSERT INTO GD_SHP
 	VALUES ("151f9cc4-6238-4779-97f0-d1a89bc24c9c");
 INSERT INTO GD_NCS
@@ -229,7 +229,7 @@ INSERT INTO GD_GE
 	"087765ce-1a8d-4227-9062-3cb0f673656b",
 	24,
 	0,
-	'fms::Budget::Budget::main::R2');
+	'fms::Budget::FBudget::main::R2');
 INSERT INTO GD_CON
 	VALUES ("de4056b2-acbb-4995-9c2a-a0fb0bdaecfe",
 	"00000000-0000-0000-0000-000000000000");
@@ -329,7 +329,7 @@ INSERT INTO GD_GE
 	"ded00bde-a203-4847-b9f5-2517a7c34ec2",
 	21,
 	0,
-	'fms::Budget::Budget::main::Item');
+	'fms::Budget::FBudget::main::Item');
 INSERT INTO GD_SHP
 	VALUES ("8394db09-d210-47ca-b155-93533dd3de8e");
 INSERT INTO GD_NCS
@@ -358,7 +358,7 @@ INSERT INTO GD_GE
 	"b3643e81-4c75-49f9-a960-b725952445c6",
 	24,
 	0,
-	'fms::Budget::Budget::main::R3');
+	'fms::Budget::FBudget::main::R3');
 INSERT INTO GD_CON
 	VALUES ("16af8411-af47-406d-ab63-f067df6d7a2b",
 	"00000000-0000-0000-0000-000000000000");
@@ -642,13 +642,13 @@ INSERT INTO C_C_PROXY
 	VALUES ("a27c47d9-460b-42e6-a5e6-5263c7a5fc10",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000",
-	'Budget',
+	'FBudget',
 	'',
 	0,
 	"00000000-0000-0000-0000-000000000000",
 	0,
 	'',
-	'../Budget.xtuml');
+	'../FBudget.xtuml');
 INSERT INTO S_SYS_PROXY
 	VALUES ("be22a5ba-1f16-470a-ab40-9f5cb3e127aa",
 	'fms',

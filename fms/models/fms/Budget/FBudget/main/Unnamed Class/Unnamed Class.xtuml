@@ -27,13 +27,13 @@ if ( empty budget ) and (param.Action=="NEW")
 	b.Fund = param.Fund;
 
 	//SQL::serialize();
-	UI_Fin::Reply( msg:"budget created successfully.", state:True);
+	//UI_Fin::Reply( msg:"budget created successfully.", state:True);
 
 elif ( not empty budget ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new budget." );
 
 	LOG::LogInfo(message:"Budget already exists." );	
-	UI_Fin::Reply( msg:"Budget already exists", state:False);
+	//UI_Fin::Reply( msg:"Budget already exists", state:False);
 
 elif ( not empty budget ) and (param.Action=="UPDATE")
 	LOG::LogInfo(message:"Attempting to update budget." );
@@ -42,16 +42,16 @@ elif ( not empty budget ) and (param.Action=="UPDATE")
 	budget.Year = param.Year;
 	
 	LOG::LogInfo(message:"Budget updated successfully." );	
-	UI_Fin::Reply( msg:"Budget updated successfully", state:True);
+	//UI_Fin::Reply( msg:"Budget updated successfully", state:True);
 
 elif ( not empty budget ) and (param.Action=="DELETE")
 	LOG::LogInfo(message:"Attempting to delete a budget instance." );
 	LOG::LogInfo(message:"Budget delete in not implemented yet." );	
-	UI_Fin::Reply( msg:"Budget delete in not implemented yet", state:False);
+	//UI_Fin::Reply( msg:"Budget delete in not implemented yet", state:False);
 
  elif (empty budget )
 	LOG::LogInfo(message:"Budget does not exist." );	
-	UI_Fin::Reply( msg:"Budget does not exist.", state:False);
+	//UI_Fin::Reply( msg:"Budget does not exist.", state:False);
 
 
 
@@ -129,11 +129,6 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"f15f0168-076e-4ba9-b5ce-26448f40897f");
-INSERT INTO O_OIDA
-	VALUES ("62b58a0e-a570-4b23-8c26-f29d1cf243b6",
-	"f15f0168-076e-4ba9-b5ce-26448f40897f",
-	0,
-	'Year');
 INSERT INTO O_ID
 	VALUES (1,
 	"f15f0168-076e-4ba9-b5ce-26448f40897f");

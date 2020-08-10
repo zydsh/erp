@@ -4,7 +4,7 @@ INSERT INTO C_C
 	VALUES ("a27c47d9-460b-42e6-a5e6-5263c7a5fc10",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000",
-	'Budget',
+	'FBudget',
 	'',
 	0,
 	"00000000-0000-0000-0000-000000000000",
@@ -28,14 +28,14 @@ INSERT INTO GD_MD
 	150,
 	0,
 	'',
-	'fms::Budget::Budget');
+	'fms::Budget::FBudget');
 INSERT INTO GD_GE
 	VALUES ("2e7a8b20-3ab9-459a-a4bf-d2973af338e4",
 	"989e2f55-fe55-4575-8bb5-53a19058941e",
 	"a27c47d9-460b-42e6-a5e6-5263c7a5fc10",
 	103,
 	0,
-	'fms::Budget::Budget');
+	'fms::Budget::FBudget');
 INSERT INTO GD_SHP
 	VALUES ("2e7a8b20-3ab9-459a-a4bf-d2973af338e4");
 INSERT INTO GD_CTR
@@ -69,7 +69,7 @@ INSERT INTO GD_GE
 	"d4c7497c-8ffa-416e-9d16-03e52f3453a0",
 	108,
 	0,
-	'fms::Budget::Budget::main');
+	'fms::Budget::FBudget::main');
 INSERT INTO GD_SHP
 	VALUES ("9f79771f-5ba3-41b8-a8c0-17772cee40f8");
 INSERT INTO GD_NCS
@@ -93,7 +93,7 @@ INSERT INTO GD_GE
 	"01024f7e-363f-42ba-a710-88fd6f2116e6",
 	94,
 	0,
-	'fms::Budget::Budget::UI_Fin::CRUD');
+	'fms::Budget::FBudget::UI_Fin::CRUD');
 INSERT INTO GD_CON
 	VALUES ("1fb51de4-ff9f-4d01-a432-f17c218e711b",
 	"00000000-0000-0000-0000-000000000000");
@@ -210,7 +210,7 @@ INSERT INTO C_P
 	'CRUD',
 	'Unnamed Interface',
 	'',
-	'Budget::UI_Fin::CRUD');
+	'FBudget::UI_Fin::CRUD');
 INSERT INTO SPR_PEP
 	VALUES ("b1875fbb-ef7e-43be-a7d6-5b1f1a7fb4d9",
 	"2fd4cb81-28e4-4ff4-b195-c56238afd31e",
