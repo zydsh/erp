@@ -327,7 +327,7 @@ INSERT INTO GD_GE
 	"1500b62b-91f2-4ad6-86fc-2ae2ae70de05",
 	93,
 	0,
-	'hrSystem::hrm::hr::HAuth::CRUD');
+	'hrSystem::hrm::hr::HAuth::Unnamed Interface');
 INSERT INTO GD_CON
 	VALUES ("7371ae22-29cb-4540-a12a-db5bb321e582",
 	"00000000-0000-0000-0000-000000000000");
@@ -788,57 +788,15 @@ INSERT INTO C_PO
 	0);
 INSERT INTO C_IR
 	VALUES ("1500b62b-91f2-4ad6-86fc-2ae2ae70de05",
-	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000",
 	"d17d0477-1586-46cc-999d-15135d2663b1");
 INSERT INTO C_R
 	VALUES ("1500b62b-91f2-4ad6-86fc-2ae2ae70de05",
-	'CRUD',
+	'Unnamed Interface',
 	'',
 	'Unnamed Interface',
-	'hr::HAuth::CRUD');
-INSERT INTO SPR_REP
-	VALUES ("95eac5e7-987b-4e33-8735-80e553708682",
-	"33c71ef4-d154-40bf-bfc7-33de5096bb4b",
-	"1500b62b-91f2-4ad6-86fc-2ae2ae70de05");
-INSERT INTO SPR_RS
-	VALUES ("95eac5e7-987b-4e33-8735-80e553708682",
-	'Reply',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("33c71ef4-d154-40bf-bfc7-33de5096bb4b",
-	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
-	-1,
-	'Reply',
-	'',
-	'../../../../../Authenticate/models/Authenticate/Interfaces/CRUD/CRUD.xtuml');
-INSERT INTO SPR_REP
-	VALUES ("719eb1d0-ad67-4a0b-9c8e-eefe86540ce2",
-	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
-	"1500b62b-91f2-4ad6-86fc-2ae2ae70de05");
-INSERT INTO SPR_RS
-	VALUES ("719eb1d0-ad67-4a0b-9c8e-eefe86540ce2",
-	'Account',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
-	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
-	-1,
-	'Account',
-	'',
-	'../../../../../Authenticate/models/Authenticate/Interfaces/CRUD/CRUD.xtuml');
-INSERT INTO C_I_PROXY
-	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
-	"00000000-0000-0000-0000-000000000000",
-	'CRUD',
-	'',
-	'../../../../../Authenticate/models/Authenticate/Interfaces/CRUD/CRUD.xtuml');
+	'hr::HAuth::Unnamed Interface');
 INSERT INTO PE_PE
 	VALUES ("d878f6d3-d406-4972-80d4-d43f75abcac8",
 	1,
