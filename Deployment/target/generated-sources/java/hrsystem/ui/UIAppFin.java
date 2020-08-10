@@ -27,13 +27,13 @@ public class UIAppFin extends Port<UI> implements ICRUD {
 
 
     // outbound messages
-    public void Item( final double p_Fund,  final String p_Status,  final String p_Type,  final String p_Category,  final String p_ID,  final String p_Section_ID,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Item(p_Fund, p_Status, p_Type, p_Category, p_ID, p_Section_ID, p_Action));
+    public void Section( final String p_Name,  final String p_ID,  final double p_Fund,  final String p_Economic_Category,  final String p_Comments,  final String p_Year,  final String p_Action,  final int p_Code ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Section(p_Name, p_ID, p_Fund, p_Economic_Category, p_Comments, p_Year, p_Action, p_Code));
         else {
         }
     }
-    public void Budget( final String p_Year,  final double p_Fund,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Budget(p_Year, p_Fund, p_Action));
+    public void Item( final double p_Fund,  final String p_Status,  final String p_Type,  final String p_Category,  final String p_ID,  final String p_Section_ID,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Item(p_Fund, p_Status, p_Type, p_Category, p_ID, p_Section_ID, p_Action));
         else {
         }
     }
@@ -42,8 +42,8 @@ public class UIAppFin extends Port<UI> implements ICRUD {
         else {
         }
     }
-    public void Section( final String p_Name,  final String p_ID,  final double p_Fund,  final String p_Economic_Category,  final String p_Comments,  final String p_Year,  final String p_Action,  final int p_Code ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Section(p_Name, p_ID, p_Fund, p_Economic_Category, p_Comments, p_Year, p_Action, p_Code));
+    public void Budget( final String p_Year,  final double p_Fund,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Budget(p_Year, p_Fund, p_Action));
         else {
         }
     }

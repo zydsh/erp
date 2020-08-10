@@ -71,7 +71,6 @@ public class Budget extends Component<Budget> {
         if ( R1_Chapter_Budget_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
             part.addR1_Chapter(form);
             form.setR1_Budget(part);
-            form.setYear( part.getYear() );
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }

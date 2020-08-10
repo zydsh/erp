@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Step extends IModelInstance<Step,Hr> {
 
     // attributes
-    public int getSValue() throws XtumlException;
     public void setSValue( int m_SValue ) throws XtumlException;
+    public int getSValue() throws XtumlException;
 
 
     // operations

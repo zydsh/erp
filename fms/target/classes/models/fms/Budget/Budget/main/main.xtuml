@@ -473,27 +473,11 @@ INSERT INTO R_PART
 	0,
 	0,
 	'');
-INSERT INTO O_RTIDA
-	VALUES ("62b58a0e-a570-4b23-8c26-f29d1cf243b6",
-	"f15f0168-076e-4ba9-b5ce-26448f40897f",
-	0,
-	"e8c6acb1-bf48-407c-987d-312a16abed98",
-	"1f487b42-3fa4-4ebd-b8ea-f147fed90a9f");
-INSERT INTO O_OIDA_PROXY
-	VALUES ("62b58a0e-a570-4b23-8c26-f29d1cf243b6",
-	"f15f0168-076e-4ba9-b5ce-26448f40897f",
-	0,
-	'Year',
-	'./Budget/Budget.xtuml');
 INSERT INTO R_RTO
 	VALUES ("f15f0168-076e-4ba9-b5ce-26448f40897f",
 	"e8c6acb1-bf48-407c-987d-312a16abed98",
 	"1f487b42-3fa4-4ebd-b8ea-f147fed90a9f",
-	0);
-INSERT INTO O_ID_PROXY
-	VALUES (0,
-	"f15f0168-076e-4ba9-b5ce-26448f40897f",
-	'./Budget/Budget.xtuml');
+	-1);
 INSERT INTO R_OIR
 	VALUES ("f15f0168-076e-4ba9-b5ce-26448f40897f",
 	"e8c6acb1-bf48-407c-987d-312a16abed98",
@@ -507,17 +491,18 @@ INSERT INTO O_OBJ_PROXY
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'./Budget/Budget.xtuml');
-INSERT INTO R_FORM
+INSERT INTO R_PART
 	VALUES ("d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
 	"e8c6acb1-bf48-407c-987d-312a16abed98",
 	"d6659a61-5bf8-4757-b3f4-39c89de296c2",
 	1,
 	0,
 	'');
-INSERT INTO R_RGO
+INSERT INTO R_RTO
 	VALUES ("d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
 	"e8c6acb1-bf48-407c-987d-312a16abed98",
-	"d6659a61-5bf8-4757-b3f4-39c89de296c2");
+	"d6659a61-5bf8-4757-b3f4-39c89de296c2",
+	-1);
 INSERT INTO R_OIR
 	VALUES ("d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
 	"e8c6acb1-bf48-407c-987d-312a16abed98",

@@ -25,12 +25,12 @@ public class BudgetSetImpl extends InstanceSet<BudgetSet,Budget> implements Budg
 
     // attributes
     @Override
-    public void setFund( double m_Fund ) throws XtumlException {
-        for ( Budget budget : this ) budget.setFund( m_Fund );
-    }
-    @Override
     public void setYear( String m_Year ) throws XtumlException {
         for ( Budget budget : this ) budget.setYear( m_Year );
+    }
+    @Override
+    public void setFund( double m_Fund ) throws XtumlException {
+        for ( Budget budget : this ) budget.setFund( m_Fund );
     }
 
 

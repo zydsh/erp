@@ -12,10 +12,10 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Budget extends IModelInstance<Budget,Budget> {
 
     // attributes
-    public void setYear( String m_Year ) throws XtumlException;
     public String getYear() throws XtumlException;
-    public void setFund( double m_Fund ) throws XtumlException;
+    public void setYear( String m_Year ) throws XtumlException;
     public double getFund() throws XtumlException;
+    public void setFund( double m_Fund ) throws XtumlException;
 
 
     // operations

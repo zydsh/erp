@@ -99,6 +99,11 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private double m_Amount;
     @Override
+    public double getAmount() throws XtumlException {
+        checkLiving();
+        return m_Amount;
+    }
+    @Override
     public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
         if (m_Amount != this.m_Amount) {
@@ -106,11 +111,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             this.m_Amount = m_Amount;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
-    }
-    @Override
-    public double getAmount() throws XtumlException {
-        checkLiving();
-        return m_Amount;
     }
     private String m_Name;
     @Override
@@ -129,6 +129,11 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private int ref_GValue;
     @Override
+    public int getGValue() throws XtumlException {
+        checkLiving();
+        return ref_GValue;
+    }
+    @Override
     public void setGValue(int ref_GValue) throws XtumlException {
         checkLiving();
         if (ref_GValue != this.ref_GValue) {
@@ -136,11 +141,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             this.ref_GValue = ref_GValue;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_GValue", oldValue, this.ref_GValue));
         }
-    }
-    @Override
-    public int getGValue() throws XtumlException {
-        checkLiving();
-        return ref_GValue;
     }
     private int ref_SValue;
     @Override
@@ -309,11 +309,11 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public int getJob_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setAmount( double m_Amount ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setAmount( double m_Amount ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -321,11 +321,11 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setGValue( int ref_GValue ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getGValue() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setGValue( int ref_GValue ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getSValue() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

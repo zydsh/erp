@@ -75,11 +75,6 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
     // attributes
     private int m_Starting;
     @Override
-    public int getStarting() throws XtumlException {
-        checkLiving();
-        return m_Starting;
-    }
-    @Override
     public void setStarting(int m_Starting) throws XtumlException {
         checkLiving();
         if (m_Starting != this.m_Starting) {
@@ -88,7 +83,17 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
         }
     }
+    @Override
+    public int getStarting() throws XtumlException {
+        checkLiving();
+        return m_Starting;
+    }
     private int m_Ending;
+    @Override
+    public int getEnding() throws XtumlException {
+        checkLiving();
+        return m_Ending;
+    }
     @Override
     public void setEnding(int m_Ending) throws XtumlException {
         checkLiving();
@@ -98,12 +103,12 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
     }
-    @Override
-    public int getEnding() throws XtumlException {
-        checkLiving();
-        return m_Ending;
-    }
     private boolean m_Approved;
+    @Override
+    public boolean getApproved() throws XtumlException {
+        checkLiving();
+        return m_Approved;
+    }
     @Override
     public void setApproved(boolean m_Approved) throws XtumlException {
         checkLiving();
@@ -112,11 +117,6 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             this.m_Approved = m_Approved;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Approved", oldValue, this.m_Approved));
         }
-    }
-    @Override
-    public boolean getApproved() throws XtumlException {
-        checkLiving();
-        return m_Approved;
     }
     private int ref_National_ID;
     @Override
@@ -135,6 +135,11 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
     }
     private int ref_Leave_ID;
     @Override
+    public int getLeave_ID() throws XtumlException {
+        checkLiving();
+        return ref_Leave_ID;
+    }
+    @Override
     public void setLeave_ID(int ref_Leave_ID) throws XtumlException {
         checkLiving();
         if (ref_Leave_ID != this.ref_Leave_ID) {
@@ -142,11 +147,6 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             this.ref_Leave_ID = ref_Leave_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_Leave_ID", oldValue, this.ref_Leave_ID));
         }
-    }
-    @Override
-    public int getLeave_ID() throws XtumlException {
-        checkLiving();
-        return ref_Leave_ID;
     }
 
 
@@ -225,23 +225,23 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
 class EmptyEmployee_Leave extends ModelInstance<Employee_Leave,Hr> implements Employee_Leave {
 
     // attributes
-    public int getStarting() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setStarting( int m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setEnding( int m_Ending ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public int getStarting() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setApproved( boolean m_Approved ) throws XtumlException {
+    public void setEnding( int m_Ending ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public boolean getApproved() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setApproved( boolean m_Approved ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setNational_ID( int ref_National_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -249,11 +249,11 @@ class EmptyEmployee_Leave extends ModelInstance<Employee_Leave,Hr> implements Em
     public int getNational_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setLeave_ID( int ref_Leave_ID ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getLeave_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setLeave_ID( int ref_Leave_ID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

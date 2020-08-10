@@ -14,8 +14,8 @@ public interface Employee_Job extends IModelInstance<Employee_Job,Hr> {
     // attributes
     public int getAppointment_Date() throws XtumlException;
     public void setAppointment_Date( int m_Appointment_Date ) throws XtumlException;
-    public boolean getActive() throws XtumlException;
     public void setActive( boolean m_Active ) throws XtumlException;
+    public boolean getActive() throws XtumlException;
     public void setJob_ID( int ref_Job_ID ) throws XtumlException;
     public int getJob_ID() throws XtumlException;
     public void setNational_ID( int ref_National_ID ) throws XtumlException;

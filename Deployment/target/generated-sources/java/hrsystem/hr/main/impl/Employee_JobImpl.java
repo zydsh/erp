@@ -94,11 +94,6 @@ public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements 
     }
     private boolean m_Active;
     @Override
-    public boolean getActive() throws XtumlException {
-        checkLiving();
-        return m_Active;
-    }
-    @Override
     public void setActive(boolean m_Active) throws XtumlException {
         checkLiving();
         if (m_Active != this.m_Active) {
@@ -106,6 +101,11 @@ public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements 
             this.m_Active = m_Active;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Active", oldValue, this.m_Active));
         }
+    }
+    @Override
+    public boolean getActive() throws XtumlException {
+        checkLiving();
+        return m_Active;
     }
     private int ref_Job_ID;
     @Override
@@ -276,11 +276,11 @@ class EmptyEmployee_Job extends ModelInstance<Employee_Job,Hr> implements Employ
     public void setAppointment_Date( int m_Appointment_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public boolean getActive() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setActive( boolean m_Active ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public boolean getActive() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setJob_ID( int ref_Job_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

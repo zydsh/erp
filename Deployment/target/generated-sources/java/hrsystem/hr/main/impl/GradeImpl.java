@@ -67,6 +67,11 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
     // attributes
     private int m_GValue;
     @Override
+    public int getGValue() throws XtumlException {
+        checkLiving();
+        return m_GValue;
+    }
+    @Override
     public void setGValue(int m_GValue) throws XtumlException {
         checkLiving();
         if (m_GValue != this.m_GValue) {
@@ -75,11 +80,6 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_GValue", oldValue, this.m_GValue));
             if ( !R5_Job().isEmpty() ) R5_Job().setGValue( m_GValue );
         }
-    }
-    @Override
-    public int getGValue() throws XtumlException {
-        checkLiving();
-        return m_GValue;
     }
 
 
@@ -188,11 +188,11 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
 class EmptyGrade extends ModelInstance<Grade,Hr> implements Grade {
 
     // attributes
-    public void setGValue( int m_GValue ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getGValue() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setGValue( int m_GValue ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

@@ -102,11 +102,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     }
     private int m_MaximumDays;
     @Override
-    public int getMaximumDays() throws XtumlException {
-        checkLiving();
-        return m_MaximumDays;
-    }
-    @Override
     public void setMaximumDays(int m_MaximumDays) throws XtumlException {
         checkLiving();
         if (m_MaximumDays != this.m_MaximumDays) {
@@ -114,6 +109,11 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             this.m_MaximumDays = m_MaximumDays;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_MaximumDays", oldValue, this.m_MaximumDays));
         }
+    }
+    @Override
+    public int getMaximumDays() throws XtumlException {
+        checkLiving();
+        return m_MaximumDays;
     }
 
 
@@ -235,11 +235,11 @@ class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getMaximumDays() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setMaximumDays( int m_MaximumDays ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getMaximumDays() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

@@ -31,12 +31,12 @@ public class Employee_JobSetImpl extends InstanceSet<Employee_JobSet,Employee_Jo
         for ( Employee_Job employee_job : this ) employee_job.setJob_ID( ref_Job_ID );
     }
     @Override
-    public void setNational_ID( int ref_National_ID ) throws XtumlException {
-        for ( Employee_Job employee_job : this ) employee_job.setNational_ID( ref_National_ID );
-    }
-    @Override
     public void setActive( boolean m_Active ) throws XtumlException {
         for ( Employee_Job employee_job : this ) employee_job.setActive( m_Active );
+    }
+    @Override
+    public void setNational_ID( int ref_National_ID ) throws XtumlException {
+        for ( Employee_Job employee_job : this ) employee_job.setNational_ID( ref_National_ID );
     }
     @Override
     public void setAppointment_Date( int m_Appointment_Date ) throws XtumlException {

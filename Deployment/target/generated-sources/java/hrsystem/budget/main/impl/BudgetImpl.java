@@ -69,21 +69,25 @@ public class BudgetImpl extends ModelInstance<Budget,Budget> implements Budget {
     // attributes
     private String m_Year;
     @Override
+    public String getYear() throws XtumlException {
+        checkLiving();
+        return m_Year;
+    }
+    @Override
     public void setYear(String m_Year) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Year, this.m_Year)) {
             final String oldValue = this.m_Year;
             this.m_Year = m_Year;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Year", oldValue, this.m_Year));
-            if ( !R1_Chapter().isEmpty() ) R1_Chapter().setYear( m_Year );
         }
     }
-    @Override
-    public String getYear() throws XtumlException {
-        checkLiving();
-        return m_Year;
-    }
     private double m_Fund;
+    @Override
+    public double getFund() throws XtumlException {
+        checkLiving();
+        return m_Fund;
+    }
     @Override
     public void setFund(double m_Fund) throws XtumlException {
         checkLiving();
@@ -92,11 +96,6 @@ public class BudgetImpl extends ModelInstance<Budget,Budget> implements Budget {
             this.m_Fund = m_Fund;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Fund", oldValue, this.m_Fund));
         }
-    }
-    @Override
-    public double getFund() throws XtumlException {
-        checkLiving();
-        return m_Fund;
     }
 
 
@@ -211,17 +210,17 @@ public class BudgetImpl extends ModelInstance<Budget,Budget> implements Budget {
 class EmptyBudget extends ModelInstance<Budget,Budget> implements Budget {
 
     // attributes
-    public void setYear( String m_Year ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getYear() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setFund( double m_Fund ) throws XtumlException {
+    public void setYear( String m_Year ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public double getFund() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setFund( double m_Fund ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 
