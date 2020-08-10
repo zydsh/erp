@@ -27,31 +27,31 @@ if ( empty budget ) and (param.Action=="NEW")
 	b.Fund = param.Fund;
 
 	//SQL::serialize();
-	UI_Fin::Reply( msg:"budget created successfully.", state:True);
+	UI::Reply( msg:"budget created successfully.", state:True);
 
 elif ( not empty budget ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new budget." );
 
 	LOG::LogInfo(message:"Budget already exists." );	
-	UI_Fin::Reply( msg:"Budget already exists", state:False);
+	UI::Reply( msg:"Budget already exists", state:False);
 
 elif ( not empty budget ) and (param.Action=="UPDATE")
 	LOG::LogInfo(message:"Attempting to update budget." );
 
-	budget.Fund = param.Fund;
-	budget.Year = param.Year;
+	budget.Name = param.Name;
+	budget.Percent = param.Percent;
 	
 	LOG::LogInfo(message:"Budget updated successfully." );	
-	UI_Fin::Reply( msg:"Budget updated successfully", state:True);
+	UI::Reply( msg:"Budget updated successfully", state:True);
 
 elif ( not empty budget ) and (param.Action=="DELETE")
 	LOG::LogInfo(message:"Attempting to delete a budget instance." );
 	LOG::LogInfo(message:"Budget delete in not implemented yet." );	
-	UI_Fin::Reply( msg:"Budget delete in not implemented yet", state:False);
+	UI::Reply( msg:"Budget delete in not implemented yet", state:False);
 
  elif (empty budget )
 	LOG::LogInfo(message:"Budget does not exist." );	
-	UI_Fin::Reply( msg:"Budget does not exist.", state:False);
+	UI::Reply( msg:"Budget does not exist.", state:False);
 
 
 
