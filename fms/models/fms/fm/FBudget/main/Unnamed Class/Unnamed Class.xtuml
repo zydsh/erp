@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("f15f0168-076e-4ba9-b5ce-26448f40897f",
-	'Budget',
+	'Budgit',
 	1,
-	'Budget',
+	'Budgit',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
@@ -15,13 +15,13 @@ INSERT INTO O_TFR
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
 	'
-select any budget from instances of Budget where selected.Year==param.Year;
+select any budget from instances of Budgit where selected.Year==param.Year;
 
 if ( empty budget ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new budget to employee." );
 
 	//create object instance budget of budget;
-	create object instance b of Budget;
+	create object instance b of Budgit;
 
 	b.Year = param.Year;
 	b.Fund = param.Fund;
@@ -129,6 +129,11 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"f15f0168-076e-4ba9-b5ce-26448f40897f");
+INSERT INTO O_OIDA
+	VALUES ("62b58a0e-a570-4b23-8c26-f29d1cf243b6",
+	"f15f0168-076e-4ba9-b5ce-26448f40897f",
+	0,
+	'Year');
 INSERT INTO O_ID
 	VALUES (1,
 	"f15f0168-076e-4ba9-b5ce-26448f40897f");

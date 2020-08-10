@@ -17,20 +17,20 @@ INSERT INTO O_TFR
 	'
 
 //select any chapter from instances of Chapter where selected.Year == param.Year; 
-select any item from instances of Item where selected.ID==param.ID; 
+select any item from instances of Item where selected.ItemID==param.ItemID; 
 
 if ( empty item ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new item to employee." );
 
 	//create object instance item of budget;
 	create object instance i of Item;
-	i.ID = param.ID;
+	i.ItemID = param.ItemID;
 	i.Fund = param.Fund;
 	i.Status = param.Status;
 	i.Type = param.Type;
 	i.Category = param.Category;
 	
-	select any section from instances of Section where selected.ID == param.Section_ID;
+	select any section from instances of Section where selected.SecID == param.Section_ID;
 	relate i to section across R3;  
 
 
@@ -121,7 +121,7 @@ INSERT INTO O_TPARM
 INSERT INTO O_TPARM
 	VALUES ("fc585f20-f86d-4ac0-aaf0-f734d3a02328",
 	"0da7df02-71d1-430f-8be7-8b8ba8cfacb6",
-	'ID',
+	'ItemID',
 	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
@@ -218,10 +218,10 @@ INSERT INTO O_ATTR
 	VALUES ("95ec306e-7770-4137-a190-0e06b4b6f9f9",
 	"ded00bde-a203-4847-b9f5-2517a7c34ec2",
 	"00000000-0000-0000-0000-000000000000",
-	'ID',
+	'ItemID',
 	'',
 	'',
-	'ID',
+	'ItemID',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -229,6 +229,11 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"ded00bde-a203-4847-b9f5-2517a7c34ec2");
+INSERT INTO O_OIDA
+	VALUES ("95ec306e-7770-4137-a190-0e06b4b6f9f9",
+	"ded00bde-a203-4847-b9f5-2517a7c34ec2",
+	0,
+	'ItemID');
 INSERT INTO O_ID
 	VALUES (1,
 	"ded00bde-a203-4847-b9f5-2517a7c34ec2");

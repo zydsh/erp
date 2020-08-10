@@ -4,7 +4,7 @@ INSERT INTO EP_PKG
 	VALUES ("dbd3b08d-0074-4efb-a92b-e837a795475d",
 	"be22a5ba-1f16-470a-ab40-9f5cb3e127aa",
 	"be22a5ba-1f16-470a-ab40-9f5cb3e127aa",
-	'Budget',
+	'fm',
 	'',
 	0);
 INSERT INTO GD_MD
@@ -25,14 +25,14 @@ INSERT INTO GD_MD
 	150,
 	0,
 	'4.1.17',
-	'fms::Budget');
+	'fms::fm');
 INSERT INTO GD_GE
 	VALUES ("bd89d982-ef5d-402a-9048-78137f34601b",
 	"ecc535d8-d1dc-4638-be53-7d6719de4845",
 	"a27c47d9-460b-42e6-a5e6-5263c7a5fc10",
 	98,
 	0,
-	'fms::Budget::FBudget');
+	'fms::fm::FBudget');
 INSERT INTO GD_SHP
 	VALUES ("bd89d982-ef5d-402a-9048-78137f34601b");
 INSERT INTO GD_NCS
@@ -66,7 +66,7 @@ INSERT INTO GD_GE
 	"01024f7e-363f-42ba-a710-88fd6f2116e6",
 	94,
 	0,
-	'fms::Budget::FBudget::UI_Fin::CRUD');
+	'fms::fm::FBudget::UI_Fin::CRUD');
 INSERT INTO GD_CON
 	VALUES ("ed8f4f5a-4478-4de8-aa36-c95f3dd12722",
 	"00000000-0000-0000-0000-000000000000");

@@ -17,7 +17,7 @@ INSERT INTO O_TFR
 	'
 
 //select any chapter from instances of Chapter where selected.Year == param.Year; 
-select any section from instances of Section where selected.ID==param.ID; 
+select any section from instances of Section where selected.SecID==param.ID; 
 
 if ( empty section ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new section to employee." );
@@ -246,10 +246,10 @@ INSERT INTO O_ATTR
 	VALUES ("c86894b0-e90a-43c6-8539-5b3f6de6bc02",
 	"15b40926-a264-4d1a-860d-88315cd6eac6",
 	"00000000-0000-0000-0000-000000000000",
-	'ID',
+	'SecID',
 	'',
 	'',
-	'ID',
+	'SecID',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -257,6 +257,11 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_OIDA
+	VALUES ("c86894b0-e90a-43c6-8539-5b3f6de6bc02",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	0,
+	'SecID');
 INSERT INTO O_ID
 	VALUES (1,
 	"15b40926-a264-4d1a-860d-88315cd6eac6");

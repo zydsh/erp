@@ -9,11 +9,11 @@ INSERT INTO C_EP
 	VALUES ("2fd4cb81-28e4-4ff4-b195-c56238afd31e",
 	"3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
 	-1,
-	'Budget',
+	'Budget_crud',
 	'');
 INSERT INTO C_AS
 	VALUES ("2fd4cb81-28e4-4ff4-b195-c56238afd31e",
-	'Budget',
+	'Budget_crud',
 	'',
 	0,
 	"00000000-0000-0000-0000-000000000000");
@@ -48,11 +48,11 @@ INSERT INTO C_EP
 	VALUES ("07ca5b2f-d4f3-4b82-b2ec-474a7e21e6f3",
 	"3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
 	-1,
-	'Chapter',
+	'Chapter_crud',
 	'');
 INSERT INTO C_AS
 	VALUES ("07ca5b2f-d4f3-4b82-b2ec-474a7e21e6f3",
-	'Chapter',
+	'Chapter_crud',
 	'',
 	0,
 	"2fd4cb81-28e4-4ff4-b195-c56238afd31e");
@@ -123,11 +123,11 @@ INSERT INTO C_EP
 	VALUES ("a872ceb5-e350-4e69-8df2-57cd29b551a5",
 	"3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
 	-1,
-	'Section',
+	'Section_crud',
 	'');
 INSERT INTO C_AS
 	VALUES ("a872ceb5-e350-4e69-8df2-57cd29b551a5",
-	'Section',
+	'Section_crud',
 	'',
 	0,
 	"07ca5b2f-d4f3-4b82-b2ec-474a7e21e6f3");
@@ -207,11 +207,11 @@ INSERT INTO C_EP
 	VALUES ("3b23e302-3106-4471-8282-e8984e812642",
 	"3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
 	-1,
-	'Item',
+	'Item_crud',
 	'');
 INSERT INTO C_AS
 	VALUES ("3b23e302-3106-4471-8282-e8984e812642",
-	'Item',
+	'Item_crud',
 	'',
 	0,
 	"a872ceb5-e350-4e69-8df2-57cd29b551a5");

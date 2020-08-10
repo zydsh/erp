@@ -29,7 +29,7 @@ if ( empty chapter ) and (param.Action=="NEW")
 	c.Request_Fund = param.Request_Fund;
 	c.Year = param.Year;
 	
-	select any bud from instances of Budget where selected.Year == param.Year;
+	select any bud from instances of Budgit where selected.Year == param.Year;
 	relate c to bud across R1;  
 
 
@@ -250,9 +250,19 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9");
+INSERT INTO O_OIDA
+	VALUES ("ccc29925-fb07-4ea4-bd6c-f661a21a002d",
+	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
+	0,
+	'Year');
 INSERT INTO O_ID
 	VALUES (1,
 	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9");
+INSERT INTO O_OIDA
+	VALUES ("c34162dc-271d-4d7f-8114-8642ddb539d6",
+	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9",
+	1,
+	'Name');
 INSERT INTO O_ID
 	VALUES (2,
 	"d00fd436-bf28-4ad9-8b76-63f0ca131cc9");
