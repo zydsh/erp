@@ -292,7 +292,7 @@ INSERT INTO SPR_PS
 	'Reply',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ab653808-7559-46a0-86c2-772c131059ad",
