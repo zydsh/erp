@@ -804,24 +804,6 @@ INSERT INTO C_EP_PROXY
 	'Item',
 	'',
 	'../../../../../fms/models/fms/Interfaces/CRUD/CRUD.xtuml');
-INSERT INTO SPR_REP
-	VALUES ("a943533d-f52b-4573-a65a-3ee56cc4e9f1",
-	"ab653808-7559-46a0-86c2-772c131059ad",
-	"f3117f6b-494a-4107-9017-f0888d62e4e9");
-INSERT INTO SPR_RS
-	VALUES ("a943533d-f52b-4573-a65a-3ee56cc4e9f1",
-	'Reply',
-	'',
-	'',
-	3,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("ab653808-7559-46a0-86c2-772c131059ad",
-	"3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
-	-1,
-	'Reply',
-	'',
-	'../../../../../fms/models/fms/Interfaces/CRUD/CRUD.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
 	"00000000-0000-0000-0000-000000000000",
