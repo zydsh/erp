@@ -1,0 +1,151 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("f5d937bf-cadf-4d1c-a19e-4a138b47a85a",
+	'Budget',
+	1,
+	'Budget',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("b0390d39-630a-43d4-afd5-4a3a02583181",
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'
+select any budget from instances of Budget where selected.Year==param.Year;
+
+if ( empty budget ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new budget to employee." );
+
+	//create object instance budget of budget;
+	create object instance b of Budget;
+
+	b.Year = param.Year;
+	b.Fund = param.Fund;
+
+	//SQL::serialize();
+	Fin::Reply( msg:"budget created successfully.", state:True);
+
+elif ( not empty budget ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new budget." );
+
+	LOG::LogInfo(message:"Budget already exists." );	
+	Fin::Reply( msg:"Budget already exists", state:False);
+
+elif ( not empty budget ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update budget." );
+
+	budget.Fund = param.Fund;
+	budget.Year = param.Year;
+	
+	LOG::LogInfo(message:"Budget updated successfully." );	
+	Fin::Reply( msg:"Budget updated successfully", state:True);
+
+elif ( not empty budget ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a budget instance." );
+	LOG::LogInfo(message:"Budget delete in not implemented yet." );	
+	Fin::Reply( msg:"Budget delete in not implemented yet", state:False);
+
+ elif (empty budget )
+	LOG::LogInfo(message:"Budget does not exist." );	
+	Fin::Reply( msg:"Budget does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("0671c9bd-e860-443f-a60e-1f820c640efe",
+	"b0390d39-630a-43d4-afd5-4a3a02583181",
+	'Year',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("07540b0e-17f4-416f-b20e-a9d208a71557",
+	"b0390d39-630a-43d4-afd5-4a3a02583181",
+	'Fund',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"0671c9bd-e860-443f-a60e-1f820c640efe",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("3a6cb0e5-94c5-4aa2-9936-8d164148d67c",
+	"b0390d39-630a-43d4-afd5-4a3a02583181",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"07540b0e-17f4-416f-b20e-a9d208a71557",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("739b34b4-0563-4ae9-a80f-7cc22df0caa3",
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a");
+INSERT INTO O_BATTR
+	VALUES ("739b34b4-0563-4ae9-a80f-7cc22df0caa3",
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a");
+INSERT INTO O_ATTR
+	VALUES ("739b34b4-0563-4ae9-a80f-7cc22df0caa3",
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a",
+	"00000000-0000-0000-0000-000000000000",
+	'Year',
+	'',
+	'',
+	'Year',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ceaf7245-e737-40fc-9c47-e60042771f84",
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a");
+INSERT INTO O_BATTR
+	VALUES ("ceaf7245-e737-40fc-9c47-e60042771f84",
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a");
+INSERT INTO O_ATTR
+	VALUES ("ceaf7245-e737-40fc-9c47-e60042771f84",
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a",
+	"739b34b4-0563-4ae9-a80f-7cc22df0caa3",
+	'Fund',
+	'',
+	'',
+	'Fund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a");
+INSERT INTO O_ID
+	VALUES (1,
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a");
+INSERT INTO O_ID
+	VALUES (2,
+	"f5d937bf-cadf-4d1c-a19e-4a138b47a85a");
+INSERT INTO PE_PE
+	VALUES ("f5d937bf-cadf-4d1c-a19e-4a138b47a85a",
+	1,
+	"98ed5e99-0408-4328-a3e8-a6cb9698c13f",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("98ed5e99-0408-4328-a3e8-a6cb9698c13f",
+	"00000000-0000-0000-0000-000000000000",
+	"21cfa09c-e8b0-470b-9c42-3d3aa14f237a",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

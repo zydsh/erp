@@ -12,8 +12,8 @@
   </properties>
   <modules>
     <module>Deployment</module>
-    <module>fms</module>
     <module>hrSystem</module>
+    <module>fmSystem</module>
     <module>HRUI</module>
 
   </modules>
