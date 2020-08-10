@@ -115,6 +115,11 @@ public class PaymentImpl extends ModelInstance<Payment,Hr> implements Payment {
     }
     private int ref_National_ID;
     @Override
+    public int getNational_ID() throws XtumlException {
+        checkLiving();
+        return ref_National_ID;
+    }
+    @Override
     public void setNational_ID(int ref_National_ID) throws XtumlException {
         checkLiving();
         if (ref_National_ID != this.ref_National_ID) {
@@ -122,11 +127,6 @@ public class PaymentImpl extends ModelInstance<Payment,Hr> implements Payment {
             this.ref_National_ID = ref_National_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_National_ID", oldValue, this.ref_National_ID));
         }
-    }
-    @Override
-    public int getNational_ID() throws XtumlException {
-        checkLiving();
-        return ref_National_ID;
     }
 
 
@@ -203,11 +203,11 @@ class EmptyPayment extends ModelInstance<Payment,Hr> implements Payment {
     public void setDate( int m_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setNational_ID( int ref_National_ID ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getNational_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setNational_ID( int ref_National_ID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

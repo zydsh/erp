@@ -108,6 +108,11 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
     }
     private int m_Ending;
     @Override
+    public int getEnding() throws XtumlException {
+        checkLiving();
+        return m_Ending;
+    }
+    @Override
     public void setEnding(int m_Ending) throws XtumlException {
         checkLiving();
         if (m_Ending != this.m_Ending) {
@@ -115,11 +120,6 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
             this.m_Ending = m_Ending;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
-    }
-    @Override
-    public int getEnding() throws XtumlException {
-        checkLiving();
-        return m_Ending;
     }
     private double m_Amount;
     @Override
@@ -153,6 +153,11 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
     }
     private int ref_Name;
     @Override
+    public int getName() throws XtumlException {
+        checkLiving();
+        return ref_Name;
+    }
+    @Override
     public void setName(int ref_Name) throws XtumlException {
         checkLiving();
         if (ref_Name != this.ref_Name) {
@@ -160,11 +165,6 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
             this.ref_Name = ref_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_Name", oldValue, this.ref_Name));
         }
-    }
-    @Override
-    public int getName() throws XtumlException {
-        checkLiving();
-        return ref_Name;
     }
 
 
@@ -239,7 +239,7 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
         }
         @Override
         public int getId() {
-            return 1;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -252,7 +252,7 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
         }
         @Override
         public int getId() {
-            return 0;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -265,7 +265,7 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
         }
         @Override
         public int getId() {
-            return 2;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -333,11 +333,11 @@ class EmptyBonus_Payment extends ModelInstance<Bonus_Payment,Hr> implements Bonu
     public void setStarting( int m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setEnding( int m_Ending ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setEnding( int m_Ending ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setAmount( double m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -351,11 +351,11 @@ class EmptyBonus_Payment extends ModelInstance<Bonus_Payment,Hr> implements Bonu
     public void setNational_ID( int ref_National_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setName( int ref_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setName( int ref_Name ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

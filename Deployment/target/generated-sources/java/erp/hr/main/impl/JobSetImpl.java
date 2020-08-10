@@ -29,24 +29,24 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
 
     // attributes
     @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Job job : this ) job.setName( m_Name );
+    }
+    @Override
     public void setJob_ID( int m_Job_ID ) throws XtumlException {
         for ( Job job : this ) job.setJob_ID( m_Job_ID );
+    }
+    @Override
+    public void setGValue( int ref_GValue ) throws XtumlException {
+        for ( Job job : this ) job.setGValue( ref_GValue );
     }
     @Override
     public void setSValue( int ref_SValue ) throws XtumlException {
         for ( Job job : this ) job.setSValue( ref_SValue );
     }
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Job job : this ) job.setName( m_Name );
-    }
-    @Override
     public void setAmount( double m_Amount ) throws XtumlException {
         for ( Job job : this ) job.setAmount( m_Amount );
-    }
-    @Override
-    public void setGValue( int ref_GValue ) throws XtumlException {
-        for ( Job job : this ) job.setGValue( ref_GValue );
     }
 
 

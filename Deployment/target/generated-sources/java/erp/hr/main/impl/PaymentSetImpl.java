@@ -29,16 +29,16 @@ public class PaymentSetImpl extends InstanceSet<PaymentSet,Payment> implements P
         for ( Payment payment : this ) payment.setName( m_Name );
     }
     @Override
-    public void setDate( int m_Date ) throws XtumlException {
-        for ( Payment payment : this ) payment.setDate( m_Date );
+    public void setNational_ID( int ref_National_ID ) throws XtumlException {
+        for ( Payment payment : this ) payment.setNational_ID( ref_National_ID );
     }
     @Override
     public void setAmount( double m_Amount ) throws XtumlException {
         for ( Payment payment : this ) payment.setAmount( m_Amount );
     }
     @Override
-    public void setNational_ID( int ref_National_ID ) throws XtumlException {
-        for ( Payment payment : this ) payment.setNational_ID( ref_National_ID );
+    public void setDate( int m_Date ) throws XtumlException {
+        for ( Payment payment : this ) payment.setDate( m_Date );
     }
 
 

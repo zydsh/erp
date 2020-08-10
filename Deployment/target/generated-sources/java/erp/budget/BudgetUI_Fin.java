@@ -30,16 +30,16 @@ public class BudgetUI_Fin extends Port<Budget> implements ICRUD {
         new ItemImpl.CLASS(context()).crud( p_Fund, p_Status, p_Type, p_Category, p_Action, p_ID, p_Section_ID );
     }
 
-    public void Chapter( final String p_Name,  final int p_Code,  final double p_Ceiling_Fund,  final double p_Request_Fund,  final double p_Fund,  final String p_Action,  final String p_Year ) throws XtumlException {
-        new ChapterImpl.CLASS(context()).crud( p_Name, p_Code, p_Ceiling_Fund, p_Request_Fund, p_Fund, p_Year, p_Action );
+    public void Budget( final String p_Year,  final double p_Fund,  final String p_Action ) throws XtumlException {
+        new BudgetImpl.CLASS(context()).crud( p_Year, p_Fund, p_Action );
     }
 
     public void Section( final String p_Name,  final String p_ID,  final double p_Fund,  final String p_Economic_Category,  final String p_Comments,  final String p_Year,  final String p_Action,  final int p_Code ) throws XtumlException {
         new SectionImpl.CLASS(context()).crud( p_Code, p_Name, p_Fund, p_Economic_Category, p_Comments, p_Action, p_Year, p_ID );
     }
 
-    public void Budget( final String p_Year,  final double p_Fund,  final String p_Action ) throws XtumlException {
-        new BudgetImpl.CLASS(context()).crud( p_Year, p_Fund, p_Action );
+    public void Chapter( final String p_Name,  final int p_Code,  final double p_Ceiling_Fund,  final double p_Request_Fund,  final double p_Fund,  final String p_Action,  final String p_Year ) throws XtumlException {
+        new ChapterImpl.CLASS(context()).crud( p_Name, p_Code, p_Ceiling_Fund, p_Request_Fund, p_Fund, p_Year, p_Action );
     }
 
 
@@ -59,14 +59,14 @@ public class BudgetUI_Fin extends Port<Budget> implements ICRUD {
             case ICRUD.SIGNAL_NO_ITEM:
                 Item(RealUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)), StringUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)));
                 break;
-            case ICRUD.SIGNAL_NO_CHAPTER:
-                Chapter(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), RealUtil.deserialize(message.get(2)), RealUtil.deserialize(message.get(3)), RealUtil.deserialize(message.get(4)), StringUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)));
+            case ICRUD.SIGNAL_NO_BUDGET:
+                Budget(StringUtil.deserialize(message.get(0)), RealUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
             case ICRUD.SIGNAL_NO_SECTION:
                 Section(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), RealUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)), StringUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)), IntegerUtil.deserialize(message.get(7)));
                 break;
-            case ICRUD.SIGNAL_NO_BUDGET:
-                Budget(StringUtil.deserialize(message.get(0)), RealUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
+            case ICRUD.SIGNAL_NO_CHAPTER:
+                Chapter(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), RealUtil.deserialize(message.get(2)), RealUtil.deserialize(message.get(3)), RealUtil.deserialize(message.get(4)), StringUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

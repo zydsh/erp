@@ -11,8 +11,8 @@ public interface LeaveSet extends IInstanceSet<LeaveSet,Leave> {
 
     // attributes
     public void setName( String m_Name ) throws XtumlException;
-    public void setLeave_ID( int m_Leave_ID ) throws XtumlException;
     public void setMaximumDays( int m_MaximumDays ) throws XtumlException;
+    public void setLeave_ID( int m_Leave_ID ) throws XtumlException;
 
 
     // selections

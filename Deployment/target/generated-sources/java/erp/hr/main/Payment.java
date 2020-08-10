@@ -17,8 +17,8 @@ public interface Payment extends IModelInstance<Payment,Hr> {
     public double getAmount() throws XtumlException;
     public int getDate() throws XtumlException;
     public void setDate( int m_Date ) throws XtumlException;
-    public void setNational_ID( int ref_National_ID ) throws XtumlException;
     public int getNational_ID() throws XtumlException;
+    public void setNational_ID( int ref_National_ID ) throws XtumlException;
 
 
     // operations

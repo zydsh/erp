@@ -28,8 +28,8 @@ if ( empty chapter ) and (param.Action=="NEW")
 	c.Ceiling_Fund = param.Ceiling_Fund;
 	c.Request_Fund = param.Request_Fund;
 	
-	select any budget from instances of Budget where selected.Year == param.Year;
-	relate c to budget across R1;  
+	select any bud from instances of Budget where selected.Year == param.Year;
+	relate c to bud across R1;  
 
 
 	//SQL::serialize();

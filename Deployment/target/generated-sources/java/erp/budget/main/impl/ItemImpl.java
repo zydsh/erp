@@ -119,11 +119,6 @@ public class ItemImpl extends ModelInstance<Item,Budget> implements Item {
     }
     private String m_Type;
     @Override
-    public String getType() throws XtumlException {
-        checkLiving();
-        return m_Type;
-    }
-    @Override
     public void setType(String m_Type) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Type, this.m_Type)) {
@@ -132,7 +127,17 @@ public class ItemImpl extends ModelInstance<Item,Budget> implements Item {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Type", oldValue, this.m_Type));
         }
     }
+    @Override
+    public String getType() throws XtumlException {
+        checkLiving();
+        return m_Type;
+    }
     private String m_Category;
+    @Override
+    public String getCategory() throws XtumlException {
+        checkLiving();
+        return m_Category;
+    }
     @Override
     public void setCategory(String m_Category) throws XtumlException {
         checkLiving();
@@ -141,11 +146,6 @@ public class ItemImpl extends ModelInstance<Item,Budget> implements Item {
             this.m_Category = m_Category;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Category", oldValue, this.m_Category));
         }
-    }
-    @Override
-    public String getCategory() throws XtumlException {
-        checkLiving();
-        return m_Category;
     }
 
 
@@ -270,17 +270,17 @@ class EmptyItem extends ModelInstance<Item,Budget> implements Item {
     public String getStatus() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getType() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setType( String m_Type ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setCategory( String m_Category ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public String getType() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getCategory() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setCategory( String m_Category ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

@@ -33,16 +33,16 @@ public class ItemSetImpl extends InstanceSet<ItemSet,Item> implements ItemSet {
         for ( Item item : this ) item.setID( m_ID );
     }
     @Override
-    public void setCategory( String m_Category ) throws XtumlException {
-        for ( Item item : this ) item.setCategory( m_Category );
+    public void setFund( double m_Fund ) throws XtumlException {
+        for ( Item item : this ) item.setFund( m_Fund );
     }
     @Override
     public void setType( String m_Type ) throws XtumlException {
         for ( Item item : this ) item.setType( m_Type );
     }
     @Override
-    public void setFund( double m_Fund ) throws XtumlException {
-        for ( Item item : this ) item.setFund( m_Fund );
+    public void setCategory( String m_Category ) throws XtumlException {
+        for ( Item item : this ) item.setCategory( m_Category );
     }
 
 

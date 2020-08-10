@@ -10,8 +10,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface BudgetSet extends IInstanceSet<BudgetSet,Budget> {
 
     // attributes
-    public void setYear( String m_Year ) throws XtumlException;
     public void setFund( double m_Fund ) throws XtumlException;
+    public void setYear( String m_Year ) throws XtumlException;
 
 
     // selections

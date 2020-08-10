@@ -27,6 +27,11 @@ public class UIAppFin extends Port<UI> implements ICRUD {
 
 
     // outbound messages
+    public void Chapter( final String p_Name,  final int p_Code,  final double p_Ceiling_Fund,  final double p_Request_Fund,  final double p_Fund,  final String p_Action,  final String p_Year ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Chapter(p_Name, p_Code, p_Ceiling_Fund, p_Request_Fund, p_Fund, p_Action, p_Year));
+        else {
+        }
+    }
     public void Section( final String p_Name,  final String p_ID,  final double p_Fund,  final String p_Economic_Category,  final String p_Comments,  final String p_Year,  final String p_Action,  final int p_Code ) throws XtumlException {
         if ( satisfied() ) send(new ICRUD.Section(p_Name, p_ID, p_Fund, p_Economic_Category, p_Comments, p_Year, p_Action, p_Code));
         else {
@@ -39,11 +44,6 @@ public class UIAppFin extends Port<UI> implements ICRUD {
     }
     public void Budget( final String p_Year,  final double p_Fund,  final String p_Action ) throws XtumlException {
         if ( satisfied() ) send(new ICRUD.Budget(p_Year, p_Fund, p_Action));
-        else {
-        }
-    }
-    public void Chapter( final String p_Name,  final int p_Code,  final double p_Ceiling_Fund,  final double p_Request_Fund,  final double p_Fund,  final String p_Action,  final String p_Year ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Chapter(p_Name, p_Code, p_Ceiling_Fund, p_Request_Fund, p_Fund, p_Action, p_Year));
         else {
         }
     }

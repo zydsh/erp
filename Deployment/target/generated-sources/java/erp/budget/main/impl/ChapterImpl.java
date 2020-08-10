@@ -81,11 +81,6 @@ public class ChapterImpl extends ModelInstance<Chapter,Budget> implements Chapte
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
-    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -94,7 +89,17 @@ public class ChapterImpl extends ModelInstance<Chapter,Budget> implements Chapte
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
     }
+    @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
     private int m_Code;
+    @Override
+    public int getCode() throws XtumlException {
+        checkLiving();
+        return m_Code;
+    }
     @Override
     public void setCode(int m_Code) throws XtumlException {
         checkLiving();
@@ -103,11 +108,6 @@ public class ChapterImpl extends ModelInstance<Chapter,Budget> implements Chapte
             this.m_Code = m_Code;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Code", oldValue, this.m_Code));
         }
-    }
-    @Override
-    public int getCode() throws XtumlException {
-        checkLiving();
-        return m_Code;
     }
     private double m_Ceiling_Fund;
     @Override
@@ -204,8 +204,8 @@ public class ChapterImpl extends ModelInstance<Chapter,Budget> implements Chapte
                 c.setCode(p_Code);
                 c.setCeiling_Fund(p_Ceiling_Fund);
                 c.setRequest_Fund(p_Request_Fund);
-                Budget budget = context().Budget_instances().anyWhere(selected -> StringUtil.equality(((Budget)selected).getYear(), p_Year));
-                context().relate_R1_Chapter_Budget( c, budget );
+                Budget bud = context().Budget_instances().anyWhere(selected -> StringUtil.equality(((Budget)selected).getYear(), p_Year));
+                context().relate_R1_Chapter_Budget( c, bud );
                 context().UI_Fin().Reply( "budget created successfully.", true );
             }
             else if ( !chapter.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
@@ -296,17 +296,17 @@ public class ChapterImpl extends ModelInstance<Chapter,Budget> implements Chapte
 class EmptyChapter extends ModelInstance<Chapter,Budget> implements Chapter {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setCode( int m_Code ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public String getName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getCode() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setCode( int m_Code ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setCeiling_Fund( double m_Ceiling_Fund ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

@@ -141,6 +141,11 @@ public class SectionImpl extends ModelInstance<Section,Budget> implements Sectio
     }
     private String m_Economic_Category;
     @Override
+    public String getEconomic_Category() throws XtumlException {
+        checkLiving();
+        return m_Economic_Category;
+    }
+    @Override
     public void setEconomic_Category(String m_Economic_Category) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Economic_Category, this.m_Economic_Category)) {
@@ -149,17 +154,7 @@ public class SectionImpl extends ModelInstance<Section,Budget> implements Sectio
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Economic_Category", oldValue, this.m_Economic_Category));
         }
     }
-    @Override
-    public String getEconomic_Category() throws XtumlException {
-        checkLiving();
-        return m_Economic_Category;
-    }
     private String m_Comments;
-    @Override
-    public String getComments() throws XtumlException {
-        checkLiving();
-        return m_Comments;
-    }
     @Override
     public void setComments(String m_Comments) throws XtumlException {
         checkLiving();
@@ -168,6 +163,11 @@ public class SectionImpl extends ModelInstance<Section,Budget> implements Sectio
             this.m_Comments = m_Comments;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Comments", oldValue, this.m_Comments));
         }
+    }
+    @Override
+    public String getComments() throws XtumlException {
+        checkLiving();
+        return m_Comments;
     }
 
 
@@ -334,17 +334,17 @@ class EmptySection extends ModelInstance<Section,Budget> implements Section {
     public double getFund() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setEconomic_Category( String m_Economic_Category ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getEconomic_Category() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getComments() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setEconomic_Category( String m_Economic_Category ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setComments( String m_Comments ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getComments() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

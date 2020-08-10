@@ -43,9 +43,9 @@ public class DeploymentApplication implements IApplication {
                 executors[i] = new ApplicationExecutor( "DeploymentApplicationExecutor" + i, args );
             }
         }
-        components[2] = new Hr(this, executors[0], 2);
-        components[0] = new Budget(this, executors[0], 0);
         components[1] = new UI(this, executors[0], 1);
+        components[0] = new Budget(this, executors[0], 0);
+        components[2] = new Hr(this, executors[0], 2);
         ((UI)components[1]).App().satisfy(((Hr)components[2]).UI());
         ((Hr)components[2]).UI().satisfy(((UI)components[1]).App());
         ((UI)components[1]).AppFin().satisfy(((Budget)components[0]).UI_Fin());
@@ -54,14 +54,14 @@ public class DeploymentApplication implements IApplication {
         ((Hr)components[2]).UI_Ops().satisfy(((UI)components[1]).AppOps());
     }
 
-    public Hr Hr() {
-        return (Hr)components[2];
+    public UI UI() {
+        return (UI)components[1];
     }
     public Budget Budget() {
         return (Budget)components[0];
     }
-    public UI UI() {
-        return (UI)components[1];
+    public Hr Hr() {
+        return (Hr)components[2];
     }
 
     @Override
