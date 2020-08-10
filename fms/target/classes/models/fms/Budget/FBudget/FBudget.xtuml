@@ -283,24 +283,6 @@ INSERT INTO C_EP_PROXY
 	'Item',
 	'',
 	'../../Interfaces/CRUD/CRUD.xtuml');
-INSERT INTO SPR_PEP
-	VALUES ("f0cf0b20-d2ce-4df6-8779-b7b5a949c8ed",
-	"ab653808-7559-46a0-86c2-772c131059ad",
-	"01024f7e-363f-42ba-a710-88fd6f2116e6");
-INSERT INTO SPR_PS
-	VALUES ("f0cf0b20-d2ce-4df6-8779-b7b5a949c8ed",
-	'Reply',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("ab653808-7559-46a0-86c2-772c131059ad",
-	"3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
-	-1,
-	'Reply',
-	'',
-	'../../Interfaces/CRUD/CRUD.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
 	"00000000-0000-0000-0000-000000000000",
