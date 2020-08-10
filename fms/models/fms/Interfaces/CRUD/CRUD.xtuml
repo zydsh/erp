@@ -278,36 +278,6 @@ INSERT INTO C_PP
 	0,
 	'',
 	"e05173a7-b39e-4ba7-a207-5f4ac4de4ec4");
-INSERT INTO C_EP
-	VALUES ("ab653808-7559-46a0-86c2-772c131059ad",
-	"3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
-	-1,
-	'Reply',
-	'');
-INSERT INTO C_AS
-	VALUES ("ab653808-7559-46a0-86c2-772c131059ad",
-	'Reply',
-	'',
-	1,
-	"3b23e302-3106-4471-8282-e8984e812642");
-INSERT INTO C_PP
-	VALUES ("9eb47823-09ac-42ea-a883-bf9efdcec47b",
-	"ab653808-7559-46a0-86c2-772c131059ad",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'msg',
-	'',
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("bce48e91-c515-48e4-8263-d3eb3bdc589c",
-	"ab653808-7559-46a0-86c2-772c131059ad",
-	"ba5eda7a-def5-0000-0000-000000000001",
-	'state',
-	'',
-	0,
-	'',
-	"9eb47823-09ac-42ea-a883-bf9efdcec47b");
 INSERT INTO PE_PE
 	VALUES ("3d28b1ed-72d1-49a8-bce5-d805ecdcb3df",
 	1,

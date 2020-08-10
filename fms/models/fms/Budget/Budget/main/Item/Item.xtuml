@@ -35,13 +35,13 @@ if ( empty item ) and (param.Action=="NEW")
 
 
 	//SQL::serialize();
-	UI_Fin::Reply( msg:"budget created successfully.", state:True);
+	//UI_Fin::Reply( msg:"budget created successfully.", state:True);
 
 elif ( not empty item ) and (param.Action=="NEW")
 	LOG::LogInfo(message:"Attempting to add a new item." );
 
 	LOG::LogInfo(message:"Item already exists." );	
-	UI_Fin::Reply( msg:"Item already exists", state:False);
+	//UI_Fin::Reply( msg:"Item already exists", state:False);
 
 elif ( not empty item ) and (param.Action=="UPDATE")
 	LOG::LogInfo(message:"Attempting to update item." );
@@ -52,16 +52,16 @@ elif ( not empty item ) and (param.Action=="UPDATE")
 	item.Category = param.Category;
 	
 	LOG::LogInfo(message:"Item updated successfully." );	
-	UI_Fin::Reply( msg:"Item updated successfully", state:True);
+	//UI_Fin::Reply( msg:"Item updated successfully", state:True);
 
 elif ( not empty item ) and (param.Action=="DELETE")
 	LOG::LogInfo(message:"Attempting to delete a item instance." );
 	LOG::LogInfo(message:"Item delete in not implemented yet." );	
-	UI_Fin::Reply( msg:"Item delete in not implemented yet", state:False);
+	//UI_Fin::Reply( msg:"Item delete in not implemented yet", state:False);
 
  elif (empty item )
 	LOG::LogInfo(message:"Item does not exist." );	
-	UI_Fin::Reply( msg:"Item does not exist.", state:False);
+	//UI_Fin::Reply( msg:"Item does not exist.", state:False);
 
 
 
