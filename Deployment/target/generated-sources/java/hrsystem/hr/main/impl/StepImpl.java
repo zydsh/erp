@@ -67,19 +67,18 @@ public class StepImpl extends ModelInstance<Step,Hr> implements Step {
     // attributes
     private int m_SValue;
     @Override
+    public int getSValue() throws XtumlException {
+        checkLiving();
+        return m_SValue;
+    }
+    @Override
     public void setSValue(int m_SValue) throws XtumlException {
         checkLiving();
         if (m_SValue != this.m_SValue) {
             final int oldValue = this.m_SValue;
             this.m_SValue = m_SValue;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_SValue", oldValue, this.m_SValue));
-            if ( !R5_Job().isEmpty() ) R5_Job().setSValue( m_SValue );
         }
-    }
-    @Override
-    public int getSValue() throws XtumlException {
-        checkLiving();
-        return m_SValue;
     }
 
 
@@ -188,11 +187,11 @@ public class StepImpl extends ModelInstance<Step,Hr> implements Step {
 class EmptyStep extends ModelInstance<Step,Hr> implements Step {
 
     // attributes
-    public void setSValue( int m_SValue ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getSValue() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setSValue( int m_SValue ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

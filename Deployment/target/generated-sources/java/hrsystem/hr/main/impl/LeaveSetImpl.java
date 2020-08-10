@@ -29,12 +29,12 @@ public class LeaveSetImpl extends InstanceSet<LeaveSet,Leave> implements LeaveSe
         for ( Leave leave : this ) leave.setMaximumDays( m_MaximumDays );
     }
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Leave leave : this ) leave.setName( m_Name );
-    }
-    @Override
     public void setLeave_ID( int m_Leave_ID ) throws XtumlException {
         for ( Leave leave : this ) leave.setLeave_ID( m_Leave_ID );
+    }
+    @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Leave leave : this ) leave.setName( m_Name );
     }
 
 

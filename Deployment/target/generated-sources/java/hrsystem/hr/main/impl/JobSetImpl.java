@@ -33,16 +33,8 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
         for ( Job job : this ) job.setJob_ID( m_Job_ID );
     }
     @Override
-    public void setGValue( int ref_GValue ) throws XtumlException {
-        for ( Job job : this ) job.setGValue( ref_GValue );
-    }
-    @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( Job job : this ) job.setName( m_Name );
-    }
-    @Override
-    public void setSValue( int ref_SValue ) throws XtumlException {
-        for ( Job job : this ) job.setSValue( ref_SValue );
     }
     @Override
     public void setAmount( double m_Amount ) throws XtumlException {

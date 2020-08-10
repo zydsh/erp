@@ -18,12 +18,8 @@ public interface Job extends IModelInstance<Job,Hr> {
     public int getJob_ID() throws XtumlException;
     public double getAmount() throws XtumlException;
     public void setAmount( double m_Amount ) throws XtumlException;
-    public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
-    public int getGValue() throws XtumlException;
-    public void setGValue( int ref_GValue ) throws XtumlException;
-    public int getSValue() throws XtumlException;
-    public void setSValue( int ref_SValue ) throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
 
 
     // operations

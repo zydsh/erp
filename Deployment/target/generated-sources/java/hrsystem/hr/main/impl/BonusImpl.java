@@ -75,7 +75,6 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
             final String oldValue = this.m_Name;
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
-            if ( !R4_Bonus_Payment().isEmpty() ) R4_Bonus_Payment().setName( m_Name );
         }
     }
     @Override

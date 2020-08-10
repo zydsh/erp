@@ -12,9 +12,9 @@ public interface Employee_JobSet extends IInstanceSet<Employee_JobSet,Employee_J
 
     // attributes
     public void setJob_ID( int ref_Job_ID ) throws XtumlException;
-    public void setNational_ID( int ref_National_ID ) throws XtumlException;
-    public void setActive( boolean m_Active ) throws XtumlException;
     public void setAppointment_Date( int m_Appointment_Date ) throws XtumlException;
+    public void setActive( boolean m_Active ) throws XtumlException;
+    public void setNational_ID( int ref_National_ID ) throws XtumlException;
 
 
     // selections
