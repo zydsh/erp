@@ -224,6 +224,24 @@ INSERT INTO C_EP_PROXY
 	'Initiative',
 	'',
 	'../../Interfaces/PmCRUD/PmCRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("5e3a43f1-a5f2-4721-ac4f-fdcb98b57adf",
+	"121fb8a3-091c-421b-a83e-ee7c55cd053e",
+	"b6e0d511-8a68-438b-8e05-bc6290956f12");
+INSERT INTO SPR_PS
+	VALUES ("5e3a43f1-a5f2-4721-ac4f-fdcb98b57adf",
+	'Strategy',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("121fb8a3-091c-421b-a83e-ee7c55cd053e",
+	"e29f747d-7554-415d-b64b-6527d84a060c",
+	-1,
+	'Strategy',
+	'',
+	'../../Interfaces/PmCRUD/PmCRUD.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e29f747d-7554-415d-b64b-6527d84a060c",
 	"00000000-0000-0000-0000-000000000000",
