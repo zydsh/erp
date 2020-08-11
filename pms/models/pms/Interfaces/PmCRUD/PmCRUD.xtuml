@@ -107,6 +107,54 @@ INSERT INTO C_PP
 	0,
 	'',
 	"db8148c5-fd8a-4268-9ad9-a389c63b0a48");
+INSERT INTO C_EP
+	VALUES ("121fb8a3-091c-421b-a83e-ee7c55cd053e",
+	"e29f747d-7554-415d-b64b-6527d84a060c",
+	-1,
+	'Strategy',
+	'');
+INSERT INTO C_AS
+	VALUES ("121fb8a3-091c-421b-a83e-ee7c55cd053e",
+	'Strategy',
+	'',
+	0,
+	"edb1875e-d13e-4822-b459-632be9189d2d");
+INSERT INTO C_PP
+	VALUES ("3be858c4-1e78-459a-93b6-7689c6a1614c",
+	"121fb8a3-091c-421b-a83e-ee7c55cd053e",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("9d1e7814-b0ad-46c2-945d-43548092cc08",
+	"121fb8a3-091c-421b-a83e-ee7c55cd053e",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"3be858c4-1e78-459a-93b6-7689c6a1614c");
+INSERT INTO C_PP
+	VALUES ("155d11cf-85fa-4aec-9c75-cc06570de2ce",
+	"121fb8a3-091c-421b-a83e-ee7c55cd053e",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Number',
+	'',
+	0,
+	'',
+	"9d1e7814-b0ad-46c2-945d-43548092cc08");
+INSERT INTO C_PP
+	VALUES ("b65aae2c-0eef-4002-878f-5e99c272c194",
+	"121fb8a3-091c-421b-a83e-ee7c55cd053e",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"155d11cf-85fa-4aec-9c75-cc06570de2ce");
 INSERT INTO PE_PE
 	VALUES ("e29f747d-7554-415d-b64b-6527d84a060c",
 	1,
