@@ -28,6 +28,9 @@ public class PmPM extends Port<Pm> implements IPmCRUD {
     public void Strategy( final String p_Name,  final String p_Description,  final String p_Number,  final String p_Action ) throws XtumlException {
     }
 
+    public void Milestone( final String p_Name,  final String p_Full_Code,  final String p_Code,  final String p_Type,  final String p_Success_Criteria,  final int p_Complete_Planned,  final int p_Complete_Actual,  final int p_Complete,  final int p_Weight,  final int p_Percentage,  final String p_sd_State,  final String p_sd_Description,  final String p_Notes,  final String p_Incomplete_Reasons,  final String p_Action ) throws XtumlException {
+    }
+
 
 
     // outbound messages
@@ -42,6 +45,9 @@ public class PmPM extends Port<Pm> implements IPmCRUD {
                 break;
             case IPmCRUD.SIGNAL_NO_STRATEGY:
                 Strategy(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)));
+                break;
+            case IPmCRUD.SIGNAL_NO_MILESTONE:
+                Milestone(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)), IntegerUtil.deserialize(message.get(5)), IntegerUtil.deserialize(message.get(6)), IntegerUtil.deserialize(message.get(7)), IntegerUtil.deserialize(message.get(8)), IntegerUtil.deserialize(message.get(9)), StringUtil.deserialize(message.get(10)), StringUtil.deserialize(message.get(11)), StringUtil.deserialize(message.get(12)), StringUtil.deserialize(message.get(13)), StringUtil.deserialize(message.get(14)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

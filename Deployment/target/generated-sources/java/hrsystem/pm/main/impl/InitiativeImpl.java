@@ -3,7 +3,10 @@ package hrsystem.pm.main.impl;
 
 import hrsystem.Pm;
 import hrsystem.pm.main.Initiative;
+import hrsystem.pm.main.Milestone;
+import hrsystem.pm.main.MilestoneSet;
 import hrsystem.pm.main.Strategy;
+import hrsystem.pm.main.impl.MilestoneSetImpl;
 import hrsystem.pm.main.impl.StrategyImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
@@ -41,6 +44,7 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
         m_End_Date = 0;
         m_Budget = 0d;
         R1_Strategy_inst = StrategyImpl.EMPTY_STRATEGY;
+        R2_Milestone_set = new MilestoneSetImpl();
     }
 
     private InitiativeImpl( Pm context, UniqueId instanceId, String m_Name, String m_Short_Number, String m_Long_Number, String m_Description, int m_Start_Date, int m_Actual_Start_Date, int m_End_Date, double m_Budget ) {
@@ -55,6 +59,7 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
         this.m_End_Date = m_End_Date;
         this.m_Budget = m_Budget;
         R1_Strategy_inst = StrategyImpl.EMPTY_STRATEGY;
+        R2_Milestone_set = new MilestoneSetImpl();
     }
 
     public static Initiative create( Pm context ) throws XtumlException {
@@ -79,11 +84,6 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
-    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -91,6 +91,11 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
+    }
+    @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
     }
     private String m_Short_Number;
     @Override
@@ -139,6 +144,11 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
     }
     private int m_Start_Date;
     @Override
+    public int getStart_Date() throws XtumlException {
+        checkLiving();
+        return m_Start_Date;
+    }
+    @Override
     public void setStart_Date(int m_Start_Date) throws XtumlException {
         checkLiving();
         if (m_Start_Date != this.m_Start_Date) {
@@ -147,17 +157,7 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Start_Date", oldValue, this.m_Start_Date));
         }
     }
-    @Override
-    public int getStart_Date() throws XtumlException {
-        checkLiving();
-        return m_Start_Date;
-    }
     private int m_Actual_Start_Date;
-    @Override
-    public int getActual_Start_Date() throws XtumlException {
-        checkLiving();
-        return m_Actual_Start_Date;
-    }
     @Override
     public void setActual_Start_Date(int m_Actual_Start_Date) throws XtumlException {
         checkLiving();
@@ -167,7 +167,17 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Actual_Start_Date", oldValue, this.m_Actual_Start_Date));
         }
     }
+    @Override
+    public int getActual_Start_Date() throws XtumlException {
+        checkLiving();
+        return m_Actual_Start_Date;
+    }
     private int m_End_Date;
+    @Override
+    public int getEnd_Date() throws XtumlException {
+        checkLiving();
+        return m_End_Date;
+    }
     @Override
     public void setEnd_Date(int m_End_Date) throws XtumlException {
         checkLiving();
@@ -176,11 +186,6 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             this.m_End_Date = m_End_Date;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_End_Date", oldValue, this.m_End_Date));
         }
-    }
-    @Override
-    public int getEnd_Date() throws XtumlException {
-        checkLiving();
-        return m_End_Date;
     }
     private double m_Budget;
     @Override
@@ -232,6 +237,19 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
     public Strategy R1_Strategy() throws XtumlException {
         return R1_Strategy_inst;
     }
+    private MilestoneSet R2_Milestone_set;
+    @Override
+    public void addR2_Milestone( Milestone inst ) {
+        R2_Milestone_set.add(inst);
+    }
+    @Override
+    public void removeR2_Milestone( Milestone inst ) {
+        R2_Milestone_set.remove(inst);
+    }
+    @Override
+    public MilestoneSet R2_Milestone() throws XtumlException {
+        return R2_Milestone_set;
+    }
 
 
     @Override
@@ -266,11 +284,11 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
 class EmptyInitiative extends ModelInstance<Initiative,Pm> implements Initiative {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setShort_Number( String m_Short_Number ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -290,23 +308,23 @@ class EmptyInitiative extends ModelInstance<Initiative,Pm> implements Initiative
     public String getDescription() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setStart_Date( int m_Start_Date ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getStart_Date() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getActual_Start_Date() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setStart_Date( int m_Start_Date ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setActual_Start_Date( int m_Actual_Start_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setEnd_Date( int m_End_Date ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public int getActual_Start_Date() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getEnd_Date() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setEnd_Date( int m_End_Date ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setBudget( double m_Budget ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -323,6 +341,10 @@ class EmptyInitiative extends ModelInstance<Initiative,Pm> implements Initiative
     @Override
     public Strategy R1_Strategy() {
         return StrategyImpl.EMPTY_STRATEGY;
+    }
+    @Override
+    public MilestoneSet R2_Milestone() {
+        return (new MilestoneSetImpl());
     }
 
 

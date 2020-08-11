@@ -70,6 +70,11 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
     // attributes
     private String m_Name;
     @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
+    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -78,12 +83,12 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
     }
-    @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
     private String m_Description;
+    @Override
+    public String getDescription() throws XtumlException {
+        checkLiving();
+        return m_Description;
+    }
     @Override
     public void setDescription(String m_Description) throws XtumlException {
         checkLiving();
@@ -92,11 +97,6 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
             this.m_Description = m_Description;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Description", oldValue, this.m_Description));
         }
-    }
-    @Override
-    public String getDescription() throws XtumlException {
-        checkLiving();
-        return m_Description;
     }
     private String m_Number;
     @Override
@@ -186,17 +186,17 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
 class EmptyStrategy extends ModelInstance<Strategy,Pm> implements Strategy {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setDescription( String m_Description ) throws XtumlException {
+    public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getDescription() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setDescription( String m_Description ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setNumber( String m_Number ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

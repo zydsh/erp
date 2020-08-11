@@ -31,12 +31,12 @@ public class Employee_LeaveSetImpl extends InstanceSet<Employee_LeaveSet,Employe
         for ( Employee_Leave employee_leave : this ) employee_leave.setEnding( m_Ending );
     }
     @Override
-    public void setStarting( int m_Starting ) throws XtumlException {
-        for ( Employee_Leave employee_leave : this ) employee_leave.setStarting( m_Starting );
-    }
-    @Override
     public void setApproved( boolean m_Approved ) throws XtumlException {
         for ( Employee_Leave employee_leave : this ) employee_leave.setApproved( m_Approved );
+    }
+    @Override
+    public void setStarting( int m_Starting ) throws XtumlException {
+        for ( Employee_Leave employee_leave : this ) employee_leave.setStarting( m_Starting );
     }
 
 

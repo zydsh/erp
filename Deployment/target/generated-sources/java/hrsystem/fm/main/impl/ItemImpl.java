@@ -89,6 +89,11 @@ public class ItemImpl extends ModelInstance<Item,Fm> implements Item {
     }
     private double m_Fund;
     @Override
+    public double getFund() throws XtumlException {
+        checkLiving();
+        return m_Fund;
+    }
+    @Override
     public void setFund(double m_Fund) throws XtumlException {
         checkLiving();
         if (m_Fund != this.m_Fund) {
@@ -96,11 +101,6 @@ public class ItemImpl extends ModelInstance<Item,Fm> implements Item {
             this.m_Fund = m_Fund;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Fund", oldValue, this.m_Fund));
         }
-    }
-    @Override
-    public double getFund() throws XtumlException {
-        checkLiving();
-        return m_Fund;
     }
     private String m_Status;
     @Override
@@ -119,11 +119,6 @@ public class ItemImpl extends ModelInstance<Item,Fm> implements Item {
     }
     private String m_Type;
     @Override
-    public String getType() throws XtumlException {
-        checkLiving();
-        return m_Type;
-    }
-    @Override
     public void setType(String m_Type) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Type, this.m_Type)) {
@@ -131,6 +126,11 @@ public class ItemImpl extends ModelInstance<Item,Fm> implements Item {
             this.m_Type = m_Type;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Type", oldValue, this.m_Type));
         }
+    }
+    @Override
+    public String getType() throws XtumlException {
+        checkLiving();
+        return m_Type;
     }
     private String m_Category;
     @Override
@@ -258,11 +258,11 @@ class EmptyItem extends ModelInstance<Item,Fm> implements Item {
     public String getItemID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setFund( double m_Fund ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public double getFund() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setFund( double m_Fund ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setStatus( String m_Status ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -270,11 +270,11 @@ class EmptyItem extends ModelInstance<Item,Fm> implements Item {
     public String getStatus() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getType() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setType( String m_Type ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getType() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getCategory() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

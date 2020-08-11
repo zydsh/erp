@@ -3,6 +3,7 @@ hrsystem/ui/UIApp.class
 hrsystem/hr/main/impl/EmployeeImpl$commenced.class
 hrsystem/hr/main/impl/EmptyJob.class
 hrsystem/hr/HrUI_Ops.class
+hrsystem/pm/main/impl/EmptyMilestone.class
 hrsystem/pm/main/impl/StrategySetImpl.class
 hrsystem/hr/main/Bonus_Payment.class
 hrsystem/hr/main/Employee_Leave.class
@@ -30,7 +31,9 @@ hrsystem/hr/main/impl/EmployeeImpl$requestLeave.class
 hrsystem/fm/main/impl/EmptyItem.class
 hrsystem/hr/main/impl/JobImpl.class
 hrsystem/pm/main/impl/EmptyInitiative.class
+hrsystem/ui/UIPmcrud.class
 hrsystem/fm/main/ChapterSet.class
+hrsystem/pm/main/MilestoneSet.class
 hrsystem/hr/main/impl/GradeImpl$CLASS.class
 interfaces/IFinCRUD$Item.class
 hrsystem/pm/main/impl/InitiativeSetImpl.class
@@ -47,6 +50,7 @@ hrsystem/fm/main/SectionSet.class
 hrsystem/hr/main/Leave.class
 hrsystem/hr/main/Step.class
 shared/ICRUD$Bonus.class
+interfaces/IPmCRUD$Milestone.class
 hrsystem/hr/main/impl/BonusImpl$CLASS.class
 hrsystem/hr/main/impl/BonusSetImpl.class
 hrsystem/UI.class
@@ -55,6 +59,7 @@ hrsystem/pm/main/Initiative.class
 hrsystem/hr/main/impl/StepImpl.class
 interfaces/IFinCRUD$Section.class
 shared/ICRUD$Step.class
+hrsystem/pm/main/impl/MilestoneSetImpl.class
 hrsystem/ui/UIAppOps.class
 hrsystem/hr/main/impl/GradeSetImpl.class
 hrsystem/hr/main/impl/EmployeeImpl$employeeUpdateRcvd.class
@@ -75,6 +80,7 @@ hrsystem/hr/main/impl/BonusImpl.class
 hrsystem/hr/main/StepSet.class
 hrsystem/hr/main/Grade.class
 hrsystem/hr/main/LeaveSet.class
+hrsystem/pm/main/impl/MilestoneImpl.class
 hrsystem/fm/main/impl/ItemImpl.class
 interfaces/IFinCRUD$Budget.class
 hrsystem/Hr.class
@@ -84,6 +90,7 @@ hrsystem/hr/main/impl/Employee_LeaveImpl.class
 shared/IOps$Request_Employee_Payment.class
 hrsystem/hr/main/impl/EmptyEmployee.class
 hrsystem/fm/main/ItemSet.class
+hrsystem/pm/main/impl/MilestoneImpl$CLASS.class
 hrsystem/fm/main/Section.class
 deployment/DeploymentApplication.class
 hrsystem/hr/main/impl/Bonus_PaymentImpl$resumeBonus.class
@@ -125,6 +132,7 @@ hrsystem/fm/main/Budget.class
 shared/IOps$Leave_Request.class
 hrsystem/hr/main/impl/Bonus_PaymentSetImpl.class
 hrsystem/hr/main/impl/EmployeeImpl.class
+hrsystem/pm/main/Milestone.class
 hrsystem/ui/UIFincrud.class
 hrsystem/fm/main/BudgetSet.class
 hrsystem/hr/main/impl/JobSetImpl.class
@@ -134,7 +142,6 @@ hrsystem/hr/main/Bonus_PaymentSet.class
 hrsystem/hr/main/Bonus.class
 hrsystem/hr/main/impl/Bonus_PaymentImpl$deactivateBonus.class
 hrsystem/hr/main/GradeSet.class
-hrsystem/ui/UIPort1.class
 shared/IOps$Employee_Bonus.class
 hrsystem/hr/HrUI.class
 hrsystem/hr/main/impl/EmptyStep.class

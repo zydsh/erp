@@ -25,12 +25,8 @@ public class ItemSetImpl extends InstanceSet<ItemSet,Item> implements ItemSet {
 
     // attributes
     @Override
-    public void setStatus( String m_Status ) throws XtumlException {
-        for ( Item item : this ) item.setStatus( m_Status );
-    }
-    @Override
-    public void setFund( double m_Fund ) throws XtumlException {
-        for ( Item item : this ) item.setFund( m_Fund );
+    public void setType( String m_Type ) throws XtumlException {
+        for ( Item item : this ) item.setType( m_Type );
     }
     @Override
     public void setItemID( String m_ItemID ) throws XtumlException {
@@ -41,8 +37,12 @@ public class ItemSetImpl extends InstanceSet<ItemSet,Item> implements ItemSet {
         for ( Item item : this ) item.setCategory( m_Category );
     }
     @Override
-    public void setType( String m_Type ) throws XtumlException {
-        for ( Item item : this ) item.setType( m_Type );
+    public void setStatus( String m_Status ) throws XtumlException {
+        for ( Item item : this ) item.setStatus( m_Status );
+    }
+    @Override
+    public void setFund( double m_Fund ) throws XtumlException {
+        for ( Item item : this ) item.setFund( m_Fund );
     }
 
 

@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface JobSet extends IInstanceSet<JobSet,Job> {
 
     // attributes
-    public void setAmount( double m_Amount ) throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
+    public void setAmount( double m_Amount ) throws XtumlException;
     public void setJob_ID( int m_Job_ID ) throws XtumlException;
 
 

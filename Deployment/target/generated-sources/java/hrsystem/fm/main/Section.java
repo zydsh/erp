@@ -19,10 +19,10 @@ public interface Section extends IModelInstance<Section,Fm> {
     public void setName( String m_Name ) throws XtumlException;
     public void setCode( String m_Code ) throws XtumlException;
     public String getCode() throws XtumlException;
-    public double getFund() throws XtumlException;
     public void setFund( double m_Fund ) throws XtumlException;
-    public void setEconomic_Category( String m_Economic_Category ) throws XtumlException;
+    public double getFund() throws XtumlException;
     public String getEconomic_Category() throws XtumlException;
+    public void setEconomic_Category( String m_Economic_Category ) throws XtumlException;
     public void setComments( String m_Comments ) throws XtumlException;
     public String getComments() throws XtumlException;
 
