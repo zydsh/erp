@@ -214,8 +214,8 @@ INSERT INTO SPR_PS
 	VALUES ("cc435315-f72e-46d9-955b-d42b4c612b58",
 	'Initiative',
 	'',
-	'',
-	3,
+	'Initiative::crud( Name:param.Name, Short_Number:param.Short_Number, Long_Number:param.Long_Number, Description:param.Description, Start_Date:param.Start_Date, Actual_Start_Date:param.Actual_Start_Date, End_Date:param.End_Date, Actual_End_Date:param.Actual_End_Date, Budget:param.Budget, Str_Name:param.Str_Name, Action:param.Action);',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("edb1875e-d13e-4822-b459-632be9189d2d",
@@ -232,8 +232,8 @@ INSERT INTO SPR_PS
 	VALUES ("5e3a43f1-a5f2-4721-ac4f-fdcb98b57adf",
 	'Strategy',
 	'',
-	'',
-	3,
+	'Strategy::crud( Name:param.Name, Number:param.Number, Description:param.Description, Action:param.Action);',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("121fb8a3-091c-421b-a83e-ee7c55cd053e",
@@ -250,8 +250,22 @@ INSERT INTO SPR_PS
 	VALUES ("a4b11e7c-db47-44e2-a865-c17282c9cfee",
 	'Milestone',
 	'',
-	'',
-	3,
+	'Milestone::crud( Name : param.Name, Full_Code : param.Full_Code, 
+	Code : param.Code,
+	Type : param.Type,
+	Success_Criteria : param.Success_Criteria,
+	Complete_Planned : param.Complete_Planned, 
+	Complete_Actual : param.Complete_Actual,  
+    Complete  : param.Complete, 
+    Weight : param.Weight,
+    Percentage : param.Percentage,
+    sd_State : param.sd_State,
+    sd_Description : param.sd_Description, 
+    Notes : param.Notes,
+    Incomplete_Reasons : param.Incomplete_Reasons, 
+    Initiative_Number:param.Initiative_Number, 
+    Action:param.Action);',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1cfee122-214d-4dce-b8ad-6dc0b6b5ae8e",
@@ -268,8 +282,8 @@ INSERT INTO SPR_PS
 	VALUES ("f9f797b1-6233-40dc-aa55-c67db2ebcee2",
 	'Supporting_Documents',
 	'',
-	'',
-	3,
+	'Supporting_Documents::crud( Name:param.Name, Document:param.Document, State:param.State, Notes:param.Notes, Full_Code:param.Full_Code, Action:param.Action);',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("474b7b22-5d62-4632-bdee-7e1966c1bff2",

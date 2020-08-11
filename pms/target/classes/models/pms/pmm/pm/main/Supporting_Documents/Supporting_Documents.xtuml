@@ -14,8 +14,59 @@ INSERT INTO O_TFR
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
-	'',
-	3,
+	'
+select any sd from instances of Supporting_Documents where selected.Name==param.Name;
+
+if ( empty sd ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new supporting document to milestone." );
+
+	//create object instance Supporting_Documents of initiative;
+	create object instance sd of Supporting_Documents;
+
+	sd.Name = param.Name;
+	sd.Notes = param.Notes;
+	sd.Document = param.Document;
+	sd.State = param.State;
+	
+	select any mile from instances of Milestone where selected.Full_Code == param.Full_Code;
+	relate mile to sd across R3;  
+
+	//SQL::serialize();
+	PM::Reply( msg:"Supporting document created successfully.", state:True);
+
+elif ( not empty sd ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new supporting document." );
+
+	LOG::LogInfo(message:"Supporting Documents already exists." );	
+	PM::Reply( msg:"Supporting Documents already exists", state:False);
+
+elif ( not empty sd ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update supporting document." );
+
+	sd.Name = param.Name;
+	sd.Notes = param.Notes;
+	sd.Document = param.Document;
+	sd.State = param.State;
+	
+	LOG::LogInfo(message:"Supporting Documents updated successfully." );	
+	PM::Reply( msg:"Supporting Documents updated successfully", state:True);
+
+elif ( not empty sd ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a supporting document instance." );
+	LOG::LogInfo(message:"Supporting Documents delete in not implemented yet." );	
+	PM::Reply( msg:"Supporting Documents delete in not implemented yet", state:False);
+
+ elif (empty sd )
+	LOG::LogInfo(message:"Supporting Documents does not exist." );	
+	PM::Reply( msg:"Supporting Documents does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	0);
@@ -59,6 +110,15 @@ INSERT INTO O_TPARM
 	VALUES ("0b4cad6e-1fd3-4c1d-b45a-56ffc0c02eff",
 	"4266f372-1a36-4fd7-88ae-f2b843543e2f",
 	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"26fdd5ff-8f20-4615-a30a-f8453c7fd7f0",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("26fdd5ff-8f20-4615-a30a-f8453c7fd7f0",
+	"4266f372-1a36-4fd7-88ae-f2b843543e2f",
+	'Full_Code',
 	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',

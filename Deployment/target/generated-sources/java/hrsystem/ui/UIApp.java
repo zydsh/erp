@@ -28,13 +28,8 @@ public class UIApp extends Port<UI> implements ICRUD {
 
 
     // outbound messages
-    public void Bonus( final String p_Name,  final double p_Percent,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Bonus(p_Name, p_Percent, p_Action));
-        else {
-        }
-    }
-    public void Payment() throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Payment());
+    public void Grade( final int p_Value,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Grade(p_Value, p_Action));
         else {
         }
     }
@@ -43,8 +38,13 @@ public class UIApp extends Port<UI> implements ICRUD {
         else {
         }
     }
-    public void Job( final int p_Step,  final int p_Grade,  final double p_Amount,  final String p_Name,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Job(p_Step, p_Grade, p_Amount, p_Name, p_Action));
+    public void Bonus( final String p_Name,  final double p_Percent,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Bonus(p_Name, p_Percent, p_Action));
+        else {
+        }
+    }
+    public void Payment() throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Payment());
         else {
         }
     }
@@ -58,8 +58,8 @@ public class UIApp extends Port<UI> implements ICRUD {
         else {
         }
     }
-    public void Grade( final int p_Value,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Grade(p_Value, p_Action));
+    public void Job( final int p_Step,  final int p_Grade,  final double p_Amount,  final String p_Name,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Job(p_Step, p_Grade, p_Amount, p_Name, p_Action));
         else {
         }
     }

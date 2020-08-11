@@ -6,6 +6,7 @@ import hrsystem.pm.main.Initiative;
 import hrsystem.pm.main.Milestone;
 import hrsystem.pm.main.MilestoneSet;
 import hrsystem.pm.main.Strategy;
+import hrsystem.pm.main.impl.InitiativeImpl;
 import hrsystem.pm.main.impl.MilestoneSetImpl;
 import hrsystem.pm.main.impl.StrategyImpl;
 
@@ -42,12 +43,13 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
         m_Start_Date = 0;
         m_Actual_Start_Date = 0;
         m_End_Date = 0;
+        m_Actual_End_Date = 0;
         m_Budget = 0d;
         R1_Strategy_inst = StrategyImpl.EMPTY_STRATEGY;
         R2_Milestone_set = new MilestoneSetImpl();
     }
 
-    private InitiativeImpl( Pm context, UniqueId instanceId, String m_Name, String m_Short_Number, String m_Long_Number, String m_Description, int m_Start_Date, int m_Actual_Start_Date, int m_End_Date, double m_Budget ) {
+    private InitiativeImpl( Pm context, UniqueId instanceId, String m_Name, String m_Short_Number, String m_Long_Number, String m_Description, int m_Start_Date, int m_Actual_Start_Date, int m_End_Date, int m_Actual_End_Date, double m_Budget ) {
         super(instanceId);
         this.context = context;
         this.m_Name = m_Name;
@@ -57,6 +59,7 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
         this.m_Start_Date = m_Start_Date;
         this.m_Actual_Start_Date = m_Actual_Start_Date;
         this.m_End_Date = m_End_Date;
+        this.m_Actual_End_Date = m_Actual_End_Date;
         this.m_Budget = m_Budget;
         R1_Strategy_inst = StrategyImpl.EMPTY_STRATEGY;
         R2_Milestone_set = new MilestoneSetImpl();
@@ -71,8 +74,8 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Initiative create( Pm context, UniqueId instanceId, String m_Name, String m_Short_Number, String m_Long_Number, String m_Description, int m_Start_Date, int m_Actual_Start_Date, int m_End_Date, double m_Budget ) throws XtumlException {
-        Initiative newInitiative = new InitiativeImpl( context, instanceId, m_Name, m_Short_Number, m_Long_Number, m_Description, m_Start_Date, m_Actual_Start_Date, m_End_Date, m_Budget );
+    public static Initiative create( Pm context, UniqueId instanceId, String m_Name, String m_Short_Number, String m_Long_Number, String m_Description, int m_Start_Date, int m_Actual_Start_Date, int m_End_Date, int m_Actual_End_Date, double m_Budget ) throws XtumlException {
+        Initiative newInitiative = new InitiativeImpl( context, instanceId, m_Name, m_Short_Number, m_Long_Number, m_Description, m_Start_Date, m_Actual_Start_Date, m_End_Date, m_Actual_End_Date, m_Budget );
         if ( context.addInstance( newInitiative ) ) {
             return newInitiative;
         }
@@ -99,6 +102,11 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
     }
     private String m_Short_Number;
     @Override
+    public String getShort_Number() throws XtumlException {
+        checkLiving();
+        return m_Short_Number;
+    }
+    @Override
     public void setShort_Number(String m_Short_Number) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Short_Number, this.m_Short_Number)) {
@@ -107,17 +115,7 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Short_Number", oldValue, this.m_Short_Number));
         }
     }
-    @Override
-    public String getShort_Number() throws XtumlException {
-        checkLiving();
-        return m_Short_Number;
-    }
     private String m_Long_Number;
-    @Override
-    public String getLong_Number() throws XtumlException {
-        checkLiving();
-        return m_Long_Number;
-    }
     @Override
     public void setLong_Number(String m_Long_Number) throws XtumlException {
         checkLiving();
@@ -126,6 +124,11 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             this.m_Long_Number = m_Long_Number;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Long_Number", oldValue, this.m_Long_Number));
         }
+    }
+    @Override
+    public String getLong_Number() throws XtumlException {
+        checkLiving();
+        return m_Long_Number;
     }
     private String m_Description;
     @Override
@@ -187,6 +190,21 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_End_Date", oldValue, this.m_End_Date));
         }
     }
+    private int m_Actual_End_Date;
+    @Override
+    public void setActual_End_Date(int m_Actual_End_Date) throws XtumlException {
+        checkLiving();
+        if (m_Actual_End_Date != this.m_Actual_End_Date) {
+            final int oldValue = this.m_Actual_End_Date;
+            this.m_Actual_End_Date = m_Actual_End_Date;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Actual_End_Date", oldValue, this.m_Actual_End_Date));
+        }
+    }
+    @Override
+    public int getActual_End_Date() throws XtumlException {
+        checkLiving();
+        return m_Actual_End_Date;
+    }
     private double m_Budget;
     @Override
     public void setBudget(double m_Budget) throws XtumlException {
@@ -216,7 +234,51 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             super( context );
         }
 
-        public void crud( final String p_Name,  final String p_Short_Number,  final String p_Long_Number,  final String p_Description,  final int p_Start_Date,  final int p_Actual_Start_Date,  final int p_End_Date,  final int p_Actual_End_Date,  final double p_Budget,  final String p_Action ) throws XtumlException {
+        public void crud( final String p_Name,  final String p_Short_Number,  final String p_Long_Number,  final String p_Description,  final int p_Start_Date,  final int p_Actual_Start_Date,  final int p_End_Date,  final int p_Actual_End_Date,  final double p_Budget,  final String p_Str_Name,  final String p_Action ) throws XtumlException {
+            Initiative initiative = context().Initiative_instances().anyWhere(selected -> StringUtil.equality(((Initiative)selected).getName(), p_Name));
+            if ( initiative.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
+                context().LOG().LogInfo( "Attempting to add a new initiative to employee." );
+                Initiative i = InitiativeImpl.create( context() );
+                i.setName(p_Name);
+                i.setShort_Number(p_Short_Number);
+                i.setLong_Number(p_Long_Number);
+                i.setStart_Date(p_Start_Date);
+                i.setActual_Start_Date(p_Actual_Start_Date);
+                i.setEnd_Date(p_End_Date);
+                i.setActual_End_Date(p_Actual_End_Date);
+                i.setBudget(p_Budget);
+                i.setDescription(p_Description);
+                Strategy str = context().Strategy_instances().anyWhere(selected -> StringUtil.equality(((Strategy)selected).getName(), p_Str_Name));
+                context().relate_R1_Initiative_Strategy( i, str );
+                context().PM().Reply( "initiative created successfully.", true );
+            }
+            else if ( !initiative.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
+                context().LOG().LogInfo( "Attempting to add a new initiative." );
+                context().LOG().LogInfo( "Initiative already exists." );
+                context().PM().Reply( "Initiative already exists", false );
+            }
+            else if ( !initiative.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
+                context().LOG().LogInfo( "Attempting to update initiative." );
+                initiative.setName(p_Name);
+                initiative.setShort_Number(p_Short_Number);
+                initiative.setLong_Number(p_Long_Number);
+                initiative.setStart_Date(p_Start_Date);
+                initiative.setActual_Start_Date(p_Actual_Start_Date);
+                initiative.setEnd_Date(p_End_Date);
+                initiative.setActual_End_Date(p_Actual_End_Date);
+                initiative.setBudget(p_Budget);
+                context().LOG().LogInfo( "Initiative updated successfully." );
+                context().PM().Reply( "Initiative updated successfully", true );
+            }
+            else if ( !initiative.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
+                context().LOG().LogInfo( "Attempting to delete a initiative instance." );
+                context().LOG().LogInfo( "Initiative delete in not implemented yet." );
+                context().PM().Reply( "Initiative delete in not implemented yet", false );
+            }
+            else if ( initiative.isEmpty() ) {
+                context().LOG().LogInfo( "Initiative does not exist." );
+                context().PM().Reply( "Initiative does not exist.", false );
+            }
         }
 
 
@@ -290,17 +352,17 @@ class EmptyInitiative extends ModelInstance<Initiative,Pm> implements Initiative
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setShort_Number( String m_Short_Number ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getShort_Number() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getLong_Number() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setShort_Number( String m_Short_Number ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setLong_Number( String m_Long_Number ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getLong_Number() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setDescription( String m_Description ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -325,6 +387,12 @@ class EmptyInitiative extends ModelInstance<Initiative,Pm> implements Initiative
     }
     public void setEnd_Date( int m_End_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public void setActual_End_Date( int m_Actual_End_Date ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getActual_End_Date() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setBudget( double m_Budget ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

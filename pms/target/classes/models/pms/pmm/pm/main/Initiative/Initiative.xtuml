@@ -14,8 +14,68 @@ INSERT INTO O_TFR
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
-	'',
-	3,
+	'
+select any initiative from instances of Initiative where selected.Name==param.Name;
+
+if ( empty initiative ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new initiative to employee." );
+
+	//create object instance Initiative of initiative;
+	create object instance i of Initiative;
+
+	i.Name = param.Name;
+	i.Short_Number = param.Short_Number;
+	i.Long_Number = param.Long_Number;
+	i.Start_Date = param.Start_Date;
+	i.Actual_Start_Date = param.Actual_Start_Date;
+	i.End_Date = param.End_Date;
+	i.Actual_End_Date = param.Actual_End_Date;
+	i.Budget = param.Budget;
+	i.Description = param.Description;
+	
+	select any str from instances of Strategy where selected.Name == param.Str_Name;
+	relate str to i across R1;  
+
+	//SQL::serialize();
+	PM::Reply( msg:"initiative created successfully.", state:True);
+
+elif ( not empty initiative ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new initiative." );
+
+	LOG::LogInfo(message:"Initiative already exists." );	
+	PM::Reply( msg:"Initiative already exists", state:False);
+
+elif ( not empty initiative ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update initiative." );
+
+	initiative.Name = param.Name;
+	initiative.Short_Number = param.Short_Number;
+	initiative.Long_Number = param.Long_Number;
+	initiative.Start_Date = param.Start_Date;
+	initiative.Actual_Start_Date = param.Actual_Start_Date;
+	initiative.End_Date = param.End_Date;
+	initiative.Actual_End_Date = param.Actual_End_Date;
+	initiative.Budget = param.Budget;
+	
+	LOG::LogInfo(message:"Initiative updated successfully." );	
+	PM::Reply( msg:"Initiative updated successfully", state:True);
+
+elif ( not empty initiative ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a initiative instance." );
+	LOG::LogInfo(message:"Initiative delete in not implemented yet." );	
+	PM::Reply( msg:"Initiative delete in not implemented yet", state:False);
+
+ elif (empty initiative )
+	LOG::LogInfo(message:"Initiative does not exist." );	
+	PM::Reply( msg:"Initiative does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	0);
@@ -104,6 +164,15 @@ INSERT INTO O_TPARM
 	VALUES ("9aff9a10-d9fe-424f-9d1c-73e758981dce",
 	"bd53f7d8-7e26-49b4-bc78-40c7c1ccb4f8",
 	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"9c3ef3c5-2f28-4696-804f-f2e319196b99",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("9c3ef3c5-2f28-4696-804f-f2e319196b99",
+	"bd53f7d8-7e26-49b4-bc78-40c7c1ccb4f8",
+	'Str_Name',
 	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
@@ -244,13 +313,31 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("f83391ba-a831-45c7-9afb-f6fc2634bc25",
 	"eca7d12a-3b09-4a60-9c00-d2db25c1f5c4",
-	"f6c81416-4ab5-464a-b54b-0860c285f143",
+	"e42ff312-af6c-4cec-88b9-51671b213263",
 	'Budget',
 	'',
 	'',
 	'Budget',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("e42ff312-af6c-4cec-88b9-51671b213263",
+	"eca7d12a-3b09-4a60-9c00-d2db25c1f5c4");
+INSERT INTO O_BATTR
+	VALUES ("e42ff312-af6c-4cec-88b9-51671b213263",
+	"eca7d12a-3b09-4a60-9c00-d2db25c1f5c4");
+INSERT INTO O_ATTR
+	VALUES ("e42ff312-af6c-4cec-88b9-51671b213263",
+	"eca7d12a-3b09-4a60-9c00-d2db25c1f5c4",
+	"f6c81416-4ab5-464a-b54b-0860c285f143",
+	'Actual_End_Date',
+	'',
+	'',
+	'Actual_End_Date',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
 INSERT INTO O_ID

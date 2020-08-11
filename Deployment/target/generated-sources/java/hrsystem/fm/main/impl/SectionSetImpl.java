@@ -27,18 +27,6 @@ public class SectionSetImpl extends InstanceSet<SectionSet,Section> implements S
 
     // attributes
     @Override
-    public void setSecID( String m_SecID ) throws XtumlException {
-        for ( Section section : this ) section.setSecID( m_SecID );
-    }
-    @Override
-    public void setFund( double m_Fund ) throws XtumlException {
-        for ( Section section : this ) section.setFund( m_Fund );
-    }
-    @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Section section : this ) section.setName( m_Name );
-    }
-    @Override
     public void setCode( String m_Code ) throws XtumlException {
         for ( Section section : this ) section.setCode( m_Code );
     }
@@ -47,8 +35,20 @@ public class SectionSetImpl extends InstanceSet<SectionSet,Section> implements S
         for ( Section section : this ) section.setEconomic_Category( m_Economic_Category );
     }
     @Override
+    public void setSecID( String m_SecID ) throws XtumlException {
+        for ( Section section : this ) section.setSecID( m_SecID );
+    }
+    @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Section section : this ) section.setName( m_Name );
+    }
+    @Override
     public void setComments( String m_Comments ) throws XtumlException {
         for ( Section section : this ) section.setComments( m_Comments );
+    }
+    @Override
+    public void setFund( double m_Fund ) throws XtumlException {
+        for ( Section section : this ) section.setFund( m_Fund );
     }
 
 

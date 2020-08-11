@@ -27,28 +27,32 @@ public class InitiativeSetImpl extends InstanceSet<InitiativeSet,Initiative> imp
 
     // attributes
     @Override
-    public void setActual_Start_Date( int m_Actual_Start_Date ) throws XtumlException {
-        for ( Initiative initiative : this ) initiative.setActual_Start_Date( m_Actual_Start_Date );
-    }
-    @Override
-    public void setShort_Number( String m_Short_Number ) throws XtumlException {
-        for ( Initiative initiative : this ) initiative.setShort_Number( m_Short_Number );
-    }
-    @Override
-    public void setLong_Number( String m_Long_Number ) throws XtumlException {
-        for ( Initiative initiative : this ) initiative.setLong_Number( m_Long_Number );
-    }
-    @Override
-    public void setDescription( String m_Description ) throws XtumlException {
-        for ( Initiative initiative : this ) initiative.setDescription( m_Description );
-    }
-    @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( Initiative initiative : this ) initiative.setName( m_Name );
     }
     @Override
     public void setBudget( double m_Budget ) throws XtumlException {
         for ( Initiative initiative : this ) initiative.setBudget( m_Budget );
+    }
+    @Override
+    public void setActual_End_Date( int m_Actual_End_Date ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setActual_End_Date( m_Actual_End_Date );
+    }
+    @Override
+    public void setDescription( String m_Description ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setDescription( m_Description );
+    }
+    @Override
+    public void setLong_Number( String m_Long_Number ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setLong_Number( m_Long_Number );
+    }
+    @Override
+    public void setActual_Start_Date( int m_Actual_Start_Date ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setActual_Start_Date( m_Actual_Start_Date );
+    }
+    @Override
+    public void setShort_Number( String m_Short_Number ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setShort_Number( m_Short_Number );
     }
     @Override
     public void setEnd_Date( int m_End_Date ) throws XtumlException {

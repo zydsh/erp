@@ -6,6 +6,7 @@ import hrsystem.pm.main.Initiative;
 import hrsystem.pm.main.InitiativeSet;
 import hrsystem.pm.main.Strategy;
 import hrsystem.pm.main.impl.InitiativeSetImpl;
+import hrsystem.pm.main.impl.StrategyImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
 import io.ciera.runtime.instanceloading.InstanceCreatedDelta;
@@ -70,11 +71,6 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
-    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -82,6 +78,11 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
+    }
+    @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
     }
     private String m_Description;
     @Override
@@ -128,6 +129,37 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
         }
 
         public void crud( final String p_Name,  final String p_Number,  final String p_Description,  final String p_Action ) throws XtumlException {
+            Strategy strategy = context().Strategy_instances().anyWhere(selected -> StringUtil.equality(((Strategy)selected).getName(), p_Name));
+            if ( strategy.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
+                context().LOG().LogInfo( "Attempting to add a new strategy to employee." );
+                Strategy s = StrategyImpl.create( context() );
+                s.setName(p_Name);
+                s.setNumber(p_Number);
+                s.setDescription(p_Description);
+                context().PM().Reply( "strategy created successfully.", true );
+            }
+            else if ( !strategy.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
+                context().LOG().LogInfo( "Attempting to add a new strategy." );
+                context().LOG().LogInfo( "Strategy already exists." );
+                context().PM().Reply( "Strategy already exists", false );
+            }
+            else if ( !strategy.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
+                context().LOG().LogInfo( "Attempting to update strategy." );
+                strategy.setName(p_Name);
+                strategy.setNumber(p_Number);
+                strategy.setDescription(p_Description);
+                context().LOG().LogInfo( "Strategy updated successfully." );
+                context().PM().Reply( "Strategy updated successfully", true );
+            }
+            else if ( !strategy.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
+                context().LOG().LogInfo( "Attempting to delete a strategy instance." );
+                context().LOG().LogInfo( "Strategy delete in not implemented yet." );
+                context().PM().Reply( "Strategy delete in not implemented yet", false );
+            }
+            else if ( strategy.isEmpty() ) {
+                context().LOG().LogInfo( "Strategy does not exist." );
+                context().PM().Reply( "Strategy does not exist.", false );
+            }
         }
 
 
@@ -186,11 +218,11 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
 class EmptyStrategy extends ModelInstance<Strategy,Pm> implements Strategy {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setDescription( String m_Description ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

@@ -15,14 +15,14 @@ public interface Milestone extends IModelInstance<Milestone,Pm> {
     // attributes
     public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
-    public String getFull_Code() throws XtumlException;
     public void setFull_Code( String m_Full_Code ) throws XtumlException;
-    public void setCode( String m_Code ) throws XtumlException;
+    public String getFull_Code() throws XtumlException;
     public String getCode() throws XtumlException;
-    public void setType( String m_Type ) throws XtumlException;
+    public void setCode( String m_Code ) throws XtumlException;
     public String getType() throws XtumlException;
-    public void setSuccess_Criteria( String m_Success_Criteria ) throws XtumlException;
+    public void setType( String m_Type ) throws XtumlException;
     public String getSuccess_Criteria() throws XtumlException;
+    public void setSuccess_Criteria( String m_Success_Criteria ) throws XtumlException;
     public int getComplete_Planned() throws XtumlException;
     public void setComplete_Planned( int m_Complete_Planned ) throws XtumlException;
     public int getComplete_Actual() throws XtumlException;
@@ -37,10 +37,10 @@ public interface Milestone extends IModelInstance<Milestone,Pm> {
     public String getSd_State() throws XtumlException;
     public void setSd_Description( String m_sd_Description ) throws XtumlException;
     public String getSd_Description() throws XtumlException;
-    public void setNotes( String m_Notes ) throws XtumlException;
     public String getNotes() throws XtumlException;
-    public String getIncomplete_Reasons() throws XtumlException;
+    public void setNotes( String m_Notes ) throws XtumlException;
     public void setIncomplete_Reasons( String m_Incomplete_Reasons ) throws XtumlException;
+    public String getIncomplete_Reasons() throws XtumlException;
 
 
     // operations

@@ -30,6 +30,8 @@ import io.ciera.runtime.summit.exceptions.BadArgumentException;
 import io.ciera.runtime.summit.exceptions.EmptyInstanceException;
 import io.ciera.runtime.summit.exceptions.ModelIntegrityException;
 import io.ciera.runtime.summit.exceptions.XtumlException;
+import io.ciera.runtime.summit.util.LOG;
+import io.ciera.runtime.summit.util.impl.LOGImpl;
 
 import java.io.IOException;
 import java.util.Map;
@@ -50,7 +52,7 @@ public class Pm extends Component<Pm> {
         R1_Initiative_Strategy_extent = new RelationshipSet();
         R2_Milestone_Initiative_extent = new RelationshipSet();
         R3_Supporting_Documents_Milestone_extent = new RelationshipSet();
-
+        LOG = null;
         classDirectory = new TreeMap<>();
         classDirectory.put("Initiative", InitiativeImpl.class);
         classDirectory.put("Milestone", MilestoneImpl.class);
@@ -167,6 +169,11 @@ public class Pm extends Component<Pm> {
 
 
     // utilities
+    private LOG LOG;
+    public LOG LOG() {
+        if ( null == LOG ) LOG = new LOGImpl<>( this );
+        return LOG;
+    }
 
 
     // component initialization function
