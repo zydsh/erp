@@ -206,6 +206,24 @@ INSERT INTO C_P
 	'Unnamed Interface',
 	'',
 	'pm::PM::PmCRUD');
+INSERT INTO SPR_PEP
+	VALUES ("cc435315-f72e-46d9-955b-d42b4c612b58",
+	"edb1875e-d13e-4822-b459-632be9189d2d",
+	"b6e0d511-8a68-438b-8e05-bc6290956f12");
+INSERT INTO SPR_PS
+	VALUES ("cc435315-f72e-46d9-955b-d42b4c612b58",
+	'Initiative',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("edb1875e-d13e-4822-b459-632be9189d2d",
+	"e29f747d-7554-415d-b64b-6527d84a060c",
+	-1,
+	'Initiative',
+	'',
+	'../../Interfaces/PmCRUD/PmCRUD.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e29f747d-7554-415d-b64b-6527d84a060c",
 	"00000000-0000-0000-0000-000000000000",

@@ -965,6 +965,24 @@ INSERT INTO C_R
 	'',
 	'Unnamed Interface',
 	'UI::Port1::PmCRUD');
+INSERT INTO SPR_REP
+	VALUES ("5c8c2982-b77f-41d1-9f15-c548f10ad733",
+	"edb1875e-d13e-4822-b459-632be9189d2d",
+	"7b1ac668-bc1c-4f1b-a636-0b358ee709a0");
+INSERT INTO SPR_RS
+	VALUES ("5c8c2982-b77f-41d1-9f15-c548f10ad733",
+	'Initiative',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("edb1875e-d13e-4822-b459-632be9189d2d",
+	"e29f747d-7554-415d-b64b-6527d84a060c",
+	-1,
+	'Initiative',
+	'',
+	'../../../../../pms/models/pms/Interfaces/PmCRUD/PmCRUD.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e29f747d-7554-415d-b64b-6527d84a060c",
 	"00000000-0000-0000-0000-000000000000",
