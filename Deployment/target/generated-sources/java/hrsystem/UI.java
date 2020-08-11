@@ -4,6 +4,7 @@ package hrsystem;
 import hrsystem.ui.UIApp;
 import hrsystem.ui.UIAppOps;
 import hrsystem.ui.UIFincrud;
+import hrsystem.ui.UIPort1;
 
 import io.ciera.runtime.summit.application.IApplication;
 import io.ciera.runtime.summit.application.IRunContext;
@@ -62,6 +63,11 @@ public class UI extends Component<UI> {
     public UIFincrud Fincrud() {
         if ( null == UIFincrud ) UIFincrud = new UIFincrud( this, null );
         return UIFincrud;
+    }
+    private UIPort1 UIPort1;
+    public UIPort1 Port1() {
+        if ( null == UIPort1 ) UIPort1 = new UIPort1( this, null );
+        return UIPort1;
     }
 
 

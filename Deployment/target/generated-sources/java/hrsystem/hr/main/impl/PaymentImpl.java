@@ -98,6 +98,11 @@ public class PaymentImpl extends ModelInstance<Payment,Hr> implements Payment {
     }
     private int m_Date;
     @Override
+    public int getDate() throws XtumlException {
+        checkLiving();
+        return m_Date;
+    }
+    @Override
     public void setDate(int m_Date) throws XtumlException {
         checkLiving();
         if (m_Date != this.m_Date) {
@@ -105,11 +110,6 @@ public class PaymentImpl extends ModelInstance<Payment,Hr> implements Payment {
             this.m_Date = m_Date;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Date", oldValue, this.m_Date));
         }
-    }
-    @Override
-    public int getDate() throws XtumlException {
-        checkLiving();
-        return m_Date;
     }
 
 
@@ -180,11 +180,11 @@ class EmptyPayment extends ModelInstance<Payment,Hr> implements Payment {
     public void setAmount( double m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setDate( int m_Date ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getDate() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setDate( int m_Date ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

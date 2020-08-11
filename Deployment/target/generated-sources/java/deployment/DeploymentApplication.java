@@ -3,6 +3,7 @@ package deployment;
 
 import hrsystem.Fm;
 import hrsystem.Hr;
+import hrsystem.Pm;
 import hrsystem.UI;
 
 import io.ciera.runtime.summit.application.ApplicationExecutor;
@@ -22,7 +23,7 @@ public class DeploymentApplication implements IApplication {
     private ApplicationExecutor[] executors;
 
     public DeploymentApplication() {
-        components = new IComponent<?>[3];
+        components = new IComponent<?>[4];
         executors = new ApplicationExecutor[1];
     }
 
@@ -43,25 +44,31 @@ public class DeploymentApplication implements IApplication {
                 executors[i] = new ApplicationExecutor( "DeploymentApplicationExecutor" + i, args );
             }
         }
-        components[2] = new Hr(this, executors[0], 2);
+        components[3] = new Pm(this, executors[0], 3);
         components[0] = new UI(this, executors[0], 0);
         components[1] = new Fm(this, executors[0], 1);
+        components[2] = new Hr(this, executors[0], 2);
         ((UI)components[0]).App().satisfy(((Hr)components[2]).UI());
         ((Hr)components[2]).UI().satisfy(((UI)components[0]).App());
         ((UI)components[0]).AppOps().satisfy(((Hr)components[2]).UI_Ops());
         ((Hr)components[2]).UI_Ops().satisfy(((UI)components[0]).AppOps());
         ((UI)components[0]).Fincrud().satisfy(((Fm)components[1]).Fin());
         ((Fm)components[1]).Fin().satisfy(((UI)components[0]).Fincrud());
+        ((UI)components[0]).Port1().satisfy(((Pm)components[3]).Port1());
+        ((Pm)components[3]).Port1().satisfy(((UI)components[0]).Port1());
     }
 
-    public Hr Hr() {
-        return (Hr)components[2];
+    public Pm Pm() {
+        return (Pm)components[3];
     }
     public UI UI() {
         return (UI)components[0];
     }
     public Fm Fm() {
         return (Fm)components[1];
+    }
+    public Hr Hr() {
+        return (Hr)components[2];
     }
 
     @Override

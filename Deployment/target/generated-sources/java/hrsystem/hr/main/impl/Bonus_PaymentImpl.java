@@ -228,7 +228,7 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
         }
         @Override
         public int getId() {
-            return 2;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -241,7 +241,7 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
         }
         @Override
         public int getId() {
-            return 0;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -254,7 +254,7 @@ public class Bonus_PaymentImpl extends ModelInstance<Bonus_Payment,Hr> implement
         }
         @Override
         public int getId() {
-            return 1;
+            return 0;
         }
         @Override
         public String getClassName() {

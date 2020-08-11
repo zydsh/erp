@@ -74,6 +74,11 @@ public class ItemImpl extends ModelInstance<Item,Fm> implements Item {
     // attributes
     private String m_ItemID;
     @Override
+    public String getItemID() throws XtumlException {
+        checkLiving();
+        return m_ItemID;
+    }
+    @Override
     public void setItemID(String m_ItemID) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_ItemID, this.m_ItemID)) {
@@ -81,11 +86,6 @@ public class ItemImpl extends ModelInstance<Item,Fm> implements Item {
             this.m_ItemID = m_ItemID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_ItemID", oldValue, this.m_ItemID));
         }
-    }
-    @Override
-    public String getItemID() throws XtumlException {
-        checkLiving();
-        return m_ItemID;
     }
     private double m_Fund;
     @Override
@@ -252,11 +252,11 @@ public class ItemImpl extends ModelInstance<Item,Fm> implements Item {
 class EmptyItem extends ModelInstance<Item,Fm> implements Item {
 
     // attributes
-    public void setItemID( String m_ItemID ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getItemID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setItemID( String m_ItemID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public double getFund() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

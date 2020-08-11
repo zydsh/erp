@@ -14,6 +14,8 @@
     <module>Deployment</module>
     <module>hrSystem</module>
     <module>fmSystem</module>
+    <module>pms</module>
+
     <module>HRUI</module>
 
   </modules>
