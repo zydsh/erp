@@ -28,18 +28,28 @@ public class UIApp extends Port<UI> implements ICRUD {
 
 
     // outbound messages
-    public void Employee( final String p_FName,  final String p_LName,  final int p_National_ID,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Employee(p_FName, p_LName, p_National_ID, p_Action));
-        else {
-        }
-    }
     public void Step( final int p_Value,  final String p_Action ) throws XtumlException {
         if ( satisfied() ) send(new ICRUD.Step(p_Value, p_Action));
         else {
         }
     }
+    public void Payment() throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Payment());
+        else {
+        }
+    }
+    public void Employee( final String p_FName,  final String p_LName,  final int p_National_ID,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Employee(p_FName, p_LName, p_National_ID, p_Action));
+        else {
+        }
+    }
     public void Bonus( final String p_Name,  final double p_Percent,  final String p_Action ) throws XtumlException {
         if ( satisfied() ) send(new ICRUD.Bonus(p_Name, p_Percent, p_Action));
+        else {
+        }
+    }
+    public void Leave( final String p_Name,  final int p_MaximumDays,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Leave(p_Name, p_MaximumDays, p_Action));
         else {
         }
     }
@@ -50,16 +60,6 @@ public class UIApp extends Port<UI> implements ICRUD {
     }
     public void Grade( final int p_Value,  final String p_Action ) throws XtumlException {
         if ( satisfied() ) send(new ICRUD.Grade(p_Value, p_Action));
-        else {
-        }
-    }
-    public void Payment() throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Payment());
-        else {
-        }
-    }
-    public void Leave( final String p_Name,  final int p_MaximumDays,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Leave(p_Name, p_MaximumDays, p_Action));
         else {
         }
     }

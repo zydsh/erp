@@ -54,8 +54,8 @@ public class DeploymentApplication implements IApplication {
         ((Hr)components[2]).UI_Ops().satisfy(((UI)components[0]).AppOps());
         ((UI)components[0]).Fincrud().satisfy(((Fm)components[1]).Fin());
         ((Fm)components[1]).Fin().satisfy(((UI)components[0]).Fincrud());
-        ((UI)components[0]).Port1().satisfy(((Pm)components[3]).Port1());
-        ((Pm)components[3]).Port1().satisfy(((UI)components[0]).Port1());
+        ((UI)components[0]).Port1().satisfy(((Pm)components[3]).PM());
+        ((Pm)components[3]).PM().satisfy(((UI)components[0]).Port1());
     }
 
     public Pm Pm() {

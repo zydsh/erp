@@ -11,9 +11,9 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Employee_LeaveSet extends IInstanceSet<Employee_LeaveSet,Employee_Leave> {
 
     // attributes
+    public void setEnding( int m_Ending ) throws XtumlException;
     public void setStarting( int m_Starting ) throws XtumlException;
     public void setApproved( boolean m_Approved ) throws XtumlException;
-    public void setEnding( int m_Ending ) throws XtumlException;
 
 
     // selections

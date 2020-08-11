@@ -418,7 +418,7 @@ INSERT INTO GD_GE
 	"7b1ac668-bc1c-4f1b-a636-0b358ee709a0",
 	93,
 	0,
-	'HRUI::UI::UI::Port1::PmCRUD');
+	'HRUI::UI::UI::Pmcrud::PmCRUD');
 INSERT INTO GD_CON
 	VALUES ("ed48d0d8-d394-41a7-a682-df220f68fa25",
 	"00000000-0000-0000-0000-000000000000");
@@ -951,7 +951,7 @@ INSERT INTO C_I_PROXY
 INSERT INTO C_PO
 	VALUES ("1a89b5e9-1b9c-4caf-bff3-40c92ec36bbf",
 	"f859e576-0e98-4f6e-9102-2f3ef0483432",
-	'Port1',
+	'Pmcrud',
 	0,
 	0);
 INSERT INTO C_IR
@@ -964,7 +964,7 @@ INSERT INTO C_R
 	'PmCRUD',
 	'',
 	'Unnamed Interface',
-	'UI::Port1::PmCRUD');
+	'UI::Pmcrud::PmCRUD');
 INSERT INTO SPR_REP
 	VALUES ("5c8c2982-b77f-41d1-9f15-c548f10ad733",
 	"edb1875e-d13e-4822-b459-632be9189d2d",

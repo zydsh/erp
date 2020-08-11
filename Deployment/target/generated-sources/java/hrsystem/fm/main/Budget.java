@@ -14,8 +14,8 @@ public interface Budget extends IModelInstance<Budget,Fm> {
     // attributes
     public String getYear() throws XtumlException;
     public void setYear( String m_Year ) throws XtumlException;
-    public double getFund() throws XtumlException;
     public void setFund( double m_Fund ) throws XtumlException;
+    public double getFund() throws XtumlException;
 
 
     // operations

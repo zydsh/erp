@@ -13,6 +13,7 @@
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/Employee_JobSet.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/shared/ICRUD.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/UI.java
+/Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/pm/main/Strategy.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/impl/StepSetImpl.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/fm/main/BudgetSet.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/Payment.java
@@ -35,11 +36,13 @@
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/Grade.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/impl/GradeImpl.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/GradeSet.java
-/Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/pm/PmPort1.java
+/Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/pm/PmPM.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/impl/Employee_JobSetImpl.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/Bonus_PaymentSet.java
+/Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/pm/main/impl/StrategySetImpl.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/impl/Bonus_PaymentStateMachine.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/main/impl/GradeSetImpl.java
+/Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/pm/main/StrategySet.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/fm/main/impl/ChapterSetImpl.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/fm/main/Chapter.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/fm/main/impl/ItemImpl.java
@@ -76,4 +79,5 @@
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/fm/main/Item.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/interfaces/IFinCRUD.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/hr/HrUI.java
+/Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/pm/main/impl/StrategyImpl.java
 /Users/ziyadalshaikh/git/hrm/Deployment/target/generated-sources/java/hrsystem/pm/main/Initiative.java

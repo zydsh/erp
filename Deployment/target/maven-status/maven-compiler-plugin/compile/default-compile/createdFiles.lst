@@ -3,6 +3,7 @@ hrsystem/ui/UIApp.class
 hrsystem/hr/main/impl/EmployeeImpl$commenced.class
 hrsystem/hr/main/impl/EmptyJob.class
 hrsystem/hr/HrUI_Ops.class
+hrsystem/pm/main/impl/StrategySetImpl.class
 hrsystem/hr/main/Bonus_Payment.class
 hrsystem/hr/main/Employee_Leave.class
 hrsystem/fm/main/impl/SectionImpl.class
@@ -10,8 +11,10 @@ hrsystem/hr/main/JobSet.class
 hrsystem/hr/main/impl/EmployeeStateMachine.class
 interfaces/IFinCRUD.class
 shared/ICRUD.class
+hrsystem/pm/main/impl/StrategyImpl.class
 shared/ICRUD$Grade.class
 hrsystem/fm/main/impl/ItemSetImpl.class
+hrsystem/pm/main/StrategySet.class
 hrsystem/pm/main/impl/InitiativeImpl.class
 hrsystem/hr/main/impl/Employee_JobImpl$CLASS.class
 hrsystem/hr/main/Employee_LeaveSet.class
@@ -21,6 +24,7 @@ hrsystem/hr/main/impl/Employee_JobSetImpl.class
 hrsystem/hr/main/Employee_Job.class
 hrsystem/hr/main/impl/EmployeeImpl$CLASS.class
 hrsystem/hr/main/impl/Bonus_PaymentImpl$CLASS.class
+hrsystem/pm/main/impl/EmptyStrategy.class
 hrsystem/fm/main/impl/ChapterImpl$CLASS.class
 hrsystem/hr/main/impl/EmployeeImpl$requestLeave.class
 hrsystem/fm/main/impl/EmptyItem.class
@@ -34,6 +38,7 @@ hrsystem/hr/main/impl/EmployeeSetImpl.class
 hrsystem/fm/main/impl/ItemImpl$CLASS.class
 hrsystem/hr/main/EmployeeSet.class
 hrsystem/hr/main/impl/PaymentSetImpl.class
+hrsystem/pm/PmPM.class
 shared/ICRUD$Reply.class
 hrsystem/fm/main/impl/ChapterSetImpl.class
 shared/IOps$Return_Employee_Payment.class
@@ -53,7 +58,6 @@ shared/ICRUD$Step.class
 hrsystem/ui/UIAppOps.class
 hrsystem/hr/main/impl/GradeSetImpl.class
 hrsystem/hr/main/impl/EmployeeImpl$employeeUpdateRcvd.class
-hrsystem/pm/PmPort1.class
 hrsystem/hr/main/impl/EmptyGrade.class
 hrsystem/hr/main/Employee_JobSet.class
 shared/IOps.class
@@ -90,6 +94,7 @@ hrsystem/fm/main/impl/BudgetSetImpl.class
 hrsystem/hr/main/impl/EmptyBonus_Payment.class
 hrsystem/fm/main/impl/SectionImpl$CLASS.class
 hrsystem/hr/main/impl/LeaveSetImpl.class
+interfaces/IPmCRUD$Strategy.class
 shared/ICRUD$Leave.class
 hrsystem/fm/main/impl/EmptySection.class
 hrsystem/Pm.class
@@ -102,6 +107,7 @@ hrsystem/fm/main/impl/SectionSetImpl.class
 hrsystem/hr/main/impl/PaymentImpl.class
 hrsystem/hr/main/impl/Employee_JobImpl.class
 hrsystem/hr/main/Payment.class
+interfaces/IPmCRUD$Initiative.class
 interfaces/IFinCRUD$Reply.class
 hrsystem/hr/main/Employee.class
 hrsystem/Fm.class
@@ -112,6 +118,7 @@ hrsystem/fm/main/impl/EmptyBudget.class
 hrsystem/hr/main/impl/Bonus_PaymentStateMachine.class
 hrsystem/fm/FmFin.class
 hrsystem/hr/main/impl/EmptyPayment.class
+hrsystem/pm/main/impl/StrategyImpl$CLASS.class
 hrsystem/hr/main/impl/GradeImpl.class
 hrsystem/fm/main/impl/BudgetImpl.class
 hrsystem/fm/main/Budget.class
@@ -132,4 +139,5 @@ shared/IOps$Employee_Bonus.class
 hrsystem/hr/HrUI.class
 hrsystem/hr/main/impl/EmptyStep.class
 shared/ICRUD$Payment.class
+hrsystem/pm/main/Strategy.class
 hrsystem/hr/main/impl/Employee_LeaveSetImpl.class
