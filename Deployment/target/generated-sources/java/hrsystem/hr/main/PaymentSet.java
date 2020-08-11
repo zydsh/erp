@@ -10,8 +10,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface PaymentSet extends IInstanceSet<PaymentSet,Payment> {
 
     // attributes
-    public void setDate( int m_Date ) throws XtumlException;
     public void setAmount( double m_Amount ) throws XtumlException;
+    public void setDate( int m_Date ) throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
 
 

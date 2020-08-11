@@ -17,8 +17,8 @@ public interface Initiative extends IModelInstance<Initiative,Pm> {
     public String getName() throws XtumlException;
     public void setShort_Number( String m_Short_Number ) throws XtumlException;
     public String getShort_Number() throws XtumlException;
-    public void setLong_Number( String m_Long_Number ) throws XtumlException;
     public String getLong_Number() throws XtumlException;
+    public void setLong_Number( String m_Long_Number ) throws XtumlException;
     public void setDescription( String m_Description ) throws XtumlException;
     public String getDescription() throws XtumlException;
     public int getStart_Date() throws XtumlException;

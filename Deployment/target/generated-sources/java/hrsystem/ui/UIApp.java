@@ -33,13 +33,8 @@ public class UIApp extends Port<UI> implements ICRUD {
         else {
         }
     }
-    public void Step( final int p_Value,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Step(p_Value, p_Action));
-        else {
-        }
-    }
-    public void Grade( final int p_Value,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Grade(p_Value, p_Action));
+    public void Payment() throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Payment());
         else {
         }
     }
@@ -58,8 +53,13 @@ public class UIApp extends Port<UI> implements ICRUD {
         else {
         }
     }
-    public void Payment() throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Payment());
+    public void Step( final int p_Value,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Step(p_Value, p_Action));
+        else {
+        }
+    }
+    public void Grade( final int p_Value,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Grade(p_Value, p_Action));
         else {
         }
     }

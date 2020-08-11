@@ -106,6 +106,15 @@ INSERT INTO C_PP
 	'',
 	0,
 	'',
+	"b41a377b-99d2-44ed-9fb0-a7dfd82c4662");
+INSERT INTO C_PP
+	VALUES ("b41a377b-99d2-44ed-9fb0-a7dfd82c4662",
+	"edb1875e-d13e-4822-b459-632be9189d2d",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Str_Name',
+	'',
+	0,
+	'',
 	"db8148c5-fd8a-4268-9ad9-a389c63b0a48");
 INSERT INTO C_EP
 	VALUES ("121fb8a3-091c-421b-a83e-ee7c55cd053e",
@@ -301,6 +310,15 @@ INSERT INTO C_PP
 	'',
 	0,
 	'',
+	"04db3f58-c86b-4e3f-b10c-465979dc0892");
+INSERT INTO C_PP
+	VALUES ("04db3f58-c86b-4e3f-b10c-465979dc0892",
+	"1cfee122-214d-4dce-b8ad-6dc0b6b5ae8e",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Initiative_Number',
+	'',
+	0,
+	'',
 	"ee3b0641-4791-4c88-a221-84e41e8667d1");
 INSERT INTO C_EP
 	VALUES ("474b7b22-5d62-4632-bdee-7e1966c1bff2",
@@ -355,6 +373,15 @@ INSERT INTO C_PP
 	"474b7b22-5d62-4632-bdee-7e1966c1bff2",
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'Action',
+	'',
+	0,
+	'',
+	"a54f3f92-0210-4529-942e-cff2906efcf2");
+INSERT INTO C_PP
+	VALUES ("a54f3f92-0210-4529-942e-cff2906efcf2",
+	"474b7b22-5d62-4632-bdee-7e1966c1bff2",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Full_Code',
 	'',
 	0,
 	'',

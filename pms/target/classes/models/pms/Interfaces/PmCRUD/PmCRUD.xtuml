@@ -302,6 +302,93 @@ INSERT INTO C_PP
 	0,
 	'',
 	"ee3b0641-4791-4c88-a221-84e41e8667d1");
+INSERT INTO C_EP
+	VALUES ("474b7b22-5d62-4632-bdee-7e1966c1bff2",
+	"e29f747d-7554-415d-b64b-6527d84a060c",
+	-1,
+	'Supporting_Documents',
+	'');
+INSERT INTO C_AS
+	VALUES ("474b7b22-5d62-4632-bdee-7e1966c1bff2",
+	'Supporting_Documents',
+	'',
+	0,
+	"1cfee122-214d-4dce-b8ad-6dc0b6b5ae8e");
+INSERT INTO C_PP
+	VALUES ("878b25b5-fca9-4423-80f8-89a2b5167176",
+	"474b7b22-5d62-4632-bdee-7e1966c1bff2",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("df29d2b6-a276-4c0d-9e37-2e077e49b11d",
+	"474b7b22-5d62-4632-bdee-7e1966c1bff2",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Document',
+	'',
+	0,
+	'',
+	"878b25b5-fca9-4423-80f8-89a2b5167176");
+INSERT INTO C_PP
+	VALUES ("8b5dba2d-d205-4919-974d-f12df4f5811f",
+	"474b7b22-5d62-4632-bdee-7e1966c1bff2",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'State',
+	'',
+	0,
+	'',
+	"df29d2b6-a276-4c0d-9e37-2e077e49b11d");
+INSERT INTO C_PP
+	VALUES ("03c9e6e0-2ce9-4705-8e50-963dec739866",
+	"474b7b22-5d62-4632-bdee-7e1966c1bff2",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Notes',
+	'',
+	0,
+	'',
+	"8b5dba2d-d205-4919-974d-f12df4f5811f");
+INSERT INTO C_PP
+	VALUES ("f76f0dfb-a124-48aa-a13a-b96cad467e72",
+	"474b7b22-5d62-4632-bdee-7e1966c1bff2",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Action',
+	'',
+	0,
+	'',
+	"03c9e6e0-2ce9-4705-8e50-963dec739866");
+INSERT INTO C_EP
+	VALUES ("ea302fae-978b-4236-a18c-296de3f52f34",
+	"e29f747d-7554-415d-b64b-6527d84a060c",
+	-1,
+	'Reply',
+	'');
+INSERT INTO C_AS
+	VALUES ("ea302fae-978b-4236-a18c-296de3f52f34",
+	'Reply',
+	'',
+	1,
+	"474b7b22-5d62-4632-bdee-7e1966c1bff2");
+INSERT INTO C_PP
+	VALUES ("b18bb2b9-ed51-4712-a1c1-420654114b50",
+	"ea302fae-978b-4236-a18c-296de3f52f34",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'msg',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("73adc4d1-c197-43d7-a0fb-43deca79c661",
+	"ea302fae-978b-4236-a18c-296de3f52f34",
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'state',
+	'',
+	0,
+	'',
+	"b18bb2b9-ed51-4712-a1c1-420654114b50");
 INSERT INTO PE_PE
 	VALUES ("e29f747d-7554-415d-b64b-6527d84a060c",
 	1,

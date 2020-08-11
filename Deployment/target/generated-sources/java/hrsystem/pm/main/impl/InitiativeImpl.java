@@ -114,6 +114,11 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
     }
     private String m_Long_Number;
     @Override
+    public String getLong_Number() throws XtumlException {
+        checkLiving();
+        return m_Long_Number;
+    }
+    @Override
     public void setLong_Number(String m_Long_Number) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Long_Number, this.m_Long_Number)) {
@@ -121,11 +126,6 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             this.m_Long_Number = m_Long_Number;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Long_Number", oldValue, this.m_Long_Number));
         }
-    }
-    @Override
-    public String getLong_Number() throws XtumlException {
-        checkLiving();
-        return m_Long_Number;
     }
     private String m_Description;
     @Override
@@ -296,11 +296,11 @@ class EmptyInitiative extends ModelInstance<Initiative,Pm> implements Initiative
     public String getShort_Number() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setLong_Number( String m_Long_Number ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getLong_Number() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setLong_Number( String m_Long_Number ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setDescription( String m_Description ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

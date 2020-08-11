@@ -44,9 +44,9 @@ public class DeploymentApplication implements IApplication {
                 executors[i] = new ApplicationExecutor( "DeploymentApplicationExecutor" + i, args );
             }
         }
-        components[3] = new Pm(this, executors[0], 3);
-        components[2] = new Hr(this, executors[0], 2);
         components[1] = new Fm(this, executors[0], 1);
+        components[2] = new Hr(this, executors[0], 2);
+        components[3] = new Pm(this, executors[0], 3);
         components[0] = new UI(this, executors[0], 0);
         ((UI)components[0]).App().satisfy(((Hr)components[2]).UI());
         ((Hr)components[2]).UI().satisfy(((UI)components[0]).App());
@@ -58,14 +58,14 @@ public class DeploymentApplication implements IApplication {
         ((Pm)components[3]).PM().satisfy(((UI)components[0]).Pmcrud());
     }
 
-    public Pm Pm() {
-        return (Pm)components[3];
+    public Fm Fm() {
+        return (Fm)components[1];
     }
     public Hr Hr() {
         return (Hr)components[2];
     }
-    public Fm Fm() {
-        return (Fm)components[1];
+    public Pm Pm() {
+        return (Pm)components[3];
     }
     public UI UI() {
         return (UI)components[0];

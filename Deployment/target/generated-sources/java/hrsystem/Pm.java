@@ -8,12 +8,16 @@ import hrsystem.pm.main.Milestone;
 import hrsystem.pm.main.MilestoneSet;
 import hrsystem.pm.main.Strategy;
 import hrsystem.pm.main.StrategySet;
+import hrsystem.pm.main.Supporting_Documents;
+import hrsystem.pm.main.Supporting_DocumentsSet;
 import hrsystem.pm.main.impl.InitiativeImpl;
 import hrsystem.pm.main.impl.InitiativeSetImpl;
 import hrsystem.pm.main.impl.MilestoneImpl;
 import hrsystem.pm.main.impl.MilestoneSetImpl;
 import hrsystem.pm.main.impl.StrategyImpl;
 import hrsystem.pm.main.impl.StrategySetImpl;
+import hrsystem.pm.main.impl.Supporting_DocumentsImpl;
+import hrsystem.pm.main.impl.Supporting_DocumentsSetImpl;
 
 import io.ciera.runtime.summit.application.IApplication;
 import io.ciera.runtime.summit.application.IRunContext;
@@ -42,13 +46,16 @@ public class Pm extends Component<Pm> {
         Initiative_extent = new InitiativeSetImpl();
         Milestone_extent = new MilestoneSetImpl();
         Strategy_extent = new StrategySetImpl();
+        Supporting_Documents_extent = new Supporting_DocumentsSetImpl();
         R1_Initiative_Strategy_extent = new RelationshipSet();
         R2_Milestone_Initiative_extent = new RelationshipSet();
+        R3_Supporting_Documents_Milestone_extent = new RelationshipSet();
 
         classDirectory = new TreeMap<>();
         classDirectory.put("Initiative", InitiativeImpl.class);
         classDirectory.put("Milestone", MilestoneImpl.class);
         classDirectory.put("Strategy", StrategyImpl.class);
+        classDirectory.put("Supporting_Documents", Supporting_DocumentsImpl.class);
     }
 
     // domain functions
@@ -95,6 +102,26 @@ public class Pm extends Component<Pm> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
+    public void relate_R3_Supporting_Documents_Milestone( Supporting_Documents form, Milestone part ) throws XtumlException {
+        if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
+        if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
+        // TODO cardinality check
+        if ( R3_Supporting_Documents_Milestone_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR3_Supporting_Documents(form);
+            form.setR3_Milestone(part);
+        }
+        else throw new ModelIntegrityException( "Instances could not be related." );
+    }
+
+    public void unrelate_R3_Supporting_Documents_Milestone( Supporting_Documents form, Milestone part ) throws XtumlException {
+        if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
+        if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
+        if ( R3_Supporting_Documents_Milestone_extent.remove( R3_Supporting_Documents_Milestone_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR3_Supporting_Documents(form);
+            form.setR3_Milestone(MilestoneImpl.EMPTY_MILESTONE);
+        }
+        else throw new ModelIntegrityException( "Instances could not be unrelated." );
+    }
 
 
     // instance selections
@@ -110,6 +137,10 @@ public class Pm extends Component<Pm> {
     public StrategySet Strategy_instances() {
         return Strategy_extent;
     }
+    private Supporting_DocumentsSet Supporting_Documents_extent;
+    public Supporting_DocumentsSet Supporting_Documents_instances() {
+        return Supporting_Documents_extent;
+    }
 
 
     // relationship selections
@@ -120,6 +151,10 @@ public class Pm extends Component<Pm> {
     private IRelationshipSet R2_Milestone_Initiative_extent;
     public IRelationshipSet R2_Milestone_Initiatives() throws XtumlException {
         return R2_Milestone_Initiative_extent;
+    }
+    private IRelationshipSet R3_Supporting_Documents_Milestone_extent;
+    public IRelationshipSet R3_Supporting_Documents_Milestones() throws XtumlException {
+        return R3_Supporting_Documents_Milestone_extent;
     }
 
 
@@ -164,6 +199,7 @@ public class Pm extends Component<Pm> {
         if ( instance instanceof Initiative ) return Initiative_extent.add( (Initiative)instance );
         else if ( instance instanceof Milestone ) return Milestone_extent.add( (Milestone)instance );
         else if ( instance instanceof Strategy ) return Strategy_extent.add( (Strategy)instance );
+        else if ( instance instanceof Supporting_Documents ) return Supporting_Documents_extent.add( (Supporting_Documents)instance );
         return false;
     }
 
@@ -174,6 +210,7 @@ public class Pm extends Component<Pm> {
         if ( instance instanceof Initiative ) return Initiative_extent.remove( (Initiative)instance );
         else if ( instance instanceof Milestone ) return Milestone_extent.remove( (Milestone)instance );
         else if ( instance instanceof Strategy ) return Strategy_extent.remove( (Strategy)instance );
+        else if ( instance instanceof Supporting_Documents ) return Supporting_Documents_extent.remove( (Supporting_Documents)instance );
         return false;
     }
 

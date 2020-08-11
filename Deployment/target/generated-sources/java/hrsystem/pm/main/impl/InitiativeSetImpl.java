@@ -31,12 +31,8 @@ public class InitiativeSetImpl extends InstanceSet<InitiativeSet,Initiative> imp
         for ( Initiative initiative : this ) initiative.setActual_Start_Date( m_Actual_Start_Date );
     }
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Initiative initiative : this ) initiative.setName( m_Name );
-    }
-    @Override
-    public void setBudget( double m_Budget ) throws XtumlException {
-        for ( Initiative initiative : this ) initiative.setBudget( m_Budget );
+    public void setShort_Number( String m_Short_Number ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setShort_Number( m_Short_Number );
     }
     @Override
     public void setLong_Number( String m_Long_Number ) throws XtumlException {
@@ -47,12 +43,16 @@ public class InitiativeSetImpl extends InstanceSet<InitiativeSet,Initiative> imp
         for ( Initiative initiative : this ) initiative.setDescription( m_Description );
     }
     @Override
-    public void setEnd_Date( int m_End_Date ) throws XtumlException {
-        for ( Initiative initiative : this ) initiative.setEnd_Date( m_End_Date );
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setName( m_Name );
     }
     @Override
-    public void setShort_Number( String m_Short_Number ) throws XtumlException {
-        for ( Initiative initiative : this ) initiative.setShort_Number( m_Short_Number );
+    public void setBudget( double m_Budget ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setBudget( m_Budget );
+    }
+    @Override
+    public void setEnd_Date( int m_End_Date ) throws XtumlException {
+        for ( Initiative initiative : this ) initiative.setEnd_Date( m_End_Date );
     }
     @Override
     public void setStart_Date( int m_Start_Date ) throws XtumlException {

@@ -14,8 +14,54 @@ INSERT INTO O_TFR
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
-	'',
-	3,
+	'
+select any strategy from instances of Strategy where selected.Name==param.Name;
+
+if ( empty strategy ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new strategy to employee." );
+
+	//create object instance strategy of strategy;
+	create object instance s of Strategy;
+
+	s.Name = param.Name;
+	s.Number = param.Number;
+	s.Description = param.Description;
+
+	//SQL::serialize();
+	PM::Reply( msg:"strategy created successfully.", state:True);
+
+elif ( not empty strategy ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new strategy." );
+
+	LOG::LogInfo(message:"Strategy already exists." );	
+	PM::Reply( msg:"Strategy already exists", state:False);
+
+elif ( not empty strategy ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update strategy." );
+
+	strategy.Name = param.Name;
+	strategy.Number = param.Number;
+	strategy.Description = param.Description;
+	
+	LOG::LogInfo(message:"Strategy updated successfully." );	
+	PM::Reply( msg:"Strategy updated successfully", state:True);
+
+elif ( not empty strategy ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a strategy instance." );
+	LOG::LogInfo(message:"Strategy delete in not implemented yet." );	
+	PM::Reply( msg:"Strategy delete in not implemented yet", state:False);
+
+ elif (empty strategy )
+	LOG::LogInfo(message:"Strategy does not exist." );	
+	PM::Reply( msg:"Strategy does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	0);

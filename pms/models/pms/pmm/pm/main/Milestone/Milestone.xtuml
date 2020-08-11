@@ -14,8 +14,78 @@ INSERT INTO O_TFR
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
-	'',
-	3,
+	'
+select any mile from instances of Milestone where selected.Name==param.Name;
+
+if ( empty mile ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new milestone to employee." );
+
+	//create object instance Milestone of milestone;
+	create object instance m of Milestone;
+
+	m.Name = param.Name;
+	m.Full_Code = param.Full_Code; 
+	m.Code = param.Code;
+	m.Type = param.Type;
+	m.Success_Criteria = param.Success_Criteria;
+	m.Complete_Planned = param.Complete_Planned; 
+	m.Complete_Actual = param.Complete_Actual;  
+    m.Complete  = param.Complete; 
+    m.Weight = param.Weight;
+    m.Percentage = param.Percentage;
+    m.sd_State = param.sd_State;
+    m.sd_Description = param.sd_Description; 
+    m.Notes = param.Notes;
+    m.Incomplete_Reasons = param.Incomplete_Reasons; 
+
+		
+	select any intiative from instances of Initiative where selected.Long_Number == param.Initiative_Number;
+	relate intiative to m across R2;  
+
+	//SQL::serialize();
+	PM::Reply( msg:"milestone created successfully.", state:True);
+
+elif ( not empty mile ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new milestone." );
+
+	LOG::LogInfo(message:"Milestone already exists." );	
+	PM::Reply( msg:"Milestone already exists", state:False);
+
+elif ( not empty mile ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update milestone." );
+
+	mile.Name = param.Name;
+	mile.Full_Code = param.Full_Code; 
+	mile.Code = param.Code;
+	mile.Type = param.Type;
+	mile.Success_Criteria = param.Success_Criteria;
+	mile.Complete_Planned = param.Complete_Planned; 
+	mile.Complete_Actual = param.Complete_Actual;  
+    mile.Complete  = param.Complete; 
+    mile.Weight = param.Weight;
+    mile.Percentage = param.Percentage;
+    mile.sd_State = param.sd_State;
+    mile.sd_Description = param.sd_Description; 
+    mile.Notes = param.Notes;
+    mile.Incomplete_Reasons = param.Incomplete_Reasons; 
+	
+	LOG::LogInfo(message:"Milestone updated successfully." );	
+	PM::Reply( msg:"Milestone updated successfully", state:True);
+
+elif ( not empty mile ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a milestone instance." );
+	LOG::LogInfo(message:"Milestone delete in not implemented yet." );	
+	PM::Reply( msg:"Milestone delete in not implemented yet", state:False);
+
+ elif (empty mile )
+	LOG::LogInfo(message:"Milestone does not exist." );	
+	PM::Reply( msg:"Milestone does not exist.", state:False);
+
+end if;
+
+
+',
+	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	0);
@@ -149,6 +219,15 @@ INSERT INTO O_TPARM
 	VALUES ("9cc5df83-e5b1-4c92-a690-94f026a70af6",
 	"212dad1a-a5ac-4741-84c6-fb6e3a8d0a26",
 	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"0d3c7474-a751-439e-8c8e-c2af7d5438ae",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("0d3c7474-a751-439e-8c8e-c2af7d5438ae",
+	"212dad1a-a5ac-4741-84c6-fb6e3a8d0a26",
+	'Initiative_Number',
 	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',

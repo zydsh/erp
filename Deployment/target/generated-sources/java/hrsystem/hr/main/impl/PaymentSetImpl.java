@@ -25,12 +25,12 @@ public class PaymentSetImpl extends InstanceSet<PaymentSet,Payment> implements P
 
     // attributes
     @Override
-    public void setDate( int m_Date ) throws XtumlException {
-        for ( Payment payment : this ) payment.setDate( m_Date );
-    }
-    @Override
     public void setAmount( double m_Amount ) throws XtumlException {
         for ( Payment payment : this ) payment.setAmount( m_Amount );
+    }
+    @Override
+    public void setDate( int m_Date ) throws XtumlException {
+        for ( Payment payment : this ) payment.setDate( m_Date );
     }
     @Override
     public void setName( String m_Name ) throws XtumlException {

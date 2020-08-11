@@ -11,12 +11,12 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Item extends IModelInstance<Item,Fm> {
 
     // attributes
-    public void setItemID( String m_ItemID ) throws XtumlException;
     public String getItemID() throws XtumlException;
+    public void setItemID( String m_ItemID ) throws XtumlException;
     public double getFund() throws XtumlException;
     public void setFund( double m_Fund ) throws XtumlException;
-    public void setStatus( String m_Status ) throws XtumlException;
     public String getStatus() throws XtumlException;
+    public void setStatus( String m_Status ) throws XtumlException;
     public void setType( String m_Type ) throws XtumlException;
     public String getType() throws XtumlException;
     public String getCategory() throws XtumlException;

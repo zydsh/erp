@@ -33,8 +33,8 @@ public class UIFincrud extends Port<UI> implements IFinCRUD {
         else {
         }
     }
-    public void Section( final String p_SecID,  final String p_Name,  final String p_Code,  final double p_Fund,  final String p_Economic_Category,  final String p_Comments,  final String p_Action,  final String p_Year ) throws XtumlException {
-        if ( satisfied() ) send(new IFinCRUD.Section(p_SecID, p_Name, p_Code, p_Fund, p_Economic_Category, p_Comments, p_Action, p_Year));
+    public void Budget( final String p_Year,  final double p_Fund,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new IFinCRUD.Budget(p_Year, p_Fund, p_Action));
         else {
         }
     }
@@ -43,8 +43,8 @@ public class UIFincrud extends Port<UI> implements IFinCRUD {
         else {
         }
     }
-    public void Budget( final String p_Year,  final double p_Fund,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new IFinCRUD.Budget(p_Year, p_Fund, p_Action));
+    public void Section( final String p_SecID,  final String p_Name,  final String p_Code,  final double p_Fund,  final String p_Economic_Category,  final String p_Comments,  final String p_Action,  final String p_Year ) throws XtumlException {
+        if ( satisfied() ) send(new IFinCRUD.Section(p_SecID, p_Name, p_Code, p_Fund, p_Economic_Category, p_Comments, p_Action, p_Year));
         else {
         }
     }

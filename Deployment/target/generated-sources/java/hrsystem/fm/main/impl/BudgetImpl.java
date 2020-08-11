@@ -69,6 +69,11 @@ public class BudgetImpl extends ModelInstance<Budget,Fm> implements Budget {
     // attributes
     private String m_Year;
     @Override
+    public String getYear() throws XtumlException {
+        checkLiving();
+        return m_Year;
+    }
+    @Override
     public void setYear(String m_Year) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Year, this.m_Year)) {
@@ -76,11 +81,6 @@ public class BudgetImpl extends ModelInstance<Budget,Fm> implements Budget {
             this.m_Year = m_Year;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Year", oldValue, this.m_Year));
         }
-    }
-    @Override
-    public String getYear() throws XtumlException {
-        checkLiving();
-        return m_Year;
     }
     private double m_Fund;
     @Override
@@ -199,11 +199,11 @@ public class BudgetImpl extends ModelInstance<Budget,Fm> implements Budget {
 class EmptyBudget extends ModelInstance<Budget,Fm> implements Budget {
 
     // attributes
-    public void setYear( String m_Year ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getYear() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setYear( String m_Year ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setFund( double m_Fund ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
