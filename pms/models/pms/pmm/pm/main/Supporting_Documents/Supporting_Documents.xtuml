@@ -55,6 +55,15 @@ INSERT INTO O_TPARM
 	'',
 	"46f7d78b-4ebf-49cc-9e75-3ec33c8f5048",
 	'');
+INSERT INTO O_TPARM
+	VALUES ("0b4cad6e-1fd3-4c1d-b45a-56ffc0c02eff",
+	"4266f372-1a36-4fd7-88ae-f2b843543e2f",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"caf2daed-4e05-4725-9ba7-20037a5c74a4",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("f63b6945-df05-41a7-824e-cba3037f4b14",
 	"6fa5789f-49cf-4013-bc23-0f29a00e5638");
