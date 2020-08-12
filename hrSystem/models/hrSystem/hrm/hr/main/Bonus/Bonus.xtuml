@@ -126,6 +126,103 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
+INSERT INTO O_REF
+	VALUES ("2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	0,
+	"e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"571dd5e9-51a0-41be-b0c7-b24d607f1714",
+	"8f4f89b9-43fc-4b5b-9d66-4de21403172c",
+	"c68ac4f4-b009-4519-96da-e917fe3e7341",
+	"60b28f61-da38-49c2-a350-fef57eaa415a",
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'Job',
+	'Job_ID',
+	'R1.''occupied''');
+INSERT INTO R_RGO_PROXY
+	VALUES ("2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"571dd5e9-51a0-41be-b0c7-b24d607f1714",
+	'../main.xtuml');
+INSERT INTO O_RTIDA_PROXY
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	0,
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"8f4f89b9-43fc-4b5b-9d66-4de21403172c",
+	'../main.xtuml');
+INSERT INTO O_RATTR
+	VALUES ("c68ac4f4-b009-4519-96da-e917fe3e7341",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	1,
+	'Job_ID');
+INSERT INTO O_BATTR_PROXY
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	'../Job/Job.xtuml');
+INSERT INTO O_ATTR
+	VALUES ("c68ac4f4-b009-4519-96da-e917fe3e7341",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"3aaed213-31fb-4240-bcb4-5129f1e44a72",
+	'Job_ID',
+	'',
+	'',
+	'Job_ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_REF
+	VALUES ("2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	0,
+	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"571dd5e9-51a0-41be-b0c7-b24d607f1714",
+	"9c0728bc-0b36-4717-b43f-3769e775b96f",
+	"452bcf18-c1c9-4fbd-b13c-b50ed767b13f",
+	"f7bd037c-cc51-45db-889e-ecc1996760a9",
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'Employee',
+	'National_ID',
+	'R1.''was assigned to''');
+INSERT INTO O_RTIDA_PROXY
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	0,
+	"20637019-8a2b-425f-9d48-7d5bec2c09ef",
+	"9c0728bc-0b36-4717-b43f-3769e775b96f",
+	'../main.xtuml');
+INSERT INTO O_RATTR
+	VALUES ("452bcf18-c1c9-4fbd-b13c-b50ed767b13f",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	1,
+	'National_ID');
+INSERT INTO O_BATTR_PROXY
+	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	'../Employee/Employee.xtuml');
+INSERT INTO O_ATTR
+	VALUES ("452bcf18-c1c9-4fbd-b13c-b50ed767b13f",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"c68ac4f4-b009-4519-96da-e917fe3e7341",
+	'National_ID',
+	'',
+	'',
+	'National_ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
@@ -137,6 +234,16 @@ INSERT INTO O_OIDA
 INSERT INTO O_ID
 	VALUES (1,
 	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
+INSERT INTO O_OIDA
+	VALUES ("c68ac4f4-b009-4519-96da-e917fe3e7341",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	1,
+	'Job_ID');
+INSERT INTO O_OIDA
+	VALUES ("452bcf18-c1c9-4fbd-b13c-b50ed767b13f",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	1,
+	'National_ID');
 INSERT INTO O_ID
 	VALUES (2,
 	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");

@@ -325,7 +325,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("e351d643-506f-43ec-bb39-88a2d799107c",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -341,18 +341,18 @@ INSERT INTO SM_ACT
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	1,
 	'// An ''empty'' instance handle of the associative class must be created before the participating instances can be assigned.
-create object instance assignTo of Employee_Leave;
+create object instance empLeave of Employee_Leave;
 // The source instance needs to exist.  
 select any employee from instances of EM where selected.National_ID == param.National_ID;
  // The destination instance needs to exist too.
 select any leave from instances of Leave where selected.Name == param.Name; 
 // The actual (non-empty) relationship instance.
-relate employee to leave across R2 using assignTo;  
+relate employee to leave across R2 using empLeave;  
 
 LOG::LogInfo(message: employee.FName+" "+employee.LName);
-assignTo.Starting = rcvd_evt.Starting;
+empLeave.Starting = param.Starting;
 
-assignTo.Ending = rcvd_evt.Ending;
+empLeave.Ending = param.Ending;
 
 LOG::LogInfo(message:"Requested"+ leave.Name +"leave");
 //LOG::LogTime(message:"From", t:assignTo.Starting); 
@@ -372,7 +372,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("a19b151a-58a8-4ed8-9828-190136567b50",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -386,7 +386,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("0326571f-708e-4cee-983c-ed616c9e1b62",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -400,7 +400,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("cbdefa01-29ac-4730-aed1-6a82c3e5e3cb",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -414,7 +414,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("5b173470-22b7-4405-8039-5c16bdfaa1a1",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -428,7 +428,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("80dd0ade-4e63-44d4-ab78-1c2808b5df1e",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
-	3,
+	1,
 	'',
 	'',
 	0);
