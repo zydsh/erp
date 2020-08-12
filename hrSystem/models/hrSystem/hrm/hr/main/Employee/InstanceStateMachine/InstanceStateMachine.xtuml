@@ -343,9 +343,9 @@ INSERT INTO SM_ACT
 	'// An ''empty'' instance handle of the associative class must be created before the participating instances can be assigned.
 create object instance assignTo of Employee_Leave;
 // The source instance needs to exist.  
-select any employee from instances of EM where selected.National_ID == rcvd_evt.National_ID;
+select any employee from instances of EM where selected.National_ID == param.National_ID;
  // The destination instance needs to exist too.
-select any leave from instances of Leave where selected.Name == rcvd_evt.Name; 
+select any leave from instances of Leave where selected.Name == param.Name; 
 // The actual (non-empty) relationship instance.
 relate employee to leave across R2 using assignTo;  
 
