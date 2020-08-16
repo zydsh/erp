@@ -129,9 +129,13 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	'select one grade related by self->Grade[R9.''assigned''];
+self.Salary = grade.Allowance * (self.Step - grade.StartingStep ) + grade.BaseSalary ;',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
 	"735ac3f1-a8fe-46c2-b440-67e649269472");
@@ -139,10 +143,13 @@ INSERT INTO O_ATTR
 	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"75ea8f9b-899f-4d29-a147-17cab714f84e",
-	'Amount',
+	'Salary',
+	'The salary increases by a yearlly allowance defined in the Grade class.
+Job holds the step value for the a job when an employee is first assigned.
+The step increase every year by one, thus adds an allowance amount for every step added.
+The allowance stops when the step reaches to its maximum steps defined in Grade (see NumberOfSteps).',
 	'',
-	'',
-	'Amount',
+	'Salary',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
@@ -174,11 +181,47 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	'PensionDeduction',
+	'',
+	'',
+	'PensionDeduction',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"f31b58a3-b3d7-4683-ba34-60e5e23a6021",
-	'Description',
+	'Step',
 	'',
 	'',
-	'Description',
+	'Step',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
