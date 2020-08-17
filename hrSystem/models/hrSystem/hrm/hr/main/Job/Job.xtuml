@@ -5,7 +5,13 @@ INSERT INTO O_OBJ
 	'Job',
 	4,
 	'Job',
-	'',
+	'A Job represents a position held by one employee at a time.  
+The title and description reflects the scope of the position, describing the  
+related skills and/or qualifications an employee holding the job. 
+As part of its definition, a job is assigned a grade. Based on the grade
+a salary is calculated based on the grade base-salary and its allowance 
+(please see description of class Grade). 
+',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("1a9526f8-2850-4921-8434-51accf68a540",
@@ -132,7 +138,9 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	'select one grade related by self->Grade[R9.''assigned''];
+	'//Calculating the salary based on number of steps which corrosponds to a fixed allowance
+// Every year, an Employee through Job, moves up one step a year and gets an allowance 
+select one grade related by self->Grade[R9.''assigned''];
 self.Salary = grade.Allowance * (self.Step - grade.StartingStep ) + grade.BaseSalary ;',
 	1,
 	0);

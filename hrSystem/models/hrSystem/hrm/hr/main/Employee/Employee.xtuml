@@ -5,8 +5,10 @@ INSERT INTO O_OBJ
 	'Employee',
 	2,
 	'EM',
-	'Is an individual employed for a monthly salary and recieves benifits 
-including bonuses and leave of absence.',
+	'Is an individual employed for a monthly salary and receives benefits 
+including bonuses and leave of absence. Before they commence, employees are recognized
+as soon as they are recruited. When they are recruited, employees are assigned a job 
+that has a grade which corresponds to a basic salary. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("be9ae7cd-0096-466e-96e9-de7eda95bc04",

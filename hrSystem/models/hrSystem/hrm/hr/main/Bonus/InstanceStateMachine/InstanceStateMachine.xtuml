@@ -331,7 +331,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("f210a63a-6d00-42d3-a7da-f52cb2e82a51",
 	"1cc240ff-5dfe-4147-a210-f8467890d719",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -345,7 +345,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("53f26508-4938-479d-a8cf-6a2f378ae71b",
 	"1cc240ff-5dfe-4147-a210-f8467890d719",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -359,7 +359,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("005cf600-1921-41be-8439-c6a777e09c42",
 	"1cc240ff-5dfe-4147-a210-f8467890d719",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -373,7 +373,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("a3acd6c1-d778-44a2-b9c2-8f613a9ff666",
 	"1cc240ff-5dfe-4147-a210-f8467890d719",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -387,7 +387,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("191695de-5356-45da-a439-871f10b0e967",
 	"1cc240ff-5dfe-4147-a210-f8467890d719",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -409,14 +409,14 @@ INSERT INTO GD_MD
 	150,
 	0,
 	'4.1.17',
-	'hrSystem::hrm::hr::main::Bonus_Payment::Instance State Machine');
+	'hrSystem::hrm::hr::main::Bonus::Instance State Machine');
 INSERT INTO GD_GE
 	VALUES ("b85af5a6-5354-4b74-b6af-b3fd6b0b259d",
 	"8455f153-983a-4b01-ba41-a1df71845928",
 	"050db0b8-5e4c-4b7e-999b-dbd19e43c0ea",
 	41,
 	0,
-	'hrSystem::hrm::hr::main::Bonus_Payment::Instance State Machine::Active');
+	'hrSystem::hrm::hr::main::Bonus::Instance State Machine::Active');
 INSERT INTO GD_SHP
 	VALUES ("b85af5a6-5354-4b74-b6af-b3fd6b0b259d");
 INSERT INTO GD_NCS
@@ -475,7 +475,7 @@ INSERT INTO GD_GE
 	"e3cc8bbf-9c60-47ff-9e7f-92039f50f714",
 	41,
 	0,
-	'hrSystem::hrm::hr::main::Bonus_Payment::Instance State Machine::Inactive');
+	'hrSystem::hrm::hr::main::Bonus::Instance State Machine::Inactive');
 INSERT INTO GD_SHP
 	VALUES ("1e78a770-d1b5-40a4-a253-0db99f45aacc");
 INSERT INTO GD_NCS
@@ -509,7 +509,7 @@ INSERT INTO GD_GE
 	"eed6b9f5-8e0a-4b87-8c1f-e4f0264df501",
 	41,
 	0,
-	'hrSystem::hrm::hr::main::Bonus_Payment::Instance State Machine::Resume');
+	'hrSystem::hrm::hr::main::Bonus::Instance State Machine::Resume');
 INSERT INTO GD_SHP
 	VALUES ("6dc2a271-a794-47cd-bcfa-30738d348d8b");
 INSERT INTO GD_NCS
@@ -643,7 +643,7 @@ INSERT INTO GD_GE
 	"8d1d6bb8-4a75-4370-89df-a35633301eaf",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Bonus_Payment::Instance State Machine::Active::BP2: deactivateBonus');
+	'hrSystem::hrm::hr::main::Bonus::Instance State Machine::Active::BP2: deactivateBonus');
 INSERT INTO GD_CON
 	VALUES ("6d6394f0-366f-4d14-ba7b-f04ad04db50e",
 	"00000000-0000-0000-0000-000000000000");
@@ -756,7 +756,7 @@ INSERT INTO GD_GE
 	"65ab3a99-a328-41ba-8dc3-b93df152e8ba",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Bonus_Payment::Instance State Machine::Inactive::BP3: resumeBonus');
+	'hrSystem::hrm::hr::main::Bonus::Instance State Machine::Inactive::BP3: resumeBonus');
 INSERT INTO GD_CON
 	VALUES ("e4d2d6f3-baee-410d-959c-c083b9dcab56",
 	"00000000-0000-0000-0000-000000000000");
@@ -869,7 +869,7 @@ INSERT INTO GD_GE
 	"335cf4d5-8810-4ff5-bda8-a882c1936978",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Bonus_Payment::Instance State Machine::Resume::BP1: payBonus');
+	'hrSystem::hrm::hr::main::Bonus::Instance State Machine::Resume::BP1: payBonus');
 INSERT INTO GD_CON
 	VALUES ("c651cf45-403d-4e45-ad91-50cf4ece4507",
 	"00000000-0000-0000-0000-000000000000");
@@ -969,7 +969,7 @@ INSERT INTO GD_GE
 	"52956ab5-bd3b-49ba-8b9c-08a2981eb224",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Bonus_Payment::Instance State Machine::Active::BP1: payBonus');
+	'hrSystem::hrm::hr::main::Bonus::Instance State Machine::Active::BP1: payBonus');
 INSERT INTO GD_CON
 	VALUES ("1c9fa4c2-2195-4c4c-8b8c-b70bbf7aeb20",
 	"00000000-0000-0000-0000-000000000000");
@@ -1111,9 +1111,9 @@ INSERT INTO DIM_DIA
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_OBJ_PROXY
 	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	'Bonus_Payment',
+	'Bonus',
 	8,
 	'BP',
 	'',
 	"00000000-0000-0000-0000-000000000000",
-	'../Bonus_Payment.xtuml');
+	'../Bonus.xtuml');
