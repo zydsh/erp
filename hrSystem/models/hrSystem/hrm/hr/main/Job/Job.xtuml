@@ -173,7 +173,8 @@ INSERT INTO O_ATTR
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"e1ed265c-5e0c-4929-88bd-72fc68f6c071",
 	'Title',
-	'',
+	'A title that indicates the functional role of the job. 
+For example: Junior Software Engineer. ',
 	'',
 	'Title',
 	0,
@@ -209,7 +210,9 @@ INSERT INTO O_ATTR
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
 	'PensionDeduction',
-	'',
+	' A pension percentage is deducted monthly. At this stage we will deduct the amounts
+ until we get further details on how these amounts are handled. 
+',
 	'',
 	'PensionDeduction',
 	0,

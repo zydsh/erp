@@ -5,7 +5,7 @@ INSERT INTO O_OBJ
 	'Payment',
 	6,
 	'Payment',
-	'',
+	'Represents all payments made to an employee. It includes salary payments and bonus payments. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("7f175134-1bcc-4efa-a1cc-aa0de302792e",

@@ -2,10 +2,11 @@
 
 INSERT INTO O_OBJ
 	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	'Employee_Job',
+	'JobRecord',
 	9,
 	'EJ',
-	'',
+	'Holds the history of jobs held by an employee. The first job may be followed by at most one
+job. Similarly, the last held job will have no proceeding jobs.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("ab9c24b4-c771-441d-aeca-a8f808eda56e",
@@ -131,10 +132,10 @@ INSERT INTO O_ATTR
 	VALUES ("4b8de829-dccf-4c7f-8de9-1abe12f5f8b7",
 	"63ad13d3-10ff-46b3-86b1-2018487fbb6d",
 	"00000000-0000-0000-0000-000000000000",
-	'Appointment_Date',
+	'EndDate',
+	'The last date an employee held the job ',
 	'',
-	'',
-	'Appointment_Date',
+	'EndDate',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
