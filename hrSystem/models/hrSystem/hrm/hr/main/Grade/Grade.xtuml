@@ -5,7 +5,14 @@ INSERT INTO O_OBJ
 	'Grade',
 	3,
 	'Grade',
-	'',
+	'Grade is the building block of a pay schedule. A pay schedule is formed by
+grades, and grades are made of series of steps. Steps are represented by a series
+of sequential allowances to the basic salary of a grade. 
+
+Grade is also linked to other grades. In a pay schedule, unless a grade is the hieghest
+or the lowest, a grade is both proceeded by exactly one grade and preceeded by exactly 
+one grade. 
+',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("dbb0c869-0460-4f49-ba8a-2874977db9a4",
