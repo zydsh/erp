@@ -382,6 +382,45 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("ac588b96-c908-4423-b0ae-e453a0acf7ab",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("ac588b96-c908-4423-b0ae-e453a0acf7ab",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("ac588b96-c908-4423-b0ae-e453a0acf7ab",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"ee9005d5-0ba7-4588-8a56-645553eff095",
+	'LeaveBalance',
+	'Employees earn a 36 leave days every year.
+The leave continues to accumulate to a maximum of three years.  
+Maximum = 108 days. ',
+	'',
+	'LeaveBalance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ced1568c-393b-4af3-b8b9-3936e3628080",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("ced1568c-393b-4af3-b8b9-3936e3628080",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("ced1568c-393b-4af3-b8b9-3936e3628080",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"ac588b96-c908-4423-b0ae-e453a0acf7ab",
+	'SickLeaveBalance',
+	'Every employee is entitled to a five days of sick leave.
+The sick leave balance is not carried forward for next year.  ',
+	'',
+	'SickLeaveBalance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");

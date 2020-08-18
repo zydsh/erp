@@ -37,7 +37,8 @@ INSERT INTO O_ATTR
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
 	"7f175134-1bcc-4efa-a1cc-aa0de302792e",
 	'Amount',
-	'',
+	'Represents either the earning added or deduction made to a payment. 
+In Saudi Riyals (SR).',
 	'',
 	'Amount',
 	0,

@@ -2343,8 +2343,10 @@ INSERT INTO O_OBJ_PROXY
 	'JobRecord',
 	9,
 	'EJ',
-	'Holds the history of jobs held by an employee. The first job may be followed by at most one
-job. Similarly, the last held job will have no proceeding jobs.',
+	'Holds the history of jobs held by an employee. 
+The first job may be followed by at most one
+job. Similarly, the last held job will have 
+no proceeding jobs.',
 	"00000000-0000-0000-0000-000000000000",
 	'./JobRecord/JobRecord.xtuml');
 INSERT INTO PE_PE
@@ -2457,8 +2459,10 @@ INSERT INTO O_OBJ_PROXY
 	'Bonus',
 	8,
 	'BP',
-	'Employees recieve different types of bonuses. Some bonuses are recieved by all employees,
-others may be given to a subset of employees. Currently, there is no clear association
+	'Employees recieve different types of bonuses. 
+Some bonuses are recieved by all employees,
+others may be given to a subset of employees. 
+Currently, there is no clear association
 between the role of an employee and a bonus. ',
 	"00000000-0000-0000-0000-000000000000",
 	'./Bonus/Bonus.xtuml');
@@ -2711,9 +2715,11 @@ INSERT INTO O_OBJ_PROXY
 	'LeaveSpecifiction',
 	13,
 	'LeaveSpecifiction',
-	'Specifies the types of leave offered to employees. When employees request
-leave, they are asked to choose one leave type to apply for. Employees and the HR departmenet 
-will hold a record of the past leave instances that employees consumed. 
+	'Specifies the types of leave offered to employees. 
+When employees request leave, they are asked to 
+choose one leave type to apply for. Employees 
+and the HR departmenet will hold a record of 
+the past leave instances that employees consumed. 
 ',
 	"00000000-0000-0000-0000-000000000000",
 	'./LeaveSpecifiction/LeaveSpecifiction.xtuml');
@@ -2740,9 +2746,12 @@ INSERT INTO O_OBJ_PROXY
 	10,
 	'Leave',
 	'Represents the leave instance an employee either: 
-a. created in the past as result of requesting a specific type of leave, or
-b. created to be consumed in the future representing a planned leave of absence,
-c. created and currently beign consumed as an active leave of absence to end in the future date.',
+	a. created in the past as result of requesting 
+	   a specific type of leave, or
+	b. created to be consumed in the future representing 
+	   a planned leave of absence,
+	c. created and currently beign consumed as an active 
+	   leave of absence to end in a future date.',
 	"00000000-0000-0000-0000-000000000000",
 	'./Leave/Leave.xtuml');
 INSERT INTO PE_PE
@@ -2923,9 +2932,11 @@ INSERT INTO O_OBJ_PROXY
 	'BonusSpecification',
 	1,
 	'BonusSpecification',
-	'Specifies types of bonus. An example of a bonus type is 1.5 work hour bonus for all employees 
-because of working an extra 1.5 hrs of typically governmenet working hours. 
-The bonus is calculated as a percentage of the monthly salary.',
+	'Specifies types of bonus. An example of a bonus 
+type is 1.5 work hour bonus for all employees 
+because of working an extra 1.5 hrs of typically 
+governmenet working hours. The bonus is calculated 
+as a percentage of the monthly salary.',
 	"00000000-0000-0000-0000-000000000000",
 	'./BonusSpecification/BonusSpecification.xtuml');
 INSERT INTO R_PART

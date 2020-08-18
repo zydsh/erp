@@ -5,9 +5,11 @@ INSERT INTO O_OBJ
 	'LeaveSpecifiction',
 	13,
 	'LeaveSpecifiction',
-	'Specifies the types of leave offered to employees. When employees request
-leave, they are asked to choose one leave type to apply for. Employees and the HR departmenet 
-will hold a record of the past leave instances that employees consumed. 
+	'Specifies the types of leave offered to employees. 
+When employees request leave, they are asked to 
+choose one leave type to apply for. Employees 
+and the HR departmenet will hold a record of 
+the past leave instances that employees consumed. 
 ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
@@ -43,6 +45,26 @@ INSERT INTO O_ATTR
 leave is requested.   ',
 	'',
 	'MaximumDays',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("08300901-05d5-42be-861c-ca4c086d5e3b",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_BATTR
+	VALUES ("08300901-05d5-42be-861c-ca4c086d5e3b",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_ATTR
+	VALUES ("08300901-05d5-42be-861c-ca4c086d5e3b",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
+	"5efa18e5-40d5-455e-b0ac-6b89eb9969d6",
+	'MinimumDays',
+	'Minimum days allowed to apply for a leave.
+For example, Regular Leave is not allowed 
+for less than 5 days.',
+	'',
+	'MinimumDays',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
