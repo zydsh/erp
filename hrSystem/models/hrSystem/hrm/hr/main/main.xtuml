@@ -2476,7 +2476,8 @@ INSERT INTO O_OBJ_PROXY
 	'Scale',
 	12,
 	'Scale',
-	'',
+	'Organizations may have more than one pay scale or schedule, the most common is the General Schedule. 
+Examples of other pay scales include: the Academic Schedule, Engineering Schedule, and Contract Schedule. ',
 	"00000000-0000-0000-0000-000000000000",
 	'./Scale/Scale.xtuml');
 INSERT INTO PE_PE
@@ -2805,7 +2806,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("a14222fe-4cba-4224-84dd-62e939d0ec54",
 	17,
-	'',
+	'Established when an employee leaves a job and is assigned a new job.
+The association helps track the record of employee''s career progression within the organization.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
@@ -2876,7 +2878,8 @@ INSERT INTO O_OBJ_PROXY
 	'Deductions',
 	14,
 	'Deductions',
-	'',
+	'Employees incur deductions for several reasons, the most common are pension fund deductions,
+and work absence. ',
 	"00000000-0000-0000-0000-000000000000",
 	'./Deductions/Deductions.xtuml');
 INSERT INTO R_PART
