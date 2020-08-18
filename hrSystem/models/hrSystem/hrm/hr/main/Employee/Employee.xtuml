@@ -202,10 +202,10 @@ INSERT INTO O_ATTR
 	VALUES ("fd9cdc08-0290-402f-8e02-c13de46c7b88",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
-	'FName',
+	'FirstName',
 	'',
 	'',
-	'FName',
+	'FirstName',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -219,11 +219,11 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("2538b924-8f5d-4754-8df6-11b7637ff38a",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	"fd9cdc08-0290-402f-8e02-c13de46c7b88",
-	'LName',
+	"975354bf-5a5e-45e2-a889-6d412fc08552",
+	'LastName',
 	'',
 	'',
-	'LName',
+	'LastName',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -237,7 +237,7 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("b5fd3d31-b2a5-466d-acd5-1d716b21fa12",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	"2538b924-8f5d-4754-8df6-11b7637ff38a",
+	"832187cb-4087-4b77-8ce2-9ee080fabf19",
 	'Start_Date',
 	'',
 	'',
@@ -255,11 +255,11 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	"00000000-0000-0000-0000-000000000000",
-	'National_ID',
+	"0c736e49-e66a-4002-bed8-ff1892f6e999",
+	'NationalID',
 	'',
 	'',
-	'National_ID',
+	'NationalID',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -282,6 +282,103 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("0c736e49-e66a-4002-bed8-ff1892f6e999",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("0c736e49-e66a-4002-bed8-ff1892f6e999",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("0c736e49-e66a-4002-bed8-ff1892f6e999",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"00000000-0000-0000-0000-000000000000",
+	'EmployeeID',
+	'',
+	'',
+	'EmployeeID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("975354bf-5a5e-45e2-a889-6d412fc08552",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("975354bf-5a5e-45e2-a889-6d412fc08552",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("975354bf-5a5e-45e2-a889-6d412fc08552",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"fd9cdc08-0290-402f-8e02-c13de46c7b88",
+	'MiddleName',
+	'',
+	'',
+	'MiddleName',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"2538b924-8f5d-4754-8df6-11b7637ff38a",
+	'DateOfBirth',
+	'',
+	'',
+	'DateOfBirth',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("832187cb-4087-4b77-8ce2-9ee080fabf19",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("832187cb-4087-4b77-8ce2-9ee080fabf19",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("832187cb-4087-4b77-8ce2-9ee080fabf19",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"636249ad-06ca-483a-8a21-51c25dd2153c",
+	'Gender',
+	'',
+	'',
+	'Gender',
+	0,
+	"181aca28-d5ec-4895-ac41-9ca0483ebfab",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("181aca28-d5ec-4895-ac41-9ca0483ebfab",
+	"00000000-0000-0000-0000-000000000000",
+	'Gender',
+	'',
+	'',
+	'../../Types/Types.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("636249ad-06ca-483a-8a21-51c25dd2153c",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("636249ad-06ca-483a-8a21-51c25dd2153c",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("636249ad-06ca-483a-8a21-51c25dd2153c",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
+	'Degree',
+	'',
+	'',
+	'Degree',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");
@@ -289,10 +386,15 @@ INSERT INTO O_OIDA
 	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	0,
-	'National_ID');
+	'NationalID');
 INSERT INTO O_ID
 	VALUES (1,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_OIDA
+	VALUES ("0c736e49-e66a-4002-bed8-ff1892f6e999",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	1,
+	'EmployeeID');
 INSERT INTO O_ID
 	VALUES (2,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");

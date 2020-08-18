@@ -1,0 +1,105 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("cf9a73e8-5751-47e9-9600-f9eb31a021ac",
+	'Deductions',
+	14,
+	'Deductions',
+	'Employees incur deductions for several reasons, the most common are pension fund deductions,
+and work absence. ',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("64e7dbef-2f9c-4b41-91c0-c8e73c5995a0",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_BATTR
+	VALUES ("64e7dbef-2f9c-4b41-91c0-c8e73c5995a0",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_ATTR
+	VALUES ("64e7dbef-2f9c-4b41-91c0-c8e73c5995a0",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("bab11f72-27b3-4557-b2e2-be20d6b51899",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_BATTR
+	VALUES ("bab11f72-27b3-4557-b2e2-be20d6b51899",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_ATTR
+	VALUES ("bab11f72-27b3-4557-b2e2-be20d6b51899",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac",
+	"64e7dbef-2f9c-4b41-91c0-c8e73c5995a0",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("1aba1bff-1877-4a01-b608-57ec9b54edf7",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_BATTR
+	VALUES ("1aba1bff-1877-4a01-b608-57ec9b54edf7",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_ATTR
+	VALUES ("1aba1bff-1877-4a01-b608-57ec9b54edf7",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac",
+	"bab11f72-27b3-4557-b2e2-be20d6b51899",
+	'Date',
+	'',
+	'',
+	'Date',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("1742d72d-1703-452c-9ab7-79c5cb4ff402",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_BATTR
+	VALUES ("1742d72d-1703-452c-9ab7-79c5cb4ff402",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_ATTR
+	VALUES ("1742d72d-1703-452c-9ab7-79c5cb4ff402",
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac",
+	"1aba1bff-1877-4a01-b608-57ec9b54edf7",
+	'Amount',
+	'',
+	'',
+	'Amount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_ID
+	VALUES (1,
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO O_ID
+	VALUES (2,
+	"cf9a73e8-5751-47e9-9600-f9eb31a021ac");
+INSERT INTO PE_PE
+	VALUES ("cf9a73e8-5751-47e9-9600-f9eb31a021ac",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');
