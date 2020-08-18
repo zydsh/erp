@@ -5,8 +5,10 @@ INSERT INTO O_OBJ
 	'Bonus',
 	8,
 	'BP',
-	'Employees recieve different types of bonuses. Some bonuses are recieved by all employees,
-others may be given to a subset of employees. Currently, there is no clear association
+	'Employees recieve different types of bonuses. 
+Some bonuses are recieved by all employees,
+others may be given to a subset of employees. 
+Currently, there is no clear association
 between the role of an employee and a bonus. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR

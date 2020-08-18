@@ -5,9 +5,12 @@ INSERT INTO O_OBJ
 	'Employee',
 	2,
 	'EM',
-	'Is an individual employed for a monthly salary and receives benefits 
-including bonuses and leave of absence. Before they commence, employees are recognized
-as soon as they are recruited. When they are recruited, employees are assigned a job 
+	'Is an individual employed for a monthly 
+salary and receives benefits including 
+bonuses and leave of absence. 
+Before they commence, employees are recognized
+as soon as they are recruited. 
+When they are recruited, employees are assigned a job 
 that has a grade which corresponds to a basic salary. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
@@ -293,7 +296,7 @@ INSERT INTO O_ATTR
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"00000000-0000-0000-0000-000000000000",
 	'EmployeeID',
-	'',
+	'An identification number specific to the organization and only recognized within it.  ',
 	'',
 	'EmployeeID',
 	0,
@@ -372,7 +375,7 @@ INSERT INTO O_ATTR
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
 	'Degree',
-	'',
+	'Employee''s highest degree earned.',
 	'',
 	'Degree',
 	0,

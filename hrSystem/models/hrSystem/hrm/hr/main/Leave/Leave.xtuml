@@ -6,9 +6,12 @@ INSERT INTO O_OBJ
 	10,
 	'Leave',
 	'Represents the leave instance an employee either: 
-a. created in the past as result of requesting a specific type of leave, or
-b. created to be consumed in the future representing a planned leave of absence,
-c. created and currently beign consumed as an active leave of absence to end in the future date.',
+	a. created in the past as result of requesting 
+	   a specific type of leave, or
+	b. created to be consumed in the future representing 
+	   a planned leave of absence,
+	c. created and currently beign consumed as an active 
+	   leave of absence to end in a future date.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("2cbebbe4-9052-473f-8bef-be86c7202ac9",

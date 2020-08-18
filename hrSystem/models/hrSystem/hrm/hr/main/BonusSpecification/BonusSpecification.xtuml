@@ -5,9 +5,11 @@ INSERT INTO O_OBJ
 	'BonusSpecification',
 	1,
 	'BonusSpecification',
-	'Specifies types of bonus. An example of a bonus type is 1.5 work hour bonus for all employees 
-because of working an extra 1.5 hrs of typically governmenet working hours. 
-The bonus is calculated as a percentage of the monthly salary.',
+	'Specifies types of bonus. An example of a bonus 
+type is 1.5 work hour bonus for all employees 
+because of working an extra 1.5 hrs of typically 
+governmenet working hours. The bonus is calculated 
+as a percentage of the monthly salary.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("930f981c-dc4a-4a1e-a27b-d9da02239256",

@@ -5,8 +5,10 @@ INSERT INTO O_OBJ
 	'JobRecord',
 	9,
 	'EJ',
-	'Holds the history of jobs held by an employee. The first job may be followed by at most one
-job. Similarly, the last held job will have no proceeding jobs.',
+	'Holds the history of jobs held by an employee. 
+The first job may be followed by at most one
+job. Similarly, the last held job will have 
+no proceeding jobs.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("ab9c24b4-c771-441d-aeca-a8f808eda56e",
