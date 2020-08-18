@@ -260,7 +260,7 @@ INSERT INTO O_ATTR
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"0c736e49-e66a-4002-bed8-ff1892f6e999",
 	'NationalID',
-	'',
+	'An identification number recognized across government organizations. 	',
 	'',
 	'NationalID',
 	0,

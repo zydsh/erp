@@ -128,7 +128,7 @@ INSERT INTO O_ATTR
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
 	"00000000-0000-0000-0000-000000000000",
 	'Starting',
-	'',
+	'A date to start paying a bonus amount to an employee.',
 	'',
 	'Starting',
 	0,
@@ -146,7 +146,7 @@ INSERT INTO O_ATTR
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
 	"275dc84f-af6b-42a1-b363-1e5b408fbff8",
 	'Ending',
-	'',
+	'A date to stop bonus payments. ',
 	'',
 	'Ending',
 	0,
@@ -164,7 +164,8 @@ INSERT INTO O_ATTR
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
 	"ca74fb9b-e2e5-4ff3-a927-5c3b5e39de40",
 	'Amount',
-	'',
+	'Payment amount of bonus calculated based on a percentage of monthly 
+salary stored in BonusSpecifications. ',
 	'',
 	'Amount',
 	0,
@@ -187,42 +188,6 @@ INSERT INTO O_ATTR
 	'current_state',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000006",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("cd8582d2-5836-44a9-9baf-020c950e9290",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
-INSERT INTO O_BATTR
-	VALUES ("cd8582d2-5836-44a9-9baf-020c950e9290",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
-INSERT INTO O_ATTR
-	VALUES ("cd8582d2-5836-44a9-9baf-020c950e9290",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	"a9264617-5aaf-4d83-a48e-af759986a1ba",
-	'National_ID',
-	'',
-	'',
-	'National_ID',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("db0a9b75-8229-4ed9-bd25-9101a948a448",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
-INSERT INTO O_BATTR
-	VALUES ("db0a9b75-8229-4ed9-bd25-9101a948a448",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
-INSERT INTO O_ATTR
-	VALUES ("db0a9b75-8229-4ed9-bd25-9101a948a448",
-	"2451d579-2b01-4bdf-92ad-b6de8d147bb6",
-	"cd8582d2-5836-44a9-9baf-020c950e9290",
-	'Name',
-	'',
-	'',
-	'Name',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
 INSERT INTO O_ID

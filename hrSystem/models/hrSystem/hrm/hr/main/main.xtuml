@@ -144,6 +144,11 @@ INSERT INTO DIM_CON
 	984.000000,
 	636.000000,
 	"b8867314-6c81-4180-b621-fec46c8fe575");
+INSERT INTO DIM_CON
+	VALUES ("bd8cf88e-e8be-47cc-b04e-0037d5ab9227",
+	876.000000,
+	444.000000,
+	"b8867314-6c81-4180-b621-fec46c8fe575");
 INSERT INTO GD_GE
 	VALUES ("e446889d-4921-493d-8904-449ac549594e",
 	"4ded1592-b33e-4721-98ce-7c46ad492c64",
@@ -251,6 +256,11 @@ INSERT INTO DIM_CON
 	VALUES ("eef17c11-ae3b-4f9f-a455-543681adbbea",
 	1044.000000,
 	216.000000,
+	"54553223-596f-4d46-af7c-8bd644271256");
+INSERT INTO DIM_CON
+	VALUES ("ce75b175-aa20-412e-8305-91c9bc6602ea",
+	876.000000,
+	330.000000,
 	"54553223-596f-4d46-af7c-8bd644271256");
 INSERT INTO GD_GE
 	VALUES ("f1f5eb61-f375-459c-8943-99a45dfc8ebc",
@@ -488,8 +498,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"2a56a22d-9498-4a61-80ff-37e2c9f67d18");
 INSERT INTO DIM_GE
-	VALUES (939.000000,
-	345.000000,
+	VALUES (982.000000,
+	372.000000,
 	"2a56a22d-9498-4a61-80ff-37e2c9f67d18",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -2248,6 +2258,106 @@ INSERT INTO DIM_ED
 	VALUES ("da781b80-0e2c-49d3-ba0f-95b36ec66405",
 	"21d62a43-b51c-4bae-90d6-104437afd9ac",
 	"046e02a6-30cb-4a62-af29-ad617c77075a");
+INSERT INTO GD_GE
+	VALUES ("8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	"4ded1592-b33e-4721-98ce-7c46ad492c64",
+	"764482f0-2753-49c7-ba07-d9b463040d4d",
+	24,
+	0,
+	'hrSystem::hrm::hr::main::R20');
+INSERT INTO GD_CON
+	VALUES ("8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("2953beed-91da-433e-b806-4d66fc389ff9",
+	"8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	0,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (61.000000,
+	49.000000,
+	"2953beed-91da-433e-b806-4d66fc389ff9");
+INSERT INTO DIM_GE
+	VALUES (886.000000,
+	328.000000,
+	"2953beed-91da-433e-b806-4d66fc389ff9",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("2953beed-91da-433e-b806-4d66fc389ff9",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("5126bdb3-6d44-4c05-b36d-f18c465f6f64",
+	"8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	2,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"5126bdb3-6d44-4c05-b36d-f18c465f6f64");
+INSERT INTO DIM_GE
+	VALUES (842.000000,
+	377.000000,
+	"5126bdb3-6d44-4c05-b36d-f18c465f6f64",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("5126bdb3-6d44-4c05-b36d-f18c465f6f64",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("516a295d-50ba-457f-8ce9-2fc648e58f73",
+	"8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	1,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (57.000000,
+	49.000000,
+	"516a295d-50ba-457f-8ce9-2fc648e58f73");
+INSERT INTO DIM_GE
+	VALUES (886.000000,
+	397.000000,
+	"516a295d-50ba-457f-8ce9-2fc648e58f73",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("516a295d-50ba-457f-8ce9-2fc648e58f73",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_LS
+	VALUES ("2502d984-314a-4cde-a589-0a8e5b5f7bd1",
+	"8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	"00000000-0000-0000-0000-000000000000",
+	"87008fe8-d694-4353-a6a4-25aede3609f9",
+	"745eb2f6-678e-4eec-b5d0-fdd824e7930f");
+INSERT INTO DIM_WAY
+	VALUES ("87008fe8-d694-4353-a6a4-25aede3609f9",
+	876.000000,
+	330.000000,
+	"8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_WAY
+	VALUES ("745eb2f6-678e-4eec-b5d0-fdd824e7930f",
+	876.000000,
+	444.000000,
+	"8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	"00000000-0000-0000-0000-000000000000",
+	"87008fe8-d694-4353-a6a4-25aede3609f9");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("8a2114eb-b938-4b64-90c1-6349e84d9df1",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ED
+	VALUES ("ce75b175-aa20-412e-8305-91c9bc6602ea",
+	"bd8cf88e-e8be-47cc-b04e-0037d5ab9227",
+	"8a2114eb-b938-4b64-90c1-6349e84d9df1");
 INSERT INTO DIM_DIA
 	VALUES ("4ded1592-b33e-4721-98ce-7c46ad492c64",
 	'',
@@ -2548,16 +2658,22 @@ INSERT INTO O_OBJ_PROXY
 	'Grade',
 	3,
 	'Grade',
-	'Grade is the building block of a pay schedule. A pay schedule is formed by
-grades, and grades are made of series of steps. The role step in a pay schedule
-is define the number of allowances to be added to the base-salary every year.
-The maximum number of steps represents the limit by which allowances stop. 
-Typically, an employee remains in a job for a period of 4-6 years, 
+	'Grade is the building block of a pay schedule. 
+A pay schedule is formed by grades, and grades 
+are made of series of steps. 
+The role step in a pay schedule is define the 
+number of allowances to be added to the base-salary 
+every year.
+
+The maximum number of steps represents the limit 
+by which allowances stop. Typically, an employee 
+remains in a job for a period of 4-6 years, 
 until promoted to a higher grade. 
  
-Grade is also linked to other grades. In a pay schedule, unless a grade is the highest
-or the lowest, a grade is both proceeded by exactly one grade and proceeded by exactly 
-one grade. ',
+Grade is also linked to other grades. 
+In a pay schedule, unless a grade is the highest
+or the lowest, a grade is both proceeded by exactly 
+one grade and proceeded by exactly one grade. ',
 	"00000000-0000-0000-0000-000000000000",
 	'./Grade/Grade.xtuml');
 INSERT INTO R_PART
@@ -3104,6 +3220,54 @@ INSERT INTO R_OIR
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("ffbdb104-ebc9-4e78-af78-37ee906c36e6",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	9);
+INSERT INTO R_SIMP
+	VALUES ("764482f0-2753-49c7-ba07-d9b463040d4d");
+INSERT INTO R_REL
+	VALUES ("764482f0-2753-49c7-ba07-d9b463040d4d",
+	20,
+	'Established when an employee is promoted but the official 
+appointment decision is not finalized.',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO R_PART
+	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
+	"764482f0-2753-49c7-ba07-d9b463040d4d",
+	"52ccbec3-22a5-47eb-97e9-2afa54cd6c5c",
+	0,
+	1,
+	'to be promoted to a');
+INSERT INTO R_RTO
+	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
+	"764482f0-2753-49c7-ba07-d9b463040d4d",
+	"52ccbec3-22a5-47eb-97e9-2afa54cd6c5c",
+	-1);
+INSERT INTO R_OIR
+	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
+	"764482f0-2753-49c7-ba07-d9b463040d4d",
+	"52ccbec3-22a5-47eb-97e9-2afa54cd6c5c",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO R_PART
+	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"764482f0-2753-49c7-ba07-d9b463040d4d",
+	"ee290cd0-0178-43de-b77e-79e233ecded4",
+	0,
+	1,
+	'to be assigned to an');
+INSERT INTO R_RTO
+	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"764482f0-2753-49c7-ba07-d9b463040d4d",
+	"ee290cd0-0178-43de-b77e-79e233ecded4",
+	-1);
+INSERT INTO R_OIR
+	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"764482f0-2753-49c7-ba07-d9b463040d4d",
+	"ee290cd0-0178-43de-b77e-79e233ecded4",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PE_PE
+	VALUES ("764482f0-2753-49c7-ba07-d9b463040d4d",
 	1,
 	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
 	"00000000-0000-0000-0000-000000000000",

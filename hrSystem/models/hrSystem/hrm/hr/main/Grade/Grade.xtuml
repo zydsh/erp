@@ -5,16 +5,22 @@ INSERT INTO O_OBJ
 	'Grade',
 	3,
 	'Grade',
-	'Grade is the building block of a pay schedule. A pay schedule is formed by
-grades, and grades are made of series of steps. The role step in a pay schedule
-is define the number of allowances to be added to the base-salary every year.
-The maximum number of steps represents the limit by which allowances stop. 
-Typically, an employee remains in a job for a period of 4-6 years, 
+	'Grade is the building block of a pay schedule. 
+A pay schedule is formed by grades, and grades 
+are made of series of steps. 
+The role step in a pay schedule is define the 
+number of allowances to be added to the base-salary 
+every year.
+
+The maximum number of steps represents the limit 
+by which allowances stop. Typically, an employee 
+remains in a job for a period of 4-6 years, 
 until promoted to a higher grade. 
  
-Grade is also linked to other grades. In a pay schedule, unless a grade is the highest
-or the lowest, a grade is both proceeded by exactly one grade and proceeded by exactly 
-one grade. ',
+Grade is also linked to other grades. 
+In a pay schedule, unless a grade is the highest
+or the lowest, a grade is both proceeded by exactly 
+one grade and proceeded by exactly one grade. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("dbb0c869-0460-4f49-ba8a-2874977db9a4",
@@ -86,7 +92,9 @@ INSERT INTO O_ATTR
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"bdc11314-5cd0-42c8-aecc-1607339a311f",
 	'Allowance',
-	'',
+	'The amount paid every year to an employee to be added to 
+the base salary. Every grade its own fixed allowance amount.
+',
 	'',
 	'Allowance',
 	0,
@@ -104,7 +112,10 @@ INSERT INTO O_ATTR
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"00000000-0000-0000-0000-000000000000",
 	'Name',
-	'',
+	'Uniquely identifies a grade. 
+In the General Schedule, grades are listed in numbers from 1--15.
+Other pay scales specify names using strings, 
+such as the Academic Scale: Lecturer, Assistant Professor, etc.',
 	'',
 	'Name',
 	0,
@@ -122,7 +133,8 @@ INSERT INTO O_ATTR
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"63c5e5ce-16de-438b-811c-22bf9be4e467",
 	'BaseSalary',
-	'',
+	'The first salary amount of a grade. 
+Corresponds to the first step of a grade.   ',
 	'',
 	'BaseSalary',
 	0,
@@ -140,27 +152,19 @@ INSERT INTO O_ATTR
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"5cd9ce0a-e3d9-4c74-8066-3bfcf066e40f",
 	'NumberOfSteps',
-	'',
+	'A grade has a fixed number of steps (e.g. the General Schedule has 15 grades and 15 steps).
+All pay scales are designed to have steps starting from one.
+But from grades 11-15, the number of steps decrease by one. 
+
+Grade 01 has 15 steps
+Grade 02 has 15 steps
+.....................
+.....................
+Grade 11 has 14 steps
+Grade 12 has 13 steps
+Grade 13 has 12 steps .. and so on.',
 	'',
 	'NumberOfSteps',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("50059bb5-1985-477b-85b8-a067e45fd6fb",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
-INSERT INTO O_BATTR
-	VALUES ("50059bb5-1985-477b-85b8-a067e45fd6fb",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
-INSERT INTO O_ATTR
-	VALUES ("50059bb5-1985-477b-85b8-a067e45fd6fb",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
-	"64e80c1b-961d-4342-9344-73765b1dcdb0",
-	'StartingStep',
-	'',
-	'',
-	'StartingStep',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',

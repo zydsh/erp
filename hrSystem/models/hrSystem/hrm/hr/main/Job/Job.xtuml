@@ -141,7 +141,7 @@ INSERT INTO O_DBATTR
 	'//Calculating the salary based on number of steps which corrosponds to a fixed allowance
 // Every year, an Employee through Job, moves up one step a year and gets an allowance 
 select one grade related by self->Grade[R9.''assigned''];
-self.Salary = grade.Allowance * (self.Step - grade.StartingStep ) + grade.BaseSalary ;',
+self.Salary = (grade.Allowance * self.Step) + grade.BaseSalary ;',
 	1,
 	0);
 INSERT INTO O_BATTR
@@ -153,7 +153,8 @@ INSERT INTO O_ATTR
 	"75ea8f9b-899f-4d29-a147-17cab714f84e",
 	'Salary',
 	'The salary increases by a yearlly allowance defined in the Grade class.
-Job holds the step value for the a job when an employee is first assigned.
+Job holds the step value when an employee is first assigned.
+For example, engineering gradutes are assigned grade 7, step 4.
 The step increase every year by one, thus adds an allowance amount for every step added.
 The allowance stops when the step reaches to its maximum steps defined in Grade (see NumberOfSteps).',
 	'',
@@ -210,8 +211,10 @@ INSERT INTO O_ATTR
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
 	'PensionDeduction',
-	' A pension percentage is deducted monthly. At this stage we will deduct the amounts
- until we get further details on how these amounts are handled. 
+	' A pension percentage is deducted monthly. 
+ At this stage we will deduct the amounts
+ until we get further details on how these 
+ amounts are handled. 
 ',
 	'',
 	'PensionDeduction',
@@ -230,9 +233,50 @@ INSERT INTO O_ATTR
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"f31b58a3-b3d7-4683-ba34-60e5e23a6021",
 	'Step',
-	'',
+	'Represents the step within a grade assigned to the job.
+The step increases by one every year.',
 	'',
 	'Step',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("4981a520-8984-42e8-896c-f39dd957ce2c",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("4981a520-8984-42e8-896c-f39dd957ce2c",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("4981a520-8984-42e8-896c-f39dd957ce2c",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"af947c66-aa53-4e84-9f61-9b46f992ed7a",
+	'PromotionDate',
+	'The date the job is expected to be assigned to another employee as 
+the current employee is promoted. Typically, appointment dates 
+are after promotion dates (2-5 months late). But financial benifits are
+calcualted for the next job based on promotion date. 
+',
+	'',
+	'PromotionDate',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ec24e692-f1b3-4547-8445-bdde5aaf3d50",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("ec24e692-f1b3-4547-8445-bdde5aaf3d50",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("ec24e692-f1b3-4547-8445-bdde5aaf3d50",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"4981a520-8984-42e8-896c-f39dd957ce2c",
+	'AppointmentDate',
+	'The date the job is assigned officially to an employee',
+	'',
+	'AppointmentDate',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
