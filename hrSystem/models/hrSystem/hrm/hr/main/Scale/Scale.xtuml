@@ -5,8 +5,11 @@ INSERT INTO O_OBJ
 	'Scale',
 	12,
 	'Scale',
-	'Organizations may have more than one pay scale or schedule, the most common is the General Schedule. 
-Examples of other pay scales include: the Academic Schedule, Engineering Schedule, and Contract Schedule. ',
+	'Organizations may have more than one pay scale 
+or schedule, the most common is the General Schedule. 
+Examples of other pay scales include: 
+the Academic Schedule, Engineering Schedule, 
+and Contract Schedule. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("c582f07f-152f-4af2-9b92-93908bc1086b",

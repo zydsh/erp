@@ -2370,7 +2370,9 @@ INSERT INTO R_ASSOC
 INSERT INTO R_REL
 	VALUES ("20637019-8a2b-425f-9d48-7d5bec2c09ef",
 	1,
-	'',
+	'Established when an employee is 
+relieved from a job, thus keeping 
+a record of past appointments. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_AONE
 	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
@@ -2528,7 +2530,10 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("18fc4b09-0f8c-4965-88e1-40f0a3a2bb74",
 	4,
-	'Established when an employee is assigned a bonus and remains associated with Employee until the bonus expires.',
+	'Established when an employee 
+is assigned a bonus and remains 
+associated with Employee until 
+the bonus expires.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
@@ -2587,7 +2592,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("3d6520ad-5466-414a-a289-c1763e2d4351",
 	6,
-	'',
+	'Established when an employee 
+is officially appointed to a job.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
@@ -2634,7 +2640,9 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("b2ba522c-9445-4bd1-9812-c0ce57d31a50",
 	9,
-	'',
+	'Established when a new job is created and 
+assigned a grade that corresponds
+to a pay scale.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("cf68762b-f5bb-47be-a0da-54b9ddde60f3",
@@ -2760,7 +2768,10 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("ea949ccd-1eca-4ff6-b1fc-1451f704d211",
 	14,
-	'',
+	'Established to create a structure of grades within a pay scale. 
+Grades are sorted in levels from lowest to highest. 
+Each grade is preceded and proceeded by exactly one grade,
+except for the lowest and highest grade.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("cf68762b-f5bb-47be-a0da-54b9ddde60f3",
@@ -2807,7 +2818,7 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("bbcb106c-419a-4738-8190-a442bd3743fe",
 	15,
-	'',
+	'Established when an employee request a new leave',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
@@ -2881,7 +2892,9 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("e188ae7b-f079-4e2d-9d8f-65b43f9c3cef",
 	2,
-	'Established when a leave ends, and an employee returns to work. Stored for later reference. ',
+	'Established when a leave ends, 
+and an employee returns to work. 
+Stored for later reference. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
@@ -2928,7 +2941,9 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("356eecf7-8682-4926-818c-cd705dd9d8a2",
 	5,
-	'Relates employees when a specific leave starts, and removed when the leave ends. 
+	'Relates employees when a specific 
+leave starts, and removed when 
+the leave ends. 
 ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
@@ -2976,7 +2991,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("f525fe36-05e1-4b32-9308-53078efbf883",
 	7,
-	'Established when employees assign a leave for a future date.',
+	'Established when employees 
+assign a leave for a future date.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
@@ -3083,8 +3099,11 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("a14222fe-4cba-4224-84dd-62e939d0ec54",
 	17,
-	'Established when an employee leaves a job and is assigned a new job.
-The association helps track the record of employee''s career progression within the organization.',
+	'Established when an employee leaves 
+a job and is assigned a new job.
+The association helps track the 
+record of employee''s career 
+progression within the organization.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
@@ -3229,8 +3248,10 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("764482f0-2753-49c7-ba07-d9b463040d4d",
 	20,
-	'Established when an employee is promoted but the official 
-appointment decision is not finalized.',
+	'Established when an employee 
+is promoted but the official 
+appointment decision is not 
+finalized.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
