@@ -39,7 +39,7 @@ INSERT INTO C_PP
 	VALUES ("46db087f-0afc-408b-a96e-948fd255db7b",
 	"b39132b4-2259-4b62-a9f3-6437a0d18916",
 	"ba5eda7a-def5-0000-0000-000000000002",
-	'National_ID',
+	'EmployeeID',
 	'',
 	0,
 	'',
@@ -272,6 +272,36 @@ INSERT INTO C_AS
 	'',
 	0,
 	"17ffcb19-fa91-46b2-b867-ee86de86db68");
+INSERT INTO C_PP
+	VALUES ("7b25327d-dfcd-49ea-b5ce-6dfa0810c542",
+	"d94c13b0-32b8-4236-942e-57f41ea108fa",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("68395ea3-c159-43f2-8c29-b680f2eebfef",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'RejectEmployeeLeave',
+	'');
+INSERT INTO C_AS
+	VALUES ("68395ea3-c159-43f2-8c29-b680f2eebfef",
+	'RejectEmployeeLeave',
+	'',
+	0,
+	"d94c13b0-32b8-4236-942e-57f41ea108fa");
+INSERT INTO C_PP
+	VALUES ("3f8a55ee-c3a8-44e3-912e-1b11dfd5e93e",
+	"68395ea3-c159-43f2-8c29-b680f2eebfef",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("5c6691f2-7090-42e2-a731-ec2157c73db8",
 	1,

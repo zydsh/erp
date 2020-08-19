@@ -627,6 +627,24 @@ INSERT INTO C_EP_PROXY
 	'ApproveEmployeeLeave',
 	'',
 	'../../Shared/Ops/Ops.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("4f92699b-477c-46c2-96f0-93e7b6093dfa",
+	"68395ea3-c159-43f2-8c29-b680f2eebfef",
+	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
+INSERT INTO SPR_RS
+	VALUES ("4f92699b-477c-46c2-96f0-93e7b6093dfa",
+	'RejectEmployeeLeave',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("68395ea3-c159-43f2-8c29-b680f2eebfef",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'RejectEmployeeLeave',
+	'',
+	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("5c6691f2-7090-42e2-a731-ec2157c73db8",
 	"00000000-0000-0000-0000-000000000000",

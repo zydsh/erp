@@ -1349,7 +1349,7 @@ INSERT INTO GD_GE
 	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
 	21,
 	0,
-	'hrSystem::hrm::hr::main::LeaveSpecifiction');
+	'hrSystem::hrm::hr::main::LeaveSpecification');
 INSERT INTO GD_SHP
 	VALUES ("ff4376d1-e216-48d3-b6ba-d18759b519df");
 INSERT INTO GD_NCS
@@ -2819,7 +2819,7 @@ INSERT INTO O_OBJ_PROXY
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'Employee',
 	2,
-	'EM',
+	'Employee',
 	'Is an individual employed for a monthly 
 salary and receives benefits including 
 bonuses and leave of absence. 
@@ -3235,9 +3235,9 @@ INSERT INTO R_OIR
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_OBJ_PROXY
 	VALUES ("9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
-	'LeaveSpecifiction',
+	'LeaveSpecification',
 	13,
-	'LeaveSpecifiction',
+	'LeaveSpecification',
 	'Specifies the types of leave offered to employees. 
 When employees request leave, they are asked to 
 choose one leave type to apply for. Employees 
@@ -3245,7 +3245,7 @@ and the HR departmenet will hold a record of
 the past leave instances that employees consumed. 
 ',
 	"00000000-0000-0000-0000-000000000000",
-	'./LeaveSpecifiction/LeaveSpecifiction.xtuml');
+	'./LeaveSpecification/LeaveSpecification.xtuml');
 INSERT INTO R_PART
 	VALUES ("bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
 	"bbcb106c-419a-4738-8190-a442bd3743fe",
@@ -3411,7 +3411,7 @@ INSERT INTO R_PART
 	VALUES ("bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
 	"f525fe36-05e1-4b32-9308-53078efbf883",
 	"cd92bef5-286d-4a3c-8e57-ecca3e2322f0",
-	1,
+	0,
 	1,
 	'is planning to take ');
 INSERT INTO R_RTO

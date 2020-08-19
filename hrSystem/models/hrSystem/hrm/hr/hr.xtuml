@@ -552,7 +552,7 @@ INSERT INTO SPR_PS
 	'An employee requests to have a leave of absence of a specific type. ',
 	'//Select an employee using the National ID to deliver the event to the statemachine
 // to serve the request for leave.
-select any employee from instances of Employee where selected.NationalID==param.National_ID;
+select any employee from instances of Employee where selected.EmployeeID==param.EmployeeID;
 select any leaveSpec from instances of LeaveSpecification where selected.Name ==param.LeaveName;
 
 if ( not empty employee ) and ( not empty leaveSpec)
@@ -715,14 +715,43 @@ INSERT INTO SPR_PS
 	VALUES ("0a7e577b-e354-482f-8bcf-bf08b7b1716d",
 	'ApproveEmployeeLeave',
 	'',
-	'',
-	3,
+	'
+select any employee from instances of Employee where selected.EmployeeID==param.EmployeeID;
+
+if ( not empty employee )
+	select one leave related by employee->Leave[R7.''is planning to take ''];
+	generate Leave1:Approve() to leave;
+end if;',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("d94c13b0-32b8-4236-942e-57f41ea108fa",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
 	'ApproveEmployeeLeave',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/Ops/Ops.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("b97c2d16-d1cd-4c0f-a41e-e66a5e88300f",
+	"68395ea3-c159-43f2-8c29-b680f2eebfef",
+	"b738ee35-2e9d-421e-b69d-3017ffbef31d");
+INSERT INTO SPR_PS
+	VALUES ("b97c2d16-d1cd-4c0f-a41e-e66a5e88300f",
+	'RejectEmployeeLeave',
+	'',
+	'select any employee from instances of Employee where selected.EmployeeID==param.EmployeeID;
+
+if ( not empty employee )
+	select one leave related by employee->Leave[R7.''is planning to take ''];
+	generate Leave4:Reject() to leave;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("68395ea3-c159-43f2-8c29-b680f2eebfef",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'RejectEmployeeLeave',
 	'',
 	'../../../../../HRUI/models/HRUI/Shared/Ops/Ops.xtuml');
 INSERT INTO C_I_PROXY

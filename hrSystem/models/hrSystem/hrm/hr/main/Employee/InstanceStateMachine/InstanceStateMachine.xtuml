@@ -61,7 +61,7 @@ INSERT INTO SM_EVT
 	'employeeUpdateRcvd',
 	0,
 	'',
-	'EM1',
+	'Employee1',
 	'');
 INSERT INTO SM_LEVT
 	VALUES ("f230928b-7209-48ee-8d33-4d2524c4d152",
@@ -79,7 +79,7 @@ INSERT INTO SM_EVT
 	'commenced',
 	0,
 	'',
-	'EM2',
+	'Employee2',
 	'');
 INSERT INTO SM_LEVT
 	VALUES ("19cf849f-5cf7-4cb3-a0f5-1f9b9d6d55cb",
@@ -97,7 +97,7 @@ INSERT INTO SM_EVT
 	'requestLeave',
 	0,
 	'',
-	'EM3',
+	'Employee3',
 	'');
 INSERT INTO SM_LEVT
 	VALUES ("8c5e3fb0-95d1-40d2-84c8-10e4e8ee6000",
@@ -115,7 +115,43 @@ INSERT INTO SM_EVT
 	'returnFromLeave',
 	0,
 	'',
-	'EM4',
+	'Employee4',
+	'');
+INSERT INTO SM_LEVT
+	VALUES ("4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_SEVT
+	VALUES ("4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_EVT
+	VALUES ("4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	5,
+	'LeaveStarted',
+	0,
+	'',
+	'Employee5',
+	'');
+INSERT INTO SM_LEVT
+	VALUES ("bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_SEVT
+	VALUES ("bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_EVT
+	VALUES ("bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	6,
+	'LeaveEnded',
+	0,
+	'',
+	'Employee6',
 	'');
 INSERT INTO SM_STATE
 	VALUES ("9037eff3-4bbc-42ea-8d49-632ad8ca9d2d",
@@ -162,6 +198,28 @@ INSERT INTO SM_SEME
 	"8c5e3fb0-95d1-40d2-84c8-10e4e8ee6000",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("9037eff3-4bbc-42ea-8d49-632ad8ca9d2d",
+	"4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO SM_SEME
+	VALUES ("9037eff3-4bbc-42ea-8d49-632ad8ca9d2d",
+	"4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("9037eff3-4bbc-42ea-8d49-632ad8ca9d2d",
+	"bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO SM_SEME
+	VALUES ("9037eff3-4bbc-42ea-8d49-632ad8ca9d2d",
+	"bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_STATE
 	VALUES ("45e20b85-e55e-406a-b9fc-eae1428c0070",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
@@ -191,6 +249,12 @@ INSERT INTO SM_SEME
 	"f230928b-7209-48ee-8d33-4d2524c4d152",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("45e20b85-e55e-406a-b9fc-eae1428c0070",
+	"19cf849f-5cf7-4cb3-a0f5-1f9b9d6d55cb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO SM_SEME
 	VALUES ("45e20b85-e55e-406a-b9fc-eae1428c0070",
 	"19cf849f-5cf7-4cb3-a0f5-1f9b9d6d55cb",
@@ -205,6 +269,22 @@ INSERT INTO SM_CH
 INSERT INTO SM_SEME
 	VALUES ("45e20b85-e55e-406a-b9fc-eae1428c0070",
 	"8c5e3fb0-95d1-40d2-84c8-10e4e8ee6000",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_SEME
+	VALUES ("45e20b85-e55e-406a-b9fc-eae1428c0070",
+	"4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("45e20b85-e55e-406a-b9fc-eae1428c0070",
+	"bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO SM_SEME
+	VALUES ("45e20b85-e55e-406a-b9fc-eae1428c0070",
+	"bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_STATE
@@ -236,14 +316,42 @@ INSERT INTO SM_SEME
 	"f230928b-7209-48ee-8d33-4d2524c4d152",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("420da34f-4885-4c9c-9399-c3728a76be8c",
+	"19cf849f-5cf7-4cb3-a0f5-1f9b9d6d55cb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO SM_SEME
 	VALUES ("420da34f-4885-4c9c-9399-c3728a76be8c",
 	"19cf849f-5cf7-4cb3-a0f5-1f9b9d6d55cb",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("420da34f-4885-4c9c-9399-c3728a76be8c",
+	"8c5e3fb0-95d1-40d2-84c8-10e4e8ee6000",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO SM_SEME
 	VALUES ("420da34f-4885-4c9c-9399-c3728a76be8c",
 	"8c5e3fb0-95d1-40d2-84c8-10e4e8ee6000",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("420da34f-4885-4c9c-9399-c3728a76be8c",
+	"4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO SM_SEME
+	VALUES ("420da34f-4885-4c9c-9399-c3728a76be8c",
+	"4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_SEME
+	VALUES ("420da34f-4885-4c9c-9399-c3728a76be8c",
+	"bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_CRTXN
@@ -271,7 +379,7 @@ INSERT INTO SM_NSTXN
 	VALUES ("a4d3cf31-0b34-42d6-95cd-5a38502b6a36",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"45e20b85-e55e-406a-b9fc-eae1428c0070",
-	"19cf849f-5cf7-4cb3-a0f5-1f9b9d6d55cb",
+	"4a83a57e-0c47-4bb2-980e-c750a0cf9ebb",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("a4d3cf31-0b34-42d6-95cd-5a38502b6a36",
@@ -282,18 +390,17 @@ INSERT INTO SM_NSTXN
 	VALUES ("e33baff7-5b1b-4f6d-ac85-3d9b8691aeaa",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"420da34f-4885-4c9c-9399-c3728a76be8c",
-	"8c5e3fb0-95d1-40d2-84c8-10e4e8ee6000",
+	"bd59f863-2e8b-494a-b7eb-e008c5a6e99d",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("e33baff7-5b1b-4f6d-ac85-3d9b8691aeaa",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"45e20b85-e55e-406a-b9fc-eae1428c0070",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_NSTXN
+INSERT INTO SM_NETXN
 	VALUES ("f9d3f04f-5f02-4364-a829-dcb73061932e",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"420da34f-4885-4c9c-9399-c3728a76be8c",
-	"19cf849f-5cf7-4cb3-a0f5-1f9b9d6d55cb",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("f9d3f04f-5f02-4364-a829-dcb73061932e",
@@ -341,20 +448,20 @@ INSERT INTO SM_ACT
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	1,
 	'// An ''empty'' instance handle of the associative class must be created before the participating instances can be assigned.
-create object instance empLeave of Employee_Leave;
+//create object instance empLeave of Employee_Leave;
 // The source instance needs to exist.  
-select any employee from instances of EM where selected.National_ID == param.National_ID;
+//select any employee from instances of EM where selected.National_ID == param.National_ID;
  // The destination instance needs to exist too.
-select any leave from instances of Leave where selected.Name == param.Name; 
+//select any leave from instances of Leave where selected.Name == param.Name; 
 // The actual (non-empty) relationship instance.
-relate employee to leave across R2 using empLeave;  
+//relate employee to leave across R2 using empLeave;  
 
-LOG::LogInfo(message: employee.FName+" "+employee.LName);
-empLeave.Starting = param.Starting;
+//LOG::LogInfo(message: employee.FName+" "+employee.LName);
+//empLeave.Starting = param.Starting;
 
-empLeave.Ending = param.Ending;
+//empLeave.Ending = param.Ending;
 
-LOG::LogInfo(message:"Requested"+ leave.Name +"leave");
+//LOG::LogInfo(message:"Requested"+ leave.Name +"leave");
 //LOG::LogTime(message:"From", t:assignTo.Starting); 
 //LOG::LogTime(message:"To", t:assignTo.Ending); 
 
@@ -674,7 +781,7 @@ INSERT INTO GD_GE
 	"57e9d1a9-a78c-416c-ae7f-6244db28f22b",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Employee::Instance State Machine::Recruited::EM2: commenced');
+	'hrSystem::hrm::hr::main::Employee::Instance State Machine::Recruited::Employee2: commenced');
 INSERT INTO GD_CON
 	VALUES ("d1583915-435b-4bcc-8e23-07befd9d6d3f",
 	"00000000-0000-0000-0000-000000000000");
@@ -787,7 +894,7 @@ INSERT INTO GD_GE
 	"a4d3cf31-0b34-42d6-95cd-5a38502b6a36",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Employee::Instance State Machine::Working::EM3: requestLeave');
+	'hrSystem::hrm::hr::main::Employee::Instance State Machine::Working::Employee5: LeaveStarted');
 INSERT INTO GD_CON
 	VALUES ("2a5c19c8-49ca-468c-8e31-4ec60c148931",
 	"00000000-0000-0000-0000-000000000000");
@@ -900,7 +1007,7 @@ INSERT INTO GD_GE
 	"e33baff7-5b1b-4f6d-ac85-3d9b8691aeaa",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Employee::Instance State Machine::On Leave::EM4: returnFromLeave');
+	'hrSystem::hrm::hr::main::Employee::Instance State Machine::On Leave::Employee6: LeaveEnded');
 INSERT INTO GD_CON
 	VALUES ("dadc2d19-b55d-4435-b441-58a63e9e340f",
 	"00000000-0000-0000-0000-000000000000");
@@ -1013,7 +1120,7 @@ INSERT INTO GD_GE
 	"f9d3f04f-5f02-4364-a829-dcb73061932e",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Employee::Instance State Machine::On Leave::EM3: requestLeave');
+	'hrSystem::hrm::hr::main::Employee::Instance State Machine::On Leave::No Event Assigned');
 INSERT INTO GD_CON
 	VALUES ("961126d9-52ed-499a-b736-18b578441966",
 	"00000000-0000-0000-0000-000000000000");
@@ -1144,7 +1251,13 @@ INSERT INTO O_OBJ_PROXY
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'Employee',
 	2,
-	'EM',
-	'',
+	'Employee',
+	'Is an individual employed for a monthly 
+salary and receives benefits including 
+bonuses and leave of absence. 
+Before they commence, employees are recognized
+as soon as they are recruited. 
+When they are recruited, employees are assigned a job 
+that has a grade which corresponds to a basic salary. ',
 	"00000000-0000-0000-0000-000000000000",
 	'../Employee.xtuml');
