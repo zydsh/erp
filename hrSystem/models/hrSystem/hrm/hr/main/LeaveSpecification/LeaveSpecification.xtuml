@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
-	'LeaveSpecifiction',
+	'LeaveSpecification',
 	13,
-	'LeaveSpecifiction',
+	'LeaveSpecification',
 	'Specifies the types of leave offered to employees. 
 When employees request leave, they are asked to 
 choose one leave type to apply for. Employees 

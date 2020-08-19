@@ -489,8 +489,8 @@ INSERT INTO SPR_REP
 	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
 INSERT INTO SPR_RS
 	VALUES ("6549a39c-781f-4114-a587-53a31f82de0c",
-	'Leave_Request',
-	'',
+	'RequestEmployeeLeave',
+	'An employee requests to have a leave of absence of a specific type. ',
 	'',
 	1,
 	0);
@@ -498,8 +498,8 @@ INSERT INTO C_EP_PROXY
 	VALUES ("b39132b4-2259-4b62-a9f3-6437a0d18916",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Leave_Request',
-	'',
+	'RequestEmployeeLeave',
+	'An employee requests to have a leave of absence of a specific type. ',
 	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_REP
 	VALUES ("44342cb0-982f-4c34-ade9-d225873160c1",
@@ -507,7 +507,7 @@ INSERT INTO SPR_REP
 	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
 INSERT INTO SPR_RS
 	VALUES ("44342cb0-982f-4c34-ade9-d225873160c1",
-	'Leave_Return',
+	'ReturnFromLeave',
 	'',
 	'',
 	1,
@@ -516,7 +516,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("70a38333-8004-469c-92f7-2882ec9995e4",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Leave_Return',
+	'ReturnFromLeave',
 	'',
 	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_REP
@@ -525,7 +525,7 @@ INSERT INTO SPR_REP
 	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
 INSERT INTO SPR_RS
 	VALUES ("a38cbfbe-d4e2-4a32-8521-3c5db60afb72",
-	'Employee_Job',
+	'AssignJobToEmployee',
 	'',
 	'',
 	1,
@@ -534,7 +534,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("7a8b2a52-93db-4e92-962c-904439127495",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Employee_Job',
+	'AssignJobToEmployee',
 	'',
 	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_REP
@@ -543,7 +543,7 @@ INSERT INTO SPR_REP
 	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
 INSERT INTO SPR_RS
 	VALUES ("568aadb1-742e-424f-8666-21d463b43654",
-	'Employee_Bonus',
+	'AssignBonusToEmployee',
 	'',
 	'',
 	1,
@@ -552,7 +552,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("91ad9e90-38b4-4680-8c47-49049aaf3fbe",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Employee_Bonus',
+	'AssignBonusToEmployee',
 	'',
 	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_REP
@@ -561,7 +561,7 @@ INSERT INTO SPR_REP
 	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
 INSERT INTO SPR_RS
 	VALUES ("956e15f7-30c2-400c-81c7-d58c3e78d719",
-	'Employee_Commence',
+	'CommenceEmployee',
 	'',
 	'',
 	1,
@@ -570,7 +570,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("71d23c22-d473-42f5-b0c0-b02ad3c5e158",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Employee_Commence',
+	'CommenceEmployee',
 	'',
 	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_REP
@@ -579,7 +579,7 @@ INSERT INTO SPR_REP
 	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
 INSERT INTO SPR_RS
 	VALUES ("4c1acdbc-bd34-4b37-af62-713cbf368e89",
-	'Request_Employee_Payment',
+	'GenerateEmployeePayslip',
 	'',
 	'',
 	1,
@@ -588,7 +588,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("efa24004-2976-4948-bdf6-f0bf405f08fe",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Request_Employee_Payment',
+	'GenerateEmployeePayslip',
 	'',
 	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_REP
@@ -607,6 +607,24 @@ INSERT INTO C_EP_PROXY
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
 	'Return_Employee_Payment',
+	'',
+	'../../Shared/Ops/Ops.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("124a28f3-46b8-4170-9e54-82d5bdd0a7e0",
+	"d94c13b0-32b8-4236-942e-57f41ea108fa",
+	"0ee45f97-7d5f-43a3-b13a-70cdff3037a8");
+INSERT INTO SPR_RS
+	VALUES ("124a28f3-46b8-4170-9e54-82d5bdd0a7e0",
+	'ApproveEmployeeLeave',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("d94c13b0-32b8-4236-942e-57f41ea108fa",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'ApproveEmployeeLeave',
 	'',
 	'../../Shared/Ops/Ops.xtuml');
 INSERT INTO C_I_PROXY

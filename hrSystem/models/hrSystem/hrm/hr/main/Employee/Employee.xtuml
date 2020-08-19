@@ -4,7 +4,7 @@ INSERT INTO O_OBJ
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'Employee',
 	2,
-	'EM',
+	'Employee',
 	'Is an individual employed for a monthly 
 salary and receives benefits including 
 bonuses and leave of absence. 

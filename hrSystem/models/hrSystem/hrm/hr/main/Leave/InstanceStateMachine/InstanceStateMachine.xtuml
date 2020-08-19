@@ -1,0 +1,141 @@
+-- BP 7.1.6 content: InstanceStateMachine syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO SM_ISM
+	VALUES ("ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO SM_SM
+	VALUES ("ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	'',
+	0);
+INSERT INTO SM_MOORE
+	VALUES ("ef7162e6-d2b5-4d58-9a87-c7e422338c59");
+INSERT INTO SM_STATE
+	VALUES ("85b83510-1413-482d-87aa-175b9b4c2c15",
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	"00000000-0000-0000-0000-000000000000",
+	'AwaitingApproval',
+	1,
+	0);
+INSERT INTO SM_STATE
+	VALUES ("b8ae75ed-ac12-470c-8ecd-f7e012ad3bcb",
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	"00000000-0000-0000-0000-000000000000",
+	'Approved',
+	2,
+	0);
+INSERT INTO SM_MOAH
+	VALUES ("5b3eafd9-74d6-4a20-91c8-b8e6378e4e55",
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	"85b83510-1413-482d-87aa-175b9b4c2c15");
+INSERT INTO SM_AH
+	VALUES ("5b3eafd9-74d6-4a20-91c8-b8e6378e4e55",
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59");
+INSERT INTO SM_ACT
+	VALUES ("5b3eafd9-74d6-4a20-91c8-b8e6378e4e55",
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	3,
+	'',
+	'',
+	0);
+INSERT INTO SM_MOAH
+	VALUES ("f5aac63e-50dd-4433-b64f-8bc4faaf0d41",
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	"b8ae75ed-ac12-470c-8ecd-f7e012ad3bcb");
+INSERT INTO SM_AH
+	VALUES ("f5aac63e-50dd-4433-b64f-8bc4faaf0d41",
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59");
+INSERT INTO SM_ACT
+	VALUES ("f5aac63e-50dd-4433-b64f-8bc4faaf0d41",
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	3,
+	'',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("25bf0f69-9742-4160-993b-437bf0033ca3",
+	8,
+	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
+	40,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'4.1.17',
+	'hrSystem::hrm::hr::main::Leave::Instance State Machine');
+INSERT INTO GD_GE
+	VALUES ("556f7f63-1edf-4d07-8d8d-3e3627b07b14",
+	"25bf0f69-9742-4160-993b-437bf0033ca3",
+	"85b83510-1413-482d-87aa-175b9b4c2c15",
+	41,
+	0,
+	'hrSystem::hrm::hr::main::Leave::Instance State Machine::AwaitingApproval');
+INSERT INTO GD_SHP
+	VALUES ("556f7f63-1edf-4d07-8d8d-3e3627b07b14");
+INSERT INTO GD_NCS
+	VALUES ("556f7f63-1edf-4d07-8d8d-3e3627b07b14");
+INSERT INTO DIM_ND
+	VALUES (121.000000,
+	85.000000,
+	"556f7f63-1edf-4d07-8d8d-3e3627b07b14");
+INSERT INTO DIM_GE
+	VALUES (4224.000000,
+	3084.000000,
+	"556f7f63-1edf-4d07-8d8d-3e3627b07b14",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("556f7f63-1edf-4d07-8d8d-3e3627b07b14",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_GE
+	VALUES ("4f58a4db-d846-4616-9d42-8eac2b1a2f9e",
+	"25bf0f69-9742-4160-993b-437bf0033ca3",
+	"b8ae75ed-ac12-470c-8ecd-f7e012ad3bcb",
+	41,
+	0,
+	'hrSystem::hrm::hr::main::Leave::Instance State Machine::Approved');
+INSERT INTO GD_SHP
+	VALUES ("4f58a4db-d846-4616-9d42-8eac2b1a2f9e");
+INSERT INTO GD_NCS
+	VALUES ("4f58a4db-d846-4616-9d42-8eac2b1a2f9e");
+INSERT INTO DIM_ND
+	VALUES (121.000000,
+	85.000000,
+	"4f58a4db-d846-4616-9d42-8eac2b1a2f9e");
+INSERT INTO DIM_GE
+	VALUES (4224.000000,
+	3228.000000,
+	"4f58a4db-d846-4616-9d42-8eac2b1a2f9e",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("4f58a4db-d846-4616-9d42-8eac2b1a2f9e",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_DIA
+	VALUES ("25bf0f69-9742-4160-993b-437bf0033ca3",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_OBJ_PROXY
+	VALUES ("bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	'Leave',
+	10,
+	'Leave',
+	'Represents the leave instance an employee either: 
+	a. created in the past as result of requesting 
+	   a specific type of leave, or
+	b. created to be consumed in the future representing 
+	   a planned leave of absence,
+	c. created and currently beign consumed as an active 
+	   leave of absence to end in a future date.',
+	"00000000-0000-0000-0000-000000000000",
+	'../Leave.xtuml');
