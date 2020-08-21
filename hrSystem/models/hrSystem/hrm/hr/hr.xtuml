@@ -543,11 +543,127 @@ INSERT INTO C_EP_PROXY
 	'Payment',
 	'',
 	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("9eb5d991-0421-40ae-b6b3-59e602348486",
+	"d5d4dbfe-e143-4373-bdcf-5f523fd6bcb0",
+	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6");
+INSERT INTO SPR_PS
+	VALUES ("9eb5d991-0421-40ae-b6b3-59e602348486",
+	'CreateLeaveSpecification',
+	'',
+	'
+select any leaveSpec from instances of LeaveSpecification where selected.Name==param.Name;
+
+if ( empty leaveSpec)
+		create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = param.Name;
+		leaveSpecification.MaximumDays = param.MaximumDays;
+		leaveSpecification.MinimumDays = param.MinimumDays;
+		
+		UI::Reply( msg:"Leave added successfully.", state:True);
+
+else
+// if it exists update
+		leaveSpec.Name = param.Name;
+		leaveSpec.MaximumDays = param.MaximumDays;
+		leaveSpec.MinimumDays = param.MinimumDays;
+		
+		UI::Reply( msg:"Leave updated successfully.", state:True);
+
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("d5d4dbfe-e143-4373-bdcf-5f523fd6bcb0",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'CreateLeaveSpecification',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("64433253-6752-46e2-8088-f68e35372581",
+	"a920d564-1491-462c-a896-2670d23740fa",
+	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6");
+INSERT INTO SPR_PS
+	VALUES ("64433253-6752-46e2-8088-f68e35372581",
+	'DeleteLeaveSpecification',
+	'',
+	'select any leaveSpec from instances of LeaveSpecification where selected.Name==param.Name;
+
+if ( not empty leaveSpec)
+		delete object instance leaveSpec; 
+		UI::Reply( msg:"Leave deleted successfully.", state:True);
+
+else
+		UI::Reply( msg:"Leave does not exist.", state:False);
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a920d564-1491-462c-a896-2670d23740fa",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'DeleteLeaveSpecification',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("7d08bc66-6b34-4db0-8725-eefdbf3801eb",
+	"5bcda9cf-165a-4b05-86ed-66c786bb4315",
+	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6");
+INSERT INTO SPR_PS
+	VALUES ("7d08bc66-6b34-4db0-8725-eefdbf3801eb",
+	'ReadLeaveSpecification',
+	'',
+	'
+select many leaveSet from instances of LeaveSpecification ; //where selected.Name==param.Name;
+
+ size = 0;
+ 
+ for each leave in leaveSet
+	size = size +1;
+ end for;
+ 
+  for each leave in leaveSet
+	UI::SendLeaveSpecification( Name:leave.Name, MaximumDays:leave.MaximumDays, MinimumDays:leave.MinimumDays, Size:size );
+	size = size-1;
+  end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5bcda9cf-165a-4b05-86ed-66c786bb4315",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'ReadLeaveSpecification',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("285966bb-7ed9-4e94-8eb5-752f0bbb5a72",
+	"3f2b4232-0583-4352-b309-1302fbfe1e48",
+	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6");
+INSERT INTO SPR_PS
+	VALUES ("285966bb-7ed9-4e94-8eb5-752f0bbb5a72",
+	'SendLeaveSpecification',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3f2b4232-0583-4352-b309-1302fbfe1e48",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'SendLeaveSpecification',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
 	"00000000-0000-0000-0000-000000000000",
 	'CRUD',
-	'',
+	'An interface that holds create, read, update, and delete functions for all classes.',
 	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO C_PO
 	VALUES ("acf78bb5-32d7-4c49-9c87-5102e4dd65bb",
@@ -588,9 +704,8 @@ if ( not empty employee ) and ( not empty leaveSpec)
 	relate empLeave to employee across R7.''to be taken by'';
 	relate empLeave to leaveSpec across R15.''is specified by a'';
 	
-	select one employee related by empLeave->Employee[R7.''to be taken by''];
-	select one employeeMngr related by employee->Department[R21.''working within a'']->Employee[R23.''is managed by''];
-	
+	//Notify employee manager using the message center
+	select one employeeMngr related by employee->Department[R21.''working within a'']->Employee[R23.''is managed by''];	
 	create object instance approveLeaveMsg of ApproveLeave;
 	approveLeaveMsg.createMessage(Starting:param.Starting, Ending:param.Ending, EmployeeID:employee.EmployeeID, ManagerID:employeeMngr.EmployeeID );
 

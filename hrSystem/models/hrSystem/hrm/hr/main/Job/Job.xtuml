@@ -20,54 +20,7 @@ INSERT INTO O_TFR
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
-	'select any grade from instances of Grade where selected.GValue==param.Grade;
-
-select any step from instances of Step where selected.SValue==param.Step;
-
-select any job from instances of Job where selected.Name==param.Name;
-
-if ( empty job ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Attempting to add a new Job." );
-
-	//create object instance employee of Employee;
-	create object instance j of Job;
-	j.Name = param.Name;
-	j.Amount = param.Amount;
-	relate step to grade across R5 using j;  
-
-	//SQL::serialize();
-	UI::Reply( msg:"Job created successfully.", state:True);
-
-elif ( not empty job ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Attempting to add a new Job." );
-
-	LOG::LogInfo(message:"Job already exists." );	
-	UI::Reply( msg:"Job already exists", state:False);
-
-elif ( not empty job ) and (param.Action=="UPDATE")
-	LOG::LogInfo(message:"Attempting to update Job." );
-
-	job.Name = param.Name;
-	job.Amount = param.Amount;
-	
-	LOG::LogInfo(message:"Job updated successfully." );	
-	UI::Reply( msg:"Job updated successfully", state:True);
-
-elif ( not empty job ) and (param.Action=="DELETE")
-	LOG::LogInfo(message:"Attempting to delete a Job instance." );
-	LOG::LogInfo(message:"Job delete in not implemented yet." );	
-	UI::Reply( msg:"Job delete in not implemented yet", state:False);
-
- elif (empty job )
-	LOG::LogInfo(message:"Job does not exist." );	
-	UI::Reply( msg:"Job does not exist.", state:False);
-
-
-
-end if;
-
-
-',
+	'',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",

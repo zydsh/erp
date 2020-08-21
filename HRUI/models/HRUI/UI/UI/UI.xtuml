@@ -460,11 +460,83 @@ INSERT INTO C_EP_PROXY
 	'Payment',
 	'',
 	'../../Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("e306f57e-5f6e-4192-a3a3-b58d99b0db5e",
+	"d5d4dbfe-e143-4373-bdcf-5f523fd6bcb0",
+	"883cfaf4-1720-4964-b63e-4140927941f0");
+INSERT INTO SPR_RS
+	VALUES ("e306f57e-5f6e-4192-a3a3-b58d99b0db5e",
+	'CreateLeaveSpecification',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("d5d4dbfe-e143-4373-bdcf-5f523fd6bcb0",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'CreateLeaveSpecification',
+	'',
+	'../../Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("639cf233-6ac4-4a05-ba03-0ae5facdd3f2",
+	"a920d564-1491-462c-a896-2670d23740fa",
+	"883cfaf4-1720-4964-b63e-4140927941f0");
+INSERT INTO SPR_RS
+	VALUES ("639cf233-6ac4-4a05-ba03-0ae5facdd3f2",
+	'DeleteLeaveSpecification',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a920d564-1491-462c-a896-2670d23740fa",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'DeleteLeaveSpecification',
+	'',
+	'../../Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("071889bb-64da-49ff-b65c-c31d481ab338",
+	"5bcda9cf-165a-4b05-86ed-66c786bb4315",
+	"883cfaf4-1720-4964-b63e-4140927941f0");
+INSERT INTO SPR_RS
+	VALUES ("071889bb-64da-49ff-b65c-c31d481ab338",
+	'ReadLeaveSpecification',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5bcda9cf-165a-4b05-86ed-66c786bb4315",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'ReadLeaveSpecification',
+	'',
+	'../../Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("f4c795b9-8a9f-48fb-b216-b80fcb7941e0",
+	"3f2b4232-0583-4352-b309-1302fbfe1e48",
+	"883cfaf4-1720-4964-b63e-4140927941f0");
+INSERT INTO SPR_RS
+	VALUES ("f4c795b9-8a9f-48fb-b216-b80fcb7941e0",
+	'SendLeaveSpecification',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3f2b4232-0583-4352-b309-1302fbfe1e48",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'SendLeaveSpecification',
+	'',
+	'../../Shared/CRUD/CRUD.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
 	"00000000-0000-0000-0000-000000000000",
 	'CRUD',
-	'',
+	'An interface that holds create, read, update, and delete functions for all classes.',
 	'../../Shared/CRUD/CRUD.xtuml');
 INSERT INTO C_PO
 	VALUES ("723ef2af-9f17-4893-8c39-67c5b0d8ba35",

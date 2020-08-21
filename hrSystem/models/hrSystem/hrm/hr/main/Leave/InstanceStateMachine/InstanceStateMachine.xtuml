@@ -385,6 +385,9 @@ INSERT INTO SM_ACT
 	'
 //set a timer to start leave
 // generate an event to transit state 
+LOG::LogInfo(message:"Employee leave approved");
+
+LOG::LogInfo(message:"Leave started timer for future leave ");
 
 timeUntilLeaveStarts = self.Starting - TIM::current_seconds();
 create event instance StartLeave of Leave2:StartLeave() to self;
@@ -401,7 +404,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("62f30b5e-091d-4d4e-97f5-5acd67c30ccf",
 	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -417,12 +420,15 @@ INSERT INTO SM_ACT
 	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
 	1,
 	'
+
 select one employee related by self->Employee[R7.''to be taken by''];
 
 relate self to employee across R5.''is currently taken by'';
 unrelate self from employee across R7.''to be taken by'';
 
 generate Employee5:LeaveStarted() to employee;
+
+LOG::LogInfo(message:"Employee leave started");
 
 //set a timer to end leave and generate an event to transit state
 timeUntilLeaveEnds = self.Ending - TIM::current_seconds();
@@ -440,7 +446,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("1204a365-aebc-4507-bfd5-355188fdeaa8",
 	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -462,6 +468,8 @@ unrelate self from employee across R5.''is currently taken by'';
 
 generate Employee6:LeaveEnded() to employee;
 
+LOG::LogInfo(message:"Employee leave ended");
+
 ',
 	'',
 	0);
@@ -475,7 +483,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("1f37bd5a-4675-43e7-932f-56dbde91c58a",
 	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -491,6 +499,8 @@ INSERT INTO SM_ACT
 	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
 	1,
 	'//Make room for another leave to be requested  
+LOG::LogInfo(message:"Employee leave rejected");
+
 select one employee related by self->Employee[R7.''to be taken by''];
 unrelate self from employee across R7.''to be taken by'';
 delete object instance self;',
@@ -506,7 +516,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("a380f14c-6d7e-49aa-8a59-59fc011876df",
 	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
-	3,
+	1,
 	'',
 	'',
 	0);
