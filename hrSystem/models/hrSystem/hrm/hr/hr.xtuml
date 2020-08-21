@@ -627,9 +627,13 @@ select many leaveSet from instances of LeaveSpecification ; //where selected.Nam
 	size = size +1;
  end for;
  
+  UI::Reply( msg:"Sending leave set .. ", state:True);
+
   for each leave in leaveSet
 	UI::SendLeaveSpecification( Name:leave.Name, MaximumDays:leave.MaximumDays, MinimumDays:leave.MinimumDays, Size:size );
 	size = size-1;
+	UI::Reply( msg:"Sent: "+leave.Name, state:True);
+
   end for;
 ',
 	1,

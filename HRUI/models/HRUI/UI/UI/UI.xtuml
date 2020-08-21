@@ -522,8 +522,11 @@ INSERT INTO SPR_RS
 	VALUES ("f4c795b9-8a9f-48fb-b216-b80fcb7941e0",
 	'SendLeaveSpecification',
 	'',
-	'',
-	3,
+	'
+::SendLeaveSpecification(Name:param.Name, MaximumDays:param.MaximumDays, MinimumDays:param.MinimumDays, Size:param.Size );
+
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3f2b4232-0583-4352-b309-1302fbfe1e48",
