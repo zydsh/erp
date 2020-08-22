@@ -410,6 +410,222 @@ INSERT INTO C_PP
 	0,
 	'',
 	"4a7f8183-9f0f-4a2a-b465-e9d1e43970f8");
+INSERT INTO C_EP
+	VALUES ("2b1b73af-972f-4d09-8a89-e3026030408c",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'CreateEmployee',
+	'');
+INSERT INTO C_AS
+	VALUES ("2b1b73af-972f-4d09-8a89-e3026030408c",
+	'CreateEmployee',
+	'',
+	0,
+	"3f2b4232-0583-4352-b309-1302fbfe1e48");
+INSERT INTO C_PP
+	VALUES ("fb9186d7-c63d-4e1a-8d9a-1aa22172f109",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("8654c409-4ae4-4c56-97c4-0d4830b82c55",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'NationalID',
+	'',
+	0,
+	'',
+	"fb9186d7-c63d-4e1a-8d9a-1aa22172f109");
+INSERT INTO C_PP
+	VALUES ("f560665f-b08b-47f6-b822-4e26e27bcbc2",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'FirstName',
+	'',
+	0,
+	'',
+	"8654c409-4ae4-4c56-97c4-0d4830b82c55");
+INSERT INTO C_PP
+	VALUES ("fee7b57f-cc74-4eab-9335-0ee56057fe46",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'MiddleName',
+	'',
+	0,
+	'',
+	"f560665f-b08b-47f6-b822-4e26e27bcbc2");
+INSERT INTO C_PP
+	VALUES ("1806f8db-ce77-4006-97f9-d6353baf7b81",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'LastName',
+	'',
+	0,
+	'',
+	"fee7b57f-cc74-4eab-9335-0ee56057fe46");
+INSERT INTO C_PP
+	VALUES ("f687e5a9-c6ff-4da0-8391-45a84415769e",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'DateOfBirth',
+	'',
+	0,
+	'',
+	"1806f8db-ce77-4006-97f9-d6353baf7b81");
+INSERT INTO C_PP
+	VALUES ("5bae3b0e-a5cf-4761-8bc7-baf701a5fa51",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Degree',
+	'',
+	0,
+	'',
+	"f687e5a9-c6ff-4da0-8391-45a84415769e");
+INSERT INTO C_PP
+	VALUES ("27559f70-033f-4f70-928a-a2706d9f7c5e",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Gender',
+	'',
+	0,
+	'',
+	"5bae3b0e-a5cf-4761-8bc7-baf701a5fa51");
+INSERT INTO C_EP
+	VALUES ("eea759c3-57b7-4dda-8a25-38ed3e44e66b",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'ReadEmployee',
+	'');
+INSERT INTO C_AS
+	VALUES ("eea759c3-57b7-4dda-8a25-38ed3e44e66b",
+	'ReadEmployee',
+	'',
+	0,
+	"2b1b73af-972f-4d09-8a89-e3026030408c");
+INSERT INTO C_EP
+	VALUES ("a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'SendEmployee',
+	'');
+INSERT INTO C_AS
+	VALUES ("a8b2607d-e66d-494b-b2d6-2be56effef94",
+	'SendEmployee',
+	'',
+	1,
+	"eea759c3-57b7-4dda-8a25-38ed3e44e66b");
+INSERT INTO C_PP
+	VALUES ("2404ed32-aacf-40c6-bfdf-d82379cd395f",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("c54eaeeb-027e-40e3-b16d-cb03fc79bbef",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'NationalID',
+	'',
+	0,
+	'',
+	"2404ed32-aacf-40c6-bfdf-d82379cd395f");
+INSERT INTO C_PP
+	VALUES ("02430bac-43d5-4782-8fba-78242d5d24aa",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'FirstName',
+	'',
+	0,
+	'',
+	"c54eaeeb-027e-40e3-b16d-cb03fc79bbef");
+INSERT INTO C_PP
+	VALUES ("bf9a9efa-4b53-41f0-81f5-9ed68629d61a",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'MiddleName',
+	'',
+	0,
+	'',
+	"02430bac-43d5-4782-8fba-78242d5d24aa");
+INSERT INTO C_PP
+	VALUES ("59491d4a-f9df-4f8c-9ed6-a31909b091dd",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'LastName',
+	'',
+	0,
+	'',
+	"bf9a9efa-4b53-41f0-81f5-9ed68629d61a");
+INSERT INTO C_PP
+	VALUES ("111d9393-6091-4226-9839-29ecd0f7e9e6",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'DateOfBirth',
+	'',
+	0,
+	'',
+	"59491d4a-f9df-4f8c-9ed6-a31909b091dd");
+INSERT INTO C_PP
+	VALUES ("ad4a6f67-26a4-489a-8a60-3777e499bbe1",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Degree',
+	'',
+	0,
+	'',
+	"111d9393-6091-4226-9839-29ecd0f7e9e6");
+INSERT INTO C_PP
+	VALUES ("59e85116-4f64-4b57-afdd-a75d6104c7f7",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Gender',
+	'',
+	0,
+	'',
+	"ad4a6f67-26a4-489a-8a60-3777e499bbe1");
+INSERT INTO C_PP
+	VALUES ("68575ff3-95f9-4196-90f7-5451f5823933",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'StartDate',
+	'',
+	0,
+	'',
+	"59e85116-4f64-4b57-afdd-a75d6104c7f7");
+INSERT INTO C_PP
+	VALUES ("aa829f16-43a9-49a7-9e53-d48767e683f3",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'LeaveBalance',
+	'',
+	0,
+	'',
+	"68575ff3-95f9-4196-90f7-5451f5823933");
+INSERT INTO C_PP
+	VALUES ("3fac0372-2046-4618-bf97-685e94df7e10",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'SickLeaveBalance',
+	'',
+	0,
+	'',
+	"aa829f16-43a9-49a7-9e53-d48767e683f3");
+INSERT INTO C_PP
+	VALUES ("1e8af5a2-7cf0-4e7e-ad5a-d92fce7f4d10",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Size',
+	'',
+	0,
+	'',
+	"3fac0372-2046-4618-bf97-685e94df7e10");
 INSERT INTO PE_PE
 	VALUES ("e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
 	1,

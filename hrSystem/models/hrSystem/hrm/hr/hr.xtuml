@@ -73,6 +73,11 @@ INSERT INTO DIM_CON
 	4854.000000,
 	3900.000000,
 	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
+INSERT INTO DIM_CON
+	VALUES ("414d57c4-4009-42c2-bd2f-d30b9f6aabb2",
+	5208.000000,
+	3900.000000,
+	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
 INSERT INTO GD_GE
 	VALUES ("18247ee9-2984-48d1-b2bb-52f0e66d1dc0",
 	"21553115-9288-4d3e-8559-d2181be63ed7",
@@ -369,6 +374,106 @@ INSERT INTO DIM_ELE
 	VALUES ("cf93fdb8-1b7a-48d5-a4e5-2fc706e211d1",
 	0,
 	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
+INSERT INTO GD_GE
+	VALUES ("b79fec25-5750-46da-9cb6-ed3f16840437",
+	"21553115-9288-4d3e-8559-d2181be63ed7",
+	"7a26de32-2a7f-4ded-892b-659b05817114",
+	94,
+	0,
+	'hrSystem::hrm::hr::Data::Data');
+INSERT INTO GD_CON
+	VALUES ("b79fec25-5750-46da-9cb6-ed3f16840437",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("7f3fe320-fbab-4fb9-b69c-a54a6dc6b090",
+	"b79fec25-5750-46da-9cb6-ed3f16840437",
+	0,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"7f3fe320-fbab-4fb9-b69c-a54a6dc6b090");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"7f3fe320-fbab-4fb9-b69c-a54a6dc6b090",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("7f3fe320-fbab-4fb9-b69c-a54a6dc6b090",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("7f572c52-9d2b-4c6f-8b53-7ce55c787008",
+	"b79fec25-5750-46da-9cb6-ed3f16840437",
+	2,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"7f572c52-9d2b-4c6f-8b53-7ce55c787008");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"7f572c52-9d2b-4c6f-8b53-7ce55c787008",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("7f572c52-9d2b-4c6f-8b53-7ce55c787008",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("343993e7-9a6b-4bb9-98fe-0e151473a62b",
+	"b79fec25-5750-46da-9cb6-ed3f16840437",
+	1,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"343993e7-9a6b-4bb9-98fe-0e151473a62b");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"343993e7-9a6b-4bb9-98fe-0e151473a62b",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("343993e7-9a6b-4bb9-98fe-0e151473a62b",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_LS
+	VALUES ("9d92c170-588c-43a6-a891-2fd2566525f2",
+	"b79fec25-5750-46da-9cb6-ed3f16840437",
+	"00000000-0000-0000-0000-000000000000",
+	"3d012217-1f9e-4c0d-bedb-14acd80a70f2",
+	"c1e80b2b-6080-4255-be2a-d7db608e02d3");
+INSERT INTO DIM_WAY
+	VALUES ("3d012217-1f9e-4c0d-bedb-14acd80a70f2",
+	5208.000000,
+	3900.000000,
+	"b79fec25-5750-46da-9cb6-ed3f16840437",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_WAY
+	VALUES ("c1e80b2b-6080-4255-be2a-d7db608e02d3",
+	5208.000000,
+	3972.000000,
+	"b79fec25-5750-46da-9cb6-ed3f16840437",
+	"00000000-0000-0000-0000-000000000000",
+	"3d012217-1f9e-4c0d-bedb-14acd80a70f2");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"b79fec25-5750-46da-9cb6-ed3f16840437",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("b79fec25-5750-46da-9cb6-ed3f16840437",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ED
+	VALUES ("414d57c4-4009-42c2-bd2f-d30b9f6aabb2",
+	"00000000-0000-0000-0000-000000000000",
+	"b79fec25-5750-46da-9cb6-ed3f16840437");
 INSERT INTO DIM_DIA
 	VALUES ("21553115-9288-4d3e-8559-d2181be63ed7",
 	'',
@@ -654,13 +759,97 @@ INSERT INTO SPR_PS
 	'SendLeaveSpecification',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3f2b4232-0583-4352-b309-1302fbfe1e48",
 	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
 	-1,
 	'SendLeaveSpecification',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("160665cc-e47a-4e45-8f1e-e4cb228e134b",
+	"2b1b73af-972f-4d09-8a89-e3026030408c",
+	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6");
+INSERT INTO SPR_PS
+	VALUES ("160665cc-e47a-4e45-8f1e-e4cb228e134b",
+	'CreateEmployee',
+	'',
+	'
+select any employee from instances of Employee where selected.NationalID==param.NationalID;
+
+if ( empty employee)
+		create object instance emp of Employee;
+		emp.EmployeeID = param.EmployeeID;
+		emp.NationalID = param.NationalID;
+		emp.FirstName = param.FirstName;
+		emp.MiddleName = param.LastName;
+		emp.LastName = param.LastName;
+		emp.DateOfBirth = param.DateOfBirth;
+		emp.Degree = param.Degree;
+		
+		if param.Gender =="ذكر"
+			emp.Gender = Gender::Male;
+		elif param.Gender == "أنثى"
+			emp.Gender = Gender::Female;
+		else
+			LOG::LogInfo(message:"Gender type unrecognized." );	
+			UI::Reply( msg:"Gender type unrecognized.", state:False);
+
+		end if;
+		
+		LOG::LogInfo(message:"Employee added successfully." );	
+		UI::Reply( msg:"Employee added successfully.", state:True);
+else 
+	
+		LOG::LogInfo(message:"Adding employee is unsuccessful. National ID is registered for another employee." );	
+		UI::Reply( msg:"Adding employee is unsuccessful. Employee already exists", state:False);
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2b1b73af-972f-4d09-8a89-e3026030408c",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'CreateEmployee',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("fa52b38e-c145-4b8a-aa61-e189d36661a3",
+	"eea759c3-57b7-4dda-8a25-38ed3e44e66b",
+	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6");
+INSERT INTO SPR_PS
+	VALUES ("fa52b38e-c145-4b8a-aa61-e189d36661a3",
+	'ReadEmployee',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("eea759c3-57b7-4dda-8a25-38ed3e44e66b",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'ReadEmployee',
+	'',
+	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f3c39d8e-b68c-48b0-b14b-bf59b35e4889",
+	"a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"d9f9f319-2ff9-4c7e-a89a-df8aab6f4de6");
+INSERT INTO SPR_PS
+	VALUES ("f3c39d8e-b68c-48b0-b14b-bf59b35e4889",
+	'SendEmployee',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a8b2607d-e66d-494b-b2d6-2be56effef94",
+	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
+	-1,
+	'SendEmployee',
 	'',
 	'../../../../../HRUI/models/HRUI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO C_I_PROXY
@@ -910,6 +1099,171 @@ INSERT INTO C_I_PROXY
 	'Ops',
 	'',
 	'../../../../../HRUI/models/HRUI/Shared/Ops/Ops.xtuml');
+INSERT INTO C_PO
+	VALUES ("769d7779-0166-4e59-9caa-16cc8180e25d",
+	"d878f6d3-d406-4972-80d4-d43f75abcac8",
+	'Data',
+	0,
+	0);
+INSERT INTO C_IR
+	VALUES ("7a26de32-2a7f-4ded-892b-659b05817114",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	"00000000-0000-0000-0000-000000000000",
+	"769d7779-0166-4e59-9caa-16cc8180e25d");
+INSERT INTO C_P
+	VALUES ("7a26de32-2a7f-4ded-892b-659b05817114",
+	'Data',
+	'Unnamed Interface',
+	'',
+	'hr::Data::Data');
+INSERT INTO SPR_PEP
+	VALUES ("ce762f3a-c37b-404a-8d4f-d93a2f44f0f3",
+	"ef336545-2505-4c4c-966f-e73bd04cebbc",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("ce762f3a-c37b-404a-8d4f-d93a2f44f0f3",
+	'SendEmployee',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ef336545-2505-4c4c-966f-e73bd04cebbc",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendEmployee',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("c96ec02d-a35a-4820-a6f8-96dbe90fdf6b",
+	"3c8dd825-949a-424e-bf6c-9b9a9fa3f74e",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("c96ec02d-a35a-4820-a6f8-96dbe90fdf6b",
+	'CreateLeaveSpecification',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3c8dd825-949a-424e-bf6c-9b9a9fa3f74e",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateLeaveSpecification',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f9126399-ae80-4870-be5b-3081b14ba2f1",
+	"c32f4f5c-4c54-4ec7-b6f8-9af0f0e4f799",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("f9126399-ae80-4870-be5b-3081b14ba2f1",
+	'DeleteLeaveSpecification',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c32f4f5c-4c54-4ec7-b6f8-9af0f0e4f799",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'DeleteLeaveSpecification',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("2ab51c43-c2ba-4162-b6b3-5fcc795334d2",
+	"d3b55439-1e69-4e4a-b581-e40430d5017f",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("2ab51c43-c2ba-4162-b6b3-5fcc795334d2",
+	'ReadLeaveSpecification',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("d3b55439-1e69-4e4a-b581-e40430d5017f",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadLeaveSpecification',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("7ac8c901-8662-4976-9b8a-5246d0d15013",
+	"595e353d-727f-414e-9d55-756babc4ae04",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("7ac8c901-8662-4976-9b8a-5246d0d15013",
+	'SendLeaveSpecification',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("595e353d-727f-414e-9d55-756babc4ae04",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendLeaveSpecification',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("34f085aa-3569-441e-bba3-c8e9321b339e",
+	"2c504ade-8ec5-4e67-8105-589d8a205c18",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("34f085aa-3569-441e-bba3-c8e9321b339e",
+	'CreateEmployee',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2c504ade-8ec5-4e67-8105-589d8a205c18",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateEmployee',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("030ecc1f-b03c-4e94-9fef-131634a0f85a",
+	"5a45e7fa-046b-44f4-9bf7-6603e95bbe83",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("030ecc1f-b03c-4e94-9fef-131634a0f85a",
+	'ReadEmployee',
+	'',
+	'select many employeeSet from instances of Employee ; 
+ size = 0;
+ 
+ for each emp in employeeSet
+	size = size +1;
+ end for;
+ 
+  LOG::LogInfo(message:"Sending employee set .." );	
+
+
+  for each emp in employeeSet
+	Data::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance, Size:size);
+	//size = size-1;
+	//LOG::LogInfo(message:"Sent:"+ emp. );	
+
+  end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5a45e7fa-046b-44f4-9bf7-6603e95bbe83",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadEmployee',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO C_I_PROXY
+	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
+	"00000000-0000-0000-0000-000000000000",
+	'Data',
+	'Dedicated to data actions: create, read, update, and delete.',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO PE_PE
 	VALUES ("d878f6d3-d406-4972-80d4-d43f75abcac8",
 	1,
