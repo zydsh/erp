@@ -253,37 +253,37 @@ INSERT INTO SM_ACT
 //  4. The bonus ended more than 30 days ago. The amount should be zero and the bonus deactivated. 
 //  5. If the bonus starting date has not arrived, do nothing. Adding
 
-	select one employee related by self->EM[R4] ;
-	select one bonus related by self->Bonus[R4];
-	payment_time = TIM::current_seconds();
-	bonus_payment = employee.getSalary() * bonus.Percent;
+	//select one employee related by self->EM[R4] ;
+	//select one bonus related by self->Bonus[R4];
+	//payment_time = TIM::current_seconds();
+	//bonus_payment = employee.getSalary() * bonus.Percent;
 	
 	//Check for partial payment and return the amount to equal partial or full amount
-	self.Amount = ::getPartialPayment(Payment_Time:payment_time, Starting_Time:self.Starting, Ending_Time:self.Ending, Payment:bonus_payment);
+	//self.Amount = ::getPartialPayment(Payment_Time:payment_time, Starting_Time:self.Starting, Ending_Time:self.Ending, Payment:bonus_payment);
 
 // if the difference between the payment time (now) and the starting time is a month or less
 // create the first payment
-if  (::isLessThanMonth( Starting_Time:self.Starting, Ending_Time:payment_time)) 
-	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());
-	LOG::LogInfo(message:"Bonus is paid partially because payment started less than a month");	
+//if  (::isLessThanMonth( Starting_Time:self.Starting, Ending_Time:payment_time)) 
+//	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());
+//	LOG::LogInfo(message:"Bonus is paid partially because payment started less than a month");	
 
 // if the difference between the payment time (now) and the ending time is less or equal to a month	
 // create a payment and deactivate the bonus		
-elif (::isLessThanMonth( Starting_Time:payment_time, Ending_Time:self.Ending))
-	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());
-	generate BP2:deactivateBonus() to self;
-	LOG::LogInfo(message:"Bonus is schedualed for payment");	
-	LOG::LogInfo(message:"Bonus stopped because bonus ending date has passed");	
+//elif (::isLessThanMonth( Starting_Time:payment_time, Ending_Time:self.Ending))
+//	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());
+//	generate BP2:deactivateBonus() to self;
+//	LOG::LogInfo(message:"Bonus is schedualed for payment");	
+//	LOG::LogInfo(message:"Bonus stopped because bonus ending date has passed");	
 
 // if the starting time is smaller than payment time (now) and the ending time is larger than payment time (now)
 // create a bonus payment 
-elif (payment_time > self.Starting) and (payment_time < self.Ending) 
-	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:payment_time);	
-	LOG::LogInfo(message:"Bonus is schedualed for payment");	
+//elif (payment_time > self.Starting) and (payment_time < self.Ending) 
+//	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:payment_time);	
+//	LOG::LogInfo(message:"Bonus is schedualed for payment");	
 
 // if the starting time is larger than the payment time
 // the bonus payment is not due, and it is better to do nothing
-end if;
+//end if;
 ',
 	'',
 	0);
@@ -1114,6 +1114,10 @@ INSERT INTO O_OBJ_PROXY
 	'Bonus',
 	8,
 	'BP',
-	'',
+	'Employees recieve different types of bonuses. 
+Some bonuses are recieved by all employees,
+others may be given to a subset of employees. 
+Currently, there is no clear association
+between the role of an employee and a bonus. ',
 	"00000000-0000-0000-0000-000000000000",
 	'../Bonus.xtuml');

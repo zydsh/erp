@@ -495,18 +495,6 @@ INSERT INTO C_PP
 	'',
 	"5bae3b0e-a5cf-4761-8bc7-baf701a5fa51");
 INSERT INTO C_EP
-	VALUES ("eea759c3-57b7-4dda-8a25-38ed3e44e66b",
-	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
-	-1,
-	'ReadEmployee',
-	'');
-INSERT INTO C_AS
-	VALUES ("eea759c3-57b7-4dda-8a25-38ed3e44e66b",
-	'ReadEmployee',
-	'',
-	0,
-	"2b1b73af-972f-4d09-8a89-e3026030408c");
-INSERT INTO C_EP
 	VALUES ("a8b2607d-e66d-494b-b2d6-2be56effef94",
 	"e790bc37-30b3-48fc-a2e7-4d17e0ac5be2",
 	-1,
@@ -517,7 +505,7 @@ INSERT INTO C_AS
 	'SendEmployee',
 	'',
 	1,
-	"eea759c3-57b7-4dda-8a25-38ed3e44e66b");
+	"2b1b73af-972f-4d09-8a89-e3026030408c");
 INSERT INTO C_PP
 	VALUES ("2404ed32-aacf-40c6-bfdf-d82379cd395f",
 	"a8b2607d-e66d-494b-b2d6-2be56effef94",

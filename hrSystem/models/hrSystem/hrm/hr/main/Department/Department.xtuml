@@ -49,8 +49,10 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("a26b2589-dbdb-4a89-9f09-dca20f8e6ebe",
 	"e01e59b4-a14b-4f8e-9875-07022c90269e",
-	'',
-	3,
+	'select one employee related by self->Employee[R23.''is managed by''];
+
+self.Manager = employee.FirstName+" "+employee.LastName;',
+	1,
 	0);
 INSERT INTO O_BATTR
 	VALUES ("a26b2589-dbdb-4a89-9f09-dca20f8e6ebe",
@@ -60,7 +62,7 @@ INSERT INTO O_ATTR
 	"e01e59b4-a14b-4f8e-9875-07022c90269e",
 	"464b0bb4-6a0a-4202-b850-77b1c774ac8b",
 	'Manager',
-	'',
+	'Derives the manager''s First Name, Last Name.',
 	'',
 	'Manager',
 	0,
