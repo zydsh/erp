@@ -122,6 +122,27 @@ INSERT INTO C_PP
 	0,
 	'',
 	"cca97029-2f99-4ac0-8396-fc7bac2f8c54");
+INSERT INTO C_EP
+	VALUES ("ca320e19-af40-49f9-84b0-40e46d3cc6f0",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'GetUsernamePassword',
+	'');
+INSERT INTO C_AS
+	VALUES ("ca320e19-af40-49f9-84b0-40e46d3cc6f0",
+	'GetUsernamePassword',
+	'',
+	0,
+	"0a248ffe-e10f-4d82-8d59-33b993f89f71");
+INSERT INTO C_PP
+	VALUES ("d17b7e35-e136-4bf2-891d-e09e4a64f062",
+	"ca320e19-af40-49f9-84b0-40e46d3cc6f0",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	1,

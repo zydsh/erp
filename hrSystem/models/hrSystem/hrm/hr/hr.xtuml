@@ -940,7 +940,7 @@ INSERT INTO SPR_PEP
 	"7a26de32-2a7f-4ded-892b-659b05817114");
 INSERT INTO SPR_PS
 	VALUES ("030ecc1f-b03c-4e94-9fef-131634a0f85a",
-	'ReadEmployee',
+	'ReadEmployeeList',
 	'',
 	'select many employeeSet from instances of Employee ; 
  size = 0;
@@ -968,7 +968,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("5a45e7fa-046b-44f4-9bf7-6603e95bbe83",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
-	'ReadEmployee',
+	'ReadEmployeeList',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO SPR_PEP
@@ -1072,7 +1072,7 @@ INSERT INTO SPR_REP
 	"1686e6d6-351f-426c-ae2d-45c64744b41a");
 INSERT INTO SPR_RS
 	VALUES ("5954fc42-6940-4bcc-9e4b-ad572293bea5",
-	'UpdatePassword',
+	'ChangePassword',
 	'',
 	'',
 	1,
@@ -1081,7 +1081,25 @@ INSERT INTO C_EP_PROXY
 	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
-	'UpdatePassword',
+	'ChangePassword',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("b03029de-eccd-4b04-9a15-9464fd21b9eb",
+	"ca320e19-af40-49f9-84b0-40e46d3cc6f0",
+	"1686e6d6-351f-426c-ae2d-45c64744b41a");
+INSERT INTO SPR_RS
+	VALUES ("b03029de-eccd-4b04-9a15-9464fd21b9eb",
+	'GetUsernamePassword',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ca320e19-af40-49f9-84b0-40e46d3cc6f0",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'GetUsernamePassword',
 	'',
 	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY
