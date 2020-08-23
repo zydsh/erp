@@ -58,6 +58,11 @@ INSERT INTO DIM_CON
 	5378.000000,
 	2340.000000,
 	"5c95b783-4b50-476a-bda5-12fc0d342a9c");
+INSERT INTO DIM_CON
+	VALUES ("f7d10724-5f67-4fb7-b149-aa7509153ba0",
+	2730.000000,
+	3262.000000,
+	"5c95b783-4b50-476a-bda5-12fc0d342a9c");
 INSERT INTO GD_GE
 	VALUES ("1868d36f-ce28-45d5-ac5e-505460513c14",
 	"2e030e98-7c35-48c5-b8d6-1f13bd1598f0",
@@ -88,7 +93,7 @@ INSERT INTO GD_GE
 	"ca6f0d37-2a5a-49b9-829a-91592171dcfd",
 	94,
 	0,
-	'Authenticate::Auth::Auth::Auth::CRUD');
+	'Authenticate::Auth::Auth::HR::Authentication');
 INSERT INTO GD_CON
 	VALUES ("2f0c3699-e735-4fa4-877d-eefa14311b75",
 	"00000000-0000-0000-0000-000000000000");
@@ -230,6 +235,106 @@ INSERT INTO DIM_ELE
 	VALUES ("29db587b-f4f7-40d6-b638-2b91c80e5ab5",
 	0,
 	"5c95b783-4b50-476a-bda5-12fc0d342a9c");
+INSERT INTO GD_GE
+	VALUES ("f9c86370-d1bb-494b-93a2-dba911753616",
+	"2e030e98-7c35-48c5-b8d6-1f13bd1598f0",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e",
+	94,
+	0,
+	'Authenticate::Auth::Auth::UI::Authentication');
+INSERT INTO GD_CON
+	VALUES ("f9c86370-d1bb-494b-93a2-dba911753616",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("542ea36c-cdaf-439d-b575-8b8bed273f37",
+	"f9c86370-d1bb-494b-93a2-dba911753616",
+	0,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"542ea36c-cdaf-439d-b575-8b8bed273f37");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"542ea36c-cdaf-439d-b575-8b8bed273f37",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("542ea36c-cdaf-439d-b575-8b8bed273f37",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("cace5c9f-b755-4ce7-8f29-066db0898e56",
+	"f9c86370-d1bb-494b-93a2-dba911753616",
+	2,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"cace5c9f-b755-4ce7-8f29-066db0898e56");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"cace5c9f-b755-4ce7-8f29-066db0898e56",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("cace5c9f-b755-4ce7-8f29-066db0898e56",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("33672a9a-c283-4aa8-889e-341353d403a9",
+	"f9c86370-d1bb-494b-93a2-dba911753616",
+	1,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"33672a9a-c283-4aa8-889e-341353d403a9");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"33672a9a-c283-4aa8-889e-341353d403a9",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("33672a9a-c283-4aa8-889e-341353d403a9",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_LS
+	VALUES ("ee10e97f-b55f-4bf6-8907-595bcae0adeb",
+	"f9c86370-d1bb-494b-93a2-dba911753616",
+	"00000000-0000-0000-0000-000000000000",
+	"fae7c316-5c19-4ac4-835b-005840819a81",
+	"14a9df1e-91e7-4451-97c2-4b914b71f6de");
+INSERT INTO DIM_WAY
+	VALUES ("fae7c316-5c19-4ac4-835b-005840819a81",
+	2730.000000,
+	3262.000000,
+	"f9c86370-d1bb-494b-93a2-dba911753616",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_WAY
+	VALUES ("14a9df1e-91e7-4451-97c2-4b914b71f6de",
+	2728.000000,
+	3330.000000,
+	"f9c86370-d1bb-494b-93a2-dba911753616",
+	"00000000-0000-0000-0000-000000000000",
+	"fae7c316-5c19-4ac4-835b-005840819a81");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"f9c86370-d1bb-494b-93a2-dba911753616",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("f9c86370-d1bb-494b-93a2-dba911753616",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ED
+	VALUES ("f7d10724-5f67-4fb7-b149-aa7509153ba0",
+	"00000000-0000-0000-0000-000000000000",
+	"f9c86370-d1bb-494b-93a2-dba911753616");
 INSERT INTO DIM_DIA
 	VALUES ("2e030e98-7c35-48c5-b8d6-1f13bd1598f0",
 	'',
@@ -240,7 +345,7 @@ INSERT INTO DIM_DIA
 INSERT INTO C_PO
 	VALUES ("caeef995-da7c-4616-bfa8-9f35f39d349b",
 	"c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
-	'Auth',
+	'HR',
 	0,
 	0);
 INSERT INTO C_IR
@@ -250,10 +355,10 @@ INSERT INTO C_IR
 	"caeef995-da7c-4616-bfa8-9f35f39d349b");
 INSERT INTO C_P
 	VALUES ("ca6f0d37-2a5a-49b9-829a-91592171dcfd",
-	'CRUD',
+	'Authentication',
 	'Unnamed Interface',
 	'',
-	'Auth::Auth::CRUD');
+	'Auth::HR::Authentication');
 INSERT INTO SPR_PEP
 	VALUES ("74f96f34-1006-427c-994b-b3cd707bc2b6",
 	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
@@ -263,7 +368,15 @@ INSERT INTO SPR_PS
 	'CreateNewAccount',
 	'',
 	'
-Account::crud(First_Name:param.First_Name, Last_Name:param.Last_Name, National_ID:param.National_ID);',
+select any account from instances of Account where selected.EmployeeID==param.EmployeeID or selected.Username==::getUserName( F:param.First_Name, L:param.Last_Name);
+
+if ( empty account)
+	create object instance acc of Account;
+	acc.EmployeeID = param.EmployeeID;
+	acc.Username = ::getUserName( F:param.First_Name, L:param.Last_Name);
+	acc.Password = ::getPassword( EmployeeID:param.EmployeeID, FirstLastName:param.First_Name+param.Last_Name, CurrentSeconds:TIM::current_seconds());
+end if;
+//Account::crud(First_Name:param.First_Name, Last_Name:param.Last_Name, National_ID:param.National_ID);',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -272,7 +385,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'CreateNewAccount',
 	'',
-	'../../Interfaces/CRUD/CRUD.xtuml');
+	'../../Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("3ec0917d-cd8c-4580-9f7d-1dd6698f3552",
 	"33c71ef4-d154-40bf-bfc7-33de5096bb4b",
@@ -290,14 +403,14 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'Reply',
 	'',
-	'../../Interfaces/CRUD/CRUD.xtuml');
+	'../../Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("ecafc28e-d9fc-4165-8c84-61990dc9fb93",
 	"0a248ffe-e10f-4d82-8d59-33b993f89f71",
 	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
 INSERT INTO SPR_PS
 	VALUES ("ecafc28e-d9fc-4165-8c84-61990dc9fb93",
-	'UpdatePassword',
+	'ChangePassword',
 	'',
 	'',
 	3,
@@ -306,15 +419,65 @@ INSERT INTO C_EP_PROXY
 	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
-	'UpdatePassword',
+	'ChangePassword',
 	'',
-	'../../Interfaces/CRUD/CRUD.xtuml');
+	'../../Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	"00000000-0000-0000-0000-000000000000",
-	'CRUD',
+	'Authentication',
 	'',
-	'../../Interfaces/CRUD/CRUD.xtuml');
+	'../../Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO C_PO
+	VALUES ("55a4aa2a-b72c-47dc-96fd-8481c05f4f73",
+	"c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
+	'UI',
+	0,
+	0);
+INSERT INTO C_IR
+	VALUES ("7f82e145-6d0b-4101-8f71-145c979ea70e",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	"00000000-0000-0000-0000-000000000000",
+	"55a4aa2a-b72c-47dc-96fd-8481c05f4f73");
+INSERT INTO C_P
+	VALUES ("7f82e145-6d0b-4101-8f71-145c979ea70e",
+	'Authentication',
+	'Unnamed Interface',
+	'',
+	'Auth::UI::Authentication');
+INSERT INTO SPR_PEP
+	VALUES ("bdc319a7-3650-46f0-8ad3-75416f49da93",
+	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e");
+INSERT INTO SPR_PS
+	VALUES ("bdc319a7-3650-46f0-8ad3-75416f49da93",
+	'CreateNewAccount',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO SPR_PEP
+	VALUES ("0a189aff-9e77-4e79-baea-d7b3f6052d2a",
+	"33c71ef4-d154-40bf-bfc7-33de5096bb4b",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e");
+INSERT INTO SPR_PS
+	VALUES ("0a189aff-9e77-4e79-baea-d7b3f6052d2a",
+	'Reply',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO SPR_PEP
+	VALUES ("d01ede9a-4395-431b-91e2-37c109dbe24f",
+	"0a248ffe-e10f-4d82-8d59-33b993f89f71",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e");
+INSERT INTO SPR_PS
+	VALUES ("d01ede9a-4395-431b-91e2-37c109dbe24f",
+	'ChangePassword',
+	'',
+	'',
+	3,
+	0);
 INSERT INTO PE_PE
 	VALUES ("c9e71728-7f83-417c-8f80-fd3f72a4bb1d",
 	1,

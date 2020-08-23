@@ -87,11 +87,11 @@ INSERT INTO C_EP
 	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
-	'UpdatePassword',
+	'ChangePassword',
 	'');
 INSERT INTO C_AS
 	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
-	'UpdatePassword',
+	'ChangePassword',
 	'',
 	0,
 	"33c71ef4-d154-40bf-bfc7-33de5096bb4b");

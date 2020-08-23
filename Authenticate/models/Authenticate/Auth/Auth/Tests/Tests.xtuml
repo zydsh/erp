@@ -40,7 +40,7 @@ INSERT INTO S_SYNC
 	'',
 	'//tesing getPassword utility function
 id = 1041426584;
-pwd =::getPassword( A:"Ziyad", B:"Alshaikh", N:id); 
+pwd =::getPassword( EmployeeID:id, FirstLastName:"Alshaikh", CurrentSeconds:TIM::current_seconds()); 
 
 LOG::LogInfo(message:"Generated password: "+ pwd);	
 ',
