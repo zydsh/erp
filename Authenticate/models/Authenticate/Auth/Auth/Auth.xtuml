@@ -260,7 +260,7 @@ INSERT INTO SPR_PEP
 	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
 INSERT INTO SPR_PS
 	VALUES ("74f96f34-1006-427c-994b-b3cd707bc2b6",
-	'Account',
+	'CreateNewAccount',
 	'',
 	'
 Account::crud(First_Name:param.First_Name, Last_Name:param.Last_Name, National_ID:param.National_ID);',
@@ -270,7 +270,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
-	'Account',
+	'CreateNewAccount',
 	'',
 	'../../Interfaces/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
@@ -289,6 +289,24 @@ INSERT INTO C_EP_PROXY
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
 	'Reply',
+	'',
+	'../../Interfaces/CRUD/CRUD.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("ecafc28e-d9fc-4165-8c84-61990dc9fb93",
+	"0a248ffe-e10f-4d82-8d59-33b993f89f71",
+	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
+INSERT INTO SPR_PS
+	VALUES ("ecafc28e-d9fc-4165-8c84-61990dc9fb93",
+	'UpdatePassword',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'UpdatePassword',
 	'',
 	'../../Interfaces/CRUD/CRUD.xtuml');
 INSERT INTO C_I_PROXY

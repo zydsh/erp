@@ -5,7 +5,9 @@ INSERT INTO O_OBJ
 	'Account',
 	1,
 	'Account',
-	'',
+	'Represents a way to identify 
+an employee within 
+the system.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("01ddb9fe-3217-4362-a2fa-2ba068e66412",
@@ -109,10 +111,10 @@ INSERT INTO O_ATTR
 	VALUES ("456f4041-96ad-4d87-8bcb-14c7d29e0b2a",
 	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182",
 	"7da1d419-9b9e-4607-b5ad-0bd3961c7158",
-	'National_ID',
+	'EmployeeID',
 	'',
 	'',
-	'National_ID',
+	'EmployeeID',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',

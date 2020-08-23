@@ -9,11 +9,11 @@ INSERT INTO C_EP
 	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
-	'Account',
+	'CreateNewAccount',
 	'');
 INSERT INTO C_AS
 	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
-	'Account',
+	'CreateNewAccount',
 	'',
 	0,
 	"00000000-0000-0000-0000-000000000000");
@@ -39,7 +39,7 @@ INSERT INTO C_PP
 	VALUES ("e34c8056-c2c3-4782-bce4-d38df6318897",
 	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
 	"ba5eda7a-def5-0000-0000-000000000002",
-	'National_ID',
+	'EmployeeID',
 	'',
 	0,
 	'',
@@ -83,6 +83,45 @@ INSERT INTO C_PP
 	0,
 	'',
 	"25371e3b-fcec-4b69-aab7-590e8af4bd7a");
+INSERT INTO C_EP
+	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'UpdatePassword',
+	'');
+INSERT INTO C_AS
+	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
+	'UpdatePassword',
+	'',
+	0,
+	"33c71ef4-d154-40bf-bfc7-33de5096bb4b");
+INSERT INTO C_PP
+	VALUES ("8858a664-48f4-4ac4-8e4f-72c6426a7855",
+	"0a248ffe-e10f-4d82-8d59-33b993f89f71",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Username',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("cca97029-2f99-4ac0-8396-fc7bac2f8c54",
+	"0a248ffe-e10f-4d82-8d59-33b993f89f71",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'OldPassword',
+	'',
+	0,
+	'',
+	"8858a664-48f4-4ac4-8e4f-72c6426a7855");
+INSERT INTO C_PP
+	VALUES ("b67b42f8-6992-4f7c-8dd2-fa449082855a",
+	"0a248ffe-e10f-4d82-8d59-33b993f89f71",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'NewPassword',
+	'',
+	0,
+	'',
+	"cca97029-2f99-4ac0-8396-fc7bac2f8c54");
 INSERT INTO PE_PE
 	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	1,
