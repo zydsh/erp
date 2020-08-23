@@ -807,6 +807,7 @@ if ( empty employee)
 		emp.LastName = param.LastName;
 		emp.DateOfBirth = param.DateOfBirth;
 		emp.Degree = param.Degree;
+<<<<<<< HEAD
 		emp.Gender = param.Gender;
 		
 		//if param.Gender =="Male"
@@ -816,6 +817,18 @@ if ( empty employee)
 		//else
 		//	LOG::LogInfo(message:"Gender type unrecognized." );	
 		//	UI::Reply( msg:"Gender type unrecognized.", state:False);end if;
+=======
+		
+		if param.Gender =="ذكر"
+			emp.Gender = Gender::Male;
+		elif param.Gender == "أنثى"
+			emp.Gender = Gender::Female;
+		else
+			LOG::LogInfo(message:"Gender type unrecognized." );	
+			UI::Reply( msg:"Gender type unrecognized.", state:False);
+
+		end if;
+>>>>>>> refs/remotes/origin/hrModelReview
 		
 		LOG::LogInfo(message:"Employee added successfully." );	
 		UI::Reply( msg:"Employee added successfully.", state:True);
@@ -853,7 +866,11 @@ INSERT INTO SPR_PS
 
 
   for each emp in employeeSet
+<<<<<<< HEAD
 	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance, Size:size);
+=======
+	Data::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance, Size:size);
+>>>>>>> refs/remotes/origin/hrModelReview
 	size = size-1;
 	LOG::LogInfo(message:"Sent:"+ emp.FirstName+" "+emp.MiddleName+" "+emp.LastName);	
 
