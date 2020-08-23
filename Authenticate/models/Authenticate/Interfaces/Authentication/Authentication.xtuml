@@ -3,7 +3,7 @@
 INSERT INTO C_I
 	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	"00000000-0000-0000-0000-000000000000",
-	'CRUD',
+	'Authentication',
 	'');
 INSERT INTO C_EP
 	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
