@@ -1,0 +1,78 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	'BonusSpecification',
+	1,
+	'BonusSpecification',
+	'Specifies types of bonus. An example of a bonus 
+type is 1.5 work hour bonus for all employees 
+because of working an extra 1.5 hrs of typically 
+governmenet working hours. The bonus is calculated 
+as a percentage of the monthly salary.',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
+INSERT INTO O_BATTR
+	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
+INSERT INTO O_ATTR
+	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("3aaed213-31fb-4240-bcb4-5129f1e44a72",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
+INSERT INTO O_BATTR
+	VALUES ("3aaed213-31fb-4240-bcb4-5129f1e44a72",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
+INSERT INTO O_ATTR
+	VALUES ("3aaed213-31fb-4240-bcb4-5129f1e44a72",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	"ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	'Percent',
+	'The percentage of base salary (the first step of a grade) 
+to be paid to an employee monthly.  ',
+	'',
+	'Percent',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
+INSERT INTO O_OIDA
+	VALUES ("ba390998-0eda-4d11-9a28-8fa2148b3f26",
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	0,
+	'Name');
+INSERT INTO O_ID
+	VALUES (1,
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
+INSERT INTO O_ID
+	VALUES (2,
+	"2e0ff4ce-1e43-4775-8bc6-6470044a2fe4");
+INSERT INTO PE_PE
+	VALUES ("2e0ff4ce-1e43-4775-8bc6-6470044a2fe4",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

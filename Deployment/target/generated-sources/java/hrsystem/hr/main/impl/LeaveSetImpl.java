@@ -1,10 +1,12 @@
 package hrsystem.hr.main.impl;
 
 
-import hrsystem.hr.main.Employee_LeaveSet;
+import hrsystem.hr.main.EmployeeSet;
 import hrsystem.hr.main.Leave;
 import hrsystem.hr.main.LeaveSet;
-import hrsystem.hr.main.impl.Employee_LeaveSetImpl;
+import hrsystem.hr.main.LeaveSpecificationSet;
+import hrsystem.hr.main.impl.EmployeeSetImpl;
+import hrsystem.hr.main.impl.LeaveSpecificationSetImpl;
 
 import io.ciera.runtime.summit.classes.InstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
@@ -25,25 +27,39 @@ public class LeaveSetImpl extends InstanceSet<LeaveSet,Leave> implements LeaveSe
 
     // attributes
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Leave leave : this ) leave.setName( m_Name );
+    public void setEnding( int m_Ending ) throws XtumlException {
+        for ( Leave leave : this ) leave.setEnding( m_Ending );
     }
     @Override
-    public void setLeave_ID( int m_Leave_ID ) throws XtumlException {
-        for ( Leave leave : this ) leave.setLeave_ID( m_Leave_ID );
-    }
-    @Override
-    public void setMaximumDays( int m_MaximumDays ) throws XtumlException {
-        for ( Leave leave : this ) leave.setMaximumDays( m_MaximumDays );
+    public void setStarting( int m_Starting ) throws XtumlException {
+        for ( Leave leave : this ) leave.setStarting( m_Starting );
     }
 
 
     // selections
     @Override
-    public Employee_LeaveSet R2_Employee_Leave() throws XtumlException {
-        Employee_LeaveSet employee_leaveset = new Employee_LeaveSetImpl();
-        for ( Leave leave : this ) employee_leaveset.addAll( leave.R2_Employee_Leave() );
-        return employee_leaveset;
+    public LeaveSpecificationSet R15_is_specified_by_a_LeaveSpecification() throws XtumlException {
+        LeaveSpecificationSet leavespecificationset = new LeaveSpecificationSetImpl();
+        for ( Leave leave : this ) leavespecificationset.add( leave.R15_is_specified_by_a_LeaveSpecification() );
+        return leavespecificationset;
+    }
+    @Override
+    public EmployeeSet R2_is_consumed_by_a_Employee() throws XtumlException {
+        EmployeeSet employeeset = new EmployeeSetImpl();
+        for ( Leave leave : this ) employeeset.add( leave.R2_is_consumed_by_a_Employee() );
+        return employeeset;
+    }
+    @Override
+    public EmployeeSet R5_is_currently_taken_by_Employee() throws XtumlException {
+        EmployeeSet employeeset = new EmployeeSetImpl();
+        for ( Leave leave : this ) employeeset.add( leave.R5_is_currently_taken_by_Employee() );
+        return employeeset;
+    }
+    @Override
+    public EmployeeSet R7_to_be_taken_by_Employee() throws XtumlException {
+        EmployeeSet employeeset = new EmployeeSetImpl();
+        for ( Leave leave : this ) employeeset.add( leave.R7_to_be_taken_by_Employee() );
+        return employeeset;
     }
 
 

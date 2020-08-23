@@ -1,0 +1,118 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("e01e59b4-a14b-4f8e-9875-07022c90269e",
+	'Department',
+	14,
+	'Department',
+	'A managerial unit assigned with one or more functions. 
+The organization structure is formed by a structure
+of departments within departments that has one 
+manager.',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("2a5eb2c3-204b-4d60-9f93-2fdd3b329207",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_BATTR
+	VALUES ("2a5eb2c3-204b-4d60-9f93-2fdd3b329207",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_ATTR
+	VALUES ("2a5eb2c3-204b-4d60-9f93-2fdd3b329207",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'The official name of the deprtment referred to in reports and letters. ',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("464b0bb4-6a0a-4202-b850-77b1c774ac8b",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_BATTR
+	VALUES ("464b0bb4-6a0a-4202-b850-77b1c774ac8b",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_ATTR
+	VALUES ("464b0bb4-6a0a-4202-b850-77b1c774ac8b",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e",
+	"afd8271e-86e4-49aa-b6b0-c1f480d7f69f",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("a26b2589-dbdb-4a89-9f09-dca20f8e6ebe",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e",
+	'select one employee related by self->Employee[R23.''is managed by''];
+
+self.Manager = employee.FirstName+" "+employee.LastName;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("a26b2589-dbdb-4a89-9f09-dca20f8e6ebe",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_ATTR
+	VALUES ("a26b2589-dbdb-4a89-9f09-dca20f8e6ebe",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e",
+	"464b0bb4-6a0a-4202-b850-77b1c774ac8b",
+	'Manager',
+	'Derives the manager''s First Name, Last Name.',
+	'',
+	'Manager',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("afd8271e-86e4-49aa-b6b0-c1f480d7f69f",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_BATTR
+	VALUES ("afd8271e-86e4-49aa-b6b0-c1f480d7f69f",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_ATTR
+	VALUES ("afd8271e-86e4-49aa-b6b0-c1f480d7f69f",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e",
+	"2a5eb2c3-204b-4d60-9f93-2fdd3b329207",
+	'Mission',
+	'A brief statement that guides the department to perform its functions  
+in alignment with the organization goals. ',
+	'',
+	'Mission',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_OIDA
+	VALUES ("2a5eb2c3-204b-4d60-9f93-2fdd3b329207",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e",
+	0,
+	'Name');
+INSERT INTO O_ID
+	VALUES (1,
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO O_ID
+	VALUES (2,
+	"e01e59b4-a14b-4f8e-9875-07022c90269e");
+INSERT INTO PE_PE
+	VALUES ("e01e59b4-a14b-4f8e-9875-07022c90269e",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

@@ -2,15 +2,14 @@ package hrsystem.hr.main.impl;
 
 
 import hrsystem.Hr;
-import hrsystem.hr.main.Employee_Leave;
-import hrsystem.hr.main.Employee_LeaveSet;
+import hrsystem.hr.main.Employee;
 import hrsystem.hr.main.Leave;
-import hrsystem.hr.main.impl.Employee_LeaveSetImpl;
-import hrsystem.hr.main.impl.LeaveImpl;
+import hrsystem.hr.main.LeaveSpecification;
+import hrsystem.hr.main.impl.EmployeeImpl;
+import hrsystem.hr.main.impl.LeaveSpecificationImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
 import io.ciera.runtime.instanceloading.InstanceCreatedDelta;
-import io.ciera.runtime.summit.application.ActionHome;
 import io.ciera.runtime.summit.application.IRunContext;
 import io.ciera.runtime.summit.classes.IInstanceIdentifier;
 import io.ciera.runtime.summit.classes.InstanceIdentifier;
@@ -18,9 +17,10 @@ import io.ciera.runtime.summit.classes.ModelInstance;
 import io.ciera.runtime.summit.exceptions.EmptyInstanceException;
 import io.ciera.runtime.summit.exceptions.InstancePopulationException;
 import io.ciera.runtime.summit.exceptions.XtumlException;
+import io.ciera.runtime.summit.statemachine.Event;
+import io.ciera.runtime.summit.statemachine.IEvent;
 import io.ciera.runtime.summit.types.IWhere;
 import io.ciera.runtime.summit.types.IXtumlType;
-import io.ciera.runtime.summit.types.StringUtil;
 import io.ciera.runtime.summit.types.UniqueId;
 
 
@@ -34,19 +34,25 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     // constructors
     private LeaveImpl( Hr context ) {
         this.context = context;
-        m_Leave_ID = 0;
-        m_Name = "";
-        m_MaximumDays = 0;
-        R2_Employee_Leave_set = new Employee_LeaveSetImpl();
+        m_Starting = 0;
+        m_Ending = 0;
+        R15_is_specified_by_a_LeaveSpecification_inst = LeaveSpecificationImpl.EMPTY_LEAVESPECIFICATION;
+        R2_is_consumed_by_a_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R5_is_currently_taken_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R7_to_be_taken_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        statemachine = new LeaveStateMachine(this, context());
     }
 
-    private LeaveImpl( Hr context, UniqueId instanceId, int m_Leave_ID, String m_Name, int m_MaximumDays ) {
+    private LeaveImpl( Hr context, UniqueId instanceId, int m_Starting, int m_Ending, int initialState ) {
         super(instanceId);
         this.context = context;
-        this.m_Leave_ID = m_Leave_ID;
-        this.m_Name = m_Name;
-        this.m_MaximumDays = m_MaximumDays;
-        R2_Employee_Leave_set = new Employee_LeaveSetImpl();
+        this.m_Starting = m_Starting;
+        this.m_Ending = m_Ending;
+        R15_is_specified_by_a_LeaveSpecification_inst = LeaveSpecificationImpl.EMPTY_LEAVESPECIFICATION;
+        R2_is_consumed_by_a_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R5_is_currently_taken_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R7_to_be_taken_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        statemachine = new LeaveStateMachine(this, context(), initialState);
     }
 
     public static Leave create( Hr context ) throws XtumlException {
@@ -58,136 +64,159 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Leave create( Hr context, UniqueId instanceId, int m_Leave_ID, String m_Name, int m_MaximumDays ) throws XtumlException {
-        Leave newLeave = new LeaveImpl( context, instanceId, m_Leave_ID, m_Name, m_MaximumDays );
+    public static Leave create( Hr context, UniqueId instanceId, int m_Starting, int m_Ending, int initialState ) throws XtumlException {
+        Leave newLeave = new LeaveImpl( context, instanceId, m_Starting, m_Ending, initialState );
         if ( context.addInstance( newLeave ) ) {
             return newLeave;
         }
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
+    private final LeaveStateMachine statemachine;
+    
+    @Override
+    public void accept(IEvent event) throws XtumlException {
+        statemachine.transition(event);
+    }
+
+    @Override
+    public int getCurrentState() {
+        return statemachine.getCurrentState();
+    }
 
 
     // attributes
-    private int m_Leave_ID;
+    private int m_Starting;
     @Override
-    public int getLeave_ID() throws XtumlException {
+    public void setStarting(int m_Starting) throws XtumlException {
         checkLiving();
-        return m_Leave_ID;
-    }
-    @Override
-    public void setLeave_ID(int m_Leave_ID) throws XtumlException {
-        checkLiving();
-        if (m_Leave_ID != this.m_Leave_ID) {
-            final int oldValue = this.m_Leave_ID;
-            this.m_Leave_ID = m_Leave_ID;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Leave_ID", oldValue, this.m_Leave_ID));
-            if ( !R2_Employee_Leave().isEmpty() ) R2_Employee_Leave().setLeave_ID( m_Leave_ID );
+        if (m_Starting != this.m_Starting) {
+            final int oldValue = this.m_Starting;
+            this.m_Starting = m_Starting;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
         }
     }
-    private String m_Name;
     @Override
-    public String getName() throws XtumlException {
+    public int getStarting() throws XtumlException {
         checkLiving();
-        return m_Name;
+        return m_Starting;
+    }
+    private int m_Ending;
+    @Override
+    public int getEnding() throws XtumlException {
+        checkLiving();
+        return m_Ending;
     }
     @Override
-    public void setName(String m_Name) throws XtumlException {
+    public void setEnding(int m_Ending) throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Name, this.m_Name)) {
-            final String oldValue = this.m_Name;
-            this.m_Name = m_Name;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
-        }
-    }
-    private int m_MaximumDays;
-    @Override
-    public int getMaximumDays() throws XtumlException {
-        checkLiving();
-        return m_MaximumDays;
-    }
-    @Override
-    public void setMaximumDays(int m_MaximumDays) throws XtumlException {
-        checkLiving();
-        if (m_MaximumDays != this.m_MaximumDays) {
-            final int oldValue = this.m_MaximumDays;
-            this.m_MaximumDays = m_MaximumDays;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_MaximumDays", oldValue, this.m_MaximumDays));
+        if (m_Ending != this.m_Ending) {
+            final int oldValue = this.m_Ending;
+            this.m_Ending = m_Ending;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
     }
 
 
     // instance identifiers
-    @Override
-    public IInstanceIdentifier getId1() {
-        try {
-            return new InstanceIdentifier(getLeave_ID());
-        }
-        catch ( XtumlException e ) {
-            getRunContext().getLog().error(e);
-            System.exit(1);
-            return null;
-        }
-    }
 
     // operations
 
 
     // static operations
-    public static class CLASS extends ActionHome<Hr> {
-
-        public CLASS( Hr context ) {
-            super( context );
-        }
-
-        public void crud( final String p_Name,  final int p_MaximumDays,  final String p_Action ) throws XtumlException {
-            context().LOG().LogInfo( "Attempting to add a new Leave." );
-            Leave inst = context().Leave_instances().anyWhere(selected -> StringUtil.equality(((Leave)selected).getName(), p_Name));
-            if ( inst.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                Leave l = LeaveImpl.create( context() );
-                l.setName(p_Name);
-                l.setMaximumDays(p_MaximumDays);
-                context().UI().Reply( "Leave: added successfully.", true );
-            }
-            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                context().LOG().LogInfo( "Leave already exists." );
-                context().UI().Reply( "Leave already exists", false );
-            }
-            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
-                context().LOG().LogInfo( "Leave updated successfully." );
-                context().UI().Reply( "Leave updated successfully", true );
-            }
-            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
-                context().LOG().LogInfo( "Leave deleted successfully." );
-                context().UI().Reply( "Leave delete unsuccessful", false );
-            }
-            else if ( inst.isEmpty() ) {
-                context().LOG().LogInfo( "Leave does not exist." );
-                context().UI().Reply( "Leave does not exist.", false );
-            }
-        }
-
-
-
-    }
 
 
     // events
+    public static class Approve extends Event {
+        public Approve(IRunContext runContext, int populationId) {
+            super(runContext, populationId);
+        }
+        @Override
+        public int getId() {
+            return 1;
+        }
+        @Override
+        public String getClassName() {
+            return "Leave";
+        }
+    }
+    public static class EndLeave extends Event {
+        public EndLeave(IRunContext runContext, int populationId) {
+            super(runContext, populationId);
+        }
+        @Override
+        public int getId() {
+            return 3;
+        }
+        @Override
+        public String getClassName() {
+            return "Leave";
+        }
+    }
+    public static class Reject extends Event {
+        public Reject(IRunContext runContext, int populationId) {
+            super(runContext, populationId);
+        }
+        @Override
+        public int getId() {
+            return 0;
+        }
+        @Override
+        public String getClassName() {
+            return "Leave";
+        }
+    }
+    public static class StartLeave extends Event {
+        public StartLeave(IRunContext runContext, int populationId) {
+            super(runContext, populationId);
+        }
+        @Override
+        public int getId() {
+            return 2;
+        }
+        @Override
+        public String getClassName() {
+            return "Leave";
+        }
+    }
 
 
     // selections
-    private Employee_LeaveSet R2_Employee_Leave_set;
+    private LeaveSpecification R15_is_specified_by_a_LeaveSpecification_inst;
     @Override
-    public void addR2_Employee_Leave( Employee_Leave inst ) {
-        R2_Employee_Leave_set.add(inst);
+    public void setR15_is_specified_by_a_LeaveSpecification( LeaveSpecification inst ) {
+        R15_is_specified_by_a_LeaveSpecification_inst = inst;
     }
     @Override
-    public void removeR2_Employee_Leave( Employee_Leave inst ) {
-        R2_Employee_Leave_set.remove(inst);
+    public LeaveSpecification R15_is_specified_by_a_LeaveSpecification() throws XtumlException {
+        return R15_is_specified_by_a_LeaveSpecification_inst;
+    }
+    private Employee R2_is_consumed_by_a_Employee_inst;
+    @Override
+    public void setR2_is_consumed_by_a_Employee( Employee inst ) {
+        R2_is_consumed_by_a_Employee_inst = inst;
     }
     @Override
-    public Employee_LeaveSet R2_Employee_Leave() throws XtumlException {
-        return R2_Employee_Leave_set;
+    public Employee R2_is_consumed_by_a_Employee() throws XtumlException {
+        return R2_is_consumed_by_a_Employee_inst;
+    }
+    private Employee R5_is_currently_taken_by_Employee_inst;
+    @Override
+    public void setR5_is_currently_taken_by_Employee( Employee inst ) {
+        R5_is_currently_taken_by_Employee_inst = inst;
+    }
+    @Override
+    public Employee R5_is_currently_taken_by_Employee() throws XtumlException {
+        return R5_is_currently_taken_by_Employee_inst;
+    }
+    private Employee R7_to_be_taken_by_Employee_inst;
+    @Override
+    public void setR7_to_be_taken_by_Employee( Employee inst ) {
+        R7_to_be_taken_by_Employee_inst = inst;
+    }
+    @Override
+    public Employee R7_to_be_taken_by_Employee() throws XtumlException {
+        return R7_to_be_taken_by_Employee_inst;
     }
 
 
@@ -223,22 +252,16 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
 class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
 
     // attributes
-    public int getLeave_ID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
-    public void setLeave_ID( int m_Leave_ID ) throws XtumlException {
+    public void setStarting( int m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getName() throws XtumlException {
+    public int getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
-    public int getMaximumDays() throws XtumlException {
+    public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setMaximumDays( int m_MaximumDays ) throws XtumlException {
+    public void setEnding( int m_Ending ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
@@ -248,8 +271,20 @@ class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
 
     // selections
     @Override
-    public Employee_LeaveSet R2_Employee_Leave() {
-        return (new Employee_LeaveSetImpl());
+    public LeaveSpecification R15_is_specified_by_a_LeaveSpecification() {
+        return LeaveSpecificationImpl.EMPTY_LEAVESPECIFICATION;
+    }
+    @Override
+    public Employee R2_is_consumed_by_a_Employee() {
+        return EmployeeImpl.EMPTY_EMPLOYEE;
+    }
+    @Override
+    public Employee R5_is_currently_taken_by_Employee() {
+        return EmployeeImpl.EMPTY_EMPLOYEE;
+    }
+    @Override
+    public Employee R7_to_be_taken_by_Employee() {
+        return EmployeeImpl.EMPTY_EMPLOYEE;
     }
 
 

@@ -1,0 +1,99 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
+	'LeaveSpecification',
+	13,
+	'LeaveSpecification',
+	'Specifies the types of leave offered to employees. 
+When employees request leave, they are asked to 
+choose one leave type to apply for. Employees 
+and the HR departmenet will hold a record of 
+the past leave instances that employees consumed. 
+',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("f361a962-9567-4e0c-87d5-7277eccadbcf",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_BATTR
+	VALUES ("f361a962-9567-4e0c-87d5-7277eccadbcf",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_ATTR
+	VALUES ("f361a962-9567-4e0c-87d5-7277eccadbcf",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("5efa18e5-40d5-455e-b0ac-6b89eb9969d6",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_BATTR
+	VALUES ("5efa18e5-40d5-455e-b0ac-6b89eb9969d6",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_ATTR
+	VALUES ("5efa18e5-40d5-455e-b0ac-6b89eb9969d6",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
+	"f361a962-9567-4e0c-87d5-7277eccadbcf",
+	'MaximumDays',
+	'The upper limit of number of days an employee is allowed to have when a type of 
+leave is requested.   ',
+	'',
+	'MaximumDays',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("08300901-05d5-42be-861c-ca4c086d5e3b",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_BATTR
+	VALUES ("08300901-05d5-42be-861c-ca4c086d5e3b",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_ATTR
+	VALUES ("08300901-05d5-42be-861c-ca4c086d5e3b",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
+	"5efa18e5-40d5-455e-b0ac-6b89eb9969d6",
+	'MinimumDays',
+	'Minimum days allowed to apply for a leave.
+For example, Regular Leave is not allowed 
+for less than 5 days.',
+	'',
+	'MinimumDays',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_OIDA
+	VALUES ("f361a962-9567-4e0c-87d5-7277eccadbcf",
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
+	0,
+	'Name');
+INSERT INTO O_ID
+	VALUES (1,
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO O_ID
+	VALUES (2,
+	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45");
+INSERT INTO PE_PE
+	VALUES ("9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

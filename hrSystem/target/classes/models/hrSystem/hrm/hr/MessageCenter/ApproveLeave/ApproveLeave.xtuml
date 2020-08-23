@@ -1,0 +1,161 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("b8307508-9f45-4c46-9501-44a73ac6a821",
+	'ApproveLeave',
+	2,
+	'ApproveLeave',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("99033d9e-a2fb-4a4e-836e-d26db2a72a30",
+	"b8307508-9f45-4c46-9501-44a73ac6a821",
+	'createMessage',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'//assign the message to the manager
+select any employee from instances of Employee where selected.EmployeeID==param.ManagerID;
+relate self to employee across R102;
+
+//create the message
+
+ select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;
+
+		
+Content = emp.FirstName+" "+emp.LastName+" is requesting to take leave.";',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("c2c1a685-09c5-47e3-babe-57b1cbc402ba",
+	"99033d9e-a2fb-4a4e-836e-d26db2a72a30",
+	'Starting',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("ed3b8aea-e0bf-4187-9cbd-c4749c95cf8e",
+	"99033d9e-a2fb-4a4e-836e-d26db2a72a30",
+	'Ending',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"c2c1a685-09c5-47e3-babe-57b1cbc402ba",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("a5538b40-8930-48a7-9e23-47f4051787f6",
+	"99033d9e-a2fb-4a4e-836e-d26db2a72a30",
+	'EmployeeID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"ed3b8aea-e0bf-4187-9cbd-c4749c95cf8e",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("473c95be-3a79-498f-8e93-a1243f1e1553",
+	"99033d9e-a2fb-4a4e-836e-d26db2a72a30",
+	'ManagerID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"a5538b40-8930-48a7-9e23-47f4051787f6",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("21623cf5-c4f4-449e-a52e-006bcbe17e53",
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_BATTR
+	VALUES ("21623cf5-c4f4-449e-a52e-006bcbe17e53",
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_ATTR
+	VALUES ("21623cf5-c4f4-449e-a52e-006bcbe17e53",
+	"b8307508-9f45-4c46-9501-44a73ac6a821",
+	"00000000-0000-0000-0000-000000000000",
+	'LeaveRequesterID',
+	'',
+	'',
+	'LeaveRequesterID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("5b41e776-07a9-4777-b431-867eada73ac0",
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_BATTR
+	VALUES ("5b41e776-07a9-4777-b431-867eada73ac0",
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_ATTR
+	VALUES ("5b41e776-07a9-4777-b431-867eada73ac0",
+	"b8307508-9f45-4c46-9501-44a73ac6a821",
+	"21623cf5-c4f4-449e-a52e-006bcbe17e53",
+	'Starting',
+	'',
+	'',
+	'Starting',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("6fa59ed7-dc52-4110-afac-0081d1da99b3",
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_BATTR
+	VALUES ("6fa59ed7-dc52-4110-afac-0081d1da99b3",
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_ATTR
+	VALUES ("6fa59ed7-dc52-4110-afac-0081d1da99b3",
+	"b8307508-9f45-4c46-9501-44a73ac6a821",
+	"5b41e776-07a9-4777-b431-867eada73ac0",
+	'Ending',
+	'',
+	'',
+	'Ending',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("4faffada-3dd8-482c-86dc-6fa04a08ea8e",
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_BATTR
+	VALUES ("4faffada-3dd8-482c-86dc-6fa04a08ea8e",
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_ATTR
+	VALUES ("4faffada-3dd8-482c-86dc-6fa04a08ea8e",
+	"b8307508-9f45-4c46-9501-44a73ac6a821",
+	"6fa59ed7-dc52-4110-afac-0081d1da99b3",
+	'Content',
+	'',
+	'',
+	'Content',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_ID
+	VALUES (1,
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO O_ID
+	VALUES (2,
+	"b8307508-9f45-4c46-9501-44a73ac6a821");
+INSERT INTO PE_PE
+	VALUES ("b8307508-9f45-4c46-9501-44a73ac6a821",
+	1,
+	"bfe3c6f3-8045-48eb-b782-8d7442937ac3",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("bfe3c6f3-8045-48eb-b782-8d7442937ac3",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'MessageCenter',
+	'',
+	0,
+	'../MessageCenter.xtuml');

@@ -2,19 +2,17 @@ package hrsystem.hr.main.impl;
 
 
 import hrsystem.Hr;
-import hrsystem.hr.main.Employee_Job;
-import hrsystem.hr.main.Employee_JobSet;
+import hrsystem.hr.main.Employee;
 import hrsystem.hr.main.Grade;
 import hrsystem.hr.main.Job;
-import hrsystem.hr.main.Step;
-import hrsystem.hr.main.impl.Employee_JobSetImpl;
+import hrsystem.hr.main.JobRecord;
+import hrsystem.hr.main.JobRecordSet;
+import hrsystem.hr.main.impl.EmployeeImpl;
 import hrsystem.hr.main.impl.GradeImpl;
-import hrsystem.hr.main.impl.JobImpl;
-import hrsystem.hr.main.impl.StepImpl;
+import hrsystem.hr.main.impl.JobRecordSetImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
 import io.ciera.runtime.instanceloading.InstanceCreatedDelta;
-import io.ciera.runtime.summit.application.ActionHome;
 import io.ciera.runtime.summit.application.IRunContext;
 import io.ciera.runtime.summit.classes.IInstanceIdentifier;
 import io.ciera.runtime.summit.classes.InstanceIdentifier;
@@ -39,26 +37,34 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     private JobImpl( Hr context ) {
         this.context = context;
         m_Job_ID = 0;
-        m_Amount = 0d;
-        m_Name = "";
-        ref_GValue = 0;
-        ref_SValue = 0;
-        R1_Employee_Job_set = new Employee_JobSetImpl();
-        R5_Grade_inst = GradeImpl.EMPTY_GRADE;
-        R5_Step_inst = StepImpl.EMPTY_STEP;
+        m_Title = "";
+        m_Salary = 0d;
+        m_Step = 0;
+        m_PensionDeduction = 0d;
+        m_Description = 0;
+        m_PromotionDate = 0;
+        m_AppointmentDate = 0;
+        R1_was_assigned_to_JobRecord_set = new JobRecordSetImpl();
+        R20_to_be_assigned_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R6_is_assigned_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R9_assigned_Grade_inst = GradeImpl.EMPTY_GRADE;
     }
 
-    private JobImpl( Hr context, UniqueId instanceId, int m_Job_ID, double m_Amount, String m_Name, int ref_GValue, int ref_SValue ) {
+    private JobImpl( Hr context, UniqueId instanceId, int m_Job_ID, String m_Title, double m_Salary, int m_Step, double m_PensionDeduction, int m_Description, int m_PromotionDate, int m_AppointmentDate ) {
         super(instanceId);
         this.context = context;
         this.m_Job_ID = m_Job_ID;
-        this.m_Amount = m_Amount;
-        this.m_Name = m_Name;
-        this.ref_GValue = ref_GValue;
-        this.ref_SValue = ref_SValue;
-        R1_Employee_Job_set = new Employee_JobSetImpl();
-        R5_Grade_inst = GradeImpl.EMPTY_GRADE;
-        R5_Step_inst = StepImpl.EMPTY_STEP;
+        this.m_Title = m_Title;
+        this.m_Salary = m_Salary;
+        this.m_Step = m_Step;
+        this.m_PensionDeduction = m_PensionDeduction;
+        this.m_Description = m_Description;
+        this.m_PromotionDate = m_PromotionDate;
+        this.m_AppointmentDate = m_AppointmentDate;
+        R1_was_assigned_to_JobRecord_set = new JobRecordSetImpl();
+        R20_to_be_assigned_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R6_is_assigned_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R9_assigned_Grade_inst = GradeImpl.EMPTY_GRADE;
     }
 
     public static Job create( Hr context ) throws XtumlException {
@@ -70,8 +76,8 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Job create( Hr context, UniqueId instanceId, int m_Job_ID, double m_Amount, String m_Name, int ref_GValue, int ref_SValue ) throws XtumlException {
-        Job newJob = new JobImpl( context, instanceId, m_Job_ID, m_Amount, m_Name, ref_GValue, ref_SValue );
+    public static Job create( Hr context, UniqueId instanceId, int m_Job_ID, String m_Title, double m_Salary, int m_Step, double m_PensionDeduction, int m_Description, int m_PromotionDate, int m_AppointmentDate ) throws XtumlException {
+        Job newJob = new JobImpl( context, instanceId, m_Job_ID, m_Title, m_Salary, m_Step, m_PensionDeduction, m_Description, m_PromotionDate, m_AppointmentDate );
         if ( context.addInstance( newJob ) ) {
             return newJob;
         }
@@ -89,7 +95,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             final int oldValue = this.m_Job_ID;
             this.m_Job_ID = m_Job_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Job_ID", oldValue, this.m_Job_ID));
-            if ( !R1_Employee_Job().isEmpty() ) R1_Employee_Job().setJob_ID( m_Job_ID );
         }
     }
     @Override
@@ -97,65 +102,114 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
         checkLiving();
         return m_Job_ID;
     }
-    private double m_Amount;
+    private String m_Title;
     @Override
-    public void setAmount(double m_Amount) throws XtumlException {
+    public String getTitle() throws XtumlException {
         checkLiving();
-        if (m_Amount != this.m_Amount) {
-            final double oldValue = this.m_Amount;
-            this.m_Amount = m_Amount;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
+        return m_Title;
+    }
+    @Override
+    public void setTitle(String m_Title) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_Title, this.m_Title)) {
+            final String oldValue = this.m_Title;
+            this.m_Title = m_Title;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Title", oldValue, this.m_Title));
+        }
+    }
+    private double m_Salary;
+    @Override
+    public void setSalary(double m_Salary) throws XtumlException {
+        checkLiving();
+        if (m_Salary != this.m_Salary) {
+            final double oldValue = this.m_Salary;
+            this.m_Salary = m_Salary;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Salary", oldValue, this.m_Salary));
         }
     }
     @Override
-    public double getAmount() throws XtumlException {
+    public double getSalary() throws XtumlException {
         checkLiving();
-        return m_Amount;
+        {
+            Grade grade = self().R9_assigned_Grade();
+            self().setSalary(grade.getAllowance() * self().getStep() + grade.getBaseSalary());
+        }
+        return m_Salary;
     }
-    private String m_Name;
+    private int m_Step;
     @Override
-    public String getName() throws XtumlException {
+    public int getStep() throws XtumlException {
         checkLiving();
-        return m_Name;
+        return m_Step;
     }
     @Override
-    public void setName(String m_Name) throws XtumlException {
+    public void setStep(int m_Step) throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Name, this.m_Name)) {
-            final String oldValue = this.m_Name;
-            this.m_Name = m_Name;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
+        if (m_Step != this.m_Step) {
+            final int oldValue = this.m_Step;
+            this.m_Step = m_Step;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Step", oldValue, this.m_Step));
         }
     }
-    private int ref_GValue;
+    private double m_PensionDeduction;
     @Override
-    public void setGValue(int ref_GValue) throws XtumlException {
+    public double getPensionDeduction() throws XtumlException {
         checkLiving();
-        if (ref_GValue != this.ref_GValue) {
-            final int oldValue = this.ref_GValue;
-            this.ref_GValue = ref_GValue;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_GValue", oldValue, this.ref_GValue));
+        return m_PensionDeduction;
+    }
+    @Override
+    public void setPensionDeduction(double m_PensionDeduction) throws XtumlException {
+        checkLiving();
+        if (m_PensionDeduction != this.m_PensionDeduction) {
+            final double oldValue = this.m_PensionDeduction;
+            this.m_PensionDeduction = m_PensionDeduction;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_PensionDeduction", oldValue, this.m_PensionDeduction));
+        }
+    }
+    private int m_Description;
+    @Override
+    public int getDescription() throws XtumlException {
+        checkLiving();
+        return m_Description;
+    }
+    @Override
+    public void setDescription(int m_Description) throws XtumlException {
+        checkLiving();
+        if (m_Description != this.m_Description) {
+            final int oldValue = this.m_Description;
+            this.m_Description = m_Description;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Description", oldValue, this.m_Description));
+        }
+    }
+    private int m_PromotionDate;
+    @Override
+    public void setPromotionDate(int m_PromotionDate) throws XtumlException {
+        checkLiving();
+        if (m_PromotionDate != this.m_PromotionDate) {
+            final int oldValue = this.m_PromotionDate;
+            this.m_PromotionDate = m_PromotionDate;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_PromotionDate", oldValue, this.m_PromotionDate));
         }
     }
     @Override
-    public int getGValue() throws XtumlException {
+    public int getPromotionDate() throws XtumlException {
         checkLiving();
-        return ref_GValue;
+        return m_PromotionDate;
     }
-    private int ref_SValue;
+    private int m_AppointmentDate;
     @Override
-    public int getSValue() throws XtumlException {
+    public void setAppointmentDate(int m_AppointmentDate) throws XtumlException {
         checkLiving();
-        return ref_SValue;
-    }
-    @Override
-    public void setSValue(int ref_SValue) throws XtumlException {
-        checkLiving();
-        if (ref_SValue != this.ref_SValue) {
-            final int oldValue = this.ref_SValue;
-            this.ref_SValue = ref_SValue;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_SValue", oldValue, this.ref_SValue));
+        if (m_AppointmentDate != this.m_AppointmentDate) {
+            final int oldValue = this.m_AppointmentDate;
+            this.m_AppointmentDate = m_AppointmentDate;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_AppointmentDate", oldValue, this.m_AppointmentDate));
         }
+    }
+    @Override
+    public int getAppointmentDate() throws XtumlException {
+        checkLiving();
+        return m_AppointmentDate;
     }
 
 
@@ -171,103 +225,56 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             return null;
         }
     }
-    @Override
-    public IInstanceIdentifier getId2() {
-        try {
-            return new InstanceIdentifier(getGValue(), getSValue());
-        }
-        catch ( XtumlException e ) {
-            getRunContext().getLog().error(e);
-            System.exit(1);
-            return null;
-        }
-    }
 
     // operations
 
 
     // static operations
-    public static class CLASS extends ActionHome<Hr> {
-
-        public CLASS( Hr context ) {
-            super( context );
-        }
-
-        public void crud( final int p_Step,  final int p_Grade,  final double p_Amount,  final String p_Name,  final String p_Action ) throws XtumlException {
-            Grade grade = context().Grade_instances().anyWhere(selected -> ((Grade)selected).getGValue() == p_Grade);
-            Step step = context().Step_instances().anyWhere(selected -> ((Step)selected).getSValue() == p_Step);
-            Job job = context().Job_instances().anyWhere(selected -> StringUtil.equality(((Job)selected).getName(), p_Name));
-            if ( job.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                context().LOG().LogInfo( "Attempting to add a new Job." );
-                Job j = JobImpl.create( context() );
-                j.setName(p_Name);
-                j.setAmount(p_Amount);
-                context().relate_R5_Job_Step( j, step );
-                context().relate_R5_Job_Grade( j, grade );
-                context().UI().Reply( "Job created successfully.", true );
-            }
-            else if ( !job.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                context().LOG().LogInfo( "Attempting to add a new Job." );
-                context().LOG().LogInfo( "Job already exists." );
-                context().UI().Reply( "Job already exists", false );
-            }
-            else if ( !job.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
-                context().LOG().LogInfo( "Attempting to update Job." );
-                job.setName(p_Name);
-                job.setAmount(p_Amount);
-                context().LOG().LogInfo( "Job updated successfully." );
-                context().UI().Reply( "Job updated successfully", true );
-            }
-            else if ( !job.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
-                context().LOG().LogInfo( "Attempting to delete a Job instance." );
-                context().LOG().LogInfo( "Job delete in not implemented yet." );
-                context().UI().Reply( "Job delete in not implemented yet", false );
-            }
-            else if ( job.isEmpty() ) {
-                context().LOG().LogInfo( "Job does not exist." );
-                context().UI().Reply( "Job does not exist.", false );
-            }
-        }
-
-
-
-    }
 
 
     // events
 
 
     // selections
-    private Employee_JobSet R1_Employee_Job_set;
+    private JobRecordSet R1_was_assigned_to_JobRecord_set;
     @Override
-    public void addR1_Employee_Job( Employee_Job inst ) {
-        R1_Employee_Job_set.add(inst);
+    public void addR1_was_assigned_to_JobRecord( JobRecord inst ) {
+        R1_was_assigned_to_JobRecord_set.add(inst);
     }
     @Override
-    public void removeR1_Employee_Job( Employee_Job inst ) {
-        R1_Employee_Job_set.remove(inst);
+    public void removeR1_was_assigned_to_JobRecord( JobRecord inst ) {
+        R1_was_assigned_to_JobRecord_set.remove(inst);
     }
     @Override
-    public Employee_JobSet R1_Employee_Job() throws XtumlException {
-        return R1_Employee_Job_set;
+    public JobRecordSet R1_was_assigned_to_JobRecord() throws XtumlException {
+        return R1_was_assigned_to_JobRecord_set;
     }
-    private Grade R5_Grade_inst;
+    private Employee R20_to_be_assigned_to_an_Employee_inst;
     @Override
-    public void setR5_Grade( Grade inst ) {
-        R5_Grade_inst = inst;
-    }
-    @Override
-    public Grade R5_Grade() throws XtumlException {
-        return R5_Grade_inst;
-    }
-    private Step R5_Step_inst;
-    @Override
-    public void setR5_Step( Step inst ) {
-        R5_Step_inst = inst;
+    public void setR20_to_be_assigned_to_an_Employee( Employee inst ) {
+        R20_to_be_assigned_to_an_Employee_inst = inst;
     }
     @Override
-    public Step R5_Step() throws XtumlException {
-        return R5_Step_inst;
+    public Employee R20_to_be_assigned_to_an_Employee() throws XtumlException {
+        return R20_to_be_assigned_to_an_Employee_inst;
+    }
+    private Employee R6_is_assigned_to_an_Employee_inst;
+    @Override
+    public void setR6_is_assigned_to_an_Employee( Employee inst ) {
+        R6_is_assigned_to_an_Employee_inst = inst;
+    }
+    @Override
+    public Employee R6_is_assigned_to_an_Employee() throws XtumlException {
+        return R6_is_assigned_to_an_Employee_inst;
+    }
+    private Grade R9_assigned_Grade_inst;
+    @Override
+    public void setR9_assigned_Grade( Grade inst ) {
+        R9_assigned_Grade_inst = inst;
+    }
+    @Override
+    public Grade R9_assigned_Grade() throws XtumlException {
+        return R9_assigned_Grade_inst;
     }
 
 
@@ -309,29 +316,47 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public int getJob_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setAmount( double m_Amount ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
-    public double getAmount() throws XtumlException {
+    public String getTitle() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
-    public void setName( String m_Name ) throws XtumlException {
+    public void setTitle( String m_Title ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setGValue( int ref_GValue ) throws XtumlException {
+    public void setSalary( double m_Salary ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public int getGValue() throws XtumlException {
+    public double getSalary() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getSValue() throws XtumlException {
+    public int getStep() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setSValue( int ref_SValue ) throws XtumlException {
+    public void setStep( int m_Step ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getPensionDeduction() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getDescription() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setDescription( int m_Description ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public void setPromotionDate( int m_PromotionDate ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getPromotionDate() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getAppointmentDate() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 
@@ -340,16 +365,20 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
 
     // selections
     @Override
-    public Employee_JobSet R1_Employee_Job() {
-        return (new Employee_JobSetImpl());
+    public JobRecordSet R1_was_assigned_to_JobRecord() {
+        return (new JobRecordSetImpl());
     }
     @Override
-    public Grade R5_Grade() {
+    public Employee R20_to_be_assigned_to_an_Employee() {
+        return EmployeeImpl.EMPTY_EMPLOYEE;
+    }
+    @Override
+    public Employee R6_is_assigned_to_an_Employee() {
+        return EmployeeImpl.EMPTY_EMPLOYEE;
+    }
+    @Override
+    public Grade R9_assigned_Grade() {
         return GradeImpl.EMPTY_GRADE;
-    }
-    @Override
-    public Step R5_Step() {
-        return StepImpl.EMPTY_STEP;
     }
 
 

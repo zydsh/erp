@@ -1,14 +1,14 @@
 package hrsystem.hr.main.impl;
 
 
-import hrsystem.hr.main.Employee_JobSet;
+import hrsystem.hr.main.EmployeeSet;
 import hrsystem.hr.main.GradeSet;
 import hrsystem.hr.main.Job;
+import hrsystem.hr.main.JobRecordSet;
 import hrsystem.hr.main.JobSet;
-import hrsystem.hr.main.StepSet;
-import hrsystem.hr.main.impl.Employee_JobSetImpl;
+import hrsystem.hr.main.impl.EmployeeSetImpl;
 import hrsystem.hr.main.impl.GradeSetImpl;
-import hrsystem.hr.main.impl.StepSetImpl;
+import hrsystem.hr.main.impl.JobRecordSetImpl;
 
 import io.ciera.runtime.summit.classes.InstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
@@ -29,45 +29,63 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
 
     // attributes
     @Override
-    public void setGValue( int ref_GValue ) throws XtumlException {
-        for ( Job job : this ) job.setGValue( ref_GValue );
+    public void setPromotionDate( int m_PromotionDate ) throws XtumlException {
+        for ( Job job : this ) job.setPromotionDate( m_PromotionDate );
+    }
+    @Override
+    public void setSalary( double m_Salary ) throws XtumlException {
+        for ( Job job : this ) job.setSalary( m_Salary );
     }
     @Override
     public void setJob_ID( int m_Job_ID ) throws XtumlException {
         for ( Job job : this ) job.setJob_ID( m_Job_ID );
     }
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Job job : this ) job.setName( m_Name );
+    public void setTitle( String m_Title ) throws XtumlException {
+        for ( Job job : this ) job.setTitle( m_Title );
     }
     @Override
-    public void setSValue( int ref_SValue ) throws XtumlException {
-        for ( Job job : this ) job.setSValue( ref_SValue );
+    public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException {
+        for ( Job job : this ) job.setAppointmentDate( m_AppointmentDate );
     }
     @Override
-    public void setAmount( double m_Amount ) throws XtumlException {
-        for ( Job job : this ) job.setAmount( m_Amount );
+    public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException {
+        for ( Job job : this ) job.setPensionDeduction( m_PensionDeduction );
+    }
+    @Override
+    public void setDescription( int m_Description ) throws XtumlException {
+        for ( Job job : this ) job.setDescription( m_Description );
+    }
+    @Override
+    public void setStep( int m_Step ) throws XtumlException {
+        for ( Job job : this ) job.setStep( m_Step );
     }
 
 
     // selections
     @Override
-    public Employee_JobSet R1_Employee_Job() throws XtumlException {
-        Employee_JobSet employee_jobset = new Employee_JobSetImpl();
-        for ( Job job : this ) employee_jobset.addAll( job.R1_Employee_Job() );
-        return employee_jobset;
+    public JobRecordSet R1_was_assigned_to_JobRecord() throws XtumlException {
+        JobRecordSet jobrecordset = new JobRecordSetImpl();
+        for ( Job job : this ) jobrecordset.addAll( job.R1_was_assigned_to_JobRecord() );
+        return jobrecordset;
     }
     @Override
-    public GradeSet R5_Grade() throws XtumlException {
+    public EmployeeSet R20_to_be_assigned_to_an_Employee() throws XtumlException {
+        EmployeeSet employeeset = new EmployeeSetImpl();
+        for ( Job job : this ) employeeset.add( job.R20_to_be_assigned_to_an_Employee() );
+        return employeeset;
+    }
+    @Override
+    public EmployeeSet R6_is_assigned_to_an_Employee() throws XtumlException {
+        EmployeeSet employeeset = new EmployeeSetImpl();
+        for ( Job job : this ) employeeset.add( job.R6_is_assigned_to_an_Employee() );
+        return employeeset;
+    }
+    @Override
+    public GradeSet R9_assigned_Grade() throws XtumlException {
         GradeSet gradeset = new GradeSetImpl();
-        for ( Job job : this ) gradeset.add( job.R5_Grade() );
+        for ( Job job : this ) gradeset.add( job.R9_assigned_Grade() );
         return gradeset;
-    }
-    @Override
-    public StepSet R5_Step() throws XtumlException {
-        StepSet stepset = new StepSetImpl();
-        for ( Job job : this ) stepset.add( job.R5_Step() );
-        return stepset;
     }
 
 

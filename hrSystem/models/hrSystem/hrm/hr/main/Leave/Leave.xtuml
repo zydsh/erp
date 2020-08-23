@@ -1,154 +1,83 @@
 -- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
 
 INSERT INTO O_OBJ
-	VALUES ("290f03c9-caf7-43ef-9c84-81ab915cca31",
+	VALUES ("bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
 	'Leave',
-	5,
+	10,
 	'Leave',
-	'',
+	'Represents the leave instance an employee either: 
+	a. created in the past as result of requesting 
+	   a specific type of leave, or
+	b. created to be consumed in the future representing 
+	   a planned leave of absence,
+	c. created and currently beign consumed as an active 
+	   leave of absence to end in a future date.',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_TFR
-	VALUES ("137ce53d-c714-47a3-bd1c-47bab1ea00cf",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31",
-	'crud',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'LOG::LogInfo(message:"Attempting to add a new Leave." );
-select any inst from instances of Leave where selected.Name==param.Name;
-if ( empty inst ) and (param.Action=="NEW")
-	//create object instance of Leave;
-	create object instance l of Leave;
-	l.Name = param.Name;
-	l.MaximumDays = param.MaximumDays;
-	UI::Reply( msg:"Leave: added successfully.", state:True);
-
-elif ( not empty inst ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Leave already exists." );	
-	UI::Reply( msg:"Leave already exists", state:False);
-
-elif ( not empty inst ) and (param.Action=="UPDATE")
-	
-	LOG::LogInfo(message:"Leave updated successfully." );	
-	UI::Reply( msg:"Leave updated successfully", state:True);
-elif ( not empty inst ) and (param.Action=="DELETE")
-
-	LOG::LogInfo(message:"Leave deleted successfully." );	
-	UI::Reply( msg:"Leave delete unsuccessful", state:False);
-
- elif (empty inst )
-	LOG::LogInfo(message:"Leave does not exist." );	
-	UI::Reply( msg:"Leave does not exist.", state:False);
- end if;
-
-	
-		
-				
-
-
-
- ',
-	1,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	0);
-INSERT INTO O_TPARM
-	VALUES ("8dd1033b-3ca3-4d17-9ec2-e6c3faf449c1",
-	"137ce53d-c714-47a3-bd1c-47bab1ea00cf",
-	'Name',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("cd7fe2a1-8ade-4f49-ac8a-9978e9cb749f",
-	"137ce53d-c714-47a3-bd1c-47bab1ea00cf",
-	'MaximumDays',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"8dd1033b-3ca3-4d17-9ec2-e6c3faf449c1",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("8cf8c372-58b3-40bc-81b9-d658e7a5ad8d",
-	"137ce53d-c714-47a3-bd1c-47bab1ea00cf",
-	'Action',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"cd7fe2a1-8ade-4f49-ac8a-9978e9cb749f",
-	'');
 INSERT INTO O_NBATTR
-	VALUES ("a84b8106-f316-464c-b52a-697ace704dd8",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+	VALUES ("2cbebbe4-9052-473f-8bef-be86c7202ac9",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
 INSERT INTO O_BATTR
-	VALUES ("a84b8106-f316-464c-b52a-697ace704dd8",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+	VALUES ("2cbebbe4-9052-473f-8bef-be86c7202ac9",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
 INSERT INTO O_ATTR
-	VALUES ("a84b8106-f316-464c-b52a-697ace704dd8",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31",
-	"312c2012-14df-4bd4-8e8f-5f30af7e948b",
-	'Name',
+	VALUES ("2cbebbe4-9052-473f-8bef-be86c7202ac9",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	"00000000-0000-0000-0000-000000000000",
+	'Starting',
 	'',
 	'',
-	'Name',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("6345e941-8ce7-4881-a30a-32df468c8693",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
-INSERT INTO O_BATTR
-	VALUES ("6345e941-8ce7-4881-a30a-32df468c8693",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
-INSERT INTO O_ATTR
-	VALUES ("6345e941-8ce7-4881-a30a-32df468c8693",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31",
-	"a84b8106-f316-464c-b52a-697ace704dd8",
-	'MaximumDays',
-	'',
-	'',
-	'MaximumDays',
+	'Starting',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
 INSERT INTO O_NBATTR
-	VALUES ("312c2012-14df-4bd4-8e8f-5f30af7e948b",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+	VALUES ("ceb62efe-bd43-4144-aa88-b838114d1638",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
 INSERT INTO O_BATTR
-	VALUES ("312c2012-14df-4bd4-8e8f-5f30af7e948b",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+	VALUES ("ceb62efe-bd43-4144-aa88-b838114d1638",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
 INSERT INTO O_ATTR
-	VALUES ("312c2012-14df-4bd4-8e8f-5f30af7e948b",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31",
-	"00000000-0000-0000-0000-000000000000",
-	'Leave_ID',
+	VALUES ("ceb62efe-bd43-4144-aa88-b838114d1638",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	"2cbebbe4-9052-473f-8bef-be86c7202ac9",
+	'Ending',
 	'',
 	'',
-	'Leave_ID',
+	'Ending',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("445925d3-b989-439f-8299-45ca171dfe66",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_BATTR
+	VALUES ("445925d3-b989-439f-8299-45ca171dfe66",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_ATTR
+	VALUES ("445925d3-b989-439f-8299-45ca171dfe66",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	"ceb62efe-bd43-4144-aa88-b838114d1638",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
 INSERT INTO O_ID
 	VALUES (0,
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
-INSERT INTO O_OIDA
-	VALUES ("312c2012-14df-4bd4-8e8f-5f30af7e948b",
-	"290f03c9-caf7-43ef-9c84-81ab915cca31",
-	0,
-	'Leave_ID');
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
 INSERT INTO O_ID
 	VALUES (1,
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
 INSERT INTO O_ID
 	VALUES (2,
-	"290f03c9-caf7-43ef-9c84-81ab915cca31");
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
 INSERT INTO PE_PE
-	VALUES ("290f03c9-caf7-43ef-9c84-81ab915cca31",
+	VALUES ("bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
 	1,
 	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
 	"00000000-0000-0000-0000-000000000000",

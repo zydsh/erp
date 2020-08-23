@@ -4,8 +4,14 @@ INSERT INTO O_OBJ
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'Employee',
 	2,
-	'EM',
-	'',
+	'Employee',
+	'Is an individual employed for a monthly 
+salary and receives benefits including 
+bonuses and leave of absence. 
+Before they commence, employees are recognized
+as soon as they are recruited. 
+When they are recruited, employees are assigned a job 
+that has a grade which corresponds to a basic salary. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("be9ae7cd-0096-466e-96e9-de7eda95bc04",
@@ -13,19 +19,12 @@ INSERT INTO O_TFR
 	'commenceEmployee',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
+	1,
 	'LOG::LogInfo(message:"An employee attempts to commence." );
 
-select any employee from instances of EM where selected.National_ID==param.National_ID;
-if ( not empty employee )
-	generate EM2:commenced() to employee;
-	employee.Start_Date = TIM::current_seconds();
+	generate Employee2:commenced() to self;
+	self.Start_Date = TIM::current_seconds();
 	UI::Reply( msg:"Employee has commenced ", state:True);
-
-else 
-	LOG::LogInfo(message:"Employee is not registered!" );
-	UI::Reply( msg:"Employee is not found.", state:False);
-end if;
 ',
 	1,
 	'',
@@ -41,89 +40,6 @@ INSERT INTO O_TPARM
 	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO O_TFR
-	VALUES ("c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	'crud',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'LOG::LogInfo(message:"Attempting to add a new Employee." );
-select any employee from instances of EM where selected.National_ID==param.National_ID;
-if ( empty employee ) and (param.Action=="NEW")
-	//create object instance employee of Employee;
-	create object instance employee of EM;
-	employee.FName = param.FName;
-	employee.LName = param.LName;
-	employee.National_ID = param.National_ID;
-	//SQL::serialize();
-	UI::Reply( msg:"Employee added successfully.", state:True);
-	
-	//create an account for the new employee
-	//HAuth::Account( First_Name:employee.FName, Last_Name: employee.LName, National_ID:employee.National_ID); 
-
-
-elif ( not empty employee ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Employee already exists." );	
-	UI::Reply( msg:"Employee already exists", state:False);
-
-elif ( not empty employee ) and (param.Action=="UPDATE")
-	employee.FName = param.FName;
-	employee.LName = param.LName;
-	employee.National_ID = param.National_ID;
-	
-	LOG::LogInfo(message:"Employee updated successfully." );	
-	UI::Reply( msg:"Employee updated successfully", state:True);
-elif ( not empty employee ) and (param.Action=="DELETE")
-
-	LOG::LogInfo(message:"Employee delete in not implemented yet." );	
-	UI::Reply( msg:"Employee delete is not implemented yet.", state:False);
-
- elif (empty employee )
-	LOG::LogInfo(message:"Employee does not exist." );	
-	UI::Reply( msg:"Employee does not exist.", state:False);
- end if;
-',
-	1,
-	'',
-	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
-	0);
-INSERT INTO O_TPARM
-	VALUES ("6d5e8130-08e6-45b9-a6a4-d8e15ca46d44",
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	'FName',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("121bce11-684e-4fd4-8e16-c47dc205df16",
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	'LName',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"6d5e8130-08e6-45b9-a6a4-d8e15ca46d44",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("2da13be3-0dd6-474a-a211-c70f041aa829",
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	'National_ID',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"121bce11-684e-4fd4-8e16-c47dc205df16",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("cf25bb85-0f5d-473a-8918-9c974510f586",
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	'Action',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"2da13be3-0dd6-474a-a211-c70f041aa829",
-	'');
-INSERT INTO O_TFR
 	VALUES ("a09a32cd-a57c-4c57-a3e5-43debb8df180",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'createPayment',
@@ -133,7 +49,7 @@ INSERT INTO O_TFR
 	'',
 	1,
 	'',
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
+	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
 	0);
 INSERT INTO O_TPARM
 	VALUES ("c8d7855a-0b36-49ff-bd1e-fc6e0ab8df1a",
@@ -179,12 +95,8 @@ INSERT INTO O_TFR
 	"ba5eda7a-def5-0000-0000-000000000003",
 	1,
 	'
-//find the active position/job being appointed too 
-select any ej related by self->EJ[R1] where selected.Active ==True ;
-//select the job related to the position/job to get the salary/amount
-select one job related by ej->Job[R1] where selected.Job_ID == ej.Job_ID; 
-
-return job.Amount;',
+select one job related by self->Job[R6.''currently occupies a'']; 
+return job.Salary;',
 	1,
 	'',
 	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
@@ -199,10 +111,10 @@ INSERT INTO O_ATTR
 	VALUES ("fd9cdc08-0290-402f-8e02-c13de46c7b88",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"fb71d900-f7fd-408b-b0b0-842ad54a2459",
-	'FName',
+	'FirstName',
 	'',
 	'',
-	'FName',
+	'FirstName',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -216,11 +128,11 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("2538b924-8f5d-4754-8df6-11b7637ff38a",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	"fd9cdc08-0290-402f-8e02-c13de46c7b88",
-	'LName',
+	"975354bf-5a5e-45e2-a889-6d412fc08552",
+	'LastName',
 	'',
 	'',
-	'LName',
+	'LastName',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -234,7 +146,7 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("b5fd3d31-b2a5-466d-acd5-1d716b21fa12",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	"2538b924-8f5d-4754-8df6-11b7637ff38a",
+	"832187cb-4087-4b77-8ce2-9ee080fabf19",
 	'Start_Date',
 	'',
 	'',
@@ -252,11 +164,11 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	"00000000-0000-0000-0000-000000000000",
-	'National_ID',
+	"0c736e49-e66a-4002-bed8-ff1892f6e999",
+	'NationalID',
+	'An identification number recognized across government organizations. 	',
 	'',
-	'',
-	'National_ID',
+	'NationalID',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -279,6 +191,135 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("0c736e49-e66a-4002-bed8-ff1892f6e999",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("0c736e49-e66a-4002-bed8-ff1892f6e999",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("0c736e49-e66a-4002-bed8-ff1892f6e999",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"00000000-0000-0000-0000-000000000000",
+	'EmployeeID',
+	'An identification number specific to the organization and only recognized within it.  ',
+	'',
+	'EmployeeID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("975354bf-5a5e-45e2-a889-6d412fc08552",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("975354bf-5a5e-45e2-a889-6d412fc08552",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("975354bf-5a5e-45e2-a889-6d412fc08552",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"fd9cdc08-0290-402f-8e02-c13de46c7b88",
+	'MiddleName',
+	'',
+	'',
+	'MiddleName',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"2538b924-8f5d-4754-8df6-11b7637ff38a",
+	'DateOfBirth',
+	'',
+	'',
+	'DateOfBirth',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("832187cb-4087-4b77-8ce2-9ee080fabf19",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("832187cb-4087-4b77-8ce2-9ee080fabf19",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("832187cb-4087-4b77-8ce2-9ee080fabf19",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"636249ad-06ca-483a-8a21-51c25dd2153c",
+	'Gender',
+	'',
+	'',
+	'Gender',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("636249ad-06ca-483a-8a21-51c25dd2153c",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("636249ad-06ca-483a-8a21-51c25dd2153c",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("636249ad-06ca-483a-8a21-51c25dd2153c",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"9ae5682b-f653-4dc3-bed2-80d5d9c81f1f",
+	'Degree',
+	'Employee''s highest degree earned.',
+	'',
+	'Degree',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ac588b96-c908-4423-b0ae-e453a0acf7ab",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("ac588b96-c908-4423-b0ae-e453a0acf7ab",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("ac588b96-c908-4423-b0ae-e453a0acf7ab",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"ee9005d5-0ba7-4588-8a56-645553eff095",
+	'LeaveBalance',
+	'Employees earn a 36 leave days every year.
+The leave continues to accumulate to a maximum of three years.  
+Maximum = 108 days. ',
+	'',
+	'LeaveBalance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ced1568c-393b-4af3-b8b9-3936e3628080",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("ced1568c-393b-4af3-b8b9-3936e3628080",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("ced1568c-393b-4af3-b8b9-3936e3628080",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"ac588b96-c908-4423-b0ae-e453a0acf7ab",
+	'SickLeaveBalance',
+	'Every employee is entitled to a five days of sick leave.
+The sick leave balance is not carried forward for next year.  ',
+	'',
+	'SickLeaveBalance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");
@@ -286,10 +327,15 @@ INSERT INTO O_OIDA
 	VALUES ("fb71d900-f7fd-408b-b0b0-842ad54a2459",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	0,
-	'National_ID');
+	'NationalID');
 INSERT INTO O_ID
 	VALUES (1,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_OIDA
+	VALUES ("0c736e49-e66a-4002-bed8-ff1892f6e999",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	1,
+	'EmployeeID');
 INSERT INTO O_ID
 	VALUES (2,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");

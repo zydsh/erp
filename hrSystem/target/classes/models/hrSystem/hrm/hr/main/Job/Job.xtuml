@@ -5,259 +5,174 @@ INSERT INTO O_OBJ
 	'Job',
 	4,
 	'Job',
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_TFR
-	VALUES ("1a9526f8-2850-4921-8434-51accf68a540",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	'crud',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'select any grade from instances of Grade where selected.GValue==param.Grade;
-
-select any step from instances of Step where selected.SValue==param.Step;
-
-select any job from instances of Job where selected.Name==param.Name;
-
-if ( empty job ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Attempting to add a new Job." );
-
-	//create object instance employee of Employee;
-	create object instance j of Job;
-	j.Name = param.Name;
-	j.Amount = param.Amount;
-	relate step to grade across R5 using j;  
-
-	//SQL::serialize();
-	UI::Reply( msg:"Job created successfully.", state:True);
-
-elif ( not empty job ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Attempting to add a new Job." );
-
-	LOG::LogInfo(message:"Job already exists." );	
-	UI::Reply( msg:"Job already exists", state:False);
-
-elif ( not empty job ) and (param.Action=="UPDATE")
-	LOG::LogInfo(message:"Attempting to update Job." );
-
-	job.Name = param.Name;
-	job.Amount = param.Amount;
-	
-	LOG::LogInfo(message:"Job updated successfully." );	
-	UI::Reply( msg:"Job updated successfully", state:True);
-
-elif ( not empty job ) and (param.Action=="DELETE")
-	LOG::LogInfo(message:"Attempting to delete a Job instance." );
-	LOG::LogInfo(message:"Job delete in not implemented yet." );	
-	UI::Reply( msg:"Job delete in not implemented yet", state:False);
-
- elif (empty job )
-	LOG::LogInfo(message:"Job does not exist." );	
-	UI::Reply( msg:"Job does not exist.", state:False);
-
-
-
-end if;
-
-
+	'A Job represents a position held by one employee at a time.  
+The title and description reflects the scope of the position, describing the  
+related skills and/or qualifications an employee holding the job. 
+As part of its definition, a job is assigned a grade. Based on the grade
+a salary is calculated based on the grade base-salary and its allowance 
+(please see description of class Grade). 
 ',
-	1,
-	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"00000000-0000-0000-0000-000000000000",
+	'Job_ID',
+	'',
+	'',
+	'Job_ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	'//Calculating the salary based on number of steps which corrosponds to a fixed allowance
+// Every year, an Employee through Job, moves up one step a year and gets an allowance 
+select one grade related by self->Grade[R9.''assigned''];
+self.Salary = (grade.Allowance * self.Step) + grade.BaseSalary ;',
+	1,
 	0);
-INSERT INTO O_TPARM
-	VALUES ("1f0fa486-4d6e-4410-b8f1-56b4651e971b",
-	"1a9526f8-2850-4921-8434-51accf68a540",
-	'Step',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("30f2a4a3-83e4-4b21-bdf8-8c8a30a6ca9d",
-	"1a9526f8-2850-4921-8434-51accf68a540",
-	'Grade',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"1f0fa486-4d6e-4410-b8f1-56b4651e971b",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("190acc94-4214-4cb5-9047-c9eed11adb6c",
-	"1a9526f8-2850-4921-8434-51accf68a540",
-	'Amount',
-	"ba5eda7a-def5-0000-0000-000000000003",
-	0,
-	'',
-	"30f2a4a3-83e4-4b21-bdf8-8c8a30a6ca9d",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("27f688fc-98c3-4fb4-bc46-23dd80ed1cfa",
-	"1a9526f8-2850-4921-8434-51accf68a540",
-	'Name',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"190acc94-4214-4cb5-9047-c9eed11adb6c",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("889b1855-ca84-468c-ab64-7f9090521d50",
-	"1a9526f8-2850-4921-8434-51accf68a540",
-	'Action',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"27f688fc-98c3-4fb4-bc46-23dd80ed1cfa",
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_BATTR
-	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_ATTR
-	VALUES ("e1ed265c-5e0c-4929-88bd-72fc68f6c071",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	"00000000-0000-0000-0000-000000000000",
-	'Job_ID',
-	'',
-	'',
-	'Job_ID',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
 INSERT INTO O_BATTR
 	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
 	"735ac3f1-a8fe-46c2-b440-67e649269472");
 INSERT INTO O_ATTR
 	VALUES ("f31b58a3-b3d7-4683-ba34-60e5e23a6021",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	"e1ed265c-5e0c-4929-88bd-72fc68f6c071",
-	'Amount',
-	'',
-	'',
-	'Amount',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_BATTR
-	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_ATTR
-	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	"f31b58a3-b3d7-4683-ba34-60e5e23a6021",
-	'Name',
-	'',
-	'',
-	'Name',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'',
-	'');
-INSERT INTO O_REF
-	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
-	0,
-	"3fd8376b-981f-402e-ac8a-d52f53e13b5f",
-	"dcd10349-82a4-4b8e-b247-0e44156ce06f",
-	"253de62d-bee7-4158-9c9b-403bb92747b5",
-	"ab155134-bf23-4c01-990d-5494ef6ef429",
-	"4838bcc5-ee86-4168-9fc1-7c65218f0005",
-	"a3177e74-7094-4406-928f-db1f423464fc",
-	"00000000-0000-0000-0000-000000000000",
-	0,
-	'',
-	'Grade',
-	'GValue',
-	'R5');
-INSERT INTO R_RGO_PROXY
-	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
-	"dcd10349-82a4-4b8e-b247-0e44156ce06f",
-	"253de62d-bee7-4158-9c9b-403bb92747b5",
-	'../main.xtuml');
-INSERT INTO O_RTIDA_PROXY
-	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
-	0,
-	"dcd10349-82a4-4b8e-b247-0e44156ce06f",
-	"ab155134-bf23-4c01-990d-5494ef6ef429",
-	'../main.xtuml');
-INSERT INTO O_RATTR
-	VALUES ("4838bcc5-ee86-4168-9fc1-7c65218f0005",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	"3fd8376b-981f-402e-ac8a-d52f53e13b5f",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
-	1,
-	'GValue');
-INSERT INTO O_BATTR_PROXY
-	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
-	'../Grade/Grade.xtuml');
-INSERT INTO O_ATTR
-	VALUES ("4838bcc5-ee86-4168-9fc1-7c65218f0005",
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"75ea8f9b-899f-4d29-a147-17cab714f84e",
-	'GValue',
+	'Salary',
+	'The salary increases by a yearlly allowance defined in the Grade class.
+Job holds the step value when an employee is first assigned.
+For example, engineering gradutes are assigned grade 7, step 4.
+The step increase every year by one, thus adds an allowance amount for every step added.
+The allowance stops when the step reaches to its maximum steps defined in Grade (see NumberOfSteps).',
+	'',
+	'Salary',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("75ea8f9b-899f-4d29-a147-17cab714f84e",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"e1ed265c-5e0c-4929-88bd-72fc68f6c071",
+	'Title',
+	'A title that indicates the functional role of the job. 
+For example: Junior Software Engineer. ',
+	'',
+	'Title',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	'Description',
 	'',
 	'',
-	'GValue',
+	'Description',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_REF
-	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
-	"2bd56965-b3a6-4703-9e20-27d3a3e21f33",
+INSERT INTO O_NBATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	'PensionDeduction',
+	' A pension percentage is deducted monthly. 
+ At this stage we will deduct the amounts
+ until we get further details on how these 
+ amounts are handled. 
+',
+	'',
+	'PensionDeduction',
 	0,
-	"7240ba01-ee88-4c40-a2e5-17fbde1832b3",
-	"dcd10349-82a4-4b8e-b247-0e44156ce06f",
-	"253de62d-bee7-4158-9c9b-403bb92747b5",
-	"5e397179-3609-419f-9957-8611ff0aeb0e",
-	"ec3918a9-2180-47e0-984e-7a83a1b255fe",
-	"719e39cc-ec1a-4f31-926e-84d0751c6b73",
-	"00000000-0000-0000-0000-000000000000",
-	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"f31b58a3-b3d7-4683-ba34-60e5e23a6021",
+	'Step',
+	'Represents the step within a grade assigned to the job.
+The step increases by one every year.',
 	'',
 	'Step',
-	'SValue',
-	'R5');
-INSERT INTO O_RTIDA_PROXY
-	VALUES ("7240ba01-ee88-4c40-a2e5-17fbde1832b3",
-	"2bd56965-b3a6-4703-9e20-27d3a3e21f33",
 	0,
-	"dcd10349-82a4-4b8e-b247-0e44156ce06f",
-	"5e397179-3609-419f-9957-8611ff0aeb0e",
-	'../main.xtuml');
-INSERT INTO O_RATTR
-	VALUES ("ec3918a9-2180-47e0-984e-7a83a1b255fe",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	"7240ba01-ee88-4c40-a2e5-17fbde1832b3",
-	"2bd56965-b3a6-4703-9e20-27d3a3e21f33",
-	1,
-	'SValue');
-INSERT INTO O_BATTR_PROXY
-	VALUES ("7240ba01-ee88-4c40-a2e5-17fbde1832b3",
-	"2bd56965-b3a6-4703-9e20-27d3a3e21f33",
-	'../Step/Step.xtuml');
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("4981a520-8984-42e8-896c-f39dd957ce2c",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("4981a520-8984-42e8-896c-f39dd957ce2c",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
 INSERT INTO O_ATTR
-	VALUES ("ec3918a9-2180-47e0-984e-7a83a1b255fe",
+	VALUES ("4981a520-8984-42e8-896c-f39dd957ce2c",
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	"4838bcc5-ee86-4168-9fc1-7c65218f0005",
-	'SValue',
+	"af947c66-aa53-4e84-9f61-9b46f992ed7a",
+	'PromotionDate',
+	'The date the job is expected to be assigned to another employee as 
+the current employee is promoted. Typically, appointment dates 
+are after promotion dates (2-5 months late). But financial benifits are
+calcualted for the next job based on promotion date. 
+',
 	'',
+	'PromotionDate',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
-	'SValue',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ec24e692-f1b3-4547-8445-bdde5aaf3d50",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("ec24e692-f1b3-4547-8445-bdde5aaf3d50",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("ec24e692-f1b3-4547-8445-bdde5aaf3d50",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"4981a520-8984-42e8-896c-f39dd957ce2c",
+	'AppointmentDate',
+	'The date the job is assigned officially to an employee',
+	'',
+	'AppointmentDate',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -273,16 +188,6 @@ INSERT INTO O_OIDA
 INSERT INTO O_ID
 	VALUES (1,
 	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_OIDA
-	VALUES ("4838bcc5-ee86-4168-9fc1-7c65218f0005",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	1,
-	'GValue');
-INSERT INTO O_OIDA
-	VALUES ("ec3918a9-2180-47e0-984e-7a83a1b255fe",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	1,
-	'SValue');
 INSERT INTO O_ID
 	VALUES (2,
 	"735ac3f1-a8fe-46c2-b440-67e649269472");

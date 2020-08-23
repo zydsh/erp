@@ -14,7 +14,6 @@
     <module>Deployment</module>
     <module>hrSystem</module>
     <module>HRUI</module>
-    <module>Authenticate</module>
 
   </modules>
 </project>

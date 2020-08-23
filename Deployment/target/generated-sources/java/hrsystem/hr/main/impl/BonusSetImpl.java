@@ -3,8 +3,10 @@ package hrsystem.hr.main.impl;
 
 import hrsystem.hr.main.Bonus;
 import hrsystem.hr.main.BonusSet;
-import hrsystem.hr.main.Bonus_PaymentSet;
-import hrsystem.hr.main.impl.Bonus_PaymentSetImpl;
+import hrsystem.hr.main.BonusSpecificationSet;
+import hrsystem.hr.main.EmployeeSet;
+import hrsystem.hr.main.impl.BonusSpecificationSetImpl;
+import hrsystem.hr.main.impl.EmployeeSetImpl;
 
 import io.ciera.runtime.summit.classes.InstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
@@ -25,21 +27,37 @@ public class BonusSetImpl extends InstanceSet<BonusSet,Bonus> implements BonusSe
 
     // attributes
     @Override
-    public void setPercent( double m_Percent ) throws XtumlException {
-        for ( Bonus bonus : this ) bonus.setPercent( m_Percent );
+    public void setAmount( double m_Amount ) throws XtumlException {
+        for ( Bonus bonus : this ) bonus.setAmount( m_Amount );
     }
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Bonus bonus : this ) bonus.setName( m_Name );
+    public void setStarting( int m_Starting ) throws XtumlException {
+        for ( Bonus bonus : this ) bonus.setStarting( m_Starting );
+    }
+    @Override
+    public void setEnding( int m_Ending ) throws XtumlException {
+        for ( Bonus bonus : this ) bonus.setEnding( m_Ending );
     }
 
 
     // selections
     @Override
-    public Bonus_PaymentSet R4_Bonus_Payment() throws XtumlException {
-        Bonus_PaymentSet bonus_paymentset = new Bonus_PaymentSetImpl();
-        for ( Bonus bonus : this ) bonus_paymentset.addAll( bonus.R4_Bonus_Payment() );
-        return bonus_paymentset;
+    public BonusSpecificationSet R16_is_specified_by_BonusSpecification() throws XtumlException {
+        BonusSpecificationSet bonusspecificationset = new BonusSpecificationSetImpl();
+        for ( Bonus bonus : this ) bonusspecificationset.add( bonus.R16_is_specified_by_BonusSpecification() );
+        return bonusspecificationset;
+    }
+    @Override
+    public EmployeeSet R19_given_in_the_past_to_an_Employee() throws XtumlException {
+        EmployeeSet employeeset = new EmployeeSetImpl();
+        for ( Bonus bonus : this ) employeeset.add( bonus.R19_given_in_the_past_to_an_Employee() );
+        return employeeset;
+    }
+    @Override
+    public EmployeeSet R4_is_given_to_an_Employee() throws XtumlException {
+        EmployeeSet employeeset = new EmployeeSetImpl();
+        for ( Bonus bonus : this ) employeeset.add( bonus.R4_is_given_to_an_Employee() );
+        return employeeset;
     }
 
 

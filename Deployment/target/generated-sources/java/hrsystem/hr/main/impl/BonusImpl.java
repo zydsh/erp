@@ -3,14 +3,13 @@ package hrsystem.hr.main.impl;
 
 import hrsystem.Hr;
 import hrsystem.hr.main.Bonus;
-import hrsystem.hr.main.Bonus_Payment;
-import hrsystem.hr.main.Bonus_PaymentSet;
-import hrsystem.hr.main.impl.BonusImpl;
-import hrsystem.hr.main.impl.Bonus_PaymentSetImpl;
+import hrsystem.hr.main.BonusSpecification;
+import hrsystem.hr.main.Employee;
+import hrsystem.hr.main.impl.BonusSpecificationImpl;
+import hrsystem.hr.main.impl.EmployeeImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
 import io.ciera.runtime.instanceloading.InstanceCreatedDelta;
-import io.ciera.runtime.summit.application.ActionHome;
 import io.ciera.runtime.summit.application.IRunContext;
 import io.ciera.runtime.summit.classes.IInstanceIdentifier;
 import io.ciera.runtime.summit.classes.InstanceIdentifier;
@@ -18,15 +17,16 @@ import io.ciera.runtime.summit.classes.ModelInstance;
 import io.ciera.runtime.summit.exceptions.EmptyInstanceException;
 import io.ciera.runtime.summit.exceptions.InstancePopulationException;
 import io.ciera.runtime.summit.exceptions.XtumlException;
+import io.ciera.runtime.summit.statemachine.Event;
+import io.ciera.runtime.summit.statemachine.IEvent;
 import io.ciera.runtime.summit.types.IWhere;
 import io.ciera.runtime.summit.types.IXtumlType;
-import io.ciera.runtime.summit.types.StringUtil;
 import io.ciera.runtime.summit.types.UniqueId;
 
 
 public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
 
-    public static final String KEY_LETTERS = "Bonus";
+    public static final String KEY_LETTERS = "BP";
     public static final Bonus EMPTY_BONUS = new EmptyBonus();
 
     private Hr context;
@@ -34,17 +34,25 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     // constructors
     private BonusImpl( Hr context ) {
         this.context = context;
-        m_Name = "";
-        m_Percent = 0d;
-        R4_Bonus_Payment_set = new Bonus_PaymentSetImpl();
+        m_Starting = 0;
+        m_Ending = 0;
+        m_Amount = 0d;
+        R16_is_specified_by_BonusSpecification_inst = BonusSpecificationImpl.EMPTY_BONUSSPECIFICATION;
+        R19_given_in_the_past_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R4_is_given_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        statemachine = new BonusStateMachine(this, context());
     }
 
-    private BonusImpl( Hr context, UniqueId instanceId, String m_Name, double m_Percent ) {
+    private BonusImpl( Hr context, UniqueId instanceId, int m_Starting, int m_Ending, double m_Amount, int initialState ) {
         super(instanceId);
         this.context = context;
-        this.m_Name = m_Name;
-        this.m_Percent = m_Percent;
-        R4_Bonus_Payment_set = new Bonus_PaymentSetImpl();
+        this.m_Starting = m_Starting;
+        this.m_Ending = m_Ending;
+        this.m_Amount = m_Amount;
+        R16_is_specified_by_BonusSpecification_inst = BonusSpecificationImpl.EMPTY_BONUSSPECIFICATION;
+        R19_given_in_the_past_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R4_is_given_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        statemachine = new BonusStateMachine(this, context(), initialState);
     }
 
     public static Bonus create( Hr context ) throws XtumlException {
@@ -56,126 +64,152 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Bonus create( Hr context, UniqueId instanceId, String m_Name, double m_Percent ) throws XtumlException {
-        Bonus newBonus = new BonusImpl( context, instanceId, m_Name, m_Percent );
+    public static Bonus create( Hr context, UniqueId instanceId, int m_Starting, int m_Ending, double m_Amount, int initialState ) throws XtumlException {
+        Bonus newBonus = new BonusImpl( context, instanceId, m_Starting, m_Ending, m_Amount, initialState );
         if ( context.addInstance( newBonus ) ) {
             return newBonus;
         }
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
+    private final BonusStateMachine statemachine;
+    
+    @Override
+    public void accept(IEvent event) throws XtumlException {
+        statemachine.transition(event);
+    }
+
+    @Override
+    public int getCurrentState() {
+        return statemachine.getCurrentState();
+    }
 
 
     // attributes
-    private String m_Name;
+    private int m_Starting;
     @Override
-    public void setName(String m_Name) throws XtumlException {
+    public int getStarting() throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Name, this.m_Name)) {
-            final String oldValue = this.m_Name;
-            this.m_Name = m_Name;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
-            if ( !R4_Bonus_Payment().isEmpty() ) R4_Bonus_Payment().setName( m_Name );
+        return m_Starting;
+    }
+    @Override
+    public void setStarting(int m_Starting) throws XtumlException {
+        checkLiving();
+        if (m_Starting != this.m_Starting) {
+            final int oldValue = this.m_Starting;
+            this.m_Starting = m_Starting;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
+        }
+    }
+    private int m_Ending;
+    @Override
+    public int getEnding() throws XtumlException {
+        checkLiving();
+        return m_Ending;
+    }
+    @Override
+    public void setEnding(int m_Ending) throws XtumlException {
+        checkLiving();
+        if (m_Ending != this.m_Ending) {
+            final int oldValue = this.m_Ending;
+            this.m_Ending = m_Ending;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
+        }
+    }
+    private double m_Amount;
+    @Override
+    public void setAmount(double m_Amount) throws XtumlException {
+        checkLiving();
+        if (m_Amount != this.m_Amount) {
+            final double oldValue = this.m_Amount;
+            this.m_Amount = m_Amount;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
     }
     @Override
-    public String getName() throws XtumlException {
+    public double getAmount() throws XtumlException {
         checkLiving();
-        return m_Name;
-    }
-    private double m_Percent;
-    @Override
-    public void setPercent(double m_Percent) throws XtumlException {
-        checkLiving();
-        if (m_Percent != this.m_Percent) {
-            final double oldValue = this.m_Percent;
-            this.m_Percent = m_Percent;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Percent", oldValue, this.m_Percent));
-        }
-    }
-    @Override
-    public double getPercent() throws XtumlException {
-        checkLiving();
-        return m_Percent;
+        return m_Amount;
     }
 
 
     // instance identifiers
-    @Override
-    public IInstanceIdentifier getId1() {
-        try {
-            return new InstanceIdentifier(getName());
-        }
-        catch ( XtumlException e ) {
-            getRunContext().getLog().error(e);
-            System.exit(1);
-            return null;
-        }
-    }
 
     // operations
 
 
     // static operations
-    public static class CLASS extends ActionHome<Hr> {
-
-        public CLASS( Hr context ) {
-            super( context );
-        }
-
-        public void crud( final String p_Name,  final double p_Percent,  final String p_Action ) throws XtumlException {
-            Bonus bonus = context().Bonus_instances().anyWhere(selected -> StringUtil.equality(((Bonus)selected).getName(), p_Name));
-            if ( bonus.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                context().LOG().LogInfo( "Attempting to add a new bonus to employee." );
-                Bonus b = BonusImpl.create( context() );
-                b.setName(p_Name);
-                b.setPercent(p_Percent);
-                context().UI().Reply( "bonus created successfully.", true );
-            }
-            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                context().LOG().LogInfo( "Attempting to add a new bonus." );
-                context().LOG().LogInfo( "bonus already exists." );
-                context().UI().Reply( "Bonus already exists", false );
-            }
-            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
-                context().LOG().LogInfo( "Attempting to update bonus." );
-                bonus.setName(p_Name);
-                bonus.setPercent(p_Percent);
-                context().LOG().LogInfo( "bonus updated successfully." );
-                context().UI().Reply( "bonus updated successfully", true );
-            }
-            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
-                context().LOG().LogInfo( "Attempting to delete a bonus instance." );
-                context().LOG().LogInfo( "bonus delete in not implemented yet." );
-                context().UI().Reply( "bonus delete in not implemented yet", false );
-            }
-            else if ( bonus.isEmpty() ) {
-                context().LOG().LogInfo( "bonus does not exist." );
-                context().UI().Reply( "bonus does not exist.", false );
-            }
-        }
-
-
-
-    }
 
 
     // events
+    public static class deactivateBonus extends Event {
+        public deactivateBonus(IRunContext runContext, int populationId) {
+            super(runContext, populationId);
+        }
+        @Override
+        public int getId() {
+            return 2;
+        }
+        @Override
+        public String getClassName() {
+            return "Bonus";
+        }
+    }
+    public static class payBonus extends Event {
+        public payBonus(IRunContext runContext, int populationId) {
+            super(runContext, populationId);
+        }
+        @Override
+        public int getId() {
+            return 1;
+        }
+        @Override
+        public String getClassName() {
+            return "Bonus";
+        }
+    }
+    public static class resumeBonus extends Event {
+        public resumeBonus(IRunContext runContext, int populationId,  final int p_Starting,  final int p_Ending ) {
+            super(runContext, populationId, new Object[]{p_Starting,  p_Ending});
+        }
+        @Override
+        public int getId() {
+            return 0;
+        }
+        @Override
+        public String getClassName() {
+            return "Bonus";
+        }
+    }
 
 
     // selections
-    private Bonus_PaymentSet R4_Bonus_Payment_set;
+    private BonusSpecification R16_is_specified_by_BonusSpecification_inst;
     @Override
-    public void addR4_Bonus_Payment( Bonus_Payment inst ) {
-        R4_Bonus_Payment_set.add(inst);
+    public void setR16_is_specified_by_BonusSpecification( BonusSpecification inst ) {
+        R16_is_specified_by_BonusSpecification_inst = inst;
     }
     @Override
-    public void removeR4_Bonus_Payment( Bonus_Payment inst ) {
-        R4_Bonus_Payment_set.remove(inst);
+    public BonusSpecification R16_is_specified_by_BonusSpecification() throws XtumlException {
+        return R16_is_specified_by_BonusSpecification_inst;
+    }
+    private Employee R19_given_in_the_past_to_an_Employee_inst;
+    @Override
+    public void setR19_given_in_the_past_to_an_Employee( Employee inst ) {
+        R19_given_in_the_past_to_an_Employee_inst = inst;
     }
     @Override
-    public Bonus_PaymentSet R4_Bonus_Payment() throws XtumlException {
-        return R4_Bonus_Payment_set;
+    public Employee R19_given_in_the_past_to_an_Employee() throws XtumlException {
+        return R19_given_in_the_past_to_an_Employee_inst;
+    }
+    private Employee R4_is_given_to_an_Employee_inst;
+    @Override
+    public void setR4_is_given_to_an_Employee( Employee inst ) {
+        R4_is_given_to_an_Employee_inst = inst;
+    }
+    @Override
+    public Employee R4_is_given_to_an_Employee() throws XtumlException {
+        return R4_is_given_to_an_Employee_inst;
     }
 
 
@@ -211,16 +245,22 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
 class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
-    public String getName() throws XtumlException {
+    public int getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setPercent( double m_Percent ) throws XtumlException {
+    public void setStarting( int m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public double getPercent() throws XtumlException {
+    public int getEnding() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setEnding( int m_Ending ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public void setAmount( double m_Amount ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
@@ -230,8 +270,16 @@ class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
 
     // selections
     @Override
-    public Bonus_PaymentSet R4_Bonus_Payment() {
-        return (new Bonus_PaymentSetImpl());
+    public BonusSpecification R16_is_specified_by_BonusSpecification() {
+        return BonusSpecificationImpl.EMPTY_BONUSSPECIFICATION;
+    }
+    @Override
+    public Employee R19_given_in_the_past_to_an_Employee() {
+        return EmployeeImpl.EMPTY_EMPLOYEE;
+    }
+    @Override
+    public Employee R4_is_given_to_an_Employee() {
+        return EmployeeImpl.EMPTY_EMPLOYEE;
     }
 
 

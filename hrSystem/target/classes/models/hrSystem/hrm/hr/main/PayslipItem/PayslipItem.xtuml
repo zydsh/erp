@@ -1,0 +1,113 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
+	'PayslipItem',
+	6,
+	'PayslipItem',
+	'Represents all earnings and deductions made to an employees'' pay. 
+',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("7f175134-1bcc-4efa-a1cc-aa0de302792e",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_BATTR
+	VALUES ("7f175134-1bcc-4efa-a1cc-aa0de302792e",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_ATTR
+	VALUES ("7f175134-1bcc-4efa-a1cc-aa0de302792e",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'Reporting name of a payslip item.',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("83d5c484-8327-406b-ac58-d53b787805f1",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_BATTR
+	VALUES ("83d5c484-8327-406b-ac58-d53b787805f1",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_ATTR
+	VALUES ("83d5c484-8327-406b-ac58-d53b787805f1",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
+	"7f175134-1bcc-4efa-a1cc-aa0de302792e",
+	'Amount',
+	'Represents either the earning added or deduction made to a payment. 
+In Saudi Riyals (SR).',
+	'',
+	'Amount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("90fe269b-65b6-4f1a-9af7-25d6e241b84c",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_BATTR
+	VALUES ("90fe269b-65b6-4f1a-9af7-25d6e241b84c",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_ATTR
+	VALUES ("90fe269b-65b6-4f1a-9af7-25d6e241b84c",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
+	"83d5c484-8327-406b-ac58-d53b787805f1",
+	'Date',
+	'',
+	'',
+	'Date',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("09e26df2-e004-4b05-a7c7-f01f571b3b31",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_BATTR
+	VALUES ("09e26df2-e004-4b05-a7c7-f01f571b3b31",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_ATTR
+	VALUES ("09e26df2-e004-4b05-a7c7-f01f571b3b31",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
+	"90fe269b-65b6-4f1a-9af7-25d6e241b84c",
+	'Type',
+	'A payslip type determines whether the amount is added to the total paid to employee or deducted. ',
+	'',
+	'Type',
+	0,
+	"5fbec3b5-5432-4916-a145-7491c3552f7e",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("5fbec3b5-5432-4916-a145-7491c3552f7e",
+	"00000000-0000-0000-0000-000000000000",
+	'PayslipItemType',
+	'',
+	'',
+	'../../Types/Types.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_ID
+	VALUES (1,
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_ID
+	VALUES (2,
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO PE_PE
+	VALUES ("622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

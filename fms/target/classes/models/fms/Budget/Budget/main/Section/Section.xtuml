@@ -1,0 +1,289 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("15b40926-a264-4d1a-860d-88315cd6eac6",
+	'Section',
+	3,
+	'Section',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'
+
+//select any chapter from instances of Chapter where selected.Year == param.Year; 
+select any section from instances of Section where selected.ID==param.ID; 
+
+if ( empty section ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new section to employee." );
+
+	//create object instance section of budget;
+	create object instance s of Section;
+	s.Name = param.Name;
+	s.Fund = param.Fund;
+	s.Code = param.Code;
+	s.Economic_Category = param.Economic_Category;
+	s.Comments = param.Comments;
+	
+	select any chapter from instances of Chapter where selected.Year == param.Year;
+	relate s to chapter across R2;  
+
+
+	//SQL::serialize();
+	//UI_Fin::Reply( msg:"budget created successfully.", state:True);
+
+elif ( not empty section ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new section." );
+
+	LOG::LogInfo(message:"Section already exists." );	
+	//UI_Fin::Reply( msg:"Section already exists", state:False);
+
+elif ( not empty section ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update section." );
+
+	section.Name = param.Name;
+	section.Fund = param.Fund;
+	section.Code = param.Code;
+	section.Economic_Category = param.Economic_Category;
+	section.Comments = param.Comments;
+	
+	LOG::LogInfo(message:"Section updated successfully." );	
+	//UI_Fin::Reply( msg:"Section updated successfully", state:True);
+
+elif ( not empty section ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a section instance." );
+	LOG::LogInfo(message:"Section delete in not implemented yet." );	
+	//UI_Fin::Reply( msg:"Section delete in not implemented yet", state:False);
+
+ elif (empty section )
+	LOG::LogInfo(message:"Section does not exist." );	
+	//UI_Fin::Reply( msg:"Section does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("45e76952-19e6-4955-85bc-c5ad2cb2781e",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Code',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("c383d221-997f-424d-8739-e30fcc319c90",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"45e76952-19e6-4955-85bc-c5ad2cb2781e",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("734c9219-d46e-4d71-a7be-daa94e56b96c",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Fund',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"c383d221-997f-424d-8739-e30fcc319c90",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("4de52c2e-64f2-4570-bd1f-be9981a4ca9f",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Economic_Category',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"734c9219-d46e-4d71-a7be-daa94e56b96c",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("defe22d9-ecda-43d2-9354-c0d8cea1b75f",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Comments',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"4de52c2e-64f2-4570-bd1f-be9981a4ca9f",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("59f75b61-52de-4e52-bda2-fecd6840c104",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"defe22d9-ecda-43d2-9354-c0d8cea1b75f",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("e3841c09-6fbc-47a7-8762-d9e6f44dd14a",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'Year',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"59f75b61-52de-4e52-bda2-fecd6840c104",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("dc8c53e8-8c1b-4fda-b97f-ee5cabc942d4",
+	"6d7a9fd1-c4a6-4fa5-b94b-8b54ab399a87",
+	'ID',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"e3841c09-6fbc-47a7-8762-d9e6f44dd14a",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("d871ea25-5e35-422d-b3bf-3f9626002b85",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_BATTR
+	VALUES ("d871ea25-5e35-422d-b3bf-3f9626002b85",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_ATTR
+	VALUES ("d871ea25-5e35-422d-b3bf-3f9626002b85",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	"65ff8557-3341-4122-a291-9e62ff99a657",
+	'Fund',
+	'',
+	'',
+	'Fund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("65ff8557-3341-4122-a291-9e62ff99a657",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_BATTR
+	VALUES ("65ff8557-3341-4122-a291-9e62ff99a657",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_ATTR
+	VALUES ("65ff8557-3341-4122-a291-9e62ff99a657",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	"15b274f3-8a48-42b4-950d-0a077813373f",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("15b274f3-8a48-42b4-950d-0a077813373f",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_BATTR
+	VALUES ("15b274f3-8a48-42b4-950d-0a077813373f",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_ATTR
+	VALUES ("15b274f3-8a48-42b4-950d-0a077813373f",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	"c86894b0-e90a-43c6-8539-5b3f6de6bc02",
+	'Code',
+	'',
+	'',
+	'Code',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("d4edd9b1-e958-4169-8729-e28362f2fefc",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_BATTR
+	VALUES ("d4edd9b1-e958-4169-8729-e28362f2fefc",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_ATTR
+	VALUES ("d4edd9b1-e958-4169-8729-e28362f2fefc",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	"d871ea25-5e35-422d-b3bf-3f9626002b85",
+	'Economic_Category',
+	'',
+	'',
+	'Economic_Category',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c912a3eb-08b4-4d8d-a734-bfba77be885b",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_BATTR
+	VALUES ("c912a3eb-08b4-4d8d-a734-bfba77be885b",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_ATTR
+	VALUES ("c912a3eb-08b4-4d8d-a734-bfba77be885b",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	"d4edd9b1-e958-4169-8729-e28362f2fefc",
+	'Comments',
+	'',
+	'',
+	'Comments',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c86894b0-e90a-43c6-8539-5b3f6de6bc02",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_BATTR
+	VALUES ("c86894b0-e90a-43c6-8539-5b3f6de6bc02",
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_ATTR
+	VALUES ("c86894b0-e90a-43c6-8539-5b3f6de6bc02",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	"00000000-0000-0000-0000-000000000000",
+	'ID',
+	'',
+	'',
+	'ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_OIDA
+	VALUES ("65ff8557-3341-4122-a291-9e62ff99a657",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	0,
+	'Name');
+INSERT INTO O_ID
+	VALUES (1,
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO O_OIDA
+	VALUES ("c86894b0-e90a-43c6-8539-5b3f6de6bc02",
+	"15b40926-a264-4d1a-860d-88315cd6eac6",
+	1,
+	'ID');
+INSERT INTO O_ID
+	VALUES (2,
+	"15b40926-a264-4d1a-860d-88315cd6eac6");
+INSERT INTO PE_PE
+	VALUES ("15b40926-a264-4d1a-860d-88315cd6eac6",
+	1,
+	"d4c7497c-8ffa-416e-9d16-03e52f3453a0",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("d4c7497c-8ffa-416e-9d16-03e52f3453a0",
+	"00000000-0000-0000-0000-000000000000",
+	"be22a5ba-1f16-470a-ab40-9f5cb3e127aa",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

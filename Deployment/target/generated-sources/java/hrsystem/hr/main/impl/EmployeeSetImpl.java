@@ -1,16 +1,22 @@
 package hrsystem.hr.main.impl;
 
 
-import hrsystem.hr.main.Bonus_PaymentSet;
+import hrsystem.hr.main.BonusSet;
+import hrsystem.hr.main.DepartmentSet;
 import hrsystem.hr.main.Employee;
 import hrsystem.hr.main.EmployeeSet;
-import hrsystem.hr.main.Employee_JobSet;
-import hrsystem.hr.main.Employee_LeaveSet;
-import hrsystem.hr.main.PaymentSet;
-import hrsystem.hr.main.impl.Bonus_PaymentSetImpl;
-import hrsystem.hr.main.impl.Employee_JobSetImpl;
-import hrsystem.hr.main.impl.Employee_LeaveSetImpl;
-import hrsystem.hr.main.impl.PaymentSetImpl;
+import hrsystem.hr.main.JobRecordSet;
+import hrsystem.hr.main.JobSet;
+import hrsystem.hr.main.LeaveSet;
+import hrsystem.hr.main.PayslipItemSet;
+import hrsystem.hr.main.impl.BonusSetImpl;
+import hrsystem.hr.main.impl.DepartmentSetImpl;
+import hrsystem.hr.main.impl.JobRecordSetImpl;
+import hrsystem.hr.main.impl.JobSetImpl;
+import hrsystem.hr.main.impl.LeaveSetImpl;
+import hrsystem.hr.main.impl.PayslipItemSetImpl;
+import hrsystem.hr.messagecenter.ApproveLeaveSet;
+import hrsystem.hr.messagecenter.impl.ApproveLeaveSetImpl;
 
 import io.ciera.runtime.summit.classes.InstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
@@ -31,47 +37,123 @@ public class EmployeeSetImpl extends InstanceSet<EmployeeSet,Employee> implement
 
     // attributes
     @Override
+    public void setEmployeeID( int m_EmployeeID ) throws XtumlException {
+        for ( Employee employee : this ) employee.setEmployeeID( m_EmployeeID );
+    }
+    @Override
+    public void setMiddleName( String m_MiddleName ) throws XtumlException {
+        for ( Employee employee : this ) employee.setMiddleName( m_MiddleName );
+    }
+    @Override
+    public void setLastName( String m_LastName ) throws XtumlException {
+        for ( Employee employee : this ) employee.setLastName( m_LastName );
+    }
+    @Override
     public void setStart_Date( int m_Start_Date ) throws XtumlException {
         for ( Employee employee : this ) employee.setStart_Date( m_Start_Date );
     }
     @Override
-    public void setFName( String m_FName ) throws XtumlException {
-        for ( Employee employee : this ) employee.setFName( m_FName );
+    public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException {
+        for ( Employee employee : this ) employee.setSickLeaveBalance( m_SickLeaveBalance );
     }
     @Override
-    public void setNational_ID( int m_National_ID ) throws XtumlException {
-        for ( Employee employee : this ) employee.setNational_ID( m_National_ID );
+    public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException {
+        for ( Employee employee : this ) employee.setDateOfBirth( m_DateOfBirth );
     }
     @Override
-    public void setLName( String m_LName ) throws XtumlException {
-        for ( Employee employee : this ) employee.setLName( m_LName );
+    public void setFirstName( String m_FirstName ) throws XtumlException {
+        for ( Employee employee : this ) employee.setFirstName( m_FirstName );
+    }
+    @Override
+    public void setDegree( String m_Degree ) throws XtumlException {
+        for ( Employee employee : this ) employee.setDegree( m_Degree );
+    }
+    @Override
+    public void setGender( String m_Gender ) throws XtumlException {
+        for ( Employee employee : this ) employee.setGender( m_Gender );
+    }
+    @Override
+    public void setNationalID( int m_NationalID ) throws XtumlException {
+        for ( Employee employee : this ) employee.setNationalID( m_NationalID );
+    }
+    @Override
+    public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException {
+        for ( Employee employee : this ) employee.setLeaveBalance( m_LeaveBalance );
     }
 
 
     // selections
     @Override
-    public Employee_JobSet R1_Employee_Job() throws XtumlException {
-        Employee_JobSet employee_jobset = new Employee_JobSetImpl();
-        for ( Employee employee : this ) employee_jobset.addAll( employee.R1_Employee_Job() );
-        return employee_jobset;
+    public ApproveLeaveSet R102_is_notified_by_ApproveLeave() throws XtumlException {
+        ApproveLeaveSet approveleaveset = new ApproveLeaveSetImpl();
+        for ( Employee employee : this ) approveleaveset.addAll( employee.R102_is_notified_by_ApproveLeave() );
+        return approveleaveset;
     }
     @Override
-    public Employee_LeaveSet R2_Employee_Leave() throws XtumlException {
-        Employee_LeaveSet employee_leaveset = new Employee_LeaveSetImpl();
-        for ( Employee employee : this ) employee_leaveset.addAll( employee.R2_Employee_Leave() );
-        return employee_leaveset;
+    public BonusSet R19_was_given_a_Bonus() throws XtumlException {
+        BonusSet bonusset = new BonusSetImpl();
+        for ( Employee employee : this ) bonusset.addAll( employee.R19_was_given_a_Bonus() );
+        return bonusset;
     }
     @Override
-    public PaymentSet R3_Payment() throws XtumlException {
-        PaymentSet paymentset = new PaymentSetImpl();
-        for ( Employee employee : this ) paymentset.addAll( employee.R3_Payment() );
-        return paymentset;
+    public JobRecordSet R1_occupied_JobRecord() throws XtumlException {
+        JobRecordSet jobrecordset = new JobRecordSetImpl();
+        for ( Employee employee : this ) jobrecordset.addAll( employee.R1_occupied_JobRecord() );
+        return jobrecordset;
     }
     @Override
-    public Bonus_PaymentSet R4_Bonus_Payment() throws XtumlException {
-        Bonus_PaymentSet bonus_paymentset = new Bonus_PaymentSetImpl();
-        for ( Employee employee : this ) bonus_paymentset.addAll( employee.R4_Bonus_Payment() );
-        return bonus_paymentset;
+    public JobSet R20_to_be_promoted_to_a_Job() throws XtumlException {
+        JobSet jobset = new JobSetImpl();
+        for ( Employee employee : this ) jobset.add( employee.R20_to_be_promoted_to_a_Job() );
+        return jobset;
+    }
+    @Override
+    public DepartmentSet R21_working_within_Department() throws XtumlException {
+        DepartmentSet departmentset = new DepartmentSetImpl();
+        for ( Employee employee : this ) departmentset.add( employee.R21_working_within_Department() );
+        return departmentset;
+    }
+    @Override
+    public DepartmentSet R23_manages_Department() throws XtumlException {
+        DepartmentSet departmentset = new DepartmentSetImpl();
+        for ( Employee employee : this ) departmentset.addAll( employee.R23_manages_Department() );
+        return departmentset;
+    }
+    @Override
+    public LeaveSet R2_consumed_Leave() throws XtumlException {
+        LeaveSet leaveset = new LeaveSetImpl();
+        for ( Employee employee : this ) leaveset.addAll( employee.R2_consumed_Leave() );
+        return leaveset;
+    }
+    @Override
+    public PayslipItemSet R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem() throws XtumlException {
+        PayslipItemSet payslipitemset = new PayslipItemSetImpl();
+        for ( Employee employee : this ) payslipitemset.addAll( employee.R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem() );
+        return payslipitemset;
+    }
+    @Override
+    public BonusSet R4_gets_a_Bonus() throws XtumlException {
+        BonusSet bonusset = new BonusSetImpl();
+        for ( Employee employee : this ) bonusset.addAll( employee.R4_gets_a_Bonus() );
+        return bonusset;
+    }
+    @Override
+    public LeaveSet R5_is_taking_a_Leave() throws XtumlException {
+        LeaveSet leaveset = new LeaveSetImpl();
+        for ( Employee employee : this ) leaveset.add( employee.R5_is_taking_a_Leave() );
+        return leaveset;
+    }
+    @Override
+    public JobSet R6_currently_occupies_a_Job() throws XtumlException {
+        JobSet jobset = new JobSetImpl();
+        for ( Employee employee : this ) jobset.add( employee.R6_currently_occupies_a_Job() );
+        return jobset;
+    }
+    @Override
+    public LeaveSet R7_is_planning_to_take__Leave() throws XtumlException {
+        LeaveSet leaveset = new LeaveSetImpl();
+        for ( Employee employee : this ) leaveset.add( employee.R7_is_planning_to_take__Leave() );
+        return leaveset;
     }
 
 

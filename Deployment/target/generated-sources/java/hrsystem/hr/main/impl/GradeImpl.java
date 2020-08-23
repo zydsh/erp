@@ -5,12 +5,13 @@ import hrsystem.Hr;
 import hrsystem.hr.main.Grade;
 import hrsystem.hr.main.Job;
 import hrsystem.hr.main.JobSet;
+import hrsystem.hr.main.Scale;
 import hrsystem.hr.main.impl.GradeImpl;
 import hrsystem.hr.main.impl.JobSetImpl;
+import hrsystem.hr.main.impl.ScaleImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
 import io.ciera.runtime.instanceloading.InstanceCreatedDelta;
-import io.ciera.runtime.summit.application.ActionHome;
 import io.ciera.runtime.summit.application.IRunContext;
 import io.ciera.runtime.summit.classes.IInstanceIdentifier;
 import io.ciera.runtime.summit.classes.InstanceIdentifier;
@@ -34,15 +35,27 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
     // constructors
     private GradeImpl( Hr context ) {
         this.context = context;
-        m_GValue = 0;
-        R5_Job_set = new JobSetImpl();
+        m_Name = "";
+        m_Allowance = 0d;
+        m_BaseSalary = 0d;
+        m_NumberOfSteps = 0;
+        R12_is_part_of_Scale_inst = ScaleImpl.EMPTY_SCALE;
+        R14_follows_Grade_inst = GradeImpl.EMPTY_GRADE;
+        R14_proceeds_Grade_inst = GradeImpl.EMPTY_GRADE;
+        R9_assigned_Job_set = new JobSetImpl();
     }
 
-    private GradeImpl( Hr context, UniqueId instanceId, int m_GValue ) {
+    private GradeImpl( Hr context, UniqueId instanceId, String m_Name, double m_Allowance, double m_BaseSalary, int m_NumberOfSteps ) {
         super(instanceId);
         this.context = context;
-        this.m_GValue = m_GValue;
-        R5_Job_set = new JobSetImpl();
+        this.m_Name = m_Name;
+        this.m_Allowance = m_Allowance;
+        this.m_BaseSalary = m_BaseSalary;
+        this.m_NumberOfSteps = m_NumberOfSteps;
+        R12_is_part_of_Scale_inst = ScaleImpl.EMPTY_SCALE;
+        R14_follows_Grade_inst = GradeImpl.EMPTY_GRADE;
+        R14_proceeds_Grade_inst = GradeImpl.EMPTY_GRADE;
+        R9_assigned_Job_set = new JobSetImpl();
     }
 
     public static Grade create( Hr context ) throws XtumlException {
@@ -54,8 +67,8 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Grade create( Hr context, UniqueId instanceId, int m_GValue ) throws XtumlException {
-        Grade newGrade = new GradeImpl( context, instanceId, m_GValue );
+    public static Grade create( Hr context, UniqueId instanceId, String m_Name, double m_Allowance, double m_BaseSalary, int m_NumberOfSteps ) throws XtumlException {
+        Grade newGrade = new GradeImpl( context, instanceId, m_Name, m_Allowance, m_BaseSalary, m_NumberOfSteps );
         if ( context.addInstance( newGrade ) ) {
             return newGrade;
         }
@@ -65,21 +78,65 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
 
 
     // attributes
-    private int m_GValue;
+    private String m_Name;
     @Override
-    public int getGValue() throws XtumlException {
+    public String getName() throws XtumlException {
         checkLiving();
-        return m_GValue;
+        return m_Name;
     }
     @Override
-    public void setGValue(int m_GValue) throws XtumlException {
+    public void setName(String m_Name) throws XtumlException {
         checkLiving();
-        if (m_GValue != this.m_GValue) {
-            final int oldValue = this.m_GValue;
-            this.m_GValue = m_GValue;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_GValue", oldValue, this.m_GValue));
-            if ( !R5_Job().isEmpty() ) R5_Job().setGValue( m_GValue );
+        if (StringUtil.inequality(m_Name, this.m_Name)) {
+            final String oldValue = this.m_Name;
+            this.m_Name = m_Name;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
+    }
+    private double m_Allowance;
+    @Override
+    public void setAllowance(double m_Allowance) throws XtumlException {
+        checkLiving();
+        if (m_Allowance != this.m_Allowance) {
+            final double oldValue = this.m_Allowance;
+            this.m_Allowance = m_Allowance;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Allowance", oldValue, this.m_Allowance));
+        }
+    }
+    @Override
+    public double getAllowance() throws XtumlException {
+        checkLiving();
+        return m_Allowance;
+    }
+    private double m_BaseSalary;
+    @Override
+    public double getBaseSalary() throws XtumlException {
+        checkLiving();
+        return m_BaseSalary;
+    }
+    @Override
+    public void setBaseSalary(double m_BaseSalary) throws XtumlException {
+        checkLiving();
+        if (m_BaseSalary != this.m_BaseSalary) {
+            final double oldValue = this.m_BaseSalary;
+            this.m_BaseSalary = m_BaseSalary;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_BaseSalary", oldValue, this.m_BaseSalary));
+        }
+    }
+    private int m_NumberOfSteps;
+    @Override
+    public void setNumberOfSteps(int m_NumberOfSteps) throws XtumlException {
+        checkLiving();
+        if (m_NumberOfSteps != this.m_NumberOfSteps) {
+            final int oldValue = this.m_NumberOfSteps;
+            this.m_NumberOfSteps = m_NumberOfSteps;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_NumberOfSteps", oldValue, this.m_NumberOfSteps));
+        }
+    }
+    @Override
+    public int getNumberOfSteps() throws XtumlException {
+        checkLiving();
+        return m_NumberOfSteps;
     }
 
 
@@ -87,7 +144,7 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
     @Override
     public IInstanceIdentifier getId1() {
         try {
-            return new InstanceIdentifier(getGValue());
+            return new InstanceIdentifier(getName());
         }
         catch ( XtumlException e ) {
             getRunContext().getLog().error(e);
@@ -100,59 +157,51 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
 
 
     // static operations
-    public static class CLASS extends ActionHome<Hr> {
-
-        public CLASS( Hr context ) {
-            super( context );
-        }
-
-        public void crud( final int p_Value,  final String p_Action ) throws XtumlException {
-            context().LOG().LogInfo( "Attempting to add a new Grade." );
-            Grade inst = context().Grade_instances().anyWhere(selected -> ((Grade)selected).getGValue() == p_Value);
-            if ( inst.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                Grade g = GradeImpl.create( context() );
-                g.setGValue(p_Value);
-                context().UI().Reply( "Grade: added successfully.", true );
-            }
-            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                context().LOG().LogInfo( "Grade already exists." );
-                context().UI().Reply( "Grade already exists", false );
-            }
-            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
-                context().LOG().LogInfo( "Grade updated successfully." );
-                context().UI().Reply( "Grade updated successfully", true );
-            }
-            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
-                context().LOG().LogInfo( "Grade deleted successfully." );
-                context().UI().Reply( "Grade delete unsuccessful", false );
-            }
-            else if ( inst.isEmpty() ) {
-                context().LOG().LogInfo( "Grade does not exist." );
-                context().UI().Reply( "Grade does not exist.", false );
-            }
-        }
-
-
-
-    }
 
 
     // events
 
 
     // selections
-    private JobSet R5_Job_set;
+    private Scale R12_is_part_of_Scale_inst;
     @Override
-    public void addR5_Job( Job inst ) {
-        R5_Job_set.add(inst);
+    public void setR12_is_part_of_Scale( Scale inst ) {
+        R12_is_part_of_Scale_inst = inst;
     }
     @Override
-    public void removeR5_Job( Job inst ) {
-        R5_Job_set.remove(inst);
+    public Scale R12_is_part_of_Scale() throws XtumlException {
+        return R12_is_part_of_Scale_inst;
+    }
+    private Grade R14_follows_Grade_inst;
+    @Override
+    public void setR14_follows_Grade( Grade inst ) {
+        R14_follows_Grade_inst = inst;
     }
     @Override
-    public JobSet R5_Job() throws XtumlException {
-        return R5_Job_set;
+    public Grade R14_follows_Grade() throws XtumlException {
+        return R14_follows_Grade_inst;
+    }
+    private Grade R14_proceeds_Grade_inst;
+    @Override
+    public void setR14_proceeds_Grade( Grade inst ) {
+        R14_proceeds_Grade_inst = inst;
+    }
+    @Override
+    public Grade R14_proceeds_Grade() throws XtumlException {
+        return R14_proceeds_Grade_inst;
+    }
+    private JobSet R9_assigned_Job_set;
+    @Override
+    public void addR9_assigned_Job( Job inst ) {
+        R9_assigned_Job_set.add(inst);
+    }
+    @Override
+    public void removeR9_assigned_Job( Job inst ) {
+        R9_assigned_Job_set.remove(inst);
+    }
+    @Override
+    public JobSet R9_assigned_Job() throws XtumlException {
+        return R9_assigned_Job_set;
     }
 
 
@@ -188,11 +237,29 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
 class EmptyGrade extends ModelInstance<Grade,Hr> implements Grade {
 
     // attributes
-    public int getGValue() throws XtumlException {
+    public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setGValue( int m_GValue ) throws XtumlException {
+    public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public void setAllowance( double m_Allowance ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getAllowance() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public double getBaseSalary() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setBaseSalary( double m_BaseSalary ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public void setNumberOfSteps( int m_NumberOfSteps ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getNumberOfSteps() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 
@@ -201,7 +268,19 @@ class EmptyGrade extends ModelInstance<Grade,Hr> implements Grade {
 
     // selections
     @Override
-    public JobSet R5_Job() {
+    public Scale R12_is_part_of_Scale() {
+        return ScaleImpl.EMPTY_SCALE;
+    }
+    @Override
+    public Grade R14_follows_Grade() {
+        return GradeImpl.EMPTY_GRADE;
+    }
+    @Override
+    public Grade R14_proceeds_Grade() {
+        return GradeImpl.EMPTY_GRADE;
+    }
+    @Override
+    public JobSet R9_assigned_Job() {
         return (new JobSetImpl());
     }
 

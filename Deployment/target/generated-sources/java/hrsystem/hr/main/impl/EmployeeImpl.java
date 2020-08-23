@@ -2,21 +2,30 @@ package hrsystem.hr.main.impl;
 
 
 import hrsystem.Hr;
-import hrsystem.hr.main.Bonus_Payment;
-import hrsystem.hr.main.Bonus_PaymentSet;
+import hrsystem.hr.main.Bonus;
+import hrsystem.hr.main.BonusSet;
+import hrsystem.hr.main.Department;
+import hrsystem.hr.main.DepartmentSet;
 import hrsystem.hr.main.Employee;
-import hrsystem.hr.main.Employee_Job;
-import hrsystem.hr.main.Employee_JobSet;
-import hrsystem.hr.main.Employee_Leave;
-import hrsystem.hr.main.Employee_LeaveSet;
 import hrsystem.hr.main.Job;
-import hrsystem.hr.main.Payment;
-import hrsystem.hr.main.PaymentSet;
-import hrsystem.hr.main.impl.Bonus_PaymentSetImpl;
+import hrsystem.hr.main.JobRecord;
+import hrsystem.hr.main.JobRecordSet;
+import hrsystem.hr.main.Leave;
+import hrsystem.hr.main.LeaveSet;
+import hrsystem.hr.main.PayslipItem;
+import hrsystem.hr.main.PayslipItemSet;
+import hrsystem.hr.main.impl.BonusSetImpl;
+import hrsystem.hr.main.impl.DepartmentImpl;
+import hrsystem.hr.main.impl.DepartmentSetImpl;
 import hrsystem.hr.main.impl.EmployeeImpl;
-import hrsystem.hr.main.impl.Employee_JobSetImpl;
-import hrsystem.hr.main.impl.Employee_LeaveSetImpl;
-import hrsystem.hr.main.impl.PaymentSetImpl;
+import hrsystem.hr.main.impl.JobImpl;
+import hrsystem.hr.main.impl.JobRecordSetImpl;
+import hrsystem.hr.main.impl.LeaveImpl;
+import hrsystem.hr.main.impl.LeaveSetImpl;
+import hrsystem.hr.main.impl.PayslipItemSetImpl;
+import hrsystem.hr.messagecenter.ApproveLeave;
+import hrsystem.hr.messagecenter.ApproveLeaveSet;
+import hrsystem.hr.messagecenter.impl.ApproveLeaveSetImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
 import io.ciera.runtime.instanceloading.InstanceCreatedDelta;
@@ -38,7 +47,7 @@ import io.ciera.runtime.summit.types.UniqueId;
 
 public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee {
 
-    public static final String KEY_LETTERS = "EM";
+    public static final String KEY_LETTERS = "Employee";
     public static final Employee EMPTY_EMPLOYEE = new EmptyEmployee();
 
     private Hr context;
@@ -46,28 +55,58 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     // constructors
     private EmployeeImpl( Hr context ) {
         this.context = context;
-        m_National_ID = 0;
-        m_FName = "";
-        m_LName = "";
+        m_EmployeeID = 0;
+        m_NationalID = 0;
+        m_FirstName = "";
+        m_MiddleName = "";
+        m_LastName = "";
+        m_DateOfBirth = 0;
+        m_Degree = "";
+        m_Gender = "";
         m_Start_Date = 0;
-        R1_Employee_Job_set = new Employee_JobSetImpl();
-        R2_Employee_Leave_set = new Employee_LeaveSetImpl();
-        R3_Payment_set = new PaymentSetImpl();
-        R4_Bonus_Payment_set = new Bonus_PaymentSetImpl();
+        m_LeaveBalance = 0;
+        m_SickLeaveBalance = 0;
+        R102_is_notified_by_ApproveLeave_set = new ApproveLeaveSetImpl();
+        R19_was_given_a_Bonus_set = new BonusSetImpl();
+        R1_occupied_JobRecord_set = new JobRecordSetImpl();
+        R20_to_be_promoted_to_a_Job_inst = JobImpl.EMPTY_JOB;
+        R21_working_within_Department_inst = DepartmentImpl.EMPTY_DEPARTMENT;
+        R23_manages_Department_set = new DepartmentSetImpl();
+        R2_consumed_Leave_set = new LeaveSetImpl();
+        R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem_set = new PayslipItemSetImpl();
+        R4_gets_a_Bonus_set = new BonusSetImpl();
+        R5_is_taking_a_Leave_inst = LeaveImpl.EMPTY_LEAVE;
+        R6_currently_occupies_a_Job_inst = JobImpl.EMPTY_JOB;
+        R7_is_planning_to_take__Leave_inst = LeaveImpl.EMPTY_LEAVE;
         statemachine = new EmployeeStateMachine(this, context());
     }
 
-    private EmployeeImpl( Hr context, UniqueId instanceId, int m_National_ID, String m_FName, String m_LName, int m_Start_Date, int initialState ) {
+    private EmployeeImpl( Hr context, UniqueId instanceId, int m_EmployeeID, int m_NationalID, String m_FirstName, String m_MiddleName, String m_LastName, int m_DateOfBirth, String m_Degree, String m_Gender, int m_Start_Date, int m_LeaveBalance, int m_SickLeaveBalance, int initialState ) {
         super(instanceId);
         this.context = context;
-        this.m_National_ID = m_National_ID;
-        this.m_FName = m_FName;
-        this.m_LName = m_LName;
+        this.m_EmployeeID = m_EmployeeID;
+        this.m_NationalID = m_NationalID;
+        this.m_FirstName = m_FirstName;
+        this.m_MiddleName = m_MiddleName;
+        this.m_LastName = m_LastName;
+        this.m_DateOfBirth = m_DateOfBirth;
+        this.m_Degree = m_Degree;
+        this.m_Gender = m_Gender;
         this.m_Start_Date = m_Start_Date;
-        R1_Employee_Job_set = new Employee_JobSetImpl();
-        R2_Employee_Leave_set = new Employee_LeaveSetImpl();
-        R3_Payment_set = new PaymentSetImpl();
-        R4_Bonus_Payment_set = new Bonus_PaymentSetImpl();
+        this.m_LeaveBalance = m_LeaveBalance;
+        this.m_SickLeaveBalance = m_SickLeaveBalance;
+        R102_is_notified_by_ApproveLeave_set = new ApproveLeaveSetImpl();
+        R19_was_given_a_Bonus_set = new BonusSetImpl();
+        R1_occupied_JobRecord_set = new JobRecordSetImpl();
+        R20_to_be_promoted_to_a_Job_inst = JobImpl.EMPTY_JOB;
+        R21_working_within_Department_inst = DepartmentImpl.EMPTY_DEPARTMENT;
+        R23_manages_Department_set = new DepartmentSetImpl();
+        R2_consumed_Leave_set = new LeaveSetImpl();
+        R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem_set = new PayslipItemSetImpl();
+        R4_gets_a_Bonus_set = new BonusSetImpl();
+        R5_is_taking_a_Leave_inst = LeaveImpl.EMPTY_LEAVE;
+        R6_currently_occupies_a_Job_inst = JobImpl.EMPTY_JOB;
+        R7_is_planning_to_take__Leave_inst = LeaveImpl.EMPTY_LEAVE;
         statemachine = new EmployeeStateMachine(this, context(), initialState);
     }
 
@@ -80,8 +119,8 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Employee create( Hr context, UniqueId instanceId, int m_National_ID, String m_FName, String m_LName, int m_Start_Date, int initialState ) throws XtumlException {
-        Employee newEmployee = new EmployeeImpl( context, instanceId, m_National_ID, m_FName, m_LName, m_Start_Date, initialState );
+    public static Employee create( Hr context, UniqueId instanceId, int m_EmployeeID, int m_NationalID, String m_FirstName, String m_MiddleName, String m_LastName, int m_DateOfBirth, String m_Degree, String m_Gender, int m_Start_Date, int m_LeaveBalance, int m_SickLeaveBalance, int initialState ) throws XtumlException {
+        Employee newEmployee = new EmployeeImpl( context, instanceId, m_EmployeeID, m_NationalID, m_FirstName, m_MiddleName, m_LastName, m_DateOfBirth, m_Degree, m_Gender, m_Start_Date, m_LeaveBalance, m_SickLeaveBalance, initialState );
         if ( context.addInstance( newEmployee ) ) {
             return newEmployee;
         }
@@ -102,61 +141,127 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
 
 
     // attributes
-    private int m_National_ID;
+    private int m_EmployeeID;
     @Override
-    public int getNational_ID() throws XtumlException {
+    public void setEmployeeID(int m_EmployeeID) throws XtumlException {
         checkLiving();
-        return m_National_ID;
-    }
-    @Override
-    public void setNational_ID(int m_National_ID) throws XtumlException {
-        checkLiving();
-        if (m_National_ID != this.m_National_ID) {
-            final int oldValue = this.m_National_ID;
-            this.m_National_ID = m_National_ID;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_National_ID", oldValue, this.m_National_ID));
-            if ( !R3_Payment().isEmpty() ) R3_Payment().setNational_ID( m_National_ID );
-            if ( !R4_Bonus_Payment().isEmpty() ) R4_Bonus_Payment().setNational_ID( m_National_ID );
-            if ( !R2_Employee_Leave().isEmpty() ) R2_Employee_Leave().setNational_ID( m_National_ID );
-            if ( !R1_Employee_Job().isEmpty() ) R1_Employee_Job().setNational_ID( m_National_ID );
+        if (m_EmployeeID != this.m_EmployeeID) {
+            final int oldValue = this.m_EmployeeID;
+            this.m_EmployeeID = m_EmployeeID;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_EmployeeID", oldValue, this.m_EmployeeID));
         }
     }
-    private String m_FName;
     @Override
-    public String getFName() throws XtumlException {
+    public int getEmployeeID() throws XtumlException {
         checkLiving();
-        return m_FName;
+        return m_EmployeeID;
+    }
+    private int m_NationalID;
+    @Override
+    public int getNationalID() throws XtumlException {
+        checkLiving();
+        return m_NationalID;
     }
     @Override
-    public void setFName(String m_FName) throws XtumlException {
+    public void setNationalID(int m_NationalID) throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_FName, this.m_FName)) {
-            final String oldValue = this.m_FName;
-            this.m_FName = m_FName;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_FName", oldValue, this.m_FName));
+        if (m_NationalID != this.m_NationalID) {
+            final int oldValue = this.m_NationalID;
+            this.m_NationalID = m_NationalID;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_NationalID", oldValue, this.m_NationalID));
         }
     }
-    private String m_LName;
+    private String m_FirstName;
     @Override
-    public String getLName() throws XtumlException {
+    public void setFirstName(String m_FirstName) throws XtumlException {
         checkLiving();
-        return m_LName;
+        if (StringUtil.inequality(m_FirstName, this.m_FirstName)) {
+            final String oldValue = this.m_FirstName;
+            this.m_FirstName = m_FirstName;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_FirstName", oldValue, this.m_FirstName));
+        }
     }
     @Override
-    public void setLName(String m_LName) throws XtumlException {
+    public String getFirstName() throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_LName, this.m_LName)) {
-            final String oldValue = this.m_LName;
-            this.m_LName = m_LName;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LName", oldValue, this.m_LName));
+        return m_FirstName;
+    }
+    private String m_MiddleName;
+    @Override
+    public void setMiddleName(String m_MiddleName) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_MiddleName, this.m_MiddleName)) {
+            final String oldValue = this.m_MiddleName;
+            this.m_MiddleName = m_MiddleName;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_MiddleName", oldValue, this.m_MiddleName));
+        }
+    }
+    @Override
+    public String getMiddleName() throws XtumlException {
+        checkLiving();
+        return m_MiddleName;
+    }
+    private String m_LastName;
+    @Override
+    public void setLastName(String m_LastName) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_LastName, this.m_LastName)) {
+            final String oldValue = this.m_LastName;
+            this.m_LastName = m_LastName;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LastName", oldValue, this.m_LastName));
+        }
+    }
+    @Override
+    public String getLastName() throws XtumlException {
+        checkLiving();
+        return m_LastName;
+    }
+    private int m_DateOfBirth;
+    @Override
+    public int getDateOfBirth() throws XtumlException {
+        checkLiving();
+        return m_DateOfBirth;
+    }
+    @Override
+    public void setDateOfBirth(int m_DateOfBirth) throws XtumlException {
+        checkLiving();
+        if (m_DateOfBirth != this.m_DateOfBirth) {
+            final int oldValue = this.m_DateOfBirth;
+            this.m_DateOfBirth = m_DateOfBirth;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_DateOfBirth", oldValue, this.m_DateOfBirth));
+        }
+    }
+    private String m_Degree;
+    @Override
+    public String getDegree() throws XtumlException {
+        checkLiving();
+        return m_Degree;
+    }
+    @Override
+    public void setDegree(String m_Degree) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_Degree, this.m_Degree)) {
+            final String oldValue = this.m_Degree;
+            this.m_Degree = m_Degree;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Degree", oldValue, this.m_Degree));
+        }
+    }
+    private String m_Gender;
+    @Override
+    public String getGender() throws XtumlException {
+        checkLiving();
+        return m_Gender;
+    }
+    @Override
+    public void setGender(String m_Gender) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_Gender, this.m_Gender)) {
+            final String oldValue = this.m_Gender;
+            this.m_Gender = m_Gender;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Gender", oldValue, this.m_Gender));
         }
     }
     private int m_Start_Date;
-    @Override
-    public int getStart_Date() throws XtumlException {
-        checkLiving();
-        return m_Start_Date;
-    }
     @Override
     public void setStart_Date(int m_Start_Date) throws XtumlException {
         checkLiving();
@@ -166,13 +271,59 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Start_Date", oldValue, this.m_Start_Date));
         }
     }
+    @Override
+    public int getStart_Date() throws XtumlException {
+        checkLiving();
+        return m_Start_Date;
+    }
+    private int m_LeaveBalance;
+    @Override
+    public int getLeaveBalance() throws XtumlException {
+        checkLiving();
+        return m_LeaveBalance;
+    }
+    @Override
+    public void setLeaveBalance(int m_LeaveBalance) throws XtumlException {
+        checkLiving();
+        if (m_LeaveBalance != this.m_LeaveBalance) {
+            final int oldValue = this.m_LeaveBalance;
+            this.m_LeaveBalance = m_LeaveBalance;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LeaveBalance", oldValue, this.m_LeaveBalance));
+        }
+    }
+    private int m_SickLeaveBalance;
+    @Override
+    public void setSickLeaveBalance(int m_SickLeaveBalance) throws XtumlException {
+        checkLiving();
+        if (m_SickLeaveBalance != this.m_SickLeaveBalance) {
+            final int oldValue = this.m_SickLeaveBalance;
+            this.m_SickLeaveBalance = m_SickLeaveBalance;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_SickLeaveBalance", oldValue, this.m_SickLeaveBalance));
+        }
+    }
+    @Override
+    public int getSickLeaveBalance() throws XtumlException {
+        checkLiving();
+        return m_SickLeaveBalance;
+    }
 
 
     // instance identifiers
     @Override
     public IInstanceIdentifier getId1() {
         try {
-            return new InstanceIdentifier(getNational_ID());
+            return new InstanceIdentifier(getNationalID());
+        }
+        catch ( XtumlException e ) {
+            getRunContext().getLog().error(e);
+            System.exit(1);
+            return null;
+        }
+    }
+    @Override
+    public IInstanceIdentifier getId2() {
+        try {
+            return new InstanceIdentifier(getEmployeeID());
         }
         catch ( XtumlException e ) {
             getRunContext().getLog().error(e);
@@ -183,10 +334,17 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
 
     // operations
     @Override
+    public void commenceEmployee( final int p_National_ID ) throws XtumlException {
+        context().LOG().LogInfo( "An employee attempts to commence." );
+        context().generate(new EmployeeImpl.commenced(getRunContext(), context().getId()).toSelf(self()));
+        self().setStart_Date(context().TIM().current_seconds());
+        context().UI().Reply( "Employee has commenced ", true );
+    }
+
+    @Override
     public double getSalary() throws XtumlException {
-        Employee_Job ej = self().R1_Employee_Job().anyWhere(selected -> ((Employee_Job)selected).getActive() == true);
-        Job job = ((Job)ej.R1_Job().oneWhere(selected -> ((Job)selected).getJob_ID() == ej.getJob_ID()));
-        return job.getAmount();
+        Job job = self().R6_currently_occupies_a_Job();
+        return job.getSalary();
     }
 
 
@@ -198,52 +356,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             super( context );
         }
 
-        public void commenceEmployee( final int p_National_ID ) throws XtumlException {
-            context().LOG().LogInfo( "An employee attempts to commence." );
-            Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
-            if ( !employee.isEmpty() ) {
-                context().generate(new EmployeeImpl.commenced(getRunContext(), context().getId()).to(employee));
-                employee.setStart_Date(context().TIM().current_seconds());
-                context().UI().Reply( "Employee has commenced ", true );
-            }
-            else {
-                context().LOG().LogInfo( "Employee is not registered!" );
-                context().UI().Reply( "Employee is not found.", false );
-            }
-        }
-
         public void createPayment( final int p_National_ID,  final String p_Name,  final double p_Amount,  final int p_Date ) throws XtumlException {
-        }
-
-        public void crud( final String p_FName,  final String p_LName,  final int p_National_ID,  final String p_Action ) throws XtumlException {
-            context().LOG().LogInfo( "Attempting to add a new Employee." );
-            Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
-            if ( employee.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                employee = EmployeeImpl.create( context() );
-                employee.setFName(p_FName);
-                employee.setLName(p_LName);
-                employee.setNational_ID(p_National_ID);
-                context().UI().Reply( "Employee added successfully.", true );
-            }
-            else if ( !employee.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
-                context().LOG().LogInfo( "Employee already exists." );
-                context().UI().Reply( "Employee already exists", false );
-            }
-            else if ( !employee.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
-                employee.setFName(p_FName);
-                employee.setLName(p_LName);
-                employee.setNational_ID(p_National_ID);
-                context().LOG().LogInfo( "Employee updated successfully." );
-                context().UI().Reply( "Employee updated successfully", true );
-            }
-            else if ( !employee.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
-                context().LOG().LogInfo( "Employee delete in not implemented yet." );
-                context().UI().Reply( "Employee delete is not implemented yet.", false );
-            }
-            else if ( employee.isEmpty() ) {
-                context().LOG().LogInfo( "Employee does not exist." );
-                context().UI().Reply( "Employee does not exist.", false );
-            }
         }
 
 
@@ -252,13 +365,39 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
 
 
     // events
+    public static class LeaveEnded extends Event {
+        public LeaveEnded(IRunContext runContext, int populationId) {
+            super(runContext, populationId);
+        }
+        @Override
+        public int getId() {
+            return 3;
+        }
+        @Override
+        public String getClassName() {
+            return "Employee";
+        }
+    }
+    public static class LeaveStarted extends Event {
+        public LeaveStarted(IRunContext runContext, int populationId) {
+            super(runContext, populationId);
+        }
+        @Override
+        public int getId() {
+            return 2;
+        }
+        @Override
+        public String getClassName() {
+            return "Employee";
+        }
+    }
     public static class commenced extends Event {
         public commenced(IRunContext runContext, int populationId) {
             super(runContext, populationId);
         }
         @Override
         public int getId() {
-            return 2;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -271,7 +410,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 1;
+            return 4;
         }
         @Override
         public String getClassName() {
@@ -284,7 +423,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 3;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -297,7 +436,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 0;
+            return 5;
         }
         @Override
         public String getClassName() {
@@ -307,57 +446,141 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
 
 
     // selections
-    private Employee_JobSet R1_Employee_Job_set;
+    private ApproveLeaveSet R102_is_notified_by_ApproveLeave_set;
     @Override
-    public void addR1_Employee_Job( Employee_Job inst ) {
-        R1_Employee_Job_set.add(inst);
+    public void addR102_is_notified_by_ApproveLeave( ApproveLeave inst ) {
+        R102_is_notified_by_ApproveLeave_set.add(inst);
     }
     @Override
-    public void removeR1_Employee_Job( Employee_Job inst ) {
-        R1_Employee_Job_set.remove(inst);
+    public void removeR102_is_notified_by_ApproveLeave( ApproveLeave inst ) {
+        R102_is_notified_by_ApproveLeave_set.remove(inst);
     }
     @Override
-    public Employee_JobSet R1_Employee_Job() throws XtumlException {
-        return R1_Employee_Job_set;
+    public ApproveLeaveSet R102_is_notified_by_ApproveLeave() throws XtumlException {
+        return R102_is_notified_by_ApproveLeave_set;
     }
-    private Employee_LeaveSet R2_Employee_Leave_set;
+    private BonusSet R19_was_given_a_Bonus_set;
     @Override
-    public void addR2_Employee_Leave( Employee_Leave inst ) {
-        R2_Employee_Leave_set.add(inst);
-    }
-    @Override
-    public void removeR2_Employee_Leave( Employee_Leave inst ) {
-        R2_Employee_Leave_set.remove(inst);
+    public void addR19_was_given_a_Bonus( Bonus inst ) {
+        R19_was_given_a_Bonus_set.add(inst);
     }
     @Override
-    public Employee_LeaveSet R2_Employee_Leave() throws XtumlException {
-        return R2_Employee_Leave_set;
-    }
-    private PaymentSet R3_Payment_set;
-    @Override
-    public void addR3_Payment( Payment inst ) {
-        R3_Payment_set.add(inst);
+    public void removeR19_was_given_a_Bonus( Bonus inst ) {
+        R19_was_given_a_Bonus_set.remove(inst);
     }
     @Override
-    public void removeR3_Payment( Payment inst ) {
-        R3_Payment_set.remove(inst);
+    public BonusSet R19_was_given_a_Bonus() throws XtumlException {
+        return R19_was_given_a_Bonus_set;
+    }
+    private JobRecordSet R1_occupied_JobRecord_set;
+    @Override
+    public void addR1_occupied_JobRecord( JobRecord inst ) {
+        R1_occupied_JobRecord_set.add(inst);
     }
     @Override
-    public PaymentSet R3_Payment() throws XtumlException {
-        return R3_Payment_set;
-    }
-    private Bonus_PaymentSet R4_Bonus_Payment_set;
-    @Override
-    public void addR4_Bonus_Payment( Bonus_Payment inst ) {
-        R4_Bonus_Payment_set.add(inst);
+    public void removeR1_occupied_JobRecord( JobRecord inst ) {
+        R1_occupied_JobRecord_set.remove(inst);
     }
     @Override
-    public void removeR4_Bonus_Payment( Bonus_Payment inst ) {
-        R4_Bonus_Payment_set.remove(inst);
+    public JobRecordSet R1_occupied_JobRecord() throws XtumlException {
+        return R1_occupied_JobRecord_set;
+    }
+    private Job R20_to_be_promoted_to_a_Job_inst;
+    @Override
+    public void setR20_to_be_promoted_to_a_Job( Job inst ) {
+        R20_to_be_promoted_to_a_Job_inst = inst;
     }
     @Override
-    public Bonus_PaymentSet R4_Bonus_Payment() throws XtumlException {
-        return R4_Bonus_Payment_set;
+    public Job R20_to_be_promoted_to_a_Job() throws XtumlException {
+        return R20_to_be_promoted_to_a_Job_inst;
+    }
+    private Department R21_working_within_Department_inst;
+    @Override
+    public void setR21_working_within_Department( Department inst ) {
+        R21_working_within_Department_inst = inst;
+    }
+    @Override
+    public Department R21_working_within_Department() throws XtumlException {
+        return R21_working_within_Department_inst;
+    }
+    private DepartmentSet R23_manages_Department_set;
+    @Override
+    public void addR23_manages_Department( Department inst ) {
+        R23_manages_Department_set.add(inst);
+    }
+    @Override
+    public void removeR23_manages_Department( Department inst ) {
+        R23_manages_Department_set.remove(inst);
+    }
+    @Override
+    public DepartmentSet R23_manages_Department() throws XtumlException {
+        return R23_manages_Department_set;
+    }
+    private LeaveSet R2_consumed_Leave_set;
+    @Override
+    public void addR2_consumed_Leave( Leave inst ) {
+        R2_consumed_Leave_set.add(inst);
+    }
+    @Override
+    public void removeR2_consumed_Leave( Leave inst ) {
+        R2_consumed_Leave_set.remove(inst);
+    }
+    @Override
+    public LeaveSet R2_consumed_Leave() throws XtumlException {
+        return R2_consumed_Leave_set;
+    }
+    private PayslipItemSet R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem_set;
+    @Override
+    public void addR3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem( PayslipItem inst ) {
+        R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem_set.add(inst);
+    }
+    @Override
+    public void removeR3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem( PayslipItem inst ) {
+        R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem_set.remove(inst);
+    }
+    @Override
+    public PayslipItemSet R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem() throws XtumlException {
+        return R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem_set;
+    }
+    private BonusSet R4_gets_a_Bonus_set;
+    @Override
+    public void addR4_gets_a_Bonus( Bonus inst ) {
+        R4_gets_a_Bonus_set.add(inst);
+    }
+    @Override
+    public void removeR4_gets_a_Bonus( Bonus inst ) {
+        R4_gets_a_Bonus_set.remove(inst);
+    }
+    @Override
+    public BonusSet R4_gets_a_Bonus() throws XtumlException {
+        return R4_gets_a_Bonus_set;
+    }
+    private Leave R5_is_taking_a_Leave_inst;
+    @Override
+    public void setR5_is_taking_a_Leave( Leave inst ) {
+        R5_is_taking_a_Leave_inst = inst;
+    }
+    @Override
+    public Leave R5_is_taking_a_Leave() throws XtumlException {
+        return R5_is_taking_a_Leave_inst;
+    }
+    private Job R6_currently_occupies_a_Job_inst;
+    @Override
+    public void setR6_currently_occupies_a_Job( Job inst ) {
+        R6_currently_occupies_a_Job_inst = inst;
+    }
+    @Override
+    public Job R6_currently_occupies_a_Job() throws XtumlException {
+        return R6_currently_occupies_a_Job_inst;
+    }
+    private Leave R7_is_planning_to_take__Leave_inst;
+    @Override
+    public void setR7_is_planning_to_take__Leave( Leave inst ) {
+        R7_is_planning_to_take__Leave_inst = inst;
+    }
+    @Override
+    public Leave R7_is_planning_to_take__Leave() throws XtumlException {
+        return R7_is_planning_to_take__Leave_inst;
     }
 
 
@@ -393,33 +616,78 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
 class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
 
     // attributes
-    public int getNational_ID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
-    public void setNational_ID( int m_National_ID ) throws XtumlException {
+    public void setEmployeeID( int m_EmployeeID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getFName() throws XtumlException {
+    public int getEmployeeID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setFName( String m_FName ) throws XtumlException {
+    public int getNationalID() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setNationalID( int m_NationalID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getLName() throws XtumlException {
+    public void setFirstName( String m_FirstName ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getFirstName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setLName( String m_LName ) throws XtumlException {
+    public void setMiddleName( String m_MiddleName ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getMiddleName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setLastName( String m_LastName ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getLastName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public int getDateOfBirth() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getDegree() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setDegree( String m_Degree ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getGender() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setGender( String m_Gender ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public void setStart_Date( int m_Start_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getStart_Date() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setStart_Date( int m_Start_Date ) throws XtumlException {
+    public int getLeaveBalance() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getSickLeaveBalance() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 
     // operations
+    public void commenceEmployee( final int p_National_ID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot invoke operation on empty instance." );
+    }
     public double getSalary() throws XtumlException {
         throw new EmptyInstanceException( "Cannot invoke operation on empty instance." );
     }
@@ -427,20 +695,52 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
 
     // selections
     @Override
-    public Employee_JobSet R1_Employee_Job() {
-        return (new Employee_JobSetImpl());
+    public ApproveLeaveSet R102_is_notified_by_ApproveLeave() {
+        return (new ApproveLeaveSetImpl());
     }
     @Override
-    public Employee_LeaveSet R2_Employee_Leave() {
-        return (new Employee_LeaveSetImpl());
+    public BonusSet R19_was_given_a_Bonus() {
+        return (new BonusSetImpl());
     }
     @Override
-    public PaymentSet R3_Payment() {
-        return (new PaymentSetImpl());
+    public JobRecordSet R1_occupied_JobRecord() {
+        return (new JobRecordSetImpl());
     }
     @Override
-    public Bonus_PaymentSet R4_Bonus_Payment() {
-        return (new Bonus_PaymentSetImpl());
+    public Job R20_to_be_promoted_to_a_Job() {
+        return JobImpl.EMPTY_JOB;
+    }
+    @Override
+    public Department R21_working_within_Department() {
+        return DepartmentImpl.EMPTY_DEPARTMENT;
+    }
+    @Override
+    public DepartmentSet R23_manages_Department() {
+        return (new DepartmentSetImpl());
+    }
+    @Override
+    public LeaveSet R2_consumed_Leave() {
+        return (new LeaveSetImpl());
+    }
+    @Override
+    public PayslipItemSet R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem() {
+        return (new PayslipItemSetImpl());
+    }
+    @Override
+    public BonusSet R4_gets_a_Bonus() {
+        return (new BonusSetImpl());
+    }
+    @Override
+    public Leave R5_is_taking_a_Leave() {
+        return LeaveImpl.EMPTY_LEAVE;
+    }
+    @Override
+    public Job R6_currently_occupies_a_Job() {
+        return JobImpl.EMPTY_JOB;
+    }
+    @Override
+    public Leave R7_is_planning_to_take__Leave() {
+        return LeaveImpl.EMPTY_LEAVE;
     }
 
 
