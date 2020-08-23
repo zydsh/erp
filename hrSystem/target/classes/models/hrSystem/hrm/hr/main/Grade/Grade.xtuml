@@ -5,81 +5,107 @@ INSERT INTO O_OBJ
 	'Grade',
 	3,
 	'Grade',
-	'',
+	'Grade is the building block of a pay schedule. 
+A pay schedule is formed by grades, and grades 
+are made of series of steps. 
+The role step in a pay schedule is define the 
+number of allowances to be added to the base-salary 
+every year.
+
+The maximum number of steps represents the limit 
+by which allowances stop. Typically, an employee 
+remains in a job for a period of 4-6 years, 
+until promoted to a higher grade. 
+ 
+Grade is also linked to other grades. 
+In a pay schedule, unless a grade is the highest
+or the lowest, a grade is both proceeded by exactly 
+one grade and proceeded by exactly one grade. ',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_TFR
-	VALUES ("dbb0c869-0460-4f49-ba8a-2874977db9a4",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
-	'crud',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'LOG::LogInfo(message:"Attempting to add a new Grade." );
-select any inst from instances of Grade where selected.GValue==param.Value;
-if ( empty inst ) and (param.Action=="NEW")
-	//create object instance of Grade;
-	create object instance g of Grade;
-	g.GValue = param.Value;
-	UI::Reply( msg:"Grade: added successfully.", state:True);
-
-elif ( not empty inst ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Grade already exists." );	
-	UI::Reply( msg:"Grade already exists", state:False);
-
-elif ( not empty inst ) and (param.Action=="UPDATE")
-	
-	LOG::LogInfo(message:"Grade updated successfully." );	
-	UI::Reply( msg:"Grade updated successfully", state:True);
-elif ( not empty inst ) and (param.Action=="DELETE")
-
-	LOG::LogInfo(message:"Grade deleted successfully." );	
-	UI::Reply( msg:"Grade delete unsuccessful", state:False);
-
- elif (empty inst )
-	LOG::LogInfo(message:"Grade does not exist." );	
-	UI::Reply( msg:"Grade does not exist.", state:False);
- end if;
-
-	
-		
-				
-',
-	1,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	0);
-INSERT INTO O_TPARM
-	VALUES ("ac90f412-eed5-4fd8-8f54-f02fb9280efc",
-	"dbb0c869-0460-4f49-ba8a-2874977db9a4",
-	'Value',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("adae11bb-e748-48b3-8d7f-1e3c33c48c6f",
-	"dbb0c869-0460-4f49-ba8a-2874977db9a4",
-	'Action',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"ac90f412-eed5-4fd8-8f54-f02fb9280efc",
-	'');
 INSERT INTO O_NBATTR
-	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
+	VALUES ("63c5e5ce-16de-438b-811c-22bf9be4e467",
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
 INSERT INTO O_BATTR
-	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
+	VALUES ("63c5e5ce-16de-438b-811c-22bf9be4e467",
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
 INSERT INTO O_ATTR
-	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
+	VALUES ("63c5e5ce-16de-438b-811c-22bf9be4e467",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
+	"bdc11314-5cd0-42c8-aecc-1607339a311f",
+	'Allowance',
+	'The amount paid every year to an employee to be added to 
+the base salary. Every grade its own fixed allowance amount.
+',
+	'',
+	'Allowance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("bdc11314-5cd0-42c8-aecc-1607339a311f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_BATTR
+	VALUES ("bdc11314-5cd0-42c8-aecc-1607339a311f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_ATTR
+	VALUES ("bdc11314-5cd0-42c8-aecc-1607339a311f",
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"00000000-0000-0000-0000-000000000000",
-	'GValue',
+	'Name',
+	'Uniquely identifies a grade. 
+In the General Schedule, grades are listed in numbers from 1--15.
+Other pay scales specify names using strings, 
+such as the Academic Scale: Lecturer, Assistant Professor, etc.',
 	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
-	'GValue',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("5cd9ce0a-e3d9-4c74-8066-3bfcf066e40f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_BATTR
+	VALUES ("5cd9ce0a-e3d9-4c74-8066-3bfcf066e40f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_ATTR
+	VALUES ("5cd9ce0a-e3d9-4c74-8066-3bfcf066e40f",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
+	"63c5e5ce-16de-438b-811c-22bf9be4e467",
+	'BaseSalary',
+	'The first salary amount of a grade. 
+Corresponds to the first step of a grade.   ',
+	'',
+	'BaseSalary',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("64e80c1b-961d-4342-9344-73765b1dcdb0",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_BATTR
+	VALUES ("64e80c1b-961d-4342-9344-73765b1dcdb0",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
+INSERT INTO O_ATTR
+	VALUES ("64e80c1b-961d-4342-9344-73765b1dcdb0",
+	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
+	"5cd9ce0a-e3d9-4c74-8066-3bfcf066e40f",
+	'NumberOfSteps',
+	'A grade has a fixed number of steps (e.g. the General Schedule has 15 grades and 15 steps).
+All pay scales are designed to have steps starting from one.
+But from grades 11-15, the number of steps decrease by one. 
+
+Grade 01 has 15 steps
+Grade 02 has 15 steps
+.....................
+.....................
+Grade 11 has 14 steps
+Grade 12 has 13 steps
+Grade 13 has 12 steps .. and so on.',
+	'',
+	'NumberOfSteps',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -88,10 +114,10 @@ INSERT INTO O_ID
 	VALUES (0,
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");
 INSERT INTO O_OIDA
-	VALUES ("3fd8376b-981f-402e-ac8a-d52f53e13b5f",
+	VALUES ("bdc11314-5cd0-42c8-aecc-1607339a311f",
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	0,
-	'GValue');
+	'Name');
 INSERT INTO O_ID
 	VALUES (1,
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");

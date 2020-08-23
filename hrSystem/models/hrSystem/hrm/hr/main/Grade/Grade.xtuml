@@ -22,65 +22,6 @@ In a pay schedule, unless a grade is the highest
 or the lowest, a grade is both proceeded by exactly 
 one grade and proceeded by exactly one grade. ',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_TFR
-	VALUES ("dbb0c869-0460-4f49-ba8a-2874977db9a4",
-	"cf68762b-f5bb-47be-a0da-54b9ddde60f3",
-	'crud',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'LOG::LogInfo(message:"Attempting to add a new Grade." );
-select any inst from instances of Grade where selected.GValue==param.Value;
-if ( empty inst ) and (param.Action=="NEW")
-	//create object instance of Grade;
-	create object instance g of Grade;
-	g.GValue = param.Value;
-	UI::Reply( msg:"Grade: added successfully.", state:True);
-
-elif ( not empty inst ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Grade already exists." );	
-	UI::Reply( msg:"Grade already exists", state:False);
-
-elif ( not empty inst ) and (param.Action=="UPDATE")
-	
-	LOG::LogInfo(message:"Grade updated successfully." );	
-	UI::Reply( msg:"Grade updated successfully", state:True);
-elif ( not empty inst ) and (param.Action=="DELETE")
-
-	LOG::LogInfo(message:"Grade deleted successfully." );	
-	UI::Reply( msg:"Grade delete unsuccessful", state:False);
-
- elif (empty inst )
-	LOG::LogInfo(message:"Grade does not exist." );	
-	UI::Reply( msg:"Grade does not exist.", state:False);
- end if;
-
-	
-		
-				
-',
-	1,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	0);
-INSERT INTO O_TPARM
-	VALUES ("ac90f412-eed5-4fd8-8f54-f02fb9280efc",
-	"dbb0c869-0460-4f49-ba8a-2874977db9a4",
-	'Value',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("adae11bb-e748-48b3-8d7f-1e3c33c48c6f",
-	"dbb0c869-0460-4f49-ba8a-2874977db9a4",
-	'Action',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"ac90f412-eed5-4fd8-8f54-f02fb9280efc",
-	'');
 INSERT INTO O_NBATTR
 	VALUES ("63c5e5ce-16de-438b-811c-22bf9be4e467",
 	"cf68762b-f5bb-47be-a0da-54b9ddde60f3");

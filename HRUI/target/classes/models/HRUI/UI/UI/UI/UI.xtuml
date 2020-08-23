@@ -38,9 +38,9 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'Reply',
 	'',
-	'',
+	'::Reply( msg:param.msg, state:param.state );',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_SPARM
@@ -63,6 +63,58 @@ INSERT INTO S_SPARM
 	'');
 INSERT INTO PE_PE
 	VALUES ("5b464bc9-3d28-4dfd-8f45-f5c6d7290e6c",
+	1,
+	"20543efe-1176-476d-b1d2-f7083b47970b",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("17782639-a798-4950-9f2f-1fb3903d0058",
+	"00000000-0000-0000-0000-000000000000",
+	'SendLeaveSpecification',
+	'',
+	'::SendLeaveSpecification( Name:param.Name, MaximumDays:param.MaximumDays, MinimumDays:param.MinimumDays, Size:param.Size );',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("430cc29f-8907-4d69-843d-79aa08729a7d",
+	"17782639-a798-4950-9f2f-1fb3903d0058",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("e4856f76-29a3-4808-bd7c-baf5f4268a4d",
+	"17782639-a798-4950-9f2f-1fb3903d0058",
+	'MaximumDays',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"430cc29f-8907-4d69-843d-79aa08729a7d",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("5ea74c3a-c4d2-446b-9452-b30a3636c3da",
+	"17782639-a798-4950-9f2f-1fb3903d0058",
+	'MinimumDays',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"e4856f76-29a3-4808-bd7c-baf5f4268a4d",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("89d4b2b3-6aa8-4c1f-be14-e1d6929e263c",
+	"17782639-a798-4950-9f2f-1fb3903d0058",
+	'Size',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"5ea74c3a-c4d2-446b-9452-b30a3636c3da",
+	'');
+INSERT INTO PE_PE
+	VALUES ("17782639-a798-4950-9f2f-1fb3903d0058",
 	1,
 	"20543efe-1176-476d-b1d2-f7083b47970b",
 	"00000000-0000-0000-0000-000000000000",

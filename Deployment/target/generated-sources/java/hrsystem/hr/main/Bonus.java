@@ -2,8 +2,8 @@ package hrsystem.hr.main;
 
 
 import hrsystem.Hr;
-import hrsystem.hr.main.Bonus_Payment;
-import hrsystem.hr.main.Bonus_PaymentSet;
+import hrsystem.hr.main.BonusSpecification;
+import hrsystem.hr.main.Employee;
 
 import io.ciera.runtime.summit.classes.IModelInstance;
 import io.ciera.runtime.summit.exceptions.XtumlException;
@@ -12,19 +12,24 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Bonus extends IModelInstance<Bonus,Hr> {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException;
-    public String getName() throws XtumlException;
-    public void setPercent( double m_Percent ) throws XtumlException;
-    public double getPercent() throws XtumlException;
+    public int getStarting() throws XtumlException;
+    public void setStarting( int m_Starting ) throws XtumlException;
+    public int getEnding() throws XtumlException;
+    public void setEnding( int m_Ending ) throws XtumlException;
+    public void setAmount( double m_Amount ) throws XtumlException;
+    public double getAmount() throws XtumlException;
 
 
     // operations
 
 
     // selections
-    default public void addR4_Bonus_Payment( Bonus_Payment inst ) {}
-    default public void removeR4_Bonus_Payment( Bonus_Payment inst ) {}
-    public Bonus_PaymentSet R4_Bonus_Payment() throws XtumlException;
+    default public void setR16_is_specified_by_BonusSpecification( BonusSpecification inst ) {}
+    public BonusSpecification R16_is_specified_by_BonusSpecification() throws XtumlException;
+    default public void setR19_given_in_the_past_to_an_Employee( Employee inst ) {}
+    public Employee R19_given_in_the_past_to_an_Employee() throws XtumlException;
+    default public void setR4_is_given_to_an_Employee( Employee inst ) {}
+    public Employee R4_is_given_to_an_Employee() throws XtumlException;
 
 
 }

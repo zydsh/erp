@@ -42,19 +42,19 @@ public class DeploymentApplication implements IApplication {
                 executors[i] = new ApplicationExecutor( "DeploymentApplicationExecutor" + i, args );
             }
         }
-        components[0] = new UI(this, executors[0], 0);
         components[1] = new Hr(this, executors[0], 1);
+        components[0] = new UI(this, executors[0], 0);
         ((UI)components[0]).App().satisfy(((Hr)components[1]).UI());
         ((Hr)components[1]).UI().satisfy(((UI)components[0]).App());
         ((UI)components[0]).AppOps().satisfy(((Hr)components[1]).UI_Ops());
         ((Hr)components[1]).UI_Ops().satisfy(((UI)components[0]).AppOps());
     }
 
-    public UI UI() {
-        return (UI)components[0];
-    }
     public Hr Hr() {
         return (Hr)components[1];
+    }
+    public UI UI() {
+        return (UI)components[0];
     }
 
     @Override

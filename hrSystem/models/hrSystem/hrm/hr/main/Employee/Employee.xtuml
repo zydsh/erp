@@ -19,19 +19,12 @@ INSERT INTO O_TFR
 	'commenceEmployee',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
+	1,
 	'LOG::LogInfo(message:"An employee attempts to commence." );
 
-select any employee from instances of EM where selected.National_ID==param.National_ID;
-if ( not empty employee )
-	generate EM2:commenced() to employee;
-	employee.Start_Date = TIM::current_seconds();
+	generate Employee2:commenced() to self;
+	self.Start_Date = TIM::current_seconds();
 	UI::Reply( msg:"Employee has commenced ", state:True);
-
-else 
-	LOG::LogInfo(message:"Employee is not registered!" );
-	UI::Reply( msg:"Employee is not found.", state:False);
-end if;
 ',
 	1,
 	'',
@@ -47,89 +40,6 @@ INSERT INTO O_TPARM
 	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO O_TFR
-	VALUES ("c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	'crud',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'LOG::LogInfo(message:"Attempting to add a new Employee." );
-select any employee from instances of EM where selected.National_ID==param.National_ID;
-if ( empty employee ) and (param.Action=="NEW")
-	//create object instance employee of Employee;
-	create object instance employee of EM;
-	employee.FName = param.FName;
-	employee.LName = param.LName;
-	employee.National_ID = param.National_ID;
-	//SQL::serialize();
-	UI::Reply( msg:"Employee added successfully.", state:True);
-	
-	//create an account for the new employee
-	//HAuth::Account( First_Name:employee.FName, Last_Name: employee.LName, National_ID:employee.National_ID); 
-
-
-elif ( not empty employee ) and (param.Action=="NEW")
-	LOG::LogInfo(message:"Employee already exists." );	
-	UI::Reply( msg:"Employee already exists", state:False);
-
-elif ( not empty employee ) and (param.Action=="UPDATE")
-	employee.FName = param.FName;
-	employee.LName = param.LName;
-	employee.National_ID = param.National_ID;
-	
-	LOG::LogInfo(message:"Employee updated successfully." );	
-	UI::Reply( msg:"Employee updated successfully", state:True);
-elif ( not empty employee ) and (param.Action=="DELETE")
-
-	LOG::LogInfo(message:"Employee delete in not implemented yet." );	
-	UI::Reply( msg:"Employee delete is not implemented yet.", state:False);
-
- elif (empty employee )
-	LOG::LogInfo(message:"Employee does not exist." );	
-	UI::Reply( msg:"Employee does not exist.", state:False);
- end if;
-',
-	1,
-	'',
-	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
-	0);
-INSERT INTO O_TPARM
-	VALUES ("6d5e8130-08e6-45b9-a6a4-d8e15ca46d44",
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	'FName',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("121bce11-684e-4fd4-8e16-c47dc205df16",
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	'LName',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"6d5e8130-08e6-45b9-a6a4-d8e15ca46d44",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("2da13be3-0dd6-474a-a211-c70f041aa829",
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	'National_ID',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"121bce11-684e-4fd4-8e16-c47dc205df16",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("cf25bb85-0f5d-473a-8918-9c974510f586",
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
-	'Action',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"2da13be3-0dd6-474a-a211-c70f041aa829",
-	'');
-INSERT INTO O_TFR
 	VALUES ("a09a32cd-a57c-4c57-a3e5-43debb8df180",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'createPayment',
@@ -139,7 +49,7 @@ INSERT INTO O_TFR
 	'',
 	1,
 	'',
-	"c5eda235-78fe-4ea0-85c1-6b44d9105c57",
+	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
 	0);
 INSERT INTO O_TPARM
 	VALUES ("c8d7855a-0b36-49ff-bd1e-fc6e0ab8df1a",
@@ -350,16 +260,9 @@ INSERT INTO O_ATTR
 	'',
 	'Gender',
 	0,
-	"61bb1764-10be-4079-9a5c-540fe35aa552",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("61bb1764-10be-4079-9a5c-540fe35aa552",
-	"00000000-0000-0000-0000-000000000000",
-	'Gender',
-	'',
-	'',
-	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("636249ad-06ca-483a-8a21-51c25dd2153c",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");

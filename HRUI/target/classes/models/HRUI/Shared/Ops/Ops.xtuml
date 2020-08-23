@@ -9,12 +9,12 @@ INSERT INTO C_EP
 	VALUES ("b39132b4-2259-4b62-a9f3-6437a0d18916",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Leave_Request',
-	'');
+	'RequestEmployeeLeave',
+	'An employee requests to have a leave of absence of a specific type. ');
 INSERT INTO C_AS
 	VALUES ("b39132b4-2259-4b62-a9f3-6437a0d18916",
-	'Leave_Request',
-	'',
+	'RequestEmployeeLeave',
+	'An employee requests to have a leave of absence of a specific type. ',
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO C_PP
@@ -39,7 +39,7 @@ INSERT INTO C_PP
 	VALUES ("46db087f-0afc-408b-a96e-948fd255db7b",
 	"b39132b4-2259-4b62-a9f3-6437a0d18916",
 	"ba5eda7a-def5-0000-0000-000000000002",
-	'National_ID',
+	'EmployeeID',
 	'',
 	0,
 	'',
@@ -48,8 +48,8 @@ INSERT INTO C_PP
 	VALUES ("c8ca1817-1eec-411c-952d-d2759d427b1f",
 	"b39132b4-2259-4b62-a9f3-6437a0d18916",
 	"ba5eda7a-def5-0000-0000-000000000004",
-	'Name',
-	'',
+	'LeaveName',
+	'The name of the leave type to be selected by the employee',
 	0,
 	'',
 	"46db087f-0afc-408b-a96e-948fd255db7b");
@@ -57,11 +57,11 @@ INSERT INTO C_EP
 	VALUES ("70a38333-8004-469c-92f7-2882ec9995e4",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Leave_Return',
+	'ReturnFromLeave',
 	'');
 INSERT INTO C_AS
 	VALUES ("70a38333-8004-469c-92f7-2882ec9995e4",
-	'Leave_Return',
+	'ReturnFromLeave',
 	'',
 	0,
 	"b39132b4-2259-4b62-a9f3-6437a0d18916");
@@ -78,11 +78,11 @@ INSERT INTO C_EP
 	VALUES ("7a8b2a52-93db-4e92-962c-904439127495",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Employee_Job',
+	'AssignJobToEmployee',
 	'');
 INSERT INTO C_AS
 	VALUES ("7a8b2a52-93db-4e92-962c-904439127495",
-	'Employee_Job',
+	'AssignJobToEmployee',
 	'',
 	0,
 	"70a38333-8004-469c-92f7-2882ec9995e4");
@@ -126,11 +126,11 @@ INSERT INTO C_EP
 	VALUES ("91ad9e90-38b4-4680-8c47-49049aaf3fbe",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Employee_Bonus',
+	'AssignBonusToEmployee',
 	'');
 INSERT INTO C_AS
 	VALUES ("91ad9e90-38b4-4680-8c47-49049aaf3fbe",
-	'Employee_Bonus',
+	'AssignBonusToEmployee',
 	'',
 	0,
 	"7a8b2a52-93db-4e92-962c-904439127495");
@@ -183,11 +183,11 @@ INSERT INTO C_EP
 	VALUES ("71d23c22-d473-42f5-b0c0-b02ad3c5e158",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Employee_Commence',
+	'CommenceEmployee',
 	'');
 INSERT INTO C_AS
 	VALUES ("71d23c22-d473-42f5-b0c0-b02ad3c5e158",
-	'Employee_Commence',
+	'CommenceEmployee',
 	'',
 	0,
 	"91ad9e90-38b4-4680-8c47-49049aaf3fbe");
@@ -204,11 +204,11 @@ INSERT INTO C_EP
 	VALUES ("efa24004-2976-4948-bdf6-f0bf405f08fe",
 	"5c6691f2-7090-42e2-a731-ec2157c73db8",
 	-1,
-	'Request_Employee_Payment',
+	'GenerateEmployeePayslip',
 	'');
 INSERT INTO C_AS
 	VALUES ("efa24004-2976-4948-bdf6-f0bf405f08fe",
-	'Request_Employee_Payment',
+	'GenerateEmployeePayslip',
 	'',
 	0,
 	"71d23c22-d473-42f5-b0c0-b02ad3c5e158");
@@ -260,6 +260,48 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00f443c2-b344-47fd-acff-2ebe4dd528d3");
+INSERT INTO C_EP
+	VALUES ("d94c13b0-32b8-4236-942e-57f41ea108fa",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'ApproveEmployeeLeave',
+	'');
+INSERT INTO C_AS
+	VALUES ("d94c13b0-32b8-4236-942e-57f41ea108fa",
+	'ApproveEmployeeLeave',
+	'',
+	0,
+	"17ffcb19-fa91-46b2-b867-ee86de86db68");
+INSERT INTO C_PP
+	VALUES ("7b25327d-dfcd-49ea-b5ce-6dfa0810c542",
+	"d94c13b0-32b8-4236-942e-57f41ea108fa",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("68395ea3-c159-43f2-8c29-b680f2eebfef",
+	"5c6691f2-7090-42e2-a731-ec2157c73db8",
+	-1,
+	'RejectEmployeeLeave',
+	'');
+INSERT INTO C_AS
+	VALUES ("68395ea3-c159-43f2-8c29-b680f2eebfef",
+	'RejectEmployeeLeave',
+	'',
+	0,
+	"d94c13b0-32b8-4236-942e-57f41ea108fa");
+INSERT INTO C_PP
+	VALUES ("3f8a55ee-c3a8-44e3-912e-1b11dfd5e93e",
+	"68395ea3-c159-43f2-8c29-b680f2eebfef",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("5c6691f2-7090-42e2-a731-ec2157c73db8",
 	1,
