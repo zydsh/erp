@@ -376,7 +376,7 @@ if ( empty account)
 	acc.Username = ::getUserName( F:param.First_Name, L:param.Last_Name);
 	acc.Password = ::getPassword( EmployeeID:param.EmployeeID, FirstLastName:param.First_Name+param.Last_Name, CurrentSeconds:TIM::current_seconds());
 end if;
-//Account::crud(First_Name:param.First_Name, Last_Name:param.Last_Name, National_ID:param.National_ID);',
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -431,7 +431,7 @@ INSERT INTO SPR_PS
 	'GetUsernamePassword',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ca320e19-af40-49f9-84b0-40e46d3cc6f0",

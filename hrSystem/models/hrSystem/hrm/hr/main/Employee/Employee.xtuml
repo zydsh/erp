@@ -292,9 +292,9 @@ INSERT INTO O_ATTR
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"ee9005d5-0ba7-4588-8a56-645553eff095",
 	'LeaveBalance',
-	'Employees earn a 36 leave days every year.
-The leave continues to accumulate to a maximum of three years.  
-Maximum = 108 days. ',
+	'Holds the the amount of leave days earned by employees every year.
+The amount is deducted by the amount of leave days taken.
+',
 	'',
 	'LeaveBalance',
 	0,

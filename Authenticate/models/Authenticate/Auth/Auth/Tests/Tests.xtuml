@@ -54,6 +54,25 @@ INSERT INTO PE_PE
 	"5a831729-369c-4a7c-92a3-4f7aab463c54",
 	"00000000-0000-0000-0000-000000000000",
 	1);
+INSERT INTO S_SYNC
+	VALUES ("c932aab2-81f8-4b92-a977-56a7a0ac56ac",
+	"00000000-0000-0000-0000-000000000000",
+	'testGetUsername',
+	'',
+	'
+username=::getUserName( F:"Ziyad", L:"Alshaikh" );
+LOG::LogInfo(message:"Generated username: "+ username);	
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("c932aab2-81f8-4b92-a977-56a7a0ac56ac",
+	1,
+	"5a831729-369c-4a7c-92a3-4f7aab463c54",
+	"00000000-0000-0000-0000-000000000000",
+	1);
 INSERT INTO PE_PE
 	VALUES ("5a831729-369c-4a7c-92a3-4f7aab463c54",
 	1,
