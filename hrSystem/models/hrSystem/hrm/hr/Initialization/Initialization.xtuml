@@ -1,0 +1,98 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'Initialization',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("0e21b614-cf45-4d71-8943-4aeb52d49d80",
+	112,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'hrSystem::hrm::hr::Initialization');
+INSERT INTO DIM_DIA
+	VALUES ("0e21b614-cf45-4d71-8943-4aeb52d49d80",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("df655a1b-999e-45e5-a0f1-ff0113fc9b9e",
+	"00000000-0000-0000-0000-000000000000",
+	'Initialize',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	3,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("df655a1b-999e-45e5-a0f1-ff0113fc9b9e",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("74d8d8bd-03f8-4313-b204-7ed7b4abb546",
+	"00000000-0000-0000-0000-000000000000",
+	'CreatePEIs',
+	'',
+	'create object instance emp of Employee;
+		emp.EmployeeID = 1421080;
+		emp.NationalID = 1041445693;
+		emp.FirstName = "Saad";
+		emp.MiddleName = "Khalid";
+		emp.LastName = "Alkhalid";
+		emp.DateOfBirth = 19781012;
+		emp.Degree = "PhD";
+		emp.Gender = "Male";
+	',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("74d8d8bd-03f8-4313-b204-7ed7b4abb546",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("1d95e14a-3187-4f1b-a720-f30782ec2088",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"d878f6d3-d406-4972-80d4-d43f75abcac8",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("d878f6d3-d406-4972-80d4-d43f75abcac8",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'hr',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../hr.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'hrSystem',
+	1,
+	'../../../hrSystem.xtuml');
