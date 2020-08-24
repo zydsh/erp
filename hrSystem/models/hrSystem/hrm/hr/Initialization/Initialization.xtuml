@@ -54,7 +54,17 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'CreatePEIs',
 	'',
-	'create object instance emp of Employee;
+	'//create jobs
+create object instance job of Job;
+	job.Job_ID = 1;
+	job.Title = "Front-End Junior Software Engineer ";
+	job.Description = "Developing front end solution";
+	job.PensionDeduction = 0.09;
+	
+
+// create employees
+
+create object instance emp of Employee;
 		emp.EmployeeID = 1421080;
 		emp.NationalID = 1041445693;
 		emp.FirstName = "Saad";
@@ -63,7 +73,66 @@ INSERT INTO S_SYNC
 		emp.DateOfBirth = 19781012;
 		emp.Degree = "PhD";
 		emp.Gender = "Male";
-	',
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1411080;
+		emp.NationalID = 1021045693;
+		emp.FirstName = "Fahad";
+		emp.MiddleName = "Saud";
+		emp.LastName = "Alsalem";
+		emp.DateOfBirth = 19661012;
+		emp.Degree = "Bcs.";
+		emp.Gender = "Male";
+
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1401080;
+		emp.NationalID = 1011045222;
+		emp.FirstName = "Saleh";
+		emp.MiddleName = "Ahmed";
+		emp.LastName = "AlSaleh";
+		emp.DateOfBirth = 19601012;
+		emp.Degree = "Bcs.";
+		emp.Gender = "Male";
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1441888;
+		emp.NationalID = 1010045222;
+		emp.FirstName = "Fahad";
+		emp.MiddleName = "Khalid";
+		emp.LastName = "Alamar";
+		emp.DateOfBirth = 19621012;
+		emp.Degree = "Mcs.";
+		emp.Gender = "Male";
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1430834;
+		emp.NationalID = 1010045453;
+		emp.FirstName = "Norah";
+		emp.MiddleName = "Saud";
+		emp.LastName = "Alotaibi";
+		emp.DateOfBirth = 19901012;
+		emp.Degree = "Mcs.";
+		emp.Gender = "Female";
+
+//create leave 
+
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Regular Leave";
+		leaveSpecification.MaximumDays = 105;
+		leaveSpecification.MinimumDays = 5;
+
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Sick Leave";
+		leaveSpecification.MaximumDays = 5;
+		leaveSpecification.MinimumDays = 1;
+
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Exceptional Leave";
+		leaveSpecification.MaximumDays = 365;
+		leaveSpecification.MinimumDays = 180;
+
+',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',

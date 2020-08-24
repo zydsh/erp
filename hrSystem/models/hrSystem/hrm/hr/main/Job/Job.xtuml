@@ -79,46 +79,6 @@ For example: Junior Software Engineer. ',
 	'',
 	'');
 INSERT INTO O_NBATTR
-	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_BATTR
-	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_ATTR
-	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	"9069a680-874d-4ab3-a1f7-ac1a344ee59b",
-	'Description',
-	'',
-	'',
-	'Description',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_BATTR
-	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
-	"735ac3f1-a8fe-46c2-b440-67e649269472");
-INSERT INTO O_ATTR
-	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
-	"735ac3f1-a8fe-46c2-b440-67e649269472",
-	"b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
-	'PensionDeduction',
-	' A pension percentage is deducted monthly. 
- At this stage we will deduct the amounts
- until we get further details on how these 
- amounts are handled. 
-',
-	'',
-	'PensionDeduction',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'',
-	'');
-INSERT INTO O_NBATTR
 	VALUES ("b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
 	"735ac3f1-a8fe-46c2-b440-67e649269472");
 INSERT INTO O_BATTR
@@ -175,6 +135,46 @@ INSERT INTO O_ATTR
 	'AppointmentDate',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("af947c66-aa53-4e84-9f61-9b46f992ed7a",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_BATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472");
+INSERT INTO O_ATTR
+	VALUES ("9069a680-874d-4ab3-a1f7-ac1a344ee59b",
+	"735ac3f1-a8fe-46c2-b440-67e649269472",
+	"b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
+	'PensionDeduction',
+	' A pension percentage is deducted monthly. 
+ At this stage we will deduct the amounts
+ until we get further details on how these 
+ amounts are handled. 
+',
+	'',
+	'PensionDeduction',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_ID
