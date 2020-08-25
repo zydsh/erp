@@ -3175,7 +3175,7 @@ INSERT INTO R_PART
 	"bd0d8bd9-6b23-47ba-bb90-4f1697acaa9f",
 	0,
 	1,
-	'proceeds');
+	'succeed');
 INSERT INTO R_RTO
 	VALUES ("cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"ea949ccd-1eca-4ff6-b1fc-1451f704d211",
