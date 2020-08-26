@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Permissions extends IModelInstance<Permissions,Auth> {
 
     // attributes
-    public String getPermission() throws XtumlException;
     public void setPermission( String m_Permission ) throws XtumlException;
+    public String getPermission() throws XtumlException;
 
 
     // operations

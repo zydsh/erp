@@ -99,6 +99,11 @@ public class LeaveSpecificationImpl extends ModelInstance<LeaveSpecification,Hr>
     }
     private int m_MinimumDays;
     @Override
+    public int getMinimumDays() throws XtumlException {
+        checkLiving();
+        return m_MinimumDays;
+    }
+    @Override
     public void setMinimumDays(int m_MinimumDays) throws XtumlException {
         checkLiving();
         if (m_MinimumDays != this.m_MinimumDays) {
@@ -106,11 +111,6 @@ public class LeaveSpecificationImpl extends ModelInstance<LeaveSpecification,Hr>
             this.m_MinimumDays = m_MinimumDays;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_MinimumDays", oldValue, this.m_MinimumDays));
         }
-    }
-    @Override
-    public int getMinimumDays() throws XtumlException {
-        checkLiving();
-        return m_MinimumDays;
     }
 
 
@@ -196,11 +196,11 @@ class EmptyLeaveSpecification extends ModelInstance<LeaveSpecification,Hr> imple
     public int getMaximumDays() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setMinimumDays( int m_MinimumDays ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getMinimumDays() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setMinimumDays( int m_MinimumDays ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

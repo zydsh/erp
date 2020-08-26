@@ -28,6 +28,10 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
     }
 
+    public void Initialize() throws XtumlException {
+        context().Initialize();
+    }
+
     public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
         Account account = context().Account_instances().anyWhere(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID);
         if ( account.isEmpty() ) {
@@ -59,10 +63,6 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         }
     }
 
-    public void Initialize() throws XtumlException {
-        context().Initialize();
-    }
-
 
 
     // outbound messages
@@ -80,6 +80,9 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
             case IAuthentication.SIGNAL_NO_GETUSERNAMEPASSWORD:
                 GetUsernamePassword(IntegerUtil.deserialize(message.get(0)));
                 break;
+            case IAuthentication.SIGNAL_NO_INITIALIZE:
+                Initialize();
+                break;
             case IAuthentication.SIGNAL_NO_ADDTOGROUP:
                 AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
@@ -88,9 +91,6 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
                 break;
             case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
                 CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
-                break;
-            case IAuthentication.SIGNAL_NO_INITIALIZE:
-                Initialize();
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

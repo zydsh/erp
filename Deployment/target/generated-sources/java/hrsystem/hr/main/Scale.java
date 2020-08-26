@@ -12,10 +12,10 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Scale extends IModelInstance<Scale,Hr> {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
-    public String getDescription() throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
     public void setDescription( String m_Description ) throws XtumlException;
+    public String getDescription() throws XtumlException;
 
 
     // operations
