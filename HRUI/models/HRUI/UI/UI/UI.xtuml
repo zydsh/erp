@@ -585,7 +585,7 @@ INSERT INTO SPR_RS
 	'ApproveEmployeeLeave',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("d94c13b0-32b8-4236-942e-57f41ea108fa",
@@ -603,7 +603,7 @@ INSERT INTO SPR_RS
 	'RejectEmployeeLeave',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("68395ea3-c159-43f2-8c29-b680f2eebfef",
@@ -643,7 +643,7 @@ INSERT INTO SPR_RS
 	VALUES ("5ca1fc31-017a-4c75-843b-882d4e2796fc",
 	'SendEmployee',
 	'',
-	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName, DateOfBirth:param.DateOfBirth, Degree:param.Degree, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Size:param.Size );',
+	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName, DateOfBirth:param.DateOfBirth, Degree:param.Degree,Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Size:param.Size );',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -662,7 +662,7 @@ INSERT INTO SPR_RS
 	'CreateLeaveSpecification',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3c8dd825-949a-424e-bf6c-9b9a9fa3f74e",
@@ -680,7 +680,7 @@ INSERT INTO SPR_RS
 	'DeleteLeaveSpecification',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c32f4f5c-4c54-4ec7-b6f8-9af0f0e4f799",
@@ -698,7 +698,7 @@ INSERT INTO SPR_RS
 	'ReadLeaveSpecification',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("d3b55439-1e69-4e4a-b581-e40430d5017f",
@@ -734,7 +734,7 @@ INSERT INTO SPR_RS
 	'CreateEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2c504ade-8ec5-4e67-8105-589d8a205c18",
@@ -752,7 +752,7 @@ INSERT INTO SPR_RS
 	'ReadEmployeeList',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5a45e7fa-046b-44f4-9bf7-6603e95bbe83",
@@ -788,7 +788,7 @@ INSERT INTO SPR_RS
 	'ReplyNewEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("28c1324f-fa4b-4d57-8093-089ef52816b3",
@@ -829,7 +829,7 @@ INSERT INTO SPR_RS
 	'CreateNewAccount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
@@ -865,7 +865,7 @@ INSERT INTO SPR_RS
 	'ChangePassword',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
@@ -883,7 +883,7 @@ INSERT INTO SPR_RS
 	'GetUsernamePassword',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ca320e19-af40-49f9-84b0-40e46d3cc6f0",

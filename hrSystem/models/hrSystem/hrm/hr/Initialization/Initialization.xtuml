@@ -365,33 +365,88 @@ Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
 
 
+LOG::LogInfo(message:"Departments: creating departments .." );	
+
 //create Departments
-create object instance department of Department;
-department.Name = "Human Resources";
-department.Mission = "Manages employees functions";
+create object instance departmentHR of Department;
+departmentHR.Name = "Human Resources";
+departmentHR.Mission = "Manages employees functions";
+
+LOG::LogInfo(message:"Departments: created: "+ departmentHR.Name );	
+
+//create sub-departments 
+create object instance departmentLeave of Department;
+departmentLeave.Name = "Leave and Absence";
+departmentLeave.Mission = "Manages employee leave and absence functions";
+
+LOG::LogInfo(message:"Departments: created: "+ departmentLeave.Name );	
+
+create object instance benifits of Department;
+benifits.Name = "Allowance and Benifits";
+benifits.Mission = "Manages employee benifits";
+
+LOG::LogInfo(message:"Departments: created: "+ benifits.Name );	
+
+//relate them to HR
+relate departmentLeave to departmentHR across R22.''is divided into'';
+relate benifits to departmentHR across R22.''is divided into'';
+
+LOG::LogInfo(message:"Departments: related: "+ departmentLeave.Name+", "+benifits.Name+" to "+ departmentHR.Name);	
 
 
-create object instance department of Department;
-department.Name = "Information Technology";
-department.Mission = "Manage computing services";
+//create IT
+create object instance departmentIT of Department;
+departmentIT.Name = "Information Technology";
+departmentIT.Mission = "Manage computing services";
+LOG::LogInfo(message:"Departments: created: "+ departmentIT.Name );	
 
+//create Finance
 create object instance departmentFin of Department;
 departmentFin.Name = "Finance";
 departmentFin.Mission = "Manage budgets and payroll";
+LOG::LogInfo(message:"Departments: created: "+ departmentFin.Name );	
 
+//create sub-departments  
 create object instance departmentPay of Department;
 departmentPay.Name = "Payroll";
 departmentPay.Mission = "Manage payroll";
+LOG::LogInfo(message:"Departments: created: "+ departmentPay.Name );	
 
-//relate departmentPay to departmentFin across R22.;
+create object instance departmentBud of Department;
+departmentBud.Name = "Budget";
+departmentBud.Mission = "Manage budget";
+LOG::LogInfo(message:"Departments: created: "+ departmentBud.Name );	
 
-create object instance department of Department;
-department.Name = "Budget";
-department.Mission = "Manage budget";
+//relate them to Finance
+relate departmentPay to departmentFin across R22.''is divided into'';
+relate departmentBud to departmentFin across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ departmentPay.Name+", "+departmentBud.Name+" to "+ departmentFin.Name);	
+
+//create VP
+create object instance vpServices of Department;
+vpServices.Name = "Vice President for Services";
+vpServices.Mission = "Manage organization supporting services";
+
+LOG::LogInfo(message:"Departments: created: "+ vpServices.Name );	
+
+//relate VP to other departments: building organization structure
+relate departmentFin to vpServices across R22.''is divided into'';
+relate departmentIT to vpServices across R22.''is divided into''; //departmentHR
+relate departmentHR to vpServices across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ departmentHR.Name+", "+departmentFin.Name+", "+departmentIT.Name+" to "+ vpServices.Name);	
+
+//create the President office
+create object instance President of Department;
+President.Name = "President Office";
+President.Mission = "Manage all organization activities";
+LOG::LogInfo(message:"Departments: created: "+ President.Name );	
+
+//relate to VP
+relate vpServices to President across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentFin.Name);	
 
 
 //create leave 
-
 create object instance leaveSpecification of LeaveSpecification;
 		leaveSpecification.Name = "Regular Leave";
 		leaveSpecification.MaximumDays = 105;

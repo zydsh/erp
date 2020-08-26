@@ -12,6 +12,7 @@
   </properties>
   <modules>
     <module>Deployment</module>
+    <module>Authenticate</module>
     <module>hrSystem</module>
     <module>HRUI</module>
 
