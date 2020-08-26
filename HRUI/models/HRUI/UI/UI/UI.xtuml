@@ -797,6 +797,24 @@ INSERT INTO C_EP_PROXY
 	'ReplyNewEmployee',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("28d089a7-7b62-4186-a23e-c3805a35060f",
+	"c394831f-741a-4da7-9a06-59aab6fe9a65",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("28d089a7-7b62-4186-a23e-c3805a35060f",
+	'Initialize',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c394831f-741a-4da7-9a06-59aab6fe9a65",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'Initialize',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -890,6 +908,42 @@ INSERT INTO C_EP_PROXY
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
 	'GetUsernamePassword',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("bd75b447-a01d-4292-b1c2-00ea893b88a5",
+	"37841549-bc78-49d8-83fe-4f80dc5b9f45",
+	"d7e2a0b2-e2be-43a8-a059-cf8dfab9068b");
+INSERT INTO SPR_RS
+	VALUES ("bd75b447-a01d-4292-b1c2-00ea893b88a5",
+	'Initialize',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("37841549-bc78-49d8-83fe-4f80dc5b9f45",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'Initialize',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("63e84200-beb1-4ade-bcc0-9fdbd6849a07",
+	"9ab42de4-652f-4783-bb1c-50674e391f4f",
+	"d7e2a0b2-e2be-43a8-a059-cf8dfab9068b");
+INSERT INTO SPR_RS
+	VALUES ("63e84200-beb1-4ade-bcc0-9fdbd6849a07",
+	'AddToGroup',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("9ab42de4-652f-4783-bb1c-50674e391f4f",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'AddToGroup',
 	'',
 	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY

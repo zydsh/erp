@@ -277,196 +277,129 @@ relate job to grade across R9.''assigned'';
 
 LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
-// create employees
+create object instance job of Job;
+	job.Job_ID = 6;
+	job.Title = "Finance Manager ";
+	job.Description = "Manging finance";
+	job.PensionDeduction = 0.09;
 
-create object instance emp of Employee;
-		emp.EmployeeID = 1421080;
-		emp.NationalID = 1041445693;
-		emp.FirstName = "Saad";
-		emp.MiddleName = "Khalid";
-		emp.LastName = "Alkhalid";
-		emp.DateOfBirth = 19781012;
-		emp.Degree = "PhD";
-		emp.Gender = "Male";
+select any grade from instances of Grade where selected.Name=="14";
+relate job to grade across R9.''assigned'';
 
-select any job from instances of Job where selected.Job_ID==1;
-relate emp to job across R6.''currently occupies'';
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+create object instance job of Job;
+	job.Job_ID = 7;
+	job.Title = "Payroll Manager ";
+	job.Description = "Manging payroll";
+	job.PensionDeduction = 0.09;
 
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+select any grade from instances of Grade where selected.Name=="10";
+relate job to grade across R9.''assigned'';
 
-create object instance emp of Employee;
-		emp.EmployeeID = 1411080;
-		emp.NationalID = 1021045693;
-		emp.FirstName = "Fahad";
-		emp.MiddleName = "Saud";
-		emp.LastName = "Alsalem";
-		emp.DateOfBirth = 19661012;
-		emp.Degree = "Bcs.";
-		emp.Gender = "Male";
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
-select any job from instances of Job where selected.Job_ID==2;
-relate emp to job across R6.''currently occupies'';
+create object instance job of Job;
+	job.Job_ID = 8;
+	job.Title = "Budget Manager ";
+	job.Description = "Manging budget";
+	job.PensionDeduction = 0.09;
 
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+select any grade from instances of Grade where selected.Name=="10";
+relate job to grade across R9.''assigned'';
 
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1401080;
-		emp.NationalID = 1011045222;
-		emp.FirstName = "Saleh";
-		emp.MiddleName = "Ahmed";
-		emp.LastName = "AlSaleh";
-		emp.DateOfBirth = 19601012;
-		emp.Degree = "Bcs.";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==3;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1441888;
-		emp.NationalID = 1010045222;
-		emp.FirstName = "Fahad";
-		emp.MiddleName = "Khalid";
-		emp.LastName = "Alamar";
-		emp.DateOfBirth = 19621012;
-		emp.Degree = "Mcs.";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==4;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1430834;
-		emp.NationalID = 1010045453;
-		emp.FirstName = "Norah";
-		emp.MiddleName = "Saud";
-		emp.LastName = "Alotaibi";
-		emp.DateOfBirth = 19901012;
-		emp.Degree = "Mcs.";
-		emp.Gender = "Female";
-
-select any job from instances of Job where selected.Job_ID==5;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
 
-LOG::LogInfo(message:"Departments: creating departments .." );	
+create object instance job of Job;
+	job.Job_ID = 9;
+	job.Title = "President ";
+	job.Description = "Manges the organization";
+	job.PensionDeduction = 0.09;
 
-//create Departments
-create object instance departmentHR of Department;
-departmentHR.Name = "Human Resources";
-departmentHR.Mission = "Manages employees functions";
+select any grade from instances of Grade where selected.Name=="15";
+relate job to grade across R9.''assigned'';
 
-LOG::LogInfo(message:"Departments: created: "+ departmentHR.Name );	
-
-//create sub-departments 
-create object instance departmentLeave of Department;
-departmentLeave.Name = "Leave and Absence";
-departmentLeave.Mission = "Manages employee leave and absence functions";
-
-LOG::LogInfo(message:"Departments: created: "+ departmentLeave.Name );	
-
-create object instance benifits of Department;
-benifits.Name = "Allowance and Benifits";
-benifits.Mission = "Manages employee benifits";
-
-LOG::LogInfo(message:"Departments: created: "+ benifits.Name );	
-
-//relate them to HR
-relate departmentLeave to departmentHR across R22.''is divided into'';
-relate benifits to departmentHR across R22.''is divided into'';
-
-LOG::LogInfo(message:"Departments: related: "+ departmentLeave.Name+", "+benifits.Name+" to "+ departmentHR.Name);	
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
 
-//create IT
-create object instance departmentIT of Department;
-departmentIT.Name = "Information Technology";
-departmentIT.Mission = "Manage computing services";
-LOG::LogInfo(message:"Departments: created: "+ departmentIT.Name );	
+create object instance job of Job;
+	job.Job_ID = 10;
+	job.Title = "HR Expert ";
+	job.Description = "Analyze HR Data";
+	job.PensionDeduction = 0.09;
 
-//create Finance
-create object instance departmentFin of Department;
-departmentFin.Name = "Finance";
-departmentFin.Mission = "Manage budgets and payroll";
-LOG::LogInfo(message:"Departments: created: "+ departmentFin.Name );	
+select any grade from instances of Grade where selected.Name=="9";
+relate job to grade across R9.''assigned'';
 
-//create sub-departments  
-create object instance departmentPay of Department;
-departmentPay.Name = "Payroll";
-departmentPay.Mission = "Manage payroll";
-LOG::LogInfo(message:"Departments: created: "+ departmentPay.Name );	
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
-create object instance departmentBud of Department;
-departmentBud.Name = "Budget";
-departmentBud.Mission = "Manage budget";
-LOG::LogInfo(message:"Departments: created: "+ departmentBud.Name );	
+create object instance job of Job;
+	job.Job_ID = 11;
+	job.Title = "HR Specilast ";
+	job.Description = "Works at HR";
+	job.PensionDeduction = 0.09;
 
-//relate them to Finance
-relate departmentPay to departmentFin across R22.''is divided into'';
-relate departmentBud to departmentFin across R22.''is divided into'';
-LOG::LogInfo(message:"Departments: related: "+ departmentPay.Name+", "+departmentBud.Name+" to "+ departmentFin.Name);	
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
 
-//create VP
-create object instance vpServices of Department;
-vpServices.Name = "Vice President for Services";
-vpServices.Mission = "Manage organization supporting services";
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
-LOG::LogInfo(message:"Departments: created: "+ vpServices.Name );	
+ create object instance job of Job;
+	job.Job_ID = 12;
+	job.Title = "HR Specilast ";
+	job.Description = "Works at HR";
+	job.PensionDeduction = 0.09;
 
-//relate VP to other departments: building organization structure
-relate departmentFin to vpServices across R22.''is divided into'';
-relate departmentIT to vpServices across R22.''is divided into''; //departmentHR
-relate departmentHR to vpServices across R22.''is divided into'';
-LOG::LogInfo(message:"Departments: related: "+ departmentHR.Name+", "+departmentFin.Name+", "+departmentIT.Name+" to "+ vpServices.Name);	
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
 
-//create the President office
-create object instance President of Department;
-President.Name = "President Office";
-President.Mission = "Manage all organization activities";
-LOG::LogInfo(message:"Departments: created: "+ President.Name );	
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+ 
+create object instance job of Job;
+	job.Job_ID = 13;
+	job.Title = "HR Specilast ";
+	job.Description = "Works at HR";
+	job.PensionDeduction = 0.09;
 
-//relate to VP
-relate vpServices to President across R22.''is divided into'';
-LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentFin.Name);	
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
 
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
-//create leave 
-create object instance leaveSpecification of LeaveSpecification;
-		leaveSpecification.Name = "Regular Leave";
-		leaveSpecification.MaximumDays = 105;
-		leaveSpecification.MinimumDays = 5;
+create object instance job of Job;
+	job.Job_ID = 14;
+	job.Title = "HR Specilast ";
+	job.Description = "Works at HR";
+	job.PensionDeduction = 0.09;
 
-LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
 
-create object instance leaveSpecification of LeaveSpecification;
-		leaveSpecification.Name = "Sick Leave";
-		leaveSpecification.MaximumDays = 5;
-		leaveSpecification.MinimumDays = 1;
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
 
-LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+create object instance job of Job;
+	job.Job_ID = 15;
+	job.Title = "Finance Specilast ";
+	job.Description = "Works at Finance";
+	job.PensionDeduction = 0.09;
 
-create object instance leaveSpecification of LeaveSpecification;
-		leaveSpecification.Name = "Exceptional Leave";
-		leaveSpecification.MaximumDays = 365;
-		leaveSpecification.MinimumDays = 180;
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
 
-LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 16;
+	job.Title = "Finance Specilast ";
+	job.Description = "Works at Finance";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
 
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",

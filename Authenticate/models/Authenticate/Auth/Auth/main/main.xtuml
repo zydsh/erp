@@ -646,7 +646,8 @@ INSERT INTO O_OBJ_PROXY
 	'Permissions',
 	4,
 	'Permissions',
-	'',
+	'Define what actions are allowed for each group, 
+for example: add, delete, edit etc.',
 	"00000000-0000-0000-0000-000000000000",
 	'./Permissions/Permissions.xtuml');
 INSERT INTO PE_PE

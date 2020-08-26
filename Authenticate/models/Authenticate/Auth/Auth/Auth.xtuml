@@ -400,8 +400,11 @@ if ( empty account)
 	acc.EmployeeID = param.EmployeeID;
 	acc.Username = ::getUserName( F:param.First_Name, L:param.Last_Name);
 	acc.Password = ::getPassword( EmployeeID:param.EmployeeID, FirstLastName:param.First_Name+param.Last_Name, CurrentSeconds:TIM::current_seconds());
+	
+	select any group from instances of Group where selected.Name=="Employees";
+	relate acc to group across R1.''a member of'';
 
-LOG::LogInfo(message:"Account: account created for employee "+ param.First_Name+" "+param.Last_Name+" username: "+acc.Username );	
+LOG::LogInfo(message:"Account: account created for employee "+ param.First_Name+" "+param.Last_Name+" Username: "+acc.Username+ " Group "+ group.Name);	
 else
 	LOG::LogInfo(message:"Account: account set is not empty ");	
 
@@ -470,6 +473,52 @@ INSERT INTO C_EP_PROXY
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
 	'GetUsernamePassword',
+	'',
+	'../../Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("5765318b-e08e-4ca0-bde4-5a09155bb4d5",
+	"37841549-bc78-49d8-83fe-4f80dc5b9f45",
+	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
+INSERT INTO SPR_PS
+	VALUES ("5765318b-e08e-4ca0-bde4-5a09155bb4d5",
+	'Initialize',
+	'',
+	'::Initialize();',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("37841549-bc78-49d8-83fe-4f80dc5b9f45",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'Initialize',
+	'',
+	'../../Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("c46952b9-eaaf-4912-82a6-0bc131df40ca",
+	"9ab42de4-652f-4783-bb1c-50674e391f4f",
+	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
+INSERT INTO SPR_PS
+	VALUES ("c46952b9-eaaf-4912-82a6-0bc131df40ca",
+	'AddToGroup',
+	'',
+	'select any account from instances of Account where selected.EmployeeID==param.EmployeeID;// or selected.Username==::getUserName( F:param.First_Name, L:param.Last_Name);
+
+if ( empty account)
+	LOG::LogInfo(message:"Account: employee has no account ");	
+
+else
+	select any group from instances of Group where selected.Name==param.Group;
+	relate account to group across R1.''a member of'';
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("9ab42de4-652f-4783-bb1c-50674e391f4f",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'AddToGroup',
 	'',
 	'../../Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY
@@ -548,6 +597,28 @@ else
 	LOG::LogInfo(message:"User account successfully sent" );	
 
 end if;',
+	1,
+	0);
+INSERT INTO SPR_PEP
+	VALUES ("090d80c6-8dd2-45cd-b462-4abf1570550f",
+	"37841549-bc78-49d8-83fe-4f80dc5b9f45",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e");
+INSERT INTO SPR_PS
+	VALUES ("090d80c6-8dd2-45cd-b462-4abf1570550f",
+	'Initialize',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO SPR_PEP
+	VALUES ("f2c6ece0-5f6a-4d8c-87c1-0b0e2a692741",
+	"9ab42de4-652f-4783-bb1c-50674e391f4f",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e");
+INSERT INTO SPR_PS
+	VALUES ("f2c6ece0-5f6a-4d8c-87c1-0b0e2a692741",
+	'AddToGroup',
+	'',
+	'',
 	1,
 	0);
 INSERT INTO PE_PE

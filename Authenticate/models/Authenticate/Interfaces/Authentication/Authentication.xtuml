@@ -143,6 +143,48 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("37841549-bc78-49d8-83fe-4f80dc5b9f45",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'Initialize',
+	'');
+INSERT INTO C_AS
+	VALUES ("37841549-bc78-49d8-83fe-4f80dc5b9f45",
+	'Initialize',
+	'',
+	0,
+	"ca320e19-af40-49f9-84b0-40e46d3cc6f0");
+INSERT INTO C_EP
+	VALUES ("9ab42de4-652f-4783-bb1c-50674e391f4f",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'AddToGroup',
+	'');
+INSERT INTO C_AS
+	VALUES ("9ab42de4-652f-4783-bb1c-50674e391f4f",
+	'AddToGroup',
+	'',
+	0,
+	"37841549-bc78-49d8-83fe-4f80dc5b9f45");
+INSERT INTO C_PP
+	VALUES ("2f676420-c381-4dbb-be97-023e06d6cd8d",
+	"9ab42de4-652f-4783-bb1c-50674e391f4f",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("2fa6a17a-2919-4685-b91b-8a6b5995ad26",
+	"9ab42de4-652f-4783-bb1c-50674e391f4f",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Group',
+	'',
+	0,
+	'',
+	"2f676420-c381-4dbb-be97-023e06d6cd8d");
 INSERT INTO PE_PE
 	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	1,
