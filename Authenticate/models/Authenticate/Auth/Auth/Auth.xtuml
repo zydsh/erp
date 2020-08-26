@@ -41,7 +41,7 @@ INSERT INTO GD_SHP
 INSERT INTO GD_CTR
 	VALUES ("5c95b783-4b50-476a-bda5-12fc0d342a9c");
 INSERT INTO DIM_ND
-	VALUES (5046.000000,
+	VALUES (5266.000000,
 	2978.000000,
 	"5c95b783-4b50-476a-bda5-12fc0d342a9c");
 INSERT INTO DIM_GE
@@ -55,7 +55,7 @@ INSERT INTO DIM_ELE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_CON
 	VALUES ("35cf3bf7-82cb-4549-aaee-a288f304c7f8",
-	5378.000000,
+	5598.000000,
 	2340.000000,
 	"5c95b783-4b50-476a-bda5-12fc0d342a9c");
 INSERT INTO DIM_CON
@@ -127,7 +127,7 @@ INSERT INTO DIM_ND
 	0.000000,
 	"0c253547-fd0d-4003-8c5e-09fce70bfc02");
 INSERT INTO DIM_GE
-	VALUES (5569.000000,
+	VALUES (5789.000000,
 	2302.000000,
 	"0c253547-fd0d-4003-8c5e-09fce70bfc02",
 	"00000000-0000-0000-0000-000000000000");
@@ -162,14 +162,14 @@ INSERT INTO GD_LS
 	"4123d1b3-1506-4c09-a1ad-cba9c84843bb");
 INSERT INTO DIM_WAY
 	VALUES ("2117c8b2-1c33-4a38-a12f-bd0acc4febb1",
-	5378.000000,
+	5598.000000,
 	2340.000000,
 	"2f0c3699-e735-4fa4-877d-eefa14311b75",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("4123d1b3-1506-4c09-a1ad-cba9c84843bb",
-	5860.000000,
+	6080.000000,
 	2340.000000,
 	"2f0c3699-e735-4fa4-877d-eefa14311b75",
 	"00000000-0000-0000-0000-000000000000",
@@ -335,6 +335,30 @@ INSERT INTO DIM_ED
 	VALUES ("f7d10724-5f67-4fb7-b149-aa7509153ba0",
 	"00000000-0000-0000-0000-000000000000",
 	"f9c86370-d1bb-494b-93a2-dba911753616");
+INSERT INTO GD_GE
+	VALUES ("6aaf4a49-735c-4bbd-8b6c-bc357fb50990",
+	"2e030e98-7c35-48c5-b8d6-1f13bd1598f0",
+	"6c4173c8-d4f4-4556-b058-f63d8db56ace",
+	108,
+	0,
+	'Authenticate::Auth::Auth::Initialization');
+INSERT INTO GD_SHP
+	VALUES ("6aaf4a49-735c-4bbd-8b6c-bc357fb50990");
+INSERT INTO GD_NCS
+	VALUES ("6aaf4a49-735c-4bbd-8b6c-bc357fb50990");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"6aaf4a49-735c-4bbd-8b6c-bc357fb50990");
+INSERT INTO DIM_GE
+	VALUES (5386.000000,
+	3100.000000,
+	"6aaf4a49-735c-4bbd-8b6c-bc357fb50990",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("6aaf4a49-735c-4bbd-8b6c-bc357fb50990",
+	0,
+	"5c95b783-4b50-476a-bda5-12fc0d342a9c");
 INSERT INTO DIM_DIA
 	VALUES ("2e030e98-7c35-48c5-b8d6-1f13bd1598f0",
 	'',
@@ -368,14 +392,22 @@ INSERT INTO SPR_PS
 	'CreateNewAccount',
 	'',
 	'
-select any account from instances of Account where selected.EmployeeID==param.EmployeeID or selected.Username==::getUserName( F:param.First_Name, L:param.Last_Name);
+select many account from instances of Account where selected.EmployeeID==param.EmployeeID;// or selected.Username==::getUserName( F:param.First_Name, L:param.Last_Name);
+LOG::LogInfo(message:"Account: attempting to set username and passowrd for "+ param.First_Name+" "+param.Last_Name);	
 
 if ( empty account)
 	create object instance acc of Account;
 	acc.EmployeeID = param.EmployeeID;
 	acc.Username = ::getUserName( F:param.First_Name, L:param.Last_Name);
 	acc.Password = ::getPassword( EmployeeID:param.EmployeeID, FirstLastName:param.First_Name+param.Last_Name, CurrentSeconds:TIM::current_seconds());
+
+LOG::LogInfo(message:"Account: account created for employee "+ param.First_Name+" "+param.Last_Name+" username: "+acc.Username );	
+else
+	LOG::LogInfo(message:"Account: account set is not empty ");	
+
 end if;
+
+
 ',
 	1,
 	0);
