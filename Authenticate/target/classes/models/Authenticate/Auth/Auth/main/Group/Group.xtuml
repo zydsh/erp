@@ -1,41 +1,66 @@
 -- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
 
 INSERT INTO O_OBJ
-	VALUES ("8171602d-0c15-4959-9f5e-a80c57f2b7cb",
+	VALUES ("d6b273fe-4076-4eb0-8fe5-dd9c73080181",
 	'Group',
-	2,
+	3,
 	'Group',
-	'',
+	'Represents a logical group 
+used to assign access rights
+ ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
-	VALUES ("8560bf9f-56b5-40c9-828b-a8ccd413a6df",
-	"8171602d-0c15-4959-9f5e-a80c57f2b7cb");
+	VALUES ("bd9d54a6-d69f-4534-ac63-9818b973fe25",
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181");
 INSERT INTO O_BATTR
-	VALUES ("8560bf9f-56b5-40c9-828b-a8ccd413a6df",
-	"8171602d-0c15-4959-9f5e-a80c57f2b7cb");
+	VALUES ("bd9d54a6-d69f-4534-ac63-9818b973fe25",
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181");
 INSERT INTO O_ATTR
-	VALUES ("8560bf9f-56b5-40c9-828b-a8ccd413a6df",
-	"8171602d-0c15-4959-9f5e-a80c57f2b7cb",
+	VALUES ("bd9d54a6-d69f-4534-ac63-9818b973fe25",
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181",
 	"00000000-0000-0000-0000-000000000000",
 	'Name',
-	'',
+	'Represents the group title',
 	'',
 	'Name',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("17f1f23e-9f0b-432b-b1a9-407cedc8e0fe",
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181");
+INSERT INTO O_BATTR
+	VALUES ("17f1f23e-9f0b-432b-b1a9-407cedc8e0fe",
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181");
+INSERT INTO O_ATTR
+	VALUES ("17f1f23e-9f0b-432b-b1a9-407cedc8e0fe",
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181",
+	"bd9d54a6-d69f-4534-ac63-9818b973fe25",
+	'Description',
+	'Explains who should be in the group and why it was created.',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
-	"8171602d-0c15-4959-9f5e-a80c57f2b7cb");
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181");
+INSERT INTO O_OIDA
+	VALUES ("bd9d54a6-d69f-4534-ac63-9818b973fe25",
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181",
+	0,
+	'Name');
 INSERT INTO O_ID
 	VALUES (1,
-	"8171602d-0c15-4959-9f5e-a80c57f2b7cb");
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181");
 INSERT INTO O_ID
 	VALUES (2,
-	"8171602d-0c15-4959-9f5e-a80c57f2b7cb");
+	"d6b273fe-4076-4eb0-8fe5-dd9c73080181");
 INSERT INTO PE_PE
-	VALUES ("8171602d-0c15-4959-9f5e-a80c57f2b7cb",
+	VALUES ("d6b273fe-4076-4eb0-8fe5-dd9c73080181",
 	1,
 	"0de0c091-0c62-4416-8bbf-e959c9ac014f",
 	"00000000-0000-0000-0000-000000000000",

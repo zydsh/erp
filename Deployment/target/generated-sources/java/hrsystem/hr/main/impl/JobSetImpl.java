@@ -29,18 +29,6 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
 
     // attributes
     @Override
-    public void setPromotionDate( int m_PromotionDate ) throws XtumlException {
-        for ( Job job : this ) job.setPromotionDate( m_PromotionDate );
-    }
-    @Override
-    public void setSalary( double m_Salary ) throws XtumlException {
-        for ( Job job : this ) job.setSalary( m_Salary );
-    }
-    @Override
-    public void setJob_ID( int m_Job_ID ) throws XtumlException {
-        for ( Job job : this ) job.setJob_ID( m_Job_ID );
-    }
-    @Override
     public void setTitle( String m_Title ) throws XtumlException {
         for ( Job job : this ) job.setTitle( m_Title );
     }
@@ -49,16 +37,28 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
         for ( Job job : this ) job.setAppointmentDate( m_AppointmentDate );
     }
     @Override
-    public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException {
-        for ( Job job : this ) job.setPensionDeduction( m_PensionDeduction );
+    public void setStep( int m_Step ) throws XtumlException {
+        for ( Job job : this ) job.setStep( m_Step );
+    }
+    @Override
+    public void setPromotionDate( int m_PromotionDate ) throws XtumlException {
+        for ( Job job : this ) job.setPromotionDate( m_PromotionDate );
     }
     @Override
     public void setDescription( int m_Description ) throws XtumlException {
         for ( Job job : this ) job.setDescription( m_Description );
     }
     @Override
-    public void setStep( int m_Step ) throws XtumlException {
-        for ( Job job : this ) job.setStep( m_Step );
+    public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException {
+        for ( Job job : this ) job.setPensionDeduction( m_PensionDeduction );
+    }
+    @Override
+    public void setSalary( double m_Salary ) throws XtumlException {
+        for ( Job job : this ) job.setSalary( m_Salary );
+    }
+    @Override
+    public void setJob_ID( int m_Job_ID ) throws XtumlException {
+        for ( Job job : this ) job.setJob_ID( m_Job_ID );
     }
 
 

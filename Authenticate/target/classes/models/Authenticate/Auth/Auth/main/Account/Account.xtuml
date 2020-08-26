@@ -5,64 +5,10 @@ INSERT INTO O_OBJ
 	'Account',
 	1,
 	'Account',
-	'',
+	'Represents a way to identify 
+an employee within 
+the system.',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_TFR
-	VALUES ("01ddb9fe-3217-4362-a2fa-2ba068e66412",
-	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182",
-	'crud',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'
-select any acc from instances of Account where selected.National_ID==param.National_ID;
-
-if ( empty acc )
-	// create an account
-	user_name = ::getUserName(F:param.First_Name, L:param.Last_Name);
-	pwd = ::getPassword( A:param.First_Name, B:param.Last_Name, N:param.National_ID );
-	
-	create object instance account of Account;
-	account.Username = user_name;
-	account.Password = pwd;
-	account.National_ID = param.National_ID;
-		
-else
-	// send a fail reply message because an account already exists 
-	LOG::LogInfo(message:"Cannot create instance because teh account already exists." );	
- 
-end if;',
-	1,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	0);
-INSERT INTO O_TPARM
-	VALUES ("0a7a30d8-beb1-4ae6-9a05-2be7fca77cad",
-	"01ddb9fe-3217-4362-a2fa-2ba068e66412",
-	'First_Name',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("8db066b1-0551-4f51-bb44-a120d118b050",
-	"01ddb9fe-3217-4362-a2fa-2ba068e66412",
-	'Last_Name',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"0a7a30d8-beb1-4ae6-9a05-2be7fca77cad",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("472da825-17f4-4bd7-8fd9-2b01a7861167",
-	"01ddb9fe-3217-4362-a2fa-2ba068e66412",
-	'National_ID',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"8db066b1-0551-4f51-bb44-a120d118b050",
-	'');
 INSERT INTO O_NBATTR
 	VALUES ("305d7d49-3e6a-4798-adaf-939c90515761",
 	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182");
@@ -74,7 +20,8 @@ INSERT INTO O_ATTR
 	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182",
 	"00000000-0000-0000-0000-000000000000",
 	'Username',
-	'',
+	'An abbrivation of the employee''s name 
+',
 	'',
 	'Username',
 	0,
@@ -92,7 +39,8 @@ INSERT INTO O_ATTR
 	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182",
 	"305d7d49-3e6a-4798-adaf-939c90515761",
 	'Password',
-	'',
+	'An alphanumeric value to gain the privileges
+associated with the account.',
 	'',
 	'Password',
 	0,
@@ -109,10 +57,10 @@ INSERT INTO O_ATTR
 	VALUES ("456f4041-96ad-4d87-8bcb-14c7d29e0b2a",
 	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182",
 	"7da1d419-9b9e-4607-b5ad-0bd3961c7158",
-	'National_ID',
+	'EmployeeID',
 	'',
 	'',
-	'National_ID',
+	'EmployeeID',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -120,6 +68,11 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182");
+INSERT INTO O_OIDA
+	VALUES ("305d7d49-3e6a-4798-adaf-939c90515761",
+	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182",
+	0,
+	'Username');
 INSERT INTO O_ID
 	VALUES (1,
 	"fad7b47e-5ed2-4ebd-be5b-efe79cda7182");

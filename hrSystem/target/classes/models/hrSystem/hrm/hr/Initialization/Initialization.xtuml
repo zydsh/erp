@@ -1,0 +1,503 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'Initialization',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("0e21b614-cf45-4d71-8943-4aeb52d49d80",
+	112,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'hrSystem::hrm::hr::Initialization');
+INSERT INTO DIM_DIA
+	VALUES ("0e21b614-cf45-4d71-8943-4aeb52d49d80",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("df655a1b-999e-45e5-a0f1-ff0113fc9b9e",
+	"00000000-0000-0000-0000-000000000000",
+	'Initialize',
+	'',
+	'::CreatePEIs();',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("df655a1b-999e-45e5-a0f1-ff0113fc9b9e",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("74d8d8bd-03f8-4313-b204-7ed7b4abb546",
+	"00000000-0000-0000-0000-000000000000",
+	'CreatePEIs',
+	'',
+	'//create payscale
+
+create object instance scale of Scale;
+	scale.Name = "General Schedule";
+	scale.Description = "The general scale of the organization";
+		
+LOG::LogInfo(message:"Scale: Added "+ scale.Name +" successfully." );	
+
+
+
+//create Grades
+create object instance grade of Grade;
+	grade.Name = "1";
+	grade.NumberOfSteps= 15;
+	grade.BaseSalary = 3000;
+	grade.Allowance = 135;
+relate grade to scale across R12.''is part of'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade.Name +" successfully." );	
+
+
+create object instance grade2 of Grade;
+	grade2.Name = "2";
+	grade2.NumberOfSteps= 15;
+	grade2.BaseSalary = 3430;
+	grade2.Allowance = 165;
+relate grade2 to scale across R12.''is part of'';
+relate grade to grade2 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade2.Name +" successfully." );	
+
+
+create object instance grade3 of Grade;
+	grade3.Name = "3";
+	grade3.NumberOfSteps= 15;
+	grade3.BaseSalary = 3945;
+	grade3.Allowance = 190;
+relate grade3 to scale across R12.''is part of'';
+relate grade2 to grade3 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade3.Name +" successfully." );	
+
+
+create object instance grade4 of Grade;
+	grade4.Name = "4";
+	grade4.NumberOfSteps= 15;
+	grade4.BaseSalary = 4530;
+	grade4.Allowance = 230;
+relate grade4 to scale across R12.''is part of'';
+relate grade3 to grade4 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade4.Name +" successfully." );	
+
+create object instance grade5 of Grade;
+	grade5.Name = "5";
+	grade5.NumberOfSteps= 15;
+	grade5.BaseSalary = 5240;
+	grade5.Allowance = 265;
+relate grade5 to scale across R12.''is part of'';
+relate grade4 to grade5 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade5.Name +" successfully." );	
+
+
+create object instance grade6 of Grade;
+	grade6.Name = "6";
+	grade6.NumberOfSteps= 15;
+	grade6.BaseSalary = 6065;
+	grade6.Allowance = 305;
+relate grade6 to scale across R12.''is part of'';
+relate grade5 to grade6 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade6.Name +" successfully." );	
+
+create object instance grade7 of Grade;
+	grade7.Name = "7";
+	grade7.NumberOfSteps= 15;
+	grade7.BaseSalary = 7010;
+	grade7.Allowance = 365;
+relate grade to scale across R12.''is part of'';
+relate grade6 to grade7 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade7.Name +" successfully." );	
+
+
+create object instance grade8 of Grade;
+	grade8.Name = "8";
+	grade8.NumberOfSteps= 15;
+	grade8.BaseSalary = 8010;
+	grade8.Allowance = 415;
+relate grade to scale across R12.''is part of'';
+relate grade7 to grade8 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade8.Name +" successfully." );	
+
+create object instance grade9 of Grade;
+	grade9.Name = "9";
+	grade9.NumberOfSteps= 15;
+	grade9.BaseSalary = 9275;
+	grade9.Allowance = 470;
+relate grade to scale across R12.''is part of'';
+relate grade8 to grade9 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade9.Name +" successfully." );	
+
+create object instance grade10 of Grade;
+	grade10.Name = "10";
+	grade10.NumberOfSteps= 15;
+	grade10.BaseSalary = 10275;
+	grade10.Allowance = 510;
+relate grade to scale across R12.''is part of'';
+relate grade9 to grade10 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade10.Name +" successfully." );	
+
+create object instance grade11 of Grade;
+	grade11.Name = "11";
+	grade11.NumberOfSteps= 14;
+	grade11.BaseSalary = 11815;
+	grade11.Allowance = 530;
+relate grade to scale across R12.''is part of'';
+relate grade10 to grade11 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade11.Name +" successfully." );	
+
+create object instance grade12 of Grade;
+	grade12.Name = "12";
+	grade12.NumberOfSteps= 13;
+	grade12.BaseSalary = 13435;
+	grade12.Allowance = 570;
+relate grade to scale across R12.''is part of'';
+relate grade11 to grade12 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade12.Name +" successfully." );	
+
+create object instance grade13 of Grade;
+	grade13.Name = "13";
+	grade13.NumberOfSteps= 12;
+	grade13.BaseSalary = 15180;
+	grade13.Allowance = 605;
+relate grade to scale across R12.''is part of'';
+relate grade12 to grade13 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade13.Name +" successfully." );	
+
+create object instance grade14 of Grade;
+	grade14.Name = "14";
+	grade14.NumberOfSteps= 11;
+	grade14.BaseSalary = 17015;
+	grade14.Allowance = 700;
+relate grade to scale across R12.''is part of'';
+relate grade13 to grade14 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade14.Name +" successfully." );	
+
+create object instance grade15 of Grade;
+	grade15.Name = "15";
+	grade15.NumberOfSteps= 10;
+	grade15.BaseSalary = 20855;
+	grade15.Allowance = 865;
+relate grade to scale across R12.''is part of'';
+relate grade14 to grade15 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade15.Name +" successfully." );	
+
+//create jobs
+create object instance job of Job;
+	job.Job_ID = 1;
+	job.Title = "Front-End Junior Software Engineer ";
+	job.Description = "Developing front end solutions";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+	
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 2;
+	job.Title = "Back-End Junior Software Engineer ";
+	job.Description = "Developing back end solutions";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 3;
+	job.Title = "Senior Software Engineer ";
+	job.Description = "Manging front/back end solutions";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="10";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+
+create object instance job of Job;
+	job.Job_ID = 4;
+	job.Title = "HR Specialist ";
+	job.Description = "Recruting and evaluting employee profiles";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="9";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 5;
+	job.Title = "Lead Software Engineer ";
+	job.Description = "Manging software teams solutions";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="12";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+// create employees
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1421080;
+		emp.NationalID = 1041445693;
+		emp.FirstName = "Saad";
+		emp.MiddleName = "Khalid";
+		emp.LastName = "Alkhalid";
+		emp.DateOfBirth = 19781012;
+		emp.Degree = "PhD";
+		emp.Gender = "Male";
+
+select any job from instances of Job where selected.Job_ID==1;
+relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1411080;
+		emp.NationalID = 1021045693;
+		emp.FirstName = "Fahad";
+		emp.MiddleName = "Saud";
+		emp.LastName = "Alsalem";
+		emp.DateOfBirth = 19661012;
+		emp.Degree = "Bcs.";
+		emp.Gender = "Male";
+
+select any job from instances of Job where selected.Job_ID==2;
+relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1401080;
+		emp.NationalID = 1011045222;
+		emp.FirstName = "Saleh";
+		emp.MiddleName = "Ahmed";
+		emp.LastName = "AlSaleh";
+		emp.DateOfBirth = 19601012;
+		emp.Degree = "Bcs.";
+		emp.Gender = "Male";
+
+select any job from instances of Job where selected.Job_ID==3;
+relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1441888;
+		emp.NationalID = 1010045222;
+		emp.FirstName = "Fahad";
+		emp.MiddleName = "Khalid";
+		emp.LastName = "Alamar";
+		emp.DateOfBirth = 19621012;
+		emp.Degree = "Mcs.";
+		emp.Gender = "Male";
+
+select any job from instances of Job where selected.Job_ID==4;
+relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1430834;
+		emp.NationalID = 1010045453;
+		emp.FirstName = "Norah";
+		emp.MiddleName = "Saud";
+		emp.LastName = "Alotaibi";
+		emp.DateOfBirth = 19901012;
+		emp.Degree = "Mcs.";
+		emp.Gender = "Female";
+
+select any job from instances of Job where selected.Job_ID==5;
+relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+
+LOG::LogInfo(message:"Departments: creating departments .." );	
+
+//create Departments
+create object instance departmentHR of Department;
+departmentHR.Name = "Human Resources";
+departmentHR.Mission = "Manages employees functions";
+
+LOG::LogInfo(message:"Departments: created: "+ departmentHR.Name );	
+
+//create sub-departments 
+create object instance departmentLeave of Department;
+departmentLeave.Name = "Leave and Absence";
+departmentLeave.Mission = "Manages employee leave and absence functions";
+
+LOG::LogInfo(message:"Departments: created: "+ departmentLeave.Name );	
+
+create object instance benifits of Department;
+benifits.Name = "Allowance and Benifits";
+benifits.Mission = "Manages employee benifits";
+
+LOG::LogInfo(message:"Departments: created: "+ benifits.Name );	
+
+//relate them to HR
+relate departmentLeave to departmentHR across R22.''is divided into'';
+relate benifits to departmentHR across R22.''is divided into'';
+
+LOG::LogInfo(message:"Departments: related: "+ departmentLeave.Name+", "+benifits.Name+" to "+ departmentHR.Name);	
+
+
+//create IT
+create object instance departmentIT of Department;
+departmentIT.Name = "Information Technology";
+departmentIT.Mission = "Manage computing services";
+LOG::LogInfo(message:"Departments: created: "+ departmentIT.Name );	
+
+//create Finance
+create object instance departmentFin of Department;
+departmentFin.Name = "Finance";
+departmentFin.Mission = "Manage budgets and payroll";
+LOG::LogInfo(message:"Departments: created: "+ departmentFin.Name );	
+
+//create sub-departments  
+create object instance departmentPay of Department;
+departmentPay.Name = "Payroll";
+departmentPay.Mission = "Manage payroll";
+LOG::LogInfo(message:"Departments: created: "+ departmentPay.Name );	
+
+create object instance departmentBud of Department;
+departmentBud.Name = "Budget";
+departmentBud.Mission = "Manage budget";
+LOG::LogInfo(message:"Departments: created: "+ departmentBud.Name );	
+
+//relate them to Finance
+relate departmentPay to departmentFin across R22.''is divided into'';
+relate departmentBud to departmentFin across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ departmentPay.Name+", "+departmentBud.Name+" to "+ departmentFin.Name);	
+
+//create VP
+create object instance vpServices of Department;
+vpServices.Name = "Vice President for Services";
+vpServices.Mission = "Manage organization supporting services";
+
+LOG::LogInfo(message:"Departments: created: "+ vpServices.Name );	
+
+//relate VP to other departments: building organization structure
+relate departmentFin to vpServices across R22.''is divided into'';
+relate departmentIT to vpServices across R22.''is divided into''; //departmentHR
+relate departmentHR to vpServices across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ departmentHR.Name+", "+departmentFin.Name+", "+departmentIT.Name+" to "+ vpServices.Name);	
+
+//create the President office
+create object instance President of Department;
+President.Name = "President Office";
+President.Mission = "Manage all organization activities";
+LOG::LogInfo(message:"Departments: created: "+ President.Name );	
+
+//relate to VP
+relate vpServices to President across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentFin.Name);	
+
+
+//create leave 
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Regular Leave";
+		leaveSpecification.MaximumDays = 105;
+		leaveSpecification.MinimumDays = 5;
+
+LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Sick Leave";
+		leaveSpecification.MaximumDays = 5;
+		leaveSpecification.MinimumDays = 1;
+
+LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Exceptional Leave";
+		leaveSpecification.MaximumDays = 365;
+		leaveSpecification.MinimumDays = 180;
+
+LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("74d8d8bd-03f8-4313-b204-7ed7b4abb546",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("1d95e14a-3187-4f1b-a720-f30782ec2088",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"d878f6d3-d406-4972-80d4-d43f75abcac8",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("d878f6d3-d406-4972-80d4-d43f75abcac8",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'hr',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../hr.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'hrSystem',
+	1,
+	'../../../hrSystem.xtuml');

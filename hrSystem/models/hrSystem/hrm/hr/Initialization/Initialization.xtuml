@@ -70,7 +70,7 @@ create object instance grade of Grade;
 	grade.NumberOfSteps= 15;
 	grade.BaseSalary = 3000;
 	grade.Allowance = 135;
-relate grade to scale across R12.''is part of'';
+relate grade to scale across R12.''is part of''; 
 
 LOG::LogInfo(message:"Grade: Added "+ grade.Name +" successfully." );	
 

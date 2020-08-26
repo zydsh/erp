@@ -40,7 +40,7 @@ INSERT INTO S_SYNC
 	'',
 	'
 //get the first letter of the first name and add it to the last name with a dot inbetween.
-username = STRING::substr( s:param.F, begin:0, end:1)+"."+param.L;
+username = param.F+"."+param.L; //STRING::substr( s:param.F, begin:1, end:3);
 return username;',
 	"ba5eda7a-def5-0000-0000-000000000004",
 	1,
@@ -76,8 +76,13 @@ INSERT INTO S_SYNC
 	'getPassword',
 	'',
 	'
+a = "a";
+number1 = "1";
+b = "b";
+dollarSign = "$";
+paran = ")";
 
-name = "7(!d&"+param.B;
+name = "7(!d&"+param.FirstLastName;//+STRING::itoa(i:param.CurrentSeconds);
 
 return name;
 
@@ -89,8 +94,8 @@ return name;
 INSERT INTO S_SPARM
 	VALUES ("eaccfa4f-010e-4529-bf9f-453c80178884",
 	"f799c23f-358c-400a-8888-95f4f70b9eee",
-	'A',
-	"ba5eda7a-def5-0000-0000-000000000004",
+	'EmployeeID',
+	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000",
@@ -98,7 +103,7 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("966c2a01-0309-4638-a76f-3a2db5aa4641",
 	"f799c23f-358c-400a-8888-95f4f70b9eee",
-	'B',
+	'FirstLastName',
 	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
@@ -107,7 +112,7 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("2c9cc1c9-5a3d-4e7c-9399-3e57361d63b5",
 	"f799c23f-358c-400a-8888-95f4f70b9eee",
-	'N',
+	'CurrentSeconds',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',

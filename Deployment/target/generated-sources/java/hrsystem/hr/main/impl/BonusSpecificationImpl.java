@@ -82,6 +82,11 @@ public class BonusSpecificationImpl extends ModelInstance<BonusSpecification,Hr>
     }
     private double m_Percent;
     @Override
+    public double getPercent() throws XtumlException {
+        checkLiving();
+        return m_Percent;
+    }
+    @Override
     public void setPercent(double m_Percent) throws XtumlException {
         checkLiving();
         if (m_Percent != this.m_Percent) {
@@ -89,11 +94,6 @@ public class BonusSpecificationImpl extends ModelInstance<BonusSpecification,Hr>
             this.m_Percent = m_Percent;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Percent", oldValue, this.m_Percent));
         }
-    }
-    @Override
-    public double getPercent() throws XtumlException {
-        checkLiving();
-        return m_Percent;
     }
 
 
@@ -173,11 +173,11 @@ class EmptyBonusSpecification extends ModelInstance<BonusSpecification,Hr> imple
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setPercent( double m_Percent ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public double getPercent() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setPercent( double m_Percent ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

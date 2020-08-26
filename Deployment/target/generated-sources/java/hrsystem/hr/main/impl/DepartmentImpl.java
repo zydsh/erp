@@ -96,11 +96,6 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
     }
     private int m_Mission;
     @Override
-    public int getMission() throws XtumlException {
-        checkLiving();
-        return m_Mission;
-    }
-    @Override
     public void setMission(int m_Mission) throws XtumlException {
         checkLiving();
         if (m_Mission != this.m_Mission) {
@@ -109,12 +104,12 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Mission", oldValue, this.m_Mission));
         }
     }
-    private String m_Description;
     @Override
-    public String getDescription() throws XtumlException {
+    public int getMission() throws XtumlException {
         checkLiving();
-        return m_Description;
+        return m_Mission;
     }
+    private String m_Description;
     @Override
     public void setDescription(String m_Description) throws XtumlException {
         checkLiving();
@@ -124,16 +119,12 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Description", oldValue, this.m_Description));
         }
     }
-    private String m_Manager;
     @Override
-    public void setManager(String m_Manager) throws XtumlException {
+    public String getDescription() throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Manager, this.m_Manager)) {
-            final String oldValue = this.m_Manager;
-            this.m_Manager = m_Manager;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Manager", oldValue, this.m_Manager));
-        }
+        return m_Description;
     }
+    private String m_Manager;
     @Override
     public String getManager() throws XtumlException {
         checkLiving();
@@ -142,6 +133,15 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
             self().setManager(( employee.getFirstName() + " " ) + employee.getLastName());
         }
         return m_Manager;
+    }
+    @Override
+    public void setManager(String m_Manager) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_Manager, this.m_Manager)) {
+            final String oldValue = this.m_Manager;
+            this.m_Manager = m_Manager;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Manager", oldValue, this.m_Manager));
+        }
     }
 
 
@@ -252,23 +252,23 @@ class EmptyDepartment extends ModelInstance<Department,Hr> implements Department
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getMission() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setMission( int m_Mission ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getDescription() throws XtumlException {
+    public int getMission() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setDescription( String m_Description ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setManager( String m_Manager ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public String getDescription() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getManager() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setManager( String m_Manager ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

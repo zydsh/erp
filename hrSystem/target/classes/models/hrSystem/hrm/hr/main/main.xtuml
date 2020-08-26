@@ -2994,7 +2994,7 @@ INSERT INTO R_PART
 	"87e9e6da-2e85-4867-ab2a-26aabd60f4d3",
 	0,
 	0,
-	'currently occupies a');
+	'currently occupies');
 INSERT INTO R_RTO
 	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
 	"3d6520ad-5466-414a-a289-c1763e2d4351",
@@ -3011,7 +3011,7 @@ INSERT INTO R_PART
 	"86d3442b-12d8-4e1f-a26d-dc65ca6ff038",
 	0,
 	1,
-	'is assigned to an');
+	'is assigned to');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"3d6520ad-5466-414a-a289-c1763e2d4351",
@@ -3175,7 +3175,7 @@ INSERT INTO R_PART
 	"bd0d8bd9-6b23-47ba-bb90-4f1697acaa9f",
 	0,
 	1,
-	'proceeds');
+	'succeed');
 INSERT INTO R_RTO
 	VALUES ("cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"ea949ccd-1eca-4ff6-b1fc-1451f704d211",
@@ -3655,7 +3655,7 @@ INSERT INTO R_PART
 	"52ccbec3-22a5-47eb-97e9-2afa54cd6c5c",
 	0,
 	1,
-	'to be promoted to a');
+	'to be promoted to');
 INSERT INTO R_RTO
 	VALUES ("735ac3f1-a8fe-46c2-b440-67e649269472",
 	"764482f0-2753-49c7-ba07-d9b463040d4d",
@@ -3672,7 +3672,7 @@ INSERT INTO R_PART
 	"ee290cd0-0178-43de-b77e-79e233ecded4",
 	0,
 	1,
-	'to be assigned to an');
+	'to be assigned to');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"764482f0-2753-49c7-ba07-d9b463040d4d",
