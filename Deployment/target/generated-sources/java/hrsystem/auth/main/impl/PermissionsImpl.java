@@ -65,11 +65,6 @@ public class PermissionsImpl extends ModelInstance<Permissions,Auth> implements 
     // attributes
     private String m_Permission;
     @Override
-    public String getPermission() throws XtumlException {
-        checkLiving();
-        return m_Permission;
-    }
-    @Override
     public void setPermission(String m_Permission) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Permission, this.m_Permission)) {
@@ -77,6 +72,11 @@ public class PermissionsImpl extends ModelInstance<Permissions,Auth> implements 
             this.m_Permission = m_Permission;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Permission", oldValue, this.m_Permission));
         }
+    }
+    @Override
+    public String getPermission() throws XtumlException {
+        checkLiving();
+        return m_Permission;
     }
 
 
@@ -139,11 +139,11 @@ public class PermissionsImpl extends ModelInstance<Permissions,Auth> implements 
 class EmptyPermissions extends ModelInstance<Permissions,Auth> implements Permissions {
 
     // attributes
-    public String getPermission() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setPermission( String m_Permission ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getPermission() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

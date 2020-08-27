@@ -94,11 +94,6 @@ public class GroupImpl extends ModelInstance<Group,Auth> implements Group {
     }
     private String m_Description;
     @Override
-    public String getDescription() throws XtumlException {
-        checkLiving();
-        return m_Description;
-    }
-    @Override
     public void setDescription(String m_Description) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Description, this.m_Description)) {
@@ -106,6 +101,11 @@ public class GroupImpl extends ModelInstance<Group,Auth> implements Group {
             this.m_Description = m_Description;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Description", oldValue, this.m_Description));
         }
+    }
+    @Override
+    public String getDescription() throws XtumlException {
+        checkLiving();
+        return m_Description;
     }
 
 
@@ -220,11 +220,11 @@ class EmptyGroup extends ModelInstance<Group,Auth> implements Group {
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getDescription() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setDescription( String m_Description ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getDescription() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

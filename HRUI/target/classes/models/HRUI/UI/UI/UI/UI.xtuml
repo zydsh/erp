@@ -126,7 +126,7 @@ INSERT INTO S_SYNC
 	'',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_SPARM
@@ -167,7 +167,7 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'SendEmployee',
 	'',
-	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName, Gender:param.Gender, DateOfBirth:param.DateOfBirth, Degree:param.Degree, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Size:param.Size );',
+	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName, DateOfBirth:param.DateOfBirth, Degree:param.Degree, Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Size:param.Size );',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
@@ -224,7 +224,7 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
-	"2ba0b088-d5a1-4d06-a20f-3d4e434015b6",
+	"d5f56d42-fcbc-4c68-883a-c1523a39c6ff",
 	'');
 INSERT INTO S_SPARM
 	VALUES ("a226ea6d-6fb9-41d2-b348-aa7d577104de",
@@ -242,7 +242,7 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
-	"a226ea6d-6fb9-41d2-b348-aa7d577104de",
+	"2ba0b088-d5a1-4d06-a20f-3d4e434015b6",
 	'');
 INSERT INTO S_SPARM
 	VALUES ("9cb1f0f3-cd7c-4039-8838-d1a7136e92df",
@@ -278,7 +278,7 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
-	"d5f56d42-fcbc-4c68-883a-c1523a39c6ff",
+	"a226ea6d-6fb9-41d2-b348-aa7d577104de",
 	'');
 INSERT INTO PE_PE
 	VALUES ("fecb74fe-821d-48f5-bd3c-a8fa7d4f0312",

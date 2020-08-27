@@ -16,8 +16,8 @@ public interface Grade extends IModelInstance<Grade,Hr> {
     // attributes
     public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
-    public double getAllowance() throws XtumlException;
     public void setAllowance( double m_Allowance ) throws XtumlException;
+    public double getAllowance() throws XtumlException;
     public void setBaseSalary( double m_BaseSalary ) throws XtumlException;
     public double getBaseSalary() throws XtumlException;
     public int getNumberOfSteps() throws XtumlException;

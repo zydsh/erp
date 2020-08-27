@@ -15,14 +15,14 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface PayslipItem extends IModelInstance<PayslipItem,Hr> {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
     public void setAmount( double m_Amount ) throws XtumlException;
     public double getAmount() throws XtumlException;
-    public void setDate( int m_Date ) throws XtumlException;
     public int getDate() throws XtumlException;
-    public PayslipItemType getType() throws XtumlException;
+    public void setDate( int m_Date ) throws XtumlException;
     public void setType( PayslipItemType m_Type ) throws XtumlException;
+    public PayslipItemType getType() throws XtumlException;
 
 
     // operations

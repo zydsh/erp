@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface BonusSpecification extends IModelInstance<BonusSpecification,Hr> {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
     public double getPercent() throws XtumlException;
     public void setPercent( double m_Percent ) throws XtumlException;
 
