@@ -59,17 +59,17 @@ public class BonusStateMachine extends StateMachine<Bonus,Hr> {
     @Override
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
-            { CANT_HAPPEN,
-              (event) -> {Active_deactivateBonus_txn_to_Inactive_action();Inactive_entry_action();return Inactive;},
-              (event) -> {Active_payBonus_txn_to_Active_action();Active_entry_action();return Active;}
-            },
-            { (event) -> {Inactive_resumeBonus_txn_to_Resume_action((int)event.get(0),  (int)event.get(1));Resume_entry_action((int)event.get(0),  (int)event.get(1));return Resume;},
+            { (event) -> {Active_payBonus_txn_to_Active_action();Active_entry_action();return Active;},
               CANT_HAPPEN,
+              (event) -> {Active_deactivateBonus_txn_to_Inactive_action();Inactive_entry_action();return Inactive;}
+            },
+            { CANT_HAPPEN,
+              (event) -> {Inactive_resumeBonus_txn_to_Resume_action((int)event.get(0),  (int)event.get(1));Resume_entry_action((int)event.get(0),  (int)event.get(1));return Resume;},
               CANT_HAPPEN
             },
-            { CANT_HAPPEN,
+            { (event) -> {Resume_payBonus_txn_to_Active_action();Active_entry_action();return Active;},
               CANT_HAPPEN,
-              (event) -> {Resume_payBonus_txn_to_Active_action();Active_entry_action();return Active;}
+              CANT_HAPPEN
             }
         };
     }

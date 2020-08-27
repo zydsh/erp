@@ -36,8 +36,8 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         this.context = context;
         m_Starting = 0;
         m_Ending = 0;
+        R11_consumed_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         R15_is_specified_by_a_LeaveSpecification_inst = LeaveSpecificationImpl.EMPTY_LEAVESPECIFICATION;
-        R2_consumed_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         R5_is_currently_taken_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         R7_to_be_taken_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         statemachine = new LeaveStateMachine(this, context());
@@ -48,8 +48,8 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         this.context = context;
         this.m_Starting = m_Starting;
         this.m_Ending = m_Ending;
+        R11_consumed_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         R15_is_specified_by_a_LeaveSpecification_inst = LeaveSpecificationImpl.EMPTY_LEAVESPECIFICATION;
-        R2_consumed_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         R5_is_currently_taken_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         R7_to_be_taken_by_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         statemachine = new LeaveStateMachine(this, context(), initialState);
@@ -88,11 +88,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     // attributes
     private int m_Starting;
     @Override
-    public int getStarting() throws XtumlException {
-        checkLiving();
-        return m_Starting;
-    }
-    @Override
     public void setStarting(int m_Starting) throws XtumlException {
         checkLiving();
         if (m_Starting != this.m_Starting) {
@@ -100,6 +95,11 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             this.m_Starting = m_Starting;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
         }
+    }
+    @Override
+    public int getStarting() throws XtumlException {
+        checkLiving();
+        return m_Starting;
     }
     private int m_Ending;
     @Override
@@ -146,7 +146,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 1;
+            return 3;
         }
         @Override
         public String getClassName() {
@@ -172,7 +172,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 3;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -182,6 +182,15 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
 
 
     // selections
+    private Employee R11_consumed_by_Employee_inst;
+    @Override
+    public void setR11_consumed_by_Employee( Employee inst ) {
+        R11_consumed_by_Employee_inst = inst;
+    }
+    @Override
+    public Employee R11_consumed_by_Employee() throws XtumlException {
+        return R11_consumed_by_Employee_inst;
+    }
     private LeaveSpecification R15_is_specified_by_a_LeaveSpecification_inst;
     @Override
     public void setR15_is_specified_by_a_LeaveSpecification( LeaveSpecification inst ) {
@@ -190,15 +199,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     @Override
     public LeaveSpecification R15_is_specified_by_a_LeaveSpecification() throws XtumlException {
         return R15_is_specified_by_a_LeaveSpecification_inst;
-    }
-    private Employee R2_consumed_by_Employee_inst;
-    @Override
-    public void setR2_consumed_by_Employee( Employee inst ) {
-        R2_consumed_by_Employee_inst = inst;
-    }
-    @Override
-    public Employee R2_consumed_by_Employee() throws XtumlException {
-        return R2_consumed_by_Employee_inst;
     }
     private Employee R5_is_currently_taken_by_Employee_inst;
     @Override
@@ -252,11 +252,11 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
 class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
 
     // attributes
-    public int getStarting() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setStarting( int m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getStarting() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -271,12 +271,12 @@ class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
 
     // selections
     @Override
-    public LeaveSpecification R15_is_specified_by_a_LeaveSpecification() {
-        return LeaveSpecificationImpl.EMPTY_LEAVESPECIFICATION;
+    public Employee R11_consumed_by_Employee() {
+        return EmployeeImpl.EMPTY_EMPLOYEE;
     }
     @Override
-    public Employee R2_consumed_by_Employee() {
-        return EmployeeImpl.EMPTY_EMPLOYEE;
+    public LeaveSpecification R15_is_specified_by_a_LeaveSpecification() {
+        return LeaveSpecificationImpl.EMPTY_LEAVESPECIFICATION;
     }
     @Override
     public Employee R5_is_currently_taken_by_Employee() {

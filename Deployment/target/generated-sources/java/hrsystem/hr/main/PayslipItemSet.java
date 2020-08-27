@@ -15,8 +15,8 @@ public interface PayslipItemSet extends IInstanceSet<PayslipItemSet,PayslipItem>
     // attributes
     public void setDate( int m_Date ) throws XtumlException;
     public void setType( PayslipItemType m_Type ) throws XtumlException;
-    public void setName( String m_Name ) throws XtumlException;
     public void setAmount( double m_Amount ) throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
 
 
     // selections

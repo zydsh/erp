@@ -23,28 +23,28 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Employee extends IModelInstance<Employee,Hr> {
 
     // attributes
-    public int getEmployeeID() throws XtumlException;
     public void setEmployeeID( int m_EmployeeID ) throws XtumlException;
-    public void setNationalID( int m_NationalID ) throws XtumlException;
+    public int getEmployeeID() throws XtumlException;
     public int getNationalID() throws XtumlException;
+    public void setNationalID( int m_NationalID ) throws XtumlException;
     public void setFirstName( String m_FirstName ) throws XtumlException;
     public String getFirstName() throws XtumlException;
-    public void setMiddleName( String m_MiddleName ) throws XtumlException;
     public String getMiddleName() throws XtumlException;
-    public void setLastName( String m_LastName ) throws XtumlException;
+    public void setMiddleName( String m_MiddleName ) throws XtumlException;
     public String getLastName() throws XtumlException;
+    public void setLastName( String m_LastName ) throws XtumlException;
     public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException;
     public int getDateOfBirth() throws XtumlException;
-    public void setDegree( String m_Degree ) throws XtumlException;
     public String getDegree() throws XtumlException;
-    public void setGender( String m_Gender ) throws XtumlException;
+    public void setDegree( String m_Degree ) throws XtumlException;
     public String getGender() throws XtumlException;
+    public void setGender( String m_Gender ) throws XtumlException;
     public int getStart_Date() throws XtumlException;
     public void setStart_Date( int m_Start_Date ) throws XtumlException;
     public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException;
     public int getLeaveBalance() throws XtumlException;
-    public int getSickLeaveBalance() throws XtumlException;
     public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException;
+    public int getSickLeaveBalance() throws XtumlException;
 
 
     // operations
@@ -56,6 +56,9 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     default public void addR102_is_notified_by_ApproveLeave( ApproveLeave inst ) {}
     default public void removeR102_is_notified_by_ApproveLeave( ApproveLeave inst ) {}
     public ApproveLeaveSet R102_is_notified_by_ApproveLeave() throws XtumlException;
+    default public void addR11_consumed_Leave( Leave inst ) {}
+    default public void removeR11_consumed_Leave( Leave inst ) {}
+    public LeaveSet R11_consumed_Leave() throws XtumlException;
     default public void addR19_was_given_a_Bonus( Bonus inst ) {}
     default public void removeR19_was_given_a_Bonus( Bonus inst ) {}
     public BonusSet R19_was_given_a_Bonus() throws XtumlException;
@@ -69,9 +72,6 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     default public void addR23_manages_Department( Department inst ) {}
     default public void removeR23_manages_Department( Department inst ) {}
     public DepartmentSet R23_manages_Department() throws XtumlException;
-    default public void addR2_consumed_Leave( Leave inst ) {}
-    default public void removeR2_consumed_Leave( Leave inst ) {}
-    public LeaveSet R2_consumed_Leave() throws XtumlException;
     default public void addR3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem( PayslipItem inst ) {}
     default public void removeR3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem( PayslipItem inst ) {}
     public PayslipItemSet R3_an_earning_or_a_deduction_is_recorded_in_a_PayslipItem() throws XtumlException;

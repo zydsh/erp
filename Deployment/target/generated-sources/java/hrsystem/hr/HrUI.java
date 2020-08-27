@@ -47,15 +47,9 @@ public class HrUI extends Port<Hr> implements IData {
         context().LOG().LogInfo( "Sending employee set is complete" );
     }
 
-    public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException {
-        LeaveSpecification leaveSpec = context().LeaveSpecification_instances().anyWhere(selected -> StringUtil.equality(((LeaveSpecification)selected).getName(), p_Name));
-        if ( !leaveSpec.isEmpty() ) {
-            leaveSpec.delete();
-            context().UI().Reply( "Leave deleted successfully.", true );
-        }
-        else {
-            context().UI().Reply( "Leave does not exist.", false );
-        }
+    public void Initialize() throws XtumlException {
+        context().Authenticate().Initialize();
+        context().CreatePEIs();
     }
 
     public void ReadLeaveSpecification() throws XtumlException {
@@ -114,16 +108,22 @@ public class HrUI extends Port<Hr> implements IData {
         }
     }
 
-    public void Initialize() throws XtumlException {
-        context().Authenticate().Initialize();
-        context().CreatePEIs();
+    public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException {
+        LeaveSpecification leaveSpec = context().LeaveSpecification_instances().anyWhere(selected -> StringUtil.equality(((LeaveSpecification)selected).getName(), p_Name));
+        if ( !leaveSpec.isEmpty() ) {
+            leaveSpec.delete();
+            context().UI().Reply( "Leave deleted successfully.", true );
+        }
+        else {
+            context().UI().Reply( "Leave does not exist.", false );
+        }
     }
 
 
 
     // outbound messages
-    public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
-        if ( satisfied() ) send(new IData.SendLeaveSpecification(p_Name, p_MaximumDays, p_MinimumDays, p_Size));
+    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
+        if ( satisfied() ) send(new IData.Reply(p_msg, p_state));
         else {
         }
     }
@@ -132,13 +132,13 @@ public class HrUI extends Port<Hr> implements IData {
         else {
         }
     }
-    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
-        if ( satisfied() ) send(new IData.ReplyNewEmployee(p_Username, p_Password));
+    public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
+        if ( satisfied() ) send(new IData.SendLeaveSpecification(p_Name, p_MaximumDays, p_MinimumDays, p_Size));
         else {
         }
     }
-    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
-        if ( satisfied() ) send(new IData.Reply(p_msg, p_state));
+    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
+        if ( satisfied() ) send(new IData.ReplyNewEmployee(p_Username, p_Password));
         else {
         }
     }
@@ -151,8 +151,8 @@ public class HrUI extends Port<Hr> implements IData {
             case IData.SIGNAL_NO_READEMPLOYEELIST:
                 ReadEmployeeList();
                 break;
-            case IData.SIGNAL_NO_DELETELEAVESPECIFICATION:
-                DeleteLeaveSpecification(StringUtil.deserialize(message.get(0)));
+            case IData.SIGNAL_NO_INITIALIZE:
+                Initialize();
                 break;
             case IData.SIGNAL_NO_READLEAVESPECIFICATION:
                 ReadLeaveSpecification();
@@ -163,8 +163,8 @@ public class HrUI extends Port<Hr> implements IData {
             case IData.SIGNAL_NO_CREATELEAVESPECIFICATION:
                 CreateLeaveSpecification(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
-            case IData.SIGNAL_NO_INITIALIZE:
-                Initialize();
+            case IData.SIGNAL_NO_DELETELEAVESPECIFICATION:
+                DeleteLeaveSpecification(StringUtil.deserialize(message.get(0)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );
