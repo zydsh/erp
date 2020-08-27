@@ -1243,6 +1243,10 @@ relate mgr to President across R23.''manages'';
 relate mgr to President across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
 
+//adding employees to president office
+select any emp from instances of Employee where selected.EmployeeID==1430000;
+relate emp to vpServices across R21.''working within'';
+
 //relate to VP
 relate vpServices to President across R22.''is divided into'';
 LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ President.Name);	
