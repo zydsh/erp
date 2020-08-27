@@ -97,7 +97,7 @@ public class Hr extends Component<Hr> {
         R102_ApproveLeave_notifies_Employee_extent = new RelationshipSet();
         R11_Leave_consumed_by_Employee_extent = new RelationshipSet();
         R12_Grade_is_part_of_Scale_extent = new RelationshipSet();
-        R14_Grade_succeed_Grade_extent = new RelationshipSet();
+        R14_Grade_follows_Grade_extent = new RelationshipSet();
         R15_Leave_is_specified_by_a_LeaveSpecification_extent = new RelationshipSet();
         R16_Bonus_is_specified_by_BonusSpecification_extent = new RelationshipSet();
         R17_JobRecord_proceeded_by_JobRecord_extent = new RelationshipSet();
@@ -112,7 +112,7 @@ public class Hr extends Component<Hr> {
         R3_PayslipItem_records_an_earning_or_deduction_to_Employee_extent = new RelationshipSet();
         R4_Bonus_is_given_to_an_Employee_extent = new RelationshipSet();
         R5_Leave_is_currently_taken_by_Employee_extent = new RelationshipSet();
-        R6_Employee_currently_occupies_Job_extent = new RelationshipSet();
+        R6_Job_is_assigned_to_Employee_extent = new RelationshipSet();
         R7_Employee_is_planning_to_take__Leave_extent = new RelationshipSet();
         R9_Job_assigned_Grade_extent = new RelationshipSet();
         LOG = null;
@@ -152,6 +152,18 @@ public class Hr extends Component<Hr> {
         mgr = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == 1420000);
         context().relate_R21_Employee_working_within_Department( mgr, departmentHR );
         context().Authenticate().AddToGroup( mgr.getEmployeeID(), "HR" );
+        Department departmentFin = DepartmentImpl.create( context() );
+        departmentFin.setName("Finance Resources");
+        departmentFin.setMission("Manages finance ");
+        context().LOG().LogInfo( "Department: Created " + departmentFin.getName() );
+        mgr = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == 1427777);
+        context().relate_R23_Department_is_managed_by_Employee( departmentFin, mgr );
+        context().relate_R21_Employee_working_within_Department( mgr, departmentFin );
+        context().Authenticate().AddToGroup( mgr.getEmployeeID(), "Managers" );
+        mgr = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == 1426666);
+        context().relate_R21_Employee_working_within_Department( mgr, departmentHR );
+        mgr = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == 1425555);
+        context().relate_R21_Employee_working_within_Department( mgr, departmentHR );
         Department vpServices = DepartmentImpl.create( context() );
         vpServices.setName("Vice President for Services");
         vpServices.setMission("Manage organization supporting services");
@@ -340,7 +352,7 @@ public class Hr extends Component<Hr> {
         grade2.setBaseSalary(3430);
         grade2.setAllowance(165);
         context().relate_R12_Grade_is_part_of_Scale( grade2, scale );
-        context().relate_R14_Grade_succeed_Grade( grade, grade2 );
+        context().relate_R14_Grade_follows_Grade( grade2, grade );
         context().LOG().LogInfo( ( "Grade: Added " + grade2.getName() ) + " successfully." );
         Grade grade3 = GradeImpl.create( context() );
         grade3.setName("3");
@@ -348,7 +360,7 @@ public class Hr extends Component<Hr> {
         grade3.setBaseSalary(3945);
         grade3.setAllowance(190);
         context().relate_R12_Grade_is_part_of_Scale( grade3, scale );
-        context().relate_R14_Grade_succeed_Grade( grade2, grade3 );
+        context().relate_R14_Grade_follows_Grade( grade3, grade2 );
         context().LOG().LogInfo( ( "Grade: Added " + grade3.getName() ) + " successfully." );
         Grade grade4 = GradeImpl.create( context() );
         grade4.setName("4");
@@ -356,7 +368,7 @@ public class Hr extends Component<Hr> {
         grade4.setBaseSalary(4530);
         grade4.setAllowance(230);
         context().relate_R12_Grade_is_part_of_Scale( grade4, scale );
-        context().relate_R14_Grade_succeed_Grade( grade3, grade4 );
+        context().relate_R14_Grade_follows_Grade( grade4, grade3 );
         context().LOG().LogInfo( ( "Grade: Added " + grade4.getName() ) + " successfully." );
         Grade grade5 = GradeImpl.create( context() );
         grade5.setName("5");
@@ -364,7 +376,7 @@ public class Hr extends Component<Hr> {
         grade5.setBaseSalary(5240);
         grade5.setAllowance(265);
         context().relate_R12_Grade_is_part_of_Scale( grade5, scale );
-        context().relate_R14_Grade_succeed_Grade( grade4, grade5 );
+        context().relate_R14_Grade_follows_Grade( grade5, grade4 );
         context().LOG().LogInfo( ( "Grade: Added " + grade5.getName() ) + " successfully." );
         Grade grade6 = GradeImpl.create( context() );
         grade6.setName("6");
@@ -372,7 +384,7 @@ public class Hr extends Component<Hr> {
         grade6.setBaseSalary(6065);
         grade6.setAllowance(305);
         context().relate_R12_Grade_is_part_of_Scale( grade6, scale );
-        context().relate_R14_Grade_succeed_Grade( grade5, grade6 );
+        context().relate_R14_Grade_follows_Grade( grade6, grade5 );
         context().LOG().LogInfo( ( "Grade: Added " + grade6.getName() ) + " successfully." );
         Grade grade7 = GradeImpl.create( context() );
         grade7.setName("7");
@@ -380,7 +392,7 @@ public class Hr extends Component<Hr> {
         grade7.setBaseSalary(7010);
         grade7.setAllowance(365);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade6, grade7 );
+        context().relate_R14_Grade_follows_Grade( grade7, grade6 );
         context().LOG().LogInfo( ( "Grade: Added " + grade7.getName() ) + " successfully." );
         Grade grade8 = GradeImpl.create( context() );
         grade8.setName("8");
@@ -388,7 +400,7 @@ public class Hr extends Component<Hr> {
         grade8.setBaseSalary(8010);
         grade8.setAllowance(415);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade7, grade8 );
+        context().relate_R14_Grade_follows_Grade( grade8, grade7 );
         context().LOG().LogInfo( ( "Grade: Added " + grade8.getName() ) + " successfully." );
         Grade grade9 = GradeImpl.create( context() );
         grade9.setName("9");
@@ -396,7 +408,7 @@ public class Hr extends Component<Hr> {
         grade9.setBaseSalary(9275);
         grade9.setAllowance(470);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade8, grade9 );
+        context().relate_R14_Grade_follows_Grade( grade9, grade8 );
         context().LOG().LogInfo( ( "Grade: Added " + grade9.getName() ) + " successfully." );
         Grade grade10 = GradeImpl.create( context() );
         grade10.setName("10");
@@ -404,7 +416,7 @@ public class Hr extends Component<Hr> {
         grade10.setBaseSalary(10275);
         grade10.setAllowance(510);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade9, grade10 );
+        context().relate_R14_Grade_follows_Grade( grade10, grade9 );
         context().LOG().LogInfo( ( "Grade: Added " + grade10.getName() ) + " successfully." );
         Grade grade11 = GradeImpl.create( context() );
         grade11.setName("11");
@@ -412,7 +424,7 @@ public class Hr extends Component<Hr> {
         grade11.setBaseSalary(11815);
         grade11.setAllowance(530);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade10, grade11 );
+        context().relate_R14_Grade_follows_Grade( grade11, grade10 );
         context().LOG().LogInfo( ( "Grade: Added " + grade11.getName() ) + " successfully." );
         Grade grade12 = GradeImpl.create( context() );
         grade12.setName("12");
@@ -420,7 +432,7 @@ public class Hr extends Component<Hr> {
         grade12.setBaseSalary(13435);
         grade12.setAllowance(570);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade11, grade12 );
+        context().relate_R14_Grade_follows_Grade( grade12, grade11 );
         context().LOG().LogInfo( ( "Grade: Added " + grade12.getName() ) + " successfully." );
         Grade grade13 = GradeImpl.create( context() );
         grade13.setName("13");
@@ -428,7 +440,7 @@ public class Hr extends Component<Hr> {
         grade13.setBaseSalary(15180);
         grade13.setAllowance(605);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade12, grade13 );
+        context().relate_R14_Grade_follows_Grade( grade13, grade12 );
         context().LOG().LogInfo( ( "Grade: Added " + grade13.getName() ) + " successfully." );
         Grade grade14 = GradeImpl.create( context() );
         grade14.setName("14");
@@ -436,7 +448,7 @@ public class Hr extends Component<Hr> {
         grade14.setBaseSalary(17015);
         grade14.setAllowance(700);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade13, grade14 );
+        context().relate_R14_Grade_follows_Grade( grade14, grade13 );
         context().LOG().LogInfo( ( "Grade: Added " + grade14.getName() ) + " successfully." );
         Grade grade15 = GradeImpl.create( context() );
         grade15.setName("15");
@@ -444,7 +456,7 @@ public class Hr extends Component<Hr> {
         grade15.setBaseSalary(20855);
         grade15.setAllowance(865);
         context().relate_R12_Grade_is_part_of_Scale( grade, scale );
-        context().relate_R14_Grade_succeed_Grade( grade14, grade15 );
+        context().relate_R14_Grade_follows_Grade( grade15, grade14 );
         context().LOG().LogInfo( ( "Grade: Added " + grade15.getName() ) + " successfully." );
         Job job = JobImpl.create( context() );
         job.setJob_ID(1);
@@ -795,23 +807,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R14_Grade_succeed_Grade( Grade form, Grade part ) throws XtumlException {
+    public void relate_R14_Grade_follows_Grade( Grade form, Grade part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R14_Grade_succeed_Grade_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR14_follows_Grade(form);
-            form.setR14_succeed_Grade(part);
+        if ( R14_Grade_follows_Grade_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR14_succeed_Grade(form);
+            form.setR14_follows_Grade(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R14_Grade_succeed_Grade( Grade form, Grade part ) throws XtumlException {
+    public void unrelate_R14_Grade_follows_Grade( Grade form, Grade part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R14_Grade_succeed_Grade_extent.remove( R14_Grade_succeed_Grade_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR14_follows_Grade(GradeImpl.EMPTY_GRADE);
-            form.setR14_succeed_Grade(GradeImpl.EMPTY_GRADE);
+        if ( R14_Grade_follows_Grade_extent.remove( R14_Grade_follows_Grade_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR14_succeed_Grade(GradeImpl.EMPTY_GRADE);
+            form.setR14_follows_Grade(GradeImpl.EMPTY_GRADE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -1095,23 +1107,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R6_Employee_currently_occupies_Job( Employee form, Job part ) throws XtumlException {
+    public void relate_R6_Job_is_assigned_to_Employee( Job form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R6_Employee_currently_occupies_Job_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR6_is_assigned_to_Employee(form);
-            form.setR6_currently_occupies_Job(part);
+        if ( R6_Job_is_assigned_to_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR6_currently_occupies_Job(form);
+            form.setR6_is_assigned_to_Employee(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R6_Employee_currently_occupies_Job( Employee form, Job part ) throws XtumlException {
+    public void unrelate_R6_Job_is_assigned_to_Employee( Job form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R6_Employee_currently_occupies_Job_extent.remove( R6_Employee_currently_occupies_Job_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR6_is_assigned_to_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
-            form.setR6_currently_occupies_Job(JobImpl.EMPTY_JOB);
+        if ( R6_Job_is_assigned_to_Employee_extent.remove( R6_Job_is_assigned_to_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR6_currently_occupies_Job(JobImpl.EMPTY_JOB);
+            form.setR6_is_assigned_to_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -1221,9 +1233,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R12_Grade_is_part_of_Scales() throws XtumlException {
         return R12_Grade_is_part_of_Scale_extent;
     }
-    private IRelationshipSet R14_Grade_succeed_Grade_extent;
-    public IRelationshipSet R14_Grade_succeed_Grades() throws XtumlException {
-        return R14_Grade_succeed_Grade_extent;
+    private IRelationshipSet R14_Grade_follows_Grade_extent;
+    public IRelationshipSet R14_Grade_follows_Grades() throws XtumlException {
+        return R14_Grade_follows_Grade_extent;
     }
     private IRelationshipSet R15_Leave_is_specified_by_a_LeaveSpecification_extent;
     public IRelationshipSet R15_Leave_is_specified_by_a_LeaveSpecifications() throws XtumlException {
@@ -1281,9 +1293,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R5_Leave_is_currently_taken_by_Employees() throws XtumlException {
         return R5_Leave_is_currently_taken_by_Employee_extent;
     }
-    private IRelationshipSet R6_Employee_currently_occupies_Job_extent;
-    public IRelationshipSet R6_Employee_currently_occupies_Jobs() throws XtumlException {
-        return R6_Employee_currently_occupies_Job_extent;
+    private IRelationshipSet R6_Job_is_assigned_to_Employee_extent;
+    public IRelationshipSet R6_Job_is_assigned_to_Employees() throws XtumlException {
+        return R6_Job_is_assigned_to_Employee_extent;
     }
     private IRelationshipSet R7_Employee_is_planning_to_take__Leave_extent;
     public IRelationshipSet R7_Employee_is_planning_to_take__Leaves() throws XtumlException {

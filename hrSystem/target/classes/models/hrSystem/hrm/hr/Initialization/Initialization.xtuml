@@ -1198,7 +1198,7 @@ select any mgr from instances of Employee where selected.EmployeeID==1422222;
 relate mgr to departmentHR across R23.''manages'';
 relate mgr to departmentHR across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" ); 
 
 
 //add employees to HR
@@ -1210,15 +1210,41 @@ select any mgr from instances of Employee where selected.EmployeeID==1420000;
 relate mgr to departmentHR across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
 
+//create Finance department
+create object instance departmentFin of Department;
+departmentFin.Name = "Finance Resources";
+departmentFin.Mission = "Manages finance ";
+LOG::LogInfo(message:"Department: Created "+ departmentFin.Name );	
+
+//add manager to Finance
+select any mgr from instances of Employee where selected.EmployeeID==1427777;
+relate mgr to departmentFin across R23.''manages'';
+relate mgr to departmentFin across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
+
+//add employees to Finance
+select any mgr from instances of Employee where selected.EmployeeID==1426666;
+relate mgr to departmentHR across R21.''working within'';
+//Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+select any mgr from instances of Employee where selected.EmployeeID==1425555;
+relate mgr to departmentHR across R21.''working within'';
+//Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+
+// create VP office
 create object instance vpServices of Department;
 vpServices.Name = "Vice President for Services";
 vpServices.Mission = "Manage organization supporting services";
 LOG::LogInfo(message:"Department: Created "+ vpServices.Name );	
 
+//add manager to VP
 select any mgr from instances of Employee where selected.EmployeeID==1424444;
 relate mgr to vpServices across R23.''manages'';
 relate mgr to vpServices across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
+
+
 
 //add employees to VP
 select any emp from instances of Employee where selected.EmployeeID==1428888;
