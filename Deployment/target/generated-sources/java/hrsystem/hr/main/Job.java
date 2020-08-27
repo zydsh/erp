@@ -24,8 +24,8 @@ public interface Job extends IModelInstance<Job,Hr> {
     public void setStep( int m_Step ) throws XtumlException;
     public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException;
     public double getPensionDeduction() throws XtumlException;
-    public String getDescription() throws XtumlException;
     public void setDescription( String m_Description ) throws XtumlException;
+    public String getDescription() throws XtumlException;
     public int getPromotionDate() throws XtumlException;
     public void setPromotionDate( int m_PromotionDate ) throws XtumlException;
     public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException;

@@ -1193,10 +1193,32 @@ departmentHR.Name = "Human Resources";
 departmentHR.Mission = "Manages employees functions";
 LOG::LogInfo(message:"Department: Created "+ departmentHR.Name );	
 
+//add manager
+select any mgr from instances of Employee where selected.EmployeeID==1422222;
+relate mgr to departmentHR across R23.''manages'';
+relate mgr to departmentHR across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+
+//add employees to HR
+select any mgr from instances of Employee where selected.EmployeeID==1421111;
+relate mgr to departmentHR across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+select any mgr from instances of Employee where selected.EmployeeID==1420000;
+relate mgr to departmentHR across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
 create object instance vpServices of Department;
 vpServices.Name = "Vice President for Services";
 vpServices.Mission = "Manage organization supporting services";
 LOG::LogInfo(message:"Department: Created "+ vpServices.Name );	
+
+select any mgr from instances of Employee where selected.EmployeeID==1424444;
+relate mgr to vpServices across R23.''manages'';
+relate mgr to vpServices across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
 
 //create the President office
 create object instance President of Department;
@@ -1205,8 +1227,8 @@ President.Mission = "Manage all organization activities";
 LOG::LogInfo(message:"Departments: created: "+ President.Name );	
 
 select any mgr from instances of Employee where selected.EmployeeID==1423333;
-relate mgr to President across R23;
-relate mgr to President across R21;
+relate mgr to President across R23.''manages'';
+relate mgr to President across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",

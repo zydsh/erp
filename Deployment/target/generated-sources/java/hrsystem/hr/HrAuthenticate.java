@@ -27,23 +27,23 @@ public class HrAuthenticate extends Port<Hr> implements IAuthentication {
 
 
     // outbound messages
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.AddToGroup(p_EmployeeID, p_Group));
-        else {
-        }
-    }
     public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
         if ( satisfied() ) send(new IAuthentication.GetUsernamePassword(p_EmployeeID));
         else {
         }
     }
-    public void Initialize() throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.Initialize());
+    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.CreateNewAccount(p_First_Name, p_Last_Name, p_EmployeeID));
         else {
         }
     }
-    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.CreateNewAccount(p_First_Name, p_Last_Name, p_EmployeeID));
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.AddToGroup(p_EmployeeID, p_Group));
+        else {
+        }
+    }
+    public void Initialize() throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.Initialize());
         else {
         }
     }

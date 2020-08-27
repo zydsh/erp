@@ -28,12 +28,12 @@ public class GradeSetImpl extends InstanceSet<GradeSet,Grade> implements GradeSe
 
     // attributes
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Grade grade : this ) grade.setName( m_Name );
-    }
-    @Override
     public void setNumberOfSteps( int m_NumberOfSteps ) throws XtumlException {
         for ( Grade grade : this ) grade.setNumberOfSteps( m_NumberOfSteps );
+    }
+    @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Grade grade : this ) grade.setName( m_Name );
     }
     @Override
     public void setBaseSalary( double m_BaseSalary ) throws XtumlException {

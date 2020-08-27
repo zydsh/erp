@@ -43,27 +43,27 @@ public class DeploymentApplication implements IApplication {
                 executors[i] = new ApplicationExecutor( "DeploymentApplicationExecutor" + i, args );
             }
         }
+        components[1] = new UI(this, executors[0], 1);
         components[2] = new Hr(this, executors[0], 2);
         components[0] = new Auth(this, executors[0], 0);
-        components[1] = new UI(this, executors[0], 1);
-        ((Hr)components[2]).Authenticate().satisfy(((Auth)components[0]).HR());
-        ((Auth)components[0]).HR().satisfy(((Hr)components[2]).Authenticate());
         ((UI)components[1]).App().satisfy(((Hr)components[2]).UI());
         ((Hr)components[2]).UI().satisfy(((UI)components[1]).App());
         ((UI)components[1]).AppOps().satisfy(((Hr)components[2]).UI_Ops());
         ((Hr)components[2]).UI_Ops().satisfy(((UI)components[1]).AppOps());
         ((UI)components[1]).Authenticate().satisfy(((Auth)components[0]).UI());
         ((Auth)components[0]).UI().satisfy(((UI)components[1]).Authenticate());
+        ((Hr)components[2]).Authenticate().satisfy(((Auth)components[0]).HR());
+        ((Auth)components[0]).HR().satisfy(((Hr)components[2]).Authenticate());
     }
 
+    public UI UI() {
+        return (UI)components[1];
+    }
     public Hr Hr() {
         return (Hr)components[2];
     }
     public Auth Auth() {
         return (Auth)components[0];
-    }
-    public UI UI() {
-        return (UI)components[1];
     }
 
     @Override

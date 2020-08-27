@@ -168,11 +168,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private String m_Description;
     @Override
-    public String getDescription() throws XtumlException {
-        checkLiving();
-        return m_Description;
-    }
-    @Override
     public void setDescription(String m_Description) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Description, this.m_Description)) {
@@ -180,6 +175,11 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             this.m_Description = m_Description;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Description", oldValue, this.m_Description));
         }
+    }
+    @Override
+    public String getDescription() throws XtumlException {
+        checkLiving();
+        return m_Description;
     }
     private int m_PromotionDate;
     @Override
@@ -340,11 +340,11 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public double getPensionDeduction() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getDescription() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setDescription( String m_Description ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getDescription() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getPromotionDate() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
