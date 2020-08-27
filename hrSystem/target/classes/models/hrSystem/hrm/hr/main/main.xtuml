@@ -2667,7 +2667,7 @@ INSERT INTO GD_GE
 	"97e568c6-982d-4fbc-8b10-47b15c62073d",
 	24,
 	0,
-	'hrSystem::hrm::hr::main::R11');
+	'hrSystem::hrm::hr::main::R2');
 INSERT INTO GD_CON
 	VALUES ("3dac4eea-b86d-4db4-8986-9b96edb7b1e2",
 	"00000000-0000-0000-0000-000000000000");
@@ -3827,7 +3827,7 @@ INSERT INTO R_SIMP
 	VALUES ("97e568c6-982d-4fbc-8b10-47b15c62073d");
 INSERT INTO R_REL
 	VALUES ("97e568c6-982d-4fbc-8b10-47b15c62073d",
-	11,
+	2,
 	'Established when a leave ends, 
 and an employee returns to work. 
 Stored for later reference. ',

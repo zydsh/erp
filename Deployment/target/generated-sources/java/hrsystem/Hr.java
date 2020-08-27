@@ -94,9 +94,8 @@ public class Hr extends Component<Hr> {
         PayslipItem_extent = new PayslipItemSetImpl();
         Scale_extent = new ScaleSetImpl();
         R102_ApproveLeave_notifies_Employee_extent = new RelationshipSet();
-        R11_Leave_consumed_by_Employee_extent = new RelationshipSet();
         R12_Grade_is_part_of_Scale_extent = new RelationshipSet();
-        R14_Grade_follows_Grade_extent = new RelationshipSet();
+        R14_Grade_succeed_Grade_extent = new RelationshipSet();
         R15_Leave_is_specified_by_a_LeaveSpecification_extent = new RelationshipSet();
         R16_Bonus_is_specified_by_BonusSpecification_extent = new RelationshipSet();
         R17_JobRecord_preceded_by_JobRecord_extent = new RelationshipSet();
@@ -104,14 +103,15 @@ public class Hr extends Component<Hr> {
         R19_Bonus_given_in_the_past_to_an_Employee_extent = new RelationshipSet();
         R1_JobRecord_occupied_Job_extent = new RelationshipSet();
         R1_JobRecord_was_assigned_to_Employee_extent = new RelationshipSet();
-        R20_Job_to_be_assigned_to_Employee_extent = new RelationshipSet();
+        R20_Employee_to_be_promoted_to_Job_extent = new RelationshipSet();
         R21_Employee_working_within_Department_extent = new RelationshipSet();
         R22_Department_is_part_of_Department_extent = new RelationshipSet();
         R23_Department_is_managed_by_Employee_extent = new RelationshipSet();
+        R2_Leave_consumed_by_Employee_extent = new RelationshipSet();
         R3_PayslipItem_records_an_earning_or_deduction_to_Employee_extent = new RelationshipSet();
         R4_Bonus_is_given_to_an_Employee_extent = new RelationshipSet();
         R5_Leave_is_currently_taken_by_Employee_extent = new RelationshipSet();
-        R6_Employee_currently_occupies_Job_extent = new RelationshipSet();
+        R6_Job_is_assigned_to_Employee_extent = new RelationshipSet();
         R7_Leave_to_be_taken_by_Employee_extent = new RelationshipSet();
         R9_Job_assigned_Grade_extent = new RelationshipSet();
         TIM = null;
@@ -311,26 +311,6 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R11_Leave_consumed_by_Employee( Leave form, Employee part ) throws XtumlException {
-        if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
-        if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
-        // TODO cardinality check
-        if ( R11_Leave_consumed_by_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR11_consumed_Leave(form);
-            form.setR11_consumed_by_Employee(part);
-        }
-        else throw new ModelIntegrityException( "Instances could not be related." );
-    }
-
-    public void unrelate_R11_Leave_consumed_by_Employee( Leave form, Employee part ) throws XtumlException {
-        if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
-        if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R11_Leave_consumed_by_Employee_extent.remove( R11_Leave_consumed_by_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR11_consumed_Leave(form);
-            form.setR11_consumed_by_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
-        }
-        else throw new ModelIntegrityException( "Instances could not be unrelated." );
-    }
     public void relate_R12_Grade_is_part_of_Scale( Grade form, Scale part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
@@ -351,23 +331,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R14_Grade_follows_Grade( Grade form, Grade part ) throws XtumlException {
+    public void relate_R14_Grade_succeed_Grade( Grade form, Grade part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R14_Grade_follows_Grade_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR14_succeed_Grade(form);
-            form.setR14_follows_Grade(part);
+        if ( R14_Grade_succeed_Grade_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR14_follows_Grade(form);
+            form.setR14_succeed_Grade(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R14_Grade_follows_Grade( Grade form, Grade part ) throws XtumlException {
+    public void unrelate_R14_Grade_succeed_Grade( Grade form, Grade part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R14_Grade_follows_Grade_extent.remove( R14_Grade_follows_Grade_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR14_succeed_Grade(GradeImpl.EMPTY_GRADE);
-            form.setR14_follows_Grade(GradeImpl.EMPTY_GRADE);
+        if ( R14_Grade_succeed_Grade_extent.remove( R14_Grade_succeed_Grade_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR14_follows_Grade(GradeImpl.EMPTY_GRADE);
+            form.setR14_succeed_Grade(GradeImpl.EMPTY_GRADE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -511,23 +491,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R20_Job_to_be_assigned_to_Employee( Job form, Employee part ) throws XtumlException {
+    public void relate_R20_Employee_to_be_promoted_to_Job( Employee form, Job part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R20_Job_to_be_assigned_to_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR20_to_be_promoted_to_Job(form);
-            form.setR20_to_be_assigned_to_Employee(part);
+        if ( R20_Employee_to_be_promoted_to_Job_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR20_to_be_assigned_to_Employee(form);
+            form.setR20_to_be_promoted_to_Job(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R20_Job_to_be_assigned_to_Employee( Job form, Employee part ) throws XtumlException {
+    public void unrelate_R20_Employee_to_be_promoted_to_Job( Employee form, Job part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R20_Job_to_be_assigned_to_Employee_extent.remove( R20_Job_to_be_assigned_to_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR20_to_be_promoted_to_Job(JobImpl.EMPTY_JOB);
-            form.setR20_to_be_assigned_to_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
+        if ( R20_Employee_to_be_promoted_to_Job_extent.remove( R20_Employee_to_be_promoted_to_Job_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR20_to_be_assigned_to_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
+            form.setR20_to_be_promoted_to_Job(JobImpl.EMPTY_JOB);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -591,6 +571,26 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
+    public void relate_R2_Leave_consumed_by_Employee( Leave form, Employee part ) throws XtumlException {
+        if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
+        if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
+        // TODO cardinality check
+        if ( R2_Leave_consumed_by_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR2_consumed_Leave(form);
+            form.setR2_consumed_by_Employee(part);
+        }
+        else throw new ModelIntegrityException( "Instances could not be related." );
+    }
+
+    public void unrelate_R2_Leave_consumed_by_Employee( Leave form, Employee part ) throws XtumlException {
+        if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
+        if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
+        if ( R2_Leave_consumed_by_Employee_extent.remove( R2_Leave_consumed_by_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR2_consumed_Leave(form);
+            form.setR2_consumed_by_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
+        }
+        else throw new ModelIntegrityException( "Instances could not be unrelated." );
+    }
     public void relate_R3_PayslipItem_records_an_earning_or_deduction_to_Employee( PayslipItem form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
@@ -651,23 +651,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R6_Employee_currently_occupies_Job( Employee form, Job part ) throws XtumlException {
+    public void relate_R6_Job_is_assigned_to_Employee( Job form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R6_Employee_currently_occupies_Job_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR6_is_assigned_to_Employee(form);
-            form.setR6_currently_occupies_Job(part);
+        if ( R6_Job_is_assigned_to_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR6_currently_occupies_Job(form);
+            form.setR6_is_assigned_to_Employee(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R6_Employee_currently_occupies_Job( Employee form, Job part ) throws XtumlException {
+    public void unrelate_R6_Job_is_assigned_to_Employee( Job form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R6_Employee_currently_occupies_Job_extent.remove( R6_Employee_currently_occupies_Job_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR6_is_assigned_to_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
-            form.setR6_currently_occupies_Job(JobImpl.EMPTY_JOB);
+        if ( R6_Job_is_assigned_to_Employee_extent.remove( R6_Job_is_assigned_to_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR6_currently_occupies_Job(JobImpl.EMPTY_JOB);
+            form.setR6_is_assigned_to_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -769,17 +769,13 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R102_ApproveLeave_notifies_Employees() throws XtumlException {
         return R102_ApproveLeave_notifies_Employee_extent;
     }
-    private IRelationshipSet R11_Leave_consumed_by_Employee_extent;
-    public IRelationshipSet R11_Leave_consumed_by_Employees() throws XtumlException {
-        return R11_Leave_consumed_by_Employee_extent;
-    }
     private IRelationshipSet R12_Grade_is_part_of_Scale_extent;
     public IRelationshipSet R12_Grade_is_part_of_Scales() throws XtumlException {
         return R12_Grade_is_part_of_Scale_extent;
     }
-    private IRelationshipSet R14_Grade_follows_Grade_extent;
-    public IRelationshipSet R14_Grade_follows_Grades() throws XtumlException {
-        return R14_Grade_follows_Grade_extent;
+    private IRelationshipSet R14_Grade_succeed_Grade_extent;
+    public IRelationshipSet R14_Grade_succeed_Grades() throws XtumlException {
+        return R14_Grade_succeed_Grade_extent;
     }
     private IRelationshipSet R15_Leave_is_specified_by_a_LeaveSpecification_extent;
     public IRelationshipSet R15_Leave_is_specified_by_a_LeaveSpecifications() throws XtumlException {
@@ -809,9 +805,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R1_JobRecord_was_assigned_to_Employees() throws XtumlException {
         return R1_JobRecord_was_assigned_to_Employee_extent;
     }
-    private IRelationshipSet R20_Job_to_be_assigned_to_Employee_extent;
-    public IRelationshipSet R20_Job_to_be_assigned_to_Employees() throws XtumlException {
-        return R20_Job_to_be_assigned_to_Employee_extent;
+    private IRelationshipSet R20_Employee_to_be_promoted_to_Job_extent;
+    public IRelationshipSet R20_Employee_to_be_promoted_to_Jobs() throws XtumlException {
+        return R20_Employee_to_be_promoted_to_Job_extent;
     }
     private IRelationshipSet R21_Employee_working_within_Department_extent;
     public IRelationshipSet R21_Employee_working_within_Departments() throws XtumlException {
@@ -825,6 +821,10 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R23_Department_is_managed_by_Employees() throws XtumlException {
         return R23_Department_is_managed_by_Employee_extent;
     }
+    private IRelationshipSet R2_Leave_consumed_by_Employee_extent;
+    public IRelationshipSet R2_Leave_consumed_by_Employees() throws XtumlException {
+        return R2_Leave_consumed_by_Employee_extent;
+    }
     private IRelationshipSet R3_PayslipItem_records_an_earning_or_deduction_to_Employee_extent;
     public IRelationshipSet R3_PayslipItem_records_an_earning_or_deduction_to_Employees() throws XtumlException {
         return R3_PayslipItem_records_an_earning_or_deduction_to_Employee_extent;
@@ -837,9 +837,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R5_Leave_is_currently_taken_by_Employees() throws XtumlException {
         return R5_Leave_is_currently_taken_by_Employee_extent;
     }
-    private IRelationshipSet R6_Employee_currently_occupies_Job_extent;
-    public IRelationshipSet R6_Employee_currently_occupies_Jobs() throws XtumlException {
-        return R6_Employee_currently_occupies_Job_extent;
+    private IRelationshipSet R6_Job_is_assigned_to_Employee_extent;
+    public IRelationshipSet R6_Job_is_assigned_to_Employees() throws XtumlException {
+        return R6_Job_is_assigned_to_Employee_extent;
     }
     private IRelationshipSet R7_Leave_to_be_taken_by_Employee_extent;
     public IRelationshipSet R7_Leave_to_be_taken_by_Employees() throws XtumlException {

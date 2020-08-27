@@ -69,11 +69,6 @@ public class LeaveSpecificationImpl extends ModelInstance<LeaveSpecification,Hr>
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
-    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -81,6 +76,11 @@ public class LeaveSpecificationImpl extends ModelInstance<LeaveSpecification,Hr>
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
+    }
+    @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
     }
     private int m_MaximumDays;
     @Override
@@ -184,11 +184,11 @@ public class LeaveSpecificationImpl extends ModelInstance<LeaveSpecification,Hr>
 class EmptyLeaveSpecification extends ModelInstance<LeaveSpecification,Hr> implements LeaveSpecification {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getMaximumDays() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

@@ -62,18 +62,18 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
               CANT_HAPPEN,
               (event) -> {Recruited_commenced_txn_to_Working_action();Working_entry_action();return Working;}
             },
-            { (event) -> {On_Leave_LeaveEnded_txn_to_Working_action();Working_entry_action();return Working;},
+            { CANT_HAPPEN,
               CANT_HAPPEN,
-              CANT_HAPPEN,
+              (event) -> {On_Leave_LeaveEnded_txn_to_Working_action();Working_entry_action();return Working;},
               CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN
             },
-            { CANT_HAPPEN,
+            { (event) -> {Working_LeaveStarted_txn_to_On_Leave_action();On_Leave_entry_action();return On_Leave;},
               CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN,
-              (event) -> {Working_LeaveStarted_txn_to_On_Leave_action();On_Leave_entry_action();return On_Leave;},
+              CANT_HAPPEN,
               CANT_HAPPEN
             }
         };
