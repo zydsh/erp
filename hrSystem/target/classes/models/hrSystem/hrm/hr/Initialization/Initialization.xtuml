@@ -55,590 +55,6 @@ INSERT INTO PE_PE
 	"00000000-0000-0000-0000-000000000000",
 	1);
 INSERT INTO S_SYNC
-	VALUES ("74d8d8bd-03f8-4313-b204-7ed7b4abb546",
-	"00000000-0000-0000-0000-000000000000",
-	'CreatePEIs',
-	'//assign employees to department
-
-select any emp from instances of Employee where selected.EmployeeID==1439999; 
-relate emp to departmentHR across R21;
-
-select any emp from instances of Employee where selected.EmployeeID==1429999; 
-relate emp to departmentHR across R21;
-
-select any emp from instances of Employee where selected.EmployeeID==1428888; 
-relate emp to departmentHR across R21;
-
-select any emp from instances of Employee where selected.EmployeeID==1427777; 
-relate emp to departmentHR across R21;
-
-select any emp from instances of Employee where selected.EmployeeID==1426666; 
-relate emp to departmentHR across R21;
-
-select any emp from instances of Employee where selected.EmployeeID==1425555; 
-relate emp to departmentHR across R21;
-
-select any emp from instances of Employee where selected.EmployeeID==1424444;
-relate emp to departmentHR across R21;
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1439999; 
-		emp.NationalID = 1041818180;
-		emp.FirstName = "Ahmad";
-		emp.MiddleName = "Ziyad";
-		emp.LastName = "Alshaikh";
-		emp.DateOfBirth = 20200318;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==16;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1429999; 
-		emp.NationalID = 1041717170;
-		emp.FirstName = "Sarah";
-		emp.MiddleName = "Abdullah";
-		emp.LastName = "Alameer";
-		emp.DateOfBirth = 19861034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Female";
-
-select any job from instances of Job where selected.Job_ID==15;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1428888; 
-		emp.NationalID = 1041616160;
-		emp.FirstName = "Shaleh";
-		emp.MiddleName = "Gaed";
-		emp.LastName = "Alotaibi";
-		emp.DateOfBirth = 19841034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==14;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1427777; 
-		emp.NationalID = 1041515153;
-		emp.FirstName = "Raed";
-		emp.MiddleName = "Saad";
-		emp.LastName = "Alshareef";
-		emp.DateOfBirth = 19831034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==13;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1426666; 
-		emp.NationalID = 1041414193;
-		emp.FirstName = "Riyadh";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Almutairi";
-		emp.DateOfBirth = 19821034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==12;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1425555; 
-		emp.NationalID = 1041313193;
-		emp.FirstName = "Saleh";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Alotaibi";
-		emp.DateOfBirth = 19811034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==11;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1424444;
-		emp.NationalID = 1041212193;
-		emp.FirstName = "Ahmed";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Almaleh";
-		emp.DateOfBirth = 19801034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==10;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1420000;
-		emp.NationalID = 1241445623;
-		emp.FirstName = "Majid";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Almadi";
-		emp.DateOfBirth = 19701034;
-		emp.Degree = "PhD";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==6;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1421111;
-		emp.NationalID = 1041005693;
-		emp.FirstName = "Saad";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Alsaad";
-		emp.DateOfBirth = 19601034;
-		emp.Degree = "Mcs";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==7;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1422222;
-		emp.NationalID = 1041000093;
-		emp.FirstName = "Khalid";
-		emp.MiddleName = "Abdulaziz";
-		emp.LastName = "Alrajeh";
-		emp.DateOfBirth = 19691034;
-		emp.Degree = "Mcs";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==8;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1424444;
-		emp.NationalID = 1041445693;
-		emp.FirstName = "Saad";
-		emp.MiddleName = "Khalid";
-		emp.LastName = "Alkhalid";
-		emp.DateOfBirth = 19781012;
-		emp.Degree = "PhD";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==1;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1425555;
-		emp.NationalID = 1021045693;
-		emp.FirstName = "Fahad";
-		emp.MiddleName = "Saud";
-		emp.LastName = "Alsalem";
-		emp.DateOfBirth = 19661012;
-		emp.Degree = "Bcs.";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==2;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1426666;
-		emp.NationalID = 1011045222;
-		emp.FirstName = "Saleh";
-		emp.MiddleName = "Ahmed";
-		emp.LastName = "AlSaleh";
-		emp.DateOfBirth = 19601012;
-		emp.Degree = "Bcs.";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==3;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1427777;
-		emp.NationalID = 1010045222;
-		emp.FirstName = "Fahad";
-		emp.MiddleName = "Khalid";
-		emp.LastName = "Alamar";
-		emp.DateOfBirth = 19621012;
-		emp.Degree = "Mcs.";
-		emp.Gender = "Male";
-
-select any job from instances of Job where selected.Job_ID==4;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1428888;
-		emp.NationalID = 1010045453;
-		emp.FirstName = "Norah";
-		emp.MiddleName = "Saud";
-		emp.LastName = "Alotaibi";
-		emp.DateOfBirth = 19901012;
-		emp.Degree = "Mcs.";
-		emp.Gender = "Female";
-
-select any job from instances of Job where selected.Job_ID==5;
-relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
-LOG::LogInfo(message:"Departments: creating departments .." );	
-
-//create Departments
-create object instance departmentHR of Department;
-departmentHR.Name = "Human Resources";
-departmentHR.Mission = "Manages employees functions";
-
-//assign head of department 
-select any mgr from instances of Employee where selected.EmployeeID==1420000;
-relate mgr to departmentHR across R23;
-relate mgr to departmentHR across R21;
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
-
-
-LOG::LogInfo(message:"Departments: created: "+ departmentHR.Name );	
-
-//create sub-departments 
-create object instance departmentLeave of Department;
-departmentLeave.Name = "Leave and Absence";
-departmentLeave.Mission = "Manages employee leave and absence functions";
-
-//assign head of department 
-select any mgr from instances of Employee where selected.EmployeeID==1421111;
-relate mgr to departmentLeave across R23;
-relate mgr to departmentHR across R21;
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
-
-
-LOG::LogInfo(message:"Departments: created: "+ departmentLeave.Name );	
-
-create object instance benifits of Department;
-benifits.Name = "Allowance and Benifits";
-benifits.Mission = "Manages employee benifits";
-
-//assign head of department to 1401080
-select any mgr from instances of Employee where selected.EmployeeID==1422222;
-relate mgr to benifits across R23;
-relate mgr to departmentHR across R21;
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
-
-
-LOG::LogInfo(message:"Departments: created: "+ benifits.Name );	
-
-//relate them to HR
-relate departmentLeave to departmentHR across R22.''is divided into'';
-relate benifits to departmentHR across R22.''is divided into'';
-
-LOG::LogInfo(message:"Departments: related: "+ departmentLeave.Name+", "+benifits.Name+" to "+ departmentHR.Name);	
-
-
-//create IT 1430834
-create object instance departmentIT of Department;
-departmentIT.Name = "Information Technology";
-departmentIT.Mission = "Manage computing services";
-
-//assign head of department to 
-select any mgr from instances of Employee where selected.EmployeeID==1428888;
-relate mgr to departmentIT across R23;
-relate mgr to departmentIT across R21;
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-
-
-LOG::LogInfo(message:"Departments: created: "+ departmentIT.Name );	
-
-//create Finance
-create object instance departmentFin of Department;
-departmentFin.Name = "Finance";
-departmentFin.Mission = "Manage budgets and payroll";
-LOG::LogInfo(message:"Departments: created: "+ departmentFin.Name );
-
-//assign manager employee 	
-select any mgr from instances of Employee where selected.EmployeeID==1424444;
-relate mgr to departmentFin across R23;
-relate mgr to departmentFin across R21;
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-
-//create sub-departments  
-create object instance departmentPay of Department;
-departmentPay.Name = "Payroll";
-departmentPay.Mission = "Manage payroll";
-LOG::LogInfo(message:"Departments: created: "+ departmentPay.Name );	
-
-//assign manager employee 1421111	
-select any mgr from instances of Employee where selected.EmployeeID==1425555;
-relate mgr to departmentPay across R23;
-relate mgr to departmentFin across R21;
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-
-
-create object instance departmentBud of Department;
-departmentBud.Name = "Budget";
-departmentBud.Mission = "Manage budget";
-LOG::LogInfo(message:"Departments: created: "+ departmentBud.Name );	
-
-//assign manager employee 1422222	
-select any mgr from instances of Employee where selected.EmployeeID==1426666;
-relate mgr to departmentBud across R23;
-relate mgr to departmentFin across R21;
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-
-//relate them to Finance
-relate departmentPay to departmentFin across R22.''is divided into'';
-relate departmentBud to departmentFin across R22.''is divided into'';
-LOG::LogInfo(message:"Departments: related: "+ departmentPay.Name+", "+departmentBud.Name+" to "+ departmentFin.Name);	
-
-//create VP
-create object instance vpServices of Department;
-vpServices.Name = "Vice President for Services";
-vpServices.Mission = "Manage organization supporting services";
-
-//assign manager employee 1420000	
-select any mgr from instances of Employee where selected.EmployeeID==1424444;
-relate mgr to vpServices across R23;
-relate mgr to departmentFin across R21;
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-
-
-LOG::LogInfo(message:"Departments: created: "+ vpServices.Name );	
-
-//relate VP to other departments: building organization structure
-relate departmentFin to vpServices across R22.''is divided into'';
-relate departmentIT to vpServices across R22.''is divided into''; //departmentHR
-relate departmentHR to vpServices across R22.''is divided into'';
-LOG::LogInfo(message:"Departments: related: "+ departmentHR.Name+", "+departmentFin.Name+", "+departmentIT.Name+" to "+ vpServices.Name);	
-',
-	'create object instance emp of Employee;
-		emp.EmployeeID = 1420000;
-		emp.NationalID = 1041000000;
-		emp.FirstName = "Khalid";
-		emp.MiddleName = "Abdulaziz";
-		emp.LastName = "Alrajeh";
-		emp.DateOfBirth = 19691034;
-		emp.Degree = "Mcs";
-		emp.Gender = "Male";
-
- 
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1421111;
-		emp.NationalID = 1041000001;
-		emp.FirstName = "Khalid";
-		emp.MiddleName = "Abdulaziz";
-		emp.LastName = "Alrajeh";
-		emp.DateOfBirth = 19691034;
-		emp.Degree = "Mcs";
-		emp.Gender = "Male";
-
- 
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1422222;
-		emp.NationalID = 1041000002;
-		emp.FirstName = "Khalid";
-		emp.MiddleName = "Abdulaziz";
-		emp.LastName = "Alrajeh";
-		emp.DateOfBirth = 19691034;
-		emp.Degree = "Mcs";
-		emp.Gender = "Male";
-
- 
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1423333;
-		emp.NationalID = 1041000003;
-		emp.FirstName = "Khalid";
-		emp.MiddleName = "Abdulaziz";
-		emp.LastName = "Alrajeh";
-		emp.DateOfBirth = 19691034;
-		emp.Degree = "Mcs";
-		emp.Gender = "Male";
-
- 
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1424444;
-		emp.NationalID = 1041000004;
-		emp.FirstName = "Saad";
-		emp.MiddleName = "Khalid";
-		emp.LastName = "Alkhalid";
-		emp.DateOfBirth = 19781012;
-		emp.Degree = "PhD";
-		emp.Gender = "Male";
-
- 
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1425555; 
-		emp.NationalID = 1041000005;
-		emp.FirstName = "Saleh";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Alotaibi";
-		emp.DateOfBirth = 19811034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1426666; 
-		emp.NationalID = 1041000006;
-		emp.FirstName = "Riyadh";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Almutairi";
-		emp.DateOfBirth = 19821034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-//select any job from instances of Job where selected.Job_ID==12;
-//relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1427777; 
-		emp.NationalID = 1041000007;
-		emp.FirstName = "Raed";
-		emp.MiddleName = "Saad";
-		emp.LastName = "Alshareef";
-		emp.DateOfBirth = 19831034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-//select any job from instances of Job where selected.Job_ID==13;
-//relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1428888; 
-		emp.NationalID = 1041000008;
-		emp.FirstName = "Shaleh";
-		emp.MiddleName = "Gaed";
-		emp.LastName = "Alotaibi";
-		emp.DateOfBirth = 19841034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-//select any job from instances of Job where selected.Job_ID==14;
-//relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1429999; 
-		emp.NationalID = 1041000009;
-		emp.FirstName = "Sarah";
-		emp.MiddleName = "Abdullah";
-		emp.LastName = "Alameer";
-		emp.DateOfBirth = 19861034;
-		emp.Degree = "Bsc";
-		emp.Gender = "Female";
-
-//select any job from instances of Job where selected.Job_ID==15;
-//relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
-create object instance emp of Employee;
-		emp.EmployeeID = 1430000; 
-		emp.NationalID = 1041000010;
-		emp.FirstName = "Ahmad";
-		emp.MiddleName = "Ziyad";
-		emp.LastName = "Alshaikh";
-		emp.DateOfBirth = 20200318;
-		emp.Degree = "Bsc";
-		emp.Gender = "Male";
-
-//select any job from instances of Job where selected.Job_ID==16;
-//relate emp to job across R6.''currently occupies'';
-
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	1,
-	'',
-	0);
-INSERT INTO PE_PE
-	VALUES ("74d8d8bd-03f8-4313-b204-7ed7b4abb546",
-	1,
-	"1d95e14a-3187-4f1b-a720-f30782ec2088",
-	"00000000-0000-0000-0000-000000000000",
-	1);
-INSERT INTO S_SYNC
 	VALUES ("dc625eb0-1976-423f-8dde-9777fa6852fe",
 	"00000000-0000-0000-0000-000000000000",
 	'CreatePEI_Scale',
@@ -1014,6 +430,9 @@ INSERT INTO S_SYNC
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
+select any job from instances of Job where selected.Job_ID==1;
+relate emp to job across R6.''currently occupies'';
+
  
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1028,6 +447,8 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
+select any job from instances of Job where selected.Job_ID==2;
+relate emp to job across R6.''currently occupies'';
  
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1042,7 +463,9 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
- 
+ select any job from instances of Job where selected.Job_ID==3;
+relate emp to job across R6.''currently occupies'';
+
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
 
@@ -1056,7 +479,9 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
- 
+ select any job from instances of Job where selected.Job_ID==4;
+relate emp to job across R6.''currently occupies'';
+
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
 
@@ -1072,7 +497,9 @@ create object instance emp of Employee;
 		emp.Degree = "PhD";
 		emp.Gender = "Male";
 
- 
+select any job from instances of Job where selected.Job_ID==5;
+relate emp to job across R6.''currently occupies'';
+
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1088,6 +515,9 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
+select any job from instances of Job where selected.Job_ID==6;
+relate emp to job across R6.''currently occupies'';
+
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
 
@@ -1101,8 +531,8 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-//select any job from instances of Job where selected.Job_ID==12;
-//relate emp to job across R6.''currently occupies'';
+select any job from instances of Job where selected.Job_ID==7;
+relate emp to job across R6.''currently occupies'';
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1117,8 +547,8 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-//select any job from instances of Job where selected.Job_ID==13;
-//relate emp to job across R6.''currently occupies'';
+select any job from instances of Job where selected.Job_ID==8;
+relate emp to job across R6.''currently occupies'';
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1133,8 +563,8 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-//select any job from instances of Job where selected.Job_ID==14;
-//relate emp to job across R6.''currently occupies'';
+select any job from instances of Job where selected.Job_ID==9;
+relate emp to job across R6.''currently occupies'';
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1149,8 +579,8 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Female";
 
-//select any job from instances of Job where selected.Job_ID==15;
-//relate emp to job across R6.''currently occupies'';
+select any job from instances of Job where selected.Job_ID==10;
+relate emp to job across R6.''currently occupies'';
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1159,15 +589,15 @@ LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" succe
 create object instance emp of Employee;
 		emp.EmployeeID = 1430000; 
 		emp.NationalID = 1041000010;
-		emp.FirstName = "Ahmad";
+		emp.FirstName = "Ahmad";  
 		emp.MiddleName = "Ziyad";
 		emp.LastName = "Alshaikh";
 		emp.DateOfBirth = 20200318;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-//select any job from instances of Job where selected.Job_ID==16;
-//relate emp to job across R6.''currently occupies'';
+select any job from instances of Job where selected.Job_ID==11;
+relate emp to job across R6.''currently occupies'';
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1197,8 +627,8 @@ LOG::LogInfo(message:"Department: Created "+ departmentHR.Name );
 select any mgr from instances of Employee where selected.EmployeeID==1422222;
 relate mgr to departmentHR across R23.''manages'';
 relate mgr to departmentHR across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" ); 
 
 
 //add employees to HR
@@ -1210,15 +640,41 @@ select any mgr from instances of Employee where selected.EmployeeID==1420000;
 relate mgr to departmentHR across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
 
+//create Finance department
+create object instance departmentFin of Department;
+departmentFin.Name = "Finance Resources";
+departmentFin.Mission = "Manages finance ";
+LOG::LogInfo(message:"Department: Created "+ departmentFin.Name );	
+
+//add manager to Finance
+select any mgr from instances of Employee where selected.EmployeeID==1427777;
+relate mgr to departmentFin across R23.''manages'';
+relate mgr to departmentFin across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
+
+//add employees to Finance
+select any mgr from instances of Employee where selected.EmployeeID==1426666;
+relate mgr to departmentHR across R21.''working within'';
+//Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+select any mgr from instances of Employee where selected.EmployeeID==1425555;
+relate mgr to departmentHR across R21.''working within''; 
+//Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+
+// create VP office
 create object instance vpServices of Department;
 vpServices.Name = "Vice President for Services";
 vpServices.Mission = "Manage organization supporting services";
 LOG::LogInfo(message:"Department: Created "+ vpServices.Name );	
 
+//add manager to VP
 select any mgr from instances of Employee where selected.EmployeeID==1424444;
 relate mgr to vpServices across R23.''manages'';
 relate mgr to vpServices across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
+
+
 
 //add employees to VP
 select any emp from instances of Employee where selected.EmployeeID==1428888;
@@ -1241,7 +697,11 @@ LOG::LogInfo(message:"Departments: created: "+ President.Name );
 select any mgr from instances of Employee where selected.EmployeeID==1423333;
 relate mgr to President across R23.''manages'';
 relate mgr to President across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
+
+//adding employees to president office
+select any emp from instances of Employee where selected.EmployeeID==1430000;
+relate emp to vpServices across R21.''working within'';
 
 //adding employees to president office
 select any emp from instances of Employee where selected.EmployeeID==1430000;

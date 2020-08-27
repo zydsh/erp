@@ -161,7 +161,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
         @Override
         public int getId() {
-            return 1;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -174,7 +174,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
         @Override
         public int getId() {
-            return 0;
+            return 1;
         }
         @Override
         public String getClassName() {

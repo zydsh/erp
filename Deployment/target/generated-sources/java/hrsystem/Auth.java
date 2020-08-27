@@ -47,11 +47,11 @@ public class Auth extends Component<Auth> {
         Account_extent = new AccountSetImpl();
         Group_extent = new GroupSetImpl();
         Permissions_extent = new PermissionsSetImpl();
-        R1_Group_has__Account_extent = new RelationshipSet();
+        R1_Account_a_member_of_Group_extent = new RelationshipSet();
         R2_Group_part_of_Group_extent = new RelationshipSet();
-        R3_Permissions_given_Group_extent = new RelationshipSet();
-        LOG = null;
+        R3_Group_has_Permissions_extent = new RelationshipSet();
         TIM = null;
+        LOG = null;
         classDirectory = new TreeMap<>();
         classDirectory.put("Account", AccountImpl.class);
         classDirectory.put("Group", GroupImpl.class);
@@ -104,23 +104,23 @@ public class Auth extends Component<Auth> {
 
 
     // relates and unrelates
-    public void relate_R1_Group_has__Account( Group form, Account part ) throws XtumlException {
+    public void relate_R1_Account_a_member_of_Group( Account form, Group part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R1_Group_has__Account_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR1_a_member_of_Group(form);
-            form.addR1_has__Account(part);
+        if ( R1_Account_a_member_of_Group_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR1_has__Account(form);
+            form.addR1_a_member_of_Group(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R1_Group_has__Account( Group form, Account part ) throws XtumlException {
+    public void unrelate_R1_Account_a_member_of_Group( Account form, Group part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R1_Group_has__Account_extent.remove( R1_Group_has__Account_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR1_a_member_of_Group(form);
-            form.removeR1_has__Account(part);
+        if ( R1_Account_a_member_of_Group_extent.remove( R1_Account_a_member_of_Group_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR1_has__Account(form);
+            form.removeR1_a_member_of_Group(part);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -144,23 +144,23 @@ public class Auth extends Component<Auth> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R3_Permissions_given_Group( Permissions form, Group part ) throws XtumlException {
+    public void relate_R3_Group_has_Permissions( Group form, Permissions part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R3_Permissions_given_Group_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR3_has_Permissions(form);
-            form.addR3_given_Group(part);
+        if ( R3_Group_has_Permissions_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR3_given_Group(form);
+            form.addR3_has_Permissions(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R3_Permissions_given_Group( Permissions form, Group part ) throws XtumlException {
+    public void unrelate_R3_Group_has_Permissions( Group form, Permissions part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R3_Permissions_given_Group_extent.remove( R3_Permissions_given_Group_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR3_has_Permissions(form);
-            form.removeR3_given_Group(part);
+        if ( R3_Group_has_Permissions_extent.remove( R3_Group_has_Permissions_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR3_given_Group(form);
+            form.removeR3_has_Permissions(part);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -182,17 +182,17 @@ public class Auth extends Component<Auth> {
 
 
     // relationship selections
-    private IRelationshipSet R1_Group_has__Account_extent;
-    public IRelationshipSet R1_Group_has__Accounts() throws XtumlException {
-        return R1_Group_has__Account_extent;
+    private IRelationshipSet R1_Account_a_member_of_Group_extent;
+    public IRelationshipSet R1_Account_a_member_of_Groups() throws XtumlException {
+        return R1_Account_a_member_of_Group_extent;
     }
     private IRelationshipSet R2_Group_part_of_Group_extent;
     public IRelationshipSet R2_Group_part_of_Groups() throws XtumlException {
         return R2_Group_part_of_Group_extent;
     }
-    private IRelationshipSet R3_Permissions_given_Group_extent;
-    public IRelationshipSet R3_Permissions_given_Groups() throws XtumlException {
-        return R3_Permissions_given_Group_extent;
+    private IRelationshipSet R3_Group_has_Permissions_extent;
+    public IRelationshipSet R3_Group_has_Permissionss() throws XtumlException {
+        return R3_Group_has_Permissions_extent;
     }
 
 
@@ -210,15 +210,15 @@ public class Auth extends Component<Auth> {
 
 
     // utilities
-    private LOG LOG;
-    public LOG LOG() {
-        if ( null == LOG ) LOG = new LOGImpl<>( this );
-        return LOG;
-    }
     private TIM TIM;
     public TIM TIM() {
         if ( null == TIM ) TIM = new TIMImpl<>( this );
         return TIM;
+    }
+    private LOG LOG;
+    public LOG LOG() {
+        if ( null == LOG ) LOG = new LOGImpl<>( this );
+        return LOG;
     }
 
 

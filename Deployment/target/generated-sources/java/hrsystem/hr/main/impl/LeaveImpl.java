@@ -159,7 +159,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 1;
+            return 3;
         }
         @Override
         public String getClassName() {
@@ -172,7 +172,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 3;
+            return 1;
         }
         @Override
         public String getClassName() {

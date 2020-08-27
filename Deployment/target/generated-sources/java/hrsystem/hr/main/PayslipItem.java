@@ -21,8 +21,8 @@ public interface PayslipItem extends IModelInstance<PayslipItem,Hr> {
     public double getAmount() throws XtumlException;
     public int getDate() throws XtumlException;
     public void setDate( int m_Date ) throws XtumlException;
-    public void setType( PayslipItemType m_Type ) throws XtumlException;
     public PayslipItemType getType() throws XtumlException;
+    public void setType( PayslipItemType m_Type ) throws XtumlException;
 
 
     // operations
