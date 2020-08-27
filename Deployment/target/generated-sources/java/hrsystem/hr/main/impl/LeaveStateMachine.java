@@ -46,7 +46,7 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
 
     private void EndLeave_entry_action() throws XtumlException {
         Employee employee = self().R5_is_currently_taken_by_Employee();
-        context().relate_R11_Leave_consumed_by_Employee( self(), employee );
+        context().relate_( employee, self() );
         context().unrelate_R5_Leave_is_currently_taken_by_Employee( self(), employee );
         context().generate(new EmployeeImpl.LeaveEnded(getRunContext(), context().getId()).to(employee));
         context().LOG().LogInfo( "Employee leave ended" );
@@ -89,9 +89,9 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
     @Override
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
-            { CANT_HAPPEN,
+            { (event) -> {AwaitingApproval_Approve_txn_to_Approved_action();Approved_entry_action();return Approved;},
+              CANT_HAPPEN,
               (event) -> {AwaitingApproval_Reject_txn_to_Rejected_action();Rejected_entry_action();return Rejected;},
-              (event) -> {AwaitingApproval_Approve_txn_to_Approved_action();Approved_entry_action();return Approved;},
               CANT_HAPPEN
             },
             { CANT_HAPPEN,
@@ -109,8 +109,8 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
               CANT_HAPPEN,
               CANT_HAPPEN
             },
-            { (event) -> {StartLeave_EndLeave_txn_to_EndLeave_action();EndLeave_entry_action();return EndLeave;},
-              CANT_HAPPEN,
+            { CANT_HAPPEN,
+              (event) -> {StartLeave_EndLeave_txn_to_EndLeave_action();EndLeave_entry_action();return EndLeave;},
               CANT_HAPPEN,
               CANT_HAPPEN
             }

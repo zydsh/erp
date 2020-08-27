@@ -44,8 +44,8 @@ public class DeploymentApplication implements IApplication {
             }
         }
         components[1] = new UI(this, executors[0], 1);
-        components[0] = new Auth(this, executors[0], 0);
         components[2] = new Hr(this, executors[0], 2);
+        components[0] = new Auth(this, executors[0], 0);
         ((UI)components[1]).App().satisfy(((Hr)components[2]).UI());
         ((Hr)components[2]).UI().satisfy(((UI)components[1]).App());
         ((UI)components[1]).AppOps().satisfy(((Hr)components[2]).UI_Ops());
@@ -59,11 +59,11 @@ public class DeploymentApplication implements IApplication {
     public UI UI() {
         return (UI)components[1];
     }
-    public Auth Auth() {
-        return (Auth)components[0];
-    }
     public Hr Hr() {
         return (Hr)components[2];
+    }
+    public Auth Auth() {
+        return (Auth)components[0];
     }
 
     @Override
