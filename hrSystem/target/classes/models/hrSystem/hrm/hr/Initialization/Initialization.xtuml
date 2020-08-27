@@ -589,7 +589,7 @@ LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" succe
 create object instance emp of Employee;
 		emp.EmployeeID = 1430000; 
 		emp.NationalID = 1041000010;
-		emp.FirstName = "Ahmad"; 
+		emp.FirstName = "Ahmad";  
 		emp.MiddleName = "Ziyad";
 		emp.LastName = "Alshaikh";
 		emp.DateOfBirth = 20200318;

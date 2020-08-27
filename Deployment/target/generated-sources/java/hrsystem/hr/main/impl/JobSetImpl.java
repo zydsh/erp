@@ -29,16 +29,12 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
 
     // attributes
     @Override
-    public void setStep( int m_Step ) throws XtumlException {
-        for ( Job job : this ) job.setStep( m_Step );
+    public void setDescription( String m_Description ) throws XtumlException {
+        for ( Job job : this ) job.setDescription( m_Description );
     }
     @Override
     public void setPromotionDate( int m_PromotionDate ) throws XtumlException {
         for ( Job job : this ) job.setPromotionDate( m_PromotionDate );
-    }
-    @Override
-    public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException {
-        for ( Job job : this ) job.setPensionDeduction( m_PensionDeduction );
     }
     @Override
     public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException {
@@ -49,8 +45,12 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
         for ( Job job : this ) job.setSalary( m_Salary );
     }
     @Override
-    public void setDescription( String m_Description ) throws XtumlException {
-        for ( Job job : this ) job.setDescription( m_Description );
+    public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException {
+        for ( Job job : this ) job.setPensionDeduction( m_PensionDeduction );
+    }
+    @Override
+    public void setStep( int m_Step ) throws XtumlException {
+        for ( Job job : this ) job.setStep( m_Step );
     }
     @Override
     public void setTitle( String m_Title ) throws XtumlException {
