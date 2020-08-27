@@ -36,12 +36,12 @@ public class PayslipItemSetImpl extends InstanceSet<PayslipItemSet,PayslipItem> 
         for ( PayslipItem payslipitem : this ) payslipitem.setDate( m_Date );
     }
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( PayslipItem payslipitem : this ) payslipitem.setName( m_Name );
-    }
-    @Override
     public void setAmount( double m_Amount ) throws XtumlException {
         for ( PayslipItem payslipitem : this ) payslipitem.setAmount( m_Amount );
+    }
+    @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( PayslipItem payslipitem : this ) payslipitem.setName( m_Name );
     }
 
 

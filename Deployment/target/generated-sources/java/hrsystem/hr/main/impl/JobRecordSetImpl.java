@@ -28,12 +28,12 @@ public class JobRecordSetImpl extends InstanceSet<JobRecordSet,JobRecord> implem
 
     // attributes
     @Override
-    public void setEndDate( int m_EndDate ) throws XtumlException {
-        for ( JobRecord jobrecord : this ) jobrecord.setEndDate( m_EndDate );
-    }
-    @Override
     public void setStartingDate( int m_StartingDate ) throws XtumlException {
         for ( JobRecord jobrecord : this ) jobrecord.setStartingDate( m_StartingDate );
+    }
+    @Override
+    public void setEndDate( int m_EndDate ) throws XtumlException {
+        for ( JobRecord jobrecord : this ) jobrecord.setEndDate( m_EndDate );
     }
 
 
