@@ -1198,7 +1198,7 @@ select any mgr from instances of Employee where selected.EmployeeID==1422222;
 relate mgr to departmentHR across R23.''manages'';
 relate mgr to departmentHR across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" ); 
 
 
 //add employees to HR

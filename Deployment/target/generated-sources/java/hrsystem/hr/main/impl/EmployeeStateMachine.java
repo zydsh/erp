@@ -55,19 +55,19 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
     @Override
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
-            { (event) -> {Recruited_commenced_txn_to_Working_action();Working_entry_action();return Working;},
+            { CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN,
-              CANT_HAPPEN,
+              (event) -> {Recruited_commenced_txn_to_Working_action();Working_entry_action();return Working;},
               CANT_HAPPEN
             },
             { CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN,
-              (event) -> {On_Leave_LeaveEnded_txn_to_Working_action();Working_entry_action();return Working;},
-              CANT_HAPPEN
+              CANT_HAPPEN,
+              (event) -> {On_Leave_LeaveEnded_txn_to_Working_action();Working_entry_action();return Working;}
             },
             { CANT_HAPPEN,
               CANT_HAPPEN,

@@ -37,10 +37,10 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
         }
     }
 
-    public void Initialize() throws XtumlException {
+    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
     }
 
-    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
+    public void Initialize() throws XtumlException {
     }
 
     public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
@@ -66,11 +66,11 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
             case IAuthentication.SIGNAL_NO_GETUSERNAMEPASSWORD:
                 GetUsernamePassword(IntegerUtil.deserialize(message.get(0)));
                 break;
-            case IAuthentication.SIGNAL_NO_INITIALIZE:
-                Initialize();
-                break;
             case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
                 CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
+                break;
+            case IAuthentication.SIGNAL_NO_INITIALIZE:
+                Initialize();
                 break;
             case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
                 ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
