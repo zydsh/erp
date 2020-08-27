@@ -28,33 +28,8 @@ public class UIAppOps extends Port<UI> implements IOps {
 
 
     // outbound messages
-    public void GenerateEmployeePayslip( final int p_National_ID ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.GenerateEmployeePayslip(p_National_ID));
-        else {
-        }
-    }
-    public void RejectEmployeeLeave( final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.RejectEmployeeLeave(p_EmployeeID));
-        else {
-        }
-    }
-    public void ApproveEmployeeLeave( final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.ApproveEmployeeLeave(p_EmployeeID));
-        else {
-        }
-    }
-    public void AssignBonusToEmployee( final int p_National_ID,  final String p_Name,  final int p_Starting,  final int p_Ending,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.AssignBonusToEmployee(p_National_ID, p_Name, p_Starting, p_Ending, p_Action));
-        else {
-        }
-    }
     public void ReturnFromLeave( final int p_National_ID ) throws XtumlException {
         if ( satisfied() ) send(new IOps.ReturnFromLeave(p_National_ID));
-        else {
-        }
-    }
-    public void CommenceEmployee( final int p_National_ID ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.CommenceEmployee(p_National_ID));
         else {
         }
     }
@@ -63,8 +38,33 @@ public class UIAppOps extends Port<UI> implements IOps {
         else {
         }
     }
+    public void ApproveEmployeeLeave( final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.ApproveEmployeeLeave(p_EmployeeID));
+        else {
+        }
+    }
     public void RequestEmployeeLeave( final int p_Starting,  final int p_Ending,  final int p_EmployeeID,  final String p_LeaveName ) throws XtumlException {
         if ( satisfied() ) send(new IOps.RequestEmployeeLeave(p_Starting, p_Ending, p_EmployeeID, p_LeaveName));
+        else {
+        }
+    }
+    public void AssignBonusToEmployee( final int p_National_ID,  final String p_Name,  final int p_Starting,  final int p_Ending,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.AssignBonusToEmployee(p_National_ID, p_Name, p_Starting, p_Ending, p_Action));
+        else {
+        }
+    }
+    public void RejectEmployeeLeave( final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.RejectEmployeeLeave(p_EmployeeID));
+        else {
+        }
+    }
+    public void CommenceEmployee( final int p_National_ID ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.CommenceEmployee(p_National_ID));
+        else {
+        }
+    }
+    public void GenerateEmployeePayslip( final int p_National_ID ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.GenerateEmployeePayslip(p_National_ID));
         else {
         }
     }

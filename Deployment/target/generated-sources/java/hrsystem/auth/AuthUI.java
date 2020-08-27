@@ -34,9 +34,6 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
         }
     }
 
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
-    }
-
     public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
     }
 
@@ -44,6 +41,9 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
     }
 
     public void Initialize() throws XtumlException {
+    }
+
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
     }
 
 
@@ -63,9 +63,6 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
             case IAuthentication.SIGNAL_NO_GETUSERNAMEPASSWORD:
                 GetUsernamePassword(IntegerUtil.deserialize(message.get(0)));
                 break;
-            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
-                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
-                break;
             case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
                 CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
@@ -74,6 +71,9 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
                 break;
             case IAuthentication.SIGNAL_NO_INITIALIZE:
                 Initialize();
+                break;
+            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
+                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );
