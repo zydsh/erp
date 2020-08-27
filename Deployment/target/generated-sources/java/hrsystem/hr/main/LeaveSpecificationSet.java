@@ -11,8 +11,8 @@ public interface LeaveSpecificationSet extends IInstanceSet<LeaveSpecificationSe
 
     // attributes
     public void setName( String m_Name ) throws XtumlException;
-    public void setMaximumDays( int m_MaximumDays ) throws XtumlException;
     public void setMinimumDays( int m_MinimumDays ) throws XtumlException;
+    public void setMaximumDays( int m_MaximumDays ) throws XtumlException;
 
 
     // selections

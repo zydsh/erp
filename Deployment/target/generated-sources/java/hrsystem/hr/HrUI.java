@@ -64,6 +64,28 @@ public class HrUI extends Port<Hr> implements IData {
         context().LOG().LogInfo( "Sending employee set is complete" );
     }
 
+    public void CreateEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender ) throws XtumlException {
+        Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNationalID() == p_NationalID);
+        if ( employee.isEmpty() ) {
+            Employee emp = EmployeeImpl.create( context() );
+            emp.setEmployeeID(p_EmployeeID);
+            emp.setNationalID(p_NationalID);
+            emp.setFirstName(p_FirstName);
+            emp.setMiddleName(p_LastName);
+            emp.setLastName(p_LastName);
+            emp.setDateOfBirth(p_DateOfBirth);
+            emp.setDegree(p_Degree);
+            emp.setGender(p_Gender);
+            context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
+            context().LOG().LogInfo( "Employee added successfully." );
+            context().UI().Reply( "Employee added successfully.", true );
+        }
+        else {
+            context().LOG().LogInfo( "Adding employee is unsuccessful. National ID is registered for another employee." );
+            context().UI().Reply( "Adding employee is unsuccessful. Employee already exists", false );
+        }
+    }
+
     public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException {
         LeaveSpecification leaveSpec = context().LeaveSpecification_instances().anyWhere(selected -> StringUtil.equality(((LeaveSpecification)selected).getName(), p_Name));
         if ( !leaveSpec.isEmpty() ) {
@@ -92,28 +114,6 @@ public class HrUI extends Port<Hr> implements IData {
         }
     }
 
-    public void CreateEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender ) throws XtumlException {
-        Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNationalID() == p_NationalID);
-        if ( employee.isEmpty() ) {
-            Employee emp = EmployeeImpl.create( context() );
-            emp.setEmployeeID(p_EmployeeID);
-            emp.setNationalID(p_NationalID);
-            emp.setFirstName(p_FirstName);
-            emp.setMiddleName(p_LastName);
-            emp.setLastName(p_LastName);
-            emp.setDateOfBirth(p_DateOfBirth);
-            emp.setDegree(p_Degree);
-            emp.setGender(p_Gender);
-            context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
-            context().LOG().LogInfo( "Employee added successfully." );
-            context().UI().Reply( "Employee added successfully.", true );
-        }
-        else {
-            context().LOG().LogInfo( "Adding employee is unsuccessful. National ID is registered for another employee." );
-            context().UI().Reply( "Adding employee is unsuccessful. Employee already exists", false );
-        }
-    }
-
     public void Initialize() throws XtumlException {
         context().Authenticate().Initialize();
         context().Initialize();
@@ -122,8 +122,8 @@ public class HrUI extends Port<Hr> implements IData {
 
 
     // outbound messages
-    public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
-        if ( satisfied() ) send(new IData.SendEmployee(p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_DateOfBirth, p_Degree, p_Gender, p_StartDate, p_LeaveBalance, p_SickLeaveBalance, p_Size));
+    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
+        if ( satisfied() ) send(new IData.Reply(p_msg, p_state));
         else {
         }
     }
@@ -132,13 +132,13 @@ public class HrUI extends Port<Hr> implements IData {
         else {
         }
     }
-    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
-        if ( satisfied() ) send(new IData.ReplyNewEmployee(p_Username, p_Password));
+    public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
+        if ( satisfied() ) send(new IData.SendEmployee(p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_DateOfBirth, p_Degree, p_Gender, p_StartDate, p_LeaveBalance, p_SickLeaveBalance, p_Size));
         else {
         }
     }
-    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
-        if ( satisfied() ) send(new IData.Reply(p_msg, p_state));
+    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
+        if ( satisfied() ) send(new IData.ReplyNewEmployee(p_Username, p_Password));
         else {
         }
     }
@@ -154,14 +154,14 @@ public class HrUI extends Port<Hr> implements IData {
             case IData.SIGNAL_NO_READEMPLOYEELIST:
                 ReadEmployeeList();
                 break;
+            case IData.SIGNAL_NO_CREATEEMPLOYEE:
+                CreateEmployee(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)), IntegerUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)), StringUtil.deserialize(message.get(7)));
+                break;
             case IData.SIGNAL_NO_DELETELEAVESPECIFICATION:
                 DeleteLeaveSpecification(StringUtil.deserialize(message.get(0)));
                 break;
             case IData.SIGNAL_NO_READLEAVESPECIFICATION:
                 ReadLeaveSpecification();
-                break;
-            case IData.SIGNAL_NO_CREATEEMPLOYEE:
-                CreateEmployee(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)), IntegerUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)), StringUtil.deserialize(message.get(7)));
                 break;
             case IData.SIGNAL_NO_INITIALIZE:
                 Initialize();

@@ -50,8 +50,8 @@ public class Auth extends Component<Auth> {
         R1_Group_has__Account_extent = new RelationshipSet();
         R2_Group_part_of_Group_extent = new RelationshipSet();
         R3_Group_has_Permissions_extent = new RelationshipSet();
-        LOG = null;
         TIM = null;
+        LOG = null;
         classDirectory = new TreeMap<>();
         classDirectory.put("Account", AccountImpl.class);
         classDirectory.put("Group", GroupImpl.class);
@@ -210,15 +210,15 @@ public class Auth extends Component<Auth> {
 
 
     // utilities
-    private LOG LOG;
-    public LOG LOG() {
-        if ( null == LOG ) LOG = new LOGImpl<>( this );
-        return LOG;
-    }
     private TIM TIM;
     public TIM TIM() {
         if ( null == TIM ) TIM = new TIMImpl<>( this );
         return TIM;
+    }
+    private LOG LOG;
+    public LOG LOG() {
+        if ( null == LOG ) LOG = new LOGImpl<>( this );
+        return LOG;
     }
 
 

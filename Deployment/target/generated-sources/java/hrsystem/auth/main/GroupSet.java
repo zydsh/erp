@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface GroupSet extends IInstanceSet<GroupSet,Group> {
 
     // attributes
-    public void setDescription( String m_Description ) throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
+    public void setDescription( String m_Description ) throws XtumlException;
 
 
     // selections
