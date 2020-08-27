@@ -38,7 +38,12 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'Initialize',
 	'',
-	'::CreatePEIs();',
+	'::CreatePEI_Leave();
+::CreatePEI_Scale();
+::CreatePEI_Employees();
+::CreatePEI_Departments();
+
+//::CreatePEIs();',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
@@ -636,7 +641,7 @@ INSERT INTO PE_PE
 INSERT INTO S_SYNC
 	VALUES ("dc625eb0-1976-423f-8dde-9777fa6852fe",
 	"00000000-0000-0000-0000-000000000000",
-	'CreateScale',
+	'CreatePEI_Scale',
 	'',
 	'//create payscale
 
@@ -990,6 +995,286 @@ LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );
 	0);
 INSERT INTO PE_PE
 	VALUES ("dc625eb0-1976-423f-8dde-9777fa6852fe",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("348823c3-6480-48c1-bce2-b25dc2aa5d12",
+	"00000000-0000-0000-0000-000000000000",
+	'CreatePEI_Employees',
+	'',
+	'create object instance emp of Employee;
+		emp.EmployeeID = 1420000;
+		emp.NationalID = 1041000000;
+		emp.FirstName = "Khalid";
+		emp.MiddleName = "Abdulaziz";
+		emp.LastName = "Alrajeh";
+		emp.DateOfBirth = 19691034;
+		emp.Degree = "Mcs";
+		emp.Gender = "Male";
+
+ 
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1421111;
+		emp.NationalID = 1041000001;
+		emp.FirstName = "Saad";
+		emp.MiddleName = "Abdullah";
+		emp.LastName = "Alassaf";
+		emp.DateOfBirth = 19691034;
+		emp.Degree = "Mcs";
+		emp.Gender = "Male";
+
+ 
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1422222;
+		emp.NationalID = 1041000002;
+		emp.FirstName = "Saud";
+		emp.MiddleName = "Abdullah";
+		emp.LastName = "Almanea";
+		emp.DateOfBirth = 19691034;
+		emp.Degree = "Mcs";
+		emp.Gender = "Male";
+
+ 
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1423333;
+		emp.NationalID = 1041000003;
+		emp.FirstName = "Khalid";
+		emp.MiddleName = "Abdulaziz";
+		emp.LastName = "Alfaleh";
+		emp.DateOfBirth = 19691034;
+		emp.Degree = "Mcs";
+		emp.Gender = "Male";
+
+ 
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1424444;
+		emp.NationalID = 1041000004;
+		emp.FirstName = "Saud";
+		emp.MiddleName = "Abdullah";
+		emp.LastName = "Aba Alkhail";
+		emp.DateOfBirth = 19781012;
+		emp.Degree = "PhD";
+		emp.Gender = "Male";
+
+ 
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1425555; 
+		emp.NationalID = 1041000005;
+		emp.FirstName = "Saleh";
+		emp.MiddleName = "Fahad";
+		emp.LastName = "Alotaibi";
+		emp.DateOfBirth = 19811034;
+		emp.Degree = "Bsc";
+		emp.Gender = "Male";
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1426666; 
+		emp.NationalID = 1041000006;
+		emp.FirstName = "Riyadh";
+		emp.MiddleName = "Fahad";
+		emp.LastName = "Almutairi";
+		emp.DateOfBirth = 19821034;
+		emp.Degree = "Bsc";
+		emp.Gender = "Male";
+
+//select any job from instances of Job where selected.Job_ID==12;
+//relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1427777; 
+		emp.NationalID = 1041000007;
+		emp.FirstName = "Raed";
+		emp.MiddleName = "Saad";
+		emp.LastName = "Alshareef";
+		emp.DateOfBirth = 19831034;
+		emp.Degree = "Bsc";
+		emp.Gender = "Male";
+
+//select any job from instances of Job where selected.Job_ID==13;
+//relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1428888; 
+		emp.NationalID = 1041000008;
+		emp.FirstName = "Shaleh";
+		emp.MiddleName = "Gaed";
+		emp.LastName = "Alotaibi";
+		emp.DateOfBirth = 19841034;
+		emp.Degree = "Bsc";
+		emp.Gender = "Male";
+
+//select any job from instances of Job where selected.Job_ID==14;
+//relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1429999; 
+		emp.NationalID = 1041000009;
+		emp.FirstName = "Sarah";
+		emp.MiddleName = "Abdullah";
+		emp.LastName = "Alameer";
+		emp.DateOfBirth = 19861034;
+		emp.Degree = "Bsc";
+		emp.Gender = "Female";
+
+//select any job from instances of Job where selected.Job_ID==15;
+//relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+
+create object instance emp of Employee;
+		emp.EmployeeID = 1430000; 
+		emp.NationalID = 1041000010;
+		emp.FirstName = "Ahmad";
+		emp.MiddleName = "Ziyad";
+		emp.LastName = "Alshaikh";
+		emp.DateOfBirth = 20200318;
+		emp.Degree = "Bsc";
+		emp.Gender = "Male";
+
+//select any job from instances of Job where selected.Job_ID==16;
+//relate emp to job across R6.''currently occupies'';
+
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("348823c3-6480-48c1-bce2-b25dc2aa5d12",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("f5339ad6-b4f7-498b-b3a1-b0b76345e4f8",
+	"00000000-0000-0000-0000-000000000000",
+	'CreatePEI_Departments',
+	'',
+	'//create Departments
+create object instance departmentHR of Department;
+departmentHR.Name = "Human Resources";
+departmentHR.Mission = "Manages employees functions";
+LOG::LogInfo(message:"Department: Created "+ departmentHR.Name );	
+
+//add manager
+select any mgr from instances of Employee where selected.EmployeeID==1422222;
+relate mgr to departmentHR across R23.''manages'';
+relate mgr to departmentHR across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+
+//add employees to HR
+select any mgr from instances of Employee where selected.EmployeeID==1421111;
+relate mgr to departmentHR across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+select any mgr from instances of Employee where selected.EmployeeID==1420000;
+relate mgr to departmentHR across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
+
+create object instance vpServices of Department;
+vpServices.Name = "Vice President for Services";
+vpServices.Mission = "Manage organization supporting services";
+LOG::LogInfo(message:"Department: Created "+ vpServices.Name );	
+
+select any mgr from instances of Employee where selected.EmployeeID==1424444;
+relate mgr to vpServices across R23.''manages'';
+relate mgr to vpServices across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
+
+//create the President office
+create object instance President of Department;
+President.Name = "President Office";
+President.Mission = "Manage all organization activities";
+LOG::LogInfo(message:"Departments: created: "+ President.Name );	
+
+select any mgr from instances of Employee where selected.EmployeeID==1423333;
+relate mgr to President across R23.''manages'';
+relate mgr to President across R21.''working within'';
+Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("f5339ad6-b4f7-498b-b3a1-b0b76345e4f8",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("2c6fd59c-d8ac-4ac1-94a7-3190b6af6d9d",
+	"00000000-0000-0000-0000-000000000000",
+	'CreatePEI_Leave',
+	'',
+	'//create leave 
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Regular Leave";
+		leaveSpecification.MaximumDays = 105;
+		leaveSpecification.MinimumDays = 5;
+
+LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Sick Leave";
+		leaveSpecification.MaximumDays = 5;
+		leaveSpecification.MinimumDays = 1;
+
+LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+
+create object instance leaveSpecification of LeaveSpecification;
+		leaveSpecification.Name = "Exceptional Leave";
+		leaveSpecification.MaximumDays = 365;
+		leaveSpecification.MinimumDays = 180;
+
+LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
+
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("2c6fd59c-d8ac-4ac1-94a7-3190b6af6d9d",
 	1,
 	"1d95e14a-3187-4f1b-a720-f30782ec2088",
 	"00000000-0000-0000-0000-000000000000",

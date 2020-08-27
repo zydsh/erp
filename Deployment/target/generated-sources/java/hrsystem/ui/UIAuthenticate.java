@@ -28,18 +28,8 @@ public class UIAuthenticate extends Port<UI> implements IAuthentication {
 
 
     // outbound messages
-    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.GetUsernamePassword(p_EmployeeID));
-        else {
-        }
-    }
     public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
         if ( satisfied() ) send(new IAuthentication.CreateNewAccount(p_First_Name, p_Last_Name, p_EmployeeID));
-        else {
-        }
-    }
-    public void Initialize() throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.Initialize());
         else {
         }
     }
@@ -50,6 +40,16 @@ public class UIAuthenticate extends Port<UI> implements IAuthentication {
     }
     public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
         if ( satisfied() ) send(new IAuthentication.ChangePassword(p_Username, p_OldPassword, p_NewPassword));
+        else {
+        }
+    }
+    public void Initialize() throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.Initialize());
+        else {
+        }
+    }
+    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.GetUsernamePassword(p_EmployeeID));
         else {
         }
     }
