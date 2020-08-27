@@ -27,16 +27,16 @@ public class BonusSetImpl extends InstanceSet<BonusSet,Bonus> implements BonusSe
 
     // attributes
     @Override
+    public void setEnding( int m_Ending ) throws XtumlException {
+        for ( Bonus bonus : this ) bonus.setEnding( m_Ending );
+    }
+    @Override
     public void setAmount( double m_Amount ) throws XtumlException {
         for ( Bonus bonus : this ) bonus.setAmount( m_Amount );
     }
     @Override
     public void setStarting( int m_Starting ) throws XtumlException {
         for ( Bonus bonus : this ) bonus.setStarting( m_Starting );
-    }
-    @Override
-    public void setEnding( int m_Ending ) throws XtumlException {
-        for ( Bonus bonus : this ) bonus.setEnding( m_Ending );
     }
 
 

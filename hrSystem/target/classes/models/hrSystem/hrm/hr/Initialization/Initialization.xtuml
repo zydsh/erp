@@ -638,9 +638,354 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'CreateScale',
 	'',
-	'',
+	'//create payscale
+
+create object instance scale of Scale;
+	scale.Name = "General Schedule";
+	scale.Description = "The general scale of the organization";
+		
+LOG::LogInfo(message:"Scale: Added "+ scale.Name +" successfully." );	
+
+
+
+//create Grades
+create object instance grade of Grade;
+	grade.Name = "1";
+	grade.NumberOfSteps= 15;
+	grade.BaseSalary = 3000;
+	grade.Allowance = 135;
+relate grade to scale across R12.''is part of''; 
+
+LOG::LogInfo(message:"Grade: Added "+ grade.Name +" successfully." );	
+
+
+create object instance grade2 of Grade;
+	grade2.Name = "2";
+	grade2.NumberOfSteps= 15;
+	grade2.BaseSalary = 3430;
+	grade2.Allowance = 165;
+relate grade2 to scale across R12.''is part of'';
+relate grade to grade2 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade2.Name +" successfully." );	
+
+
+create object instance grade3 of Grade;
+	grade3.Name = "3";
+	grade3.NumberOfSteps= 15;
+	grade3.BaseSalary = 3945;
+	grade3.Allowance = 190;
+relate grade3 to scale across R12.''is part of'';
+relate grade2 to grade3 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade3.Name +" successfully." );	
+
+
+create object instance grade4 of Grade;
+	grade4.Name = "4";
+	grade4.NumberOfSteps= 15;
+	grade4.BaseSalary = 4530;
+	grade4.Allowance = 230;
+relate grade4 to scale across R12.''is part of'';
+relate grade3 to grade4 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade4.Name +" successfully." );	
+
+create object instance grade5 of Grade;
+	grade5.Name = "5";
+	grade5.NumberOfSteps= 15;
+	grade5.BaseSalary = 5240;
+	grade5.Allowance = 265;
+relate grade5 to scale across R12.''is part of'';
+relate grade4 to grade5 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade5.Name +" successfully." );	
+
+
+create object instance grade6 of Grade;
+	grade6.Name = "6";
+	grade6.NumberOfSteps= 15;
+	grade6.BaseSalary = 6065;
+	grade6.Allowance = 305;
+relate grade6 to scale across R12.''is part of'';
+relate grade5 to grade6 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade6.Name +" successfully." );	
+
+create object instance grade7 of Grade;
+	grade7.Name = "7";
+	grade7.NumberOfSteps= 15;
+	grade7.BaseSalary = 7010;
+	grade7.Allowance = 365;
+relate grade to scale across R12.''is part of'';
+relate grade6 to grade7 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade7.Name +" successfully." );	
+
+
+create object instance grade8 of Grade;
+	grade8.Name = "8";
+	grade8.NumberOfSteps= 15;
+	grade8.BaseSalary = 8010;
+	grade8.Allowance = 415;
+relate grade to scale across R12.''is part of'';
+relate grade7 to grade8 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade8.Name +" successfully." );	
+
+create object instance grade9 of Grade;
+	grade9.Name = "9";
+	grade9.NumberOfSteps= 15;
+	grade9.BaseSalary = 9275;
+	grade9.Allowance = 470;
+relate grade to scale across R12.''is part of'';
+relate grade8 to grade9 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade9.Name +" successfully." );	
+
+create object instance grade10 of Grade;
+	grade10.Name = "10";
+	grade10.NumberOfSteps= 15;
+	grade10.BaseSalary = 10275;
+	grade10.Allowance = 510;
+relate grade to scale across R12.''is part of'';
+relate grade9 to grade10 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade10.Name +" successfully." );	
+
+create object instance grade11 of Grade;
+	grade11.Name = "11";
+	grade11.NumberOfSteps= 14;
+	grade11.BaseSalary = 11815;
+	grade11.Allowance = 530;
+relate grade to scale across R12.''is part of'';
+relate grade10 to grade11 across R14.''succeed''; 
+
+LOG::LogInfo(message:"Grade: Added "+ grade11.Name +" successfully." );	
+
+create object instance grade12 of Grade;
+	grade12.Name = "12";
+	grade12.NumberOfSteps= 13;
+	grade12.BaseSalary = 13435;
+	grade12.Allowance = 570;
+relate grade to scale across R12.''is part of'';
+relate grade11 to grade12 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade12.Name +" successfully." );	
+
+create object instance grade13 of Grade;
+	grade13.Name = "13";
+	grade13.NumberOfSteps= 12;
+	grade13.BaseSalary = 15180;
+	grade13.Allowance = 605;
+relate grade to scale across R12.''is part of'';
+relate grade12 to grade13 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade13.Name +" successfully." );	
+
+create object instance grade14 of Grade;
+	grade14.Name = "14";
+	grade14.NumberOfSteps= 11;
+	grade14.BaseSalary = 17015;
+	grade14.Allowance = 700;
+relate grade to scale across R12.''is part of'';
+relate grade13 to grade14 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade14.Name +" successfully." );	
+
+create object instance grade15 of Grade;
+	grade15.Name = "15";
+	grade15.NumberOfSteps= 10;
+	grade15.BaseSalary = 20855;
+	grade15.Allowance = 865;
+relate grade to scale across R12.''is part of'';
+relate grade14 to grade15 across R14.''succeed'';
+
+LOG::LogInfo(message:"Grade: Added "+ grade15.Name +" successfully." );	
+
+//create jobs
+create object instance job of Job;
+	job.Job_ID = 1;
+	job.Title = "Front-End Junior Software Engineer ";
+	job.Description = "Developing front end solutions";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+	
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 2;
+	job.Title = "Back-End Junior Software Engineer ";
+	job.Description = "Developing back end solutions";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 3;
+	job.Title = "Senior Software Engineer ";
+	job.Description = "Manging front/back end solutions";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="10";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+
+create object instance job of Job;
+	job.Job_ID = 4;
+	job.Title = "HR Specialist ";
+	job.Description = "Recruting and evaluting employee profiles";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="9";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 5;
+	job.Title = "Lead Software Engineer ";
+	job.Description = "Manging software teams solutions";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="12";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 6;
+	job.Title = "Finance Manager ";
+	job.Description = "Manging finance";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="14";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 7;
+	job.Title = "Payroll Manager ";
+	job.Description = "Manging payroll";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="10";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 8;
+	job.Title = "Budget Manager ";
+	job.Description = "Manging budget";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="10";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+
+create object instance job of Job;
+	job.Job_ID = 9;
+	job.Title = "President ";
+	job.Description = "Manges the organization";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="15";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+
+create object instance job of Job;
+	job.Job_ID = 10;
+	job.Title = "HR Expert ";
+	job.Description = "Analyze HR Data";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="9";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 11;
+	job.Title = "HR Specilast ";
+	job.Description = "Works at HR";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+ create object instance job of Job;
+	job.Job_ID = 12;
+	job.Title = "HR Specilast ";
+	job.Description = "Works at HR";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+ 
+create object instance job of Job;
+	job.Job_ID = 13;
+	job.Title = "HR Specilast ";
+	job.Description = "Works at HR";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 14;
+	job.Title = "HR Specilast ";
+	job.Description = "Works at HR";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 15;
+	job.Title = "Finance Specilast ";
+	job.Description = "Works at Finance";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+
+create object instance job of Job;
+	job.Job_ID = 16;
+	job.Title = "Finance Specilast ";
+	job.Description = "Works at Finance";
+	job.PensionDeduction = 0.09;
+
+select any grade from instances of Grade where selected.Name=="8";
+relate job to grade across R9.''assigned'';
+
+LOG::LogInfo(message:" Job: Added "+ job.Title +" successfully." );	
+',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO PE_PE
