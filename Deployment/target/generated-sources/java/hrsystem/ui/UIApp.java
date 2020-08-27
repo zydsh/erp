@@ -22,6 +22,9 @@ public class UIApp extends Port<UI> implements IData {
     }
 
     // inbound messages
+    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
+    }
+
     public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
         context().Reply( p_msg, p_state );
     }
@@ -34,14 +37,16 @@ public class UIApp extends Port<UI> implements IData {
         context().SendEmployee( p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_Gender, p_DateOfBirth, p_Degree, p_StartDate, p_LeaveBalance, p_SickLeaveBalance, p_Size );
     }
 
-    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
-    }
-
 
 
     // outbound messages
-    public void ReadEmployeeList() throws XtumlException {
-        if ( satisfied() ) send(new IData.ReadEmployeeList());
+    public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException {
+        if ( satisfied() ) send(new IData.DeleteLeaveSpecification(p_Name));
+        else {
+        }
+    }
+    public void CreateEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender ) throws XtumlException {
+        if ( satisfied() ) send(new IData.CreateEmployee(p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_DateOfBirth, p_Degree, p_Gender));
         else {
         }
     }
@@ -55,18 +60,13 @@ public class UIApp extends Port<UI> implements IData {
         else {
         }
     }
+    public void ReadEmployeeList() throws XtumlException {
+        if ( satisfied() ) send(new IData.ReadEmployeeList());
+        else {
+        }
+    }
     public void ReadLeaveSpecification() throws XtumlException {
         if ( satisfied() ) send(new IData.ReadLeaveSpecification());
-        else {
-        }
-    }
-    public void CreateEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender ) throws XtumlException {
-        if ( satisfied() ) send(new IData.CreateEmployee(p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_DateOfBirth, p_Degree, p_Gender));
-        else {
-        }
-    }
-    public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException {
-        if ( satisfied() ) send(new IData.DeleteLeaveSpecification(p_Name));
         else {
         }
     }
@@ -76,6 +76,9 @@ public class UIApp extends Port<UI> implements IData {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
+            case IData.SIGNAL_NO_REPLYNEWEMPLOYEE:
+                ReplyNewEmployee(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
+                break;
             case IData.SIGNAL_NO_REPLY:
                 Reply(StringUtil.deserialize(message.get(0)), BooleanUtil.deserialize(message.get(1)));
                 break;
@@ -84,9 +87,6 @@ public class UIApp extends Port<UI> implements IData {
                 break;
             case IData.SIGNAL_NO_SENDEMPLOYEE:
                 SendEmployee(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)), IntegerUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)), StringUtil.deserialize(message.get(7)), IntegerUtil.deserialize(message.get(8)), IntegerUtil.deserialize(message.get(9)), IntegerUtil.deserialize(message.get(10)), IntegerUtil.deserialize(message.get(11)));
-                break;
-            case IData.SIGNAL_NO_REPLYNEWEMPLOYEE:
-                ReplyNewEmployee(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

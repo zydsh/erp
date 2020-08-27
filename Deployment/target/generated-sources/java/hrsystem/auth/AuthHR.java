@@ -25,14 +25,7 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     }
 
     // inbound messages
-    public void Initialize() throws XtumlException {
-        context().Initialize();
-    }
-
     public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
-    }
-
-    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
     }
 
     public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
@@ -50,6 +43,13 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         else {
             context().LOG().LogInfo( "Account: account set is not empty " );
         }
+    }
+
+    public void Initialize() throws XtumlException {
+        context().Initialize();
+    }
+
+    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
     }
 
     public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
@@ -77,17 +77,17 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IAuthentication.SIGNAL_NO_INITIALIZE:
-                Initialize();
-                break;
             case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
                 ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
-            case IAuthentication.SIGNAL_NO_GETUSERNAMEPASSWORD:
-                GetUsernamePassword(IntegerUtil.deserialize(message.get(0)));
-                break;
             case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
                 CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
+                break;
+            case IAuthentication.SIGNAL_NO_INITIALIZE:
+                Initialize();
+                break;
+            case IAuthentication.SIGNAL_NO_GETUSERNAMEPASSWORD:
+                GetUsernamePassword(IntegerUtil.deserialize(message.get(0)));
                 break;
             case IAuthentication.SIGNAL_NO_ADDTOGROUP:
                 AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));

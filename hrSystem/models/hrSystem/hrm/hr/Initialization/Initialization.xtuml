@@ -1220,6 +1220,18 @@ relate mgr to vpServices across R23.''manages'';
 relate mgr to vpServices across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
 
+//add employees to VP
+select any emp from instances of Employee where selected.EmployeeID==1428888;
+relate emp to vpServices across R21.''working within'';
+
+select any emp from instances of Employee where selected.EmployeeID==1429999;
+relate emp to vpServices across R21.''working within'';
+
+//relate HR to VP 
+relate departmentHR to vpServices across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentHR.Name);	
+
+
 //create the President office
 create object instance President of Department;
 President.Name = "President Office";
@@ -1230,6 +1242,11 @@ select any mgr from instances of Employee where selected.EmployeeID==1423333;
 relate mgr to President across R23.''manages'';
 relate mgr to President across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Manager" );
+
+//relate to VP
+relate vpServices to President across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ President.Name);	
+
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,

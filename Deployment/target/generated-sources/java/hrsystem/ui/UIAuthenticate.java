@@ -28,8 +28,8 @@ public class UIAuthenticate extends Port<UI> implements IAuthentication {
 
 
     // outbound messages
-    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.GetUsernamePassword(p_EmployeeID));
+    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.CreateNewAccount(p_First_Name, p_Last_Name, p_EmployeeID));
         else {
         }
     }
@@ -48,8 +48,8 @@ public class UIAuthenticate extends Port<UI> implements IAuthentication {
         else {
         }
     }
-    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.CreateNewAccount(p_First_Name, p_Last_Name, p_EmployeeID));
+    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.GetUsernamePassword(p_EmployeeID));
         else {
         }
     }
