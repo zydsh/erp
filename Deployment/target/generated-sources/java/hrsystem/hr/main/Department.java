@@ -14,8 +14,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Department extends IModelInstance<Department,Hr> {
 
     // attributes
-    public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
+    public String getName() throws XtumlException;
     public String getMission() throws XtumlException;
     public void setMission( String m_Mission ) throws XtumlException;
     public void setDescription( String m_Description ) throws XtumlException;

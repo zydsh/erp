@@ -37,7 +37,7 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
             acc.setUsername(context().getUserName( p_First_Name, p_Last_Name ));
             acc.setPassword(context().getPassword( p_EmployeeID, p_First_Name + p_Last_Name, context().TIM().current_seconds() ));
             Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), "Employees"));
-            context().relate_R1_Account_a_member_of_Group( acc, group );
+            context().relate_R1_Group_has__Account( group, acc );
             context().LOG().LogInfo( ( ( ( ( ( ( "Account: account created for employee " + p_First_Name ) + " " ) + p_Last_Name ) + " Username: " ) + acc.getUsername() ) + " Group " ) + group.getName() );
         }
         else {
@@ -48,6 +48,10 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
     }
 
+    public void Initialize() throws XtumlException {
+        context().Initialize();
+    }
+
     public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
         Account account = context().Account_instances().anyWhere(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID);
         if ( account.isEmpty() ) {
@@ -55,12 +59,8 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         }
         else {
             Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), p_Group));
-            context().relate_R1_Account_a_member_of_Group( account, group );
+            context().relate_R1_Group_has__Account( group, account );
         }
-    }
-
-    public void Initialize() throws XtumlException {
-        context().Initialize();
     }
 
 
@@ -86,11 +86,11 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
             case IAuthentication.SIGNAL_NO_GETUSERNAMEPASSWORD:
                 GetUsernamePassword(IntegerUtil.deserialize(message.get(0)));
                 break;
-            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
-                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
-                break;
             case IAuthentication.SIGNAL_NO_INITIALIZE:
                 Initialize();
+                break;
+            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
+                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );
