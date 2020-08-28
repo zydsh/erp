@@ -74,6 +74,11 @@ public class JobRecordImpl extends ModelInstance<JobRecord,Hr> implements JobRec
     // attributes
     private int m_EndDate;
     @Override
+    public int getEndDate() throws XtumlException {
+        checkLiving();
+        return m_EndDate;
+    }
+    @Override
     public void setEndDate(int m_EndDate) throws XtumlException {
         checkLiving();
         if (m_EndDate != this.m_EndDate) {
@@ -82,17 +87,7 @@ public class JobRecordImpl extends ModelInstance<JobRecord,Hr> implements JobRec
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_EndDate", oldValue, this.m_EndDate));
         }
     }
-    @Override
-    public int getEndDate() throws XtumlException {
-        checkLiving();
-        return m_EndDate;
-    }
     private int m_StartingDate;
-    @Override
-    public int getStartingDate() throws XtumlException {
-        checkLiving();
-        return m_StartingDate;
-    }
     @Override
     public void setStartingDate(int m_StartingDate) throws XtumlException {
         checkLiving();
@@ -101,6 +96,11 @@ public class JobRecordImpl extends ModelInstance<JobRecord,Hr> implements JobRec
             this.m_StartingDate = m_StartingDate;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_StartingDate", oldValue, this.m_StartingDate));
         }
+    }
+    @Override
+    public int getStartingDate() throws XtumlException {
+        checkLiving();
+        return m_StartingDate;
     }
 
 
@@ -186,17 +186,17 @@ public class JobRecordImpl extends ModelInstance<JobRecord,Hr> implements JobRec
 class EmptyJobRecord extends ModelInstance<JobRecord,Hr> implements JobRecord {
 
     // attributes
-    public void setEndDate( int m_EndDate ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getEndDate() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getStartingDate() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setEndDate( int m_EndDate ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setStartingDate( int m_StartingDate ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getStartingDate() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

@@ -219,7 +219,7 @@ create object instance grade15 of Grade;
 	grade15.NumberOfSteps= 10;
 	grade15.BaseSalary = 20855;
 	grade15.Allowance = 865;
-relate grade15 to scale across R12.''is part of'';
+relate grade15 to scale across R12.''is part of''; 
 relate grade14 to grade15 across R14.''succeed'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade15.Name +" successfully." );	

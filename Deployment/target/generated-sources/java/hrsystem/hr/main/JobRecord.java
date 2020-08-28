@@ -13,10 +13,10 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface JobRecord extends IModelInstance<JobRecord,Hr> {
 
     // attributes
-    public void setEndDate( int m_EndDate ) throws XtumlException;
     public int getEndDate() throws XtumlException;
-    public int getStartingDate() throws XtumlException;
+    public void setEndDate( int m_EndDate ) throws XtumlException;
     public void setStartingDate( int m_StartingDate ) throws XtumlException;
+    public int getStartingDate() throws XtumlException;
 
 
     // operations
