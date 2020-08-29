@@ -105,7 +105,7 @@ public class Hr extends Component<Hr> {
         R19_Bonus_given_in_the_past_to_an_Employee_extent = new RelationshipSet();
         R1_JobRecord_occupied_Job_extent = new RelationshipSet();
         R1_JobRecord_was_assigned_to_Employee_extent = new RelationshipSet();
-        R20_Employee_to_be_promoted_to_Job_extent = new RelationshipSet();
+        R20_Job_to_be_assigned_to_Employee_extent = new RelationshipSet();
         R21_Employee_working_within_Department_extent = new RelationshipSet();
         R22_Department_is_part_of_Department_extent = new RelationshipSet();
         R23_Department_is_managed_by_Employee_extent = new RelationshipSet();
@@ -113,7 +113,7 @@ public class Hr extends Component<Hr> {
         R4_Bonus_is_given_to_an_Employee_extent = new RelationshipSet();
         R5_Leave_is_currently_taken_by_Employee_extent = new RelationshipSet();
         R6_Employee_currently_occupies_Job_extent = new RelationshipSet();
-        R7_Leave_to_be_taken_by_Employee_extent = new RelationshipSet();
+        R7_Employee_is_planning_to_take__Leave_extent = new RelationshipSet();
         R9_Job_assigned_Grade_extent = new RelationshipSet();
         LOG = null;
         TIM = null;
@@ -134,6 +134,25 @@ public class Hr extends Component<Hr> {
 
     // domain functions
     public void CreateEmployee() throws XtumlException {
+    }
+
+    public void CreatePEI_Bonus() throws XtumlException {
+        BonusSpecification bonus = BonusSpecificationImpl.create( context() );
+        bonus.setName("1.5 hour overtime");
+        bonus.setPercent(0.15);
+        context().LOG().LogInfo( "Bonus: Created " + bonus.getName() );
+        bonus = BonusSpecificationImpl.create( context() );
+        bonus.setName("Scarcity");
+        bonus.setPercent(0.3);
+        context().LOG().LogInfo( "Bonus: Created " + bonus.getName() );
+        bonus = BonusSpecificationImpl.create( context() );
+        bonus.setName("Computing");
+        bonus.setPercent(0.25);
+        context().LOG().LogInfo( "Bonus: Created " + bonus.getName() );
+        bonus = BonusSpecificationImpl.create( context() );
+        bonus.setName("Research");
+        bonus.setPercent(0.4);
+        context().LOG().LogInfo( "Bonus: Created " + bonus.getName() );
     }
 
     public void CreatePEI_Departments() throws XtumlException {
@@ -615,6 +634,7 @@ public class Hr extends Component<Hr> {
         context().CreatePEI_Scale();
         context().CreatePEI_Employees();
         context().CreatePEI_Departments();
+        context().CreatePEI_Bonus();
     }
 
     public double getPartialPayment( final int p_Payment_Time,  final int p_Starting_Time,  final int p_Ending_Time,  final double p_Payment ) throws XtumlException {
@@ -865,23 +885,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R20_Employee_to_be_promoted_to_Job( Employee form, Job part ) throws XtumlException {
+    public void relate_R20_Job_to_be_assigned_to_Employee( Job form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R20_Employee_to_be_promoted_to_Job_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR20_to_be_assigned_to_Employee(form);
-            form.setR20_to_be_promoted_to_Job(part);
+        if ( R20_Job_to_be_assigned_to_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR20_to_be_promoted_to_Job(form);
+            form.setR20_to_be_assigned_to_Employee(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R20_Employee_to_be_promoted_to_Job( Employee form, Job part ) throws XtumlException {
+    public void unrelate_R20_Job_to_be_assigned_to_Employee( Job form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R20_Employee_to_be_promoted_to_Job_extent.remove( R20_Employee_to_be_promoted_to_Job_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR20_to_be_assigned_to_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
-            form.setR20_to_be_promoted_to_Job(JobImpl.EMPTY_JOB);
+        if ( R20_Job_to_be_assigned_to_Employee_extent.remove( R20_Job_to_be_assigned_to_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR20_to_be_promoted_to_Job(JobImpl.EMPTY_JOB);
+            form.setR20_to_be_assigned_to_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -1025,23 +1045,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R7_Leave_to_be_taken_by_Employee( Leave form, Employee part ) throws XtumlException {
+    public void relate_R7_Employee_is_planning_to_take__Leave( Employee form, Leave part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R7_Leave_to_be_taken_by_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR7_is_planning_to_take__Leave(form);
-            form.setR7_to_be_taken_by_Employee(part);
+        if ( R7_Employee_is_planning_to_take__Leave_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR7_to_be_taken_by_Employee(form);
+            form.setR7_is_planning_to_take__Leave(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R7_Leave_to_be_taken_by_Employee( Leave form, Employee part ) throws XtumlException {
+    public void unrelate_R7_Employee_is_planning_to_take__Leave( Employee form, Leave part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R7_Leave_to_be_taken_by_Employee_extent.remove( R7_Leave_to_be_taken_by_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR7_is_planning_to_take__Leave(LeaveImpl.EMPTY_LEAVE);
-            form.setR7_to_be_taken_by_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
+        if ( R7_Employee_is_planning_to_take__Leave_extent.remove( R7_Employee_is_planning_to_take__Leave_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR7_to_be_taken_by_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
+            form.setR7_is_planning_to_take__Leave(LeaveImpl.EMPTY_LEAVE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -1163,9 +1183,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R1_JobRecord_was_assigned_to_Employees() throws XtumlException {
         return R1_JobRecord_was_assigned_to_Employee_extent;
     }
-    private IRelationshipSet R20_Employee_to_be_promoted_to_Job_extent;
-    public IRelationshipSet R20_Employee_to_be_promoted_to_Jobs() throws XtumlException {
-        return R20_Employee_to_be_promoted_to_Job_extent;
+    private IRelationshipSet R20_Job_to_be_assigned_to_Employee_extent;
+    public IRelationshipSet R20_Job_to_be_assigned_to_Employees() throws XtumlException {
+        return R20_Job_to_be_assigned_to_Employee_extent;
     }
     private IRelationshipSet R21_Employee_working_within_Department_extent;
     public IRelationshipSet R21_Employee_working_within_Departments() throws XtumlException {
@@ -1195,9 +1215,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R6_Employee_currently_occupies_Jobs() throws XtumlException {
         return R6_Employee_currently_occupies_Job_extent;
     }
-    private IRelationshipSet R7_Leave_to_be_taken_by_Employee_extent;
-    public IRelationshipSet R7_Leave_to_be_taken_by_Employees() throws XtumlException {
-        return R7_Leave_to_be_taken_by_Employee_extent;
+    private IRelationshipSet R7_Employee_is_planning_to_take__Leave_extent;
+    public IRelationshipSet R7_Employee_is_planning_to_take__Leaves() throws XtumlException {
+        return R7_Employee_is_planning_to_take__Leave_extent;
     }
     private IRelationshipSet R9_Job_assigned_Grade_extent;
     public IRelationshipSet R9_Job_assigned_Grades() throws XtumlException {

@@ -14,8 +14,8 @@ public interface Leave extends IModelInstance<Leave,Hr> {
     // attributes
     public int getStarting() throws XtumlException;
     public void setStarting( int m_Starting ) throws XtumlException;
-    public void setEnding( int m_Ending ) throws XtumlException;
     public int getEnding() throws XtumlException;
+    public void setEnding( int m_Ending ) throws XtumlException;
 
 
     // operations

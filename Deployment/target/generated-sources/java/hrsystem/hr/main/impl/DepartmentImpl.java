@@ -111,6 +111,11 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
     }
     private String m_Description;
     @Override
+    public String getDescription() throws XtumlException {
+        checkLiving();
+        return m_Description;
+    }
+    @Override
     public void setDescription(String m_Description) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Description, this.m_Description)) {
@@ -119,21 +124,7 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Description", oldValue, this.m_Description));
         }
     }
-    @Override
-    public String getDescription() throws XtumlException {
-        checkLiving();
-        return m_Description;
-    }
     private String m_Manager;
-    @Override
-    public String getManager() throws XtumlException {
-        checkLiving();
-        {
-            Employee employee = self().R23_is_managed_by_Employee();
-            self().setManager(( employee.getFirstName() + " " ) + employee.getLastName());
-        }
-        return m_Manager;
-    }
     @Override
     public void setManager(String m_Manager) throws XtumlException {
         checkLiving();
@@ -142,6 +133,15 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
             this.m_Manager = m_Manager;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Manager", oldValue, this.m_Manager));
         }
+    }
+    @Override
+    public String getManager() throws XtumlException {
+        checkLiving();
+        {
+            Employee employee = self().R23_is_managed_by_Employee();
+            self().setManager(( employee.getFirstName() + " " ) + employee.getLastName());
+        }
+        return m_Manager;
     }
 
 
@@ -258,17 +258,17 @@ class EmptyDepartment extends ModelInstance<Department,Hr> implements Department
     public void setMission( String m_Mission ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setDescription( String m_Description ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getDescription() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getManager() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setDescription( String m_Description ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setManager( String m_Manager ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getManager() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 
