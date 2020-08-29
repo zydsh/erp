@@ -70,8 +70,8 @@ public interface IAuthentication {
     // from provider messages
     public static final int SIGNAL_NO_REPLY = 6;
     public static class Reply extends Message {
-        public Reply( final String p_Username,  final String p_Password,  final boolean p_state ) {
-            super(new Object[]{p_Username,  p_Password,  p_state});
+        public Reply( final String p_Username,  final String p_msg,  final boolean p_state ) {
+            super(new Object[]{p_Username,  p_msg,  p_state});
         }
         @Override
         public int getId() {
@@ -79,7 +79,7 @@ public interface IAuthentication {
         }
  
     }
-    public void Reply( final String p_Username,  final String p_Password,  final boolean p_state ) throws XtumlException;
+    public void Reply( final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException;
 
 
 }

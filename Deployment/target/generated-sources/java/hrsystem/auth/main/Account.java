@@ -12,12 +12,12 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Account extends IModelInstance<Account,Auth> {
 
     // attributes
-    public void setUsername( String m_Username ) throws XtumlException;
     public String getUsername() throws XtumlException;
+    public void setUsername( String m_Username ) throws XtumlException;
     public String getPassword() throws XtumlException;
     public void setPassword( String m_Password ) throws XtumlException;
-    public int getEmployeeID() throws XtumlException;
     public void setEmployeeID( int m_EmployeeID ) throws XtumlException;
+    public int getEmployeeID() throws XtumlException;
 
 
     // operations

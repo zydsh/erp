@@ -50,6 +50,26 @@ INSERT INTO PE_PE
 	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
 	"00000000-0000-0000-0000-000000000000",
 	1);
+INSERT INTO S_SYNC
+	VALUES ("ad6d3233-b5e2-4c11-848f-ab48760c4f3b",
+	"00000000-0000-0000-0000-000000000000",
+	'changePassword',
+	'',
+	'Authenticate::ChangePassword( Username:"Khalid.Alrajeh", OldPassword:"7(!d&KhalidAlrajeh", NewPassword:"7(!d&" );
+
+LOG::LogInfo(message:"Test: Change Password second test");	
+
+Authenticate::ChangePassword( Username:"Khalid.Alrajeh", OldPassword:"7(!d&KhalidAlrajeh", NewPassword:"7(!d&" ); ',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("ad6d3233-b5e2-4c11-848f-ab48760c4f3b",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	1);
 INSERT INTO PE_PE
 	VALUES ("f302aa73-3b6f-4030-b781-5dff4a4ef1da",
 	1,

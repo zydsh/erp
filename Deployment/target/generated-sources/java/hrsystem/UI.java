@@ -12,6 +12,8 @@ import io.ciera.runtime.summit.components.Component;
 import io.ciera.runtime.summit.exceptions.BadArgumentException;
 import io.ciera.runtime.summit.exceptions.EmptyInstanceException;
 import io.ciera.runtime.summit.exceptions.XtumlException;
+import io.ciera.runtime.summit.util.LOG;
+import io.ciera.runtime.summit.util.impl.LOGImpl;
 
 import java.io.IOException;
 import java.util.Map;
@@ -27,7 +29,7 @@ public class UI extends Component<UI> {
         super(app, runContext, populationId);
 
 
-
+        LOG = null;
         classDirectory = new TreeMap<>();
 
     }
@@ -40,7 +42,8 @@ public class UI extends Component<UI> {
         context().Reply( p_msg, p_state );
     }
 
-    public void ReplyUsernamePassword( final String p_Username,  final String p_Password,  final boolean p_state ) throws XtumlException {
+    public void ReplyUsernamePassword( final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
+        context().ReplyUsernamePassword( p_Username, p_msg, p_state );
     }
 
     public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
@@ -49,6 +52,12 @@ public class UI extends Component<UI> {
 
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
         context().SendLeaveSpecification( p_Name, p_MaximumDays, p_MinimumDays, p_Size );
+    }
+
+    public void changePassword() throws XtumlException {
+        context().Authenticate().ChangePassword( "Khalid.Alrajeh", "7(!d&KhalidAlrajeh", "7(!d&" );
+        context().LOG().LogInfo( "Test: Change Password second test" );
+        context().Authenticate().ChangePassword( "Khalid.Alrajeh", "7(!d&KhalidAlrajeh", "7(!d&" );
     }
 
 
@@ -81,6 +90,11 @@ public class UI extends Component<UI> {
 
 
     // utilities
+    private LOG LOG;
+    public LOG LOG() {
+        if ( null == LOG ) LOG = new LOGImpl<>( this );
+        return LOG;
+    }
 
 
     // component initialization function

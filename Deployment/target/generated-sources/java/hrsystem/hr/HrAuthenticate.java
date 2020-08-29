@@ -21,14 +21,14 @@ public class HrAuthenticate extends Port<Hr> implements IAuthentication {
     }
 
     // inbound messages
-    public void Reply( final String p_Username,  final String p_Password,  final boolean p_state ) throws XtumlException {
+    public void Reply( final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
     }
 
 
 
     // outbound messages
-    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.CreateNewAccount(p_First_Name, p_Last_Name, p_EmployeeID));
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.AddToGroup(p_EmployeeID, p_Group));
         else {
         }
     }
@@ -37,18 +37,18 @@ public class HrAuthenticate extends Port<Hr> implements IAuthentication {
         else {
         }
     }
-    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.GetUsernamePassword(p_EmployeeID));
-        else {
-        }
-    }
     public void Initialize() throws XtumlException {
         if ( satisfied() ) send(new IAuthentication.Initialize());
         else {
         }
     }
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.AddToGroup(p_EmployeeID, p_Group));
+    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.GetUsernamePassword(p_EmployeeID));
+        else {
+        }
+    }
+    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.CreateNewAccount(p_First_Name, p_Last_Name, p_EmployeeID));
         else {
         }
     }

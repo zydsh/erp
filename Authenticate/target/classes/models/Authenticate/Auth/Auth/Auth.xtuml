@@ -275,8 +275,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"cace5c9f-b755-4ce7-8f29-066db0898e56");
 INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
+	VALUES (2627.000000,
+	3290.000000,
 	"cace5c9f-b755-4ce7-8f29-066db0898e56",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -574,7 +574,21 @@ INSERT INTO SPR_PS
 	VALUES ("d01ede9a-4395-431b-91e2-37c109dbe24f",
 	'ChangePassword',
 	'',
-	'',
+	'select any account from instances of Account where selected.Username==param.Username and selected.Password==param.OldPassword;
+
+if (not empty account) 
+	account.Password = param.NewPassword;
+	UI::Reply(Username:account.Username, msg:"Password changed successfully", state:True );
+	LOG::LogInfo(message:"UI: Password changed successfully."+" Username "+account.Username);	
+
+else 
+	LOG::LogInfo(message:"UI: Password changed unsuccessful. Wrong username or password"+" Username "+param.Username);	
+	UI::Reply(Username:param.Username, msg:"Wrong username or password", state:False );
+
+
+end if;
+	
+',
 	1,
 	0);
 INSERT INTO SPR_PEP
