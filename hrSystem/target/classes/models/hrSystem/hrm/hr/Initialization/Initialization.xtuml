@@ -42,6 +42,7 @@ INSERT INTO S_SYNC
 ::CreatePEI_Scale();
 ::CreatePEI_Employees();
 ::CreatePEI_Departments();
+::CreatePEI_Bonus();
 
 //::CreatePEIs();',
 	"ba5eda7a-def5-0000-0000-000000000000",
@@ -219,7 +220,7 @@ create object instance grade15 of Grade;
 	grade15.NumberOfSteps= 10;
 	grade15.BaseSalary = 20855;
 	grade15.Allowance = 865;
-relate grade15 to scale across R12.''is part of'';
+relate grade15 to scale across R12.''is part of''; 
 relate grade14 to grade15 across R14.''succeed'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade15.Name +" successfully." );	
@@ -752,6 +753,44 @@ LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." 
 	0);
 INSERT INTO PE_PE
 	VALUES ("2c6fd59c-d8ac-4ac1-94a7-3190b6af6d9d",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("fe901ef0-f95f-4d7b-9967-053d10714221",
+	"00000000-0000-0000-0000-000000000000",
+	'CreatePEI_Bonus',
+	'',
+	'create object instance bonus of BonusSpecification;
+bonus.Name = "1.5 hour overtime";
+bonus.Percent = 0.15;
+LOG::LogInfo(message:"Bonus: Created "+ bonus.Name );	
+
+
+create object instance bonus of BonusSpecification;
+bonus.Name = "Scarcity";
+bonus.Percent = 0.3;
+LOG::LogInfo(message:"Bonus: Created "+ bonus.Name );	
+
+
+create object instance bonus of BonusSpecification;
+bonus.Name = "Computing";
+bonus.Percent = 0.25;
+LOG::LogInfo(message:"Bonus: Created "+ bonus.Name );	
+
+
+create object instance bonus of BonusSpecification;
+bonus.Name = "Research";
+bonus.Percent = 0.4;
+LOG::LogInfo(message:"Bonus: Created "+ bonus.Name );	
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("fe901ef0-f95f-4d7b-9967-053d10714221",
 	1,
 	"1d95e14a-3187-4f1b-a720-f30782ec2088",
 	"00000000-0000-0000-0000-000000000000",
