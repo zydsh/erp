@@ -25,14 +25,15 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     }
 
     // inbound messages
-    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
-    }
-
-    public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
-    }
-
-    public void Initialize() throws XtumlException {
-        context().Initialize();
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
+        Account account = context().Account_instances().anyWhere(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID);
+        if ( account.isEmpty() ) {
+            context().LOG().LogInfo( "Account: employee has no account " );
+        }
+        else {
+            Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), p_Group));
+            context().relate_R1_Group_has__Account( group, account );
+        }
     }
 
     public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
@@ -44,7 +45,7 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
             acc.setUsername(context().getUserName( p_First_Name, p_Last_Name ));
             acc.setPassword(context().getPassword( p_EmployeeID, p_First_Name + p_Last_Name, context().TIM().current_seconds() ));
             Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), "Employees"));
-            context().relate_R1_Account_a_member_of_Group( acc, group );
+            context().relate_R1_Group_has__Account( group, acc );
             context().LOG().LogInfo( ( ( ( ( ( ( "Account: account created for employee " + p_First_Name ) + " " ) + p_Last_Name ) + " Username: " ) + acc.getUsername() ) + " Group " ) + group.getName() );
         }
         else {
@@ -52,15 +53,14 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         }
     }
 
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
-        Account account = context().Account_instances().anyWhere(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID);
-        if ( account.isEmpty() ) {
-            context().LOG().LogInfo( "Account: employee has no account " );
-        }
-        else {
-            Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), p_Group));
-            context().relate_R1_Account_a_member_of_Group( account, group );
-        }
+    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
+    }
+
+    public void Initialize() throws XtumlException {
+        context().Initialize();
+    }
+
+    public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
     }
 
 
@@ -77,20 +77,20 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
-                CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
-                break;
-            case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
-                ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
-                break;
-            case IAuthentication.SIGNAL_NO_INITIALIZE:
-                Initialize();
+            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
+                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
             case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
                 CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
-            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
-                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
+            case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
+                CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
+                break;
+            case IAuthentication.SIGNAL_NO_INITIALIZE:
+                Initialize();
+                break;
+            case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
+                ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

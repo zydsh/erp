@@ -39,18 +39,19 @@ public class UI extends Component<UI> {
     }
 
     public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
-        context().Reply( p_msg, p_state );
+        context().LOG().LogInfo( "UI: Sending reply: " + p_msg );
     }
 
     public void ReplyUsernamePassword( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
+        context().LOG().LogInfo( "UI: Sending reply to Username Password: " + p_msg );
     }
 
     public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
-        context().SendEmployee( p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_DateOfBirth, p_Degree, p_Gender, p_StartDate, p_LeaveBalance, p_SickLeaveBalance, p_Size );
+        context().LOG().LogInfo( ( ( "UI: Sending employee: " + p_FirstName ) + " " ) + p_LastName );
     }
 
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
-        context().SendLeaveSpecification( p_Name, p_MaximumDays, p_MinimumDays, p_Size );
+        context().LOG().LogInfo( "UI: Sending leave specification: " + p_Name );
     }
 
     public void changePassword() throws XtumlException {
@@ -68,6 +69,9 @@ public class UI extends Component<UI> {
         context().Authenticate().CheckUsernamePassword( "Khalid", "7(!d&KhalidAlrajeh" );
         context().LOG().LogInfo( "Test: Check Username and Password forth test: correct username and wrong password" );
         context().Authenticate().CheckUsernamePassword( "Khalid.Alrajeh", "7(!d" );
+    }
+
+    public void leaveRequest() throws XtumlException {
     }
 
 
