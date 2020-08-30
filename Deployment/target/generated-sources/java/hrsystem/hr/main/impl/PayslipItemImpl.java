@@ -78,6 +78,11 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
     // attributes
     private String m_Name;
     @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
+    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -85,11 +90,6 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
-    }
-    @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
     }
     private double m_Amount;
     @Override
@@ -108,6 +108,11 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
     }
     private int m_Date;
     @Override
+    public int getDate() throws XtumlException {
+        checkLiving();
+        return m_Date;
+    }
+    @Override
     public void setDate(int m_Date) throws XtumlException {
         checkLiving();
         if (m_Date != this.m_Date) {
@@ -116,12 +121,12 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Date", oldValue, this.m_Date));
         }
     }
-    @Override
-    public int getDate() throws XtumlException {
-        checkLiving();
-        return m_Date;
-    }
     private PayslipItemType m_Type;
+    @Override
+    public PayslipItemType getType() throws XtumlException {
+        checkLiving();
+        return m_Type;
+    }
     @Override
     public void setType(PayslipItemType m_Type) throws XtumlException {
         checkLiving();
@@ -130,11 +135,6 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
             this.m_Type = m_Type;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Type", oldValue, this.m_Type));
         }
-    }
-    @Override
-    public PayslipItemType getType() throws XtumlException {
-        checkLiving();
-        return m_Type;
     }
 
 
@@ -219,11 +219,11 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
 class EmptyPayslipItem extends ModelInstance<PayslipItem,Hr> implements PayslipItem {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setName( String m_Name ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -231,17 +231,17 @@ class EmptyPayslipItem extends ModelInstance<PayslipItem,Hr> implements PayslipI
     public void setAmount( double m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setDate( int m_Date ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getDate() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setType( PayslipItemType m_Type ) throws XtumlException {
+    public void setDate( int m_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public PayslipItemType getType() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setType( PayslipItemType m_Type ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

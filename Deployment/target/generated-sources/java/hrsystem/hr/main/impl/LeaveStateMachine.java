@@ -55,14 +55,14 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
     private void Rejected_entry_action() throws XtumlException {
         context().LOG().LogInfo( "Employee leave rejected" );
         Employee employee = self().R7_to_be_taken_by_Employee();
-        context().unrelate_R7_Leave_to_be_taken_by_Employee( self(), employee );
+        context().unrelate_R7_Employee_is_planning_to_take__Leave( employee, self() );
         self().delete();
     }
 
     private void StartLeave_entry_action() throws XtumlException {
         Employee employee = self().R7_to_be_taken_by_Employee();
         context().relate_R5_Leave_is_currently_taken_by_Employee( self(), employee );
-        context().unrelate_R7_Leave_to_be_taken_by_Employee( self(), employee );
+        context().unrelate_R7_Employee_is_planning_to_take__Leave( employee, self() );
         context().generate(new EmployeeImpl.LeaveStarted(getRunContext(), context().getId()).to(employee));
         context().LOG().LogInfo( "Employee leave started" );
         int timeUntilLeaveEnds = self().getEnding() - context().TIM().current_seconds();
@@ -89,13 +89,18 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
     @Override
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
-            { (event) -> {AwaitingApproval_Approve_txn_to_Approved_action();Approved_entry_action();return Approved;},
+            { (event) -> {AwaitingApproval_Reject_txn_to_Rejected_action();Rejected_entry_action();return Rejected;},
               CANT_HAPPEN,
-              CANT_HAPPEN,
-              (event) -> {AwaitingApproval_Reject_txn_to_Rejected_action();Rejected_entry_action();return Rejected;}
+              (event) -> {AwaitingApproval_Approve_txn_to_Approved_action();Approved_entry_action();return Approved;},
+              CANT_HAPPEN
             },
             { CANT_HAPPEN,
-              (event) -> {Approved_StartLeave_txn_to_StartLeave_action();StartLeave_entry_action();return StartLeave;},
+              CANT_HAPPEN,
+              CANT_HAPPEN,
+              (event) -> {Approved_StartLeave_txn_to_StartLeave_action();StartLeave_entry_action();return StartLeave;}
+            },
+            { CANT_HAPPEN,
+              CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN
             },
@@ -105,13 +110,8 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
               CANT_HAPPEN
             },
             { CANT_HAPPEN,
-              CANT_HAPPEN,
-              CANT_HAPPEN,
-              CANT_HAPPEN
-            },
-            { CANT_HAPPEN,
-              CANT_HAPPEN,
               (event) -> {StartLeave_EndLeave_txn_to_EndLeave_action();EndLeave_entry_action();return EndLeave;},
+              CANT_HAPPEN,
               CANT_HAPPEN
             }
         };

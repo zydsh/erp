@@ -29,6 +29,24 @@ public class HrUI extends Port<Hr> implements IData {
     }
 
     // inbound messages
+    public void ReadEmployeeList() throws XtumlException {
+        EmployeeSet employeeSet = context().Employee_instances();
+        int size = 0;
+        Employee emp;
+        for ( Iterator<Employee> _emp_iter = employeeSet.elements().iterator(); _emp_iter.hasNext(); ) {
+            emp = _emp_iter.next();
+            size = size + 1;
+        }
+        context().LOG().LogInfo( "Sending employee set .." );
+        for ( Iterator<Employee> _emp_iter = employeeSet.elements().iterator(); _emp_iter.hasNext(); ) {
+            emp = _emp_iter.next();
+            context().UI().SendEmployee( emp.getEmployeeID(), emp.getNationalID(), emp.getFirstName(), emp.getMiddleName(), emp.getLastName(), emp.getDateOfBirth(), emp.getDegree(), emp.getGender(), emp.getStart_Date(), emp.getLeaveBalance(), emp.getSickLeaveBalance(), size );
+            size = size - 1;
+            context().LOG().LogInfo( ( ( ( ( "Sent:" + emp.getFirstName() ) + " " ) + emp.getMiddleName() ) + " " ) + emp.getLastName() );
+        }
+        context().LOG().LogInfo( "Sending employee set is complete" );
+    }
+
     public void CreateLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays ) throws XtumlException {
         LeaveSpecification leaveSpec = context().LeaveSpecification_instances().anyWhere(selected -> StringUtil.equality(((LeaveSpecification)selected).getName(), p_Name));
         if ( leaveSpec.isEmpty() ) {
@@ -46,38 +64,26 @@ public class HrUI extends Port<Hr> implements IData {
         }
     }
 
-    public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException {
-        LeaveSpecification leaveSpec = context().LeaveSpecification_instances().anyWhere(selected -> StringUtil.equality(((LeaveSpecification)selected).getName(), p_Name));
-        if ( !leaveSpec.isEmpty() ) {
-            leaveSpec.delete();
-            context().UI().Reply( "Leave deleted successfully.", true );
+    public void ReadLeaveSpecification() throws XtumlException {
+        LeaveSpecificationSet leaveSet = context().LeaveSpecification_instances();
+        int size = 0;
+        LeaveSpecification leave;
+        for ( Iterator<LeaveSpecification> _leave_iter = leaveSet.elements().iterator(); _leave_iter.hasNext(); ) {
+            leave = _leave_iter.next();
+            size = size + 1;
         }
-        else {
-            context().UI().Reply( "Leave does not exist.", false );
+        context().UI().Reply( "Sending leave set .. ", true );
+        for ( Iterator<LeaveSpecification> _leave_iter = leaveSet.elements().iterator(); _leave_iter.hasNext(); ) {
+            leave = _leave_iter.next();
+            context().UI().SendLeaveSpecification( leave.getName(), leave.getMaximumDays(), leave.getMinimumDays(), size );
+            size = size - 1;
+            context().UI().Reply( "Sent: " + leave.getName(), true );
         }
     }
 
     public void Initialize() throws XtumlException {
         context().Authenticate().Initialize();
         context().Initialize();
-    }
-
-    public void ReadEmployeeList() throws XtumlException {
-        EmployeeSet employeeSet = context().Employee_instances();
-        int size = 0;
-        Employee emp;
-        for ( Iterator<Employee> _emp_iter = employeeSet.elements().iterator(); _emp_iter.hasNext(); ) {
-            emp = _emp_iter.next();
-            size = size + 1;
-        }
-        context().LOG().LogInfo( "Sending employee set .." );
-        for ( Iterator<Employee> _emp_iter = employeeSet.elements().iterator(); _emp_iter.hasNext(); ) {
-            emp = _emp_iter.next();
-            context().UI().SendEmployee( emp.getEmployeeID(), emp.getNationalID(), emp.getFirstName(), emp.getMiddleName(), emp.getLastName(), emp.getDateOfBirth(), emp.getDegree(), emp.getGender(), emp.getStart_Date(), emp.getLeaveBalance(), emp.getSickLeaveBalance(), size );
-            size = size - 1;
-            context().LOG().LogInfo( ( ( ( ( "Sent:" + emp.getFirstName() ) + " " ) + emp.getMiddleName() ) + " " ) + emp.getLastName() );
-        }
-        context().LOG().LogInfo( "Sending employee set is complete" );
     }
 
     public void CreateEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender ) throws XtumlException {
@@ -102,33 +108,27 @@ public class HrUI extends Port<Hr> implements IData {
         }
     }
 
-    public void ReadLeaveSpecification() throws XtumlException {
-        LeaveSpecificationSet leaveSet = context().LeaveSpecification_instances();
-        int size = 0;
-        LeaveSpecification leave;
-        for ( Iterator<LeaveSpecification> _leave_iter = leaveSet.elements().iterator(); _leave_iter.hasNext(); ) {
-            leave = _leave_iter.next();
-            size = size + 1;
+    public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException {
+        LeaveSpecification leaveSpec = context().LeaveSpecification_instances().anyWhere(selected -> StringUtil.equality(((LeaveSpecification)selected).getName(), p_Name));
+        if ( !leaveSpec.isEmpty() ) {
+            leaveSpec.delete();
+            context().UI().Reply( "Leave deleted successfully.", true );
         }
-        context().UI().Reply( "Sending leave set .. ", true );
-        for ( Iterator<LeaveSpecification> _leave_iter = leaveSet.elements().iterator(); _leave_iter.hasNext(); ) {
-            leave = _leave_iter.next();
-            context().UI().SendLeaveSpecification( leave.getName(), leave.getMaximumDays(), leave.getMinimumDays(), size );
-            size = size - 1;
-            context().UI().Reply( "Sent: " + leave.getName(), true );
+        else {
+            context().UI().Reply( "Leave does not exist.", false );
         }
     }
 
 
 
     // outbound messages
-    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
-        if ( satisfied() ) send(new IData.ReplyNewEmployee(p_Username, p_Password));
+    public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
+        if ( satisfied() ) send(new IData.SendEmployee(p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_DateOfBirth, p_Degree, p_Gender, p_StartDate, p_LeaveBalance, p_SickLeaveBalance, p_Size));
         else {
         }
     }
-    public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
-        if ( satisfied() ) send(new IData.SendEmployee(p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_DateOfBirth, p_Degree, p_Gender, p_StartDate, p_LeaveBalance, p_SickLeaveBalance, p_Size));
+    public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
+        if ( satisfied() ) send(new IData.SendLeaveSpecification(p_Name, p_MaximumDays, p_MinimumDays, p_Size));
         else {
         }
     }
@@ -137,8 +137,8 @@ public class HrUI extends Port<Hr> implements IData {
         else {
         }
     }
-    public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
-        if ( satisfied() ) send(new IData.SendLeaveSpecification(p_Name, p_MaximumDays, p_MinimumDays, p_Size));
+    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
+        if ( satisfied() ) send(new IData.ReplyNewEmployee(p_Username, p_Password));
         else {
         }
     }
@@ -148,23 +148,23 @@ public class HrUI extends Port<Hr> implements IData {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
+            case IData.SIGNAL_NO_READEMPLOYEELIST:
+                ReadEmployeeList();
+                break;
             case IData.SIGNAL_NO_CREATELEAVESPECIFICATION:
                 CreateLeaveSpecification(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
-            case IData.SIGNAL_NO_DELETELEAVESPECIFICATION:
-                DeleteLeaveSpecification(StringUtil.deserialize(message.get(0)));
+            case IData.SIGNAL_NO_READLEAVESPECIFICATION:
+                ReadLeaveSpecification();
                 break;
             case IData.SIGNAL_NO_INITIALIZE:
                 Initialize();
                 break;
-            case IData.SIGNAL_NO_READEMPLOYEELIST:
-                ReadEmployeeList();
-                break;
             case IData.SIGNAL_NO_CREATEEMPLOYEE:
                 CreateEmployee(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)), IntegerUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)), StringUtil.deserialize(message.get(7)));
                 break;
-            case IData.SIGNAL_NO_READLEAVESPECIFICATION:
-                ReadLeaveSpecification();
+            case IData.SIGNAL_NO_DELETELEAVESPECIFICATION:
+                DeleteLeaveSpecification(StringUtil.deserialize(message.get(0)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

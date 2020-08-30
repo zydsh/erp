@@ -42,8 +42,7 @@ public class UI extends Component<UI> {
         context().Reply( p_msg, p_state );
     }
 
-    public void ReplyUsernamePassword( final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
-        context().ReplyUsernamePassword( p_Username, p_msg, p_state );
+    public void ReplyUsernamePassword( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
     }
 
     public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
@@ -58,6 +57,17 @@ public class UI extends Component<UI> {
         context().Authenticate().ChangePassword( "Khalid.Alrajeh", "7(!d&KhalidAlrajeh", "7(!d&" );
         context().LOG().LogInfo( "Test: Change Password second test" );
         context().Authenticate().ChangePassword( "Khalid.Alrajeh", "7(!d&KhalidAlrajeh", "7(!d&" );
+    }
+
+    public void checkUsernamePassword() throws XtumlException {
+        context().LOG().LogInfo( "Test: Check Username and Password first test: correct username and password" );
+        context().Authenticate().CheckUsernamePassword( "Khalid.Alrajeh", "7(!d&KhalidAlrajeh" );
+        context().LOG().LogInfo( "Test: Check Username and Password second test: wrong username and password" );
+        context().Authenticate().CheckUsernamePassword( "Khalid", "7(" );
+        context().LOG().LogInfo( "Test: Check Username and Password third test: wrong username and correct password" );
+        context().Authenticate().CheckUsernamePassword( "Khalid", "7(!d&KhalidAlrajeh" );
+        context().LOG().LogInfo( "Test: Check Username and Password forth test: correct username and wrong password" );
+        context().Authenticate().CheckUsernamePassword( "Khalid.Alrajeh", "7(!d" );
     }
 
 

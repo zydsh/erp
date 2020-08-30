@@ -43,13 +43,13 @@ public class UIAppOps extends Port<UI> implements IOps {
         else {
         }
     }
-    public void RejectEmployeeLeave( final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.RejectEmployeeLeave(p_EmployeeID));
+    public void RequestEmployeeLeave( final int p_Starting,  final int p_Ending,  final int p_EmployeeID,  final String p_LeaveName ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.RequestEmployeeLeave(p_Starting, p_Ending, p_EmployeeID, p_LeaveName));
         else {
         }
     }
-    public void RequestEmployeeLeave( final int p_Starting,  final int p_Ending,  final int p_EmployeeID,  final String p_LeaveName ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.RequestEmployeeLeave(p_Starting, p_Ending, p_EmployeeID, p_LeaveName));
+    public void RejectEmployeeLeave( final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.RejectEmployeeLeave(p_EmployeeID));
         else {
         }
     }

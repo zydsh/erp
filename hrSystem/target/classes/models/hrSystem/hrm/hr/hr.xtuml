@@ -1154,24 +1154,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("b03029de-eccd-4b04-9a15-9464fd21b9eb",
-	"ca320e19-af40-49f9-84b0-40e46d3cc6f0",
-	"1686e6d6-351f-426c-ae2d-45c64744b41a");
-INSERT INTO SPR_RS
-	VALUES ("b03029de-eccd-4b04-9a15-9464fd21b9eb",
-	'GetUsernamePassword',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("ca320e19-af40-49f9-84b0-40e46d3cc6f0",
-	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
-	-1,
-	'GetUsernamePassword',
-	'',
-	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("1349a08a-26e1-4dd3-be87-bc8c302d8258",
 	"37841549-bc78-49d8-83fe-4f80dc5b9f45",
 	"1686e6d6-351f-426c-ae2d-45c64744b41a");
@@ -1205,6 +1187,24 @@ INSERT INTO C_EP_PROXY
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
 	'AddToGroup',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("75806a49-144b-4f6b-b864-27c6b2291a1a",
+	"a2b9a551-5d4f-4bdb-9776-e71898ae21e8",
+	"1686e6d6-351f-426c-ae2d-45c64744b41a");
+INSERT INTO SPR_RS
+	VALUES ("75806a49-144b-4f6b-b864-27c6b2291a1a",
+	'CheckUsernamePassword',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a2b9a551-5d4f-4bdb-9776-e71898ae21e8",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'CheckUsernamePassword',
 	'',
 	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY
