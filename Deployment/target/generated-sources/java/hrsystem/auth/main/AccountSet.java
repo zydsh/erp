@@ -10,8 +10,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface AccountSet extends IInstanceSet<AccountSet,Account> {
 
     // attributes
-    public void setUsername( String m_Username ) throws XtumlException;
     public void setPassword( String m_Password ) throws XtumlException;
+    public void setUsername( String m_Username ) throws XtumlException;
     public void setEmployeeID( int m_EmployeeID ) throws XtumlException;
 
 

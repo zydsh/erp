@@ -32,7 +32,19 @@ public interface IAuthentication {
  
     }
     public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException;
-    public static final int SIGNAL_NO_CREATENEWACCOUNT = 3;
+    public static final int SIGNAL_NO_CHECKUSERNAMEPASSWORD = 3;
+    public static class CheckUsernamePassword extends Message {
+        public CheckUsernamePassword( final String p_Username,  final String p_Password ) {
+            super(new Object[]{p_Username,  p_Password});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_CHECKUSERNAMEPASSWORD;
+        }
+ 
+    }
+    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException;
+    public static final int SIGNAL_NO_CREATENEWACCOUNT = 4;
     public static class CreateNewAccount extends Message {
         public CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) {
             super(new Object[]{p_First_Name,  p_Last_Name,  p_EmployeeID});
@@ -44,18 +56,6 @@ public interface IAuthentication {
  
     }
     public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException;
-    public static final int SIGNAL_NO_GETUSERNAMEPASSWORD = 4;
-    public static class GetUsernamePassword extends Message {
-        public GetUsernamePassword( final int p_EmployeeID ) {
-            super(new Object[]{p_EmployeeID});
-        }
-        @Override
-        public int getId() {
-            return SIGNAL_NO_GETUSERNAMEPASSWORD;
-        }
- 
-    }
-    public void GetUsernamePassword( final int p_EmployeeID ) throws XtumlException;
     public static final int SIGNAL_NO_INITIALIZE = 5;
     public static class Initialize extends Message {
         @Override
@@ -70,8 +70,8 @@ public interface IAuthentication {
     // from provider messages
     public static final int SIGNAL_NO_REPLY = 6;
     public static class Reply extends Message {
-        public Reply( final String p_Username,  final String p_Password,  final boolean p_state ) {
-            super(new Object[]{p_Username,  p_Password,  p_state});
+        public Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) {
+            super(new Object[]{p_EmployeeID,  p_Username,  p_msg,  p_state});
         }
         @Override
         public int getId() {
@@ -79,7 +79,7 @@ public interface IAuthentication {
         }
  
     }
-    public void Reply( final String p_Username,  final String p_Password,  final boolean p_state ) throws XtumlException;
+    public void Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException;
 
 
 }

@@ -16,6 +16,7 @@ hrsystem/hr/main/impl/EmployeeStateMachine.class
 shared/IOps$ReturnFromLeave.class
 hrsystem/hr/main/Department.class
 hrsystem/auth/main/impl/GroupImpl.class
+interfaces/IAuthentication$CheckUsernamePassword.class
 hrsystem/hr/main/impl/PayslipItemImpl.class
 hrsystem/auth/main/impl/EmptyPermissions.class
 hrsystem/auth/main/PermissionsSet.class
@@ -30,7 +31,6 @@ hrsystem/hr/main/impl/BonusSpecificationImpl.class
 hrsystem/hr/main/impl/JobImpl.class
 hrsystem/hr/messagecenter/ApproveLeaveSet.class
 hrsystem/hr/main/impl/LeaveSpecificationImpl.class
-interfaces/IAuthentication$GetUsernamePassword.class
 hrsystem/auth/main/impl/GroupSetImpl.class
 hrsystem/hr/main/impl/DepartmentSetImpl.class
 hrsystem/hr/main/impl/BonusImpl$resumeBonus.class

@@ -31,10 +31,10 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     public String getFirstName() throws XtumlException;
     public void setMiddleName( String m_MiddleName ) throws XtumlException;
     public String getMiddleName() throws XtumlException;
-    public void setLastName( String m_LastName ) throws XtumlException;
     public String getLastName() throws XtumlException;
-    public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException;
+    public void setLastName( String m_LastName ) throws XtumlException;
     public int getDateOfBirth() throws XtumlException;
+    public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException;
     public void setDegree( String m_Degree ) throws XtumlException;
     public String getDegree() throws XtumlException;
     public void setGender( String m_Gender ) throws XtumlException;

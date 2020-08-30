@@ -104,11 +104,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private String m_Title;
     @Override
-    public String getTitle() throws XtumlException {
-        checkLiving();
-        return m_Title;
-    }
-    @Override
     public void setTitle(String m_Title) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Title, this.m_Title)) {
@@ -117,16 +112,12 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Title", oldValue, this.m_Title));
         }
     }
-    private double m_Salary;
     @Override
-    public void setSalary(double m_Salary) throws XtumlException {
+    public String getTitle() throws XtumlException {
         checkLiving();
-        if (m_Salary != this.m_Salary) {
-            final double oldValue = this.m_Salary;
-            this.m_Salary = m_Salary;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Salary", oldValue, this.m_Salary));
-        }
+        return m_Title;
     }
+    private double m_Salary;
     @Override
     public double getSalary() throws XtumlException {
         checkLiving();
@@ -135,6 +126,15 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             self().setSalary(grade.getAllowance() * self().getStep() + grade.getBaseSalary());
         }
         return m_Salary;
+    }
+    @Override
+    public void setSalary(double m_Salary) throws XtumlException {
+        checkLiving();
+        if (m_Salary != this.m_Salary) {
+            final double oldValue = this.m_Salary;
+            this.m_Salary = m_Salary;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Salary", oldValue, this.m_Salary));
+        }
     }
     private int m_Step;
     @Override
@@ -316,17 +316,17 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public void setJob_ID( int m_Job_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getTitle() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setTitle( String m_Title ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setSalary( double m_Salary ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public String getTitle() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public double getSalary() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setSalary( double m_Salary ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getStep() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

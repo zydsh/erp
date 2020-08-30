@@ -275,8 +275,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"cace5c9f-b755-4ce7-8f29-066db0898e56");
 INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
+	VALUES (2627.000000,
+	3290.000000,
 	"cace5c9f-b755-4ce7-8f29-066db0898e56",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -458,24 +458,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("8aec730a-aa9f-4a87-9f79-bb20fc2a7aea",
-	"ca320e19-af40-49f9-84b0-40e46d3cc6f0",
-	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
-INSERT INTO SPR_PS
-	VALUES ("8aec730a-aa9f-4a87-9f79-bb20fc2a7aea",
-	'GetUsernamePassword',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("ca320e19-af40-49f9-84b0-40e46d3cc6f0",
-	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
-	-1,
-	'GetUsernamePassword',
-	'',
-	'../../Interfaces/Authentication/Authentication.xtuml');
-INSERT INTO SPR_PEP
 	VALUES ("5765318b-e08e-4ca0-bde4-5a09155bb4d5",
 	"37841549-bc78-49d8-83fe-4f80dc5b9f45",
 	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
@@ -519,6 +501,24 @@ INSERT INTO C_EP_PROXY
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
 	'AddToGroup',
+	'',
+	'../../Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("b4edaec4-1bf8-4730-b8ec-e4212324c61a",
+	"a2b9a551-5d4f-4bdb-9776-e71898ae21e8",
+	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
+INSERT INTO SPR_PS
+	VALUES ("b4edaec4-1bf8-4730-b8ec-e4212324c61a",
+	'CheckUsernamePassword',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a2b9a551-5d4f-4bdb-9776-e71898ae21e8",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'CheckUsernamePassword',
 	'',
 	'../../Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY
@@ -574,29 +574,21 @@ INSERT INTO SPR_PS
 	VALUES ("d01ede9a-4395-431b-91e2-37c109dbe24f",
 	'ChangePassword',
 	'',
-	'',
-	1,
-	0);
-INSERT INTO SPR_PEP
-	VALUES ("b4c7acee-576a-4fc7-82fd-a5ce9b6be4f9",
-	"ca320e19-af40-49f9-84b0-40e46d3cc6f0",
-	"7f82e145-6d0b-4101-8f71-145c979ea70e");
-INSERT INTO SPR_PS
-	VALUES ("b4c7acee-576a-4fc7-82fd-a5ce9b6be4f9",
-	'GetUsernamePassword',
-	'',
-	'select any account from instances of Account where selected.EmployeeID==param.EmployeeID ;
+	'select any account from instances of Account where selected.Username==param.Username and selected.Password==param.OldPassword;
 
-if ( empty account)
+if (not empty account) 
+	account.Password = param.NewPassword;
+	UI::Reply(EmployeeID:account.EmployeeID,Username:account.Username, msg:"Password changed successfully", state:True );
+	LOG::LogInfo(message:"UI: Password changed successfully."+" Username "+account.Username);	
 
-	UI::Reply( Username:"", Password:"", state:false );
-	LOG::LogInfo(message:"User account not found" );	
+else 
+	LOG::LogInfo(message:"UI: Password changed unsuccessful. Wrong username or password"+" Username "+param.Username);	
+	UI::Reply(EmployeeID:0, Username:param.Username, msg:"Wrong username or password", state:False );
 
-else
-	UI::Reply( Username:account.Username, Password:account.Password, state:true );
-	LOG::LogInfo(message:"User account successfully sent" );	
 
-end if;',
+end if;
+	
+',
 	1,
 	0);
 INSERT INTO SPR_PEP
@@ -619,6 +611,29 @@ INSERT INTO SPR_PS
 	'AddToGroup',
 	'',
 	'',
+	1,
+	0);
+INSERT INTO SPR_PEP
+	VALUES ("0f54685e-8cdb-4da8-9825-cde38e3ce616",
+	"a2b9a551-5d4f-4bdb-9776-e71898ae21e8",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e");
+INSERT INTO SPR_PS
+	VALUES ("0f54685e-8cdb-4da8-9825-cde38e3ce616",
+	'CheckUsernamePassword',
+	'',
+	'select any account from instances of Account where selected.Username==param.Username and selected.Password==param.Password;
+
+if ( empty account)
+	LOG::LogInfo(message:"Authenticate: User account not found" );
+	UI::Reply(EmployeeID:0,Username:"", msg:"Wrong username or password", state:False );
+	
+ 
+else
+	LOG::LogInfo(message:"Authenticate: User account successfully sent" );	
+	UI::Reply(EmployeeID:account.EmployeeID,Username:account.Username, msg:"Account is authorized", state:True );
+
+end if;
+',
 	1,
 	0);
 INSERT INTO PE_PE

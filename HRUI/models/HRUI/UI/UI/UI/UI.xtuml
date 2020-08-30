@@ -124,9 +124,11 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'ReplyUsernamePassword',
 	'',
-	'',
+	'//LOG::LogInfo(message:"UI: Sending reply to Username Password: "+param.msg );	 
+
+//::ReplyUsernamePassword(EmployeeID:param.EmployeeID, Username:param.Username, msg:param.msg, state:param.state );',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_SPARM
@@ -136,16 +138,7 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("2210dde8-b5bb-4771-b609-787e5474ea1f",
-	"efb39f65-20b5-4f34-8a52-c86e7f4c6de2",
-	'Password',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"9d27e7ff-96ee-4ed7-b27b-dd56152dab23",
+	"1c659e1e-5134-4351-879c-bfac4aabb8e4",
 	'');
 INSERT INTO S_SPARM
 	VALUES ("a3e551fb-c9e9-468c-be63-45552430344b",
@@ -154,7 +147,25 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000001",
 	0,
 	'',
-	"2210dde8-b5bb-4771-b609-787e5474ea1f",
+	"e0c31ead-23f2-49e4-8a55-74e23a95a5ed",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("e0c31ead-23f2-49e4-8a55-74e23a95a5ed",
+	"efb39f65-20b5-4f34-8a52-c86e7f4c6de2",
+	'msg',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"9d27e7ff-96ee-4ed7-b27b-dd56152dab23",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("1c659e1e-5134-4351-879c-bfac4aabb8e4",
+	"efb39f65-20b5-4f34-8a52-c86e7f4c6de2",
+	'EmployeeID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO PE_PE
 	VALUES ("efb39f65-20b5-4f34-8a52-c86e7f4c6de2",
