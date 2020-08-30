@@ -38,7 +38,9 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'Reply',
 	'',
-	'::Reply( msg:param.msg, state:param.state );',
+	'LOG::LogInfo(message:"UI: Sending reply: "+param.msg);	 
+
+',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
@@ -72,7 +74,9 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'SendLeaveSpecification',
 	'',
-	'::SendLeaveSpecification( Name:param.Name, MaximumDays:param.MaximumDays, MinimumDays:param.MinimumDays, Size:param.Size );',
+	'LOG::LogInfo(message:"UI: Sending leave specification: "+param.Name );	 
+
+//::SendLeaveSpecification( Name:param.Name, MaximumDays:param.MaximumDays, MinimumDays:param.MinimumDays, Size:param.Size );',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
@@ -124,7 +128,7 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'ReplyUsernamePassword',
 	'',
-	'//LOG::LogInfo(message:"UI: Sending reply to Username Password: "+param.msg );	 
+	'LOG::LogInfo(message:"UI: Sending reply to Username Password: "+param.msg );	 
 
 //::ReplyUsernamePassword(EmployeeID:param.EmployeeID, Username:param.Username, msg:param.msg, state:param.state );',
 	"ba5eda7a-def5-0000-0000-000000000000",
@@ -178,7 +182,9 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'SendEmployee',
 	'',
-	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName,  DateOfBirth:param.DateOfBirth, Degree:param.Degree, Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Size:param.Size ); ',
+	'LOG::LogInfo(message:"UI: Sending employee: "+param.FirstName+" "+param.LastName);	 
+
+//::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName,  DateOfBirth:param.DateOfBirth, Degree:param.Degree, Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Size:param.Size ); ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
