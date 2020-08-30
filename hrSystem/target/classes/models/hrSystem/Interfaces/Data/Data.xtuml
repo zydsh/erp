@@ -413,6 +413,75 @@ INSERT INTO C_AS
 	'',
 	0,
 	"28c1324f-fa4b-4d57-8093-089ef52816b3");
+INSERT INTO C_EP
+	VALUES ("4faa150b-b378-4b6d-a581-fc2bda46bcfa",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadEmployeeMessage',
+	'');
+INSERT INTO C_AS
+	VALUES ("4faa150b-b378-4b6d-a581-fc2bda46bcfa",
+	'ReadEmployeeMessage',
+	'',
+	0,
+	"c394831f-741a-4da7-9a06-59aab6fe9a65");
+INSERT INTO C_PP
+	VALUES ("2e774419-8428-44dd-b57f-61b7b647471d",
+	"4faa150b-b378-4b6d-a581-fc2bda46bcfa",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendEmployeeMessages',
+	'');
+INSERT INTO C_AS
+	VALUES ("3d328faa-80d8-4b87-8f4e-bceeff720379",
+	'SendEmployeeMessages',
+	'',
+	1,
+	"4faa150b-b378-4b6d-a581-fc2bda46bcfa");
+INSERT INTO C_PP
+	VALUES ("488ce282-40f8-4038-878b-0cba6aab84a3",
+	"3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Starting',
+	'',
+	0,
+	'',
+	"29aeaf4f-6292-49b6-9117-798d566d0758");
+INSERT INTO C_PP
+	VALUES ("a22f622d-6183-42db-a3b3-0fe92b31cdcf",
+	"3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Ending',
+	'',
+	0,
+	'',
+	"488ce282-40f8-4038-878b-0cba6aab84a3");
+INSERT INTO C_PP
+	VALUES ("250ad1c2-da61-4919-8dfd-afd93ed276bc",
+	"3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Content',
+	'',
+	0,
+	'',
+	"a22f622d-6183-42db-a3b3-0fe92b31cdcf");
+INSERT INTO C_PP
+	VALUES ("29aeaf4f-6292-49b6-9117-798d566d0758",
+	"3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'LeaveRequesterID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

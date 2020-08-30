@@ -93,11 +93,6 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
     }
     private double m_Amount;
     @Override
-    public double getAmount() throws XtumlException {
-        checkLiving();
-        return m_Amount;
-    }
-    @Override
     public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
         if (m_Amount != this.m_Amount) {
@@ -106,12 +101,12 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
     }
-    private int m_Date;
     @Override
-    public int getDate() throws XtumlException {
+    public double getAmount() throws XtumlException {
         checkLiving();
-        return m_Date;
+        return m_Amount;
     }
+    private int m_Date;
     @Override
     public void setDate(int m_Date) throws XtumlException {
         checkLiving();
@@ -121,12 +116,12 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Date", oldValue, this.m_Date));
         }
     }
-    private PayslipItemType m_Type;
     @Override
-    public PayslipItemType getType() throws XtumlException {
+    public int getDate() throws XtumlException {
         checkLiving();
-        return m_Type;
+        return m_Date;
     }
+    private PayslipItemType m_Type;
     @Override
     public void setType(PayslipItemType m_Type) throws XtumlException {
         checkLiving();
@@ -135,6 +130,11 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
             this.m_Type = m_Type;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Type", oldValue, this.m_Type));
         }
+    }
+    @Override
+    public PayslipItemType getType() throws XtumlException {
+        checkLiving();
+        return m_Type;
     }
 
 
@@ -225,23 +225,23 @@ class EmptyPayslipItem extends ModelInstance<PayslipItem,Hr> implements PayslipI
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public double getAmount() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setAmount( double m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public int getDate() throws XtumlException {
+    public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setDate( int m_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public PayslipItemType getType() throws XtumlException {
+    public int getDate() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setType( PayslipItemType m_Type ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public PayslipItemType getType() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

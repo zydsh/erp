@@ -13,7 +13,9 @@ import io.ciera.runtime.summit.exceptions.BadArgumentException;
 import io.ciera.runtime.summit.exceptions.EmptyInstanceException;
 import io.ciera.runtime.summit.exceptions.XtumlException;
 import io.ciera.runtime.summit.util.LOG;
+import io.ciera.runtime.summit.util.TIM;
 import io.ciera.runtime.summit.util.impl.LOGImpl;
+import io.ciera.runtime.summit.util.impl.TIMImpl;
 
 import java.io.IOException;
 import java.util.Map;
@@ -29,6 +31,7 @@ public class UI extends Component<UI> {
         super(app, runContext, populationId);
 
 
+        TIM = null;
         LOG = null;
         classDirectory = new TreeMap<>();
 
@@ -48,6 +51,10 @@ public class UI extends Component<UI> {
 
     public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
         context().LOG().LogInfo( ( ( "UI: Sending employee: " + p_FirstName ) + " " ) + p_LastName );
+    }
+
+    public void SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) throws XtumlException {
+        context().LOG().LogInfo( "Sending employee messages: message content:" + p_Content );
     }
 
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
@@ -72,6 +79,16 @@ public class UI extends Component<UI> {
     }
 
     public void leaveRequest() throws XtumlException {
+        context().LOG().LogInfo( "Test: leave request with starting couple of days before ending" );
+        int monthInSeconds = 108000;
+        int startingTime = context().TIM().current_seconds() + monthInSeconds;
+        int endingTime = startingTime + monthInSeconds;
+        context().AppOps().RequestEmployeeLeave( startingTime, endingTime, 1428888, "Regular Leave" );
+    }
+
+    public void sendEmployeeMessages() throws XtumlException {
+        context().LOG().LogInfo( "Test: Employee messages .." );
+        context().App().ReadEmployeeMessage( 1424444 );
     }
 
 
@@ -104,6 +121,11 @@ public class UI extends Component<UI> {
 
 
     // utilities
+    private TIM TIM;
+    public TIM TIM() {
+        if ( null == TIM ) TIM = new TIMImpl<>( this );
+        return TIM;
+    }
     private LOG LOG;
     public LOG LOG() {
         if ( null == LOG ) LOG = new LOGImpl<>( this );

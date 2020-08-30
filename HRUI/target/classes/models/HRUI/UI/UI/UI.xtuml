@@ -815,6 +815,42 @@ INSERT INTO C_EP_PROXY
 	'Initialize',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("fb2a5dd3-7174-411d-b379-6084657d2ce4",
+	"4faa150b-b378-4b6d-a581-fc2bda46bcfa",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("fb2a5dd3-7174-411d-b379-6084657d2ce4",
+	'ReadEmployeeMessage',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4faa150b-b378-4b6d-a581-fc2bda46bcfa",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadEmployeeMessage',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("37c88089-7de1-4f94-a969-2d77b6065fd9",
+	"3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("37c88089-7de1-4f94-a969-2d77b6065fd9",
+	'SendEmployeeMessages',
+	'',
+	'::SendEmployeeMessages( LeaveRequesterID:param.LeaveRequesterID, Starting:param.Starting, Ending:param.Ending, Content:param.Content );',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendEmployeeMessages',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -937,7 +973,7 @@ INSERT INTO SPR_RS
 	'CheckUsernamePassword',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a2b9a551-5d4f-4bdb-9776-e71898ae21e8",

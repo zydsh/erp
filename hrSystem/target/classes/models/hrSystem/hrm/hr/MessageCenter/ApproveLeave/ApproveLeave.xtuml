@@ -20,10 +20,8 @@ relate self to employee across R102;
 
 //create the message
 
- select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;
-
-		
-Content = emp.FirstName+" "+emp.LastName+" is requesting to take leave.";',
+select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;		
+self.Content= emp.FirstName+" "+emp.LastName+" is requesting to take leave.";',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",

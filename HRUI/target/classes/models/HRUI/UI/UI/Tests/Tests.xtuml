@@ -104,13 +104,36 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'leaveRequest',
 	'',
-	'//AppOps::RequestEmployeeLeave( Starting:TIM::, Ending:, EmployeeID:1420000, LeaveName: )',
+	'LOG::LogInfo(message:"Test: leave request with starting couple of days before ending");	
+
+monthInSeconds=108000;
+startingTime = TIM::current_seconds()+monthInSeconds;
+endingTime = startingTime+monthInSeconds;
+AppOps::RequestEmployeeLeave( Starting:startingTime, Ending:endingTime, EmployeeID:1428888, LeaveName:"Regular Leave" ); ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
 	0);
 INSERT INTO PE_PE
 	VALUES ("0e20bc57-5bd8-4433-bd89-1b72641d90d7",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("14cb0a32-8429-4d58-9fa3-e23144f5f79b",
+	"00000000-0000-0000-0000-000000000000",
+	'sendEmployeeMessages',
+	'',
+	'LOG::LogInfo(message:"Test: Employee messages .." );	
+
+App::ReadEmployeeMessage( EmployeeID:1424444 );',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("14cb0a32-8429-4d58-9fa3-e23144f5f79b",
 	1,
 	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
 	"00000000-0000-0000-0000-000000000000",

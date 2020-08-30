@@ -29,13 +29,13 @@ public class UIAuthenticate extends Port<UI> implements IAuthentication {
 
 
     // outbound messages
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.AddToGroup(p_EmployeeID, p_Group));
+    public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.ChangePassword(p_Username, p_OldPassword, p_NewPassword));
         else {
         }
     }
-    public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.ChangePassword(p_Username, p_OldPassword, p_NewPassword));
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.AddToGroup(p_EmployeeID, p_Group));
         else {
         }
     }
@@ -44,13 +44,13 @@ public class UIAuthenticate extends Port<UI> implements IAuthentication {
         else {
         }
     }
-    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.CheckUsernamePassword(p_Username, p_Password));
+    public void Initialize() throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.Initialize());
         else {
         }
     }
-    public void Initialize() throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.Initialize());
+    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.CheckUsernamePassword(p_Username, p_Password));
         else {
         }
     }

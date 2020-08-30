@@ -28,9 +28,6 @@ public class HrUI_Ops extends Port<Hr> implements IOps {
     }
 
     // inbound messages
-    public void GenerateEmployeePayslip( final int p_National_ID ) throws XtumlException {
-    }
-
     public void ApproveEmployeeLeave( final int p_EmployeeID ) throws XtumlException {
         Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == p_EmployeeID);
         if ( !employee.isEmpty() ) {
@@ -39,7 +36,7 @@ public class HrUI_Ops extends Port<Hr> implements IOps {
         }
     }
 
-    public void AssignJobToEmployee( final int p_Job_ID,  final int p_National_ID,  final String p_Action,  final boolean p_Active ) throws XtumlException {
+    public void AssignBonusToEmployee( final int p_National_ID,  final String p_Name,  final int p_Starting,  final int p_Ending,  final String p_Action ) throws XtumlException {
     }
 
     public void ReturnFromLeave( final int p_National_ID ) throws XtumlException {
@@ -52,19 +49,26 @@ public class HrUI_Ops extends Port<Hr> implements IOps {
             Leave empLeave = LeaveImpl.create( context() );
             empLeave.setStarting(p_Starting);
             empLeave.setEnding(p_Ending);
-            context().relate_R7_Employee_is_planning_to_take__Leave( employee, empLeave );
+            context().relate_R7_Leave_to_be_taken_by_Employee( empLeave, employee );
             context().relate_R15_Leave_is_specified_by_a_LeaveSpecification( empLeave, leaveSpec );
+            context().LOG().LogInfo( "Leave Request: creating leave instance and relating it to employee " );
             Employee employeeMngr = employee.R21_working_within_Department().R23_is_managed_by_Employee();
-            ApproveLeave approveLeaveMsg = ApproveLeaveImpl.create( context() );
-            approveLeaveMsg.createMessage( p_Starting, p_Ending, employee.getEmployeeID(), employeeMngr.getEmployeeID() );
+            context().LOG().LogInfo( "Leave Request: notifying manager.. " );
+            if ( !employeeMngr.isEmpty() ) {
+                ApproveLeave approveLeaveMsg = ApproveLeaveImpl.create( context() );
+                approveLeaveMsg.createMessage( p_Starting, p_Ending, employee.getEmployeeID(), employeeMngr.getEmployeeID() );
+                context().LOG().LogInfo( ( ( "Leave Request: manager " + employeeMngr.getFirstName() ) + " " ) + employeeMngr.getLastName() );
+            }
+            else {
+                context().LOG().LogInfo( "Leave Request: deprartment has no manager " );
+            }
+            context().UI().Reply( "Employee has requested leave successfully ", true );
+            context().LOG().LogInfo( "Leave Request: Employee completed leave request successfully. " );
         }
         else {
             context().LOG().LogInfo( "Employee is not registered!" );
             context().UI().Reply( "Employee is not found.", false );
         }
-    }
-
-    public void AssignBonusToEmployee( final int p_National_ID,  final String p_Name,  final int p_Starting,  final int p_Ending,  final String p_Action ) throws XtumlException {
     }
 
     public void CommenceEmployee( final int p_National_ID ) throws XtumlException {
@@ -86,6 +90,12 @@ public class HrUI_Ops extends Port<Hr> implements IOps {
         }
     }
 
+    public void AssignJobToEmployee( final int p_Job_ID,  final int p_National_ID,  final String p_Action,  final boolean p_Active ) throws XtumlException {
+    }
+
+    public void GenerateEmployeePayslip( final int p_National_ID ) throws XtumlException {
+    }
+
 
 
     // outbound messages
@@ -100,14 +110,11 @@ public class HrUI_Ops extends Port<Hr> implements IOps {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IOps.SIGNAL_NO_GENERATEEMPLOYEEPAYSLIP:
-                GenerateEmployeePayslip(IntegerUtil.deserialize(message.get(0)));
-                break;
             case IOps.SIGNAL_NO_APPROVEEMPLOYEELEAVE:
                 ApproveEmployeeLeave(IntegerUtil.deserialize(message.get(0)));
                 break;
-            case IOps.SIGNAL_NO_ASSIGNJOBTOEMPLOYEE:
-                AssignJobToEmployee(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), BooleanUtil.deserialize(message.get(3)));
+            case IOps.SIGNAL_NO_ASSIGNBONUSTOEMPLOYEE:
+                AssignBonusToEmployee(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), IntegerUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)));
                 break;
             case IOps.SIGNAL_NO_RETURNFROMLEAVE:
                 ReturnFromLeave(IntegerUtil.deserialize(message.get(0)));
@@ -115,14 +122,17 @@ public class HrUI_Ops extends Port<Hr> implements IOps {
             case IOps.SIGNAL_NO_REQUESTEMPLOYEELEAVE:
                 RequestEmployeeLeave(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)));
                 break;
-            case IOps.SIGNAL_NO_ASSIGNBONUSTOEMPLOYEE:
-                AssignBonusToEmployee(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), IntegerUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)));
-                break;
             case IOps.SIGNAL_NO_COMMENCEEMPLOYEE:
                 CommenceEmployee(IntegerUtil.deserialize(message.get(0)));
                 break;
             case IOps.SIGNAL_NO_REJECTEMPLOYEELEAVE:
                 RejectEmployeeLeave(IntegerUtil.deserialize(message.get(0)));
+                break;
+            case IOps.SIGNAL_NO_ASSIGNJOBTOEMPLOYEE:
+                AssignJobToEmployee(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), BooleanUtil.deserialize(message.get(3)));
+                break;
+            case IOps.SIGNAL_NO_GENERATEEMPLOYEEPAYSLIP:
+                GenerateEmployeePayslip(IntegerUtil.deserialize(message.get(0)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );
