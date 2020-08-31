@@ -433,9 +433,10 @@ INSERT INTO S_SYNC
 
 select any job from instances of Job where selected.Job_ID==1;
 relate emp to job across R6.''currently occupies'';
-
+emp.commenceEmployee( National_ID:emp.NationalID );
  
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
 
 create object instance emp of Employee;
@@ -450,7 +451,8 @@ create object instance emp of Employee;
 
 select any job from instances of Job where selected.Job_ID==2;
 relate emp to job across R6.''currently occupies'';
- 
+emp.commenceEmployee( National_ID:emp.NationalID );
+
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
 
@@ -464,8 +466,9 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
- select any job from instances of Job where selected.Job_ID==3;
+select any job from instances of Job where selected.Job_ID==3;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -480,13 +483,12 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
- select any job from instances of Job where selected.Job_ID==4;
+select any job from instances of Job where selected.Job_ID==4;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
-
-
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1424444;
@@ -500,9 +502,9 @@ create object instance emp of Employee;
 
 select any job from instances of Job where selected.Job_ID==5;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
 
 
@@ -518,6 +520,7 @@ create object instance emp of Employee;
 
 select any job from instances of Job where selected.Job_ID==6;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -534,6 +537,7 @@ create object instance emp of Employee;
 
 select any job from instances of Job where selected.Job_ID==7;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -550,6 +554,7 @@ create object instance emp of Employee;
 
 select any job from instances of Job where selected.Job_ID==8;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -566,6 +571,7 @@ create object instance emp of Employee;
 
 select any job from instances of Job where selected.Job_ID==9;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -582,6 +588,7 @@ create object instance emp of Employee;
 
 select any job from instances of Job where selected.Job_ID==10;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -599,6 +606,7 @@ create object instance emp of Employee;
 
 select any job from instances of Job where selected.Job_ID==11;
 relate emp to job across R6.''currently occupies'';
+emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
 LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
