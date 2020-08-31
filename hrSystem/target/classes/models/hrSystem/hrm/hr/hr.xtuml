@@ -559,7 +559,7 @@ INSERT INTO SPR_PS
 	VALUES ("9a6a1cac-4906-4fba-b8e5-891006c1be35",
 	'RequestEmployeeLeave',
 	'An employee requests to have a leave of absence of a specific type. ',
-	'//Select an employee using the National ID to deliver the event to the statemachine
+	'//Select an employee using the Employee ID to deliver the event to the state machine
 // to serve the request for leave.
 select any employee from instances of Employee where selected.EmployeeID==param.EmployeeID;
 select any leaveSpec from instances of LeaveSpecification where selected.Name ==param.LeaveName;
@@ -572,14 +572,22 @@ if ( not empty employee ) and ( not empty leaveSpec)
 	empLeave.Ending = param.Ending;
 	relate empLeave to employee across R7.''to be taken by'';
 	relate empLeave to leaveSpec across R15.''is specified by a'';
-	
+	LOG::LogInfo(message:"Leave Request: creating leave instance and relating it to employee ");	
+
 	//Notify employee manager using the message center
 	select one employeeMngr related by employee->Department[R21.''working within'']->Employee[R23.''is managed by''];	
-	create object instance approveLeaveMsg of ApproveLeave;
-	approveLeaveMsg.createMessage(Starting:param.Starting, Ending:param.Ending, EmployeeID:employee.EmployeeID, ManagerID:employeeMngr.EmployeeID );
-
 	
-	//UI::Reply( msg:"Employee has requested leave successfully ", state:True);
+	LOG::LogInfo(message:"Leave Request: notifying manager.. ");	
+	if ( not empty employeeMngr)
+		create object instance approveLeaveMsg of ApproveLeave;
+		approveLeaveMsg.createMessage(Starting:param.Starting, Ending:param.Ending, EmployeeID:employee.EmployeeID, ManagerID:employeeMngr.EmployeeID );
+		LOG::LogInfo(message:"Leave Request: manager "+employeeMngr.FirstName+" "+employeeMngr.LastName);	
+	else
+		LOG::LogInfo(message:"Leave Request: deprartment has no manager ");//+employeeMngr.FirstName+" "+employeeMngr.LastName);	
+	end if;
+	
+	UI::Reply( msg:"Employee has requested leave successfully ", state:True);
+	LOG::LogInfo(message:"Leave Request: Employee completed leave request successfully. ");	
 
 else 
 	LOG::LogInfo(message:"Employee is not registered!" );
@@ -1076,6 +1084,58 @@ INSERT INTO C_EP_PROXY
 	'Initialize',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("c65b4b9d-191c-477e-a438-8b1a44ed89af",
+	"4faa150b-b378-4b6d-a581-fc2bda46bcfa",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("c65b4b9d-191c-477e-a438-8b1a44ed89af",
+	'ReadEmployeeMessage',
+	'',
+	'select any employee from instances of Employee where selected.EmployeeID==param.EmployeeID; 
+
+select many msgSet related by employee->ApproveLeave[R102.''is notified by''];  
+
+ 
+LOG::LogInfo(message:"Sending employee message set .." );	
+
+
+  for each msg in msgSet
+ 
+	UI::SendEmployeeMessages( LeaveRequesterID:msg.LeaveRequesterID, Starting:msg.Starting, Ending:msg.Ending, Content:msg.Content );
+	LOG::LogInfo(message:"Send Employee Messages Sent: "+ msg.Content);	
+
+  end for;
+
+  LOG::LogInfo(message:"Sending employee messages is complete" );	
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4faa150b-b378-4b6d-a581-fc2bda46bcfa",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadEmployeeMessage',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("5e85f5ec-c600-4eb9-a51c-a8d40c832b4a",
+	"3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("5e85f5ec-c600-4eb9-a51c-a8d40c832b4a",
+	'SendEmployeeMessages',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3d328faa-80d8-4b87-8f4e-bceeff720379",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendEmployeeMessages',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -1198,7 +1258,7 @@ INSERT INTO SPR_RS
 	'CheckUsernamePassword',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a2b9a551-5d4f-4bdb-9776-e71898ae21e8",

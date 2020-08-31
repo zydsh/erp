@@ -103,11 +103,6 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     }
     private int m_Ending;
     @Override
-    public int getEnding() throws XtumlException {
-        checkLiving();
-        return m_Ending;
-    }
-    @Override
     public void setEnding(int m_Ending) throws XtumlException {
         checkLiving();
         if (m_Ending != this.m_Ending) {
@@ -115,6 +110,11 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
             this.m_Ending = m_Ending;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
+    }
+    @Override
+    public int getEnding() throws XtumlException {
+        checkLiving();
+        return m_Ending;
     }
     private double m_Amount;
     @Override
@@ -148,7 +148,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
         @Override
         public int getId() {
-            return 2;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -161,7 +161,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
         @Override
         public int getId() {
-            return 1;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -174,7 +174,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
         @Override
         public int getId() {
-            return 0;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -251,11 +251,11 @@ class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
     public int getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getEnding() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setEnding( int m_Ending ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getEnding() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setAmount( double m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

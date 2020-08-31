@@ -55,14 +55,14 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
     private void Rejected_entry_action() throws XtumlException {
         context().LOG().LogInfo( "Employee leave rejected" );
         Employee employee = self().R7_to_be_taken_by_Employee();
-        context().unrelate_R7_Employee_is_planning_to_take__Leave( employee, self() );
+        context().unrelate_R7_Leave_to_be_taken_by_Employee( self(), employee );
         self().delete();
     }
 
     private void StartLeave_entry_action() throws XtumlException {
         Employee employee = self().R7_to_be_taken_by_Employee();
         context().relate_R5_Employee_is_taking_a_Leave( employee, self() );
-        context().unrelate_R7_Employee_is_planning_to_take__Leave( employee, self() );
+        context().unrelate_R7_Leave_to_be_taken_by_Employee( self(), employee );
         context().generate(new EmployeeImpl.LeaveStarted(getRunContext(), context().getId()).to(employee));
         context().LOG().LogInfo( "Employee leave started" );
         int timeUntilLeaveEnds = self().getEnding() - context().TIM().current_seconds();

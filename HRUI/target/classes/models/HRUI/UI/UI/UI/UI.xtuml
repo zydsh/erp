@@ -303,6 +303,59 @@ INSERT INTO PE_PE
 	"20543efe-1176-476d-b1d2-f7083b47970b",
 	"00000000-0000-0000-0000-000000000000",
 	1);
+INSERT INTO S_SYNC
+	VALUES ("492b5f48-e9e5-4009-8ef3-fc63b8a80563",
+	"00000000-0000-0000-0000-000000000000",
+	'SendEmployeeMessages',
+	'',
+	'  LOG::LogInfo(message:"Sending employee messages: message content:"+param.Content );	
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("ea16c777-d5f9-4e0b-ad7e-d2f75a455107",
+	"492b5f48-e9e5-4009-8ef3-fc63b8a80563",
+	'LeaveRequesterID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("d95ab710-2629-4876-9c14-e8b4c5ffe0a7",
+	"492b5f48-e9e5-4009-8ef3-fc63b8a80563",
+	'Starting',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"ea16c777-d5f9-4e0b-ad7e-d2f75a455107",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("12ed259e-1282-48fd-96e9-9b1cd6b0a03b",
+	"492b5f48-e9e5-4009-8ef3-fc63b8a80563",
+	'Ending',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"d95ab710-2629-4876-9c14-e8b4c5ffe0a7",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("cbfe62e9-e941-49f8-9ab3-93b9925b59d1",
+	"492b5f48-e9e5-4009-8ef3-fc63b8a80563",
+	'Content',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"12ed259e-1282-48fd-96e9-9b1cd6b0a03b",
+	'');
+INSERT INTO PE_PE
+	VALUES ("492b5f48-e9e5-4009-8ef3-fc63b8a80563",
+	1,
+	"20543efe-1176-476d-b1d2-f7083b47970b",
+	"00000000-0000-0000-0000-000000000000",
+	1);
 INSERT INTO PE_PE
 	VALUES ("20543efe-1176-476d-b1d2-f7083b47970b",
 	1,

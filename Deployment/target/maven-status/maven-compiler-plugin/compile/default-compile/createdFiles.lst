@@ -18,6 +18,7 @@ hrsystem/hr/main/Department.class
 hrsystem/auth/main/impl/GroupImpl.class
 interfaces/IAuthentication$CheckUsernamePassword.class
 hrsystem/hr/main/impl/PayslipItemImpl.class
+interfaces/IData$SendEmployeeMessages.class
 hrsystem/auth/main/impl/EmptyPermissions.class
 hrsystem/auth/main/PermissionsSet.class
 hrsystem/hr/main/impl/EmptyDepartment.class
@@ -58,6 +59,7 @@ hrsystem/hr/main/impl/EmptyPayslipItem.class
 hrm/hr/types/PayslipItemType.class
 hrsystem/UI.class
 hrsystem/hr/main/PayslipItem.class
+interfaces/IData$ReadEmployeeMessage.class
 hrsystem/ui/UIAppOps.class
 interfaces/IData$DeleteLeaveSpecification.class
 hrsystem/hr/main/impl/GradeSetImpl.class
