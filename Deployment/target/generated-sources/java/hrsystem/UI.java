@@ -31,8 +31,8 @@ public class UI extends Component<UI> {
         super(app, runContext, populationId);
 
 
-        TIM = null;
         LOG = null;
+        TIM = null;
         classDirectory = new TreeMap<>();
 
     }
@@ -61,6 +61,11 @@ public class UI extends Component<UI> {
         context().LOG().LogInfo( "UI: Sending leave specification: " + p_Name );
     }
 
+    public void approveLeaveRequest() throws XtumlException {
+        context().LOG().LogInfo( "Test: Approving leave request ... " );
+        context().AppOps().ApproveEmployeeLeave( 1428888 );
+    }
+
     public void changePassword() throws XtumlException {
         context().Authenticate().ChangePassword( "Khalid.Alrajeh", "7(!d&KhalidAlrajeh", "7(!d&" );
         context().LOG().LogInfo( "Test: Change Password second test" );
@@ -80,15 +85,29 @@ public class UI extends Component<UI> {
 
     public void leaveRequest() throws XtumlException {
         context().LOG().LogInfo( "Test: leave request with starting couple of days before ending" );
-        int monthInSeconds = 108000;
+        int monthInSeconds = 2592000 * 1000000;
         int startingTime = context().TIM().current_seconds() + monthInSeconds;
+        context().LOG().LogInfo( "Test: Starting leave at: " );
+        context().LOG().LogInteger( startingTime );
         int endingTime = startingTime + monthInSeconds;
+        context().LOG().LogInfo( "Test: Ending leave at: " );
+        context().LOG().LogInteger( endingTime );
         context().AppOps().RequestEmployeeLeave( startingTime, endingTime, 1428888, "Regular Leave" );
     }
 
     public void sendEmployeeMessages() throws XtumlException {
         context().LOG().LogInfo( "Test: Employee messages .." );
         context().App().ReadEmployeeMessage( 1424444 );
+    }
+
+    public void testBonus() throws XtumlException {
+        int ending = context().TIM().current_seconds() + ( ( ( 52 * 7 ) * 24 ) * 60 ) * 60;
+        context().LOG().LogInfo( "Test: Assignning bonuses..." );
+        context().App().AssignEmployeeBonus( 1428888, "Scarcity", context().TIM().current_seconds(), ending );
+        context().App().AssignEmployeeBonus( 1428888, "Computing", context().TIM().current_seconds(), ending );
+        context().App().AssignEmployeeBonus( 1428888, "Research", context().TIM().current_seconds(), ending );
+        context().LOG().LogInfo( "Test: Stopping one bonus..." );
+        context().App().StopEmployeeBonus( 1428888, "Computing" );
     }
 
 
@@ -121,15 +140,15 @@ public class UI extends Component<UI> {
 
 
     // utilities
-    private TIM TIM;
-    public TIM TIM() {
-        if ( null == TIM ) TIM = new TIMImpl<>( this );
-        return TIM;
-    }
     private LOG LOG;
     public LOG LOG() {
         if ( null == LOG ) LOG = new LOGImpl<>( this );
         return LOG;
+    }
+    private TIM TIM;
+    public TIM TIM() {
+        if ( null == TIM ) TIM = new TIMImpl<>( this );
+        return TIM;
     }
 
 

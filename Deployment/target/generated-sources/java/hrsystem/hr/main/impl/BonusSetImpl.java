@@ -27,12 +27,12 @@ public class BonusSetImpl extends InstanceSet<BonusSet,Bonus> implements BonusSe
 
     // attributes
     @Override
-    public void setStarting( int m_Starting ) throws XtumlException {
-        for ( Bonus bonus : this ) bonus.setStarting( m_Starting );
-    }
-    @Override
     public void setEnding( int m_Ending ) throws XtumlException {
         for ( Bonus bonus : this ) bonus.setEnding( m_Ending );
+    }
+    @Override
+    public void setStarting( int m_Starting ) throws XtumlException {
+        for ( Bonus bonus : this ) bonus.setStarting( m_Starting );
     }
     @Override
     public void setAmount( double m_Amount ) throws XtumlException {
@@ -48,9 +48,9 @@ public class BonusSetImpl extends InstanceSet<BonusSet,Bonus> implements BonusSe
         return bonusspecificationset;
     }
     @Override
-    public EmployeeSet R19_given_in_the_past_to_an_Employee() throws XtumlException {
+    public EmployeeSet R19_given_in_the_past_Employee() throws XtumlException {
         EmployeeSet employeeset = new EmployeeSetImpl();
-        for ( Bonus bonus : this ) employeeset.add( bonus.R19_given_in_the_past_to_an_Employee() );
+        for ( Bonus bonus : this ) employeeset.add( bonus.R19_given_in_the_past_Employee() );
         return employeeset;
     }
     @Override

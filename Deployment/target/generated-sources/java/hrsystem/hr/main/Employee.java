@@ -23,24 +23,24 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Employee extends IModelInstance<Employee,Hr> {
 
     // attributes
-    public void setEmployeeID( int m_EmployeeID ) throws XtumlException;
     public int getEmployeeID() throws XtumlException;
-    public void setNationalID( int m_NationalID ) throws XtumlException;
+    public void setEmployeeID( int m_EmployeeID ) throws XtumlException;
     public int getNationalID() throws XtumlException;
-    public void setFirstName( String m_FirstName ) throws XtumlException;
+    public void setNationalID( int m_NationalID ) throws XtumlException;
     public String getFirstName() throws XtumlException;
+    public void setFirstName( String m_FirstName ) throws XtumlException;
     public void setMiddleName( String m_MiddleName ) throws XtumlException;
     public String getMiddleName() throws XtumlException;
-    public String getLastName() throws XtumlException;
     public void setLastName( String m_LastName ) throws XtumlException;
-    public int getDateOfBirth() throws XtumlException;
+    public String getLastName() throws XtumlException;
     public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException;
+    public int getDateOfBirth() throws XtumlException;
     public void setDegree( String m_Degree ) throws XtumlException;
     public String getDegree() throws XtumlException;
-    public void setGender( String m_Gender ) throws XtumlException;
     public String getGender() throws XtumlException;
-    public int getStart_Date() throws XtumlException;
+    public void setGender( String m_Gender ) throws XtumlException;
     public void setStart_Date( int m_Start_Date ) throws XtumlException;
+    public int getStart_Date() throws XtumlException;
     public int getLeaveBalance() throws XtumlException;
     public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException;
     public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException;
@@ -59,9 +59,9 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     default public void addR11_consumed_Leave( Leave inst ) {}
     default public void removeR11_consumed_Leave( Leave inst ) {}
     public LeaveSet R11_consumed_Leave() throws XtumlException;
-    default public void addR19_was_given_a_Bonus( Bonus inst ) {}
-    default public void removeR19_was_given_a_Bonus( Bonus inst ) {}
-    public BonusSet R19_was_given_a_Bonus() throws XtumlException;
+    default public void addR19_was_given_Bonus( Bonus inst ) {}
+    default public void removeR19_was_given_Bonus( Bonus inst ) {}
+    public BonusSet R19_was_given_Bonus() throws XtumlException;
     default public void addR1_occupied_JobRecord( JobRecord inst ) {}
     default public void removeR1_occupied_JobRecord( JobRecord inst ) {}
     public JobRecordSet R1_occupied_JobRecord() throws XtumlException;

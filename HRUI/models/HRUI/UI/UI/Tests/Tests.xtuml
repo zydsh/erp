@@ -175,7 +175,7 @@ LOG::LogInfo(message:"Test: Assignning bonuses...");
 App::AssignEmployeeBonus( EmployeeID:1428888, BonusName:"Scarcity", Starting:TIM::current_seconds(), Ending:ending);
 App::AssignEmployeeBonus( EmployeeID:1428888, BonusName:"Computing", Starting:TIM::current_seconds(), Ending:ending);
 App::AssignEmployeeBonus( EmployeeID:1428888, BonusName:"Research", Starting:TIM::current_seconds(), Ending:ending);
-
+ 
 LOG::LogInfo(message:"Test: Stopping one bonus...");
 
 App::StopEmployeeBonus( EmployeeID:1428888, BonusName:"Computing");

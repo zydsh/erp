@@ -3,6 +3,9 @@ package hrsystem.hr.main.impl;
 
 import hrsystem.Hr;
 import hrsystem.hr.main.Bonus;
+import hrsystem.hr.main.BonusSpecification;
+import hrsystem.hr.main.Employee;
+import hrsystem.hr.main.Job;
 
 import io.ciera.runtime.summit.exceptions.XtumlException;
 import io.ciera.runtime.summit.statemachine.ITransition;
@@ -13,7 +16,6 @@ public class BonusStateMachine extends StateMachine<Bonus,Hr> {
 
     public static final int Active = 0;
     public static final int Inactive = 1;
-    public static final int Resume = 2;
 
 
     private Bonus self;
@@ -28,16 +30,16 @@ public class BonusStateMachine extends StateMachine<Bonus,Hr> {
     }
 
     private void Active_entry_action() throws XtumlException {
+        Job job = self().R4_is_given_to_an_Employee().R6_currently_occupies_Job();
+        BonusSpecification bonus = self().R16_is_specified_by_BonusSpecification();
+        self().setAmount(job.getSalary() * bonus.getPercent());
     }
 
     private void Inactive_entry_action() throws XtumlException {
+        Employee employee = self().R4_is_given_to_an_Employee();
+        context().unrelate_R4_Bonus_is_given_to_an_Employee( self(), employee );
+        context().relate_R19_Bonus_given_in_the_past_Employee( self(), employee );
         context().LOG().LogInfo( "Bonus is now deactivated" );
-    }
-
-    private void Resume_entry_action( final int p_Starting,  final int p_Ending ) throws XtumlException {
-        self().setStarting(p_Starting);
-        self().setEnding(p_Ending);
-        context().LOG().LogInfo( "Bonus is updated to new starting and ending times." );
     }
 
 
@@ -48,26 +50,16 @@ public class BonusStateMachine extends StateMachine<Bonus,Hr> {
     private void Active_deactivateBonus_txn_to_Inactive_action() throws XtumlException {
     }
 
-    private void Inactive_resumeBonus_txn_to_Resume_action( final int p_Starting,  final int p_Ending ) throws XtumlException {
-    }
-
-    private void Resume_payBonus_txn_to_Active_action() throws XtumlException {
-    }
-
 
 
     @Override
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
-            { (event) -> {Active_payBonus_txn_to_Active_action();Active_entry_action();return Active;},
-              (event) -> {Active_deactivateBonus_txn_to_Inactive_action();Inactive_entry_action();return Inactive;},
-              CANT_HAPPEN
+            { (event) -> {Active_deactivateBonus_txn_to_Inactive_action();Inactive_entry_action();return Inactive;},
+              CANT_HAPPEN,
+              (event) -> {Active_payBonus_txn_to_Active_action();Active_entry_action();return Active;}
             },
             { CANT_HAPPEN,
-              CANT_HAPPEN,
-              (event) -> {Inactive_resumeBonus_txn_to_Resume_action((int)event.get(0),  (int)event.get(1));Resume_entry_action((int)event.get(0),  (int)event.get(1));return Resume;}
-            },
-            { (event) -> {Resume_payBonus_txn_to_Active_action();Active_entry_action();return Active;},
               CANT_HAPPEN,
               CANT_HAPPEN
             }

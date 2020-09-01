@@ -26,7 +26,7 @@ import io.ciera.runtime.summit.types.UniqueId;
 
 public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
 
-    public static final String KEY_LETTERS = "BP";
+    public static final String KEY_LETTERS = "Bonus";
     public static final Bonus EMPTY_BONUS = new EmptyBonus();
 
     private Hr context;
@@ -38,7 +38,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         m_Ending = 0;
         m_Amount = 0d;
         R16_is_specified_by_BonusSpecification_inst = BonusSpecificationImpl.EMPTY_BONUSSPECIFICATION;
-        R19_given_in_the_past_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R19_given_in_the_past_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         R4_is_given_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         statemachine = new BonusStateMachine(this, context());
     }
@@ -50,7 +50,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         this.m_Ending = m_Ending;
         this.m_Amount = m_Amount;
         R16_is_specified_by_BonusSpecification_inst = BonusSpecificationImpl.EMPTY_BONUSSPECIFICATION;
-        R19_given_in_the_past_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
+        R19_given_in_the_past_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         R4_is_given_to_an_Employee_inst = EmployeeImpl.EMPTY_EMPLOYEE;
         statemachine = new BonusStateMachine(this, context(), initialState);
     }
@@ -118,6 +118,11 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     }
     private double m_Amount;
     @Override
+    public double getAmount() throws XtumlException {
+        checkLiving();
+        return m_Amount;
+    }
+    @Override
     public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
         if (m_Amount != this.m_Amount) {
@@ -125,11 +130,6 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
             this.m_Amount = m_Amount;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
-    }
-    @Override
-    public double getAmount() throws XtumlException {
-        checkLiving();
-        return m_Amount;
     }
 
 
@@ -148,7 +148,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
         @Override
         public int getId() {
-            return 1;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -161,7 +161,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
         @Override
         public int getId() {
-            return 0;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -174,7 +174,7 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
         }
         @Override
         public int getId() {
-            return 2;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -193,14 +193,14 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     public BonusSpecification R16_is_specified_by_BonusSpecification() throws XtumlException {
         return R16_is_specified_by_BonusSpecification_inst;
     }
-    private Employee R19_given_in_the_past_to_an_Employee_inst;
+    private Employee R19_given_in_the_past_Employee_inst;
     @Override
-    public void setR19_given_in_the_past_to_an_Employee( Employee inst ) {
-        R19_given_in_the_past_to_an_Employee_inst = inst;
+    public void setR19_given_in_the_past_Employee( Employee inst ) {
+        R19_given_in_the_past_Employee_inst = inst;
     }
     @Override
-    public Employee R19_given_in_the_past_to_an_Employee() throws XtumlException {
-        return R19_given_in_the_past_to_an_Employee_inst;
+    public Employee R19_given_in_the_past_Employee() throws XtumlException {
+        return R19_given_in_the_past_Employee_inst;
     }
     private Employee R4_is_given_to_an_Employee_inst;
     @Override
@@ -257,11 +257,11 @@ class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setAmount( double m_Amount ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setAmount( double m_Amount ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 
@@ -274,7 +274,7 @@ class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
         return BonusSpecificationImpl.EMPTY_BONUSSPECIFICATION;
     }
     @Override
-    public Employee R19_given_in_the_past_to_an_Employee() {
+    public Employee R19_given_in_the_past_Employee() {
         return EmployeeImpl.EMPTY_EMPLOYEE;
     }
     @Override

@@ -1127,13 +1127,84 @@ INSERT INTO SPR_PS
 	'SendEmployeeMessages',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3d328faa-80d8-4b87-8f4e-bceeff720379",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendEmployeeMessages',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0a4e4392-ddd5-494c-a8bc-debd3db396ff",
+	"1c973eb8-41f0-4af1-a445-cd95097185cd",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("0a4e4392-ddd5-494c-a8bc-debd3db396ff",
+	'AssignEmployeeBonus',
+	'',
+	'
+//find an employee and assign the appropriate leave specifiction
+select any employee from instances of Employee where selected.EmployeeID==param.EmployeeID;
+select any bonusSpec from instances of BonusSpecification where selected.Name ==param.BonusName;
+
+if ( not empty employee ) and ( not empty bonusSpec)
+	create object instance empBonus of Bonus;
+	
+	relate empBonus to bonusSpec across R16.''is specified by'';
+	relate employee to empBonus across R4.''gets a'';
+	empBonus.Starting = param.Starting;
+	empBonus.Ending = param.Ending;
+	LOG::LogInfo(message:"Assign Employee Bonus: Assigning bonus to employee ");
+	UI::Reply( msg:"Employee is assigned a bonus"+ bonusSpec.Name +" successfully ", state:True);
+	
+
+else
+	LOG::LogInfo(message:"Assign Employee Bonus: Failed to find bonus or employee ");
+	UI::Reply( msg:"Failed to find bonus or employee ", state:False);
+	
+
+end if;
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1c973eb8-41f0-4af1-a445-cd95097185cd",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'AssignEmployeeBonus',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("184aabb3-5ca0-4fab-a88e-ba0425bbfdaa",
+	"aadcd44b-2f47-4775-83c0-303d622cb3d4",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("184aabb3-5ca0-4fab-a88e-ba0425bbfdaa",
+	'StopEmployeeBonus',
+	'',
+	'
+select any employee from instances of Employee where selected.EmployeeID==param.EmployeeID;
+
+select many bonuses related by employee->Bonus[R4.''gets a''];// where selected.Name ==param.BonusName;
+
+for each bonus in bonuses
+	select one b related by bonus->BonusSpecification[R16.''is specified by''] where selected.Name==param.BonusName;
+		if (not empty b)
+			generate Bonus2:deactivateBonus to bonus;
+			LOG::LogInfo(message:"UI:StopEmployeeBonus: bonus is now stopped");
+
+		end if;
+end for;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("aadcd44b-2f47-4775-83c0-303d622cb3d4",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'StopEmployeeBonus',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

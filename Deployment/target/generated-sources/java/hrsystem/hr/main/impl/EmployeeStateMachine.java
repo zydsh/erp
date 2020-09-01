@@ -63,9 +63,9 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
               CANT_HAPPEN
             },
             { CANT_HAPPEN,
-              CANT_HAPPEN,
-              CANT_HAPPEN,
               (event) -> {On_Leave_LeaveEnded_txn_to_Working_action();Working_entry_action();return Working;},
+              CANT_HAPPEN,
+              CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN
             },

@@ -8,7 +8,19 @@ import io.ciera.runtime.summit.interfaces.Message;
 public interface IData {
 
     // to provider messages
-    public static final int SIGNAL_NO_CREATEEMPLOYEE = 1;
+    public static final int SIGNAL_NO_ASSIGNEMPLOYEEBONUS = 1;
+    public static class AssignEmployeeBonus extends Message {
+        public AssignEmployeeBonus( final int p_EmployeeID,  final String p_BonusName,  final int p_Starting,  final int p_Ending ) {
+            super(new Object[]{p_EmployeeID,  p_BonusName,  p_Starting,  p_Ending});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_ASSIGNEMPLOYEEBONUS;
+        }
+ 
+    }
+    public void AssignEmployeeBonus( final int p_EmployeeID,  final String p_BonusName,  final int p_Starting,  final int p_Ending ) throws XtumlException;
+    public static final int SIGNAL_NO_CREATEEMPLOYEE = 2;
     public static class CreateEmployee extends Message {
         public CreateEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender ) {
             super(new Object[]{p_EmployeeID,  p_NationalID,  p_FirstName,  p_MiddleName,  p_LastName,  p_DateOfBirth,  p_Degree,  p_Gender});
@@ -20,7 +32,7 @@ public interface IData {
  
     }
     public void CreateEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender ) throws XtumlException;
-    public static final int SIGNAL_NO_CREATELEAVESPECIFICATION = 2;
+    public static final int SIGNAL_NO_CREATELEAVESPECIFICATION = 3;
     public static class CreateLeaveSpecification extends Message {
         public CreateLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays ) {
             super(new Object[]{p_Name,  p_MaximumDays,  p_MinimumDays});
@@ -32,7 +44,7 @@ public interface IData {
  
     }
     public void CreateLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays ) throws XtumlException;
-    public static final int SIGNAL_NO_DELETELEAVESPECIFICATION = 3;
+    public static final int SIGNAL_NO_DELETELEAVESPECIFICATION = 4;
     public static class DeleteLeaveSpecification extends Message {
         public DeleteLeaveSpecification( final String p_Name ) {
             super(new Object[]{p_Name});
@@ -44,7 +56,7 @@ public interface IData {
  
     }
     public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException;
-    public static final int SIGNAL_NO_INITIALIZE = 4;
+    public static final int SIGNAL_NO_INITIALIZE = 5;
     public static class Initialize extends Message {
         @Override
         public int getId() {
@@ -53,7 +65,7 @@ public interface IData {
  
     }
     public void Initialize() throws XtumlException;
-    public static final int SIGNAL_NO_READEMPLOYEELIST = 5;
+    public static final int SIGNAL_NO_READEMPLOYEELIST = 6;
     public static class ReadEmployeeList extends Message {
         @Override
         public int getId() {
@@ -62,7 +74,7 @@ public interface IData {
  
     }
     public void ReadEmployeeList() throws XtumlException;
-    public static final int SIGNAL_NO_READEMPLOYEEMESSAGE = 6;
+    public static final int SIGNAL_NO_READEMPLOYEEMESSAGE = 7;
     public static class ReadEmployeeMessage extends Message {
         public ReadEmployeeMessage( final int p_EmployeeID ) {
             super(new Object[]{p_EmployeeID});
@@ -74,7 +86,7 @@ public interface IData {
  
     }
     public void ReadEmployeeMessage( final int p_EmployeeID ) throws XtumlException;
-    public static final int SIGNAL_NO_READLEAVESPECIFICATION = 7;
+    public static final int SIGNAL_NO_READLEAVESPECIFICATION = 8;
     public static class ReadLeaveSpecification extends Message {
         @Override
         public int getId() {
@@ -83,10 +95,22 @@ public interface IData {
  
     }
     public void ReadLeaveSpecification() throws XtumlException;
+    public static final int SIGNAL_NO_STOPEMPLOYEEBONUS = 14;
+    public static class StopEmployeeBonus extends Message {
+        public StopEmployeeBonus( final int p_EmployeeID,  final String p_BonusName ) {
+            super(new Object[]{p_EmployeeID,  p_BonusName});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_STOPEMPLOYEEBONUS;
+        }
+ 
+    }
+    public void StopEmployeeBonus( final int p_EmployeeID,  final String p_BonusName ) throws XtumlException;
 
 
     // from provider messages
-    public static final int SIGNAL_NO_REPLY = 8;
+    public static final int SIGNAL_NO_REPLY = 9;
     public static class Reply extends Message {
         public Reply( final String p_msg,  final boolean p_state ) {
             super(new Object[]{p_msg,  p_state});
@@ -98,7 +122,7 @@ public interface IData {
  
     }
     public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException;
-    public static final int SIGNAL_NO_REPLYNEWEMPLOYEE = 9;
+    public static final int SIGNAL_NO_REPLYNEWEMPLOYEE = 10;
     public static class ReplyNewEmployee extends Message {
         public ReplyNewEmployee( final String p_Username,  final String p_Password ) {
             super(new Object[]{p_Username,  p_Password});
@@ -110,7 +134,7 @@ public interface IData {
  
     }
     public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDEMPLOYEE = 10;
+    public static final int SIGNAL_NO_SENDEMPLOYEE = 11;
     public static class SendEmployee extends Message {
         public SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) {
             super(new Object[]{p_EmployeeID,  p_NationalID,  p_FirstName,  p_MiddleName,  p_LastName,  p_DateOfBirth,  p_Degree,  p_Gender,  p_StartDate,  p_LeaveBalance,  p_SickLeaveBalance,  p_Size});
@@ -122,7 +146,7 @@ public interface IData {
  
     }
     public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDEMPLOYEEMESSAGES = 11;
+    public static final int SIGNAL_NO_SENDEMPLOYEEMESSAGES = 12;
     public static class SendEmployeeMessages extends Message {
         public SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) {
             super(new Object[]{p_LeaveRequesterID,  p_Starting,  p_Ending,  p_Content});
@@ -134,7 +158,7 @@ public interface IData {
  
     }
     public void SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDLEAVESPECIFICATION = 12;
+    public static final int SIGNAL_NO_SENDLEAVESPECIFICATION = 13;
     public static class SendLeaveSpecification extends Message {
         public SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) {
             super(new Object[]{p_Name,  p_MaximumDays,  p_MinimumDays,  p_Size});

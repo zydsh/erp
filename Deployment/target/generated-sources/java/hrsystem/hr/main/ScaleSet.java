@@ -10,8 +10,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface ScaleSet extends IInstanceSet<ScaleSet,Scale> {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException;
     public void setDescription( String m_Description ) throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
 
 
     // selections
