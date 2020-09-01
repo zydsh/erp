@@ -51,6 +51,8 @@ hrsystem/hr/main/BonusSpecificationSet.class
 shared/IOps$ApproveEmployeeLeave.class
 interfaces/IAuthentication$Reply.class
 interfaces/IData$SendLeaveSpecification.class
+interfaces/IAuthentication$SendEmployeePermissions.class
+interfaces/IAuthentication$ReadEmployeePermissions.class
 shared/IOps$Return_Employee_Payment.class
 shared/IOps$RequestEmployeeLeave.class
 hrsystem/hr/main/Leave.class

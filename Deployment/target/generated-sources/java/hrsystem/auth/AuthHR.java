@@ -25,6 +25,15 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     }
 
     // inbound messages
+    public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
+    }
+
+    public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException {
+    }
+
+    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
+    }
+
     public void Initialize() throws XtumlException {
         context().Initialize();
     }
@@ -36,7 +45,7 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         }
         else {
             Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), p_Group));
-            context().relate_R1_Account_a_member_of_Group( account, group );
+            context().relate_R1_Group_has__Account( group, account );
         }
     }
 
@@ -49,7 +58,7 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
             acc.setUsername(context().getUserName( p_First_Name, p_Last_Name ));
             acc.setPassword(context().getPassword( p_EmployeeID, p_First_Name + p_Last_Name, context().TIM().current_seconds() ));
             Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), "Employees"));
-            context().relate_R1_Account_a_member_of_Group( acc, group );
+            context().relate_R1_Group_has__Account( group, acc );
             context().LOG().LogInfo( ( ( ( ( ( ( "Account: account created for employee " + p_First_Name ) + " " ) + p_Last_Name ) + " Username: " ) + acc.getUsername() ) + " Group " ) + group.getName() );
         }
         else {
@@ -57,15 +66,14 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         }
     }
 
-    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
-    }
-
-    public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
-    }
-
 
 
     // outbound messages
+    public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.SendEmployeePermissions(p_GroupName, p_Description));
+        else {
+        }
+    }
     public void Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
         if ( satisfied() ) send(new IAuthentication.Reply(p_EmployeeID, p_Username, p_msg, p_state));
         else {
@@ -77,6 +85,15 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
+            case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
+                ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
+                break;
+            case IAuthentication.SIGNAL_NO_READEMPLOYEEPERMISSIONS:
+                ReadEmployeePermissions(IntegerUtil.deserialize(message.get(0)));
+                break;
+            case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
+                CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
+                break;
             case IAuthentication.SIGNAL_NO_INITIALIZE:
                 Initialize();
                 break;
@@ -85,12 +102,6 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
                 break;
             case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
                 CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
-                break;
-            case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
-                CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
-                break;
-            case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
-                ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

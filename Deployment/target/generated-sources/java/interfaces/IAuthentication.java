@@ -65,10 +65,22 @@ public interface IAuthentication {
  
     }
     public void Initialize() throws XtumlException;
+    public static final int SIGNAL_NO_READEMPLOYEEPERMISSIONS = 6;
+    public static class ReadEmployeePermissions extends Message {
+        public ReadEmployeePermissions( final int p_EmployeeID ) {
+            super(new Object[]{p_EmployeeID});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_READEMPLOYEEPERMISSIONS;
+        }
+ 
+    }
+    public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException;
 
 
     // from provider messages
-    public static final int SIGNAL_NO_REPLY = 6;
+    public static final int SIGNAL_NO_REPLY = 7;
     public static class Reply extends Message {
         public Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) {
             super(new Object[]{p_EmployeeID,  p_Username,  p_msg,  p_state});
@@ -80,6 +92,18 @@ public interface IAuthentication {
  
     }
     public void Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException;
+    public static final int SIGNAL_NO_SENDEMPLOYEEPERMISSIONS = 8;
+    public static class SendEmployeePermissions extends Message {
+        public SendEmployeePermissions( final String p_GroupName,  final String p_Description ) {
+            super(new Object[]{p_GroupName,  p_Description});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_SENDEMPLOYEEPERMISSIONS;
+        }
+ 
+    }
+    public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException;
 
 
 }

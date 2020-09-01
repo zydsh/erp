@@ -60,6 +60,9 @@ public class UI extends Component<UI> {
         context().LOG().LogInfo( "Sending employee messages: message content:" + p_Content );
     }
 
+    public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
+    }
+
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
         context().LOG().LogInfo( "UI: Sending leave specification: " + p_Name );
     }
@@ -114,6 +117,26 @@ public class UI extends Component<UI> {
         context().App().StopEmployeeBonus( employeeID, "Computing" );
         context().LOG().LogInfo( "Test: Get bonus list..." );
         context().App().ReadEmployeeBonuses( employeeID );
+    }
+
+    public void testEmployeePermissions() throws XtumlException {
+        int Emp1 = 1420000;
+        int Emp2 = 1421111;
+        int Emp3 = 1424444;
+        int Emp4 = 1428888;
+        context().LOG().LogInfo( "Test: Reading Employee permissions... " );
+        context().LOG().LogInfo( "Test: EmployeeID: " );
+        context().LOG().LogInteger( Emp1 );
+        context().Authenticate().ReadEmployeePermissions( Emp1 );
+        context().LOG().LogInfo( "Test: EmployeeID: " );
+        context().LOG().LogInteger( Emp2 );
+        context().Authenticate().ReadEmployeePermissions( Emp2 );
+        context().LOG().LogInfo( "Test: EmployeeID: " );
+        context().LOG().LogInteger( Emp3 );
+        context().Authenticate().ReadEmployeePermissions( Emp3 );
+        context().LOG().LogInfo( "Test: EmployeeID: " );
+        context().LOG().LogInteger( Emp4 );
+        context().Authenticate().ReadEmployeePermissions( Emp4 );
     }
 
 
