@@ -100,6 +100,11 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
     }
     private int m_Ending;
     @Override
+    public int getEnding() throws XtumlException {
+        checkLiving();
+        return m_Ending;
+    }
+    @Override
     public void setEnding(int m_Ending) throws XtumlException {
         checkLiving();
         if (m_Ending != this.m_Ending) {
@@ -108,12 +113,12 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
     }
-    @Override
-    public int getEnding() throws XtumlException {
-        checkLiving();
-        return m_Ending;
-    }
     private String m_Content;
+    @Override
+    public String getContent() throws XtumlException {
+        checkLiving();
+        return m_Content;
+    }
     @Override
     public void setContent(String m_Content) throws XtumlException {
         checkLiving();
@@ -122,11 +127,6 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
             this.m_Content = m_Content;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Content", oldValue, this.m_Content));
         }
-    }
-    @Override
-    public String getContent() throws XtumlException {
-        checkLiving();
-        return m_Content;
     }
 
 
@@ -205,17 +205,17 @@ class EmptyApproveLeave extends ModelInstance<ApproveLeave,Hr> implements Approv
     public int getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setEnding( int m_Ending ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setContent( String m_Content ) throws XtumlException {
+    public void setEnding( int m_Ending ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getContent() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setContent( String m_Content ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

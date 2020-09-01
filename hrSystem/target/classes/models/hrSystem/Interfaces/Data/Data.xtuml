@@ -707,6 +707,48 @@ INSERT INTO C_PP
 	0,
 	'',
 	"0333824c-5d99-4a78-9978-38c5fc4f29d7");
+INSERT INTO C_EP
+	VALUES ("6a7f8346-cbc4-4c69-8736-c456dea71c22",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendBonusList',
+	'');
+INSERT INTO C_AS
+	VALUES ("6a7f8346-cbc4-4c69-8736-c456dea71c22",
+	'SendBonusList',
+	'',
+	1,
+	"4e0f81e2-08a0-4b7a-aa0c-4ec2a0472748");
+INSERT INTO C_PP
+	VALUES ("40e47cf6-1e5c-4840-94ce-a4708ccaa0aa",
+	"6a7f8346-cbc4-4c69-8736-c456dea71c22",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("95057dee-d5ff-457c-8339-e87244674206",
+	"6a7f8346-cbc4-4c69-8736-c456dea71c22",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Percent',
+	'',
+	0,
+	'',
+	"40e47cf6-1e5c-4840-94ce-a4708ccaa0aa");
+INSERT INTO C_EP
+	VALUES ("ace2c172-7284-4b90-a4e9-bbc94f9829d3",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadBonusList',
+	'');
+INSERT INTO C_AS
+	VALUES ("ace2c172-7284-4b90-a4e9-bbc94f9829d3",
+	'ReadBonusList',
+	'',
+	0,
+	"6a7f8346-cbc4-4c69-8736-c456dea71c22");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

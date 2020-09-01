@@ -88,11 +88,6 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     // attributes
     private int m_Starting;
     @Override
-    public int getStarting() throws XtumlException {
-        checkLiving();
-        return m_Starting;
-    }
-    @Override
     public void setStarting(int m_Starting) throws XtumlException {
         checkLiving();
         if (m_Starting != this.m_Starting) {
@@ -100,6 +95,11 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
             this.m_Starting = m_Starting;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
         }
+    }
+    @Override
+    public int getStarting() throws XtumlException {
+        checkLiving();
+        return m_Starting;
     }
     private int m_Ending;
     @Override
@@ -118,6 +118,11 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     }
     private double m_Amount;
     @Override
+    public double getAmount() throws XtumlException {
+        checkLiving();
+        return m_Amount;
+    }
+    @Override
     public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
         if (m_Amount != this.m_Amount) {
@@ -125,11 +130,6 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
             this.m_Amount = m_Amount;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
-    }
-    @Override
-    public double getAmount() throws XtumlException {
-        checkLiving();
-        return m_Amount;
     }
 
 
@@ -245,11 +245,11 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
 class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
 
     // attributes
-    public int getStarting() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setStarting( int m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getStarting() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -257,11 +257,11 @@ class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
     public void setEnding( int m_Ending ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setAmount( double m_Amount ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setAmount( double m_Amount ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

@@ -932,7 +932,7 @@ INSERT INTO SPR_RS
 	'ReadJobList',
 	'Request for all registered jobs in the system',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2c6a9de5-1cba-40bc-b112-f992ee3d0a61",
@@ -949,14 +949,50 @@ INSERT INTO SPR_RS
 	VALUES ("36b8f6fa-3833-4de2-bab0-ad6f5b5f01a0",
 	'SendJobList',
 	'',
-	'',
-	3,
+	'::SendJobList( JobID:param.JobID, Title:param.Title, Salary:param.Salary, EmployeeName:param.EmployeeName, EmployeeID:param.EmployeeID );',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4e0f81e2-08a0-4b7a-aa0c-4ec2a0472748",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendJobList',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("83442af7-0751-4521-bd9d-5b812242935e",
+	"6a7f8346-cbc4-4c69-8736-c456dea71c22",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("83442af7-0751-4521-bd9d-5b812242935e",
+	'SendBonusList',
+	'',
+	'::SendBonusList( Name:param.Name, Percent:param.Percent );',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6a7f8346-cbc4-4c69-8736-c456dea71c22",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendBonusList',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("c56c53ac-9349-467c-8300-891ef7bbdfc3",
+	"ace2c172-7284-4b90-a4e9-bbc94f9829d3",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("c56c53ac-9349-467c-8300-891ef7bbdfc3",
+	'ReadBonusList',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ace2c172-7284-4b90-a4e9-bbc94f9829d3",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadBonusList',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

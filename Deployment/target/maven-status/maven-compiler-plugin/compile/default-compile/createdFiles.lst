@@ -24,6 +24,7 @@ interfaces/IData$SendEmployeeMessages.class
 hrsystem/auth/main/impl/EmptyPermissions.class
 hrsystem/auth/main/PermissionsSet.class
 hrsystem/hr/main/impl/EmptyDepartment.class
+interfaces/IData$ReadBonusList.class
 hrsystem/hr/main/impl/BonusImpl$deactivateBonus.class
 hrsystem/hr/HrAuthenticate.class
 hrsystem/hr/main/impl/ScaleImpl.class
@@ -104,6 +105,7 @@ hrsystem/hr/main/impl/LeaveSetImpl.class
 hrsystem/hr/main/impl/EmptyScale.class
 hrsystem/hr/messagecenter/impl/EmptyApproveLeave.class
 hrsystem/auth/main/impl/EmptyAccount.class
+interfaces/IData$SendBonusList.class
 hrsystem/auth/main/Permissions.class
 hrsystem/hr/main/Employee.class
 hrsystem/hr/main/impl/EmptyLeave.class

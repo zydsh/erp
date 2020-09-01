@@ -49,6 +49,9 @@ public class UI extends Component<UI> {
         context().LOG().LogInfo( "UI: Sending reply to Username Password: " + p_msg );
     }
 
+    public void SendBonusList( final String p_Name,  final double p_Percent ) throws XtumlException {
+    }
+
     public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
         context().LOG().LogInfo( ( ( "UI: Sending employee: " + p_FirstName ) + " " ) + p_LastName );
     }
@@ -61,6 +64,9 @@ public class UI extends Component<UI> {
     }
 
     public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
+    }
+
+    public void SendJobList( final int p_JobID,  final String p_Title,  final double p_Salary,  final String p_EmployeeName,  final int p_EmployeeID ) throws XtumlException {
     }
 
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
@@ -115,8 +121,10 @@ public class UI extends Component<UI> {
         context().App().AssignEmployeeBonus( employeeID, "Research", context().TIM().current_seconds(), ending );
         context().LOG().LogInfo( "Test: Stopping one bonus..." );
         context().App().StopEmployeeBonus( employeeID, "Computing" );
-        context().LOG().LogInfo( "Test: Get bonus list..." );
+        context().LOG().LogInfo( "Test: Get employee bonus list..." );
         context().App().ReadEmployeeBonuses( employeeID );
+        context().LOG().LogInfo( "Test: Get bonus list registered..." );
+        context().App().ReadBonusList();
     }
 
     public void testEmployeePermissions() throws XtumlException {

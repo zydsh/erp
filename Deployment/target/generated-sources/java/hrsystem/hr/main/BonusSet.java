@@ -11,9 +11,9 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface BonusSet extends IInstanceSet<BonusSet,Bonus> {
 
     // attributes
-    public void setAmount( double m_Amount ) throws XtumlException;
     public void setStarting( int m_Starting ) throws XtumlException;
     public void setEnding( int m_Ending ) throws XtumlException;
+    public void setAmount( double m_Amount ) throws XtumlException;
 
 
     // selections

@@ -181,9 +181,13 @@ LOG::LogInfo(message:"Test: Stopping one bonus...");
 App::StopEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing");
  
 
-LOG::LogInfo(message:"Test: Get bonus list...");
+LOG::LogInfo(message:"Test: Get employee bonus list...");
 
 App::ReadEmployeeBonuses( EmployeeID:employeeID );
+
+LOG::LogInfo(message:"Test: Get bonus list registered...");
+App::ReadBonusList();
+
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,

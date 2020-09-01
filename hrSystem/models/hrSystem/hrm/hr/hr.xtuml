@@ -1326,6 +1326,58 @@ INSERT INTO C_EP_PROXY
 	'SendJobList',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("3b7ef58b-df7d-4969-8a65-99a41e5cf88b",
+	"6a7f8346-cbc4-4c69-8736-c456dea71c22",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("3b7ef58b-df7d-4969-8a65-99a41e5cf88b",
+	'SendBonusList',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6a7f8346-cbc4-4c69-8736-c456dea71c22",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendBonusList',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("8447949b-f51e-4647-acff-8e8c0a224436",
+	"ace2c172-7284-4b90-a4e9-bbc94f9829d3",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("8447949b-f51e-4647-acff-8e8c0a224436",
+	'ReadBonusList',
+	'',
+	'select many bonuses from instances of BonusSpecification; 
+
+if (not empty bonuses) 
+	LOG::LogInfo(message:"Sending bonus list .." );	
+	
+	for each bonus in bonuses
+			UI::SendBonusList( Name:bonus.Name, Percent:bonus.Percent );		
+			LOG::LogReal(message:"Sent: Bonus "+ bonus.Name+", percent amount:", r:bonus.Percent);	
+	end for;
+
+  LOG::LogInfo(message:"Sending bonus list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are not bonuses registered in the system" );	
+
+  	UI::Reply( msg:"There are no bonuses registered in the system", state:False );  
+  end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ace2c172-7284-4b90-a4e9-bbc94f9829d3",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadBonusList',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
