@@ -16,23 +16,23 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface EmployeeSet extends IInstanceSet<EmployeeSet,Employee> {
 
     // attributes
-    public void setMiddleName( String m_MiddleName ) throws XtumlException;
-    public void setFirstName( String m_FirstName ) throws XtumlException;
-    public void setNationalID( int m_NationalID ) throws XtumlException;
-    public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException;
-    public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException;
     public void setLastName( String m_LastName ) throws XtumlException;
-    public void setDegree( String m_Degree ) throws XtumlException;
-    public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException;
-    public void setGender( String m_Gender ) throws XtumlException;
+    public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException;
     public void setStart_Date( int m_Start_Date ) throws XtumlException;
+    public void setMiddleName( String m_MiddleName ) throws XtumlException;
     public void setEmployeeID( int m_EmployeeID ) throws XtumlException;
+    public void setNationalID( int m_NationalID ) throws XtumlException;
+    public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException;
+    public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException;
+    public void setGender( String m_Gender ) throws XtumlException;
+    public void setDegree( String m_Degree ) throws XtumlException;
+    public void setFirstName( String m_FirstName ) throws XtumlException;
 
 
     // selections
     public ApproveLeaveSet R102_is_notified_by_ApproveLeave() throws XtumlException;
     public LeaveSet R11_consumed_Leave() throws XtumlException;
-    public BonusSet R19_was_given_a_Bonus() throws XtumlException;
+    public BonusSet R19_was_given_Bonus() throws XtumlException;
     public JobRecordSet R1_occupied_JobRecord() throws XtumlException;
     public JobSet R20_to_be_promoted_to_Job() throws XtumlException;
     public DepartmentSet R21_working_within_Department() throws XtumlException;

@@ -26,10 +26,6 @@ public class DepartmentSetImpl extends InstanceSet<DepartmentSet,Department> imp
 
     // attributes
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Department department : this ) department.setName( m_Name );
-    }
-    @Override
     public void setDescription( String m_Description ) throws XtumlException {
         for ( Department department : this ) department.setDescription( m_Description );
     }
@@ -40,6 +36,10 @@ public class DepartmentSetImpl extends InstanceSet<DepartmentSet,Department> imp
     @Override
     public void setMission( String m_Mission ) throws XtumlException {
         for ( Department department : this ) department.setMission( m_Mission );
+    }
+    @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Department department : this ) department.setName( m_Name );
     }
 
 

@@ -97,12 +97,12 @@ public class Hr extends Component<Hr> {
         R102_ApproveLeave_notifies_Employee_extent = new RelationshipSet();
         R11_Leave_consumed_by_Employee_extent = new RelationshipSet();
         R12_Grade_is_part_of_Scale_extent = new RelationshipSet();
-        R14_Grade_succeed_Grade_extent = new RelationshipSet();
+        R14_Grade_follows_Grade_extent = new RelationshipSet();
         R15_Leave_is_specified_by_a_LeaveSpecification_extent = new RelationshipSet();
         R16_Bonus_is_specified_by_BonusSpecification_extent = new RelationshipSet();
         R17_JobRecord_proceeded_by_JobRecord_extent = new RelationshipSet();
         R18_PayslipItem_listed_after_PayslipItem_extent = new RelationshipSet();
-        R19_Bonus_given_in_the_past_to_an_Employee_extent = new RelationshipSet();
+        R19_Bonus_given_in_the_past_Employee_extent = new RelationshipSet();
         R1_JobRecord_occupied_Job_extent = new RelationshipSet();
         R1_JobRecord_was_assigned_to_Employee_extent = new RelationshipSet();
         R20_Employee_to_be_promoted_to_Job_extent = new RelationshipSet();
@@ -119,7 +119,7 @@ public class Hr extends Component<Hr> {
         LOG = null;
         classDirectory = new TreeMap<>();
         classDirectory.put("ApproveLeave", ApproveLeaveImpl.class);
-        classDirectory.put("BP", BonusImpl.class);
+        classDirectory.put("Bonus", BonusImpl.class);
         classDirectory.put("BonusSpecification", BonusSpecificationImpl.class);
         classDirectory.put("Department", DepartmentImpl.class);
         classDirectory.put("Employee", EmployeeImpl.class);
@@ -133,9 +133,6 @@ public class Hr extends Component<Hr> {
     }
 
     // domain functions
-    public void CreateEmployee() throws XtumlException {
-    }
-
     public void CreatePEI_Bonus() throws XtumlException {
         BonusSpecification bonus = BonusSpecificationImpl.create( context() );
         bonus.setName("1.5 hour overtime");
@@ -223,6 +220,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         Job job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 1);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -236,6 +234,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 2);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -249,6 +248,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 3);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -262,6 +262,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 4);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -275,6 +276,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 5);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -288,6 +290,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 6);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -301,6 +304,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 7);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -314,6 +318,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 8);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -327,6 +332,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 9);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -340,6 +346,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Female");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 10);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
         emp = EmployeeImpl.create( context() );
@@ -353,6 +360,7 @@ public class Hr extends Component<Hr> {
         emp.setGender("Male");
         job = context().Job_instances().anyWhere(selected -> ((Job)selected).getJob_ID() == 11);
         context().relate_R6_Employee_currently_occupies_Job( emp, job );
+        emp.commenceEmployee( emp.getNationalID() );
         context().Authenticate().CreateNewAccount( emp.getFirstName(), emp.getLastName(), emp.getEmployeeID() );
         context().LOG().LogInfo( ( ( ( "Employee: Added " + emp.getFirstName() ) + " " ) + emp.getLastName() ) + " successfully." );
     }
@@ -393,7 +401,7 @@ public class Hr extends Component<Hr> {
         grade2.setBaseSalary(3430);
         grade2.setAllowance(165);
         context().relate_R12_Grade_is_part_of_Scale( grade2, scale );
-        context().relate_R14_Grade_succeed_Grade( grade, grade2 );
+        context().relate_R14_Grade_follows_Grade( grade2, grade );
         context().LOG().LogInfo( ( "Grade: Added " + grade2.getName() ) + " successfully." );
         Grade grade3 = GradeImpl.create( context() );
         grade3.setName("3");
@@ -401,7 +409,7 @@ public class Hr extends Component<Hr> {
         grade3.setBaseSalary(3945);
         grade3.setAllowance(190);
         context().relate_R12_Grade_is_part_of_Scale( grade3, scale );
-        context().relate_R14_Grade_succeed_Grade( grade2, grade3 );
+        context().relate_R14_Grade_follows_Grade( grade3, grade2 );
         context().LOG().LogInfo( ( "Grade: Added " + grade3.getName() ) + " successfully." );
         Grade grade4 = GradeImpl.create( context() );
         grade4.setName("4");
@@ -409,7 +417,7 @@ public class Hr extends Component<Hr> {
         grade4.setBaseSalary(4530);
         grade4.setAllowance(230);
         context().relate_R12_Grade_is_part_of_Scale( grade4, scale );
-        context().relate_R14_Grade_succeed_Grade( grade3, grade4 );
+        context().relate_R14_Grade_follows_Grade( grade4, grade3 );
         context().LOG().LogInfo( ( "Grade: Added " + grade4.getName() ) + " successfully." );
         Grade grade5 = GradeImpl.create( context() );
         grade5.setName("5");
@@ -417,7 +425,7 @@ public class Hr extends Component<Hr> {
         grade5.setBaseSalary(5240);
         grade5.setAllowance(265);
         context().relate_R12_Grade_is_part_of_Scale( grade5, scale );
-        context().relate_R14_Grade_succeed_Grade( grade4, grade5 );
+        context().relate_R14_Grade_follows_Grade( grade5, grade4 );
         context().LOG().LogInfo( ( "Grade: Added " + grade5.getName() ) + " successfully." );
         Grade grade6 = GradeImpl.create( context() );
         grade6.setName("6");
@@ -425,7 +433,7 @@ public class Hr extends Component<Hr> {
         grade6.setBaseSalary(6065);
         grade6.setAllowance(305);
         context().relate_R12_Grade_is_part_of_Scale( grade6, scale );
-        context().relate_R14_Grade_succeed_Grade( grade5, grade6 );
+        context().relate_R14_Grade_follows_Grade( grade6, grade5 );
         context().LOG().LogInfo( ( "Grade: Added " + grade6.getName() ) + " successfully." );
         Grade grade7 = GradeImpl.create( context() );
         grade7.setName("7");
@@ -433,7 +441,7 @@ public class Hr extends Component<Hr> {
         grade7.setBaseSalary(7010);
         grade7.setAllowance(365);
         context().relate_R12_Grade_is_part_of_Scale( grade7, scale );
-        context().relate_R14_Grade_succeed_Grade( grade6, grade7 );
+        context().relate_R14_Grade_follows_Grade( grade7, grade6 );
         context().LOG().LogInfo( ( "Grade: Added " + grade7.getName() ) + " successfully." );
         Grade grade8 = GradeImpl.create( context() );
         grade8.setName("8");
@@ -441,7 +449,7 @@ public class Hr extends Component<Hr> {
         grade8.setBaseSalary(8010);
         grade8.setAllowance(415);
         context().relate_R12_Grade_is_part_of_Scale( grade8, scale );
-        context().relate_R14_Grade_succeed_Grade( grade7, grade8 );
+        context().relate_R14_Grade_follows_Grade( grade8, grade7 );
         context().LOG().LogInfo( ( "Grade: Added " + grade8.getName() ) + " successfully." );
         Grade grade9 = GradeImpl.create( context() );
         grade9.setName("9");
@@ -449,7 +457,7 @@ public class Hr extends Component<Hr> {
         grade9.setBaseSalary(9275);
         grade9.setAllowance(470);
         context().relate_R12_Grade_is_part_of_Scale( grade9, scale );
-        context().relate_R14_Grade_succeed_Grade( grade8, grade9 );
+        context().relate_R14_Grade_follows_Grade( grade9, grade8 );
         context().LOG().LogInfo( ( "Grade: Added " + grade9.getName() ) + " successfully." );
         Grade grade10 = GradeImpl.create( context() );
         grade10.setName("10");
@@ -457,7 +465,7 @@ public class Hr extends Component<Hr> {
         grade10.setBaseSalary(10275);
         grade10.setAllowance(510);
         context().relate_R12_Grade_is_part_of_Scale( grade10, scale );
-        context().relate_R14_Grade_succeed_Grade( grade9, grade10 );
+        context().relate_R14_Grade_follows_Grade( grade10, grade9 );
         context().LOG().LogInfo( ( "Grade: Added " + grade10.getName() ) + " successfully." );
         Grade grade11 = GradeImpl.create( context() );
         grade11.setName("11");
@@ -465,7 +473,7 @@ public class Hr extends Component<Hr> {
         grade11.setBaseSalary(11815);
         grade11.setAllowance(530);
         context().relate_R12_Grade_is_part_of_Scale( grade11, scale );
-        context().relate_R14_Grade_succeed_Grade( grade10, grade11 );
+        context().relate_R14_Grade_follows_Grade( grade11, grade10 );
         context().LOG().LogInfo( ( "Grade: Added " + grade11.getName() ) + " successfully." );
         Grade grade12 = GradeImpl.create( context() );
         grade12.setName("12");
@@ -473,7 +481,7 @@ public class Hr extends Component<Hr> {
         grade12.setBaseSalary(13435);
         grade12.setAllowance(570);
         context().relate_R12_Grade_is_part_of_Scale( grade12, scale );
-        context().relate_R14_Grade_succeed_Grade( grade11, grade12 );
+        context().relate_R14_Grade_follows_Grade( grade12, grade11 );
         context().LOG().LogInfo( ( "Grade: Added " + grade12.getName() ) + " successfully." );
         Grade grade13 = GradeImpl.create( context() );
         grade13.setName("13");
@@ -481,7 +489,7 @@ public class Hr extends Component<Hr> {
         grade13.setBaseSalary(15180);
         grade13.setAllowance(605);
         context().relate_R12_Grade_is_part_of_Scale( grade13, scale );
-        context().relate_R14_Grade_succeed_Grade( grade12, grade13 );
+        context().relate_R14_Grade_follows_Grade( grade13, grade12 );
         context().LOG().LogInfo( ( "Grade: Added " + grade13.getName() ) + " successfully." );
         Grade grade14 = GradeImpl.create( context() );
         grade14.setName("14");
@@ -489,7 +497,7 @@ public class Hr extends Component<Hr> {
         grade14.setBaseSalary(17015);
         grade14.setAllowance(700);
         context().relate_R12_Grade_is_part_of_Scale( grade14, scale );
-        context().relate_R14_Grade_succeed_Grade( grade13, grade14 );
+        context().relate_R14_Grade_follows_Grade( grade14, grade13 );
         context().LOG().LogInfo( ( "Grade: Added " + grade14.getName() ) + " successfully." );
         Grade grade15 = GradeImpl.create( context() );
         grade15.setName("15");
@@ -497,7 +505,7 @@ public class Hr extends Component<Hr> {
         grade15.setBaseSalary(20855);
         grade15.setAllowance(865);
         context().relate_R12_Grade_is_part_of_Scale( grade15, scale );
-        context().relate_R14_Grade_succeed_Grade( grade14, grade15 );
+        context().relate_R14_Grade_follows_Grade( grade15, grade14 );
         context().LOG().LogInfo( ( "Grade: Added " + grade15.getName() ) + " successfully." );
         Job job = JobImpl.create( context() );
         job.setJob_ID(1);
@@ -637,29 +645,55 @@ public class Hr extends Component<Hr> {
         context().CreatePEI_Bonus();
     }
 
-    public double getPartialPayment( final int p_Payment_Time,  final int p_Starting_Time,  final int p_Ending_Time,  final double p_Payment ) throws XtumlException {
-        if ( p_Payment_Time >= p_Ending_Time && context().isLessThanMonth( p_Payment_Time, p_Ending_Time ) ) {
-            int days = 30 - ( ( ( p_Payment_Time - p_Ending_Time ) / 24 ) * 60 ) * 60;
-            return days * ( p_Payment / 30 );
-        }
-        else if ( p_Payment_Time >= p_Starting_Time && context().isLessThanMonth( p_Starting_Time, p_Payment_Time ) ) {
-            int days = ( ( ( p_Payment_Time - p_Starting_Time ) / 24 ) * 60 ) * 60;
-            return days * ( p_Payment / 30 );
-        }
-        else {
+    public double paymentRatio( final int p_Starting,  final int p_Ending ) throws XtumlException {
+        int month = ( ( 30 * 24 ) * 60 ) * 60;
+        int currentDate = context().TIM().current_seconds();
+        int timeToStart = p_Starting - currentDate;
+        int timeToEnd = p_Ending - currentDate;
+        if ( p_Starting >= currentDate ) {
             return 0;
         }
+        else if ( ( ( p_Starting < currentDate && currentDate - p_Starting > month ) && p_Ending > currentDate ) && p_Ending - currentDate > month ) {
+            return 1;
+        }
+        else if ( ( ( p_Starting < currentDate && currentDate - p_Starting < month ) && p_Ending > currentDate ) && p_Ending - currentDate > month ) {
+            return ( currentDate - p_Starting ) / month;
+        }
+        return 0;
     }
 
-    public boolean isLessThanMonth( final int p_Starting_Time,  final int p_Ending_Time ) throws XtumlException {
-        int time = ( ( ( p_Ending_Time - p_Starting_Time ) / 24 ) * 60 ) * 60;
-        int month = 30;
-        if ( time <= month ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    public void testPaymentRatio() throws XtumlException {
+        int week = ( ( 7 * 24 ) * 60 ) * 60;
+        int month = 4 * week;
+        int time = context().TIM().current_seconds();
+        context().LOG().LogInfo( "start passed more than a month ago and end is a month or more away " );
+        int starting = time - week * 8;
+        int ending = time + week * 52;
+        context().LOG().LogInfo( "start is a month or more away " );
+        starting = time + 5 * week;
+        ending = time + week * 52;
+        context().LOG().LogInfo( "start is less than a month away " );
+        starting = time + week * 2;
+        ending = time + week * 52;
+        context().LOG().LogInfo( "start passed by less than a month " );
+        starting = time - week * 2;
+        ending = time + week * 52;
+        double result = context().paymentRatio( starting, ending );
+        context().LOG().LogReal( "result ", result );
+        int period = 2 / 3;
+        context().LOG().LogReal( "test calculation", period );
+        context().LOG().LogInfo( "ending is a month or more away " );
+        starting = time - week * 52;
+        ending = time + week * 5;
+        context().LOG().LogInfo( "ending is less than a month away " );
+        starting = time - week * 52;
+        ending = time + week * 2;
+        context().LOG().LogInfo( "ending passed by less than a month " );
+        starting = time - week * 52;
+        ending = time - week * 2;
+        context().LOG().LogInfo( "ending passed by more than a month " );
+        starting = time - week * 52;
+        ending = time - week * 5;
     }
 
 
@@ -725,23 +759,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R14_Grade_succeed_Grade( Grade form, Grade part ) throws XtumlException {
+    public void relate_R14_Grade_follows_Grade( Grade form, Grade part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R14_Grade_succeed_Grade_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR14_follows_Grade(form);
-            form.setR14_succeed_Grade(part);
+        if ( R14_Grade_follows_Grade_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR14_succeed_Grade(form);
+            form.setR14_follows_Grade(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R14_Grade_succeed_Grade( Grade form, Grade part ) throws XtumlException {
+    public void unrelate_R14_Grade_follows_Grade( Grade form, Grade part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R14_Grade_succeed_Grade_extent.remove( R14_Grade_succeed_Grade_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.setR14_follows_Grade(GradeImpl.EMPTY_GRADE);
-            form.setR14_succeed_Grade(GradeImpl.EMPTY_GRADE);
+        if ( R14_Grade_follows_Grade_extent.remove( R14_Grade_follows_Grade_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.setR14_succeed_Grade(GradeImpl.EMPTY_GRADE);
+            form.setR14_follows_Grade(GradeImpl.EMPTY_GRADE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -825,23 +859,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R19_Bonus_given_in_the_past_to_an_Employee( Bonus form, Employee part ) throws XtumlException {
+    public void relate_R19_Bonus_given_in_the_past_Employee( Bonus form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R19_Bonus_given_in_the_past_to_an_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR19_was_given_a_Bonus(form);
-            form.setR19_given_in_the_past_to_an_Employee(part);
+        if ( R19_Bonus_given_in_the_past_Employee_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR19_was_given_Bonus(form);
+            form.setR19_given_in_the_past_Employee(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R19_Bonus_given_in_the_past_to_an_Employee( Bonus form, Employee part ) throws XtumlException {
+    public void unrelate_R19_Bonus_given_in_the_past_Employee( Bonus form, Employee part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R19_Bonus_given_in_the_past_to_an_Employee_extent.remove( R19_Bonus_given_in_the_past_to_an_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR19_was_given_a_Bonus(form);
-            form.setR19_given_in_the_past_to_an_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
+        if ( R19_Bonus_given_in_the_past_Employee_extent.remove( R19_Bonus_given_in_the_past_Employee_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR19_was_given_Bonus(form);
+            form.setR19_given_in_the_past_Employee(EmployeeImpl.EMPTY_EMPLOYEE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -1151,9 +1185,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R12_Grade_is_part_of_Scales() throws XtumlException {
         return R12_Grade_is_part_of_Scale_extent;
     }
-    private IRelationshipSet R14_Grade_succeed_Grade_extent;
-    public IRelationshipSet R14_Grade_succeed_Grades() throws XtumlException {
-        return R14_Grade_succeed_Grade_extent;
+    private IRelationshipSet R14_Grade_follows_Grade_extent;
+    public IRelationshipSet R14_Grade_follows_Grades() throws XtumlException {
+        return R14_Grade_follows_Grade_extent;
     }
     private IRelationshipSet R15_Leave_is_specified_by_a_LeaveSpecification_extent;
     public IRelationshipSet R15_Leave_is_specified_by_a_LeaveSpecifications() throws XtumlException {
@@ -1171,9 +1205,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R18_PayslipItem_listed_after_PayslipItems() throws XtumlException {
         return R18_PayslipItem_listed_after_PayslipItem_extent;
     }
-    private IRelationshipSet R19_Bonus_given_in_the_past_to_an_Employee_extent;
-    public IRelationshipSet R19_Bonus_given_in_the_past_to_an_Employees() throws XtumlException {
-        return R19_Bonus_given_in_the_past_to_an_Employee_extent;
+    private IRelationshipSet R19_Bonus_given_in_the_past_Employee_extent;
+    public IRelationshipSet R19_Bonus_given_in_the_past_Employees() throws XtumlException {
+        return R19_Bonus_given_in_the_past_Employee_extent;
     }
     private IRelationshipSet R1_JobRecord_occupied_Job_extent;
     public IRelationshipSet R1_JobRecord_occupied_Jobs() throws XtumlException {

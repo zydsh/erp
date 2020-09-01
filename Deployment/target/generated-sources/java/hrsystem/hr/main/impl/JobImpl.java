@@ -104,6 +104,11 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private String m_Title;
     @Override
+    public String getTitle() throws XtumlException {
+        checkLiving();
+        return m_Title;
+    }
+    @Override
     public void setTitle(String m_Title) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Title, this.m_Title)) {
@@ -111,11 +116,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             this.m_Title = m_Title;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Title", oldValue, this.m_Title));
         }
-    }
-    @Override
-    public String getTitle() throws XtumlException {
-        checkLiving();
-        return m_Title;
     }
     private double m_Salary;
     @Override
@@ -198,6 +198,11 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private int m_AppointmentDate;
     @Override
+    public int getAppointmentDate() throws XtumlException {
+        checkLiving();
+        return m_AppointmentDate;
+    }
+    @Override
     public void setAppointmentDate(int m_AppointmentDate) throws XtumlException {
         checkLiving();
         if (m_AppointmentDate != this.m_AppointmentDate) {
@@ -205,11 +210,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             this.m_AppointmentDate = m_AppointmentDate;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_AppointmentDate", oldValue, this.m_AppointmentDate));
         }
-    }
-    @Override
-    public int getAppointmentDate() throws XtumlException {
-        checkLiving();
-        return m_AppointmentDate;
     }
 
 
@@ -316,11 +316,11 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public int getJob_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setTitle( String m_Title ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getTitle() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setTitle( String m_Title ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setSalary( double m_Salary ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -352,11 +352,11 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public void setPromotionDate( int m_PromotionDate ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getAppointmentDate() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

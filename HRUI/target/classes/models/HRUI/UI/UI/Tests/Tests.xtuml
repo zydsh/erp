@@ -106,10 +106,16 @@ INSERT INTO S_SYNC
 	'',
 	'LOG::LogInfo(message:"Test: leave request with starting couple of days before ending");	
 
-monthInSeconds=108000;
+monthInSeconds=2592000*1000000;
 startingTime = TIM::current_seconds()+monthInSeconds;
+LOG::LogInfo(message:"Test: Starting leave at: ");
+LOG::LogInteger( message:startingTime );	
+
 endingTime = startingTime+monthInSeconds;
-AppOps::RequestEmployeeLeave( Starting:startingTime, Ending:endingTime, EmployeeID:1428888, LeaveName:"Regular Leave" ); ',
+LOG::LogInfo(message:"Test: Ending leave at: ");
+LOG::LogInteger( message:endingTime );	
+
+AppOps::RequestEmployeeLeave( Starting:startingTime, Ending:endingTime, EmployeeID:1428888, LeaveName:"Regular Leave" );  ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
@@ -134,6 +140,57 @@ App::ReadEmployeeMessage( EmployeeID:1424444 );',
 	0);
 INSERT INTO PE_PE
 	VALUES ("14cb0a32-8429-4d58-9fa3-e23144f5f79b",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("222155a6-e1d1-448e-abbd-2f67bdd371f8",
+	"00000000-0000-0000-0000-000000000000",
+	'approveLeaveRequest',
+	'',
+	'LOG::LogInfo(message:"Test: Approving leave request ... ");
+
+AppOps::ApproveEmployeeLeave( EmployeeID:1428888);',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("222155a6-e1d1-448e-abbd-2f67bdd371f8",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("83edf0a7-32ec-437f-bc75-2a60f2a2d9b3",
+	"00000000-0000-0000-0000-000000000000",
+	'testBonus',
+	'',
+	'//assign bonus
+ending = TIM::current_seconds()+(52*7*24*60*60);
+employeeID= 1428888;
+LOG::LogInfo(message:"Test: Assignning bonuses...");
+
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Scarcity", Starting:TIM::current_seconds(), Ending:ending);
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing", Starting:TIM::current_seconds(), Ending:ending);
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Research", Starting:TIM::current_seconds(), Ending:ending);
+ 
+LOG::LogInfo(message:"Test: Stopping one bonus...");
+
+App::StopEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing");
+
+
+LOG::LogInfo(message:"Test: Get bonus list...");
+
+App::ReadEmployeeBonuses( EmployeeID:employeeID );
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("83edf0a7-32ec-437f-bc75-2a60f2a2d9b3",
 	1,
 	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
 	"00000000-0000-0000-0000-000000000000",

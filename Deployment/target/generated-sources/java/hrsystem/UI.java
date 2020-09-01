@@ -53,12 +53,20 @@ public class UI extends Component<UI> {
         context().LOG().LogInfo( ( ( "UI: Sending employee: " + p_FirstName ) + " " ) + p_LastName );
     }
 
+    public void SendEmployeeBonuses( final String p_BonusName,  final int p_Starting,  final int p_Ending,  final double p_Percent,  final double p_Amount ) throws XtumlException {
+    }
+
     public void SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) throws XtumlException {
         context().LOG().LogInfo( "Sending employee messages: message content:" + p_Content );
     }
 
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
         context().LOG().LogInfo( "UI: Sending leave specification: " + p_Name );
+    }
+
+    public void approveLeaveRequest() throws XtumlException {
+        context().LOG().LogInfo( "Test: Approving leave request ... " );
+        context().AppOps().ApproveEmployeeLeave( 1428888 );
     }
 
     public void changePassword() throws XtumlException {
@@ -80,15 +88,32 @@ public class UI extends Component<UI> {
 
     public void leaveRequest() throws XtumlException {
         context().LOG().LogInfo( "Test: leave request with starting couple of days before ending" );
-        int monthInSeconds = 108000;
+        int monthInSeconds = 2592000 * 1000000;
         int startingTime = context().TIM().current_seconds() + monthInSeconds;
+        context().LOG().LogInfo( "Test: Starting leave at: " );
+        context().LOG().LogInteger( startingTime );
         int endingTime = startingTime + monthInSeconds;
+        context().LOG().LogInfo( "Test: Ending leave at: " );
+        context().LOG().LogInteger( endingTime );
         context().AppOps().RequestEmployeeLeave( startingTime, endingTime, 1428888, "Regular Leave" );
     }
 
     public void sendEmployeeMessages() throws XtumlException {
         context().LOG().LogInfo( "Test: Employee messages .." );
         context().App().ReadEmployeeMessage( 1424444 );
+    }
+
+    public void testBonus() throws XtumlException {
+        int ending = context().TIM().current_seconds() + ( ( ( 52 * 7 ) * 24 ) * 60 ) * 60;
+        int employeeID = 1428888;
+        context().LOG().LogInfo( "Test: Assignning bonuses..." );
+        context().App().AssignEmployeeBonus( employeeID, "Scarcity", context().TIM().current_seconds(), ending );
+        context().App().AssignEmployeeBonus( employeeID, "Computing", context().TIM().current_seconds(), ending );
+        context().App().AssignEmployeeBonus( employeeID, "Research", context().TIM().current_seconds(), ending );
+        context().LOG().LogInfo( "Test: Stopping one bonus..." );
+        context().App().StopEmployeeBonus( employeeID, "Computing" );
+        context().LOG().LogInfo( "Test: Get bonus list..." );
+        context().App().ReadEmployeeBonuses( employeeID );
     }
 
 
