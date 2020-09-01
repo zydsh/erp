@@ -103,6 +103,11 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     }
     private int m_Ending;
     @Override
+    public int getEnding() throws XtumlException {
+        checkLiving();
+        return m_Ending;
+    }
+    @Override
     public void setEnding(int m_Ending) throws XtumlException {
         checkLiving();
         if (m_Ending != this.m_Ending) {
@@ -110,11 +115,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             this.m_Ending = m_Ending;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
-    }
-    @Override
-    public int getEnding() throws XtumlException {
-        checkLiving();
-        return m_Ending;
     }
 
 
@@ -133,7 +133,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 1;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -146,7 +146,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 2;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -159,7 +159,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 0;
+            return 3;
         }
         @Override
         public String getClassName() {
@@ -172,7 +172,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 3;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -258,11 +258,11 @@ class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
     public int getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setEnding( int m_Ending ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setEnding( int m_Ending ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

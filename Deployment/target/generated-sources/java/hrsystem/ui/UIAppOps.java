@@ -28,6 +28,11 @@ public class UIAppOps extends Port<UI> implements IOps {
 
 
     // outbound messages
+    public void AssignJobToEmployee( final int p_Job_ID,  final int p_National_ID,  final String p_Action,  final boolean p_Active ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.AssignJobToEmployee(p_Job_ID, p_National_ID, p_Action, p_Active));
+        else {
+        }
+    }
     public void RejectEmployeeLeave( final int p_EmployeeID ) throws XtumlException {
         if ( satisfied() ) send(new IOps.RejectEmployeeLeave(p_EmployeeID));
         else {
@@ -38,13 +43,8 @@ public class UIAppOps extends Port<UI> implements IOps {
         else {
         }
     }
-    public void CommenceEmployee( final int p_National_ID ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.CommenceEmployee(p_National_ID));
-        else {
-        }
-    }
-    public void GenerateEmployeePayslip( final int p_National_ID ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.GenerateEmployeePayslip(p_National_ID));
+    public void AssignBonusToEmployee( final int p_National_ID,  final String p_Name,  final int p_Starting,  final int p_Ending,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.AssignBonusToEmployee(p_National_ID, p_Name, p_Starting, p_Ending, p_Action));
         else {
         }
     }
@@ -58,13 +58,13 @@ public class UIAppOps extends Port<UI> implements IOps {
         else {
         }
     }
-    public void AssignBonusToEmployee( final int p_National_ID,  final String p_Name,  final int p_Starting,  final int p_Ending,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.AssignBonusToEmployee(p_National_ID, p_Name, p_Starting, p_Ending, p_Action));
+    public void GenerateEmployeePayslip( final int p_National_ID ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.GenerateEmployeePayslip(p_National_ID));
         else {
         }
     }
-    public void AssignJobToEmployee( final int p_Job_ID,  final int p_National_ID,  final String p_Action,  final boolean p_Active ) throws XtumlException {
-        if ( satisfied() ) send(new IOps.AssignJobToEmployee(p_Job_ID, p_National_ID, p_Action, p_Active));
+    public void CommenceEmployee( final int p_National_ID ) throws XtumlException {
+        if ( satisfied() ) send(new IOps.CommenceEmployee(p_National_ID));
         else {
         }
     }

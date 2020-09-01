@@ -22,11 +22,11 @@ public class UIApp extends Port<UI> implements IData {
     }
 
     // inbound messages
-    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
-        context().Reply( p_msg, p_state );
+    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
     }
 
-    public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
+    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
+        context().Reply( p_msg, p_state );
     }
 
     public void SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) throws XtumlException {
@@ -44,8 +44,13 @@ public class UIApp extends Port<UI> implements IData {
 
 
     // outbound messages
-    public void CreateLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays ) throws XtumlException {
-        if ( satisfied() ) send(new IData.CreateLeaveSpecification(p_Name, p_MaximumDays, p_MinimumDays));
+    public void Initialize() throws XtumlException {
+        if ( satisfied() ) send(new IData.Initialize());
+        else {
+        }
+    }
+    public void ReadEmployeeMessage( final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IData.ReadEmployeeMessage(p_EmployeeID));
         else {
         }
     }
@@ -54,28 +59,13 @@ public class UIApp extends Port<UI> implements IData {
         else {
         }
     }
-    public void ReadEmployeeList() throws XtumlException {
-        if ( satisfied() ) send(new IData.ReadEmployeeList());
-        else {
-        }
-    }
     public void CreateEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender ) throws XtumlException {
         if ( satisfied() ) send(new IData.CreateEmployee(p_EmployeeID, p_NationalID, p_FirstName, p_MiddleName, p_LastName, p_DateOfBirth, p_Degree, p_Gender));
         else {
         }
     }
-    public void Initialize() throws XtumlException {
-        if ( satisfied() ) send(new IData.Initialize());
-        else {
-        }
-    }
-    public void ReadLeaveSpecification() throws XtumlException {
-        if ( satisfied() ) send(new IData.ReadLeaveSpecification());
-        else {
-        }
-    }
-    public void StopEmployeeBonus( final int p_EmployeeID,  final String p_BonusName ) throws XtumlException {
-        if ( satisfied() ) send(new IData.StopEmployeeBonus(p_EmployeeID, p_BonusName));
+    public void CreateLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays ) throws XtumlException {
+        if ( satisfied() ) send(new IData.CreateLeaveSpecification(p_Name, p_MaximumDays, p_MinimumDays));
         else {
         }
     }
@@ -84,8 +74,18 @@ public class UIApp extends Port<UI> implements IData {
         else {
         }
     }
-    public void ReadEmployeeMessage( final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IData.ReadEmployeeMessage(p_EmployeeID));
+    public void StopEmployeeBonus( final int p_EmployeeID,  final String p_BonusName ) throws XtumlException {
+        if ( satisfied() ) send(new IData.StopEmployeeBonus(p_EmployeeID, p_BonusName));
+        else {
+        }
+    }
+    public void ReadEmployeeList() throws XtumlException {
+        if ( satisfied() ) send(new IData.ReadEmployeeList());
+        else {
+        }
+    }
+    public void ReadLeaveSpecification() throws XtumlException {
+        if ( satisfied() ) send(new IData.ReadLeaveSpecification());
         else {
         }
     }
@@ -95,11 +95,11 @@ public class UIApp extends Port<UI> implements IData {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IData.SIGNAL_NO_REPLY:
-                Reply(StringUtil.deserialize(message.get(0)), BooleanUtil.deserialize(message.get(1)));
-                break;
             case IData.SIGNAL_NO_REPLYNEWEMPLOYEE:
                 ReplyNewEmployee(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
+                break;
+            case IData.SIGNAL_NO_REPLY:
+                Reply(StringUtil.deserialize(message.get(0)), BooleanUtil.deserialize(message.get(1)));
                 break;
             case IData.SIGNAL_NO_SENDEMPLOYEEMESSAGES:
                 SendEmployeeMessages(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)));

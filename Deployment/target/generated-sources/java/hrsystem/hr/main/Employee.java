@@ -37,14 +37,14 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     public int getDateOfBirth() throws XtumlException;
     public void setDegree( String m_Degree ) throws XtumlException;
     public String getDegree() throws XtumlException;
-    public String getGender() throws XtumlException;
     public void setGender( String m_Gender ) throws XtumlException;
+    public String getGender() throws XtumlException;
     public void setStart_Date( int m_Start_Date ) throws XtumlException;
     public int getStart_Date() throws XtumlException;
     public int getLeaveBalance() throws XtumlException;
     public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException;
-    public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException;
     public int getSickLeaveBalance() throws XtumlException;
+    public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException;
 
 
     // operations
