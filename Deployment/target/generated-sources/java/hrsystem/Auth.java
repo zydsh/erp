@@ -49,7 +49,7 @@ public class Auth extends Component<Auth> {
         Permissions_extent = new PermissionsSetImpl();
         R1_Account_a_member_of_Group_extent = new RelationshipSet();
         R2_Group_part_of_Group_extent = new RelationshipSet();
-        R3_Group_has_Permissions_extent = new RelationshipSet();
+        R3_Permissions_given_Group_extent = new RelationshipSet();
         TIM = null;
         LOG = null;
         classDirectory = new TreeMap<>();
@@ -144,23 +144,23 @@ public class Auth extends Component<Auth> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R3_Group_has_Permissions( Group form, Permissions part ) throws XtumlException {
+    public void relate_R3_Permissions_given_Group( Permissions form, Group part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R3_Group_has_Permissions_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR3_given_Group(form);
-            form.addR3_has_Permissions(part);
+        if ( R3_Permissions_given_Group_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR3_has_Permissions(form);
+            form.addR3_given_Group(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R3_Group_has_Permissions( Group form, Permissions part ) throws XtumlException {
+    public void unrelate_R3_Permissions_given_Group( Permissions form, Group part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R3_Group_has_Permissions_extent.remove( R3_Group_has_Permissions_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR3_given_Group(form);
-            form.removeR3_has_Permissions(part);
+        if ( R3_Permissions_given_Group_extent.remove( R3_Permissions_given_Group_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR3_has_Permissions(form);
+            form.removeR3_given_Group(part);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -190,9 +190,9 @@ public class Auth extends Component<Auth> {
     public IRelationshipSet R2_Group_part_of_Groups() throws XtumlException {
         return R2_Group_part_of_Group_extent;
     }
-    private IRelationshipSet R3_Group_has_Permissions_extent;
-    public IRelationshipSet R3_Group_has_Permissionss() throws XtumlException {
-        return R3_Group_has_Permissions_extent;
+    private IRelationshipSet R3_Permissions_given_Group_extent;
+    public IRelationshipSet R3_Permissions_given_Groups() throws XtumlException {
+        return R3_Permissions_given_Group_extent;
     }
 
 

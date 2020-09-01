@@ -136,3 +136,5 @@ hrsystem/hr/main/GradeSet.class
 hrsystem/hr/HrUI.class
 hrsystem/auth/AuthUI.class
 hrsystem/auth/main/impl/PermissionsSetImpl.class
+interfaces/IData$ReadEmployeeBonuses.class
+interfaces/IData$SendEmployeeBonuses.class

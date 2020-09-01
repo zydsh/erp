@@ -169,16 +169,21 @@ INSERT INTO S_SYNC
 	'',
 	'//assign bonus
 ending = TIM::current_seconds()+(52*7*24*60*60);
-
+employeeID= 1428888;
 LOG::LogInfo(message:"Test: Assignning bonuses...");
 
-App::AssignEmployeeBonus( EmployeeID:1428888, BonusName:"Scarcity", Starting:TIM::current_seconds(), Ending:ending);
-App::AssignEmployeeBonus( EmployeeID:1428888, BonusName:"Computing", Starting:TIM::current_seconds(), Ending:ending);
-App::AssignEmployeeBonus( EmployeeID:1428888, BonusName:"Research", Starting:TIM::current_seconds(), Ending:ending);
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Scarcity", Starting:TIM::current_seconds(), Ending:ending);
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing", Starting:TIM::current_seconds(), Ending:ending);
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Research", Starting:TIM::current_seconds(), Ending:ending);
  
 LOG::LogInfo(message:"Test: Stopping one bonus...");
 
-App::StopEmployeeBonus( EmployeeID:1428888, BonusName:"Computing");
+App::StopEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing");
+
+
+LOG::LogInfo(message:"Test: Get bonus list...");
+
+App::ReadEmployeeBonuses( EmployeeID:employeeID );
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,

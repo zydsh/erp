@@ -1207,6 +1207,65 @@ INSERT INTO C_EP_PROXY
 	'StopEmployeeBonus',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("8e083883-22a6-4d0a-949d-2682bc3fa100",
+	"125ff518-1430-490c-9f5e-10dee396d19e",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("8e083883-22a6-4d0a-949d-2682bc3fa100",
+	'ReadEmployeeBonuses',
+	'',
+	'
+select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select many bonuses related by employee->Bonus[R4.''gets a''] ; //where selected.Name==param.Name;
+
+ 
+ if (not empty employee) and (not empty bonuses)
+  UI::Reply( msg:"Sending bonus set .. ", state:True);
+
+  for each bonus in bonuses
+  	select one bonusSpec related by bonus->BonusSpecification[R16.''is specified by''];
+	UI::SendEmployeeBonuses( BonusName:bonusSpec.Name, Starting:bonus.Starting, Ending:bonus.Ending, Percent:bonusSpec.Percent, Amount:bonus.Amount);
+	
+	UI::Reply( msg:"Sent: "+bonusSpec.Name, state:True);
+
+  end for;
+  
+  	elif (empty bonuses)
+  	  UI::Reply( msg:"Employee has no bonuses ", state:False);
+  	
+  	else
+  	  	UI::Reply( msg:"Could not find Employee ", state:False);
+
+  	end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("125ff518-1430-490c-9f5e-10dee396d19e",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadEmployeeBonuses',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("e9c0959b-b084-4fe2-95b1-a0021d086926",
+	"2a7c483e-1365-4e6a-b621-b6d08edd5af1",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("e9c0959b-b084-4fe2-95b1-a0021d086926",
+	'SendEmployeeBonuses',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2a7c483e-1365-4e6a-b621-b6d08edd5af1",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendEmployeeBonuses',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

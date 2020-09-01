@@ -179,7 +179,7 @@ App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Research", Starting:
 LOG::LogInfo(message:"Test: Stopping one bonus...");
 
 App::StopEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing");
-
+ 
 
 LOG::LogInfo(message:"Test: Get bonus list...");
 
