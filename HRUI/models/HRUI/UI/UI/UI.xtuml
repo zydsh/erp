@@ -995,6 +995,42 @@ INSERT INTO C_EP_PROXY
 	'ReadBonusList',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("19d3bbe9-b9c2-47e7-878e-be95fe6aab13",
+	"5b8ccfea-06d3-43e7-a5fa-c3b88dd10267",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("19d3bbe9-b9c2-47e7-878e-be95fe6aab13",
+	'ReadDepartmentList',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5b8ccfea-06d3-43e7-a5fa-c3b88dd10267",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadDepartmentList',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("30416ec2-a2b0-4dcd-9bcc-e89d4981518f",
+	"3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("30416ec2-a2b0-4dcd-9bcc-e89d4981518f",
+	'SendDepartmentList',
+	'',
+	'::SendDepartmentList( Name:param.Name, Mission:param.Mission, Description:param.Description, Manager:param.Manager, ManagingDepartment:param.ManagingDepartment );',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendDepartmentList',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

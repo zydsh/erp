@@ -1378,6 +1378,66 @@ INSERT INTO C_EP_PROXY
 	'ReadBonusList',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("c6dea0f8-5182-4a98-91bb-8ba8194dd5fc",
+	"5b8ccfea-06d3-43e7-a5fa-c3b88dd10267",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("c6dea0f8-5182-4a98-91bb-8ba8194dd5fc",
+	'ReadDepartmentList',
+	'',
+	'select many departments from instances of Department; 
+
+if (not empty departments) 
+	LOG::LogInfo(message:"Sending department list .." );	
+	
+	for each department in departments
+		select one mgrDep related by department->Department[R22.''is part of''];
+		if (not empty mgrDep)
+			managingDep = mgrDep.Name; 
+			UI::SendDepartmentList( Name:department.Name, Mission:department.Mission, Description:department.Description, Manager:department.Manager, ManagingDepartment:managingDep)	;	
+			LOG::LogInfo(message:"Sent: Department "+ department.Name+", managed by:"+department.Manager+" Managing Departmenet: "+ managingDep);
+		else 
+			UI::SendDepartmentList( Name:department.Name, Mission:department.Mission, Description:department.Description, Manager:department.Manager, ManagingDepartment:"");	
+			LOG::LogInfo(message:"Sent: Department "+ department.Name+", managed by:"+department.Manager+" Managing Departmenet: "+ "");
+
+		end if;			
+	end for;
+
+  LOG::LogInfo(message:"Sending department list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are no departments registered in the system" );	
+
+  	UI::Reply( msg:"There are no departments registered in the system", state:False );  
+  end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5b8ccfea-06d3-43e7-a5fa-c3b88dd10267",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadDepartmentList',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("c687dcb7-3170-4fb4-a8e7-9b1fdd252670",
+	"3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("c687dcb7-3170-4fb4-a8e7-9b1fdd252670",
+	'SendDepartmentList',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendDepartmentList',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

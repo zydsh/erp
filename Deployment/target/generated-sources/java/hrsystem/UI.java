@@ -52,6 +52,9 @@ public class UI extends Component<UI> {
     public void SendBonusList( final String p_Name,  final double p_Percent ) throws XtumlException {
     }
 
+    public void SendDepartmentList( final String p_Name,  final String p_Mission,  final String p_Description,  final String p_Manager,  final String p_ManagingDepartment ) throws XtumlException {
+    }
+
     public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
         context().LOG().LogInfo( ( ( "UI: Sending employee: " + p_FirstName ) + " " ) + p_LastName );
     }
@@ -125,6 +128,10 @@ public class UI extends Component<UI> {
         context().App().ReadEmployeeBonuses( employeeID );
         context().LOG().LogInfo( "Test: Get bonus list registered..." );
         context().App().ReadBonusList();
+    }
+
+    public void testDepartmentList() throws XtumlException {
+        context().App().ReadDepartmentList();
     }
 
     public void testEmployeePermissions() throws XtumlException {

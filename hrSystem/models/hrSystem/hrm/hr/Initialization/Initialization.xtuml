@@ -693,8 +693,10 @@ select any emp from instances of Employee where selected.EmployeeID==1429999;
 relate emp to vpServices across R21.''working within'';
 
 //relate HR to VP 
-relate departmentHR to vpServices across R22.''is divided into'';
+relate vpServices to departmentHR  across R22.''is divided into'';
 LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentHR.Name);	
+relate vpServices to departmentFin  across R22.''is divided into'';
+LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentFin.Name);	
 
 
 //create the President office
@@ -709,11 +711,11 @@ relate mgr to President across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
 
 //adding employees to president office
-select any emp from instances of Employee where selected.EmployeeID==1430000;
+select any emp from instances of Employee where selected.EmployeeID==1430000; 
 relate emp to vpServices across R21.''working within'';
 
 //relate to VP
-relate vpServices to President across R22.''is divided into'';
+relate President to vpServices across R22.''is divided into'';
 LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ President.Name);	
 
 ',
