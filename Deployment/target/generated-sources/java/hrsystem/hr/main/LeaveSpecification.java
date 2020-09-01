@@ -14,8 +14,8 @@ public interface LeaveSpecification extends IModelInstance<LeaveSpecification,Hr
     // attributes
     public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
-    public int getMaximumDays() throws XtumlException;
     public void setMaximumDays( int m_MaximumDays ) throws XtumlException;
+    public int getMaximumDays() throws XtumlException;
     public int getMinimumDays() throws XtumlException;
     public void setMinimumDays( int m_MinimumDays ) throws XtumlException;
 

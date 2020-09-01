@@ -18,10 +18,10 @@ public interface Department extends IModelInstance<Department,Hr> {
     public void setName( String m_Name ) throws XtumlException;
     public String getMission() throws XtumlException;
     public void setMission( String m_Mission ) throws XtumlException;
-    public void setDescription( String m_Description ) throws XtumlException;
     public String getDescription() throws XtumlException;
-    public String getManager() throws XtumlException;
+    public void setDescription( String m_Description ) throws XtumlException;
     public void setManager( String m_Manager ) throws XtumlException;
+    public String getManager() throws XtumlException;
 
 
     // operations

@@ -101,7 +101,7 @@ public class Hr extends Component<Hr> {
         R15_Leave_is_specified_by_a_LeaveSpecification_extent = new RelationshipSet();
         R16_Bonus_is_specified_by_BonusSpecification_extent = new RelationshipSet();
         R17_JobRecord_proceeded_by_JobRecord_extent = new RelationshipSet();
-        R18_PayslipItem_listed_before_PayslipItem_extent = new RelationshipSet();
+        R18_PayslipItem_listed_after_PayslipItem_extent = new RelationshipSet();
         R19_Bonus_given_in_the_past_Employee_extent = new RelationshipSet();
         R1_JobRecord_occupied_Job_extent = new RelationshipSet();
         R1_JobRecord_was_assigned_to_Employee_extent = new RelationshipSet();
@@ -659,6 +659,7 @@ public class Hr extends Component<Hr> {
         else if ( ( ( p_Starting < currentDate && currentDate - p_Starting < month ) && p_Ending > currentDate ) && p_Ending - currentDate > month ) {
             return ( currentDate - p_Starting ) / month;
         }
+        return 0;
     }
 
     public void testPaymentRatio() throws XtumlException {
@@ -838,23 +839,23 @@ public class Hr extends Component<Hr> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R18_PayslipItem_listed_before_PayslipItem( PayslipItem form, PayslipItem part ) throws XtumlException {
+    public void relate_R18_PayslipItem_listed_after_PayslipItem( PayslipItem form, PayslipItem part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R18_PayslipItem_listed_before_PayslipItem_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR18_listed_after_PayslipItem(form);
-            form.addR18_listed_before_PayslipItem(part);
+        if ( R18_PayslipItem_listed_after_PayslipItem_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR18_listed_before_PayslipItem(form);
+            form.addR18_listed_after_PayslipItem(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R18_PayslipItem_listed_before_PayslipItem( PayslipItem form, PayslipItem part ) throws XtumlException {
+    public void unrelate_R18_PayslipItem_listed_after_PayslipItem( PayslipItem form, PayslipItem part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R18_PayslipItem_listed_before_PayslipItem_extent.remove( R18_PayslipItem_listed_before_PayslipItem_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR18_listed_after_PayslipItem(form);
-            form.removeR18_listed_before_PayslipItem(part);
+        if ( R18_PayslipItem_listed_after_PayslipItem_extent.remove( R18_PayslipItem_listed_after_PayslipItem_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR18_listed_before_PayslipItem(form);
+            form.removeR18_listed_after_PayslipItem(part);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
@@ -1200,9 +1201,9 @@ public class Hr extends Component<Hr> {
     public IRelationshipSet R17_JobRecord_proceeded_by_JobRecords() throws XtumlException {
         return R17_JobRecord_proceeded_by_JobRecord_extent;
     }
-    private IRelationshipSet R18_PayslipItem_listed_before_PayslipItem_extent;
-    public IRelationshipSet R18_PayslipItem_listed_before_PayslipItems() throws XtumlException {
-        return R18_PayslipItem_listed_before_PayslipItem_extent;
+    private IRelationshipSet R18_PayslipItem_listed_after_PayslipItem_extent;
+    public IRelationshipSet R18_PayslipItem_listed_after_PayslipItems() throws XtumlException {
+        return R18_PayslipItem_listed_after_PayslipItem_extent;
     }
     private IRelationshipSet R19_Bonus_given_in_the_past_Employee_extent;
     public IRelationshipSet R19_Bonus_given_in_the_past_Employees() throws XtumlException {

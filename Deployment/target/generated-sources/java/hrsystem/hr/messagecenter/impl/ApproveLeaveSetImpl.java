@@ -25,12 +25,12 @@ public class ApproveLeaveSetImpl extends InstanceSet<ApproveLeaveSet,ApproveLeav
 
     // attributes
     @Override
-    public void setLeaveRequesterID( int m_LeaveRequesterID ) throws XtumlException {
-        for ( ApproveLeave approveleave : this ) approveleave.setLeaveRequesterID( m_LeaveRequesterID );
-    }
-    @Override
     public void setContent( String m_Content ) throws XtumlException {
         for ( ApproveLeave approveleave : this ) approveleave.setContent( m_Content );
+    }
+    @Override
+    public void setLeaveRequesterID( int m_LeaveRequesterID ) throws XtumlException {
+        for ( ApproveLeave approveleave : this ) approveleave.setLeaveRequesterID( m_LeaveRequesterID );
     }
     @Override
     public void setStarting( int m_Starting ) throws XtumlException {

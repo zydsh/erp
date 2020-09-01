@@ -11,8 +11,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface ApproveLeave extends IModelInstance<ApproveLeave,Hr> {
 
     // attributes
-    public void setLeaveRequesterID( int m_LeaveRequesterID ) throws XtumlException;
     public int getLeaveRequesterID() throws XtumlException;
+    public void setLeaveRequesterID( int m_LeaveRequesterID ) throws XtumlException;
     public int getStarting() throws XtumlException;
     public void setStarting( int m_Starting ) throws XtumlException;
     public int getEnding() throws XtumlException;
