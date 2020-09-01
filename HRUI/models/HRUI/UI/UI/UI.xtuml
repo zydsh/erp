@@ -878,13 +878,49 @@ INSERT INTO SPR_RS
 	'StopEmployeeBonus',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("aadcd44b-2f47-4775-83c0-303d622cb3d4",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'StopEmployeeBonus',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("89d014e3-3837-4be8-8fa1-888506600507",
+	"125ff518-1430-490c-9f5e-10dee396d19e",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("89d014e3-3837-4be8-8fa1-888506600507",
+	'ReadEmployeeBonuses',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("125ff518-1430-490c-9f5e-10dee396d19e",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadEmployeeBonuses',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("7b4d7d8b-ac7a-426e-8da4-769a7fca179f",
+	"2a7c483e-1365-4e6a-b621-b6d08edd5af1",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("7b4d7d8b-ac7a-426e-8da4-769a7fca179f",
+	'SendEmployeeBonuses',
+	'',
+	'::SendEmployeeBonuses( BonusName:param.BonusName, Starting:param.Starting, Ending:param.Ending, Percent:param.Percent, Amount:param.Amount);',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2a7c483e-1365-4e6a-b621-b6d08edd5af1",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendEmployeeBonuses',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
