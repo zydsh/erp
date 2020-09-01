@@ -195,6 +195,47 @@ INSERT INTO PE_PE
 	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
 	"00000000-0000-0000-0000-000000000000",
 	1);
+INSERT INTO S_SYNC
+	VALUES ("1f6fa867-e4db-45fb-9f68-b042f2acca58",
+	"00000000-0000-0000-0000-000000000000",
+	'testEmployeePermissions',
+	'',
+	'Emp1 = 1420000;
+Emp2 = 1421111;
+Emp3 = 1424444;
+Emp4 = 1428888;
+
+LOG::LogInfo(message:"Test: Reading Employee permissions... ");
+
+LOG::LogInfo(message:"Test: EmployeeID: ");
+LOG::LogInteger( message:Emp1 );
+
+Authenticate::ReadEmployeePermissions( EmployeeID:Emp1 );
+
+LOG::LogInfo(message:"Test: EmployeeID: ");
+LOG::LogInteger( message:Emp2 );
+
+Authenticate::ReadEmployeePermissions( EmployeeID:Emp2 );
+
+LOG::LogInfo(message:"Test: EmployeeID: ");
+LOG::LogInteger( message:Emp3 );
+
+Authenticate::ReadEmployeePermissions( EmployeeID:Emp3 );
+
+LOG::LogInfo(message:"Test: EmployeeID: ");
+LOG::LogInteger( message:Emp4 );
+
+Authenticate::ReadEmployeePermissions( EmployeeID:Emp4 );',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("1f6fa867-e4db-45fb-9f68-b042f2acca58",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	1);
 INSERT INTO PE_PE
 	VALUES ("f302aa73-3b6f-4030-b781-5dff4a4ef1da",
 	1,

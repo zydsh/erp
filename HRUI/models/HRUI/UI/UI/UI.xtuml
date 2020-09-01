@@ -896,7 +896,7 @@ INSERT INTO SPR_RS
 	'ReadEmployeeBonuses',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("125ff518-1430-490c-9f5e-10dee396d19e",
@@ -1052,6 +1052,42 @@ INSERT INTO C_EP_PROXY
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
 	'CheckUsernamePassword',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("d3c28d33-2ddf-48f0-853d-06e932b78baf",
+	"4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"d7e2a0b2-e2be-43a8-a059-cf8dfab9068b");
+INSERT INTO SPR_RS
+	VALUES ("d3c28d33-2ddf-48f0-853d-06e932b78baf",
+	'ReadEmployeePermissions',
+	'It returns a group permission through sendEmployeePermissions',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'ReadEmployeePermissions',
+	'It returns a group permission through sendEmployeePermissions',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("e88df1f0-604b-4e24-93da-d75fc26e6c9e",
+	"c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"d7e2a0b2-e2be-43a8-a059-cf8dfab9068b");
+INSERT INTO SPR_RS
+	VALUES ("e88df1f0-604b-4e24-93da-d75fc26e6c9e",
+	'SendEmployeePermissions',
+	'',
+	'::SendEmployeePermissions( GroupName:param.GroupName, Description:param.Description);',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'SendEmployeePermissions',
 	'',
 	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY
