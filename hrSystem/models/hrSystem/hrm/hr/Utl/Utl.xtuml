@@ -43,17 +43,17 @@ INSERT INTO S_SYNC
 // for a given payment (salary, bonus, etc.), given that the time lapsed is less than 30 days 
 // If the starting/ending is more than a month the function will return zero.
   
-if  (param.Payment_Time >= param.Ending_Time) and ( ::isLessThanMonth(Starting_Time:param.Payment_Time, Ending_Time:param.Ending_Time))
-	days = 30 - ((param.Payment_Time - param.Ending_Time) /24*60*60);
-	return days * (param.Payment/30);
+//if  (param.Payment_Time >= param.Ending_Time) and ( ::isLessThanMonth(Starting_Time:param.Payment_Time, Ending_Time:param.Ending_Time))
+	//days = 30 - ((param.Payment_Time - param.Ending_Time) /24*60*60);
+	//return days * (param.Payment/30);
 	
 // If the starting time is less than payment time
-elif  (param.Payment_Time >= param.Starting_Time) and ( ::isLessThanMonth(Starting_Time:param.Starting_Time, Ending_Time:param.Payment_Time))
-	days = ((param.Payment_Time - param.Starting_Time) /24*60*60);
-	return days * (param.Payment/30); 
-else
+//elif  (param.Payment_Time >= param.Starting_Time) and ( ::isLessThanMonth(Starting_Time:param.Starting_Time, Ending_Time:param.Payment_Time))
+//	days = ((param.Payment_Time - param.Starting_Time) /24*60*60);
+//	return days * (param.Payment/30); 
+//else
 	return 0;
-end if;',
+//end if;',
 	"ba5eda7a-def5-0000-0000-000000000003",
 	1,
 	'',
@@ -103,23 +103,48 @@ INSERT INTO PE_PE
 INSERT INTO S_SYNC
 	VALUES ("142e980e-2eb5-421b-bcae-cc586ef5c267",
 	"00000000-0000-0000-0000-000000000000",
-	'isLessThanMonth',
+	'paymentRatio',
 	'',
-	'	time = ( param.Ending_Time - param.Starting_Time) /24*60*60;
-	month = 30;
-	if (time <= month )
-		return true;
-	else
-		return false;
-	end if;',
-	"ba5eda7a-def5-0000-0000-000000000001",
+	'	//check if the starting date has arrived or approaching, and if the ending date arrive or approaching
+	// and return the ratio of payment according to each case
+	month = 30*24*60*60;
+	currentDate = TIM::current_seconds();
+	timeToStart = param.Starting - currentDate;
+	timeToEnd = param.Ending - currentDate;
+	
+	
+	
+	if param.Starting >= currentDate 
+		//and (param.Starting-currentDate)< month
+		//and param.Ending > currentDate
+		//and (param.Ending-currentDate) > month
+		
+		return 0;
+	
+	elif param.Starting < currentDate
+		and (currentDate-param.Starting)>month
+		and param.Ending > currentDate
+		and (param.Ending-currentDate) > month
+	
+	return 1;
+	
+	
+	elif param.Starting < currentDate 
+		and (currentDate-param.Starting)< month
+		and param.Ending > currentDate
+		and (param.Ending-currentDate) > month
+		
+		return (currentDate-param.Starting)/month;
+	
+	end if; ',
+	"ba5eda7a-def5-0000-0000-000000000003",
 	1,
 	'',
 	0);
 INSERT INTO S_SPARM
 	VALUES ("a33b9fdb-d84c-42d9-b39b-760a95723cf5",
 	"142e980e-2eb5-421b-bcae-cc586ef5c267",
-	'Starting_Time',
+	'Starting',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
@@ -128,7 +153,7 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("6f81d9e4-98e9-49e8-ba96-4ba8311b8b86",
 	"142e980e-2eb5-421b-bcae-cc586ef5c267",
-	'Ending_Time',
+	'Ending',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',

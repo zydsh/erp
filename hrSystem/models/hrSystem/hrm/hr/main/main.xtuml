@@ -2976,7 +2976,7 @@ INSERT INTO O_OBJ_PROXY
 	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
 	'Bonus',
 	8,
-	'BP',
+	'Bonus',
 	'Employees recieve different types of bonuses. 
 Some bonuses are recieved by all employees,
 others may be given to a subset of employees. 
@@ -3566,7 +3566,7 @@ INSERT INTO R_PART
 	"de068c86-08bb-4671-8f3f-021194b58426",
 	0,
 	0,
-	'given in the past to an');
+	'given in the past');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"ffbdb104-ebc9-4e78-af78-37ee906c36e6",
@@ -3583,7 +3583,7 @@ INSERT INTO R_PART
 	"00bec3d5-f197-416b-9179-55d58af16dfb",
 	1,
 	1,
-	'was given a');
+	'was given');
 INSERT INTO R_RTO
 	VALUES ("2451d579-2b01-4bdf-92ad-b6de8d147bb6",
 	"ffbdb104-ebc9-4e78-af78-37ee906c36e6",
