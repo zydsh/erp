@@ -25,12 +25,12 @@ public class BonusSpecificationSetImpl extends InstanceSet<BonusSpecificationSet
 
     // attributes
     @Override
-    public void setPercent( double m_Percent ) throws XtumlException {
-        for ( BonusSpecification bonusspecification : this ) bonusspecification.setPercent( m_Percent );
-    }
-    @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( BonusSpecification bonusspecification : this ) bonusspecification.setName( m_Name );
+    }
+    @Override
+    public void setPercent( double m_Percent ) throws XtumlException {
+        for ( BonusSpecification bonusspecification : this ) bonusspecification.setPercent( m_Percent );
     }
 
 

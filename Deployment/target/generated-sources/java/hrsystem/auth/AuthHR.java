@@ -25,7 +25,35 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     }
 
     // inbound messages
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
+        Account account = context().Account_instances().anyWhere(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID);
+        if ( account.isEmpty() ) {
+            context().LOG().LogInfo( "Account: employee has no account " );
+        }
+        else {
+            Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), p_Group));
+            context().relate_R1_Account_a_member_of_Group( account, group );
+        }
+    }
+
     public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
+    }
+
+    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
+        AccountSet account = ((AccountSet)context().Account_instances().where(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID));
+        context().LOG().LogInfo( ( ( "Account: attempting to set username and passowrd for " + p_First_Name ) + " " ) + p_Last_Name );
+        if ( account.isEmpty() ) {
+            Account acc = AccountImpl.create( context() );
+            acc.setEmployeeID(p_EmployeeID);
+            acc.setUsername(context().getUserName( p_First_Name, p_Last_Name ));
+            acc.setPassword(context().getPassword( p_EmployeeID, p_First_Name + p_Last_Name, context().TIM().current_seconds() ));
+            Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), "Employees"));
+            context().relate_R1_Account_a_member_of_Group( acc, group );
+            context().LOG().LogInfo( ( ( ( ( ( ( "Account: account created for employee " + p_First_Name ) + " " ) + p_Last_Name ) + " Username: " ) + acc.getUsername() ) + " Group " ) + group.getName() );
+        }
+        else {
+            context().LOG().LogInfo( "Account: account set is not empty " );
+        }
     }
 
     public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException {
@@ -38,44 +66,16 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         context().Initialize();
     }
 
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
-        Account account = context().Account_instances().anyWhere(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID);
-        if ( account.isEmpty() ) {
-            context().LOG().LogInfo( "Account: employee has no account " );
-        }
-        else {
-            Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), p_Group));
-            context().relate_R1_Group_has__Account( group, account );
-        }
-    }
-
-    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
-        AccountSet account = ((AccountSet)context().Account_instances().where(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID));
-        context().LOG().LogInfo( ( ( "Account: attempting to set username and passowrd for " + p_First_Name ) + " " ) + p_Last_Name );
-        if ( account.isEmpty() ) {
-            Account acc = AccountImpl.create( context() );
-            acc.setEmployeeID(p_EmployeeID);
-            acc.setUsername(context().getUserName( p_First_Name, p_Last_Name ));
-            acc.setPassword(context().getPassword( p_EmployeeID, p_First_Name + p_Last_Name, context().TIM().current_seconds() ));
-            Group group = context().Group_instances().anyWhere(selected -> StringUtil.equality(((Group)selected).getName(), "Employees"));
-            context().relate_R1_Group_has__Account( group, acc );
-            context().LOG().LogInfo( ( ( ( ( ( ( "Account: account created for employee " + p_First_Name ) + " " ) + p_Last_Name ) + " Username: " ) + acc.getUsername() ) + " Group " ) + group.getName() );
-        }
-        else {
-            context().LOG().LogInfo( "Account: account set is not empty " );
-        }
-    }
-
 
 
     // outbound messages
-    public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.SendEmployeePermissions(p_GroupName, p_Description));
+    public void Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.Reply(p_EmployeeID, p_Username, p_msg, p_state));
         else {
         }
     }
-    public void Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.Reply(p_EmployeeID, p_Username, p_msg, p_state));
+    public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.SendEmployeePermissions(p_GroupName, p_Description));
         else {
         }
     }
@@ -85,8 +85,14 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
+            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
+                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
+                break;
             case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
                 ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
+                break;
+            case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
+                CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
             case IAuthentication.SIGNAL_NO_READEMPLOYEEPERMISSIONS:
                 ReadEmployeePermissions(IntegerUtil.deserialize(message.get(0)));
@@ -96,12 +102,6 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
                 break;
             case IAuthentication.SIGNAL_NO_INITIALIZE:
                 Initialize();
-                break;
-            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
-                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
-                break;
-            case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
-                CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

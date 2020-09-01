@@ -181,9 +181,13 @@ LOG::LogInfo(message:"Test: Stopping one bonus...");
 App::StopEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing");
  
 
-LOG::LogInfo(message:"Test: Get bonus list...");
+LOG::LogInfo(message:"Test: Get employee bonus list...");
 
 App::ReadEmployeeBonuses( EmployeeID:employeeID );
+
+LOG::LogInfo(message:"Test: Get bonus list registered...");
+App::ReadBonusList();
+
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
@@ -232,6 +236,22 @@ Authenticate::ReadEmployeePermissions( EmployeeID:Emp4 );',
 	0);
 INSERT INTO PE_PE
 	VALUES ("1f6fa867-e4db-45fb-9f68-b042f2acca58",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("a513cb57-532a-4db6-bd15-5fcf97bbe1d1",
+	"00000000-0000-0000-0000-000000000000",
+	'testJobList',
+	'',
+	'App::ReadJobList();',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("a513cb57-532a-4db6-bd15-5fcf97bbe1d1",
 	1,
 	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
 	"00000000-0000-0000-0000-000000000000",

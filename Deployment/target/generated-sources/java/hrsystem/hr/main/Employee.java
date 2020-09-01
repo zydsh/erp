@@ -25,8 +25,8 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     // attributes
     public void setEmployeeID( int m_EmployeeID ) throws XtumlException;
     public int getEmployeeID() throws XtumlException;
-    public void setNationalID( int m_NationalID ) throws XtumlException;
     public int getNationalID() throws XtumlException;
+    public void setNationalID( int m_NationalID ) throws XtumlException;
     public void setFirstName( String m_FirstName ) throws XtumlException;
     public String getFirstName() throws XtumlException;
     public void setMiddleName( String m_MiddleName ) throws XtumlException;

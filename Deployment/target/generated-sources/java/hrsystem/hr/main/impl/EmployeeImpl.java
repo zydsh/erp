@@ -158,6 +158,11 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     }
     private int m_NationalID;
     @Override
+    public int getNationalID() throws XtumlException {
+        checkLiving();
+        return m_NationalID;
+    }
+    @Override
     public void setNationalID(int m_NationalID) throws XtumlException {
         checkLiving();
         if (m_NationalID != this.m_NationalID) {
@@ -165,11 +170,6 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             this.m_NationalID = m_NationalID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_NationalID", oldValue, this.m_NationalID));
         }
-    }
-    @Override
-    public int getNationalID() throws XtumlException {
-        checkLiving();
-        return m_NationalID;
     }
     private String m_FirstName;
     @Override
@@ -371,7 +371,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 1;
+            return 3;
         }
         @Override
         public String getClassName() {
@@ -384,7 +384,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 3;
+            return 5;
         }
         @Override
         public String getClassName() {
@@ -423,7 +423,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 5;
+            return 4;
         }
         @Override
         public String getClassName() {
@@ -436,7 +436,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 4;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -622,11 +622,11 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
     public int getEmployeeID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setNationalID( int m_NationalID ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getNationalID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setNationalID( int m_NationalID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setFirstName( String m_FirstName ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
