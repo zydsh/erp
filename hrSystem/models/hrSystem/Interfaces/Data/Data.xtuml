@@ -749,6 +749,75 @@ INSERT INTO C_AS
 	'',
 	0,
 	"6a7f8346-cbc4-4c69-8736-c456dea71c22");
+INSERT INTO C_EP
+	VALUES ("5b8ccfea-06d3-43e7-a5fa-c3b88dd10267",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadDepartmentList',
+	'');
+INSERT INTO C_AS
+	VALUES ("5b8ccfea-06d3-43e7-a5fa-c3b88dd10267",
+	'ReadDepartmentList',
+	'',
+	0,
+	"ace2c172-7284-4b90-a4e9-bbc94f9829d3");
+INSERT INTO C_EP
+	VALUES ("3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendDepartmentList',
+	'');
+INSERT INTO C_AS
+	VALUES ("3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	'SendDepartmentList',
+	'',
+	1,
+	"5b8ccfea-06d3-43e7-a5fa-c3b88dd10267");
+INSERT INTO C_PP
+	VALUES ("12eb3b9b-45cb-46f0-9749-28de84e68ac8",
+	"3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("dd4db6d5-a506-4bca-8e5e-c954b0e19dd9",
+	"3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Mission',
+	'',
+	0,
+	'',
+	"12eb3b9b-45cb-46f0-9749-28de84e68ac8");
+INSERT INTO C_PP
+	VALUES ("d389978c-e6fc-4b6c-b1ae-dbedcdbce2a0",
+	"3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"dd4db6d5-a506-4bca-8e5e-c954b0e19dd9");
+INSERT INTO C_PP
+	VALUES ("bd7c400e-cfd7-4140-b7a3-c33ee543251d",
+	"3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Manager',
+	'',
+	0,
+	'',
+	"d389978c-e6fc-4b6c-b1ae-dbedcdbce2a0");
+INSERT INTO C_PP
+	VALUES ("3fcd2ac8-6dbb-4955-a960-4f962a7c53be",
+	"3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'ManagingDepartment',
+	'',
+	0,
+	'',
+	"bd7c400e-cfd7-4140-b7a3-c33ee543251d");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

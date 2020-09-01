@@ -119,15 +119,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private double m_Salary;
     @Override
-    public double getSalary() throws XtumlException {
-        checkLiving();
-        {
-            Grade grade = self().R9_assigned_Grade();
-            self().setSalary(grade.getAllowance() * self().getStep() + grade.getBaseSalary());
-        }
-        return m_Salary;
-    }
-    @Override
     public void setSalary(double m_Salary) throws XtumlException {
         checkLiving();
         if (m_Salary != this.m_Salary) {
@@ -135,6 +126,15 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             this.m_Salary = m_Salary;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Salary", oldValue, this.m_Salary));
         }
+    }
+    @Override
+    public double getSalary() throws XtumlException {
+        checkLiving();
+        {
+            Grade grade = self().R9_assigned_Grade();
+            self().setSalary(grade.getAllowance() * self().getStep() + grade.getBaseSalary());
+        }
+        return m_Salary;
     }
     private int m_Step;
     @Override
@@ -198,11 +198,6 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private int m_AppointmentDate;
     @Override
-    public int getAppointmentDate() throws XtumlException {
-        checkLiving();
-        return m_AppointmentDate;
-    }
-    @Override
     public void setAppointmentDate(int m_AppointmentDate) throws XtumlException {
         checkLiving();
         if (m_AppointmentDate != this.m_AppointmentDate) {
@@ -210,6 +205,11 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
             this.m_AppointmentDate = m_AppointmentDate;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_AppointmentDate", oldValue, this.m_AppointmentDate));
         }
+    }
+    @Override
+    public int getAppointmentDate() throws XtumlException {
+        checkLiving();
+        return m_AppointmentDate;
     }
 
 
@@ -322,11 +322,11 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public void setTitle( String m_Title ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public double getSalary() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setSalary( double m_Salary ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getSalary() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setStep( int m_Step ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -352,11 +352,11 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public void setPromotionDate( int m_PromotionDate ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public int getAppointmentDate() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getAppointmentDate() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

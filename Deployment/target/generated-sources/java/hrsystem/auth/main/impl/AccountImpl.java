@@ -69,11 +69,6 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
     // attributes
     private String m_Username;
     @Override
-    public String getUsername() throws XtumlException {
-        checkLiving();
-        return m_Username;
-    }
-    @Override
     public void setUsername(String m_Username) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Username, this.m_Username)) {
@@ -81,6 +76,11 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
             this.m_Username = m_Username;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Username", oldValue, this.m_Username));
         }
+    }
+    @Override
+    public String getUsername() throws XtumlException {
+        checkLiving();
+        return m_Username;
     }
     private String m_Password;
     @Override
@@ -184,11 +184,11 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
 class EmptyAccount extends ModelInstance<Account,Auth> implements Account {
 
     // attributes
-    public String getUsername() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setUsername( String m_Username ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getUsername() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setPassword( String m_Password ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

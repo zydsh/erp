@@ -106,6 +106,7 @@ hrsystem/hr/main/impl/EmptyScale.class
 hrsystem/hr/messagecenter/impl/EmptyApproveLeave.class
 hrsystem/auth/main/impl/EmptyAccount.class
 interfaces/IData$SendBonusList.class
+interfaces/IData$SendDepartmentList.class
 hrsystem/auth/main/Permissions.class
 hrsystem/hr/main/Employee.class
 hrsystem/hr/main/impl/EmptyLeave.class
@@ -132,6 +133,7 @@ hrsystem/hr/main/impl/JobSetImpl.class
 interfaces/IAuthentication.class
 hrsystem/hr/main/impl/LeaveImpl$StartLeave.class
 interfaces/IData$ReadEmployeeList.class
+interfaces/IData$ReadDepartmentList.class
 hrsystem/hr/main/impl/JobRecordImpl.class
 hrsystem/hr/main/JobRecord.class
 hrsystem/hr/main/impl/EmployeeImpl$LeaveEnded.class

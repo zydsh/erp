@@ -18,8 +18,8 @@ public interface Job extends IModelInstance<Job,Hr> {
     public void setJob_ID( int m_Job_ID ) throws XtumlException;
     public String getTitle() throws XtumlException;
     public void setTitle( String m_Title ) throws XtumlException;
-    public double getSalary() throws XtumlException;
     public void setSalary( double m_Salary ) throws XtumlException;
+    public double getSalary() throws XtumlException;
     public void setStep( int m_Step ) throws XtumlException;
     public int getStep() throws XtumlException;
     public double getPensionDeduction() throws XtumlException;
@@ -28,8 +28,8 @@ public interface Job extends IModelInstance<Job,Hr> {
     public String getDescription() throws XtumlException;
     public int getPromotionDate() throws XtumlException;
     public void setPromotionDate( int m_PromotionDate ) throws XtumlException;
-    public int getAppointmentDate() throws XtumlException;
     public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException;
+    public int getAppointmentDate() throws XtumlException;
 
 
     // operations
