@@ -521,6 +521,42 @@ INSERT INTO C_EP_PROXY
 	'CheckUsernamePassword',
 	'',
 	'../../Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("8bde465a-76ab-4a34-941b-a62452815a86",
+	"4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
+INSERT INTO SPR_PS
+	VALUES ("8bde465a-76ab-4a34-941b-a62452815a86",
+	'ReadEmployeePermissions',
+	'It returns a group permission through sendEmployeePermissions',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'ReadEmployeePermissions',
+	'It returns a group permission through sendEmployeePermissions',
+	'../../Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("50a48c6f-3af8-4059-a1ff-de29c52cc77c",
+	"c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"ca6f0d37-2a5a-49b9-829a-91592171dcfd");
+INSERT INTO SPR_PS
+	VALUES ("50a48c6f-3af8-4059-a1ff-de29c52cc77c",
+	'SendEmployeePermissions',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'SendEmployeePermissions',
+	'',
+	'../../Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	"00000000-0000-0000-0000-000000000000",
@@ -634,6 +670,48 @@ else
 
 end if;
 ',
+	1,
+	0);
+INSERT INTO SPR_PEP
+	VALUES ("3bc42166-879d-4312-a1fe-76fe5029b705",
+	"4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e");
+INSERT INTO SPR_PS
+	VALUES ("3bc42166-879d-4312-a1fe-76fe5029b705",
+	'ReadEmployeePermissions',
+	'It returns a group permission through sendEmployeePermissions',
+	'select any account from instances of Account where selected.EmployeeID==param.EmployeeID ; 
+
+select many groups related by account->Group[R1.''a member of''];
+
+
+if (not empty account) and (not empty groups)
+	LOG::LogInfo(message:"Sending employee account permissions .." );	
+	
+	for each group in groups
+ 		UI::SendEmployeePermissions( GroupName:group.Name, Description:group.Description );
+		LOG::LogInfo(message:"Sent: Permission Groupd "+ group.Name+", Description:  "+group.Description);	
+	end for;
+
+  LOG::LogInfo(message:"Sending employee account permissions is complete" );	
+  
+  elif (empty account) or (empty groups)
+  	LOG::LogInfo(message:"Employee either does not exist or has no account or has is not assigned a group" );	
+
+  	UI::Reply( EmployeeID:0, Username:"", msg:"Employee either does not exist or has no account or has is not assigned a group", state:False );
+  
+  end if; ',
+	1,
+	0);
+INSERT INTO SPR_PEP
+	VALUES ("3fe16aff-6126-42d0-90d7-56dff51dd877",
+	"c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"7f82e145-6d0b-4101-8f71-145c979ea70e");
+INSERT INTO SPR_PS
+	VALUES ("3fe16aff-6126-42d0-90d7-56dff51dd877",
+	'SendEmployeePermissions',
+	'',
+	'',
 	1,
 	0);
 INSERT INTO PE_PE

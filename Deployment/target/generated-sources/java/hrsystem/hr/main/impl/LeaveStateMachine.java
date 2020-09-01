@@ -47,7 +47,7 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
     private void EndLeave_entry_action() throws XtumlException {
         Employee employee = self().R5_is_currently_taken_by_Employee();
         context().relate_R11_Leave_consumed_by_Employee( self(), employee );
-        context().unrelate_R5_Employee_is_taking_a_Leave( employee, self() );
+        context().unrelate_R5_Leave_is_currently_taken_by_Employee( self(), employee );
         context().generate(new EmployeeImpl.LeaveEnded(getRunContext(), context().getId()).to(employee));
         context().LOG().LogInfo( "Employee leave ended" );
     }
@@ -61,7 +61,7 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
 
     private void StartLeave_entry_action() throws XtumlException {
         Employee employee = self().R7_to_be_taken_by_Employee();
-        context().relate_R5_Employee_is_taking_a_Leave( employee, self() );
+        context().relate_R5_Leave_is_currently_taken_by_Employee( self(), employee );
         context().unrelate_R7_Leave_to_be_taken_by_Employee( self(), employee );
         context().generate(new EmployeeImpl.LeaveStarted(getRunContext(), context().getId()).to(employee));
         context().LOG().LogInfo( "Employee leave started" );

@@ -28,12 +28,12 @@ public class GroupSetImpl extends InstanceSet<GroupSet,Group> implements GroupSe
 
     // attributes
     @Override
-    public void setDescription( String m_Description ) throws XtumlException {
-        for ( Group group : this ) group.setDescription( m_Description );
-    }
-    @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( Group group : this ) group.setName( m_Name );
+    }
+    @Override
+    public void setDescription( String m_Description ) throws XtumlException {
+        for ( Group group : this ) group.setDescription( m_Description );
     }
 
 

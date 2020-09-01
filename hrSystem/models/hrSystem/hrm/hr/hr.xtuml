@@ -1257,7 +1257,7 @@ INSERT INTO SPR_PS
 	'SendEmployeeBonuses',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2a7c483e-1365-4e6a-b621-b6d08edd5af1",
@@ -1395,6 +1395,42 @@ INSERT INTO C_EP_PROXY
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
 	'CheckUsernamePassword',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("4ea06777-4a4a-46d3-93fe-d4fe341db279",
+	"4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"1686e6d6-351f-426c-ae2d-45c64744b41a");
+INSERT INTO SPR_RS
+	VALUES ("4ea06777-4a4a-46d3-93fe-d4fe341db279",
+	'ReadEmployeePermissions',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'ReadEmployeePermissions',
+	'',
+	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("454f1dca-cc92-4634-ba13-b09b251d0079",
+	"c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"1686e6d6-351f-426c-ae2d-45c64744b41a");
+INSERT INTO SPR_RS
+	VALUES ("454f1dca-cc92-4634-ba13-b09b251d0079",
+	'SendEmployeePermissions',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'SendEmployeePermissions',
 	'',
 	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO C_I_PROXY

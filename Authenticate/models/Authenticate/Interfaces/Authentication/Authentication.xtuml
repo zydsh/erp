@@ -203,6 +203,57 @@ INSERT INTO C_PP
 	0,
 	'',
 	"0c3cb93f-e65b-4527-8458-c64fdaca7127");
+INSERT INTO C_EP
+	VALUES ("4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'ReadEmployeePermissions',
+	'It returns a group permission through sendEmployeePermissions');
+INSERT INTO C_AS
+	VALUES ("4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	'ReadEmployeePermissions',
+	'It returns a group permission through sendEmployeePermissions',
+	0,
+	"a2b9a551-5d4f-4bdb-9776-e71898ae21e8");
+INSERT INTO C_PP
+	VALUES ("05c9d77e-e0f6-4ae5-ba58-6b0c2917d6d5",
+	"4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
+	-1,
+	'SendEmployeePermissions',
+	'');
+INSERT INTO C_AS
+	VALUES ("c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	'SendEmployeePermissions',
+	'',
+	1,
+	"4d5be10d-2c2f-4a8b-b4b4-45a20225a476");
+INSERT INTO C_PP
+	VALUES ("f709462e-62d3-4e4c-a095-2c72ef5ddcad",
+	"c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'GroupName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("270ffddb-7797-4af2-b376-ff54d62c61e3",
+	"c33771ee-f17e-4255-b8a2-f8e2e5b49479",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"f709462e-62d3-4e4c-a095-2c72ef5ddcad");
 INSERT INTO PE_PE
 	VALUES ("eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	1,

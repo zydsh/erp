@@ -69,6 +69,11 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
     // attributes
     private String m_Username;
     @Override
+    public String getUsername() throws XtumlException {
+        checkLiving();
+        return m_Username;
+    }
+    @Override
     public void setUsername(String m_Username) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Username, this.m_Username)) {
@@ -77,12 +82,12 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Username", oldValue, this.m_Username));
         }
     }
-    @Override
-    public String getUsername() throws XtumlException {
-        checkLiving();
-        return m_Username;
-    }
     private String m_Password;
+    @Override
+    public String getPassword() throws XtumlException {
+        checkLiving();
+        return m_Password;
+    }
     @Override
     public void setPassword(String m_Password) throws XtumlException {
         checkLiving();
@@ -91,11 +96,6 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
             this.m_Password = m_Password;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Password", oldValue, this.m_Password));
         }
-    }
-    @Override
-    public String getPassword() throws XtumlException {
-        checkLiving();
-        return m_Password;
     }
     private int m_EmployeeID;
     @Override
@@ -184,17 +184,17 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
 class EmptyAccount extends ModelInstance<Account,Auth> implements Account {
 
     // attributes
-    public void setUsername( String m_Username ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getUsername() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setPassword( String m_Password ) throws XtumlException {
+    public void setUsername( String m_Username ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getPassword() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setPassword( String m_Password ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getEmployeeID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
