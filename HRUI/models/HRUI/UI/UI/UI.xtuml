@@ -923,6 +923,42 @@ INSERT INTO C_EP_PROXY
 	'SendEmployeeBonuses',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("95a94093-604f-46a2-aca5-52f7f8973f79",
+	"2c6a9de5-1cba-40bc-b112-f992ee3d0a61",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("95a94093-604f-46a2-aca5-52f7f8973f79",
+	'ReadJobList',
+	'Request for all registered jobs in the system',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2c6a9de5-1cba-40bc-b112-f992ee3d0a61",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadJobList',
+	'Request for all registered jobs in the system',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("36b8f6fa-3833-4de2-bab0-ad6f5b5f01a0",
+	"4e0f81e2-08a0-4b7a-aa0c-4ec2a0472748",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("36b8f6fa-3833-4de2-bab0-ad6f5b5f01a0",
+	'SendJobList',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4e0f81e2-08a0-4b7a-aa0c-4ec2a0472748",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendJobList',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -1063,7 +1099,7 @@ INSERT INTO SPR_RS
 	'ReadEmployeePermissions',
 	'It returns a group permission through sendEmployeePermissions',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4d5be10d-2c2f-4a8b-b4b4-45a20225a476",

@@ -1266,6 +1266,66 @@ INSERT INTO C_EP_PROXY
 	'SendEmployeeBonuses',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a1171de9-3a45-4c21-a770-f3d1c3bf7d56",
+	"2c6a9de5-1cba-40bc-b112-f992ee3d0a61",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("a1171de9-3a45-4c21-a770-f3d1c3bf7d56",
+	'ReadJobList',
+	'Request for all registered jobs in the system',
+	'select many jobs from instances of Job; 
+
+if (not empty jobs) 
+	LOG::LogInfo(message:"Sending jobs list .." );	
+	
+	for each job in jobs
+		select one employee related by job->Employee[R6.''is assigned to''];
+		if (not empty employee)
+			UI::SendJobList( JobID:job.Job_ID, Title:job.Title, Salary:job.Salary, EmployeeName:employee.FirstName+" "+employee.LastName, EmployeeID:employee.EmployeeID);
+			LOG::LogInfo(message:"Sent: Job "+ job.Title+", Assign to:  "+employee.FirstName+" "+employee.LastName);	
+			LOG::LogReal( message:" Salary ", r:job.Salary );
+		else
+			UI::SendJobList( JobID:job.Job_ID, Title:job.Title, Salary:job.Salary, EmployeeName:"", EmployeeID:0);
+			LOG::LogInfo(message:"Sent: Job "+ job.Title);
+			LOG::LogReal( message:" Salary ", r:job.Salary );
+		end if;
+	end for;
+
+  LOG::LogInfo(message:"Sending jobs list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are not jobs registered in the system" );	
+
+  	UI::Reply( msg:"There are no jobs registered in the system", state:False );  
+  end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2c6a9de5-1cba-40bc-b112-f992ee3d0a61",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadJobList',
+	'Request for all registered jobs in the system',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("444ee191-ab39-45cd-a087-746260bc66d1",
+	"4e0f81e2-08a0-4b7a-aa0c-4ec2a0472748",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("444ee191-ab39-45cd-a087-746260bc66d1",
+	'SendJobList',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4e0f81e2-08a0-4b7a-aa0c-4ec2a0472748",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendJobList',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -1404,16 +1464,16 @@ INSERT INTO SPR_REP
 INSERT INTO SPR_RS
 	VALUES ("4ea06777-4a4a-46d3-93fe-d4fe341db279",
 	'ReadEmployeePermissions',
+	'It returns a group permission through sendEmployeePermissions',
 	'',
-	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",
 	-1,
 	'ReadEmployeePermissions',
-	'',
+	'It returns a group permission through sendEmployeePermissions',
 	'../../../../../Authenticate/models/Authenticate/Interfaces/Authentication/Authentication.xtuml');
 INSERT INTO SPR_REP
 	VALUES ("454f1dca-cc92-4634-ba13-b09b251d0079",
@@ -1424,7 +1484,7 @@ INSERT INTO SPR_RS
 	'SendEmployeePermissions',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c33771ee-f17e-4255-b8a2-f8e2e5b49479",

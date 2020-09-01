@@ -6,6 +6,7 @@ hrsystem/hr/main/impl/EmptyJob.class
 hrsystem/hr/main/impl/JobRecordSetImpl.class
 hrsystem/hr/HrUI_Ops.class
 interfaces/IData$CreateLeaveSpecification.class
+interfaces/IData$ReadJobList.class
 hrsystem/ui/UIAuthenticate.class
 hrsystem/hr/main/impl/BonusImpl$payBonus.class
 hrsystem/hr/main/BonusSpecification.class
@@ -83,6 +84,7 @@ hrsystem/auth/main/Group.class
 hrsystem/auth/AuthHR.class
 hrsystem/hr/main/impl/LeaveImpl$Reject.class
 hrsystem/hr/main/Grade.class
+interfaces/IData$SendJobList.class
 hrsystem/hr/main/LeaveSet.class
 hrsystem/Hr.class
 deployment/DeploymentApplication$1.class

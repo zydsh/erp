@@ -139,6 +139,10 @@ public class UI extends Component<UI> {
         context().Authenticate().ReadEmployeePermissions( Emp4 );
     }
 
+    public void testJobList() throws XtumlException {
+        context().App().ReadJobList();
+    }
+
 
 
     // relates and unrelates

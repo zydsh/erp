@@ -700,7 +700,7 @@ if (not empty account) and (not empty groups)
 
   	UI::Reply( EmployeeID:0, Username:"", msg:"Employee either does not exist or has no account or has is not assigned a group", state:False );
   
-  end if;',
+  end if; ',
 	1,
 	0);
 INSERT INTO SPR_PEP
