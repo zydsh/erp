@@ -134,6 +134,15 @@ INSERT INTO C_PP
 	0,
 	'',
 	"aca4fc2c-744b-414d-8013-6d6b636a237b");
+INSERT INTO C_PP
+	VALUES ("a4463ce6-e62c-4d1e-9c95-3b837394c130",
+	"ef336545-2505-4c4c-966f-e73bd04cebbc",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Salary',
+	'',
+	0,
+	'',
+	"acebdb16-db72-49e1-9e3c-8b6d890f9724");
 INSERT INTO C_EP
 	VALUES ("3c8dd825-949a-424e-bf6c-9b9a9fa3f74e",
 	"e4418dca-a348-4559-93d1-2765b2e75800",

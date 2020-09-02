@@ -306,6 +306,15 @@ INSERT INTO S_SPARM
 	'',
 	"1b87cb6f-4d6d-4d3e-bb66-3e142873530b",
 	'');
+INSERT INTO S_SPARM
+	VALUES ("0d091aac-ed53-48a5-9c0c-5bfe2df3354f",
+	"fecb74fe-821d-48f5-bd3c-a8fa7d4f0312",
+	'Salary',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"1e174c05-4396-45e2-9903-62d7b1107661",
+	'');
 INSERT INTO PE_PE
 	VALUES ("fecb74fe-821d-48f5-bd3c-a8fa7d4f0312",
 	1,

@@ -999,20 +999,14 @@ INSERT INTO SPR_PS
 	'ReadEmployeeList',
 	'',
 	'select many employeeSet from instances of Employee ; 
- size = 0;
- 
- for each emp in employeeSet
-	size = size +1;
- end for;
- 
+   
   LOG::LogInfo(message:"Sending employee set .." );	
 
-
   for each emp in employeeSet
- 
-	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, Email:emp.Email,OfficePhone:emp.OfficePhone, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance);
-	size = size-1;
+	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, Email:emp.Email,OfficePhone:emp.OfficePhone, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance, Salary:emp.getSalary());
 	LOG::LogInfo(message:"Sent:"+ emp.FirstName+" "+emp.MiddleName+" "+emp.LastName);	
+	LOG::LogReal( message:"Salary ", r:emp.getSalary() );
+
 
   end for;
 
@@ -1622,8 +1616,9 @@ INSERT INTO SPR_PS
   
 
 if (not empty emp) 
-	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, Email:emp.Email,OfficePhone:emp.OfficePhone, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance);
+	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, Email:emp.Email,OfficePhone:emp.OfficePhone, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance, Salary:emp.getSalary());
 	LOG::LogInfo(message:"Sent:"+ emp.FirstName+" "+emp.MiddleName+" "+emp.LastName);	
+	LOG::LogReal( message:"Salary ", r:emp.getSalary() );
 
  else
  	UI::Reply( msg:"Employee does not exist", state:False );
