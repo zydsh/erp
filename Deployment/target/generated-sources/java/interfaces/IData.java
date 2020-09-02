@@ -56,7 +56,31 @@ public interface IData {
  
     }
     public void DeleteLeaveSpecification( final String p_Name ) throws XtumlException;
-    public static final int SIGNAL_NO_INITIALIZE = 5;
+    public static final int SIGNAL_NO_GETEMPLOYEE = 5;
+    public static class GetEmployee extends Message {
+        public GetEmployee( final int p_EmployeeID ) {
+            super(new Object[]{p_EmployeeID});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_GETEMPLOYEE;
+        }
+ 
+    }
+    public void GetEmployee( final int p_EmployeeID ) throws XtumlException;
+    public static final int SIGNAL_NO_GETSALARYSTRUCTURE = 6;
+    public static class GetSalaryStructure extends Message {
+        public GetSalaryStructure( final int p_EmployeeID ) {
+            super(new Object[]{p_EmployeeID});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_GETSALARYSTRUCTURE;
+        }
+ 
+    }
+    public void GetSalaryStructure( final int p_EmployeeID ) throws XtumlException;
+    public static final int SIGNAL_NO_INITIALIZE = 7;
     public static class Initialize extends Message {
         @Override
         public int getId() {
@@ -65,7 +89,7 @@ public interface IData {
  
     }
     public void Initialize() throws XtumlException;
-    public static final int SIGNAL_NO_READBONUSLIST = 6;
+    public static final int SIGNAL_NO_READBONUSLIST = 8;
     public static class ReadBonusList extends Message {
         @Override
         public int getId() {
@@ -74,7 +98,7 @@ public interface IData {
  
     }
     public void ReadBonusList() throws XtumlException;
-    public static final int SIGNAL_NO_READDEPARTMENTLIST = 7;
+    public static final int SIGNAL_NO_READDEPARTMENTLIST = 9;
     public static class ReadDepartmentList extends Message {
         @Override
         public int getId() {
@@ -83,7 +107,7 @@ public interface IData {
  
     }
     public void ReadDepartmentList() throws XtumlException;
-    public static final int SIGNAL_NO_READEMPLOYEEBONUSES = 8;
+    public static final int SIGNAL_NO_READEMPLOYEEBONUSES = 10;
     public static class ReadEmployeeBonuses extends Message {
         public ReadEmployeeBonuses( final int p_EmployeeID ) {
             super(new Object[]{p_EmployeeID});
@@ -95,7 +119,7 @@ public interface IData {
  
     }
     public void ReadEmployeeBonuses( final int p_EmployeeID ) throws XtumlException;
-    public static final int SIGNAL_NO_READEMPLOYEELIST = 9;
+    public static final int SIGNAL_NO_READEMPLOYEELIST = 11;
     public static class ReadEmployeeList extends Message {
         @Override
         public int getId() {
@@ -104,7 +128,7 @@ public interface IData {
  
     }
     public void ReadEmployeeList() throws XtumlException;
-    public static final int SIGNAL_NO_READEMPLOYEEMESSAGE = 10;
+    public static final int SIGNAL_NO_READEMPLOYEEMESSAGE = 12;
     public static class ReadEmployeeMessage extends Message {
         public ReadEmployeeMessage( final int p_EmployeeID ) {
             super(new Object[]{p_EmployeeID});
@@ -116,7 +140,7 @@ public interface IData {
  
     }
     public void ReadEmployeeMessage( final int p_EmployeeID ) throws XtumlException;
-    public static final int SIGNAL_NO_READGRADES = 11;
+    public static final int SIGNAL_NO_READGRADES = 13;
     public static class ReadGrades extends Message {
         public ReadGrades( final String p_Name ) {
             super(new Object[]{p_Name});
@@ -128,7 +152,7 @@ public interface IData {
  
     }
     public void ReadGrades( final String p_Name ) throws XtumlException;
-    public static final int SIGNAL_NO_READJOBLIST = 12;
+    public static final int SIGNAL_NO_READJOBLIST = 14;
     public static class ReadJobList extends Message {
         @Override
         public int getId() {
@@ -137,7 +161,7 @@ public interface IData {
  
     }
     public void ReadJobList() throws XtumlException;
-    public static final int SIGNAL_NO_READLEAVESPECIFICATION = 13;
+    public static final int SIGNAL_NO_READLEAVESPECIFICATION = 15;
     public static class ReadLeaveSpecification extends Message {
         @Override
         public int getId() {
@@ -146,7 +170,7 @@ public interface IData {
  
     }
     public void ReadLeaveSpecification() throws XtumlException;
-    public static final int SIGNAL_NO_READSCALES = 14;
+    public static final int SIGNAL_NO_READSCALES = 16;
     public static class ReadScales extends Message {
         @Override
         public int getId() {
@@ -155,7 +179,7 @@ public interface IData {
  
     }
     public void ReadScales() throws XtumlException;
-    public static final int SIGNAL_NO_STOPEMPLOYEEBONUS = 26;
+    public static final int SIGNAL_NO_STOPEMPLOYEEBONUS = 29;
     public static class StopEmployeeBonus extends Message {
         public StopEmployeeBonus( final int p_EmployeeID,  final String p_BonusName ) {
             super(new Object[]{p_EmployeeID,  p_BonusName});
@@ -170,7 +194,7 @@ public interface IData {
 
 
     // from provider messages
-    public static final int SIGNAL_NO_REPLY = 15;
+    public static final int SIGNAL_NO_REPLY = 17;
     public static class Reply extends Message {
         public Reply( final String p_msg,  final boolean p_state ) {
             super(new Object[]{p_msg,  p_state});
@@ -182,7 +206,7 @@ public interface IData {
  
     }
     public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException;
-    public static final int SIGNAL_NO_REPLYNEWEMPLOYEE = 16;
+    public static final int SIGNAL_NO_REPLYNEWEMPLOYEE = 18;
     public static class ReplyNewEmployee extends Message {
         public ReplyNewEmployee( final String p_Username,  final String p_Password ) {
             super(new Object[]{p_Username,  p_Password});
@@ -194,7 +218,7 @@ public interface IData {
  
     }
     public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDBONUSLIST = 17;
+    public static final int SIGNAL_NO_SENDBONUSLIST = 19;
     public static class SendBonusList extends Message {
         public SendBonusList( final String p_Name,  final double p_Percent ) {
             super(new Object[]{p_Name,  p_Percent});
@@ -206,7 +230,7 @@ public interface IData {
  
     }
     public void SendBonusList( final String p_Name,  final double p_Percent ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDDEPARTMENTLIST = 18;
+    public static final int SIGNAL_NO_SENDDEPARTMENTLIST = 20;
     public static class SendDepartmentList extends Message {
         public SendDepartmentList( final String p_Name,  final String p_Mission,  final String p_Description,  final String p_Manager,  final String p_ManagingDepartment ) {
             super(new Object[]{p_Name,  p_Mission,  p_Description,  p_Manager,  p_ManagingDepartment});
@@ -218,10 +242,10 @@ public interface IData {
  
     }
     public void SendDepartmentList( final String p_Name,  final String p_Mission,  final String p_Description,  final String p_Manager,  final String p_ManagingDepartment ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDEMPLOYEE = 19;
+    public static final int SIGNAL_NO_SENDEMPLOYEE = 21;
     public static class SendEmployee extends Message {
-        public SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) {
-            super(new Object[]{p_EmployeeID,  p_NationalID,  p_FirstName,  p_MiddleName,  p_LastName,  p_DateOfBirth,  p_Degree,  p_Gender,  p_StartDate,  p_LeaveBalance,  p_SickLeaveBalance,  p_Size});
+        public SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final String p_Email,  final String p_OfficePhone,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final double p_Salary ) {
+            super(new Object[]{p_EmployeeID,  p_NationalID,  p_FirstName,  p_MiddleName,  p_LastName,  p_Email,  p_OfficePhone,  p_DateOfBirth,  p_Degree,  p_Gender,  p_StartDate,  p_LeaveBalance,  p_SickLeaveBalance,  p_Salary});
         }
         @Override
         public int getId() {
@@ -229,8 +253,8 @@ public interface IData {
         }
  
     }
-    public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDEMPLOYEEBONUSES = 20;
+    public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final String p_Email,  final String p_OfficePhone,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final double p_Salary ) throws XtumlException;
+    public static final int SIGNAL_NO_SENDEMPLOYEEBONUSES = 22;
     public static class SendEmployeeBonuses extends Message {
         public SendEmployeeBonuses( final String p_BonusName,  final int p_Starting,  final int p_Ending,  final double p_Percent,  final double p_Amount ) {
             super(new Object[]{p_BonusName,  p_Starting,  p_Ending,  p_Percent,  p_Amount});
@@ -242,7 +266,7 @@ public interface IData {
  
     }
     public void SendEmployeeBonuses( final String p_BonusName,  final int p_Starting,  final int p_Ending,  final double p_Percent,  final double p_Amount ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDEMPLOYEEMESSAGES = 21;
+    public static final int SIGNAL_NO_SENDEMPLOYEEMESSAGES = 23;
     public static class SendEmployeeMessages extends Message {
         public SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) {
             super(new Object[]{p_LeaveRequesterID,  p_Starting,  p_Ending,  p_Content});
@@ -254,7 +278,7 @@ public interface IData {
  
     }
     public void SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDGRADES = 22;
+    public static final int SIGNAL_NO_SENDGRADES = 24;
     public static class SendGrades extends Message {
         public SendGrades( final String p_Name,  final double p_BaseSalary,  final double p_Allowance,  final int p_NumberOfSteps,  final String p_Above,  final String p_Below ) {
             super(new Object[]{p_Name,  p_BaseSalary,  p_Allowance,  p_NumberOfSteps,  p_Above,  p_Below});
@@ -266,7 +290,7 @@ public interface IData {
  
     }
     public void SendGrades( final String p_Name,  final double p_BaseSalary,  final double p_Allowance,  final int p_NumberOfSteps,  final String p_Above,  final String p_Below ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDJOBLIST = 23;
+    public static final int SIGNAL_NO_SENDJOBLIST = 25;
     public static class SendJobList extends Message {
         public SendJobList( final int p_JobID,  final String p_Title,  final double p_Salary,  final String p_EmployeeName,  final int p_EmployeeID ) {
             super(new Object[]{p_JobID,  p_Title,  p_Salary,  p_EmployeeName,  p_EmployeeID});
@@ -278,7 +302,7 @@ public interface IData {
  
     }
     public void SendJobList( final int p_JobID,  final String p_Title,  final double p_Salary,  final String p_EmployeeName,  final int p_EmployeeID ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDLEAVESPECIFICATION = 24;
+    public static final int SIGNAL_NO_SENDLEAVESPECIFICATION = 26;
     public static class SendLeaveSpecification extends Message {
         public SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) {
             super(new Object[]{p_Name,  p_MaximumDays,  p_MinimumDays,  p_Size});
@@ -290,7 +314,16 @@ public interface IData {
  
     }
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException;
-    public static final int SIGNAL_NO_SENDSCALES = 25;
+    public static final int SIGNAL_NO_SENDSALARYSTRUCTURE = 27;
+    public static class SendSalaryStructure extends Message {
+        @Override
+        public int getId() {
+            return SIGNAL_NO_SENDSALARYSTRUCTURE;
+        }
+ 
+    }
+    public void SendSalaryStructure() throws XtumlException;
+    public static final int SIGNAL_NO_SENDSCALES = 28;
     public static class SendScales extends Message {
         public SendScales( final String p_Name,  final String p_Description ) {
             super(new Object[]{p_Name,  p_Description});

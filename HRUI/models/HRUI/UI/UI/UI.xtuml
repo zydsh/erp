@@ -643,7 +643,7 @@ INSERT INTO SPR_RS
 	VALUES ("5ca1fc31-017a-4c75-843b-882d4e2796fc",
 	'SendEmployee',
 	'',
-	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName, DateOfBirth:param.DateOfBirth, Degree:param.Degree,Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Size:param.Size ); ',
+	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName, Email:param.Email, OfficePhone:param.OfficePhone, DateOfBirth:param.DateOfBirth, Degree:param.Degree,Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Salary:param.Salary); ',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1076,7 +1076,7 @@ INSERT INTO SPR_RS
 	'ReadGrades',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("35309483-e61a-4c1a-9be4-8878cc390932",
@@ -1101,6 +1101,60 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendGrades',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("fc013416-d8e0-46ed-8dd3-f9f55ffd8e51",
+	"b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("fc013416-d8e0-46ed-8dd3-f9f55ffd8e51",
+	'GetSalaryStructure',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GetSalaryStructure',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("82597f5c-9791-43cd-a3c2-677f293a7851",
+	"6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("82597f5c-9791-43cd-a3c2-677f293a7851",
+	'SendSalaryStructure',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendSalaryStructure',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("cb8fb3b5-8bce-4ce8-85df-7253573d23a8",
+	"55a9f3b2-80bb-4f18-849a-63ec5716bb21",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("cb8fb3b5-8bce-4ce8-85df-7253573d23a8",
+	'GetEmployee',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("55a9f3b2-80bb-4f18-849a-63ec5716bb21",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GetEmployee',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

@@ -68,6 +68,7 @@ hrsystem/hr/main/PayslipItem.class
 interfaces/IData$ReadEmployeeMessage.class
 hrsystem/ui/UIAppOps.class
 interfaces/IData$DeleteLeaveSpecification.class
+interfaces/IData$GetSalaryStructure.class
 hrsystem/hr/main/impl/GradeSetImpl.class
 hrsystem/hr/main/impl/EmployeeImpl$employeeUpdateRcvd.class
 interfaces/IData$Reply.class
@@ -102,6 +103,7 @@ hrsystem/hr/main/impl/BonusSpecificationSetImpl.class
 hrsystem/hr/main/DepartmentSet.class
 interfaces/IAuthentication$Initialize.class
 interfaces/IData$ReadScales.class
+interfaces/IData$SendSalaryStructure.class
 hrsystem/hr/main/impl/LeaveSetImpl.class
 hrsystem/hr/main/impl/EmptyScale.class
 hrsystem/hr/messagecenter/impl/EmptyApproveLeave.class
@@ -126,6 +128,7 @@ hrsystem/auth/main/impl/AccountImpl.class
 hrsystem/hr/main/impl/LeaveStateMachine.class
 hrsystem/auth/main/impl/AccountSetImpl.class
 hrsystem/hr/main/impl/EmployeeImpl.class
+interfaces/IData$GetEmployee.class
 hrsystem/hr/messagecenter/impl/ApproveLeaveImpl.class
 interfaces/IAuthentication$CreateNewAccount.class
 hrsystem/hr/main/impl/EmptyLeaveSpecification.class

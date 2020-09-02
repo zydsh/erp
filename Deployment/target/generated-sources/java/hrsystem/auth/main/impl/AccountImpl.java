@@ -99,11 +99,6 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
     }
     private int m_EmployeeID;
     @Override
-    public int getEmployeeID() throws XtumlException {
-        checkLiving();
-        return m_EmployeeID;
-    }
-    @Override
     public void setEmployeeID(int m_EmployeeID) throws XtumlException {
         checkLiving();
         if (m_EmployeeID != this.m_EmployeeID) {
@@ -111,6 +106,11 @@ public class AccountImpl extends ModelInstance<Account,Auth> implements Account 
             this.m_EmployeeID = m_EmployeeID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_EmployeeID", oldValue, this.m_EmployeeID));
         }
+    }
+    @Override
+    public int getEmployeeID() throws XtumlException {
+        checkLiving();
+        return m_EmployeeID;
     }
 
 
@@ -196,11 +196,11 @@ class EmptyAccount extends ModelInstance<Account,Auth> implements Account {
     public String getPassword() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getEmployeeID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setEmployeeID( int m_EmployeeID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getEmployeeID() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 
