@@ -1004,7 +1004,7 @@ INSERT INTO SPR_RS
 	'ReadDepartmentList',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5b8ccfea-06d3-43e7-a5fa-c3b88dd10267",
@@ -1029,6 +1029,42 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendDepartmentList',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("f5f21c21-bc43-4d12-afbf-7336635abfdb",
+	"4e967c81-8dfe-43f5-a436-08c840c2f00d",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("f5f21c21-bc43-4d12-afbf-7336635abfdb",
+	'ReadScales',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4e967c81-8dfe-43f5-a436-08c840c2f00d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadScales',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("687bf183-4335-407f-94cd-2d0e4a9b26a7",
+	"14de2da3-2734-41fc-9374-c068a4d03b6d",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("687bf183-4335-407f-94cd-2d0e4a9b26a7",
+	'SendScales',
+	'',
+	'::SendScales( Name:param.Name, Description:param.Description );',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("14de2da3-2734-41fc-9374-c068a4d03b6d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendScales',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

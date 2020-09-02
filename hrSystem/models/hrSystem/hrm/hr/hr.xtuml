@@ -1429,13 +1429,64 @@ INSERT INTO SPR_PS
 	'SendDepartmentList',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendDepartmentList',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("43f64cdc-12fd-43b3-a2f5-ecc36159956f",
+	"4e967c81-8dfe-43f5-a436-08c840c2f00d",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("43f64cdc-12fd-43b3-a2f5-ecc36159956f",
+	'ReadScales',
+	'',
+	'select many scales from instances of Scale;
+
+if (not empty scales) 
+	LOG::LogInfo(message:"Sending scales list .." );	
+	
+	for each scale in scales
+			UI::SendScales( Name:scale.Name, Description:scale.Description)	;	
+			LOG::LogInfo(message:"Sent: Scale "+ scale.Name+", Description:"+scale.Description);
+	end for;
+
+  LOG::LogInfo(message:"Sending scales list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are no scales registered in the system" );	
+  	UI::Reply( msg:"There are no scales registered in the system", state:False );  
+  end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4e967c81-8dfe-43f5-a436-08c840c2f00d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadScales',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0e096635-e1f8-4f77-9eba-a4414a9e52c0",
+	"14de2da3-2734-41fc-9374-c068a4d03b6d",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("0e096635-e1f8-4f77-9eba-a4414a9e52c0",
+	'SendScales',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("14de2da3-2734-41fc-9374-c068a4d03b6d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendScales',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
