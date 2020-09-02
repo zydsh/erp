@@ -39,6 +39,16 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         }
     }
 
+    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
+    }
+
+    public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException {
+    }
+
+    public void Initialize() throws XtumlException {
+        context().Initialize();
+    }
+
     public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
         AccountSet account = ((AccountSet)context().Account_instances().where(selected -> ((Account)selected).getEmployeeID() == p_EmployeeID));
         context().LOG().LogInfo( ( ( "Account: attempting to set username and passowrd for " + p_First_Name ) + " " ) + p_Last_Name );
@@ -54,16 +64,6 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
         else {
             context().LOG().LogInfo( "Account: account set is not empty " );
         }
-    }
-
-    public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException {
-    }
-
-    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
-    }
-
-    public void Initialize() throws XtumlException {
-        context().Initialize();
     }
 
 
@@ -91,17 +91,17 @@ public class AuthHR extends Port<Auth> implements IAuthentication {
             case IAuthentication.SIGNAL_NO_ADDTOGROUP:
                 AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
-            case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
-                CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
+            case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
+                CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
             case IAuthentication.SIGNAL_NO_READEMPLOYEEPERMISSIONS:
                 ReadEmployeePermissions(IntegerUtil.deserialize(message.get(0)));
                 break;
-            case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
-                CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
-                break;
             case IAuthentication.SIGNAL_NO_INITIALIZE:
                 Initialize();
+                break;
+            case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
+                CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

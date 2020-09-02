@@ -118,11 +118,6 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     }
     private double m_Amount;
     @Override
-    public double getAmount() throws XtumlException {
-        checkLiving();
-        return m_Amount;
-    }
-    @Override
     public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
         if (m_Amount != this.m_Amount) {
@@ -130,6 +125,11 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
             this.m_Amount = m_Amount;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
+    }
+    @Override
+    public double getAmount() throws XtumlException {
+        checkLiving();
+        return m_Amount;
     }
 
 
@@ -257,11 +257,11 @@ class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public double getAmount() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setAmount( double m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getAmount() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

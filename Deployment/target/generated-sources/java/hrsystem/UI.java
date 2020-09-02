@@ -31,8 +31,8 @@ public class UI extends Component<UI> {
         super(app, runContext, populationId);
 
 
-        TIM = null;
         LOG = null;
+        TIM = null;
         classDirectory = new TreeMap<>();
 
     }
@@ -69,11 +69,17 @@ public class UI extends Component<UI> {
     public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
     }
 
+    public void SendGrades( final String p_Name,  final double p_BaseSalary,  final double p_Allowance,  final int p_NumberOfSteps,  final String p_Above,  final String p_Below ) throws XtumlException {
+    }
+
     public void SendJobList( final int p_JobID,  final String p_Title,  final double p_Salary,  final String p_EmployeeName,  final int p_EmployeeID ) throws XtumlException {
     }
 
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
         context().LOG().LogInfo( "UI: Sending leave specification: " + p_Name );
+    }
+
+    public void SendScales( final String p_Name,  final String p_Description ) throws XtumlException {
     }
 
     public void approveLeaveRequest() throws XtumlException {
@@ -154,8 +160,16 @@ public class UI extends Component<UI> {
         context().Authenticate().ReadEmployeePermissions( Emp4 );
     }
 
+    public void testGradeList() throws XtumlException {
+        context().App().ReadGrades( "General Schedule" );
+    }
+
     public void testJobList() throws XtumlException {
         context().App().ReadJobList();
+    }
+
+    public void testScaleList() throws XtumlException {
+        context().App().ReadScales();
     }
 
 
@@ -188,15 +202,15 @@ public class UI extends Component<UI> {
 
 
     // utilities
-    private TIM TIM;
-    public TIM TIM() {
-        if ( null == TIM ) TIM = new TIMImpl<>( this );
-        return TIM;
-    }
     private LOG LOG;
     public LOG LOG() {
         if ( null == LOG ) LOG = new LOGImpl<>( this );
         return LOG;
+    }
+    private TIM TIM;
+    public TIM TIM() {
+        if ( null == TIM ) TIM = new TIMImpl<>( this );
+        return TIM;
     }
 
 

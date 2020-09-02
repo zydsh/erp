@@ -40,8 +40,8 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
         m_BaseSalary = 0d;
         m_NumberOfSteps = 0;
         R12_is_part_of_Scale_inst = ScaleImpl.EMPTY_SCALE;
-        R14_follows_Grade_inst = GradeImpl.EMPTY_GRADE;
-        R14_succeed_Grade_inst = GradeImpl.EMPTY_GRADE;
+        R14_above_Grade_inst = GradeImpl.EMPTY_GRADE;
+        R14_bellow_Grade_inst = GradeImpl.EMPTY_GRADE;
         R9_assigned_Job_set = new JobSetImpl();
     }
 
@@ -53,8 +53,8 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
         this.m_BaseSalary = m_BaseSalary;
         this.m_NumberOfSteps = m_NumberOfSteps;
         R12_is_part_of_Scale_inst = ScaleImpl.EMPTY_SCALE;
-        R14_follows_Grade_inst = GradeImpl.EMPTY_GRADE;
-        R14_succeed_Grade_inst = GradeImpl.EMPTY_GRADE;
+        R14_above_Grade_inst = GradeImpl.EMPTY_GRADE;
+        R14_bellow_Grade_inst = GradeImpl.EMPTY_GRADE;
         R9_assigned_Job_set = new JobSetImpl();
     }
 
@@ -110,11 +110,6 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
     }
     private double m_BaseSalary;
     @Override
-    public double getBaseSalary() throws XtumlException {
-        checkLiving();
-        return m_BaseSalary;
-    }
-    @Override
     public void setBaseSalary(double m_BaseSalary) throws XtumlException {
         checkLiving();
         if (m_BaseSalary != this.m_BaseSalary) {
@@ -122,6 +117,11 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
             this.m_BaseSalary = m_BaseSalary;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_BaseSalary", oldValue, this.m_BaseSalary));
         }
+    }
+    @Override
+    public double getBaseSalary() throws XtumlException {
+        checkLiving();
+        return m_BaseSalary;
     }
     private int m_NumberOfSteps;
     @Override
@@ -172,23 +172,23 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
     public Scale R12_is_part_of_Scale() throws XtumlException {
         return R12_is_part_of_Scale_inst;
     }
-    private Grade R14_follows_Grade_inst;
+    private Grade R14_above_Grade_inst;
     @Override
-    public void setR14_follows_Grade( Grade inst ) {
-        R14_follows_Grade_inst = inst;
+    public void setR14_above_Grade( Grade inst ) {
+        R14_above_Grade_inst = inst;
     }
     @Override
-    public Grade R14_follows_Grade() throws XtumlException {
-        return R14_follows_Grade_inst;
+    public Grade R14_above_Grade() throws XtumlException {
+        return R14_above_Grade_inst;
     }
-    private Grade R14_succeed_Grade_inst;
+    private Grade R14_bellow_Grade_inst;
     @Override
-    public void setR14_succeed_Grade( Grade inst ) {
-        R14_succeed_Grade_inst = inst;
+    public void setR14_bellow_Grade( Grade inst ) {
+        R14_bellow_Grade_inst = inst;
     }
     @Override
-    public Grade R14_succeed_Grade() throws XtumlException {
-        return R14_succeed_Grade_inst;
+    public Grade R14_bellow_Grade() throws XtumlException {
+        return R14_bellow_Grade_inst;
     }
     private JobSet R9_assigned_Job_set;
     @Override
@@ -249,11 +249,11 @@ class EmptyGrade extends ModelInstance<Grade,Hr> implements Grade {
     public double getAllowance() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public double getBaseSalary() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setBaseSalary( double m_BaseSalary ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getBaseSalary() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setNumberOfSteps( int m_NumberOfSteps ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -272,11 +272,11 @@ class EmptyGrade extends ModelInstance<Grade,Hr> implements Grade {
         return ScaleImpl.EMPTY_SCALE;
     }
     @Override
-    public Grade R14_follows_Grade() {
+    public Grade R14_above_Grade() {
         return GradeImpl.EMPTY_GRADE;
     }
     @Override
-    public Grade R14_succeed_Grade() {
+    public Grade R14_bellow_Grade() {
         return GradeImpl.EMPTY_GRADE;
     }
     @Override
