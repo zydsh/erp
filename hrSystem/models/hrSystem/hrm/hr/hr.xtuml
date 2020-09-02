@@ -1480,13 +1480,98 @@ INSERT INTO SPR_PS
 	'SendScales',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("14de2da3-2734-41fc-9374-c068a4d03b6d",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendScales',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("da858926-c602-4db1-b12b-b3dc33e3a552",
+	"35309483-e61a-4c1a-9be4-8878cc390932",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("da858926-c602-4db1-b12b-b3dc33e3a552",
+	'ReadGrades',
+	'',
+	'select any scale from instances of Scale where selected.Name==param.Name;
+
+if (not empty scale)
+	select many grades related by scale->Grade[R12.''is made of''];
+	
+if (not empty grades) 
+	LOG::LogInfo(message:"Sending grade list .." );	
+
+	for each grade in grades
+		select one above related by grade->Grade[R14.''above'']; 
+		select one bellow related by grade->Grade[R14.''bellow''];
+		if (not empty above) and (not empty bellow)
+			UI::SendGrades( Name:grade.Name, BaseSalary:grade.BaseSalary, Allowance:grade.Allowance, NumberOfSteps:grade.NumberOfSteps, Above:above.Name, Below:bellow.Name );	
+			LOG::LogReal( message:"Sent: Grade: "+grade.Name+",", r:grade.BaseSalary);
+			LOG::LogReal( message:", Allowance: ", r:grade.Allowance); 
+			LOG::LogReal( message:", Base salary: ", r:grade.BaseSalary);
+			LOG::LogInfo( message:", Grade above: "+above.Name );
+			LOG::LogInfo( message:", Grade bellow: "+bellow.Name );
+		elif ( empty above)
+			UI::SendGrades( Name:grade.Name, BaseSalary:grade.BaseSalary, Allowance:grade.Allowance, NumberOfSteps:grade.NumberOfSteps, Above:"", Below:bellow.Name );	
+			LOG::LogReal( message:"Sent: Grade: "+grade.Name+",", r:grade.BaseSalary);
+			LOG::LogReal( message:", Allowance: ", r:grade.Allowance); 
+			LOG::LogReal( message:", Base salary: ", r:grade.BaseSalary);
+			LOG::LogInfo( message:", Grade above: none ");
+			LOG::LogInfo( message:", Grade bellow: "+bellow.Name );
+		elif ( empty bellow)
+			UI::SendGrades( Name:grade.Name, BaseSalary:grade.BaseSalary, Allowance:grade.Allowance, NumberOfSteps:grade.NumberOfSteps, Above:"", Below:"" );	
+			LOG::LogReal( message:"Sent: Grade: "+grade.Name+",", r:grade.BaseSalary);
+			LOG::LogReal( message:", Allowance: ", r:grade.Allowance); 
+			LOG::LogReal( message:", Base salary: ", r:grade.BaseSalary);
+			LOG::LogInfo( message:", Grade above:  "+above.Name );
+			LOG::LogInfo( message:", Grade bellow: none " );
+		end if;			
+	end for;
+
+  LOG::LogInfo(message:"Sending grade list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are no grades registered in the system" );	
+
+  	UI::Reply( msg:"There are no grades registered in the system", state:False );  
+  end if; 
+  
+  else 
+  	LOG::LogInfo(message:"There are no scales registered in the system" );	
+
+  	UI::Reply( msg:"There are no scales registered in the system", state:False );  
+
+  end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("35309483-e61a-4c1a-9be4-8878cc390932",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadGrades',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0e07b40e-c86d-4476-a524-414f21c7e2b6",
+	"28a21f28-8aa3-461d-84d4-c81bf6b15b9d",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("0e07b40e-c86d-4476-a524-414f21c7e2b6",
+	'SendGrades',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("28a21f28-8aa3-461d-84d4-c81bf6b15b9d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendGrades',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

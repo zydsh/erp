@@ -28,6 +28,10 @@ public class PayslipItemSetImpl extends InstanceSet<PayslipItemSet,PayslipItem> 
 
     // attributes
     @Override
+    public void setAmount( double m_Amount ) throws XtumlException {
+        for ( PayslipItem payslipitem : this ) payslipitem.setAmount( m_Amount );
+    }
+    @Override
     public void setType( PayslipItemType m_Type ) throws XtumlException {
         for ( PayslipItem payslipitem : this ) payslipitem.setType( m_Type );
     }
@@ -38,10 +42,6 @@ public class PayslipItemSetImpl extends InstanceSet<PayslipItemSet,PayslipItem> 
     @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( PayslipItem payslipitem : this ) payslipitem.setName( m_Name );
-    }
-    @Override
-    public void setAmount( double m_Amount ) throws XtumlException {
-        for ( PayslipItem payslipitem : this ) payslipitem.setAmount( m_Amount );
     }
 
 

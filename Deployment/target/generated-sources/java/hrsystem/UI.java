@@ -69,6 +69,9 @@ public class UI extends Component<UI> {
     public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
     }
 
+    public void SendGrades( final String p_Name,  final double p_BaseSalary,  final double p_Allowance,  final int p_NumberOfSteps,  final String p_Above,  final String p_Below ) throws XtumlException {
+    }
+
     public void SendJobList( final int p_JobID,  final String p_Title,  final double p_Salary,  final String p_EmployeeName,  final int p_EmployeeID ) throws XtumlException {
     }
 
@@ -155,6 +158,10 @@ public class UI extends Component<UI> {
         context().LOG().LogInfo( "Test: EmployeeID: " );
         context().LOG().LogInteger( Emp4 );
         context().Authenticate().ReadEmployeePermissions( Emp4 );
+    }
+
+    public void testGradeList() throws XtumlException {
+        context().App().ReadGrades( "General Schedule" );
     }
 
     public void testJobList() throws XtumlException {

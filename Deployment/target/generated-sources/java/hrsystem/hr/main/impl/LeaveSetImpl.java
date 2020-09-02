@@ -27,12 +27,12 @@ public class LeaveSetImpl extends InstanceSet<LeaveSet,Leave> implements LeaveSe
 
     // attributes
     @Override
-    public void setEnding( int m_Ending ) throws XtumlException {
-        for ( Leave leave : this ) leave.setEnding( m_Ending );
-    }
-    @Override
     public void setStarting( int m_Starting ) throws XtumlException {
         for ( Leave leave : this ) leave.setStarting( m_Starting );
+    }
+    @Override
+    public void setEnding( int m_Ending ) throws XtumlException {
+        for ( Leave leave : this ) leave.setEnding( m_Ending );
     }
 
 

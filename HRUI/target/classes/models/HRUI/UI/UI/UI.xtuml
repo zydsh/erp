@@ -1040,7 +1040,7 @@ INSERT INTO SPR_RS
 	'ReadScales',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4e967c81-8dfe-43f5-a436-08c840c2f00d",
@@ -1065,6 +1065,42 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendScales',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("da87a94f-2dd5-4d90-bd04-c74e64a0f4bb",
+	"35309483-e61a-4c1a-9be4-8878cc390932",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("da87a94f-2dd5-4d90-bd04-c74e64a0f4bb",
+	'ReadGrades',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("35309483-e61a-4c1a-9be4-8878cc390932",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadGrades',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("89b38efc-f01b-49fe-9402-73416cfe6d61",
+	"28a21f28-8aa3-461d-84d4-c81bf6b15b9d",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("89b38efc-f01b-49fe-9402-73416cfe6d61",
+	'SendGrades',
+	'',
+	'::SendGrades( Name:param.Name, BaseSalary:param.BaseSalary, Allowance:param.Allowance, NumberOfSteps:param.NumberOfSteps, Above:param.Above, Below:param.Below);',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("28a21f28-8aa3-461d-84d4-c81bf6b15b9d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendGrades',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

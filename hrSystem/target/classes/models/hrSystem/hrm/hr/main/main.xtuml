@@ -3185,7 +3185,7 @@ INSERT INTO R_PART
 	"bd0d8bd9-6b23-47ba-bb90-4f1697acaa9f",
 	0,
 	1,
-	'succeed');
+	'above');
 INSERT INTO R_RTO
 	VALUES ("cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"ea949ccd-1eca-4ff6-b1fc-1451f704d211",
@@ -3202,7 +3202,7 @@ INSERT INTO R_PART
 	"ce8eea3a-0d26-4d34-8eb8-84ebb3ad2a73",
 	0,
 	1,
-	'follows');
+	'bellow');
 INSERT INTO R_RTO
 	VALUES ("cf68762b-f5bb-47be-a0da-54b9ddde60f3",
 	"ea949ccd-1eca-4ff6-b1fc-1451f704d211",

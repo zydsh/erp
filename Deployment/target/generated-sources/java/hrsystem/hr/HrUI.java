@@ -10,6 +10,8 @@ import hrsystem.hr.main.Department;
 import hrsystem.hr.main.DepartmentSet;
 import hrsystem.hr.main.Employee;
 import hrsystem.hr.main.EmployeeSet;
+import hrsystem.hr.main.Grade;
+import hrsystem.hr.main.GradeSet;
 import hrsystem.hr.main.Job;
 import hrsystem.hr.main.JobSet;
 import hrsystem.hr.main.LeaveSpecification;
@@ -42,24 +44,55 @@ public class HrUI extends Port<Hr> implements IData {
     }
 
     // inbound messages
-    public void ReadEmployeeBonuses( final int p_EmployeeID ) throws XtumlException {
-        Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == p_EmployeeID);
-        BonusSet bonuses = employee.R4_gets_a_Bonus();
-        if ( !employee.isEmpty() && !bonuses.isEmpty() ) {
-            context().UI().Reply( "Sending bonus set .. ", true );
-            Bonus bonus;
-            for ( Iterator<Bonus> _bonus_iter = bonuses.elements().iterator(); _bonus_iter.hasNext(); ) {
-                bonus = _bonus_iter.next();
-                BonusSpecification bonusSpec = bonus.R16_is_specified_by_BonusSpecification();
-                context().UI().SendEmployeeBonuses( bonusSpec.getName(), bonus.getStarting(), bonus.getEnding(), bonusSpec.getPercent(), bonus.getAmount() );
-                context().UI().Reply( "Sent: " + bonusSpec.getName(), true );
-            }
+    public void ReadLeaveSpecification() throws XtumlException {
+        LeaveSpecificationSet leaveSet = context().LeaveSpecification_instances();
+        int size = 0;
+        LeaveSpecification leave;
+        for ( Iterator<LeaveSpecification> _leave_iter = leaveSet.elements().iterator(); _leave_iter.hasNext(); ) {
+            leave = _leave_iter.next();
+            size = size + 1;
         }
-        else if ( bonuses.isEmpty() ) {
-            context().UI().Reply( "Employee has no bonuses ", false );
+        context().UI().Reply( "Sending leave set .. ", true );
+        for ( Iterator<LeaveSpecification> _leave_iter = leaveSet.elements().iterator(); _leave_iter.hasNext(); ) {
+            leave = _leave_iter.next();
+            context().UI().SendLeaveSpecification( leave.getName(), leave.getMaximumDays(), leave.getMinimumDays(), size );
+            size = size - 1;
+            context().UI().Reply( "Sent: " + leave.getName(), true );
+        }
+    }
+
+    public void ReadScales() throws XtumlException {
+        ScaleSet scales = context().Scale_instances();
+        if ( !scales.isEmpty() ) {
+            context().LOG().LogInfo( "Sending scales list .." );
+            Scale scale;
+            for ( Iterator<Scale> _scale_iter = scales.elements().iterator(); _scale_iter.hasNext(); ) {
+                scale = _scale_iter.next();
+                context().UI().SendScales( scale.getName(), scale.getDescription() );
+                context().LOG().LogInfo( ( ( "Sent: Scale " + scale.getName() ) + ", Description:" ) + scale.getDescription() );
+            }
+            context().LOG().LogInfo( "Sending scales list is complete" );
         }
         else {
-            context().UI().Reply( "Could not find Employee ", false );
+            context().LOG().LogInfo( "There are no scales registered in the system" );
+            context().UI().Reply( "There are no scales registered in the system", false );
+        }
+    }
+
+    public void CreateLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays ) throws XtumlException {
+        LeaveSpecification leaveSpec = context().LeaveSpecification_instances().anyWhere(selected -> StringUtil.equality(((LeaveSpecification)selected).getName(), p_Name));
+        if ( leaveSpec.isEmpty() ) {
+            LeaveSpecification leaveSpecification = LeaveSpecificationImpl.create( context() );
+            leaveSpecification.setName(p_Name);
+            leaveSpecification.setMaximumDays(p_MaximumDays);
+            leaveSpecification.setMinimumDays(p_MinimumDays);
+            context().UI().Reply( "Leave added successfully.", true );
+        }
+        else {
+            leaveSpec.setName(p_Name);
+            leaveSpec.setMaximumDays(p_MaximumDays);
+            leaveSpec.setMinimumDays(p_MinimumDays);
+            context().UI().Reply( "Leave updated successfully.", true );
         }
     }
 
@@ -81,65 +114,52 @@ public class HrUI extends Port<Hr> implements IData {
         }
     }
 
-    public void CreateLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays ) throws XtumlException {
-        LeaveSpecification leaveSpec = context().LeaveSpecification_instances().anyWhere(selected -> StringUtil.equality(((LeaveSpecification)selected).getName(), p_Name));
-        if ( leaveSpec.isEmpty() ) {
-            LeaveSpecification leaveSpecification = LeaveSpecificationImpl.create( context() );
-            leaveSpecification.setName(p_Name);
-            leaveSpecification.setMaximumDays(p_MaximumDays);
-            leaveSpecification.setMinimumDays(p_MinimumDays);
-            context().UI().Reply( "Leave added successfully.", true );
-        }
-        else {
-            leaveSpec.setName(p_Name);
-            leaveSpec.setMaximumDays(p_MaximumDays);
-            leaveSpec.setMinimumDays(p_MinimumDays);
-            context().UI().Reply( "Leave updated successfully.", true );
-        }
-    }
-
-    public void ReadEmployeeList() throws XtumlException {
-        EmployeeSet employeeSet = context().Employee_instances();
-        int size = 0;
-        Employee emp;
-        for ( Iterator<Employee> _emp_iter = employeeSet.elements().iterator(); _emp_iter.hasNext(); ) {
-            emp = _emp_iter.next();
-            size = size + 1;
-        }
-        context().LOG().LogInfo( "Sending employee set .." );
-        for ( Iterator<Employee> _emp_iter = employeeSet.elements().iterator(); _emp_iter.hasNext(); ) {
-            emp = _emp_iter.next();
-            context().UI().SendEmployee( emp.getEmployeeID(), emp.getNationalID(), emp.getFirstName(), emp.getMiddleName(), emp.getLastName(), emp.getDateOfBirth(), emp.getDegree(), emp.getGender(), emp.getStart_Date(), emp.getLeaveBalance(), emp.getSickLeaveBalance(), size );
-            size = size - 1;
-            context().LOG().LogInfo( ( ( ( ( "Sent:" + emp.getFirstName() ) + " " ) + emp.getMiddleName() ) + " " ) + emp.getLastName() );
-        }
-        context().LOG().LogInfo( "Sending employee set is complete" );
-    }
-
-    public void ReadJobList() throws XtumlException {
-        JobSet jobs = context().Job_instances();
-        if ( !jobs.isEmpty() ) {
-            context().LOG().LogInfo( "Sending jobs list .." );
-            Job job;
-            for ( Iterator<Job> _job_iter = jobs.elements().iterator(); _job_iter.hasNext(); ) {
-                job = _job_iter.next();
-                Employee employee = job.R6_is_assigned_to_Employee();
-                if ( !employee.isEmpty() ) {
-                    context().UI().SendJobList( job.getJob_ID(), job.getTitle(), job.getSalary(), ( employee.getFirstName() + " " ) + employee.getLastName(), employee.getEmployeeID() );
-                    context().LOG().LogInfo( ( ( ( ( "Sent: Job " + job.getTitle() ) + ", Assign to:  " ) + employee.getFirstName() ) + " " ) + employee.getLastName() );
-                    context().LOG().LogReal( " Salary ", job.getSalary() );
+    public void ReadGrades( final String p_Name ) throws XtumlException {
+        Scale scale = context().Scale_instances().anyWhere(selected -> StringUtil.equality(((Scale)selected).getName(), p_Name));
+        if ( !scale.isEmpty() ) {
+            GradeSet grades = scale.R12_is_made_of_Grade();
+            if ( !grades.isEmpty() ) {
+                context().LOG().LogInfo( "Sending grade list .." );
+                Grade grade;
+                for ( Iterator<Grade> _grade_iter = grades.elements().iterator(); _grade_iter.hasNext(); ) {
+                    grade = _grade_iter.next();
+                    Grade above = grade.R14_above_Grade();
+                    Grade bellow = grade.R14_bellow_Grade();
+                    if ( !above.isEmpty() && !bellow.isEmpty() ) {
+                        context().UI().SendGrades( grade.getName(), grade.getBaseSalary(), grade.getAllowance(), grade.getNumberOfSteps(), above.getName(), bellow.getName() );
+                        context().LOG().LogReal( ( "Sent: Grade: " + grade.getName() ) + ",", grade.getBaseSalary() );
+                        context().LOG().LogReal( ", Allowance: ", grade.getAllowance() );
+                        context().LOG().LogReal( ", Base salary: ", grade.getBaseSalary() );
+                        context().LOG().LogInfo( ", Grade above: " + above.getName() );
+                        context().LOG().LogInfo( ", Grade bellow: " + bellow.getName() );
+                    }
+                    else if ( above.isEmpty() ) {
+                        context().UI().SendGrades( grade.getName(), grade.getBaseSalary(), grade.getAllowance(), grade.getNumberOfSteps(), "", bellow.getName() );
+                        context().LOG().LogReal( ( "Sent: Grade: " + grade.getName() ) + ",", grade.getBaseSalary() );
+                        context().LOG().LogReal( ", Allowance: ", grade.getAllowance() );
+                        context().LOG().LogReal( ", Base salary: ", grade.getBaseSalary() );
+                        context().LOG().LogInfo( ", Grade above: none " );
+                        context().LOG().LogInfo( ", Grade bellow: " + bellow.getName() );
+                    }
+                    else if ( bellow.isEmpty() ) {
+                        context().UI().SendGrades( grade.getName(), grade.getBaseSalary(), grade.getAllowance(), grade.getNumberOfSteps(), "", "" );
+                        context().LOG().LogReal( ( "Sent: Grade: " + grade.getName() ) + ",", grade.getBaseSalary() );
+                        context().LOG().LogReal( ", Allowance: ", grade.getAllowance() );
+                        context().LOG().LogReal( ", Base salary: ", grade.getBaseSalary() );
+                        context().LOG().LogInfo( ", Grade above:  " + above.getName() );
+                        context().LOG().LogInfo( ", Grade bellow: none " );
+                    }
                 }
-                else {
-                    context().UI().SendJobList( job.getJob_ID(), job.getTitle(), job.getSalary(), "", 0 );
-                    context().LOG().LogInfo( "Sent: Job " + job.getTitle() );
-                    context().LOG().LogReal( " Salary ", job.getSalary() );
-                }
+                context().LOG().LogInfo( "Sending grade list is complete" );
             }
-            context().LOG().LogInfo( "Sending jobs list is complete" );
+            else {
+                context().LOG().LogInfo( "There are no grades registered in the system" );
+                context().UI().Reply( "There are no grades registered in the system", false );
+            }
         }
         else {
-            context().LOG().LogInfo( "There are not jobs registered in the system" );
-            context().UI().Reply( "There are no jobs registered in the system", false );
+            context().LOG().LogInfo( "There are no scales registered in the system" );
+            context().UI().Reply( "There are no scales registered in the system", false );
         }
     }
 
@@ -151,6 +171,27 @@ public class HrUI extends Port<Hr> implements IData {
         }
         else {
             context().UI().Reply( "Leave does not exist.", false );
+        }
+    }
+
+    public void ReadEmployeeBonuses( final int p_EmployeeID ) throws XtumlException {
+        Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == p_EmployeeID);
+        BonusSet bonuses = employee.R4_gets_a_Bonus();
+        if ( !employee.isEmpty() && !bonuses.isEmpty() ) {
+            context().UI().Reply( "Sending bonus set .. ", true );
+            Bonus bonus;
+            for ( Iterator<Bonus> _bonus_iter = bonuses.elements().iterator(); _bonus_iter.hasNext(); ) {
+                bonus = _bonus_iter.next();
+                BonusSpecification bonusSpec = bonus.R16_is_specified_by_BonusSpecification();
+                context().UI().SendEmployeeBonuses( bonusSpec.getName(), bonus.getStarting(), bonus.getEnding(), bonusSpec.getPercent(), bonus.getAmount() );
+                context().UI().Reply( "Sent: " + bonusSpec.getName(), true );
+            }
+        }
+        else if ( bonuses.isEmpty() ) {
+            context().UI().Reply( "Employee has no bonuses ", false );
+        }
+        else {
+            context().UI().Reply( "Could not find Employee ", false );
         }
     }
 
@@ -180,19 +221,6 @@ public class HrUI extends Port<Hr> implements IData {
         }
     }
 
-    public void ReadEmployeeMessage( final int p_EmployeeID ) throws XtumlException {
-        Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == p_EmployeeID);
-        ApproveLeaveSet msgSet = employee.R102_is_notified_by_ApproveLeave();
-        context().LOG().LogInfo( "Sending employee message set .." );
-        ApproveLeave msg;
-        for ( Iterator<ApproveLeave> _msg_iter = msgSet.elements().iterator(); _msg_iter.hasNext(); ) {
-            msg = _msg_iter.next();
-            context().UI().SendEmployeeMessages( msg.getLeaveRequesterID(), msg.getStarting(), msg.getEnding(), msg.getContent() );
-            context().LOG().LogInfo( "Send Employee Messages Sent: " + msg.getContent() );
-        }
-        context().LOG().LogInfo( "Sending employee messages is complete" );
-    }
-
     public void Initialize() throws XtumlException {
         context().Authenticate().Initialize();
         context().Initialize();
@@ -212,38 +240,21 @@ public class HrUI extends Port<Hr> implements IData {
         }
     }
 
-    public void ReadScales() throws XtumlException {
-        ScaleSet scales = context().Scale_instances();
-        if ( !scales.isEmpty() ) {
-            context().LOG().LogInfo( "Sending scales list .." );
-            Scale scale;
-            for ( Iterator<Scale> _scale_iter = scales.elements().iterator(); _scale_iter.hasNext(); ) {
-                scale = _scale_iter.next();
-                context().UI().SendScales( scale.getName(), scale.getDescription() );
-                context().LOG().LogInfo( ( ( "Sent: Scale " + scale.getName() ) + ", Description:" ) + scale.getDescription() );
+    public void ReadBonusList() throws XtumlException {
+        BonusSpecificationSet bonuses = context().BonusSpecification_instances();
+        if ( !bonuses.isEmpty() ) {
+            context().LOG().LogInfo( "Sending bonus list .." );
+            BonusSpecification bonus;
+            for ( Iterator<BonusSpecification> _bonus_iter = bonuses.elements().iterator(); _bonus_iter.hasNext(); ) {
+                bonus = _bonus_iter.next();
+                context().UI().SendBonusList( bonus.getName(), bonus.getPercent() );
+                context().LOG().LogReal( ( "Sent: Bonus " + bonus.getName() ) + ", percent amount:", bonus.getPercent() );
             }
-            context().LOG().LogInfo( "Sending scales list is complete" );
+            context().LOG().LogInfo( "Sending bonus list is complete" );
         }
         else {
-            context().LOG().LogInfo( "There are no scales registered in the system" );
-            context().UI().Reply( "There are no scales registered in the system", false );
-        }
-    }
-
-    public void ReadLeaveSpecification() throws XtumlException {
-        LeaveSpecificationSet leaveSet = context().LeaveSpecification_instances();
-        int size = 0;
-        LeaveSpecification leave;
-        for ( Iterator<LeaveSpecification> _leave_iter = leaveSet.elements().iterator(); _leave_iter.hasNext(); ) {
-            leave = _leave_iter.next();
-            size = size + 1;
-        }
-        context().UI().Reply( "Sending leave set .. ", true );
-        for ( Iterator<LeaveSpecification> _leave_iter = leaveSet.elements().iterator(); _leave_iter.hasNext(); ) {
-            leave = _leave_iter.next();
-            context().UI().SendLeaveSpecification( leave.getName(), leave.getMaximumDays(), leave.getMinimumDays(), size );
-            size = size - 1;
-            context().UI().Reply( "Sent: " + leave.getName(), true );
+            context().LOG().LogInfo( "There are not bonuses registered in the system" );
+            context().UI().Reply( "There are no bonuses registered in the system", false );
         }
     }
 
@@ -269,21 +280,61 @@ public class HrUI extends Port<Hr> implements IData {
         }
     }
 
-    public void ReadBonusList() throws XtumlException {
-        BonusSpecificationSet bonuses = context().BonusSpecification_instances();
-        if ( !bonuses.isEmpty() ) {
-            context().LOG().LogInfo( "Sending bonus list .." );
-            BonusSpecification bonus;
-            for ( Iterator<BonusSpecification> _bonus_iter = bonuses.elements().iterator(); _bonus_iter.hasNext(); ) {
-                bonus = _bonus_iter.next();
-                context().UI().SendBonusList( bonus.getName(), bonus.getPercent() );
-                context().LOG().LogReal( ( "Sent: Bonus " + bonus.getName() ) + ", percent amount:", bonus.getPercent() );
+    public void ReadEmployeeList() throws XtumlException {
+        EmployeeSet employeeSet = context().Employee_instances();
+        int size = 0;
+        Employee emp;
+        for ( Iterator<Employee> _emp_iter = employeeSet.elements().iterator(); _emp_iter.hasNext(); ) {
+            emp = _emp_iter.next();
+            size = size + 1;
+        }
+        context().LOG().LogInfo( "Sending employee set .." );
+        for ( Iterator<Employee> _emp_iter = employeeSet.elements().iterator(); _emp_iter.hasNext(); ) {
+            emp = _emp_iter.next();
+            context().UI().SendEmployee( emp.getEmployeeID(), emp.getNationalID(), emp.getFirstName(), emp.getMiddleName(), emp.getLastName(), emp.getDateOfBirth(), emp.getDegree(), emp.getGender(), emp.getStart_Date(), emp.getLeaveBalance(), emp.getSickLeaveBalance(), size );
+            size = size - 1;
+            context().LOG().LogInfo( ( ( ( ( "Sent:" + emp.getFirstName() ) + " " ) + emp.getMiddleName() ) + " " ) + emp.getLastName() );
+        }
+        context().LOG().LogInfo( "Sending employee set is complete" );
+    }
+
+    public void ReadEmployeeMessage( final int p_EmployeeID ) throws XtumlException {
+        Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getEmployeeID() == p_EmployeeID);
+        ApproveLeaveSet msgSet = employee.R102_is_notified_by_ApproveLeave();
+        context().LOG().LogInfo( "Sending employee message set .." );
+        ApproveLeave msg;
+        for ( Iterator<ApproveLeave> _msg_iter = msgSet.elements().iterator(); _msg_iter.hasNext(); ) {
+            msg = _msg_iter.next();
+            context().UI().SendEmployeeMessages( msg.getLeaveRequesterID(), msg.getStarting(), msg.getEnding(), msg.getContent() );
+            context().LOG().LogInfo( "Send Employee Messages Sent: " + msg.getContent() );
+        }
+        context().LOG().LogInfo( "Sending employee messages is complete" );
+    }
+
+    public void ReadJobList() throws XtumlException {
+        JobSet jobs = context().Job_instances();
+        if ( !jobs.isEmpty() ) {
+            context().LOG().LogInfo( "Sending jobs list .." );
+            Job job;
+            for ( Iterator<Job> _job_iter = jobs.elements().iterator(); _job_iter.hasNext(); ) {
+                job = _job_iter.next();
+                Employee employee = job.R6_is_assigned_to_Employee();
+                if ( !employee.isEmpty() ) {
+                    context().UI().SendJobList( job.getJob_ID(), job.getTitle(), job.getSalary(), ( employee.getFirstName() + " " ) + employee.getLastName(), employee.getEmployeeID() );
+                    context().LOG().LogInfo( ( ( ( ( "Sent: Job " + job.getTitle() ) + ", Assign to:  " ) + employee.getFirstName() ) + " " ) + employee.getLastName() );
+                    context().LOG().LogReal( " Salary ", job.getSalary() );
+                }
+                else {
+                    context().UI().SendJobList( job.getJob_ID(), job.getTitle(), job.getSalary(), "", 0 );
+                    context().LOG().LogInfo( "Sent: Job " + job.getTitle() );
+                    context().LOG().LogReal( " Salary ", job.getSalary() );
+                }
             }
-            context().LOG().LogInfo( "Sending bonus list is complete" );
+            context().LOG().LogInfo( "Sending jobs list is complete" );
         }
         else {
-            context().LOG().LogInfo( "There are not bonuses registered in the system" );
-            context().UI().Reply( "There are no bonuses registered in the system", false );
+            context().LOG().LogInfo( "There are not jobs registered in the system" );
+            context().UI().Reply( "There are no jobs registered in the system", false );
         }
     }
 
@@ -295,18 +346,13 @@ public class HrUI extends Port<Hr> implements IData {
         else {
         }
     }
-    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
-        if ( satisfied() ) send(new IData.Reply(p_msg, p_state));
-        else {
-        }
-    }
-    public void SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) throws XtumlException {
-        if ( satisfied() ) send(new IData.SendEmployeeMessages(p_LeaveRequesterID, p_Starting, p_Ending, p_Content));
-        else {
-        }
-    }
     public void SendScales( final String p_Name,  final String p_Description ) throws XtumlException {
         if ( satisfied() ) send(new IData.SendScales(p_Name, p_Description));
+        else {
+        }
+    }
+    public void SendJobList( final int p_JobID,  final String p_Title,  final double p_Salary,  final String p_EmployeeName,  final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IData.SendJobList(p_JobID, p_Title, p_Salary, p_EmployeeName, p_EmployeeID));
         else {
         }
     }
@@ -320,13 +366,8 @@ public class HrUI extends Port<Hr> implements IData {
         else {
         }
     }
-    public void SendJobList( final int p_JobID,  final String p_Title,  final double p_Salary,  final String p_EmployeeName,  final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IData.SendJobList(p_JobID, p_Title, p_Salary, p_EmployeeName, p_EmployeeID));
-        else {
-        }
-    }
-    public void SendEmployeeBonuses( final String p_BonusName,  final int p_Starting,  final int p_Ending,  final double p_Percent,  final double p_Amount ) throws XtumlException {
-        if ( satisfied() ) send(new IData.SendEmployeeBonuses(p_BonusName, p_Starting, p_Ending, p_Percent, p_Amount));
+    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
+        if ( satisfied() ) send(new IData.Reply(p_msg, p_state));
         else {
         }
     }
@@ -335,8 +376,23 @@ public class HrUI extends Port<Hr> implements IData {
         else {
         }
     }
+    public void SendEmployeeMessages( final int p_LeaveRequesterID,  final int p_Starting,  final int p_Ending,  final String p_Content ) throws XtumlException {
+        if ( satisfied() ) send(new IData.SendEmployeeMessages(p_LeaveRequesterID, p_Starting, p_Ending, p_Content));
+        else {
+        }
+    }
+    public void SendEmployeeBonuses( final String p_BonusName,  final int p_Starting,  final int p_Ending,  final double p_Percent,  final double p_Amount ) throws XtumlException {
+        if ( satisfied() ) send(new IData.SendEmployeeBonuses(p_BonusName, p_Starting, p_Ending, p_Percent, p_Amount));
+        else {
+        }
+    }
     public void ReplyNewEmployee( final String p_Username,  final String p_Password ) throws XtumlException {
         if ( satisfied() ) send(new IData.ReplyNewEmployee(p_Username, p_Password));
+        else {
+        }
+    }
+    public void SendGrades( final String p_Name,  final double p_BaseSalary,  final double p_Allowance,  final int p_NumberOfSteps,  final String p_Above,  final String p_Below ) throws XtumlException {
+        if ( satisfied() ) send(new IData.SendGrades(p_Name, p_BaseSalary, p_Allowance, p_NumberOfSteps, p_Above, p_Below));
         else {
         }
     }
@@ -346,29 +402,29 @@ public class HrUI extends Port<Hr> implements IData {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IData.SIGNAL_NO_READEMPLOYEEBONUSES:
-                ReadEmployeeBonuses(IntegerUtil.deserialize(message.get(0)));
+            case IData.SIGNAL_NO_READLEAVESPECIFICATION:
+                ReadLeaveSpecification();
                 break;
-            case IData.SIGNAL_NO_ASSIGNEMPLOYEEBONUS:
-                AssignEmployeeBonus(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), IntegerUtil.deserialize(message.get(3)));
+            case IData.SIGNAL_NO_READSCALES:
+                ReadScales();
                 break;
             case IData.SIGNAL_NO_CREATELEAVESPECIFICATION:
                 CreateLeaveSpecification(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
-            case IData.SIGNAL_NO_READEMPLOYEELIST:
-                ReadEmployeeList();
+            case IData.SIGNAL_NO_ASSIGNEMPLOYEEBONUS:
+                AssignEmployeeBonus(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), IntegerUtil.deserialize(message.get(3)));
                 break;
-            case IData.SIGNAL_NO_READJOBLIST:
-                ReadJobList();
+            case IData.SIGNAL_NO_READGRADES:
+                ReadGrades(StringUtil.deserialize(message.get(0)));
                 break;
             case IData.SIGNAL_NO_DELETELEAVESPECIFICATION:
                 DeleteLeaveSpecification(StringUtil.deserialize(message.get(0)));
                 break;
+            case IData.SIGNAL_NO_READEMPLOYEEBONUSES:
+                ReadEmployeeBonuses(IntegerUtil.deserialize(message.get(0)));
+                break;
             case IData.SIGNAL_NO_READDEPARTMENTLIST:
                 ReadDepartmentList();
-                break;
-            case IData.SIGNAL_NO_READEMPLOYEEMESSAGE:
-                ReadEmployeeMessage(IntegerUtil.deserialize(message.get(0)));
                 break;
             case IData.SIGNAL_NO_INITIALIZE:
                 Initialize();
@@ -376,17 +432,20 @@ public class HrUI extends Port<Hr> implements IData {
             case IData.SIGNAL_NO_STOPEMPLOYEEBONUS:
                 StopEmployeeBonus(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
-            case IData.SIGNAL_NO_READSCALES:
-                ReadScales();
-                break;
-            case IData.SIGNAL_NO_READLEAVESPECIFICATION:
-                ReadLeaveSpecification();
+            case IData.SIGNAL_NO_READBONUSLIST:
+                ReadBonusList();
                 break;
             case IData.SIGNAL_NO_CREATEEMPLOYEE:
                 CreateEmployee(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)), StringUtil.deserialize(message.get(4)), IntegerUtil.deserialize(message.get(5)), StringUtil.deserialize(message.get(6)), StringUtil.deserialize(message.get(7)));
                 break;
-            case IData.SIGNAL_NO_READBONUSLIST:
-                ReadBonusList();
+            case IData.SIGNAL_NO_READEMPLOYEELIST:
+                ReadEmployeeList();
+                break;
+            case IData.SIGNAL_NO_READEMPLOYEEMESSAGE:
+                ReadEmployeeMessage(IntegerUtil.deserialize(message.get(0)));
+                break;
+            case IData.SIGNAL_NO_READJOBLIST:
+                ReadJobList();
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

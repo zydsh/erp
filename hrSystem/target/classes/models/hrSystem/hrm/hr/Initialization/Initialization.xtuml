@@ -87,7 +87,7 @@ create object instance grade2 of Grade;
 	grade2.BaseSalary = 3430;
 	grade2.Allowance = 165;
 relate grade2 to scale across R12.''is part of'';
-relate grade to grade2 across R14.''succeed'';
+relate grade to grade2 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade2.Name +" successfully." );	
 
@@ -98,7 +98,7 @@ create object instance grade3 of Grade;
 	grade3.BaseSalary = 3945;
 	grade3.Allowance = 190;
 relate grade3 to scale across R12.''is part of'';
-relate grade2 to grade3 across R14.''succeed'';
+relate grade2 to grade3 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade3.Name +" successfully." );	
 
@@ -109,7 +109,7 @@ create object instance grade4 of Grade;
 	grade4.BaseSalary = 4530;
 	grade4.Allowance = 230;
 relate grade4 to scale across R12.''is part of'';
-relate grade3 to grade4 across R14.''succeed'';
+relate grade3 to grade4 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade4.Name +" successfully." );	
 
@@ -119,7 +119,7 @@ create object instance grade5 of Grade;
 	grade5.BaseSalary = 5240;
 	grade5.Allowance = 265;
 relate grade5 to scale across R12.''is part of'';
-relate grade4 to grade5 across R14.''succeed'';
+relate grade4 to grade5 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade5.Name +" successfully." );	
 
@@ -130,7 +130,7 @@ create object instance grade6 of Grade;
 	grade6.BaseSalary = 6065;
 	grade6.Allowance = 305;
 relate grade6 to scale across R12.''is part of'';
-relate grade5 to grade6 across R14.''succeed'';
+relate grade5 to grade6 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade6.Name +" successfully." );	
 
@@ -140,7 +140,7 @@ create object instance grade7 of Grade;
 	grade7.BaseSalary = 7010;
 	grade7.Allowance = 365;
 relate grade7 to scale across R12.''is part of'';
-relate grade6 to grade7 across R14.''succeed'';
+relate grade6 to grade7 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade7.Name +" successfully." );	
 
@@ -151,7 +151,7 @@ create object instance grade8 of Grade;
 	grade8.BaseSalary = 8010;
 	grade8.Allowance = 415;
 relate grade8 to scale across R12.''is part of'';
-relate grade7 to grade8 across R14.''succeed'';
+relate grade7 to grade8 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade8.Name +" successfully." );	
 
@@ -161,7 +161,7 @@ create object instance grade9 of Grade;
 	grade9.BaseSalary = 9275;
 	grade9.Allowance = 470;
 relate grade9 to scale across R12.''is part of'';
-relate grade8 to grade9 across R14.''succeed'';
+relate grade8 to grade9 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade9.Name +" successfully." );	
 
@@ -171,7 +171,7 @@ create object instance grade10 of Grade;
 	grade10.BaseSalary = 10275;
 	grade10.Allowance = 510;
 relate grade10 to scale across R12.''is part of'';
-relate grade9 to grade10 across R14.''succeed'';
+relate grade9 to grade10 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade10.Name +" successfully." );	
 
@@ -181,7 +181,7 @@ create object instance grade11 of Grade;
 	grade11.BaseSalary = 11815;
 	grade11.Allowance = 530;
 relate grade11 to scale across R12.''is part of'';
-relate grade10 to grade11 across R14.''succeed''; 
+relate grade10 to grade11 across R14.''above''; 
 
 LOG::LogInfo(message:"Grade: Added "+ grade11.Name +" successfully." );	
 
@@ -191,7 +191,7 @@ create object instance grade12 of Grade;
 	grade12.BaseSalary = 13435;
 	grade12.Allowance = 570;
 relate grade12 to scale across R12.''is part of'';
-relate grade11 to grade12 across R14.''succeed'';
+relate grade11 to grade12 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade12.Name +" successfully." );	
 
@@ -201,7 +201,7 @@ create object instance grade13 of Grade;
 	grade13.BaseSalary = 15180;
 	grade13.Allowance = 605;
 relate grade13 to scale across R12.''is part of'';
-relate grade12 to grade13 across R14.''succeed'';
+relate grade12 to grade13 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade13.Name +" successfully." );	
 
@@ -211,7 +211,7 @@ create object instance grade14 of Grade;
 	grade14.BaseSalary = 17015;
 	grade14.Allowance = 700;
 relate grade14 to scale across R12.''is part of'';
-relate grade13 to grade14 across R14.''succeed'';
+relate grade13 to grade14 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade14.Name +" successfully." );	
 
@@ -221,7 +221,7 @@ create object instance grade15 of Grade;
 	grade15.BaseSalary = 20855;
 	grade15.Allowance = 865;
 relate grade15 to scale across R12.''is part of''; 
-relate grade14 to grade15 across R14.''succeed'';
+relate grade14 to grade15 across R14.''above'';
 
 LOG::LogInfo(message:"Grade: Added "+ grade15.Name +" successfully." );	
 
