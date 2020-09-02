@@ -36,12 +36,12 @@ public class GradeSetImpl extends InstanceSet<GradeSet,Grade> implements GradeSe
         for ( Grade grade : this ) grade.setNumberOfSteps( m_NumberOfSteps );
     }
     @Override
-    public void setAllowance( double m_Allowance ) throws XtumlException {
-        for ( Grade grade : this ) grade.setAllowance( m_Allowance );
-    }
-    @Override
     public void setBaseSalary( double m_BaseSalary ) throws XtumlException {
         for ( Grade grade : this ) grade.setBaseSalary( m_BaseSalary );
+    }
+    @Override
+    public void setAllowance( double m_Allowance ) throws XtumlException {
+        for ( Grade grade : this ) grade.setAllowance( m_Allowance );
     }
 
 

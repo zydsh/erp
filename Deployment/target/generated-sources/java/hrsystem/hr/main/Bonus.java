@@ -14,10 +14,10 @@ public interface Bonus extends IModelInstance<Bonus,Hr> {
     // attributes
     public int getStarting() throws XtumlException;
     public void setStarting( int m_Starting ) throws XtumlException;
-    public int getEnding() throws XtumlException;
     public void setEnding( int m_Ending ) throws XtumlException;
-    public void setAmount( double m_Amount ) throws XtumlException;
+    public int getEnding() throws XtumlException;
     public double getAmount() throws XtumlException;
+    public void setAmount( double m_Amount ) throws XtumlException;
 
 
     // operations

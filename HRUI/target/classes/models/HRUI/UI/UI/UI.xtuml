@@ -643,7 +643,7 @@ INSERT INTO SPR_RS
 	VALUES ("5ca1fc31-017a-4c75-843b-882d4e2796fc",
 	'SendEmployee',
 	'',
-	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName, Email:param.Email, OfficePhone:param.OfficePhone, DateOfBirth:param.DateOfBirth, Degree:param.Degree,Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance); ',
+	'::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName, Email:param.Email, OfficePhone:param.OfficePhone, DateOfBirth:param.DateOfBirth, Degree:param.Degree,Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Salary:param.Salary); ',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1112,7 +1112,7 @@ INSERT INTO SPR_RS
 	'GetSalaryStructure',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
@@ -1130,7 +1130,7 @@ INSERT INTO SPR_RS
 	'SendSalaryStructure',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
@@ -1148,7 +1148,7 @@ INSERT INTO SPR_RS
 	'GetEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("55a9f3b2-80bb-4f18-849a-63ec5716bb21",

@@ -70,6 +70,11 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
     // attributes
     private int m_LeaveRequesterID;
     @Override
+    public int getLeaveRequesterID() throws XtumlException {
+        checkLiving();
+        return m_LeaveRequesterID;
+    }
+    @Override
     public void setLeaveRequesterID(int m_LeaveRequesterID) throws XtumlException {
         checkLiving();
         if (m_LeaveRequesterID != this.m_LeaveRequesterID) {
@@ -78,17 +83,7 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LeaveRequesterID", oldValue, this.m_LeaveRequesterID));
         }
     }
-    @Override
-    public int getLeaveRequesterID() throws XtumlException {
-        checkLiving();
-        return m_LeaveRequesterID;
-    }
     private int m_Starting;
-    @Override
-    public int getStarting() throws XtumlException {
-        checkLiving();
-        return m_Starting;
-    }
     @Override
     public void setStarting(int m_Starting) throws XtumlException {
         checkLiving();
@@ -97,6 +92,11 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
             this.m_Starting = m_Starting;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
         }
+    }
+    @Override
+    public int getStarting() throws XtumlException {
+        checkLiving();
+        return m_Starting;
     }
     private int m_Ending;
     @Override
@@ -193,17 +193,17 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
 class EmptyApproveLeave extends ModelInstance<ApproveLeave,Hr> implements ApproveLeave {
 
     // attributes
-    public void setLeaveRequesterID( int m_LeaveRequesterID ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getLeaveRequesterID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getStarting() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setLeaveRequesterID( int m_LeaveRequesterID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setStarting( int m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getStarting() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
