@@ -42,12 +42,6 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
         }
     }
 
-    public void Initialize() throws XtumlException {
-    }
-
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
-    }
-
     public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
         Account account = context().Account_instances().anyWhere(selected -> StringUtil.equality(((Account)selected).getUsername(), p_Username) && StringUtil.equality(((Account)selected).getPassword(), p_Password));
         if ( account.isEmpty() ) {
@@ -58,6 +52,12 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
             context().LOG().LogInfo( "Authenticate: User account successfully sent" );
             context().UI().Reply( account.getEmployeeID(), account.getUsername(), "Account is authorized", true );
         }
+    }
+
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
+    }
+
+    public void Initialize() throws XtumlException {
     }
 
     public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException {
@@ -82,13 +82,13 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
 
 
     // outbound messages
-    public void Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.Reply(p_EmployeeID, p_Username, p_msg, p_state));
+    public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.SendEmployeePermissions(p_GroupName, p_Description));
         else {
         }
     }
-    public void SendEmployeePermissions( final String p_GroupName,  final String p_Description ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.SendEmployeePermissions(p_GroupName, p_Description));
+    public void Reply( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.Reply(p_EmployeeID, p_Username, p_msg, p_state));
         else {
         }
     }
@@ -104,14 +104,14 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
             case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
                 ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
-            case IAuthentication.SIGNAL_NO_INITIALIZE:
-                Initialize();
+            case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
+                CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
             case IAuthentication.SIGNAL_NO_ADDTOGROUP:
                 AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
-            case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
-                CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
+            case IAuthentication.SIGNAL_NO_INITIALIZE:
+                Initialize();
                 break;
             case IAuthentication.SIGNAL_NO_READEMPLOYEEPERMISSIONS:
                 ReadEmployeePermissions(IntegerUtil.deserialize(message.get(0)));

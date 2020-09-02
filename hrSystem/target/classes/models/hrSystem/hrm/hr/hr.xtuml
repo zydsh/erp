@@ -1010,7 +1010,7 @@ INSERT INTO SPR_PS
 
   for each emp in employeeSet
  
-	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance, Size:size);
+	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, Email:emp.Email,OfficePhone:emp.OfficePhone, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance);
 	size = size-1;
 	LOG::LogInfo(message:"Sent:"+ emp.FirstName+" "+emp.MiddleName+" "+emp.LastName);	
 
@@ -1501,13 +1501,12 @@ INSERT INTO SPR_PS
 
 if (not empty scale)
 	select many grades related by scale->Grade[R12.''is made of''];
-
-
+	
 if (not empty grades) 
 	LOG::LogInfo(message:"Sending grade list .." );	
 
 	for each grade in grades
-		select one above related by grade->Grade[R14.''above''];
+		select one above related by grade->Grade[R14.''above'']; 
 		select one bellow related by grade->Grade[R14.''bellow''];
 		if (not empty above) and (not empty bellow)
 			UI::SendGrades( Name:grade.Name, BaseSalary:grade.BaseSalary, Allowance:grade.Allowance, NumberOfSteps:grade.NumberOfSteps, Above:above.Name, Below:bellow.Name );	
@@ -1566,13 +1565,79 @@ INSERT INTO SPR_PS
 	'SendGrades',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("28a21f28-8aa3-461d-84d4-c81bf6b15b9d",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendGrades',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f7ae468f-3e6b-4807-9a46-cb2969209223",
+	"b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("f7ae468f-3e6b-4807-9a46-cb2969209223",
+	'GetSalaryStructure',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GetSalaryStructure',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("46d8cece-73f8-4c37-bcb0-040abfa4bc85",
+	"6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("46d8cece-73f8-4c37-bcb0-040abfa4bc85",
+	'SendSalaryStructure',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendSalaryStructure',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a387673a-b557-4f99-9b51-be1f2bc6af58",
+	"55a9f3b2-80bb-4f18-849a-63ec5716bb21",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("a387673a-b557-4f99-9b51-be1f2bc6af58",
+	'GetEmployee',
+	'',
+	'select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID; 
+  
+
+if (not empty emp) 
+	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, Email:emp.Email,OfficePhone:emp.OfficePhone, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance);
+	LOG::LogInfo(message:"Sent:"+ emp.FirstName+" "+emp.MiddleName+" "+emp.LastName);	
+
+ else
+ 	UI::Reply( msg:"Employee does not exist", state:False );
+ 	LOG::LogInfo(message:"Sending employee set is complete" );	
+
+ end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("55a9f3b2-80bb-4f18-849a-63ec5716bb21",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GetEmployee',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

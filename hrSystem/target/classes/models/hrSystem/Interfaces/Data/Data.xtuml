@@ -70,7 +70,7 @@ INSERT INTO C_PP
 	'',
 	0,
 	'',
-	"e028039d-1177-4cf4-9381-2b3030721798");
+	"20f6b6ba-4b69-4223-89c9-e432ff815af9");
 INSERT INTO C_PP
 	VALUES ("f619cc14-5cee-45e5-8cb2-eca86dbe32b9",
 	"ef336545-2505-4c4c-966f-e73bd04cebbc",
@@ -117,14 +117,23 @@ INSERT INTO C_PP
 	'',
 	"6c07f83f-4acb-43ed-89d8-fecb08b2a5bd");
 INSERT INTO C_PP
-	VALUES ("417908e7-b2fa-4dc9-9611-a7cb450edeaa",
+	VALUES ("aca4fc2c-744b-414d-8013-6d6b636a237b",
 	"ef336545-2505-4c4c-966f-e73bd04cebbc",
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'Size',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Email',
 	'',
 	0,
 	'',
-	"acebdb16-db72-49e1-9e3c-8b6d890f9724");
+	"e028039d-1177-4cf4-9381-2b3030721798");
+INSERT INTO C_PP
+	VALUES ("20f6b6ba-4b69-4223-89c9-e432ff815af9",
+	"ef336545-2505-4c4c-966f-e73bd04cebbc",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'OfficePhone',
+	'',
+	0,
+	'',
+	"aca4fc2c-744b-414d-8013-6d6b636a237b");
 INSERT INTO C_EP
 	VALUES ("3c8dd825-949a-424e-bf6c-9b9a9fa3f74e",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
@@ -947,6 +956,60 @@ INSERT INTO C_PP
 	0,
 	'',
 	"c87d79f5-836e-4cf4-b670-a575e3a1c4df");
+INSERT INTO C_EP
+	VALUES ("b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GetSalaryStructure',
+	'');
+INSERT INTO C_AS
+	VALUES ("b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
+	'GetSalaryStructure',
+	'',
+	0,
+	"28a21f28-8aa3-461d-84d4-c81bf6b15b9d");
+INSERT INTO C_PP
+	VALUES ("814ac570-56ec-4f08-a59a-245b7379da64",
+	"b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendSalaryStructure',
+	'');
+INSERT INTO C_AS
+	VALUES ("6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	'SendSalaryStructure',
+	'',
+	1,
+	"b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f");
+INSERT INTO C_EP
+	VALUES ("55a9f3b2-80bb-4f18-849a-63ec5716bb21",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GetEmployee',
+	'');
+INSERT INTO C_AS
+	VALUES ("55a9f3b2-80bb-4f18-849a-63ec5716bb21",
+	'GetEmployee',
+	'',
+	0,
+	"6c3406ec-0d2e-428c-b8b2-04bca4ad28c1");
+INSERT INTO C_PP
+	VALUES ("55eb77ed-2a45-4269-9023-476c2f37af73",
+	"55a9f3b2-80bb-4f18-849a-63ec5716bb21",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

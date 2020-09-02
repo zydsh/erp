@@ -55,7 +55,7 @@ public class UI extends Component<UI> {
     public void SendDepartmentList( final String p_Name,  final String p_Mission,  final String p_Description,  final String p_Manager,  final String p_ManagingDepartment ) throws XtumlException {
     }
 
-    public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance,  final int p_Size ) throws XtumlException {
+    public void SendEmployee( final int p_EmployeeID,  final int p_NationalID,  final String p_FirstName,  final String p_MiddleName,  final String p_LastName,  final String p_Email,  final int p_OfficePhone,  final int p_DateOfBirth,  final String p_Degree,  final String p_Gender,  final int p_StartDate,  final int p_LeaveBalance,  final int p_SickLeaveBalance ) throws XtumlException {
         context().LOG().LogInfo( ( ( "UI: Sending employee: " + p_FirstName ) + " " ) + p_LastName );
     }
 
@@ -158,6 +158,10 @@ public class UI extends Component<UI> {
         context().LOG().LogInfo( "Test: EmployeeID: " );
         context().LOG().LogInteger( Emp4 );
         context().Authenticate().ReadEmployeePermissions( Emp4 );
+    }
+
+    public void testGetEmployee() throws XtumlException {
+        context().App().GetEmployee( 1424444 );
     }
 
     public void testGradeList() throws XtumlException {

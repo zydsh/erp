@@ -96,11 +96,6 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
     }
     private String m_Mission;
     @Override
-    public String getMission() throws XtumlException {
-        checkLiving();
-        return m_Mission;
-    }
-    @Override
     public void setMission(String m_Mission) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Mission, this.m_Mission)) {
@@ -108,6 +103,11 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
             this.m_Mission = m_Mission;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Mission", oldValue, this.m_Mission));
         }
+    }
+    @Override
+    public String getMission() throws XtumlException {
+        checkLiving();
+        return m_Mission;
     }
     private String m_Description;
     @Override
@@ -126,15 +126,6 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
     }
     private String m_Manager;
     @Override
-    public String getManager() throws XtumlException {
-        checkLiving();
-        {
-            Employee employee = self().R23_is_managed_by_Employee();
-            self().setManager(( employee.getFirstName() + " " ) + employee.getLastName());
-        }
-        return m_Manager;
-    }
-    @Override
     public void setManager(String m_Manager) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Manager, this.m_Manager)) {
@@ -142,6 +133,15 @@ public class DepartmentImpl extends ModelInstance<Department,Hr> implements Depa
             this.m_Manager = m_Manager;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Manager", oldValue, this.m_Manager));
         }
+    }
+    @Override
+    public String getManager() throws XtumlException {
+        checkLiving();
+        {
+            Employee employee = self().R23_is_managed_by_Employee();
+            self().setManager(( employee.getFirstName() + " " ) + employee.getLastName());
+        }
+        return m_Manager;
     }
 
 
@@ -252,11 +252,11 @@ class EmptyDepartment extends ModelInstance<Department,Hr> implements Department
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getMission() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setMission( String m_Mission ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getMission() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getDescription() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -264,11 +264,11 @@ class EmptyDepartment extends ModelInstance<Department,Hr> implements Department
     public void setDescription( String m_Description ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getManager() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setManager( String m_Manager ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getManager() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

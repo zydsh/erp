@@ -241,7 +241,7 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
-	"d5f56d42-fcbc-4c68-883a-c1523a39c6ff",
+	"52d654c0-4e4a-402d-831a-30b456bc914c",
 	'');
 INSERT INTO S_SPARM
 	VALUES ("a226ea6d-6fb9-41d2-b348-aa7d577104de",
@@ -280,15 +280,6 @@ INSERT INTO S_SPARM
 	"9cb1f0f3-cd7c-4039-8838-d1a7136e92df",
 	'');
 INSERT INTO S_SPARM
-	VALUES ("2666a10d-0e92-424f-a7b5-d888da066cbe",
-	"fecb74fe-821d-48f5-bd3c-a8fa7d4f0312",
-	'Size',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"1e174c05-4396-45e2-9903-62d7b1107661",
-	'');
-INSERT INTO S_SPARM
 	VALUES ("2ba0b088-d5a1-4d06-a20f-3d4e434015b6",
 	"fecb74fe-821d-48f5-bd3c-a8fa7d4f0312",
 	'Gender',
@@ -296,6 +287,24 @@ INSERT INTO S_SPARM
 	0,
 	'',
 	"a226ea6d-6fb9-41d2-b348-aa7d577104de",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("1b87cb6f-4d6d-4d3e-bb66-3e142873530b",
+	"fecb74fe-821d-48f5-bd3c-a8fa7d4f0312",
+	'Email',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"d5f56d42-fcbc-4c68-883a-c1523a39c6ff",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("52d654c0-4e4a-402d-831a-30b456bc914c",
+	"fecb74fe-821d-48f5-bd3c-a8fa7d4f0312",
+	'OfficePhone',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"1b87cb6f-4d6d-4d3e-bb66-3e142873530b",
 	'');
 INSERT INTO PE_PE
 	VALUES ("fecb74fe-821d-48f5-bd3c-a8fa7d4f0312",
@@ -648,7 +657,7 @@ INSERT INTO S_SYNC
 	'',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_SPARM
