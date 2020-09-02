@@ -818,6 +818,48 @@ INSERT INTO C_PP
 	0,
 	'',
 	"bd7c400e-cfd7-4140-b7a3-c33ee543251d");
+INSERT INTO C_EP
+	VALUES ("4e967c81-8dfe-43f5-a436-08c840c2f00d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadScales',
+	'');
+INSERT INTO C_AS
+	VALUES ("4e967c81-8dfe-43f5-a436-08c840c2f00d",
+	'ReadScales',
+	'',
+	0,
+	"3e5a9f1d-ee7a-4423-82bb-a520ace5e526");
+INSERT INTO C_EP
+	VALUES ("14de2da3-2734-41fc-9374-c068a4d03b6d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendScales',
+	'');
+INSERT INTO C_AS
+	VALUES ("14de2da3-2734-41fc-9374-c068a4d03b6d",
+	'SendScales',
+	'',
+	1,
+	"4e967c81-8dfe-43f5-a436-08c840c2f00d");
+INSERT INTO C_PP
+	VALUES ("525d0567-c8ef-42a2-88b4-6c8e358ffd8f",
+	"14de2da3-2734-41fc-9374-c068a4d03b6d",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("cd620ea3-3912-4ff2-a38e-0ac42ea11fce",
+	"14de2da3-2734-41fc-9374-c068a4d03b6d",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"525d0567-c8ef-42a2-88b4-6c8e358ffd8f");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

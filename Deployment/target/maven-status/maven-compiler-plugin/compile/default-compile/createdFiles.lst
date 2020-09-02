@@ -101,6 +101,7 @@ hrsystem/hr/main/impl/ScaleSetImpl.class
 hrsystem/hr/main/impl/BonusSpecificationSetImpl.class
 hrsystem/hr/main/DepartmentSet.class
 interfaces/IAuthentication$Initialize.class
+interfaces/IData$ReadScales.class
 hrsystem/hr/main/impl/LeaveSetImpl.class
 hrsystem/hr/main/impl/EmptyScale.class
 hrsystem/hr/messagecenter/impl/EmptyApproveLeave.class
@@ -144,5 +145,6 @@ hrsystem/hr/main/GradeSet.class
 hrsystem/hr/HrUI.class
 hrsystem/auth/AuthUI.class
 hrsystem/auth/main/impl/PermissionsSetImpl.class
+interfaces/IData$SendScales.class
 interfaces/IData$ReadEmployeeBonuses.class
 interfaces/IData$SendEmployeeBonuses.class

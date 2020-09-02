@@ -711,7 +711,7 @@ relate mgr to President across R21.''working within'';
 Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
 
 //adding employees to president office
-select any emp from instances of Employee where selected.EmployeeID==1430000;
+select any emp from instances of Employee where selected.EmployeeID==1430000; 
 relate emp to vpServices across R21.''working within'';
 
 //relate to VP

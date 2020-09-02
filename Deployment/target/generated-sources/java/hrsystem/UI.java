@@ -31,8 +31,8 @@ public class UI extends Component<UI> {
         super(app, runContext, populationId);
 
 
-        TIM = null;
         LOG = null;
+        TIM = null;
         classDirectory = new TreeMap<>();
 
     }
@@ -74,6 +74,9 @@ public class UI extends Component<UI> {
 
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException {
         context().LOG().LogInfo( "UI: Sending leave specification: " + p_Name );
+    }
+
+    public void SendScales( final String p_Name,  final String p_Description ) throws XtumlException {
     }
 
     public void approveLeaveRequest() throws XtumlException {
@@ -158,6 +161,10 @@ public class UI extends Component<UI> {
         context().App().ReadJobList();
     }
 
+    public void testScaleList() throws XtumlException {
+        context().App().ReadScales();
+    }
+
 
 
     // relates and unrelates
@@ -188,15 +195,15 @@ public class UI extends Component<UI> {
 
 
     // utilities
-    private TIM TIM;
-    public TIM TIM() {
-        if ( null == TIM ) TIM = new TIMImpl<>( this );
-        return TIM;
-    }
     private LOG LOG;
     public LOG LOG() {
         if ( null == LOG ) LOG = new LOGImpl<>( this );
         return LOG;
+    }
+    private TIM TIM;
+    public TIM TIM() {
+        if ( null == TIM ) TIM = new TIMImpl<>( this );
+        return TIM;
     }
 
 
