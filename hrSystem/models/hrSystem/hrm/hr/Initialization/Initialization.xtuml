@@ -623,7 +623,7 @@ create object instance emp of Employee;
 		emp.Email = "A.Alshaikh@kacst.edu.sa";
 		emp.OfficePhone = "4814001";
 		emp.DateOfBirth = 20200318;
-		emp.Degree = "Bsc";
+		emp.Degree = "Bsc"; 
 		emp.Gender = "Male";
 
 select any job from instances of Job where selected.Job_ID==11;
