@@ -1,0 +1,70 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("de672bd4-3197-44ba-acd3-b39fdd83fe67",
+	"00000000-0000-0000-0000-000000000000",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'ProjectMgt',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("00f548b9-6ce4-4062-8c7a-6077b8949bf8",
+	112,
+	"de672bd4-3197-44ba-acd3-b39fdd83fe67",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'HRUI::UI::UI::Tests::ProjectMgt');
+INSERT INTO DIM_DIA
+	VALUES ("00f548b9-6ce4-4062-8c7a-6077b8949bf8",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("a7bc3753-189c-4865-92ac-39bb408bb435",
+	"00000000-0000-0000-0000-000000000000",
+	'testSendStrategies',
+	'',
+	'Projects::ReadStrategies(); ',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("a7bc3753-189c-4865-92ac-39bb408bb435",
+	1,
+	"de672bd4-3197-44ba-acd3-b39fdd83fe67",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("de672bd4-3197-44ba-acd3-b39fdd83fe67",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	7);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'Tests',
+	'',
+	0,
+	'../Tests.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'HRUI',
+	1,
+	'../../../../HRUI.xtuml');

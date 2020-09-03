@@ -1,0 +1,57 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("d8941aac-fe97-4ede-8994-e08f0fa770a0",
+	"00000000-0000-0000-0000-000000000000",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'Initialization',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("956862db-c3e7-438e-bef6-8c180863cdda",
+	112,
+	"d8941aac-fe97-4ede-8994-e08f0fa770a0",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'ProjectMgmt::pmm::pm::Initialization');
+INSERT INTO DIM_DIA
+	VALUES ("956862db-c3e7-438e-bef6-8c180863cdda",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PE_PE
+	VALUES ("d8941aac-fe97-4ede-8994-e08f0fa770a0",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"6b567f7b-1b30-4818-b8a0-dfca9c0a25d8",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("6b567f7b-1b30-4818-b8a0-dfca9c0a25d8",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'pm',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../pm.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'ProjectMgmt',
+	1,
+	'../../../ProjectMgmt.xtuml');
