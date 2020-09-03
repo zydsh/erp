@@ -13,12 +13,12 @@ public interface ApproveLeave extends IModelInstance<ApproveLeave,Hr> {
     // attributes
     public void setLeaveRequesterID( int m_LeaveRequesterID ) throws XtumlException;
     public int getLeaveRequesterID() throws XtumlException;
-    public int getStarting() throws XtumlException;
     public void setStarting( int m_Starting ) throws XtumlException;
+    public int getStarting() throws XtumlException;
     public int getEnding() throws XtumlException;
     public void setEnding( int m_Ending ) throws XtumlException;
-    public void setContent( String m_Content ) throws XtumlException;
     public String getContent() throws XtumlException;
+    public void setContent( String m_Content ) throws XtumlException;
 
 
     // operations

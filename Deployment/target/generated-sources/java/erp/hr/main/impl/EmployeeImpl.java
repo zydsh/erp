@@ -162,11 +162,6 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     }
     private int m_NationalID;
     @Override
-    public int getNationalID() throws XtumlException {
-        checkLiving();
-        return m_NationalID;
-    }
-    @Override
     public void setNationalID(int m_NationalID) throws XtumlException {
         checkLiving();
         if (m_NationalID != this.m_NationalID) {
@@ -175,12 +170,12 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_NationalID", oldValue, this.m_NationalID));
         }
     }
-    private String m_FirstName;
     @Override
-    public String getFirstName() throws XtumlException {
+    public int getNationalID() throws XtumlException {
         checkLiving();
-        return m_FirstName;
+        return m_NationalID;
     }
+    private String m_FirstName;
     @Override
     public void setFirstName(String m_FirstName) throws XtumlException {
         checkLiving();
@@ -190,7 +185,17 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_FirstName", oldValue, this.m_FirstName));
         }
     }
+    @Override
+    public String getFirstName() throws XtumlException {
+        checkLiving();
+        return m_FirstName;
+    }
     private String m_MiddleName;
+    @Override
+    public String getMiddleName() throws XtumlException {
+        checkLiving();
+        return m_MiddleName;
+    }
     @Override
     public void setMiddleName(String m_MiddleName) throws XtumlException {
         checkLiving();
@@ -200,17 +205,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_MiddleName", oldValue, this.m_MiddleName));
         }
     }
-    @Override
-    public String getMiddleName() throws XtumlException {
-        checkLiving();
-        return m_MiddleName;
-    }
     private String m_LastName;
-    @Override
-    public String getLastName() throws XtumlException {
-        checkLiving();
-        return m_LastName;
-    }
     @Override
     public void setLastName(String m_LastName) throws XtumlException {
         checkLiving();
@@ -220,7 +215,17 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LastName", oldValue, this.m_LastName));
         }
     }
+    @Override
+    public String getLastName() throws XtumlException {
+        checkLiving();
+        return m_LastName;
+    }
     private String m_Email;
+    @Override
+    public String getEmail() throws XtumlException {
+        checkLiving();
+        return m_Email;
+    }
     @Override
     public void setEmail(String m_Email) throws XtumlException {
         checkLiving();
@@ -230,12 +235,12 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Email", oldValue, this.m_Email));
         }
     }
-    @Override
-    public String getEmail() throws XtumlException {
-        checkLiving();
-        return m_Email;
-    }
     private String m_OfficePhone;
+    @Override
+    public String getOfficePhone() throws XtumlException {
+        checkLiving();
+        return m_OfficePhone;
+    }
     @Override
     public void setOfficePhone(String m_OfficePhone) throws XtumlException {
         checkLiving();
@@ -244,11 +249,6 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             this.m_OfficePhone = m_OfficePhone;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_OfficePhone", oldValue, this.m_OfficePhone));
         }
-    }
-    @Override
-    public String getOfficePhone() throws XtumlException {
-        checkLiving();
-        return m_OfficePhone;
     }
     private int m_DateOfBirth;
     @Override
@@ -267,6 +267,11 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     }
     private String m_Degree;
     @Override
+    public String getDegree() throws XtumlException {
+        checkLiving();
+        return m_Degree;
+    }
+    @Override
     public void setDegree(String m_Degree) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Degree, this.m_Degree)) {
@@ -274,11 +279,6 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             this.m_Degree = m_Degree;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Degree", oldValue, this.m_Degree));
         }
-    }
-    @Override
-    public String getDegree() throws XtumlException {
-        checkLiving();
-        return m_Degree;
     }
     private String m_Gender;
     @Override
@@ -312,6 +312,11 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     }
     private int m_LeaveBalance;
     @Override
+    public int getLeaveBalance() throws XtumlException {
+        checkLiving();
+        return m_LeaveBalance;
+    }
+    @Override
     public void setLeaveBalance(int m_LeaveBalance) throws XtumlException {
         checkLiving();
         if (m_LeaveBalance != this.m_LeaveBalance) {
@@ -319,11 +324,6 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             this.m_LeaveBalance = m_LeaveBalance;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LeaveBalance", oldValue, this.m_LeaveBalance));
         }
-    }
-    @Override
-    public int getLeaveBalance() throws XtumlException {
-        checkLiving();
-        return m_LeaveBalance;
     }
     private int m_SickLeaveBalance;
     @Override
@@ -405,7 +405,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 5;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -444,7 +444,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 1;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -457,7 +457,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 2;
+            return 5;
         }
         @Override
         public String getClassName() {
@@ -470,7 +470,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 0;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -656,41 +656,41 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
     public int getEmployeeID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getNationalID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setNationalID( int m_NationalID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getFirstName() throws XtumlException {
+    public int getNationalID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setFirstName( String m_FirstName ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setMiddleName( String m_MiddleName ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public String getFirstName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getMiddleName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getLastName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setMiddleName( String m_MiddleName ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setLastName( String m_LastName ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setEmail( String m_Email ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public String getLastName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getEmail() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setOfficePhone( String m_OfficePhone ) throws XtumlException {
+    public void setEmail( String m_Email ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getOfficePhone() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setOfficePhone( String m_OfficePhone ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getDateOfBirth() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -698,11 +698,11 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
     public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setDegree( String m_Degree ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getDegree() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setDegree( String m_Degree ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getGender() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -716,11 +716,11 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
     public void setStart_Date( int m_Start_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getLeaveBalance() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getSickLeaveBalance() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

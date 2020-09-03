@@ -25,12 +25,12 @@ public class Supporting_DocumentsSetImpl extends InstanceSet<Supporting_Document
 
     // attributes
     @Override
-    public void setState( String m_State ) throws XtumlException {
-        for ( Supporting_Documents supporting_documents : this ) supporting_documents.setState( m_State );
-    }
-    @Override
     public void setNotes( String m_Notes ) throws XtumlException {
         for ( Supporting_Documents supporting_documents : this ) supporting_documents.setNotes( m_Notes );
+    }
+    @Override
+    public void setState( String m_State ) throws XtumlException {
+        for ( Supporting_Documents supporting_documents : this ) supporting_documents.setState( m_State );
     }
     @Override
     public void setDocument( String m_Document ) throws XtumlException {

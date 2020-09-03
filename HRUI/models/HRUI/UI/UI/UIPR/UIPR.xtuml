@@ -36,11 +36,11 @@ INSERT INTO DIM_DIA
 INSERT INTO S_SYNC
 	VALUES ("30db07e2-125e-45fc-bab8-33e2f23bb079",
 	"00000000-0000-0000-0000-000000000000",
-	'Reply',
+	'ReplyProject',
 	'',
-	'',
+	'::ReplyProject( msg:param.msg, state:param.state );',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_SPARM

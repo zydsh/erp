@@ -10,8 +10,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface BonusSpecificationSet extends IInstanceSet<BonusSpecificationSet,BonusSpecification> {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException;
     public void setPercent( double m_Percent ) throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
 
 
     // selections

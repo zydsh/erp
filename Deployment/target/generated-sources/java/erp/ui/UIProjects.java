@@ -21,11 +21,11 @@ public class UIProjects extends Port<UI> implements IProjects {
     }
 
     // inbound messages
-    public void SendStrategies( final String p_Number,  final String p_Name,  final String p_Description ) throws XtumlException {
-        context().SendStrategies( p_Number, p_Name, p_Description );
+    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
     }
 
-    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
+    public void SendStrategies( final String p_Number,  final String p_Name,  final String p_Description ) throws XtumlException {
+        context().SendStrategies( p_Number, p_Name, p_Description );
     }
 
 
@@ -47,11 +47,11 @@ public class UIProjects extends Port<UI> implements IProjects {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IProjects.SIGNAL_NO_SENDSTRATEGIES:
-                SendStrategies(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
-                break;
             case IProjects.SIGNAL_NO_REPLY:
                 Reply(StringUtil.deserialize(message.get(0)), BooleanUtil.deserialize(message.get(1)));
+                break;
+            case IProjects.SIGNAL_NO_SENDSTRATEGIES:
+                SendStrategies(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

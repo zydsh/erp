@@ -29,8 +29,12 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
 
     // attributes
     @Override
-    public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException {
-        for ( Job job : this ) job.setAppointmentDate( m_AppointmentDate );
+    public void setDescription( String m_Description ) throws XtumlException {
+        for ( Job job : this ) job.setDescription( m_Description );
+    }
+    @Override
+    public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException {
+        for ( Job job : this ) job.setPensionDeduction( m_PensionDeduction );
     }
     @Override
     public void setPromotionDate( int m_PromotionDate ) throws XtumlException {
@@ -41,8 +45,8 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
         for ( Job job : this ) job.setStep( m_Step );
     }
     @Override
-    public void setSalary( double m_Salary ) throws XtumlException {
-        for ( Job job : this ) job.setSalary( m_Salary );
+    public void setAppointmentDate( int m_AppointmentDate ) throws XtumlException {
+        for ( Job job : this ) job.setAppointmentDate( m_AppointmentDate );
     }
     @Override
     public void setJob_ID( int m_Job_ID ) throws XtumlException {
@@ -53,12 +57,8 @@ public class JobSetImpl extends InstanceSet<JobSet,Job> implements JobSet {
         for ( Job job : this ) job.setTitle( m_Title );
     }
     @Override
-    public void setDescription( String m_Description ) throws XtumlException {
-        for ( Job job : this ) job.setDescription( m_Description );
-    }
-    @Override
-    public void setPensionDeduction( double m_PensionDeduction ) throws XtumlException {
-        for ( Job job : this ) job.setPensionDeduction( m_PensionDeduction );
+    public void setSalary( double m_Salary ) throws XtumlException {
+        for ( Job job : this ) job.setSalary( m_Salary );
     }
 
 

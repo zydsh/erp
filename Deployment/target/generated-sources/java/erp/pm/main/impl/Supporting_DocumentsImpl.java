@@ -85,6 +85,11 @@ public class Supporting_DocumentsImpl extends ModelInstance<Supporting_Documents
     }
     private String m_Document;
     @Override
+    public String getDocument() throws XtumlException {
+        checkLiving();
+        return m_Document;
+    }
+    @Override
     public void setDocument(String m_Document) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Document, this.m_Document)) {
@@ -92,11 +97,6 @@ public class Supporting_DocumentsImpl extends ModelInstance<Supporting_Documents
             this.m_Document = m_Document;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Document", oldValue, this.m_Document));
         }
-    }
-    @Override
-    public String getDocument() throws XtumlException {
-        checkLiving();
-        return m_Document;
     }
     private String m_State;
     @Override
@@ -202,11 +202,11 @@ class EmptySupporting_Documents extends ModelInstance<Supporting_Documents,Pm> i
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setDocument( String m_Document ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getDocument() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setDocument( String m_Document ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getState() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

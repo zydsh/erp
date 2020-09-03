@@ -13,8 +13,8 @@ public interface Supporting_Documents extends IModelInstance<Supporting_Document
     // attributes
     public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
-    public void setDocument( String m_Document ) throws XtumlException;
     public String getDocument() throws XtumlException;
+    public void setDocument( String m_Document ) throws XtumlException;
     public String getState() throws XtumlException;
     public void setState( String m_State ) throws XtumlException;
     public void setNotes( String m_Notes ) throws XtumlException;

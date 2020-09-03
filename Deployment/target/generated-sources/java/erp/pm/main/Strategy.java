@@ -16,8 +16,8 @@ public interface Strategy extends IModelInstance<Strategy,Pm> {
     public void setNumber( String m_Number ) throws XtumlException;
     public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
-    public String getDescription() throws XtumlException;
     public void setDescription( String m_Description ) throws XtumlException;
+    public String getDescription() throws XtumlException;
 
 
     // operations
