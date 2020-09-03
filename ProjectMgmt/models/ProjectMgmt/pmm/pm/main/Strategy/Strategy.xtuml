@@ -1,0 +1,180 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("adb9cff2-4634-43f0-a556-d51e8a9c9684",
+	'Strategy',
+	2,
+	'Strategy',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("fabb1286-b2df-4002-9c1c-9191c7081241",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'
+select any strategy from instances of Strategy where selected.Name==param.Name;
+
+if ( empty strategy ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new strategy to employee." );
+
+	//create object instance strategy of strategy;
+	create object instance s of Strategy;
+
+	s.Name = param.Name;
+	s.Number = param.Number;
+	s.Description = param.Description;
+
+	//SQL::serialize();
+	PM::Reply( msg:"strategy created successfully.", state:True);
+
+elif ( not empty strategy ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new strategy." );
+
+	LOG::LogInfo(message:"Strategy already exists." );	
+	PM::Reply( msg:"Strategy already exists", state:False);
+
+elif ( not empty strategy ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update strategy." );
+
+	strategy.Name = param.Name;
+	strategy.Number = param.Number;
+	strategy.Description = param.Description;
+	
+	LOG::LogInfo(message:"Strategy updated successfully." );	
+	PM::Reply( msg:"Strategy updated successfully", state:True);
+
+elif ( not empty strategy ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a strategy instance." );
+	LOG::LogInfo(message:"Strategy delete in not implemented yet." );	
+	PM::Reply( msg:"Strategy delete in not implemented yet", state:False);
+
+ elif (empty strategy )
+	LOG::LogInfo(message:"Strategy does not exist." );	
+	PM::Reply( msg:"Strategy does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("fe9ab6d1-fdf2-4b92-8d87-1a952426343f",
+	"fabb1286-b2df-4002-9c1c-9191c7081241",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("07aafe95-8ccc-4abc-be97-ae871fe7b94a",
+	"fabb1286-b2df-4002-9c1c-9191c7081241",
+	'Number',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"fe9ab6d1-fdf2-4b92-8d87-1a952426343f",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("de8fcbe5-9b73-4e50-bdc3-307637e1518e",
+	"fabb1286-b2df-4002-9c1c-9191c7081241",
+	'Description',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"07aafe95-8ccc-4abc-be97-ae871fe7b94a",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("fe066ffc-10c2-495a-8c7f-d36853f5dfad",
+	"fabb1286-b2df-4002-9c1c-9191c7081241",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"de8fcbe5-9b73-4e50-bdc3-307637e1518e",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("e6cac4db-045a-47fc-bf95-eb36e67ae131",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO O_BATTR
+	VALUES ("e6cac4db-045a-47fc-bf95-eb36e67ae131",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO O_ATTR
+	VALUES ("e6cac4db-045a-47fc-bf95-eb36e67ae131",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("edc043ec-f37d-4908-94ae-e72ed1c23dcf",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO O_BATTR
+	VALUES ("edc043ec-f37d-4908-94ae-e72ed1c23dcf",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO O_ATTR
+	VALUES ("edc043ec-f37d-4908-94ae-e72ed1c23dcf",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684",
+	"e6cac4db-045a-47fc-bf95-eb36e67ae131",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("44aedd60-90c1-480b-a608-fee071308498",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO O_BATTR
+	VALUES ("44aedd60-90c1-480b-a608-fee071308498",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO O_ATTR
+	VALUES ("44aedd60-90c1-480b-a608-fee071308498",
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684",
+	"edc043ec-f37d-4908-94ae-e72ed1c23dcf",
+	'Number',
+	'',
+	'',
+	'Number',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO O_ID
+	VALUES (1,
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO O_ID
+	VALUES (2,
+	"adb9cff2-4634-43f0-a556-d51e8a9c9684");
+INSERT INTO PE_PE
+	VALUES ("adb9cff2-4634-43f0-a556-d51e8a9c9684",
+	1,
+	"6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

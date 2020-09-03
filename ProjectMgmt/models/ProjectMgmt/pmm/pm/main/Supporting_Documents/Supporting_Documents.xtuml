@@ -1,0 +1,221 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("1bc7118e-b870-4930-9bfc-177e395641e0",
+	'Supporting_Documents',
+	4,
+	'Supporting_Documents',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("df6a8bca-2c6c-48d9-82b1-ef9fcd3af261",
+	"1bc7118e-b870-4930-9bfc-177e395641e0",
+	'crud',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'
+select any sd from instances of Supporting_Documents where selected.Name==param.Name;
+
+if ( empty sd ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new supporting document to milestone." );
+
+	//create object instance Supporting_Documents of initiative;
+	create object instance sd of Supporting_Documents;
+
+	sd.Name = param.Name;
+	sd.Notes = param.Notes;
+	sd.Document = param.Document;
+	sd.State = param.State;
+	
+	select any mile from instances of Milestone where selected.Full_Code == param.Full_Code;
+	relate mile to sd across R3;  
+
+	//SQL::serialize();
+	PM::Reply( msg:"Supporting document created successfully.", state:True);
+
+elif ( not empty sd ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Attempting to add a new supporting document." );
+
+	LOG::LogInfo(message:"Supporting Documents already exists." );	
+	PM::Reply( msg:"Supporting Documents already exists", state:False);
+
+elif ( not empty sd ) and (param.Action=="UPDATE")
+	LOG::LogInfo(message:"Attempting to update supporting document." );
+
+	sd.Name = param.Name;
+	sd.Notes = param.Notes;
+	sd.Document = param.Document;
+	sd.State = param.State;
+	
+	LOG::LogInfo(message:"Supporting Documents updated successfully." );	
+	PM::Reply( msg:"Supporting Documents updated successfully", state:True);
+
+elif ( not empty sd ) and (param.Action=="DELETE")
+	LOG::LogInfo(message:"Attempting to delete a supporting document instance." );
+	LOG::LogInfo(message:"Supporting Documents delete in not implemented yet." );	
+	PM::Reply( msg:"Supporting Documents delete in not implemented yet", state:False);
+
+ elif (empty sd )
+	LOG::LogInfo(message:"Supporting Documents does not exist." );	
+	PM::Reply( msg:"Supporting Documents does not exist.", state:False);
+
+
+
+end if;
+
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("ef33b9e8-b5be-4fb3-a5ec-74aeb527eb15",
+	"df6a8bca-2c6c-48d9-82b1-ef9fcd3af261",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("cc58b24b-b4ea-4f92-9cbf-732f4df3c097",
+	"df6a8bca-2c6c-48d9-82b1-ef9fcd3af261",
+	'Document',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"ef33b9e8-b5be-4fb3-a5ec-74aeb527eb15",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("e835f9fd-a5f5-4a63-b93c-513644694009",
+	"df6a8bca-2c6c-48d9-82b1-ef9fcd3af261",
+	'State',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"cc58b24b-b4ea-4f92-9cbf-732f4df3c097",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("b2419ff4-d9ef-4ee6-a2ef-60d222d3a0b4",
+	"df6a8bca-2c6c-48d9-82b1-ef9fcd3af261",
+	'Notes',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"e835f9fd-a5f5-4a63-b93c-513644694009",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("ad0c1e8d-be18-4112-9a6b-159239b969f2",
+	"df6a8bca-2c6c-48d9-82b1-ef9fcd3af261",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"b2137e21-3f20-4b8f-b7bb-25cb27f5ea99",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("b2137e21-3f20-4b8f-b7bb-25cb27f5ea99",
+	"df6a8bca-2c6c-48d9-82b1-ef9fcd3af261",
+	'Full_Code',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"b2419ff4-d9ef-4ee6-a2ef-60d222d3a0b4",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("dc7a82cf-dcc6-421b-86ba-f8078bf9082d",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_BATTR
+	VALUES ("dc7a82cf-dcc6-421b-86ba-f8078bf9082d",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_ATTR
+	VALUES ("dc7a82cf-dcc6-421b-86ba-f8078bf9082d",
+	"1bc7118e-b870-4930-9bfc-177e395641e0",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("44bf3edd-2b25-4fe4-bbf3-830dca27cd9c",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_BATTR
+	VALUES ("44bf3edd-2b25-4fe4-bbf3-830dca27cd9c",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_ATTR
+	VALUES ("44bf3edd-2b25-4fe4-bbf3-830dca27cd9c",
+	"1bc7118e-b870-4930-9bfc-177e395641e0",
+	"dc7a82cf-dcc6-421b-86ba-f8078bf9082d",
+	'Document',
+	'',
+	'',
+	'Document',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("b874bc2b-ddb8-4fe9-9923-993fa3b970eb",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_BATTR
+	VALUES ("b874bc2b-ddb8-4fe9-9923-993fa3b970eb",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_ATTR
+	VALUES ("b874bc2b-ddb8-4fe9-9923-993fa3b970eb",
+	"1bc7118e-b870-4930-9bfc-177e395641e0",
+	"44bf3edd-2b25-4fe4-bbf3-830dca27cd9c",
+	'State',
+	'',
+	'',
+	'State',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("59a62e61-7667-4143-abc7-40514881fe96",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_BATTR
+	VALUES ("59a62e61-7667-4143-abc7-40514881fe96",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_ATTR
+	VALUES ("59a62e61-7667-4143-abc7-40514881fe96",
+	"1bc7118e-b870-4930-9bfc-177e395641e0",
+	"b874bc2b-ddb8-4fe9-9923-993fa3b970eb",
+	'Notes',
+	'',
+	'',
+	'Notes',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_ID
+	VALUES (1,
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_ID
+	VALUES (2,
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO PE_PE
+	VALUES ("1bc7118e-b870-4930-9bfc-177e395641e0",
+	1,
+	"6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'main',
+	'',
+	0,
+	'../main.xtuml');
