@@ -1530,6 +1530,24 @@ INSERT INTO C_EP_PROXY
 	'Reply',
 	'',
 	'../../../../../ProjectMgmt/models/ProjectMgmt/Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("89e8573e-83b5-4ae0-8ca9-19286a0d395e",
+	"e0b36002-56f9-4df1-9356-a98484736a3a",
+	"172ad968-3c5c-47a8-b686-fa95025756b2");
+INSERT INTO SPR_RS
+	VALUES ("89e8573e-83b5-4ae0-8ca9-19286a0d395e",
+	'Initialize',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("e0b36002-56f9-4df1-9356-a98484736a3a",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'Initialize',
+	'',
+	'../../../../../ProjectMgmt/models/ProjectMgmt/Interfaces/Projects/Projects.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("b9747524-a416-4a89-a9ef-0062b1f78a12",
 	"00000000-0000-0000-0000-000000000000",

@@ -1,0 +1,373 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'HRMgt',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("6a909212-ae34-450e-a266-48611c1ee174",
+	112,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'HRUI::UI::UI::Tests::HRMgt');
+INSERT INTO DIM_DIA
+	VALUES ("6a909212-ae34-450e-a266-48611c1ee174",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("741efb28-9f0d-41e9-9927-53ec3e472120",
+	"00000000-0000-0000-0000-000000000000",
+	'approveLeaveRequest',
+	'',
+	'LOG::LogInfo(message:"Test: Approving leave request ... ");
+
+AppOps::ApproveEmployeeLeave( EmployeeID:1428888);',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("741efb28-9f0d-41e9-9927-53ec3e472120",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("b8841d35-df17-4de8-8a49-4c11a24cda9b",
+	"00000000-0000-0000-0000-000000000000",
+	'changePassword',
+	'',
+	'Authenticate::ChangePassword( Username:"Khalid.Alrajeh", OldPassword:"7(!d&KhalidAlrajeh", NewPassword:"7(!d&" );
+
+LOG::LogInfo(message:"Test: Change Password second test");	
+
+Authenticate::ChangePassword( Username:"Khalid.Alrajeh", OldPassword:"7(!d&KhalidAlrajeh", NewPassword:"7(!d&" ); ',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("b8841d35-df17-4de8-8a49-4c11a24cda9b",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("679c8e1a-d6ce-4ff1-927f-0af1a29c12d9",
+	"00000000-0000-0000-0000-000000000000",
+	'checkUsernamePassword',
+	'',
+	'LOG::LogInfo(message:"Test: Check Username and Password first test: correct username and password");	
+Authenticate::CheckUsernamePassword( Username:"Khalid.Alrajeh", Password:"7(!d&KhalidAlrajeh" );
+
+LOG::LogInfo(message:"Test: Check Username and Password second test: wrong username and password");	
+Authenticate::CheckUsernamePassword( Username:"Khalid", Password:"7(" );
+
+LOG::LogInfo(message:"Test: Check Username and Password third test: wrong username and correct password");	
+Authenticate::CheckUsernamePassword( Username:"Khalid", Password:"7(!d&KhalidAlrajeh" );
+
+
+LOG::LogInfo(message:"Test: Check Username and Password forth test: correct username and wrong password");	
+Authenticate::CheckUsernamePassword( Username:"Khalid.Alrajeh", Password:"7(!d" );
+
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("679c8e1a-d6ce-4ff1-927f-0af1a29c12d9",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("8d95e9ff-c197-4135-92f6-3e8bda2a6624",
+	"00000000-0000-0000-0000-000000000000",
+	'CreateEmployee',
+	'',
+	'
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("8d95e9ff-c197-4135-92f6-3e8bda2a6624",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("8827e274-2aaf-4d2e-9e33-6f063ff36f94",
+	"00000000-0000-0000-0000-000000000000",
+	'leaveRequest',
+	'',
+	'LOG::LogInfo(message:"Test: leave request with starting couple of days before ending");	
+
+monthInSeconds=2592000*1000000;
+startingTime = TIM::current_seconds()+monthInSeconds;
+LOG::LogInfo(message:"Test: Starting leave at: ");
+LOG::LogInteger( message:startingTime );	
+
+endingTime = startingTime+monthInSeconds;
+LOG::LogInfo(message:"Test: Ending leave at: ");
+LOG::LogInteger( message:endingTime );	
+
+AppOps::RequestEmployeeLeave( Starting:startingTime, Ending:endingTime, EmployeeID:1428888, LeaveName:"Regular Leave" );  ',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("8827e274-2aaf-4d2e-9e33-6f063ff36f94",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("a0a75234-13fb-4df4-af40-026976761312",
+	"00000000-0000-0000-0000-000000000000",
+	'sendEmployeeMessages',
+	'',
+	'LOG::LogInfo(message:"Test: Employee messages .." );	
+
+App::ReadEmployeeMessage( EmployeeID:1424444 );',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("a0a75234-13fb-4df4-af40-026976761312",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("9a6c33b1-66a3-4a65-8058-87ab1049fe72",
+	"00000000-0000-0000-0000-000000000000",
+	'testBonus',
+	'',
+	'//assign bonus
+ending = TIM::current_seconds()+(52*7*24*60*60);
+employeeID= 1428888;
+LOG::LogInfo(message:"Test: Assignning bonuses...");
+
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Scarcity", Starting:TIM::current_seconds(), Ending:ending);
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing", Starting:TIM::current_seconds(), Ending:ending);
+App::AssignEmployeeBonus( EmployeeID:employeeID, BonusName:"Research", Starting:TIM::current_seconds(), Ending:ending);
+ 
+LOG::LogInfo(message:"Test: Stopping one bonus...");
+
+App::StopEmployeeBonus( EmployeeID:employeeID, BonusName:"Computing");
+ 
+
+LOG::LogInfo(message:"Test: Get employee bonus list...");
+
+App::ReadEmployeeBonuses( EmployeeID:employeeID );
+
+LOG::LogInfo(message:"Test: Get bonus list registered...");
+App::ReadBonusList();
+
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("9a6c33b1-66a3-4a65-8058-87ab1049fe72",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("7689eb99-b92a-4a35-9da2-74e4fa9064b4",
+	"00000000-0000-0000-0000-000000000000",
+	'testDepartmentList',
+	'',
+	'App::ReadDepartmentList();',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("7689eb99-b92a-4a35-9da2-74e4fa9064b4",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("e474074a-ec6d-4294-b7fa-5304bde8f4db",
+	"00000000-0000-0000-0000-000000000000",
+	'testEmployeePermissions',
+	'',
+	'Emp1 = 1420000;
+Emp2 = 1421111;
+Emp3 = 1424444;
+Emp4 = 1428888;
+
+LOG::LogInfo(message:"Test: Reading Employee permissions... ");
+
+LOG::LogInfo(message:"Test: EmployeeID: ");
+LOG::LogInteger( message:Emp1 );
+
+Authenticate::ReadEmployeePermissions( EmployeeID:Emp1 );
+
+LOG::LogInfo(message:"Test: EmployeeID: ");
+LOG::LogInteger( message:Emp2 );
+
+Authenticate::ReadEmployeePermissions( EmployeeID:Emp2 );
+
+LOG::LogInfo(message:"Test: EmployeeID: ");
+LOG::LogInteger( message:Emp3 );
+
+Authenticate::ReadEmployeePermissions( EmployeeID:Emp3 );
+
+LOG::LogInfo(message:"Test: EmployeeID: ");
+LOG::LogInteger( message:Emp4 );
+
+Authenticate::ReadEmployeePermissions( EmployeeID:Emp4 );',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("e474074a-ec6d-4294-b7fa-5304bde8f4db",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("b0007ab5-6653-4fea-8b6e-333aee436b8d",
+	"00000000-0000-0000-0000-000000000000",
+	'testGetEmployee',
+	'',
+	'App::GetEmployee( EmployeeID:1424444 );',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("b0007ab5-6653-4fea-8b6e-333aee436b8d",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("1f2675c8-2e11-4b4a-a655-2469775fee97",
+	"00000000-0000-0000-0000-000000000000",
+	'testGradeList',
+	'',
+	'App::ReadGrades( Name:"General Schedule" );',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("1f2675c8-2e11-4b4a-a655-2469775fee97",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("1a990c5e-085e-456e-9cd6-3d39689a25a4",
+	"00000000-0000-0000-0000-000000000000",
+	'testJobList',
+	'',
+	'App::ReadJobList();',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("1a990c5e-085e-456e-9cd6-3d39689a25a4",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("210cd827-2ba1-43bd-adfe-53a4fa9faa6a",
+	"00000000-0000-0000-0000-000000000000",
+	'testReadEmployeeList',
+	'',
+	'App::ReadEmployeeList(); ',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("210cd827-2ba1-43bd-adfe-53a4fa9faa6a",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("0e8c2c40-6035-44d6-b9ee-2bd85c4392f2",
+	"00000000-0000-0000-0000-000000000000",
+	'testSalaryStructure',
+	'',
+	'App::GetSalaryStructure( EmployeeID:1428888); ',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("0e8c2c40-6035-44d6-b9ee-2bd85c4392f2",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("1bcea303-4761-4c0c-89d1-90638b774219",
+	"00000000-0000-0000-0000-000000000000",
+	'testScaleList',
+	'',
+	'App::ReadScales(); ',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("1bcea303-4761-4c0c-89d1-90638b774219",
+	1,
+	"14013094-940e-40c1-b2d3-d1002ac0a67a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("14013094-940e-40c1-b2d3-d1002ac0a67a",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	7);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'Tests',
+	'',
+	0,
+	'../Tests.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'HRUI',
+	1,
+	'../../../../HRUI.xtuml');

@@ -298,6 +298,24 @@ INSERT INTO C_EP_PROXY
 	'Reply',
 	'',
 	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("fb771c26-f567-47e9-95ef-de793662d641",
+	"e0b36002-56f9-4df1-9356-a98484736a3a",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("fb771c26-f567-47e9-95ef-de793662d641",
+	'Initialize',
+	'',
+	'::Initialize();',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("e0b36002-56f9-4df1-9356-a98484736a3a",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'Initialize',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("b9747524-a416-4a89-a9ef-0062b1f78a12",
 	"00000000-0000-0000-0000-000000000000",
