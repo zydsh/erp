@@ -5,7 +5,7 @@ INSERT INTO O_OBJ
 	'Initiative',
 	1,
 	'Initiative',
-	'',
+	'A collection of projects that serve a strategic goal.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("9b108c39-21be-4674-942f-19dc8ef303d3",

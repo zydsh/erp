@@ -1190,7 +1190,7 @@ for each bonus in bonuses
 			generate Bonus2:deactivateBonus to bonus;
 			LOG::LogInfo(message:"UI:StopEmployeeBonus: bonus is now stopped");
 
-		end if;
+		end if; 
 end for;',
 	1,
 	0);
@@ -1576,7 +1576,31 @@ INSERT INTO SPR_PS
 	VALUES ("f7ae468f-3e6b-4807-9a46-cb2969209223",
 	'GetSalaryStructure',
 	'',
-	'',
+	'
+select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select many bonuses related by employee->Bonus[R4.''gets a''] ; //where selected.Name==param.Name;
+
+ 
+ if (not empty employee) and (not empty bonuses)
+  LOG::LogInfo(message:"Sending salary structure set .. ");
+
+   for each bonus in bonuses
+  	select one bonusSpec related by bonus->BonusSpecification[R16.''is specified by''];
+  	amount = bonusSpec.Percent * employee.getSalary();
+	UI::SendSalaryStructure(EmployeeSalary:employee.getSalary(), BonusName:bonusSpec.Name, BonusAmount:amount);
+	LOG::LogReal(message:"Salary Structure: Salary: ", r: employee.getSalary());
+	LOG::LogInfo( message:"Bonus Name: "+ bonusSpec.Name );
+	LOG::LogReal(message:"Bonus Amount: ", r:amount);
+
+	//UI::Reply( msg:"Sent: "+bonusSpec.Name, state:True);
+
+   end for;
+  
+  else
+  	  	UI::Reply( msg:"Could not find Employee or Salary Structure ", state:False);
+  	  	LOG::LogInfo( message:"Could not find Employee or Salary Structure ");
+  end if;
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
