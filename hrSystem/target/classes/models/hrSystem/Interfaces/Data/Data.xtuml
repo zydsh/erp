@@ -998,6 +998,33 @@ INSERT INTO C_AS
 	'',
 	1,
 	"b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f");
+INSERT INTO C_PP
+	VALUES ("7432ef82-bddf-40bb-88d9-532d81166925",
+	"6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'EmployeeSalary',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("ae413378-456b-49af-a58d-4aa37a37e862",
+	"6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'BonusName',
+	'',
+	0,
+	'',
+	"7432ef82-bddf-40bb-88d9-532d81166925");
+INSERT INTO C_PP
+	VALUES ("1ab53614-5ef2-452f-b48e-5c08c6ac3196",
+	"6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'BonusAmount',
+	'',
+	0,
+	'',
+	"ae413378-456b-49af-a58d-4aa37a37e862");
 INSERT INTO C_EP
 	VALUES ("55a9f3b2-80bb-4f18-849a-63ec5716bb21",
 	"e4418dca-a348-4559-93d1-2765b2e75800",

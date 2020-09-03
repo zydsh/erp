@@ -1596,6 +1596,10 @@ select many bonuses related by employee->Bonus[R4.''gets a''] ; //where selected
 
    end for;
   
+  elif (not empty employee)
+  		UI::SendSalaryStructure(EmployeeSalary:employee.getSalary(), BonusName:"", BonusAmount:0);
+		LOG::LogReal(message:"Salary Structure: Salary: ", r: employee.getSalary());
+
   else
   	  	UI::Reply( msg:"Could not find Employee or Salary Structure ", state:False);
   	  	LOG::LogInfo( message:"Could not find Employee or Salary Structure ");

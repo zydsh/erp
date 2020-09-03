@@ -79,6 +79,9 @@ public class UI extends Component<UI> {
         context().LOG().LogInfo( "UI: Sending leave specification: " + p_Name );
     }
 
+    public void SendSalaryStructure( final double p_EmployeeSalary,  final String p_BonusName,  final double p_BonusAmount ) throws XtumlException {
+    }
+
     public void SendScales( final String p_Name,  final String p_Description ) throws XtumlException {
     }
 
@@ -174,6 +177,10 @@ public class UI extends Component<UI> {
 
     public void testReadEmployeeList() throws XtumlException {
         context().App().ReadEmployeeList();
+    }
+
+    public void testSalaryStructure() throws XtumlException {
+        context().App().GetSalaryStructure( 1428888 );
     }
 
     public void testScaleList() throws XtumlException {

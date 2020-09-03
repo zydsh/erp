@@ -1129,7 +1129,7 @@ INSERT INTO SPR_RS
 	VALUES ("82597f5c-9791-43cd-a3c2-677f293a7851",
 	'SendSalaryStructure',
 	'',
-	'',
+	'::SendSalaryStructure( EmployeeSalary:param.EmployeeSalary, BonusName:param.BonusName, BonusAmount:param.BonusAmount);',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
