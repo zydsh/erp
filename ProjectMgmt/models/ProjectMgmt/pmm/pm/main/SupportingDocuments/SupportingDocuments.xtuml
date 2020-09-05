@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("1bc7118e-b870-4930-9bfc-177e395641e0",
-	'Supporting_Documents',
+	'SupportingDocuments',
 	4,
-	'Supporting_Documents',
+	'SupportingDocuments',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR

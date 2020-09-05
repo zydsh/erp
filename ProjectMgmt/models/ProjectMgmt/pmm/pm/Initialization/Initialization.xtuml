@@ -54,21 +54,52 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'CreatePEI_Strategies',
 	'',
-	'create object instance str of Strategy;
-	str.Number = "Str 1";
-	str.Name = "دعم البحث والتطوير لضمان استدامة منظومة تطوير المحتوى المحلي";
-	str.Description = "يسعى هدف دعم البحث والتطوير لضمان استدامة منظومة تطوير المحتوى"
+	'create object instance str1 of Strategy;
+	str1.Number = "Str 1";
+	str1.Name = "دعم البحث والتطوير لضمان استدامة منظومة تطوير المحتوى المحلي";
+	str1.Description = "يسعى هدف دعم البحث والتطوير لضمان استدامة منظومة تطوير المحتوى"
 	+"المحلي وضمان استدامة دعم البحوث عالية الجودة وتمويلها على المدى الطويل"
 	+ "وذلك لتحقيق هدف المملكة لتصبح في مقدمة دول منطقة الشرق الوسط في مجال العلوم والتقنية والابتكار بنهاية ٢٠٢٠";
-	LOG::LogInfo(message:"Strategy: Number "+ str.Name +", Name "+str.Name+", Description"+str.Description );	
+	LOG::LogInfo(message:"Strategy: Number "+ str1.Name +", Name "+str1.Name+", Description"+str1.Description );	
 
 
-create object instance str of Strategy; 
-	str.Number = "Str 2";
-	str.Name = "توطين وتطوير التقنية في القطاعات ذات الإنفاق المحلي الكبير";
-	str.Description = "يسعى الهدف لتعزيز المحتوى المحلي من خلال نقل وتوطين التقنية ";
-	LOG::LogInfo(message:"Strategy: Number "+ str.Name +", Name "+str.Name+", Description"+str.Description );	
+create object instance str2 of Strategy; 
+	str2.Number = "Str 2";
+	str2.Name = "توطين وتطوير التقنية في القطاعات ذات الإنفاق المحلي الكبير";
+	str2.Description = "يسعى الهدف لتعزيز المحتوى المحلي من خلال نقل وتوطين التقنية ";
+	LOG::LogInfo(message:"Strategy: Number "+ str2.Name +", Name "+str2.Name+", Description"+str2.Description );	
 
+
+create object instance init of Initiative;
+init.Name = "مبادرة إطار تنظيمي لتعزيز البرمجيات الحرة ومفتوحة المصدر";
+init.ShortNumber = "687";
+init.LongNumber = "";
+init.Description= "صياغة أنظمة تدعم جودة صناعة البرمجيات الكبرى والمتوسطة وتساهم في خفض التكلفة وتوطين التقنية، ومن ذلك توسيع استخدام البرمجيات الحرة ومفتوحة المصدر ورفع كفاءة القطاع الخاص في تنفيذ برمجيات عالية الجودة حسب المقاييس العالمية ويتطلب هذا العمل تنسيق الجهود لصياغة أنظمة وقوانين لتحقيق ما سبق";
+init.StartDate=0;
+init.ActualStartDate=0;
+init.ActualEndDate=0;
+init.EndDate = 0;
+init.Budget= 800000;
+
+relate init to str1 across R1.''defined by'';
+
+create object instance mile of Milestone;
+mile.Name = "اكتمال الدراسات المساندة";
+mile.FullCode= "M-01-687";
+mile.Code="1";
+mile.Type= SharedTypes::Milestone::Milestone;
+mile.SuccessCriteria="تسليم التقرير";//= SharedTypes::Milestone::Milestone;
+mile.CompleteActual = 0;
+mile.CompletePlanned = 0;
+mile.Complete= false;
+mile.Weight=5;
+mile.Percentage = 5;
+mile.sdState = SharedTypes::DocState::NotSubmitted;
+mile.sdDescription="";
+mile.Notes = "";
+mile.IncompleteReasons= "";
+
+relate mile to init across R2.''achieved by'';
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
@@ -76,6 +107,34 @@ create object instance str of Strategy;
 	0);
 INSERT INTO PE_PE
 	VALUES ("b294353c-348a-4d3d-940c-92a711a36b27",
+	1,
+	"d8941aac-fe97-4ede-8994-e08f0fa770a0",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("da8a5b03-d0b6-4638-a83e-47cee8a1aaf9",
+	"00000000-0000-0000-0000-000000000000",
+	'CreatePEI_Initiatives',
+	'',
+	'create object instance init of Initiative;
+init.Name = "";
+init.ShortNumber = "";
+init.LongNumber = "";
+init.Description= "";
+init.StartDate=0;
+init.ActualStartDate=0;
+init.ActualEndDate=0;
+init.EndDate = 0;
+init.Budget= 0;
+
+//relate init
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("da8a5b03-d0b6-4638-a83e-47cee8a1aaf9",
 	1,
 	"d8941aac-fe97-4ede-8994-e08f0fa770a0",
 	"00000000-0000-0000-0000-000000000000",

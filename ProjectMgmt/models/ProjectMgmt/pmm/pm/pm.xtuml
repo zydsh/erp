@@ -41,7 +41,7 @@ INSERT INTO GD_SHP
 INSERT INTO GD_CTR
 	VALUES ("5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
 INSERT INTO DIM_ND
-	VALUES (4909.000000,
+	VALUES (5129.000000,
 	3274.000000,
 	"5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
 INSERT INTO DIM_GE
@@ -55,7 +55,7 @@ INSERT INTO DIM_ELE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_CON
 	VALUES ("d11bfa22-1702-4e6b-8aa1-4b2c8a1d23bd",
-	4897.000000,
+	5117.000000,
 	2130.000000,
 	"5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
 INSERT INTO GD_GE
@@ -146,7 +146,7 @@ INSERT INTO DIM_ND
 	0.000000,
 	"dadb070b-9cac-4f22-87a5-b63fd2f72ec7");
 INSERT INTO DIM_GE
-	VALUES (5078.000000,
+	VALUES (5298.000000,
 	2092.000000,
 	"dadb070b-9cac-4f22-87a5-b63fd2f72ec7",
 	"00000000-0000-0000-0000-000000000000");
@@ -181,14 +181,14 @@ INSERT INTO GD_LS
 	"9d3011d6-1fcd-4611-98a3-018c0e7f192e");
 INSERT INTO DIM_WAY
 	VALUES ("e79fe47a-3735-483b-ae79-aaa1b51210d6",
-	4897.000000,
+	5117.000000,
 	2130.000000,
 	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("9d3011d6-1fcd-4611-98a3-018c0e7f192e",
-	5360.000000,
+	5580.000000,
 	2130.000000,
 	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
 	"00000000-0000-0000-0000-000000000000",
@@ -271,7 +271,7 @@ INSERT INTO SPR_PS
 	'SendStrategies',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("e995f3cf-f39a-49fb-b19a-f7fca5a6575f",
@@ -289,7 +289,7 @@ INSERT INTO SPR_PS
 	'Reply',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6062fcf7-0864-4e03-a22a-bea39834ef9d",
@@ -314,6 +314,60 @@ INSERT INTO C_EP_PROXY
 	"b9747524-a416-4a89-a9ef-0062b1f78a12",
 	-1,
 	'Initialize',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("8fe9881c-eb15-43c5-b146-5d86fafe4e6f",
+	"0fb486de-51ef-4059-86fb-07272aa62973",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("8fe9881c-eb15-43c5-b146-5d86fafe4e6f",
+	'ReadMilestones',
+	'Get a list of milestones related to
+an initiative. One parameter is enough
+to identify the initiative.',
+	'select any initiative from instances of Initiative where selected.Name ==param.InitiativeName or selected.LongNumber==param.InitiativeLongNumber or selected.ShortNumber==param.InitiativeShortNumber; 
+select many milestones related by initiative->Milestone[R2.''achieves'']; 
+if (not empty milestones)
+	LOG::LogInfo(message:"Sending milestone set .. ");
+	for each milestone in milestones
+		UI::SendMilestones( Name:milestone.Name, FullCode:milestone.FullCode, Code:milestone.Code, Type:milestone.Type, SuccessCriteria:milestone.SuccessCriteria, CompletePlanned:milestone.CompletePlanned, CompleteActual:milestone.CompleteActual, Complete:milestone.Complete, Weight:milestone.Weight, Percentage:milestone.Percentage, sdState:milestone.sdState, sdDescription:milestone.sdDescription, Notes:milestone.Notes, IncompleteReasons:milestone.IncompleteReasons );
+		LOG::LogInfo(message:"Milestone: Name "+milestone.Name+", Code: "+milestone.Code);
+	end for;
+	LOG::LogInfo(message:"Sending milestone set is complete. ");
+
+else
+	LOG::LogInfo(message:"Milestone: No milestones found in the system ");
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("0fb486de-51ef-4059-86fb-07272aa62973",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'ReadMilestones',
+	'Get a list of milestones related to
+an initiative. One parameter is enough
+to identify the initiative.',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("c7680951-5c72-4ed3-b1fd-13863bf8da3c",
+	"164afa80-0634-483c-873c-74974775a70c",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("c7680951-5c72-4ed3-b1fd-13863bf8da3c",
+	'SendMilestones',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("164afa80-0634-483c-873c-74974775a70c",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'SendMilestones',
 	'',
 	'../../Interfaces/Projects/Projects.xtuml');
 INSERT INTO C_I_PROXY

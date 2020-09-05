@@ -35,10 +35,10 @@ INSERT INTO O_ATTR
 	VALUES ("e4b997af-b99b-4766-9f99-75e24ad1a08b",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0",
 	"6c37ef3f-ab87-4651-8b8d-fd010ddd5dcb",
-	'Full_Code',
+	'FullCode',
 	'',
 	'',
-	'Full_Code',
+	'FullCode',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -76,9 +76,16 @@ INSERT INTO O_ATTR
 	'',
 	'Type',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
+	"6006502b-bc41-4e2c-8e85-d575451a02ee",
 	'',
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("6006502b-bc41-4e2c-8e85-d575451a02ee",
+	"00000000-0000-0000-0000-000000000000",
+	'Milestone',
+	'',
+	'',
+	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("06a85363-a931-4c6a-99b2-70b2f0f55a71",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0");
@@ -89,10 +96,10 @@ INSERT INTO O_ATTR
 	VALUES ("06a85363-a931-4c6a-99b2-70b2f0f55a71",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0",
 	"a95dce42-4816-4b41-b839-3e43e42ea84a",
-	'Success_Criteria',
+	'SuccessCriteria',
 	'',
 	'',
-	'Success_Criteria',
+	'SuccessCriteria',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -107,10 +114,10 @@ INSERT INTO O_ATTR
 	VALUES ("0a553527-2e79-4e82-b1ce-c06e69c96968",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0",
 	"06a85363-a931-4c6a-99b2-70b2f0f55a71",
-	'Complete_Planned',
+	'CompletePlanned',
 	'',
 	'',
-	'Complete_Planned',
+	'CompletePlanned',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -125,10 +132,10 @@ INSERT INTO O_ATTR
 	VALUES ("c5ca59c3-0d1a-461d-aaf1-36d3e1e470c9",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0",
 	"0a553527-2e79-4e82-b1ce-c06e69c96968",
-	'Complete_Actual',
+	'CompleteActual',
 	'',
 	'',
-	'Complete_Actual',
+	'CompleteActual',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -148,7 +155,7 @@ INSERT INTO O_ATTR
 	'',
 	'Complete',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000001",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -184,7 +191,7 @@ INSERT INTO O_ATTR
 	'',
 	'Percentage',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -197,14 +204,22 @@ INSERT INTO O_ATTR
 	VALUES ("07f45d38-2342-434b-81ec-139eb9060e45",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0",
 	"48a123eb-99f8-4d9f-b587-d5a1ad546fec",
-	'sd_State',
+	'sdState',
+	'Supporting document overall state (see class SupportingDocuments)
+',
 	'',
-	'',
-	'sd_State',
+	'sdState',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
+	"a8712fce-8917-4d5b-957e-10647cf62431",
 	'',
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("a8712fce-8917-4d5b-957e-10647cf62431",
+	"00000000-0000-0000-0000-000000000000",
+	'DocState',
+	'',
+	'',
+	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("d0373f40-bdc8-4f15-9d88-080525706b17",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0");
@@ -215,10 +230,10 @@ INSERT INTO O_ATTR
 	VALUES ("d0373f40-bdc8-4f15-9d88-080525706b17",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0",
 	"07f45d38-2342-434b-81ec-139eb9060e45",
-	'sd_Description',
+	'sdDescription',
+	'Describe what supporting documents are required.',
 	'',
-	'',
-	'sd_Description',
+	'sdDescription',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -251,10 +266,10 @@ INSERT INTO O_ATTR
 	VALUES ("2d6a1a2d-69a0-42ef-bf9f-9adc668c593a",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0",
 	"23b7c4e6-830d-4592-accd-9c657ab847b4",
-	'Incomplete_Reasons',
+	'IncompleteReasons',
 	'',
 	'',
-	'Incomplete_Reasons',
+	'IncompleteReasons',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -266,7 +281,7 @@ INSERT INTO O_OIDA
 	VALUES ("e4b997af-b99b-4766-9f99-75e24ad1a08b",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0",
 	0,
-	'Full_Code');
+	'FullCode');
 INSERT INTO O_ID
 	VALUES (1,
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0");
