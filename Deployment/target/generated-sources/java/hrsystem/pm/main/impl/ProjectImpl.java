@@ -32,14 +32,14 @@ public class ProjectImpl extends ModelInstance<Project,Pm> implements Project {
     private ProjectImpl( Pm context ) {
         this.context = context;
         m_Name = "";
-        R4_defined_by_Initiative_inst = InitiativeImpl.EMPTY_INITIATIVE;
+        R5_implements_Initiative_inst = InitiativeImpl.EMPTY_INITIATIVE;
     }
 
     private ProjectImpl( Pm context, UniqueId instanceId, String m_Name ) {
         super(instanceId);
         this.context = context;
         this.m_Name = m_Name;
-        R4_defined_by_Initiative_inst = InitiativeImpl.EMPTY_INITIATIVE;
+        R5_implements_Initiative_inst = InitiativeImpl.EMPTY_INITIATIVE;
     }
 
     public static Project create( Pm context ) throws XtumlException {
@@ -64,6 +64,11 @@ public class ProjectImpl extends ModelInstance<Project,Pm> implements Project {
     // attributes
     private String m_Name;
     @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
+    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -71,11 +76,6 @@ public class ProjectImpl extends ModelInstance<Project,Pm> implements Project {
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
-    }
-    @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
     }
 
 
@@ -91,14 +91,14 @@ public class ProjectImpl extends ModelInstance<Project,Pm> implements Project {
 
 
     // selections
-    private Initiative R4_defined_by_Initiative_inst;
+    private Initiative R5_implements_Initiative_inst;
     @Override
-    public void setR4_defined_by_Initiative( Initiative inst ) {
-        R4_defined_by_Initiative_inst = inst;
+    public void setR5_implements_Initiative( Initiative inst ) {
+        R5_implements_Initiative_inst = inst;
     }
     @Override
-    public Initiative R4_defined_by_Initiative() throws XtumlException {
-        return R4_defined_by_Initiative_inst;
+    public Initiative R5_implements_Initiative() throws XtumlException {
+        return R5_implements_Initiative_inst;
     }
 
 
@@ -134,11 +134,11 @@ public class ProjectImpl extends ModelInstance<Project,Pm> implements Project {
 class EmptyProject extends ModelInstance<Project,Pm> implements Project {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setName( String m_Name ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 
@@ -147,7 +147,7 @@ class EmptyProject extends ModelInstance<Project,Pm> implements Project {
 
     // selections
     @Override
-    public Initiative R4_defined_by_Initiative() {
+    public Initiative R5_implements_Initiative() {
         return InitiativeImpl.EMPTY_INITIATIVE;
     }
 

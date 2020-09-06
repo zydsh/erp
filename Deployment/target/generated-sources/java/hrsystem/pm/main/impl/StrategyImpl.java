@@ -35,7 +35,7 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
         m_Number = "";
         m_Name = "";
         m_Description = "";
-        R1_defines_Initiative_set = new InitiativeSetImpl();
+        R10_implemented_by_Initiative_set = new InitiativeSetImpl();
     }
 
     private StrategyImpl( Pm context, UniqueId instanceId, String m_Number, String m_Name, String m_Description ) {
@@ -44,7 +44,7 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
         this.m_Number = m_Number;
         this.m_Name = m_Name;
         this.m_Description = m_Description;
-        R1_defines_Initiative_set = new InitiativeSetImpl();
+        R10_implemented_by_Initiative_set = new InitiativeSetImpl();
     }
 
     public static Strategy create( Pm context ) throws XtumlException {
@@ -84,6 +84,11 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
     }
     private String m_Name;
     @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
+    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -91,11 +96,6 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
-    }
-    @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
     }
     private String m_Description;
     @Override
@@ -148,18 +148,18 @@ public class StrategyImpl extends ModelInstance<Strategy,Pm> implements Strategy
 
 
     // selections
-    private InitiativeSet R1_defines_Initiative_set;
+    private InitiativeSet R10_implemented_by_Initiative_set;
     @Override
-    public void addR1_defines_Initiative( Initiative inst ) {
-        R1_defines_Initiative_set.add(inst);
+    public void addR10_implemented_by_Initiative( Initiative inst ) {
+        R10_implemented_by_Initiative_set.add(inst);
     }
     @Override
-    public void removeR1_defines_Initiative( Initiative inst ) {
-        R1_defines_Initiative_set.remove(inst);
+    public void removeR10_implemented_by_Initiative( Initiative inst ) {
+        R10_implemented_by_Initiative_set.remove(inst);
     }
     @Override
-    public InitiativeSet R1_defines_Initiative() throws XtumlException {
-        return R1_defines_Initiative_set;
+    public InitiativeSet R10_implemented_by_Initiative() throws XtumlException {
+        return R10_implemented_by_Initiative_set;
     }
 
 
@@ -201,11 +201,11 @@ class EmptyStrategy extends ModelInstance<Strategy,Pm> implements Strategy {
     public void setNumber( String m_Number ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setName( String m_Name ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getDescription() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -220,7 +220,7 @@ class EmptyStrategy extends ModelInstance<Strategy,Pm> implements Strategy {
 
     // selections
     @Override
-    public InitiativeSet R1_defines_Initiative() {
+    public InitiativeSet R10_implemented_by_Initiative() {
         return (new InitiativeSetImpl());
     }
 

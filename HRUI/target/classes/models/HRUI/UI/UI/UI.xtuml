@@ -1485,7 +1485,7 @@ INSERT INTO SPR_RS
 	'ReadStrategies',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f611d3fb-9d80-4a08-af29-b6b81f33b91e",
@@ -1539,13 +1539,53 @@ INSERT INTO SPR_RS
 	'Initialize',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("e0b36002-56f9-4df1-9356-a98484736a3a",
 	"b9747524-a416-4a89-a9ef-0062b1f78a12",
 	-1,
 	'Initialize',
+	'',
+	'../../../../../ProjectMgmt/models/ProjectMgmt/Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("a241f6e2-e279-47ae-8a48-b99ac2f1cc54",
+	"0fb486de-51ef-4059-86fb-07272aa62973",
+	"172ad968-3c5c-47a8-b686-fa95025756b2");
+INSERT INTO SPR_RS
+	VALUES ("a241f6e2-e279-47ae-8a48-b99ac2f1cc54",
+	'ReadMilestones',
+	'Get a list of milestones related to
+an initiative. One parameter is enough
+to identify the initiative.',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("0fb486de-51ef-4059-86fb-07272aa62973",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'ReadMilestones',
+	'Get a list of milestones related to
+an initiative. One parameter is enough
+to identify the initiative.',
+	'../../../../../ProjectMgmt/models/ProjectMgmt/Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("2bf39f28-8cdb-483c-b0c0-134e4416fc07",
+	"164afa80-0634-483c-873c-74974775a70c",
+	"172ad968-3c5c-47a8-b686-fa95025756b2");
+INSERT INTO SPR_RS
+	VALUES ("2bf39f28-8cdb-483c-b0c0-134e4416fc07",
+	'SendMilestones',
+	'',
+	'::SendMilestones( Name:param.Name, FullCode:param.FullCode, Code:param.Code, Type:param.Type, SuccessCriteria:param.SuccessCriteria, CompletePlanned:param.CompletePlanned, CompleteActual:param.CompleteActual, Complete:param.Complete, Weight:param.Weight, Percentage:param.Percentage, sdState:param.sdState, sdDescription:param.sdDescription, Notes:param.Notes, IncompleteReasons:param.Notes);',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("164afa80-0634-483c-873c-74974775a70c",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'SendMilestones',
 	'',
 	'../../../../../ProjectMgmt/models/ProjectMgmt/Interfaces/Projects/Projects.xtuml');
 INSERT INTO C_I_PROXY

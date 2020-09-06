@@ -11,16 +11,16 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Project extends IModelInstance<Project,Pm> {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
 
 
     // operations
 
 
     // selections
-    default public void setR4_defined_by_Initiative( Initiative inst ) {}
-    public Initiative R4_defined_by_Initiative() throws XtumlException;
+    default public void setR5_implements_Initiative( Initiative inst ) {}
+    public Initiative R5_implements_Initiative() throws XtumlException;
 
 
 }

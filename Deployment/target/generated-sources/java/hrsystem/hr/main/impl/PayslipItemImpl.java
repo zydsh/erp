@@ -78,11 +78,6 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
-    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -90,6 +85,11 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
+    }
+    @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
     }
     private double m_Amount;
     @Override
@@ -219,11 +219,11 @@ public class PayslipItemImpl extends ModelInstance<PayslipItem,Hr> implements Pa
 class EmptyPayslipItem extends ModelInstance<PayslipItem,Hr> implements PayslipItem {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

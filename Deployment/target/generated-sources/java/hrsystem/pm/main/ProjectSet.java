@@ -14,7 +14,7 @@ public interface ProjectSet extends IInstanceSet<ProjectSet,Project> {
 
 
     // selections
-    public InitiativeSet R4_defined_by_Initiative() throws XtumlException;
+    public InitiativeSet R5_implements_Initiative() throws XtumlException;
 
 
 }

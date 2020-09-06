@@ -15,8 +15,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface PayslipItem extends IModelInstance<PayslipItem,Hr> {
 
     // attributes
-    public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
+    public String getName() throws XtumlException;
     public double getAmount() throws XtumlException;
     public void setAmount( double m_Amount ) throws XtumlException;
     public int getDate() throws XtumlException;

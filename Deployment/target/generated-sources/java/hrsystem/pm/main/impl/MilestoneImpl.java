@@ -35,42 +35,42 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     private MilestoneImpl( Pm context ) {
         this.context = context;
         m_Name = "";
-        m_Full_Code = "";
+        m_FullCode = "";
         m_Code = "";
         m_Type = "";
-        m_Success_Criteria = "";
-        m_Complete_Planned = 0;
-        m_Complete_Actual = 0;
-        m_Complete = 0;
+        m_SuccessCriteria = "";
+        m_CompletePlanned = 0;
+        m_CompleteActual = 0;
+        m_Complete = false;
         m_Weight = 0;
-        m_Percentage = 0;
-        m_sd_State = "";
-        m_sd_Description = "";
+        m_Percentage = 0d;
+        m_sdState = "";
+        m_sdDescription = "";
         m_Notes = "";
-        m_Incomplete_Reasons = "";
-        R2_achieved_by_Initiative_inst = InitiativeImpl.EMPTY_INITIATIVE;
+        m_IncompleteReasons = "";
         R3_completed_with_Supporting_Documents_set = new Supporting_DocumentsSetImpl();
+        R60_achieved_by_Initiative_inst = InitiativeImpl.EMPTY_INITIATIVE;
     }
 
-    private MilestoneImpl( Pm context, UniqueId instanceId, String m_Name, String m_Full_Code, String m_Code, String m_Type, String m_Success_Criteria, int m_Complete_Planned, int m_Complete_Actual, int m_Complete, int m_Weight, int m_Percentage, String m_sd_State, String m_sd_Description, String m_Notes, String m_Incomplete_Reasons ) {
+    private MilestoneImpl( Pm context, UniqueId instanceId, String m_Name, String m_FullCode, String m_Code, String m_Type, String m_SuccessCriteria, int m_CompletePlanned, int m_CompleteActual, boolean m_Complete, int m_Weight, double m_Percentage, String m_sdState, String m_sdDescription, String m_Notes, String m_IncompleteReasons ) {
         super(instanceId);
         this.context = context;
         this.m_Name = m_Name;
-        this.m_Full_Code = m_Full_Code;
+        this.m_FullCode = m_FullCode;
         this.m_Code = m_Code;
         this.m_Type = m_Type;
-        this.m_Success_Criteria = m_Success_Criteria;
-        this.m_Complete_Planned = m_Complete_Planned;
-        this.m_Complete_Actual = m_Complete_Actual;
+        this.m_SuccessCriteria = m_SuccessCriteria;
+        this.m_CompletePlanned = m_CompletePlanned;
+        this.m_CompleteActual = m_CompleteActual;
         this.m_Complete = m_Complete;
         this.m_Weight = m_Weight;
         this.m_Percentage = m_Percentage;
-        this.m_sd_State = m_sd_State;
-        this.m_sd_Description = m_sd_Description;
+        this.m_sdState = m_sdState;
+        this.m_sdDescription = m_sdDescription;
         this.m_Notes = m_Notes;
-        this.m_Incomplete_Reasons = m_Incomplete_Reasons;
-        R2_achieved_by_Initiative_inst = InitiativeImpl.EMPTY_INITIATIVE;
+        this.m_IncompleteReasons = m_IncompleteReasons;
         R3_completed_with_Supporting_Documents_set = new Supporting_DocumentsSetImpl();
+        R60_achieved_by_Initiative_inst = InitiativeImpl.EMPTY_INITIATIVE;
     }
 
     public static Milestone create( Pm context ) throws XtumlException {
@@ -82,8 +82,8 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Milestone create( Pm context, UniqueId instanceId, String m_Name, String m_Full_Code, String m_Code, String m_Type, String m_Success_Criteria, int m_Complete_Planned, int m_Complete_Actual, int m_Complete, int m_Weight, int m_Percentage, String m_sd_State, String m_sd_Description, String m_Notes, String m_Incomplete_Reasons ) throws XtumlException {
-        Milestone newMilestone = new MilestoneImpl( context, instanceId, m_Name, m_Full_Code, m_Code, m_Type, m_Success_Criteria, m_Complete_Planned, m_Complete_Actual, m_Complete, m_Weight, m_Percentage, m_sd_State, m_sd_Description, m_Notes, m_Incomplete_Reasons );
+    public static Milestone create( Pm context, UniqueId instanceId, String m_Name, String m_FullCode, String m_Code, String m_Type, String m_SuccessCriteria, int m_CompletePlanned, int m_CompleteActual, boolean m_Complete, int m_Weight, double m_Percentage, String m_sdState, String m_sdDescription, String m_Notes, String m_IncompleteReasons ) throws XtumlException {
+        Milestone newMilestone = new MilestoneImpl( context, instanceId, m_Name, m_FullCode, m_Code, m_Type, m_SuccessCriteria, m_CompletePlanned, m_CompleteActual, m_Complete, m_Weight, m_Percentage, m_sdState, m_sdDescription, m_Notes, m_IncompleteReasons );
         if ( context.addInstance( newMilestone ) ) {
             return newMilestone;
         }
@@ -95,11 +95,6 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
-    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -108,20 +103,25 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
     }
-    private String m_Full_Code;
     @Override
-    public String getFull_Code() throws XtumlException {
+    public String getName() throws XtumlException {
         checkLiving();
-        return m_Full_Code;
+        return m_Name;
+    }
+    private String m_FullCode;
+    @Override
+    public void setFullCode(String m_FullCode) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_FullCode, this.m_FullCode)) {
+            final String oldValue = this.m_FullCode;
+            this.m_FullCode = m_FullCode;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_FullCode", oldValue, this.m_FullCode));
+        }
     }
     @Override
-    public void setFull_Code(String m_Full_Code) throws XtumlException {
+    public String getFullCode() throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Full_Code, this.m_Full_Code)) {
-            final String oldValue = this.m_Full_Code;
-            this.m_Full_Code = m_Full_Code;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Full_Code", oldValue, this.m_Full_Code));
-        }
+        return m_FullCode;
     }
     private String m_Code;
     @Override
@@ -140,11 +140,6 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     }
     private String m_Type;
     @Override
-    public String getType() throws XtumlException {
-        checkLiving();
-        return m_Type;
-    }
-    @Override
     public void setType(String m_Type) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Type, this.m_Type)) {
@@ -153,67 +148,77 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Type", oldValue, this.m_Type));
         }
     }
-    private String m_Success_Criteria;
     @Override
-    public String getSuccess_Criteria() throws XtumlException {
+    public String getType() throws XtumlException {
         checkLiving();
-        return m_Success_Criteria;
+        return m_Type;
+    }
+    private String m_SuccessCriteria;
+    @Override
+    public String getSuccessCriteria() throws XtumlException {
+        checkLiving();
+        return m_SuccessCriteria;
     }
     @Override
-    public void setSuccess_Criteria(String m_Success_Criteria) throws XtumlException {
+    public void setSuccessCriteria(String m_SuccessCriteria) throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Success_Criteria, this.m_Success_Criteria)) {
-            final String oldValue = this.m_Success_Criteria;
-            this.m_Success_Criteria = m_Success_Criteria;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Success_Criteria", oldValue, this.m_Success_Criteria));
+        if (StringUtil.inequality(m_SuccessCriteria, this.m_SuccessCriteria)) {
+            final String oldValue = this.m_SuccessCriteria;
+            this.m_SuccessCriteria = m_SuccessCriteria;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_SuccessCriteria", oldValue, this.m_SuccessCriteria));
         }
     }
-    private int m_Complete_Planned;
+    private int m_CompletePlanned;
     @Override
-    public void setComplete_Planned(int m_Complete_Planned) throws XtumlException {
+    public int getCompletePlanned() throws XtumlException {
         checkLiving();
-        if (m_Complete_Planned != this.m_Complete_Planned) {
-            final int oldValue = this.m_Complete_Planned;
-            this.m_Complete_Planned = m_Complete_Planned;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Complete_Planned", oldValue, this.m_Complete_Planned));
+        return m_CompletePlanned;
+    }
+    @Override
+    public void setCompletePlanned(int m_CompletePlanned) throws XtumlException {
+        checkLiving();
+        if (m_CompletePlanned != this.m_CompletePlanned) {
+            final int oldValue = this.m_CompletePlanned;
+            this.m_CompletePlanned = m_CompletePlanned;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_CompletePlanned", oldValue, this.m_CompletePlanned));
         }
     }
+    private int m_CompleteActual;
     @Override
-    public int getComplete_Planned() throws XtumlException {
+    public int getCompleteActual() throws XtumlException {
         checkLiving();
-        return m_Complete_Planned;
-    }
-    private int m_Complete_Actual;
-    @Override
-    public int getComplete_Actual() throws XtumlException {
-        checkLiving();
-        return m_Complete_Actual;
+        return m_CompleteActual;
     }
     @Override
-    public void setComplete_Actual(int m_Complete_Actual) throws XtumlException {
+    public void setCompleteActual(int m_CompleteActual) throws XtumlException {
         checkLiving();
-        if (m_Complete_Actual != this.m_Complete_Actual) {
-            final int oldValue = this.m_Complete_Actual;
-            this.m_Complete_Actual = m_Complete_Actual;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Complete_Actual", oldValue, this.m_Complete_Actual));
+        if (m_CompleteActual != this.m_CompleteActual) {
+            final int oldValue = this.m_CompleteActual;
+            this.m_CompleteActual = m_CompleteActual;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_CompleteActual", oldValue, this.m_CompleteActual));
         }
     }
-    private int m_Complete;
+    private boolean m_Complete;
     @Override
-    public void setComplete(int m_Complete) throws XtumlException {
+    public boolean getComplete() throws XtumlException {
+        checkLiving();
+        return m_Complete;
+    }
+    @Override
+    public void setComplete(boolean m_Complete) throws XtumlException {
         checkLiving();
         if (m_Complete != this.m_Complete) {
-            final int oldValue = this.m_Complete;
+            final boolean oldValue = this.m_Complete;
             this.m_Complete = m_Complete;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Complete", oldValue, this.m_Complete));
         }
     }
-    @Override
-    public int getComplete() throws XtumlException {
-        checkLiving();
-        return m_Complete;
-    }
     private int m_Weight;
+    @Override
+    public int getWeight() throws XtumlException {
+        checkLiving();
+        return m_Weight;
+    }
     @Override
     public void setWeight(int m_Weight) throws XtumlException {
         checkLiving();
@@ -223,62 +228,52 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Weight", oldValue, this.m_Weight));
         }
     }
+    private double m_Percentage;
     @Override
-    public int getWeight() throws XtumlException {
-        checkLiving();
-        return m_Weight;
-    }
-    private int m_Percentage;
-    @Override
-    public int getPercentage() throws XtumlException {
-        checkLiving();
-        return m_Percentage;
-    }
-    @Override
-    public void setPercentage(int m_Percentage) throws XtumlException {
+    public void setPercentage(double m_Percentage) throws XtumlException {
         checkLiving();
         if (m_Percentage != this.m_Percentage) {
-            final int oldValue = this.m_Percentage;
+            final double oldValue = this.m_Percentage;
             this.m_Percentage = m_Percentage;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Percentage", oldValue, this.m_Percentage));
         }
     }
-    private String m_sd_State;
     @Override
-    public String getSd_State() throws XtumlException {
+    public double getPercentage() throws XtumlException {
         checkLiving();
-        return m_sd_State;
+        return m_Percentage;
     }
+    private String m_sdState;
     @Override
-    public void setSd_State(String m_sd_State) throws XtumlException {
+    public void setSdState(String m_sdState) throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_sd_State, this.m_sd_State)) {
-            final String oldValue = this.m_sd_State;
-            this.m_sd_State = m_sd_State;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_sd_State", oldValue, this.m_sd_State));
+        if (StringUtil.inequality(m_sdState, this.m_sdState)) {
+            final String oldValue = this.m_sdState;
+            this.m_sdState = m_sdState;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_sdState", oldValue, this.m_sdState));
         }
     }
-    private String m_sd_Description;
     @Override
-    public String getSd_Description() throws XtumlException {
+    public String getSdState() throws XtumlException {
         checkLiving();
-        return m_sd_Description;
+        return m_sdState;
+    }
+    private String m_sdDescription;
+    @Override
+    public void setSdDescription(String m_sdDescription) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_sdDescription, this.m_sdDescription)) {
+            final String oldValue = this.m_sdDescription;
+            this.m_sdDescription = m_sdDescription;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_sdDescription", oldValue, this.m_sdDescription));
+        }
     }
     @Override
-    public void setSd_Description(String m_sd_Description) throws XtumlException {
+    public String getSdDescription() throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_sd_Description, this.m_sd_Description)) {
-            final String oldValue = this.m_sd_Description;
-            this.m_sd_Description = m_sd_Description;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_sd_Description", oldValue, this.m_sd_Description));
-        }
+        return m_sdDescription;
     }
     private String m_Notes;
-    @Override
-    public String getNotes() throws XtumlException {
-        checkLiving();
-        return m_Notes;
-    }
     @Override
     public void setNotes(String m_Notes) throws XtumlException {
         checkLiving();
@@ -288,20 +283,25 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Notes", oldValue, this.m_Notes));
         }
     }
-    private String m_Incomplete_Reasons;
     @Override
-    public void setIncomplete_Reasons(String m_Incomplete_Reasons) throws XtumlException {
+    public String getNotes() throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Incomplete_Reasons, this.m_Incomplete_Reasons)) {
-            final String oldValue = this.m_Incomplete_Reasons;
-            this.m_Incomplete_Reasons = m_Incomplete_Reasons;
-            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Incomplete_Reasons", oldValue, this.m_Incomplete_Reasons));
+        return m_Notes;
+    }
+    private String m_IncompleteReasons;
+    @Override
+    public void setIncompleteReasons(String m_IncompleteReasons) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_IncompleteReasons, this.m_IncompleteReasons)) {
+            final String oldValue = this.m_IncompleteReasons;
+            this.m_IncompleteReasons = m_IncompleteReasons;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_IncompleteReasons", oldValue, this.m_IncompleteReasons));
         }
     }
     @Override
-    public String getIncomplete_Reasons() throws XtumlException {
+    public String getIncompleteReasons() throws XtumlException {
         checkLiving();
-        return m_Incomplete_Reasons;
+        return m_IncompleteReasons;
     }
 
 
@@ -309,7 +309,7 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     @Override
     public IInstanceIdentifier getId1() {
         try {
-            return new InstanceIdentifier(getFull_Code());
+            return new InstanceIdentifier(getFullCode());
         }
         catch ( XtumlException e ) {
             getRunContext().getLog().error(e);
@@ -339,15 +339,6 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
 
 
     // selections
-    private Initiative R2_achieved_by_Initiative_inst;
-    @Override
-    public void setR2_achieved_by_Initiative( Initiative inst ) {
-        R2_achieved_by_Initiative_inst = inst;
-    }
-    @Override
-    public Initiative R2_achieved_by_Initiative() throws XtumlException {
-        return R2_achieved_by_Initiative_inst;
-    }
     private Supporting_DocumentsSet R3_completed_with_Supporting_Documents_set;
     @Override
     public void addR3_completed_with_Supporting_Documents( Supporting_Documents inst ) {
@@ -360,6 +351,15 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     @Override
     public Supporting_DocumentsSet R3_completed_with_Supporting_Documents() throws XtumlException {
         return R3_completed_with_Supporting_Documents_set;
+    }
+    private Initiative R60_achieved_by_Initiative_inst;
+    @Override
+    public void setR60_achieved_by_Initiative( Initiative inst ) {
+        R60_achieved_by_Initiative_inst = inst;
+    }
+    @Override
+    public Initiative R60_achieved_by_Initiative() throws XtumlException {
+        return R60_achieved_by_Initiative_inst;
     }
 
 
@@ -395,17 +395,17 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
 class EmptyMilestone extends ModelInstance<Milestone,Pm> implements Milestone {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getFull_Code() throws XtumlException {
+    public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setFull_Code( String m_Full_Code ) throws XtumlException {
+    public void setFullCode( String m_FullCode ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getFullCode() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setCode( String m_Code ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -413,70 +413,70 @@ class EmptyMilestone extends ModelInstance<Milestone,Pm> implements Milestone {
     public String getCode() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getType() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setType( String m_Type ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getSuccess_Criteria() throws XtumlException {
+    public String getType() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setSuccess_Criteria( String m_Success_Criteria ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
-    public void setComplete_Planned( int m_Complete_Planned ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
-    public int getComplete_Planned() throws XtumlException {
+    public String getSuccessCriteria() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getComplete_Actual() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
-    public void setComplete_Actual( int m_Complete_Actual ) throws XtumlException {
+    public void setSuccessCriteria( String m_SuccessCriteria ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setComplete( int m_Complete ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
-    public int getComplete() throws XtumlException {
+    public int getCompletePlanned() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setWeight( int m_Weight ) throws XtumlException {
+    public void setCompletePlanned( int m_CompletePlanned ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getCompleteActual() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setCompleteActual( int m_CompleteActual ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public boolean getComplete() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setComplete( boolean m_Complete ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getWeight() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getPercentage() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
-    public void setPercentage( int m_Percentage ) throws XtumlException {
+    public void setWeight( int m_Weight ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getSd_State() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
-    public void setSd_State( String m_sd_State ) throws XtumlException {
+    public void setPercentage( double m_Percentage ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getSd_Description() throws XtumlException {
+    public double getPercentage() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setSd_Description( String m_sd_Description ) throws XtumlException {
+    public void setSdState( String m_sdState ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getNotes() throws XtumlException {
+    public String getSdState() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setSdDescription( String m_sdDescription ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getSdDescription() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setNotes( String m_Notes ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setIncomplete_Reasons( String m_Incomplete_Reasons ) throws XtumlException {
+    public String getNotes() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setIncompleteReasons( String m_IncompleteReasons ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getIncomplete_Reasons() throws XtumlException {
+    public String getIncompleteReasons() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
@@ -486,12 +486,12 @@ class EmptyMilestone extends ModelInstance<Milestone,Pm> implements Milestone {
 
     // selections
     @Override
-    public Initiative R2_achieved_by_Initiative() {
-        return InitiativeImpl.EMPTY_INITIATIVE;
-    }
-    @Override
     public Supporting_DocumentsSet R3_completed_with_Supporting_Documents() {
         return (new Supporting_DocumentsSetImpl());
+    }
+    @Override
+    public Initiative R60_achieved_by_Initiative() {
+        return InitiativeImpl.EMPTY_INITIATIVE;
     }
 
 

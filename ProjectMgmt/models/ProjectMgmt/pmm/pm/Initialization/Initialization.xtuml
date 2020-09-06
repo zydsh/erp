@@ -24,7 +24,7 @@ INSERT INTO GD_MD
 	0,
 	0,
 	0,
-	'',
+	'4.1.17',
 	'ProjectMgmt::pmm::pm::Initialization');
 INSERT INTO DIM_DIA
 	VALUES ("956862db-c3e7-438e-bef6-8c180863cdda",
@@ -81,25 +81,28 @@ init.ActualEndDate=0;
 init.EndDate = 0;
 init.Budget= 800000;
 
-relate init to str1 across R1.''defined by'';
+relate init to str1 across R10.''implements'';
 
 create object instance mile of Milestone;
 mile.Name = "اكتمال الدراسات المساندة";
 mile.FullCode= "M-01-687";
 mile.Code="1";
-mile.Type= SharedTypes::Milestone::Milestone;
+mile.Type= "";//SharedTypes::Milestone::Milestone;
 mile.SuccessCriteria="تسليم التقرير";//= SharedTypes::Milestone::Milestone;
 mile.CompleteActual = 0;
 mile.CompletePlanned = 0;
 mile.Complete= false;
 mile.Weight=5;
 mile.Percentage = 5;
-mile.sdState = SharedTypes::DocState::NotSubmitted;
+mile.sdState ="";// SharedTypes::DocState::NotSubmitted;
 mile.sdDescription="";
 mile.Notes = "";
 mile.IncompleteReasons= "";
 
-relate mile to init across R2.''achieved by'';
+relate mile to init across R60.''achieved by'';
+
+
+
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
@@ -116,18 +119,13 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'CreatePEI_Initiatives',
 	'',
-	'create object instance init of Initiative;
-init.Name = "";
-init.ShortNumber = "";
-init.LongNumber = "";
-init.Description= "";
-init.StartDate=0;
-init.ActualStartDate=0;
-init.ActualEndDate=0;
-init.EndDate = 0;
-init.Budget= 0;
+	'create object instance marc of Marco;
+marc.Name="marco";
 
-//relate init
+create object instance polo of Polo; 
+polo.Name = "polo";
+
+relate polo to marc across R101.''follows''; 
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,

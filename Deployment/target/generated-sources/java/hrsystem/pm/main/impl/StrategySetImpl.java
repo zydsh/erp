@@ -25,24 +25,24 @@ public class StrategySetImpl extends InstanceSet<StrategySet,Strategy> implement
 
     // attributes
     @Override
-    public void setDescription( String m_Description ) throws XtumlException {
-        for ( Strategy strategy : this ) strategy.setDescription( m_Description );
+    public void setNumber( String m_Number ) throws XtumlException {
+        for ( Strategy strategy : this ) strategy.setNumber( m_Number );
     }
     @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( Strategy strategy : this ) strategy.setName( m_Name );
     }
     @Override
-    public void setNumber( String m_Number ) throws XtumlException {
-        for ( Strategy strategy : this ) strategy.setNumber( m_Number );
+    public void setDescription( String m_Description ) throws XtumlException {
+        for ( Strategy strategy : this ) strategy.setDescription( m_Description );
     }
 
 
     // selections
     @Override
-    public InitiativeSet R1_defines_Initiative() throws XtumlException {
+    public InitiativeSet R10_implemented_by_Initiative() throws XtumlException {
         InitiativeSet initiativeset = new InitiativeSetImpl();
-        for ( Strategy strategy : this ) initiativeset.addAll( strategy.R1_defines_Initiative() );
+        for ( Strategy strategy : this ) initiativeset.addAll( strategy.R10_implemented_by_Initiative() );
         return initiativeset;
     }
 

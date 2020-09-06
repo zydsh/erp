@@ -83,7 +83,6 @@ dollarSign = "$";
 paran = ")";
 
 name = "7(!d&"+param.FirstLastName;//+STRING::itoa(i:param.CurrentSeconds);
-
 return name;
 
 ',

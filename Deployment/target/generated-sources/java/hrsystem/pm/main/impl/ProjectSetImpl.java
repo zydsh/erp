@@ -32,9 +32,9 @@ public class ProjectSetImpl extends InstanceSet<ProjectSet,Project> implements P
 
     // selections
     @Override
-    public InitiativeSet R4_defined_by_Initiative() throws XtumlException {
+    public InitiativeSet R5_implements_Initiative() throws XtumlException {
         InitiativeSet initiativeset = new InitiativeSetImpl();
-        for ( Project project : this ) initiativeset.add( project.R4_defined_by_Initiative() );
+        for ( Project project : this ) initiativeset.add( project.R5_implements_Initiative() );
         return initiativeset;
     }
 

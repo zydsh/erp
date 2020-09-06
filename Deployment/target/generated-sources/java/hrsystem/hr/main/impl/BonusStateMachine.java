@@ -55,8 +55,8 @@ public class BonusStateMachine extends StateMachine<Bonus,Hr> {
     @Override
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
-            { (event) -> {Active_deactivateBonus_txn_to_Inactive_action();Inactive_entry_action();return Inactive;},
-              (event) -> {Active_payBonus_txn_to_Active_action();Active_entry_action();return Active;},
+            { (event) -> {Active_payBonus_txn_to_Active_action();Active_entry_action();return Active;},
+              (event) -> {Active_deactivateBonus_txn_to_Inactive_action();Inactive_entry_action();return Inactive;},
               CANT_HAPPEN
             },
             { CANT_HAPPEN,

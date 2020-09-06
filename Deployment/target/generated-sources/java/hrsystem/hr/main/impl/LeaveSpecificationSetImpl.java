@@ -29,12 +29,12 @@ public class LeaveSpecificationSetImpl extends InstanceSet<LeaveSpecificationSet
         for ( LeaveSpecification leavespecification : this ) leavespecification.setMaximumDays( m_MaximumDays );
     }
     @Override
-    public void setMinimumDays( int m_MinimumDays ) throws XtumlException {
-        for ( LeaveSpecification leavespecification : this ) leavespecification.setMinimumDays( m_MinimumDays );
-    }
-    @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( LeaveSpecification leavespecification : this ) leavespecification.setName( m_Name );
+    }
+    @Override
+    public void setMinimumDays( int m_MinimumDays ) throws XtumlException {
+        for ( LeaveSpecification leavespecification : this ) leavespecification.setMinimumDays( m_MinimumDays );
     }
 
 

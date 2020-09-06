@@ -89,11 +89,6 @@ public class JobRecordImpl extends ModelInstance<JobRecord,Hr> implements JobRec
     }
     private int m_StartingDate;
     @Override
-    public int getStartingDate() throws XtumlException {
-        checkLiving();
-        return m_StartingDate;
-    }
-    @Override
     public void setStartingDate(int m_StartingDate) throws XtumlException {
         checkLiving();
         if (m_StartingDate != this.m_StartingDate) {
@@ -101,6 +96,11 @@ public class JobRecordImpl extends ModelInstance<JobRecord,Hr> implements JobRec
             this.m_StartingDate = m_StartingDate;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_StartingDate", oldValue, this.m_StartingDate));
         }
+    }
+    @Override
+    public int getStartingDate() throws XtumlException {
+        checkLiving();
+        return m_StartingDate;
     }
 
 
@@ -192,11 +192,11 @@ class EmptyJobRecord extends ModelInstance<JobRecord,Hr> implements JobRecord {
     public void setEndDate( int m_EndDate ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public int getStartingDate() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setStartingDate( int m_StartingDate ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getStartingDate() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

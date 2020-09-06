@@ -21,16 +21,16 @@ public interface Initiative extends IModelInstance<Initiative,Pm> {
     public String getShortNumber() throws XtumlException;
     public String getLongNumber() throws XtumlException;
     public void setLongNumber( String m_LongNumber ) throws XtumlException;
-    public void setDescription( String m_Description ) throws XtumlException;
     public String getDescription() throws XtumlException;
-    public int getStartDate() throws XtumlException;
+    public void setDescription( String m_Description ) throws XtumlException;
     public void setStartDate( int m_StartDate ) throws XtumlException;
-    public void setActualStartDate( int m_ActualStartDate ) throws XtumlException;
+    public int getStartDate() throws XtumlException;
     public int getActualStartDate() throws XtumlException;
-    public int getEndDate() throws XtumlException;
+    public void setActualStartDate( int m_ActualStartDate ) throws XtumlException;
     public void setEndDate( int m_EndDate ) throws XtumlException;
-    public void setActualEndDate( int m_ActualEndDate ) throws XtumlException;
+    public int getEndDate() throws XtumlException;
     public int getActualEndDate() throws XtumlException;
+    public void setActualEndDate( int m_ActualEndDate ) throws XtumlException;
     public void setBudget( double m_Budget ) throws XtumlException;
     public double getBudget() throws XtumlException;
 
@@ -39,14 +39,14 @@ public interface Initiative extends IModelInstance<Initiative,Pm> {
 
 
     // selections
-    default public void setR1_defined_by_Strategy( Strategy inst ) {}
-    public Strategy R1_defined_by_Strategy() throws XtumlException;
-    default public void addR2_achieves_Milestone( Milestone inst ) {}
-    default public void removeR2_achieves_Milestone( Milestone inst ) {}
-    public MilestoneSet R2_achieves_Milestone() throws XtumlException;
-    default public void addR4_defines_Project( Project inst ) {}
-    default public void removeR4_defines_Project( Project inst ) {}
-    public ProjectSet R4_defines_Project() throws XtumlException;
+    default public void setR10_implements_Strategy( Strategy inst ) {}
+    public Strategy R10_implements_Strategy() throws XtumlException;
+    default public void addR5_implemented_Project( Project inst ) {}
+    default public void removeR5_implemented_Project( Project inst ) {}
+    public ProjectSet R5_implemented_Project() throws XtumlException;
+    default public void addR60_achieves_Milestone( Milestone inst ) {}
+    default public void removeR60_achieves_Milestone( Milestone inst ) {}
+    public MilestoneSet R60_achieves_Milestone() throws XtumlException;
 
 
 }

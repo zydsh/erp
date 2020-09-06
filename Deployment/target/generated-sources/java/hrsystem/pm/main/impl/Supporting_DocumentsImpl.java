@@ -70,11 +70,6 @@ public class Supporting_DocumentsImpl extends ModelInstance<Supporting_Documents
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
-    @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Name, this.m_Name)) {
@@ -83,12 +78,12 @@ public class Supporting_DocumentsImpl extends ModelInstance<Supporting_Documents
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
     }
-    private String m_Document;
     @Override
-    public String getDocument() throws XtumlException {
+    public String getName() throws XtumlException {
         checkLiving();
-        return m_Document;
+        return m_Name;
     }
+    private String m_Document;
     @Override
     public void setDocument(String m_Document) throws XtumlException {
         checkLiving();
@@ -97,6 +92,11 @@ public class Supporting_DocumentsImpl extends ModelInstance<Supporting_Documents
             this.m_Document = m_Document;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Document", oldValue, this.m_Document));
         }
+    }
+    @Override
+    public String getDocument() throws XtumlException {
+        checkLiving();
+        return m_Document;
     }
     private String m_State;
     @Override
@@ -115,6 +115,11 @@ public class Supporting_DocumentsImpl extends ModelInstance<Supporting_Documents
     }
     private String m_Notes;
     @Override
+    public String getNotes() throws XtumlException {
+        checkLiving();
+        return m_Notes;
+    }
+    @Override
     public void setNotes(String m_Notes) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Notes, this.m_Notes)) {
@@ -122,11 +127,6 @@ public class Supporting_DocumentsImpl extends ModelInstance<Supporting_Documents
             this.m_Notes = m_Notes;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Notes", oldValue, this.m_Notes));
         }
-    }
-    @Override
-    public String getNotes() throws XtumlException {
-        checkLiving();
-        return m_Notes;
     }
 
 
@@ -196,17 +196,17 @@ public class Supporting_DocumentsImpl extends ModelInstance<Supporting_Documents
 class EmptySupporting_Documents extends ModelInstance<Supporting_Documents,Pm> implements Supporting_Documents {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getDocument() throws XtumlException {
+    public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setDocument( String m_Document ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getDocument() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setState( String m_State ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -214,11 +214,11 @@ class EmptySupporting_Documents extends ModelInstance<Supporting_Documents,Pm> i
     public String getState() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setNotes( String m_Notes ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getNotes() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setNotes( String m_Notes ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

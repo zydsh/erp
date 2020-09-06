@@ -183,19 +183,12 @@ INSERT INTO C_PP
 INSERT INTO C_PP
 	VALUES ("6f1358d8-5fda-42b3-b127-9d359b4e8f6d",
 	"164afa80-0634-483c-873c-74974775a70c",
-	"6006502b-bc41-4e2c-8e85-d575451a02ee",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'Type',
 	'',
 	0,
 	'',
 	"7ae660c5-cab3-4139-9eaa-003acd597df9");
-INSERT INTO S_DT_PROXY
-	VALUES ("6006502b-bc41-4e2c-8e85-d575451a02ee",
-	"00000000-0000-0000-0000-000000000000",
-	'Milestone',
-	'',
-	'',
-	'../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO C_PP
 	VALUES ("bd80fbf0-567e-4103-b77b-daef529dab8e",
 	"164afa80-0634-483c-873c-74974775a70c",

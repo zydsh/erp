@@ -76,16 +76,9 @@ INSERT INTO O_ATTR
 	'',
 	'Type',
 	0,
-	"6006502b-bc41-4e2c-8e85-d575451a02ee",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("6006502b-bc41-4e2c-8e85-d575451a02ee",
-	"00000000-0000-0000-0000-000000000000",
-	'Milestone',
-	'',
-	'',
-	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("06a85363-a931-4c6a-99b2-70b2f0f55a71",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0");
@@ -210,16 +203,9 @@ INSERT INTO O_ATTR
 	'',
 	'sdState',
 	0,
-	"a8712fce-8917-4d5b-957e-10647cf62431",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("a8712fce-8917-4d5b-957e-10647cf62431",
-	"00000000-0000-0000-0000-000000000000",
-	'DocState',
-	'',
-	'',
-	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("d0373f40-bdc8-4f15-9d88-080525706b17",
 	"459e4ea3-148e-4a3c-b65b-f4d081c491f0");
