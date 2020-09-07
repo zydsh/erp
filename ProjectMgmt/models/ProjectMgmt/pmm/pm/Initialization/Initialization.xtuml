@@ -52,7 +52,7 @@ INSERT INTO PE_PE
 INSERT INTO S_SYNC
 	VALUES ("b294353c-348a-4d3d-940c-92a711a36b27",
 	"00000000-0000-0000-0000-000000000000",
-	'CreatePEI_Strategies',
+	'CreatePEIs',
 	'',
 	'create object instance str1 of Strategy;
 	str1.Number = "Str 1";
@@ -120,6 +120,24 @@ mile.IncompleteReasons= "";
 relate mile to init across R60.''achieved by'';
 
 
+create object instance mile of Milestone;
+mile.Name = "اكتمال مسودة التنظيم";
+mile.FullCode= "M-03-687";
+mile.Code="3";
+mile.Type= "معلم";//SharedTypes::Milestone::Milestone;
+mile.SuccessCriteria="تسليم التقرير";//= SharedTypes::Milestone::Milestone;
+mile.CompleteActual = 0;
+mile.CompletePlanned = 0;
+mile.Complete= True;
+mile.Weight=15;
+mile.Percentage = 25;
+mile.sdState ="";// SharedTypes::DocState::NotSubmitted;
+mile.sdDescription="مسودة التنظيم";
+mile.Notes = ""; 
+mile.IncompleteReasons= "";
+
+relate mile to init across R60.''achieved by'';
+
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
@@ -127,22 +145,6 @@ relate mile to init across R60.''achieved by'';
 	0);
 INSERT INTO PE_PE
 	VALUES ("b294353c-348a-4d3d-940c-92a711a36b27",
-	1,
-	"d8941aac-fe97-4ede-8994-e08f0fa770a0",
-	"00000000-0000-0000-0000-000000000000",
-	1);
-INSERT INTO S_SYNC
-	VALUES ("da8a5b03-d0b6-4638-a83e-47cee8a1aaf9",
-	"00000000-0000-0000-0000-000000000000",
-	'CreatePEI_Initiatives',
-	'',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	1,
-	'',
-	0);
-INSERT INTO PE_PE
-	VALUES ("da8a5b03-d0b6-4638-a83e-47cee8a1aaf9",
 	1,
 	"d8941aac-fe97-4ede-8994-e08f0fa770a0",
 	"00000000-0000-0000-0000-000000000000",

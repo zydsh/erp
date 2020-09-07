@@ -90,18 +90,18 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
             { CANT_HAPPEN,
-              (event) -> {AwaitingApproval_Reject_txn_to_Rejected_action();Rejected_entry_action();return Rejected;},
               (event) -> {AwaitingApproval_Approve_txn_to_Approved_action();Approved_entry_action();return Approved;},
+              (event) -> {AwaitingApproval_Reject_txn_to_Rejected_action();Rejected_entry_action();return Rejected;},
+              CANT_HAPPEN
+            },
+            { (event) -> {Approved_StartLeave_txn_to_StartLeave_action();StartLeave_entry_action();return StartLeave;},
+              CANT_HAPPEN,
+              CANT_HAPPEN,
               CANT_HAPPEN
             },
             { CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN,
-              (event) -> {Approved_StartLeave_txn_to_StartLeave_action();StartLeave_entry_action();return StartLeave;}
-            },
-            { CANT_HAPPEN,
-              CANT_HAPPEN,
-              CANT_HAPPEN,
               CANT_HAPPEN
             },
             { CANT_HAPPEN,
@@ -109,10 +109,10 @@ public class LeaveStateMachine extends StateMachine<Leave,Hr> {
               CANT_HAPPEN,
               CANT_HAPPEN
             },
-            { (event) -> {StartLeave_EndLeave_txn_to_EndLeave_action();EndLeave_entry_action();return EndLeave;},
+            { CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN,
-              CANT_HAPPEN
+              (event) -> {StartLeave_EndLeave_txn_to_EndLeave_action();EndLeave_entry_action();return EndLeave;}
             }
         };
     }

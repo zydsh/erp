@@ -14,10 +14,10 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Job extends IModelInstance<Job,Hr> {
 
     // attributes
-    public int getJob_ID() throws XtumlException;
     public void setJob_ID( int m_Job_ID ) throws XtumlException;
-    public String getTitle() throws XtumlException;
+    public int getJob_ID() throws XtumlException;
     public void setTitle( String m_Title ) throws XtumlException;
+    public String getTitle() throws XtumlException;
     public void setSalary( double m_Salary ) throws XtumlException;
     public double getSalary() throws XtumlException;
     public int getStep() throws XtumlException;

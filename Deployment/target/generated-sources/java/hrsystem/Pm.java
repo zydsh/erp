@@ -10,8 +10,8 @@ import hrsystem.pm.main.Project;
 import hrsystem.pm.main.ProjectSet;
 import hrsystem.pm.main.Strategy;
 import hrsystem.pm.main.StrategySet;
-import hrsystem.pm.main.Supporting_Documents;
-import hrsystem.pm.main.Supporting_DocumentsSet;
+import hrsystem.pm.main.SupportingDocuments;
+import hrsystem.pm.main.SupportingDocumentsSet;
 import hrsystem.pm.main.impl.InitiativeImpl;
 import hrsystem.pm.main.impl.InitiativeSetImpl;
 import hrsystem.pm.main.impl.MilestoneImpl;
@@ -20,8 +20,8 @@ import hrsystem.pm.main.impl.ProjectImpl;
 import hrsystem.pm.main.impl.ProjectSetImpl;
 import hrsystem.pm.main.impl.StrategyImpl;
 import hrsystem.pm.main.impl.StrategySetImpl;
-import hrsystem.pm.main.impl.Supporting_DocumentsImpl;
-import hrsystem.pm.main.impl.Supporting_DocumentsSetImpl;
+import hrsystem.pm.main.impl.SupportingDocumentsImpl;
+import hrsystem.pm.main.impl.SupportingDocumentsSetImpl;
 import hrsystem.pm.second.Marco;
 import hrsystem.pm.second.MarcoSet;
 import hrsystem.pm.second.Polo;
@@ -63,10 +63,10 @@ public class Pm extends Component<Pm> {
         Polo_extent = new PoloSetImpl();
         Project_extent = new ProjectSetImpl();
         Strategy_extent = new StrategySetImpl();
-        Supporting_Documents_extent = new Supporting_DocumentsSetImpl();
+        SupportingDocuments_extent = new SupportingDocumentsSetImpl();
         R101_Polo_follows_Marco_extent = new RelationshipSet();
         R10_Initiative_implements_Strategy_extent = new RelationshipSet();
-        R3_Supporting_Documents_evidance_for_Milestone_extent = new RelationshipSet();
+        R3_SupportingDocuments_evidance_for_Milestone_extent = new RelationshipSet();
         R5_Project_implements_Initiative_extent = new RelationshipSet();
         R60_Milestone_achieved_by_Initiative_extent = new RelationshipSet();
         LOG = null;
@@ -77,16 +77,11 @@ public class Pm extends Component<Pm> {
         classDirectory.put("Polo", PoloImpl.class);
         classDirectory.put("Project", ProjectImpl.class);
         classDirectory.put("Strategy", StrategyImpl.class);
-        classDirectory.put("Supporting_Documents", Supporting_DocumentsImpl.class);
+        classDirectory.put("SupportingDocuments", SupportingDocumentsImpl.class);
     }
 
     // domain functions
     public void CreatePEI_Initiatives() throws XtumlException {
-        Marco marc = MarcoImpl.create( context() );
-        marc.setName("marco");
-        Polo polo = PoloImpl.create( context() );
-        polo.setName("polo");
-        context().relate_R101_Polo_follows_Marco( polo, marc );
     }
 
     public void CreatePEI_Strategies() throws XtumlException {
@@ -124,6 +119,22 @@ public class Pm extends Component<Pm> {
         mile.setPercentage(5);
         mile.setSdState("");
         mile.setSdDescription("");
+        mile.setNotes("");
+        mile.setIncompleteReasons("");
+        context().relate_R60_Milestone_achieved_by_Initiative( mile, init );
+        mile = MilestoneImpl.create( context() );
+        mile.setName("الانتهاء من رفع خطابات للجهات المشاركة في ورش العمل");
+        mile.setFullCode("M-02-687");
+        mile.setCode("2");
+        mile.setType("معلم");
+        mile.setSuccessCriteria("تسليم التقرير");
+        mile.setCompleteActual(0);
+        mile.setCompletePlanned(0);
+        mile.setComplete(true);
+        mile.setWeight(5);
+        mile.setPercentage(10);
+        mile.setSdState("");
+        mile.setSdDescription("خطابات ردود المشاركين");
         mile.setNotes("");
         mile.setIncompleteReasons("");
         context().relate_R60_Milestone_achieved_by_Initiative( mile, init );
@@ -176,22 +187,22 @@ public class Pm extends Component<Pm> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R3_Supporting_Documents_evidance_for_Milestone( Supporting_Documents form, Milestone part ) throws XtumlException {
+    public void relate_R3_SupportingDocuments_evidance_for_Milestone( SupportingDocuments form, Milestone part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R3_Supporting_Documents_evidance_for_Milestone_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR3_completed_with_Supporting_Documents(form);
+        if ( R3_SupportingDocuments_evidance_for_Milestone_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR3_completed_with_SupportingDocuments(form);
             form.setR3_evidance_for_Milestone(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R3_Supporting_Documents_evidance_for_Milestone( Supporting_Documents form, Milestone part ) throws XtumlException {
+    public void unrelate_R3_SupportingDocuments_evidance_for_Milestone( SupportingDocuments form, Milestone part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R3_Supporting_Documents_evidance_for_Milestone_extent.remove( R3_Supporting_Documents_evidance_for_Milestone_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR3_completed_with_Supporting_Documents(form);
+        if ( R3_SupportingDocuments_evidance_for_Milestone_extent.remove( R3_SupportingDocuments_evidance_for_Milestone_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR3_completed_with_SupportingDocuments(form);
             form.setR3_evidance_for_Milestone(MilestoneImpl.EMPTY_MILESTONE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
@@ -263,9 +274,9 @@ public class Pm extends Component<Pm> {
     public StrategySet Strategy_instances() {
         return Strategy_extent;
     }
-    private Supporting_DocumentsSet Supporting_Documents_extent;
-    public Supporting_DocumentsSet Supporting_Documents_instances() {
-        return Supporting_Documents_extent;
+    private SupportingDocumentsSet SupportingDocuments_extent;
+    public SupportingDocumentsSet SupportingDocuments_instances() {
+        return SupportingDocuments_extent;
     }
 
 
@@ -278,9 +289,9 @@ public class Pm extends Component<Pm> {
     public IRelationshipSet R10_Initiative_implements_Strategys() throws XtumlException {
         return R10_Initiative_implements_Strategy_extent;
     }
-    private IRelationshipSet R3_Supporting_Documents_evidance_for_Milestone_extent;
-    public IRelationshipSet R3_Supporting_Documents_evidance_for_Milestones() throws XtumlException {
-        return R3_Supporting_Documents_evidance_for_Milestone_extent;
+    private IRelationshipSet R3_SupportingDocuments_evidance_for_Milestone_extent;
+    public IRelationshipSet R3_SupportingDocuments_evidance_for_Milestones() throws XtumlException {
+        return R3_SupportingDocuments_evidance_for_Milestone_extent;
     }
     private IRelationshipSet R5_Project_implements_Initiative_extent;
     public IRelationshipSet R5_Project_implements_Initiatives() throws XtumlException {
@@ -341,7 +352,7 @@ public class Pm extends Component<Pm> {
         else if ( instance instanceof Polo ) return Polo_extent.add( (Polo)instance );
         else if ( instance instanceof Project ) return Project_extent.add( (Project)instance );
         else if ( instance instanceof Strategy ) return Strategy_extent.add( (Strategy)instance );
-        else if ( instance instanceof Supporting_Documents ) return Supporting_Documents_extent.add( (Supporting_Documents)instance );
+        else if ( instance instanceof SupportingDocuments ) return SupportingDocuments_extent.add( (SupportingDocuments)instance );
         return false;
     }
 
@@ -355,7 +366,7 @@ public class Pm extends Component<Pm> {
         else if ( instance instanceof Polo ) return Polo_extent.remove( (Polo)instance );
         else if ( instance instanceof Project ) return Project_extent.remove( (Project)instance );
         else if ( instance instanceof Strategy ) return Strategy_extent.remove( (Strategy)instance );
-        else if ( instance instanceof Supporting_Documents ) return Supporting_Documents_extent.remove( (Supporting_Documents)instance );
+        else if ( instance instanceof SupportingDocuments ) return SupportingDocuments_extent.remove( (SupportingDocuments)instance );
         return false;
     }
 

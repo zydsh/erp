@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'Project',
 	5,
 	'Project',
-	'',
+	'A group of activities set to achieve an 
+outcome with a defined beginning and end ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("8f3b3ef7-4c30-489b-9029-e3c2cf675fa7",

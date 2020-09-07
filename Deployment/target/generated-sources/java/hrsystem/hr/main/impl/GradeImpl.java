@@ -110,11 +110,6 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
     }
     private double m_BaseSalary;
     @Override
-    public double getBaseSalary() throws XtumlException {
-        checkLiving();
-        return m_BaseSalary;
-    }
-    @Override
     public void setBaseSalary(double m_BaseSalary) throws XtumlException {
         checkLiving();
         if (m_BaseSalary != this.m_BaseSalary) {
@@ -123,7 +118,17 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_BaseSalary", oldValue, this.m_BaseSalary));
         }
     }
+    @Override
+    public double getBaseSalary() throws XtumlException {
+        checkLiving();
+        return m_BaseSalary;
+    }
     private int m_NumberOfSteps;
+    @Override
+    public int getNumberOfSteps() throws XtumlException {
+        checkLiving();
+        return m_NumberOfSteps;
+    }
     @Override
     public void setNumberOfSteps(int m_NumberOfSteps) throws XtumlException {
         checkLiving();
@@ -132,11 +137,6 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
             this.m_NumberOfSteps = m_NumberOfSteps;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_NumberOfSteps", oldValue, this.m_NumberOfSteps));
         }
-    }
-    @Override
-    public int getNumberOfSteps() throws XtumlException {
-        checkLiving();
-        return m_NumberOfSteps;
     }
 
 
@@ -249,17 +249,17 @@ class EmptyGrade extends ModelInstance<Grade,Hr> implements Grade {
     public void setAllowance( double m_Allowance ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public double getBaseSalary() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setBaseSalary( double m_BaseSalary ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setNumberOfSteps( int m_NumberOfSteps ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public double getBaseSalary() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getNumberOfSteps() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setNumberOfSteps( int m_NumberOfSteps ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

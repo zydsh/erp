@@ -17,8 +17,8 @@ public interface Initiative extends IModelInstance<Initiative,Pm> {
     // attributes
     public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
-    public String getShortNumber() throws XtumlException;
     public void setShortNumber( String m_ShortNumber ) throws XtumlException;
+    public String getShortNumber() throws XtumlException;
     public void setLongNumber( String m_LongNumber ) throws XtumlException;
     public String getLongNumber() throws XtumlException;
     public void setDescription( String m_Description ) throws XtumlException;
@@ -27,8 +27,8 @@ public interface Initiative extends IModelInstance<Initiative,Pm> {
     public int getStartDate() throws XtumlException;
     public int getActualStartDate() throws XtumlException;
     public void setActualStartDate( int m_ActualStartDate ) throws XtumlException;
-    public void setEndDate( int m_EndDate ) throws XtumlException;
     public int getEndDate() throws XtumlException;
+    public void setEndDate( int m_EndDate ) throws XtumlException;
     public void setActualEndDate( int m_ActualEndDate ) throws XtumlException;
     public int getActualEndDate() throws XtumlException;
     public double getBudget() throws XtumlException;

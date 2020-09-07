@@ -88,11 +88,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     // attributes
     private int m_Starting;
     @Override
-    public int getStarting() throws XtumlException {
-        checkLiving();
-        return m_Starting;
-    }
-    @Override
     public void setStarting(int m_Starting) throws XtumlException {
         checkLiving();
         if (m_Starting != this.m_Starting) {
@@ -100,6 +95,11 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             this.m_Starting = m_Starting;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
         }
+    }
+    @Override
+    public int getStarting() throws XtumlException {
+        checkLiving();
+        return m_Starting;
     }
     private int m_Ending;
     @Override
@@ -133,7 +133,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 2;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -146,7 +146,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 0;
+            return 3;
         }
         @Override
         public String getClassName() {
@@ -159,7 +159,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 1;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -172,7 +172,7 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
         }
         @Override
         public int getId() {
-            return 3;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -252,11 +252,11 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
 class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
 
     // attributes
-    public int getStarting() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setStarting( int m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getStarting() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
