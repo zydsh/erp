@@ -1,0 +1,57 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("e958e1e6-0f5f-4631-bf16-a8d04e661a5a",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Initialization',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("2dd10ec3-30ab-443a-9b89-6a9240a80d94",
+	112,
+	"e958e1e6-0f5f-4631-bf16-a8d04e661a5a",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'Finance::Fin::fms::Initialization');
+INSERT INTO DIM_DIA
+	VALUES ("2dd10ec3-30ab-443a-9b89-6a9240a80d94",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PE_PE
+	VALUES ("e958e1e6-0f5f-4631-bf16-a8d04e661a5a",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"8d322bed-f6f2-48fc-b59c-77870565eb6e",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("8d322bed-f6f2-48fc-b59c-77870565eb6e",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'fms',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../fms.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("a012df04-a680-4110-97c4-3a91068c4346",
+	'Finance',
+	1,
+	'../../../Finance.xtuml');
