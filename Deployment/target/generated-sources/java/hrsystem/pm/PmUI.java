@@ -27,8 +27,21 @@ public class PmUI extends Port<Pm> implements IProjects {
     }
 
     // inbound messages
-    public void Initialize() throws XtumlException {
-        context().Initialize();
+    public void ReadStrategies() throws XtumlException {
+        StrategySet strategies = context().Strategy_instances();
+        if ( !strategies.isEmpty() ) {
+            context().LOG().LogInfo( "Sending strategy set .. " );
+            Strategy strategy;
+            for ( Iterator<Strategy> _strategy_iter = strategies.elements().iterator(); _strategy_iter.hasNext(); ) {
+                strategy = _strategy_iter.next();
+                context().UI().SendStrategies( strategy.getNumber(), strategy.getName(), strategy.getDescription() );
+                context().LOG().LogInfo( ( ( ( ( "Strategy: Number " + strategy.getNumber() ) + ", Name:" ) + strategy.getName() ) + ", Description: " ) + strategy.getDescription() );
+            }
+            context().LOG().LogInfo( "Sending strategy set is complete. " );
+        }
+        else {
+            context().LOG().LogInfo( "Strategy: No strategyies found in the system " );
+        }
     }
 
     public void ReadMilestones( final String p_InitiativeName,  final String p_InitiativeShortNumber,  final String p_InitiativeLongNumber ) throws XtumlException {
@@ -49,21 +62,8 @@ public class PmUI extends Port<Pm> implements IProjects {
         }
     }
 
-    public void ReadStrategies() throws XtumlException {
-        StrategySet strategies = context().Strategy_instances();
-        if ( !strategies.isEmpty() ) {
-            context().LOG().LogInfo( "Sending strategy set .. " );
-            Strategy strategy;
-            for ( Iterator<Strategy> _strategy_iter = strategies.elements().iterator(); _strategy_iter.hasNext(); ) {
-                strategy = _strategy_iter.next();
-                context().UI().SendStrategies( strategy.getNumber(), strategy.getName(), strategy.getDescription() );
-                context().LOG().LogInfo( ( ( ( ( "Strategy: Number " + strategy.getNumber() ) + ", Name:" ) + strategy.getName() ) + ", Description: " ) + strategy.getDescription() );
-            }
-            context().LOG().LogInfo( "Sending strategy set is complete. " );
-        }
-        else {
-            context().LOG().LogInfo( "Strategy: No strategyies found in the system " );
-        }
+    public void Initialize() throws XtumlException {
+        context().Initialize();
     }
 
 
@@ -90,14 +90,14 @@ public class PmUI extends Port<Pm> implements IProjects {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IProjects.SIGNAL_NO_INITIALIZE:
-                Initialize();
+            case IProjects.SIGNAL_NO_READSTRATEGIES:
+                ReadStrategies();
                 break;
             case IProjects.SIGNAL_NO_READMILESTONES:
                 ReadMilestones(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
-            case IProjects.SIGNAL_NO_READSTRATEGIES:
-                ReadStrategies();
+            case IProjects.SIGNAL_NO_INITIALIZE:
+                Initialize();
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

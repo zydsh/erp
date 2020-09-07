@@ -4,6 +4,7 @@ package hrsystem;
 import hrsystem.ui.UIApp;
 import hrsystem.ui.UIAppOps;
 import hrsystem.ui.UIAuthenticate;
+import hrsystem.ui.UIFinance;
 import hrsystem.ui.UIProjects;
 
 import io.ciera.runtime.summit.application.IApplication;
@@ -228,6 +229,11 @@ public class UI extends Component<UI> {
     public UIAuthenticate Authenticate() {
         if ( null == UIAuthenticate ) UIAuthenticate = new UIAuthenticate( this, null );
         return UIAuthenticate;
+    }
+    private UIFinance UIFinance;
+    public UIFinance Finance() {
+        if ( null == UIFinance ) UIFinance = new UIFinance( this, null );
+        return UIFinance;
     }
     private UIProjects UIProjects;
     public UIProjects Projects() {

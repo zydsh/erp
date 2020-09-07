@@ -10,8 +10,8 @@ import hrsystem.pm.main.Project;
 import hrsystem.pm.main.ProjectSet;
 import hrsystem.pm.main.Strategy;
 import hrsystem.pm.main.StrategySet;
-import hrsystem.pm.main.Supporting_Documents;
-import hrsystem.pm.main.Supporting_DocumentsSet;
+import hrsystem.pm.main.SupportingDocuments;
+import hrsystem.pm.main.SupportingDocumentsSet;
 import hrsystem.pm.main.impl.InitiativeImpl;
 import hrsystem.pm.main.impl.InitiativeSetImpl;
 import hrsystem.pm.main.impl.MilestoneImpl;
@@ -20,16 +20,8 @@ import hrsystem.pm.main.impl.ProjectImpl;
 import hrsystem.pm.main.impl.ProjectSetImpl;
 import hrsystem.pm.main.impl.StrategyImpl;
 import hrsystem.pm.main.impl.StrategySetImpl;
-import hrsystem.pm.main.impl.Supporting_DocumentsImpl;
-import hrsystem.pm.main.impl.Supporting_DocumentsSetImpl;
-import hrsystem.pm.second.Marco;
-import hrsystem.pm.second.MarcoSet;
-import hrsystem.pm.second.Polo;
-import hrsystem.pm.second.PoloSet;
-import hrsystem.pm.second.impl.MarcoImpl;
-import hrsystem.pm.second.impl.MarcoSetImpl;
-import hrsystem.pm.second.impl.PoloImpl;
-import hrsystem.pm.second.impl.PoloSetImpl;
+import hrsystem.pm.main.impl.SupportingDocumentsImpl;
+import hrsystem.pm.main.impl.SupportingDocumentsSetImpl;
 
 import io.ciera.runtime.summit.application.IApplication;
 import io.ciera.runtime.summit.application.IRunContext;
@@ -58,27 +50,22 @@ public class Pm extends Component<Pm> {
     public Pm(IApplication app, IRunContext runContext, int populationId) {
         super(app, runContext, populationId);
         Initiative_extent = new InitiativeSetImpl();
-        Marco_extent = new MarcoSetImpl();
         Milestone_extent = new MilestoneSetImpl();
-        Polo_extent = new PoloSetImpl();
         Project_extent = new ProjectSetImpl();
         Strategy_extent = new StrategySetImpl();
-        Supporting_Documents_extent = new Supporting_DocumentsSetImpl();
-        R101_Polo_follows_Marco_extent = new RelationshipSet();
+        SupportingDocuments_extent = new SupportingDocumentsSetImpl();
         R10_Initiative_implements_Strategy_extent = new RelationshipSet();
-        R3_Supporting_Documents_evidance_for_Milestone_extent = new RelationshipSet();
+        R3_SupportingDocuments_evidance_for_Milestone_extent = new RelationshipSet();
         R5_Project_implements_Initiative_extent = new RelationshipSet();
         R60_Milestone_achieved_by_Initiative_extent = new RelationshipSet();
         R8_Milestone_marks_the_development_of_Project_extent = new RelationshipSet();
         LOG = null;
         classDirectory = new TreeMap<>();
         classDirectory.put("Initiative", InitiativeImpl.class);
-        classDirectory.put("Marco", MarcoImpl.class);
         classDirectory.put("Milestone", MilestoneImpl.class);
-        classDirectory.put("Polo", PoloImpl.class);
         classDirectory.put("Project", ProjectImpl.class);
         classDirectory.put("Strategy", StrategyImpl.class);
-        classDirectory.put("Supporting_Documents", Supporting_DocumentsImpl.class);
+        classDirectory.put("SupportingDocuments", SupportingDocumentsImpl.class);
     }
 
     // domain functions
@@ -161,26 +148,6 @@ public class Pm extends Component<Pm> {
 
 
     // relates and unrelates
-    public void relate_R101_Polo_follows_Marco( Polo form, Marco part ) throws XtumlException {
-        if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
-        if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
-        // TODO cardinality check
-        if ( R101_Polo_follows_Marco_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR101_followed_by_Polo(form);
-            form.setR101_follows_Marco(part);
-        }
-        else throw new ModelIntegrityException( "Instances could not be related." );
-    }
-
-    public void unrelate_R101_Polo_follows_Marco( Polo form, Marco part ) throws XtumlException {
-        if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
-        if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R101_Polo_follows_Marco_extent.remove( R101_Polo_follows_Marco_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR101_followed_by_Polo(form);
-            form.setR101_follows_Marco(MarcoImpl.EMPTY_MARCO);
-        }
-        else throw new ModelIntegrityException( "Instances could not be unrelated." );
-    }
     public void relate_R10_Initiative_implements_Strategy( Initiative form, Strategy part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
@@ -201,22 +168,22 @@ public class Pm extends Component<Pm> {
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
     }
-    public void relate_R3_Supporting_Documents_evidance_for_Milestone( Supporting_Documents form, Milestone part ) throws XtumlException {
+    public void relate_R3_SupportingDocuments_evidance_for_Milestone( SupportingDocuments form, Milestone part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot relate empty instances." );
         // TODO cardinality check
-        if ( R3_Supporting_Documents_evidance_for_Milestone_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.addR3_completed_with_Supporting_Documents(form);
+        if ( R3_SupportingDocuments_evidance_for_Milestone_extent.add( new Relationship( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.addR3_completed_with_SupportingDocuments(form);
             form.setR3_evidance_for_Milestone(part);
         }
         else throw new ModelIntegrityException( "Instances could not be related." );
     }
 
-    public void unrelate_R3_Supporting_Documents_evidance_for_Milestone( Supporting_Documents form, Milestone part ) throws XtumlException {
+    public void unrelate_R3_SupportingDocuments_evidance_for_Milestone( SupportingDocuments form, Milestone part ) throws XtumlException {
         if ( null == form || null == part ) throw new BadArgumentException( "Null instances passed." );
         if ( form.isEmpty() || part.isEmpty() ) throw new EmptyInstanceException( "Cannot unrelate empty instances." );
-        if ( R3_Supporting_Documents_evidance_for_Milestone_extent.remove( R3_Supporting_Documents_evidance_for_Milestone_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
-            part.removeR3_completed_with_Supporting_Documents(form);
+        if ( R3_SupportingDocuments_evidance_for_Milestone_extent.remove( R3_SupportingDocuments_evidance_for_Milestone_extent.get( form.getInstanceId(), part.getInstanceId() ) ) ) {
+            part.removeR3_completed_with_SupportingDocuments(form);
             form.setR3_evidance_for_Milestone(MilestoneImpl.EMPTY_MILESTONE);
         }
         else throw new ModelIntegrityException( "Instances could not be unrelated." );
@@ -288,17 +255,9 @@ public class Pm extends Component<Pm> {
     public InitiativeSet Initiative_instances() {
         return Initiative_extent;
     }
-    private MarcoSet Marco_extent;
-    public MarcoSet Marco_instances() {
-        return Marco_extent;
-    }
     private MilestoneSet Milestone_extent;
     public MilestoneSet Milestone_instances() {
         return Milestone_extent;
-    }
-    private PoloSet Polo_extent;
-    public PoloSet Polo_instances() {
-        return Polo_extent;
     }
     private ProjectSet Project_extent;
     public ProjectSet Project_instances() {
@@ -308,24 +267,20 @@ public class Pm extends Component<Pm> {
     public StrategySet Strategy_instances() {
         return Strategy_extent;
     }
-    private Supporting_DocumentsSet Supporting_Documents_extent;
-    public Supporting_DocumentsSet Supporting_Documents_instances() {
-        return Supporting_Documents_extent;
+    private SupportingDocumentsSet SupportingDocuments_extent;
+    public SupportingDocumentsSet SupportingDocuments_instances() {
+        return SupportingDocuments_extent;
     }
 
 
     // relationship selections
-    private IRelationshipSet R101_Polo_follows_Marco_extent;
-    public IRelationshipSet R101_Polo_follows_Marcos() throws XtumlException {
-        return R101_Polo_follows_Marco_extent;
-    }
     private IRelationshipSet R10_Initiative_implements_Strategy_extent;
     public IRelationshipSet R10_Initiative_implements_Strategys() throws XtumlException {
         return R10_Initiative_implements_Strategy_extent;
     }
-    private IRelationshipSet R3_Supporting_Documents_evidance_for_Milestone_extent;
-    public IRelationshipSet R3_Supporting_Documents_evidance_for_Milestones() throws XtumlException {
-        return R3_Supporting_Documents_evidance_for_Milestone_extent;
+    private IRelationshipSet R3_SupportingDocuments_evidance_for_Milestone_extent;
+    public IRelationshipSet R3_SupportingDocuments_evidance_for_Milestones() throws XtumlException {
+        return R3_SupportingDocuments_evidance_for_Milestone_extent;
     }
     private IRelationshipSet R5_Project_implements_Initiative_extent;
     public IRelationshipSet R5_Project_implements_Initiatives() throws XtumlException {
@@ -385,12 +340,10 @@ public class Pm extends Component<Pm> {
         if ( null == instance ) throw new BadArgumentException( "Null instance passed." );
         if ( instance.isEmpty() ) throw new EmptyInstanceException( "Cannot add empty instance to population." );
         if ( instance instanceof Initiative ) return Initiative_extent.add( (Initiative)instance );
-        else if ( instance instanceof Marco ) return Marco_extent.add( (Marco)instance );
         else if ( instance instanceof Milestone ) return Milestone_extent.add( (Milestone)instance );
-        else if ( instance instanceof Polo ) return Polo_extent.add( (Polo)instance );
         else if ( instance instanceof Project ) return Project_extent.add( (Project)instance );
         else if ( instance instanceof Strategy ) return Strategy_extent.add( (Strategy)instance );
-        else if ( instance instanceof Supporting_Documents ) return Supporting_Documents_extent.add( (Supporting_Documents)instance );
+        else if ( instance instanceof SupportingDocuments ) return SupportingDocuments_extent.add( (SupportingDocuments)instance );
         return false;
     }
 
@@ -399,12 +352,10 @@ public class Pm extends Component<Pm> {
         if ( null == instance ) throw new BadArgumentException( "Null instance passed." );
         if ( instance.isEmpty() ) throw new EmptyInstanceException( "Cannot remove empty instance from population." );
         if ( instance instanceof Initiative ) return Initiative_extent.remove( (Initiative)instance );
-        else if ( instance instanceof Marco ) return Marco_extent.remove( (Marco)instance );
         else if ( instance instanceof Milestone ) return Milestone_extent.remove( (Milestone)instance );
-        else if ( instance instanceof Polo ) return Polo_extent.remove( (Polo)instance );
         else if ( instance instanceof Project ) return Project_extent.remove( (Project)instance );
         else if ( instance instanceof Strategy ) return Strategy_extent.remove( (Strategy)instance );
-        else if ( instance instanceof Supporting_Documents ) return Supporting_Documents_extent.remove( (Supporting_Documents)instance );
+        else if ( instance instanceof SupportingDocuments ) return SupportingDocuments_extent.remove( (SupportingDocuments)instance );
         return false;
     }
 

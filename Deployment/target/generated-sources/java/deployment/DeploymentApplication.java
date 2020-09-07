@@ -2,6 +2,7 @@ package deployment;
 
 
 import hrsystem.Auth;
+import hrsystem.Fms;
 import hrsystem.Hr;
 import hrsystem.Pm;
 import hrsystem.UI;
@@ -23,7 +24,7 @@ public class DeploymentApplication implements IApplication {
     private ApplicationExecutor[] executors;
 
     public DeploymentApplication() {
-        components = new IComponent<?>[4];
+        components = new IComponent<?>[5];
         executors = new ApplicationExecutor[1];
     }
 
@@ -44,33 +45,39 @@ public class DeploymentApplication implements IApplication {
                 executors[i] = new ApplicationExecutor( "DeploymentApplicationExecutor" + i, args );
             }
         }
-        components[2] = new Hr(this, executors[0], 2);
-        components[0] = new Auth(this, executors[0], 0);
-        components[3] = new Pm(this, executors[0], 3);
+        components[3] = new Hr(this, executors[0], 3);
+        components[4] = new Pm(this, executors[0], 4);
         components[1] = new UI(this, executors[0], 1);
-        ((Hr)components[2]).Authenticate().satisfy(((Auth)components[0]).HR());
-        ((Auth)components[0]).HR().satisfy(((Hr)components[2]).Authenticate());
-        ((UI)components[1]).App().satisfy(((Hr)components[2]).UI());
-        ((Hr)components[2]).UI().satisfy(((UI)components[1]).App());
-        ((UI)components[1]).AppOps().satisfy(((Hr)components[2]).UI_Ops());
-        ((Hr)components[2]).UI_Ops().satisfy(((UI)components[1]).AppOps());
+        components[0] = new Auth(this, executors[0], 0);
+        components[2] = new Fms(this, executors[0], 2);
+        ((Hr)components[3]).Authenticate().satisfy(((Auth)components[0]).HR());
+        ((Auth)components[0]).HR().satisfy(((Hr)components[3]).Authenticate());
+        ((UI)components[1]).App().satisfy(((Hr)components[3]).UI());
+        ((Hr)components[3]).UI().satisfy(((UI)components[1]).App());
+        ((UI)components[1]).AppOps().satisfy(((Hr)components[3]).UI_Ops());
+        ((Hr)components[3]).UI_Ops().satisfy(((UI)components[1]).AppOps());
         ((UI)components[1]).Authenticate().satisfy(((Auth)components[0]).UI());
         ((Auth)components[0]).UI().satisfy(((UI)components[1]).Authenticate());
-        ((UI)components[1]).Projects().satisfy(((Pm)components[3]).UI());
-        ((Pm)components[3]).UI().satisfy(((UI)components[1]).Projects());
+        ((UI)components[1]).Finance().satisfy(((Fms)components[2]).UI());
+        ((Fms)components[2]).UI().satisfy(((UI)components[1]).Finance());
+        ((UI)components[1]).Projects().satisfy(((Pm)components[4]).UI());
+        ((Pm)components[4]).UI().satisfy(((UI)components[1]).Projects());
     }
 
     public Hr Hr() {
-        return (Hr)components[2];
+        return (Hr)components[3];
+    }
+    public Pm Pm() {
+        return (Pm)components[4];
+    }
+    public UI UI() {
+        return (UI)components[1];
     }
     public Auth Auth() {
         return (Auth)components[0];
     }
-    public Pm Pm() {
-        return (Pm)components[3];
-    }
-    public UI UI() {
-        return (UI)components[1];
+    public Fms Fms() {
+        return (Fms)components[2];
     }
 
     @Override

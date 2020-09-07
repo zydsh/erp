@@ -12,12 +12,12 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Strategy extends IModelInstance<Strategy,Pm> {
 
     // attributes
-    public String getNumber() throws XtumlException;
     public void setNumber( String m_Number ) throws XtumlException;
+    public String getNumber() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
-    public String getDescription() throws XtumlException;
     public void setDescription( String m_Description ) throws XtumlException;
+    public String getDescription() throws XtumlException;
 
 
     // operations

@@ -5,10 +5,10 @@ import hrsystem.pm.main.InitiativeSet;
 import hrsystem.pm.main.Milestone;
 import hrsystem.pm.main.MilestoneSet;
 import hrsystem.pm.main.ProjectSet;
-import hrsystem.pm.main.Supporting_DocumentsSet;
+import hrsystem.pm.main.SupportingDocumentsSet;
 import hrsystem.pm.main.impl.InitiativeSetImpl;
 import hrsystem.pm.main.impl.ProjectSetImpl;
-import hrsystem.pm.main.impl.Supporting_DocumentsSetImpl;
+import hrsystem.pm.main.impl.SupportingDocumentsSetImpl;
 
 import io.ciera.runtime.summit.classes.InstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
@@ -29,12 +29,36 @@ public class MilestoneSetImpl extends InstanceSet<MilestoneSet,Milestone> implem
 
     // attributes
     @Override
-    public void setFullCode( String m_FullCode ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setFullCode( m_FullCode );
+    public void setCompletePlanned( int m_CompletePlanned ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setCompletePlanned( m_CompletePlanned );
     }
     @Override
-    public void setComplete( boolean m_Complete ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setComplete( m_Complete );
+    public void setType( String m_Type ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setType( m_Type );
+    }
+    @Override
+    public void setPercentage( double m_Percentage ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setPercentage( m_Percentage );
+    }
+    @Override
+    public void setSuccessCriteria( String m_SuccessCriteria ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setSuccessCriteria( m_SuccessCriteria );
+    }
+    @Override
+    public void setCode( String m_Code ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setCode( m_Code );
+    }
+    @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setName( m_Name );
+    }
+    @Override
+    public void setNotes( String m_Notes ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setNotes( m_Notes );
+    }
+    @Override
+    public void setSdState( String m_sdState ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setSdState( m_sdState );
     }
     @Override
     public void setSdDescription( String m_sdDescription ) throws XtumlException {
@@ -49,49 +73,25 @@ public class MilestoneSetImpl extends InstanceSet<MilestoneSet,Milestone> implem
         for ( Milestone milestone : this ) milestone.setIncompleteReasons( m_IncompleteReasons );
     }
     @Override
-    public void setNotes( String m_Notes ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setNotes( m_Notes );
+    public void setFullCode( String m_FullCode ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setFullCode( m_FullCode );
+    }
+    @Override
+    public void setComplete( boolean m_Complete ) throws XtumlException {
+        for ( Milestone milestone : this ) milestone.setComplete( m_Complete );
     }
     @Override
     public void setWeight( int m_Weight ) throws XtumlException {
         for ( Milestone milestone : this ) milestone.setWeight( m_Weight );
     }
-    @Override
-    public void setPercentage( double m_Percentage ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setPercentage( m_Percentage );
-    }
-    @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setName( m_Name );
-    }
-    @Override
-    public void setType( String m_Type ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setType( m_Type );
-    }
-    @Override
-    public void setCode( String m_Code ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setCode( m_Code );
-    }
-    @Override
-    public void setSuccessCriteria( String m_SuccessCriteria ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setSuccessCriteria( m_SuccessCriteria );
-    }
-    @Override
-    public void setCompletePlanned( int m_CompletePlanned ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setCompletePlanned( m_CompletePlanned );
-    }
-    @Override
-    public void setSdState( String m_sdState ) throws XtumlException {
-        for ( Milestone milestone : this ) milestone.setSdState( m_sdState );
-    }
 
 
     // selections
     @Override
-    public Supporting_DocumentsSet R3_completed_with_Supporting_Documents() throws XtumlException {
-        Supporting_DocumentsSet supporting_documentsset = new Supporting_DocumentsSetImpl();
-        for ( Milestone milestone : this ) supporting_documentsset.addAll( milestone.R3_completed_with_Supporting_Documents() );
-        return supporting_documentsset;
+    public SupportingDocumentsSet R3_completed_with_SupportingDocuments() throws XtumlException {
+        SupportingDocumentsSet supportingdocumentsset = new SupportingDocumentsSetImpl();
+        for ( Milestone milestone : this ) supportingdocumentsset.addAll( milestone.R3_completed_with_SupportingDocuments() );
+        return supportingdocumentsset;
     }
     @Override
     public InitiativeSet R60_achieved_by_Initiative() throws XtumlException {
