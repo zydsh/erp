@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface JobRecordSet extends IInstanceSet<JobRecordSet,JobRecord> {
 
     // attributes
-    public void setEndDate( int m_EndDate ) throws XtumlException;
     public void setStartingDate( int m_StartingDate ) throws XtumlException;
+    public void setEndDate( int m_EndDate ) throws XtumlException;
 
 
     // selections

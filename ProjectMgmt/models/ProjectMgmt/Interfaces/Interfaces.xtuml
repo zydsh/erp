@@ -1,0 +1,70 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("583616bd-b383-4c94-b7fa-b64257b867aa",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'Interfaces',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("0b74337f-d8fd-4c22-a57a-d25fbc84a4ce",
+	112,
+	"583616bd-b383-4c94-b7fa-b64257b867aa",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	200,
+	150,
+	0,
+	'',
+	'ProjectMgmt::Interfaces');
+INSERT INTO GD_GE
+	VALUES ("de3f4fcb-9cad-4199-b2ff-a1fbcce2ef8e",
+	"0b74337f-d8fd-4c22-a57a-d25fbc84a4ce",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	96,
+	0,
+	'ProjectMgmt::Interfaces::Projects');
+INSERT INTO GD_SHP
+	VALUES ("de3f4fcb-9cad-4199-b2ff-a1fbcce2ef8e");
+INSERT INTO GD_NCS
+	VALUES ("de3f4fcb-9cad-4199-b2ff-a1fbcce2ef8e");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"de3f4fcb-9cad-4199-b2ff-a1fbcce2ef8e");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"de3f4fcb-9cad-4199-b2ff-a1fbcce2ef8e",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("de3f4fcb-9cad-4199-b2ff-a1fbcce2ef8e",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_DIA
+	VALUES ("0b74337f-d8fd-4c22-a57a-d25fbc84a4ce",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PE_PE
+	VALUES ("583616bd-b383-4c94-b7fa-b64257b867aa",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	7);
+INSERT INTO S_SYS_PROXY
+	VALUES ("3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'ProjectMgmt',
+	1,
+	'../ProjectMgmt.xtuml');

@@ -31,8 +31,8 @@ public class HrAuthenticate extends Port<Hr> implements IAuthentication {
 
 
     // outbound messages
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.AddToGroup(p_EmployeeID, p_Group));
+    public void Initialize() throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.Initialize());
         else {
         }
     }
@@ -41,13 +41,13 @@ public class HrAuthenticate extends Port<Hr> implements IAuthentication {
         else {
         }
     }
-    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.CheckUsernamePassword(p_Username, p_Password));
+    public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.ReadEmployeePermissions(p_EmployeeID));
         else {
         }
     }
-    public void Initialize() throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.Initialize());
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.AddToGroup(p_EmployeeID, p_Group));
         else {
         }
     }
@@ -56,8 +56,8 @@ public class HrAuthenticate extends Port<Hr> implements IAuthentication {
         else {
         }
     }
-    public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException {
-        if ( satisfied() ) send(new IAuthentication.ReadEmployeePermissions(p_EmployeeID));
+    public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
+        if ( satisfied() ) send(new IAuthentication.CheckUsernamePassword(p_Username, p_Password));
         else {
         }
     }

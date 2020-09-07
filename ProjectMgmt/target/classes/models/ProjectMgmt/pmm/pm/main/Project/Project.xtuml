@@ -1,0 +1,69 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	'Project',
+	5,
+	'Project',
+	'A group of activities set to achieve an 
+outcome with a defined beginning and end ',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("8f3b3ef7-4c30-489b-9029-e3c2cf675fa7",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("8f3b3ef7-4c30-489b-9029-e3c2cf675fa7",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("8f3b3ef7-4c30-489b-9029-e3c2cf675fa7",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("50b42cde-8f48-4790-a483-ec1fc90f918e",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("50b42cde-8f48-4790-a483-ec1fc90f918e",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("50b42cde-8f48-4790-a483-ec1fc90f918e",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"8f3b3ef7-4c30-489b-9029-e3c2cf675fa7",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ID
+	VALUES (1,
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ID
+	VALUES (2,
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO PE_PE
+	VALUES ("1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	1,
+	"6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

@@ -1,0 +1,392 @@
+-- BP 7.1.6 content: Component syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO C_C
+	VALUES ("6b567f7b-1b30-4818-b8a0-dfca9c0a25d8",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'pm',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'');
+INSERT INTO GD_MD
+	VALUES ("5a45db7a-8041-458d-97a2-3b7dec23e910",
+	111,
+	"6b567f7b-1b30-4818-b8a0-dfca9c0a25d8",
+	98,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	200,
+	150,
+	0,
+	'4.1.17',
+	'ProjectMgmt::pmm::pm');
+INSERT INTO GD_GE
+	VALUES ("5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812",
+	"5a45db7a-8041-458d-97a2-3b7dec23e910",
+	"6b567f7b-1b30-4818-b8a0-dfca9c0a25d8",
+	103,
+	0,
+	'ProjectMgmt::pmm::pm');
+INSERT INTO GD_SHP
+	VALUES ("5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
+INSERT INTO GD_CTR
+	VALUES ("5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
+INSERT INTO DIM_ND
+	VALUES (5129.000000,
+	3274.000000,
+	"5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
+INSERT INTO DIM_GE
+	VALUES (-12.000000,
+	-12.000000,
+	"5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_CON
+	VALUES ("d11bfa22-1702-4e6b-8aa1-4b2c8a1d23bd",
+	5117.000000,
+	2130.000000,
+	"5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
+INSERT INTO GD_GE
+	VALUES ("c8733a45-a883-4eb9-b120-a60de7f5a31d",
+	"5a45db7a-8041-458d-97a2-3b7dec23e910",
+	"6177f291-1d29-415e-bed8-570d8e84b959",
+	108,
+	0,
+	'ProjectMgmt::pmm::pm::main');
+INSERT INTO GD_SHP
+	VALUES ("c8733a45-a883-4eb9-b120-a60de7f5a31d");
+INSERT INTO GD_NCS
+	VALUES ("c8733a45-a883-4eb9-b120-a60de7f5a31d");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"c8733a45-a883-4eb9-b120-a60de7f5a31d");
+INSERT INTO DIM_GE
+	VALUES (4685.000000,
+	3100.000000,
+	"c8733a45-a883-4eb9-b120-a60de7f5a31d",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("c8733a45-a883-4eb9-b120-a60de7f5a31d",
+	0,
+	"5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
+INSERT INTO GD_GE
+	VALUES ("aeea5fa6-cb5b-4ddd-bc9e-84ce4b15edb6",
+	"5a45db7a-8041-458d-97a2-3b7dec23e910",
+	"d8941aac-fe97-4ede-8994-e08f0fa770a0",
+	108,
+	0,
+	'ProjectMgmt::pmm::pm::Initialization');
+INSERT INTO GD_SHP
+	VALUES ("aeea5fa6-cb5b-4ddd-bc9e-84ce4b15edb6");
+INSERT INTO GD_NCS
+	VALUES ("aeea5fa6-cb5b-4ddd-bc9e-84ce4b15edb6");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"aeea5fa6-cb5b-4ddd-bc9e-84ce4b15edb6");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"aeea5fa6-cb5b-4ddd-bc9e-84ce4b15edb6",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("aeea5fa6-cb5b-4ddd-bc9e-84ce4b15edb6",
+	0,
+	"5dc531f9-0c41-4ae6-a1ed-b7d7e6cc3812");
+INSERT INTO GD_GE
+	VALUES ("8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	"5a45db7a-8041-458d-97a2-3b7dec23e910",
+	"1ba050a2-d419-4423-b771-96be8886d0a0",
+	94,
+	0,
+	'ProjectMgmt::pmm::pm::UI::Projects');
+INSERT INTO GD_CON
+	VALUES ("8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("c7c54b4f-aad1-4cb7-9cec-58c87a092b3a",
+	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	0,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"c7c54b4f-aad1-4cb7-9cec-58c87a092b3a");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"c7c54b4f-aad1-4cb7-9cec-58c87a092b3a",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("c7c54b4f-aad1-4cb7-9cec-58c87a092b3a",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("dadb070b-9cac-4f22-87a5-b63fd2f72ec7",
+	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	2,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"dadb070b-9cac-4f22-87a5-b63fd2f72ec7");
+INSERT INTO DIM_GE
+	VALUES (5298.000000,
+	2092.000000,
+	"dadb070b-9cac-4f22-87a5-b63fd2f72ec7",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("dadb070b-9cac-4f22-87a5-b63fd2f72ec7",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("c6d0a173-1bda-4592-b3b9-c2d6877b0bdb",
+	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	1,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"c6d0a173-1bda-4592-b3b9-c2d6877b0bdb");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"c6d0a173-1bda-4592-b3b9-c2d6877b0bdb",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("c6d0a173-1bda-4592-b3b9-c2d6877b0bdb",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_LS
+	VALUES ("d9e4c487-7ac1-4a9c-a96c-b6113c5306a5",
+	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	"00000000-0000-0000-0000-000000000000",
+	"e79fe47a-3735-483b-ae79-aaa1b51210d6",
+	"9d3011d6-1fcd-4611-98a3-018c0e7f192e");
+INSERT INTO DIM_WAY
+	VALUES ("e79fe47a-3735-483b-ae79-aaa1b51210d6",
+	5117.000000,
+	2130.000000,
+	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_WAY
+	VALUES ("9d3011d6-1fcd-4611-98a3-018c0e7f192e",
+	5580.000000,
+	2130.000000,
+	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	"00000000-0000-0000-0000-000000000000",
+	"e79fe47a-3735-483b-ae79-aaa1b51210d6");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ED
+	VALUES ("d11bfa22-1702-4e6b-8aa1-4b2c8a1d23bd",
+	"00000000-0000-0000-0000-000000000000",
+	"8c06f5c7-1040-45c1-9ce5-234a7ee7f2a5");
+INSERT INTO DIM_DIA
+	VALUES ("5a45db7a-8041-458d-97a2-3b7dec23e910",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PO
+	VALUES ("6682b901-e90c-4009-8856-6794e02a617d",
+	"6b567f7b-1b30-4818-b8a0-dfca9c0a25d8",
+	'UI',
+	0,
+	0);
+INSERT INTO C_IR
+	VALUES ("1ba050a2-d419-4423-b771-96be8886d0a0",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	"00000000-0000-0000-0000-000000000000",
+	"6682b901-e90c-4009-8856-6794e02a617d");
+INSERT INTO C_P
+	VALUES ("1ba050a2-d419-4423-b771-96be8886d0a0",
+	'Projects',
+	'Unnamed Interface',
+	'',
+	'pm::UI::Projects');
+INSERT INTO SPR_PEP
+	VALUES ("9f375415-1612-419e-abdb-470c8b9a8e59",
+	"f611d3fb-9d80-4a08-af29-b6b81f33b91e",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("9f375415-1612-419e-abdb-470c8b9a8e59",
+	'ReadStrategies',
+	'',
+	'select many strategies from instances of Strategy; 
+
+if (not empty strategies)
+	LOG::LogInfo(message:"Sending strategy set .. ");
+	for each strategy in strategies
+		UI::SendStrategies( Number:strategy.Number, Name:strategy.Name, Description:strategy.Description );
+		LOG::LogInfo(message:"Strategy: Number "+strategy.Number+", Name:"+strategy.Name+", Description: "+strategy.Description);
+	end for;
+	LOG::LogInfo(message:"Sending strategy set is complete. ");
+
+else
+	LOG::LogInfo(message:"Strategy: No strategyies found in the system ");
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f611d3fb-9d80-4a08-af29-b6b81f33b91e",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'ReadStrategies',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("797c12ba-127a-40cc-87ec-327e1ac626a0",
+	"e995f3cf-f39a-49fb-b19a-f7fca5a6575f",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("797c12ba-127a-40cc-87ec-327e1ac626a0",
+	'SendStrategies',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("e995f3cf-f39a-49fb-b19a-f7fca5a6575f",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'SendStrategies',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("8d05d9b2-d831-43cb-a95d-56130a1e7487",
+	"6062fcf7-0864-4e03-a22a-bea39834ef9d",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("8d05d9b2-d831-43cb-a95d-56130a1e7487",
+	'Reply',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6062fcf7-0864-4e03-a22a-bea39834ef9d",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'Reply',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("fb771c26-f567-47e9-95ef-de793662d641",
+	"e0b36002-56f9-4df1-9356-a98484736a3a",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("fb771c26-f567-47e9-95ef-de793662d641",
+	'Initialize',
+	'',
+	'::Initialize();',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("e0b36002-56f9-4df1-9356-a98484736a3a",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'Initialize',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("8fe9881c-eb15-43c5-b146-5d86fafe4e6f",
+	"0fb486de-51ef-4059-86fb-07272aa62973",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("8fe9881c-eb15-43c5-b146-5d86fafe4e6f",
+	'ReadMilestones',
+	'Get a list of milestones related to
+an initiative. One parameter is enough
+to identify the initiative.',
+	'select any initiative from instances of Initiative where selected.Name ==param.InitiativeName or selected.LongNumber==param.InitiativeLongNumber or selected.ShortNumber==param.InitiativeShortNumber; 
+select many milestones related by initiative->Milestone[R60.''achieves'']; 
+if (not empty milestones)
+	LOG::LogInfo(message:"Sending milestone set .. ");
+	for each milestone in milestones
+		UI::SendMilestones( Name:milestone.Name, FullCode:milestone.FullCode, Code:milestone.Code, Type:milestone.Type, SuccessCriteria:milestone.SuccessCriteria, CompletePlanned:milestone.CompletePlanned, CompleteActual:milestone.CompleteActual, Complete:milestone.Complete, Weight:milestone.Weight, Percentage:milestone.Percentage, sdState:milestone.sdState, sdDescription:milestone.sdDescription, Notes:milestone.Notes, IncompleteReasons:milestone.IncompleteReasons );
+		LOG::LogInfo(message:"Milestone: Name "+milestone.Name+", Code: "+milestone.Code);
+	end for;
+	LOG::LogInfo(message:"Sending milestone set is complete. ");
+
+else
+	LOG::LogInfo(message:"Milestone: No milestones found in the system ");
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("0fb486de-51ef-4059-86fb-07272aa62973",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'ReadMilestones',
+	'Get a list of milestones related to
+an initiative. One parameter is enough
+to identify the initiative.',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("c7680951-5c72-4ed3-b1fd-13863bf8da3c",
+	"164afa80-0634-483c-873c-74974775a70c",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("c7680951-5c72-4ed3-b1fd-13863bf8da3c",
+	'SendMilestones',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("164afa80-0634-483c-873c-74974775a70c",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'SendMilestones',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO C_I_PROXY
+	VALUES ("b9747524-a416-4a89-a9ef-0062b1f78a12",
+	"00000000-0000-0000-0000-000000000000",
+	'Projects',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO PE_PE
+	VALUES ("6b567f7b-1b30-4818-b8a0-dfca9c0a25d8",
+	1,
+	"70a1ccba-8f7a-4082-acc7-fce60bdc2f3d",
+	"00000000-0000-0000-0000-000000000000",
+	2);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("70a1ccba-8f7a-4082-acc7-fce60bdc2f3d",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'pmm',
+	'',
+	0,
+	'../pmm.xtuml');

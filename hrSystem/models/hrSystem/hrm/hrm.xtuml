@@ -286,7 +286,7 @@ INSERT INTO GD_GE
 	"1686e6d6-351f-426c-ae2d-45c64744b41a",
 	93,
 	0,
-	'hrSystem::hrm::hr::Port1::Unnamed Interface');
+	'hrSystem::hrm::hr::Authenticate::Authentication');
 INSERT INTO GD_CON
 	VALUES ("33e7dc0d-7462-4de3-ad2e-5cd2b19753ed",
 	"00000000-0000-0000-0000-000000000000");

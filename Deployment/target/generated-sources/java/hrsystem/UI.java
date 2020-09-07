@@ -4,6 +4,7 @@ package hrsystem;
 import hrsystem.ui.UIApp;
 import hrsystem.ui.UIAppOps;
 import hrsystem.ui.UIAuthenticate;
+import hrsystem.ui.UIProjects;
 
 import io.ciera.runtime.summit.application.IApplication;
 import io.ciera.runtime.summit.application.IRunContext;
@@ -31,8 +32,8 @@ public class UI extends Component<UI> {
         super(app, runContext, populationId);
 
 
-        LOG = null;
         TIM = null;
+        LOG = null;
         classDirectory = new TreeMap<>();
 
     }
@@ -43,6 +44,10 @@ public class UI extends Component<UI> {
 
     public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
         context().LOG().LogInfo( "UI: Sending reply: " + p_msg );
+    }
+
+    public void ReplyProject( final String p_msg,  final boolean p_state ) throws XtumlException {
+        context().ReplyProject( p_msg, p_state );
     }
 
     public void ReplyUsernamePassword( final int p_EmployeeID,  final String p_Username,  final String p_msg,  final boolean p_state ) throws XtumlException {
@@ -79,7 +84,16 @@ public class UI extends Component<UI> {
         context().LOG().LogInfo( "UI: Sending leave specification: " + p_Name );
     }
 
+    public void SendMilestones( final String p_Name,  final String p_FullCode,  final String p_Code,  final String p_Type,  final String p_SuccessCriteria,  final int p_CompletePlanned,  final int p_CompleteActual,  final boolean p_Complete,  final int p_Weight,  final int p_Percentage,  final String p_sdState,  final String p_sdDescription,  final String p_Notes,  final String p_IncompleteReasons ) throws XtumlException {
+    }
+
+    public void SendSalaryStructure( final double p_EmployeeSalary,  final String p_BonusName,  final double p_BonusAmount ) throws XtumlException {
+    }
+
     public void SendScales( final String p_Name,  final String p_Description ) throws XtumlException {
+    }
+
+    public void SendStrategies( final String p_Number,  final String p_Name,  final String p_Description ) throws XtumlException {
     }
 
     public void approveLeaveRequest() throws XtumlException {
@@ -176,8 +190,16 @@ public class UI extends Component<UI> {
         context().App().ReadEmployeeList();
     }
 
+    public void testSalaryStructure() throws XtumlException {
+        context().App().GetSalaryStructure( 1428888 );
+    }
+
     public void testScaleList() throws XtumlException {
         context().App().ReadScales();
+    }
+
+    public void testSendStrategies() throws XtumlException {
+        context().Projects().ReadStrategies();
     }
 
 
@@ -207,18 +229,23 @@ public class UI extends Component<UI> {
         if ( null == UIAuthenticate ) UIAuthenticate = new UIAuthenticate( this, null );
         return UIAuthenticate;
     }
+    private UIProjects UIProjects;
+    public UIProjects Projects() {
+        if ( null == UIProjects ) UIProjects = new UIProjects( this, null );
+        return UIProjects;
+    }
 
 
     // utilities
-    private LOG LOG;
-    public LOG LOG() {
-        if ( null == LOG ) LOG = new LOGImpl<>( this );
-        return LOG;
-    }
     private TIM TIM;
     public TIM TIM() {
         if ( null == TIM ) TIM = new TIMImpl<>( this );
         return TIM;
+    }
+    private LOG LOG;
+    public LOG LOG() {
+        if ( null == LOG ) LOG = new LOGImpl<>( this );
+        return LOG;
     }
 
 

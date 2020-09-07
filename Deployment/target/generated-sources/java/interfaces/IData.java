@@ -316,13 +316,16 @@ public interface IData {
     public void SendLeaveSpecification( final String p_Name,  final int p_MaximumDays,  final int p_MinimumDays,  final int p_Size ) throws XtumlException;
     public static final int SIGNAL_NO_SENDSALARYSTRUCTURE = 27;
     public static class SendSalaryStructure extends Message {
+        public SendSalaryStructure( final double p_EmployeeSalary,  final String p_BonusName,  final double p_BonusAmount ) {
+            super(new Object[]{p_EmployeeSalary,  p_BonusName,  p_BonusAmount});
+        }
         @Override
         public int getId() {
             return SIGNAL_NO_SENDSALARYSTRUCTURE;
         }
  
     }
-    public void SendSalaryStructure() throws XtumlException;
+    public void SendSalaryStructure( final double p_EmployeeSalary,  final String p_BonusName,  final double p_BonusAmount ) throws XtumlException;
     public static final int SIGNAL_NO_SENDSCALES = 28;
     public static class SendScales extends Message {
         public SendScales( final String p_Name,  final String p_Description ) {

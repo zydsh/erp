@@ -13,6 +13,7 @@
   <modules>
     <module>Deployment</module>
     <module>Authenticate</module>
+    <module>ProjectMgmt</module>
     <module>hrSystem</module>
     <module>HRUI</module>
 
