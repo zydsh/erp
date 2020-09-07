@@ -101,6 +101,23 @@ mile.IncompleteReasons= "";
 
 relate mile to init across R60.''achieved by'';
 
+create object instance mile of Milestone;
+mile.Name = "الانتهاء من رفع خطابات للجهات المشاركة في ورش العمل";
+mile.FullCode= "M-02-687";
+mile.Code="2";
+mile.Type= "معلم";//SharedTypes::Milestone::Milestone;
+mile.SuccessCriteria="تسليم التقرير";//= SharedTypes::Milestone::Milestone;
+mile.CompleteActual = 0;
+mile.CompletePlanned = 0;
+mile.Complete= True;
+mile.Weight=5;
+mile.Percentage = 10;
+mile.sdState ="";// SharedTypes::DocState::NotSubmitted;
+mile.sdDescription="خطابات ردود المشاركين";
+mile.Notes = ""; 
+mile.IncompleteReasons= "";
+
+relate mile to init across R60.''achieved by'';
 
 
 ',
@@ -119,14 +136,7 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'CreatePEI_Initiatives',
 	'',
-	'create object instance marc of Marco;
-marc.Name="marco";
-
-create object instance polo of Polo; 
-polo.Name = "polo";
-
-relate polo to marc across R101.''follows''; 
-',
+	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
