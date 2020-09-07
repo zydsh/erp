@@ -96,7 +96,7 @@ mile.Weight=5;
 mile.Percentage = 5;
 mile.sdState ="";// SharedTypes::DocState::NotSubmitted;
 mile.sdDescription="";
-mile.Notes = "";
+mile.Notes = ""; 
 mile.IncompleteReasons= "";
 
 relate mile to init across R60.''achieved by'';

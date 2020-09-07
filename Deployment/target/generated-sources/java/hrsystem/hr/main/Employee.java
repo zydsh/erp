@@ -23,18 +23,18 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Employee extends IModelInstance<Employee,Hr> {
 
     // attributes
-    public int getEmployeeID() throws XtumlException;
     public void setEmployeeID( int m_EmployeeID ) throws XtumlException;
+    public int getEmployeeID() throws XtumlException;
     public int getNationalID() throws XtumlException;
     public void setNationalID( int m_NationalID ) throws XtumlException;
     public void setFirstName( String m_FirstName ) throws XtumlException;
     public String getFirstName() throws XtumlException;
-    public String getMiddleName() throws XtumlException;
     public void setMiddleName( String m_MiddleName ) throws XtumlException;
-    public void setLastName( String m_LastName ) throws XtumlException;
+    public String getMiddleName() throws XtumlException;
     public String getLastName() throws XtumlException;
-    public void setEmail( String m_Email ) throws XtumlException;
+    public void setLastName( String m_LastName ) throws XtumlException;
     public String getEmail() throws XtumlException;
+    public void setEmail( String m_Email ) throws XtumlException;
     public String getOfficePhone() throws XtumlException;
     public void setOfficePhone( String m_OfficePhone ) throws XtumlException;
     public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException;
@@ -43,10 +43,10 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     public String getDegree() throws XtumlException;
     public String getGender() throws XtumlException;
     public void setGender( String m_Gender ) throws XtumlException;
-    public void setStart_Date( int m_Start_Date ) throws XtumlException;
     public int getStart_Date() throws XtumlException;
-    public int getLeaveBalance() throws XtumlException;
+    public void setStart_Date( int m_Start_Date ) throws XtumlException;
     public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException;
+    public int getLeaveBalance() throws XtumlException;
     public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException;
     public int getSickLeaveBalance() throws XtumlException;
 

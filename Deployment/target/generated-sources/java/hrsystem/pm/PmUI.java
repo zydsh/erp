@@ -27,10 +27,6 @@ public class PmUI extends Port<Pm> implements IProjects {
     }
 
     // inbound messages
-    public void Initialize() throws XtumlException {
-        context().Initialize();
-    }
-
     public void ReadStrategies() throws XtumlException {
         StrategySet strategies = context().Strategy_instances();
         if ( !strategies.isEmpty() ) {
@@ -46,6 +42,10 @@ public class PmUI extends Port<Pm> implements IProjects {
         else {
             context().LOG().LogInfo( "Strategy: No strategyies found in the system " );
         }
+    }
+
+    public void Initialize() throws XtumlException {
+        context().Initialize();
     }
 
     public void ReadMilestones( final String p_InitiativeName,  final String p_InitiativeShortNumber,  final String p_InitiativeLongNumber ) throws XtumlException {
@@ -74,13 +74,13 @@ public class PmUI extends Port<Pm> implements IProjects {
         else {
         }
     }
-    public void SendStrategies( final String p_Number,  final String p_Name,  final String p_Description ) throws XtumlException {
-        if ( satisfied() ) send(new IProjects.SendStrategies(p_Number, p_Name, p_Description));
+    public void SendMilestones( final String p_Name,  final String p_FullCode,  final String p_Code,  final String p_Type,  final String p_SuccessCriteria,  final int p_CompletePlanned,  final int p_CompleteActual,  final boolean p_Complete,  final int p_Weight,  final int p_Percentage,  final String p_sdState,  final String p_sdDescription,  final String p_Notes,  final String p_IncompleteReasons ) throws XtumlException {
+        if ( satisfied() ) send(new IProjects.SendMilestones(p_Name, p_FullCode, p_Code, p_Type, p_SuccessCriteria, p_CompletePlanned, p_CompleteActual, p_Complete, p_Weight, p_Percentage, p_sdState, p_sdDescription, p_Notes, p_IncompleteReasons));
         else {
         }
     }
-    public void SendMilestones( final String p_Name,  final String p_FullCode,  final String p_Code,  final String p_Type,  final String p_SuccessCriteria,  final int p_CompletePlanned,  final int p_CompleteActual,  final boolean p_Complete,  final int p_Weight,  final int p_Percentage,  final String p_sdState,  final String p_sdDescription,  final String p_Notes,  final String p_IncompleteReasons ) throws XtumlException {
-        if ( satisfied() ) send(new IProjects.SendMilestones(p_Name, p_FullCode, p_Code, p_Type, p_SuccessCriteria, p_CompletePlanned, p_CompleteActual, p_Complete, p_Weight, p_Percentage, p_sdState, p_sdDescription, p_Notes, p_IncompleteReasons));
+    public void SendStrategies( final String p_Number,  final String p_Name,  final String p_Description ) throws XtumlException {
+        if ( satisfied() ) send(new IProjects.SendStrategies(p_Number, p_Name, p_Description));
         else {
         }
     }
@@ -90,11 +90,11 @@ public class PmUI extends Port<Pm> implements IProjects {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IProjects.SIGNAL_NO_INITIALIZE:
-                Initialize();
-                break;
             case IProjects.SIGNAL_NO_READSTRATEGIES:
                 ReadStrategies();
+                break;
+            case IProjects.SIGNAL_NO_INITIALIZE:
+                Initialize();
                 break;
             case IProjects.SIGNAL_NO_READMILESTONES:
                 ReadMilestones(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));

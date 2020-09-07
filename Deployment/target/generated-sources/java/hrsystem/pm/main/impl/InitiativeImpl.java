@@ -105,6 +105,11 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
     }
     private String m_ShortNumber;
     @Override
+    public String getShortNumber() throws XtumlException {
+        checkLiving();
+        return m_ShortNumber;
+    }
+    @Override
     public void setShortNumber(String m_ShortNumber) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_ShortNumber, this.m_ShortNumber)) {
@@ -113,17 +118,7 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_ShortNumber", oldValue, this.m_ShortNumber));
         }
     }
-    @Override
-    public String getShortNumber() throws XtumlException {
-        checkLiving();
-        return m_ShortNumber;
-    }
     private String m_LongNumber;
-    @Override
-    public String getLongNumber() throws XtumlException {
-        checkLiving();
-        return m_LongNumber;
-    }
     @Override
     public void setLongNumber(String m_LongNumber) throws XtumlException {
         checkLiving();
@@ -133,12 +128,12 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LongNumber", oldValue, this.m_LongNumber));
         }
     }
-    private String m_Description;
     @Override
-    public String getDescription() throws XtumlException {
+    public String getLongNumber() throws XtumlException {
         checkLiving();
-        return m_Description;
+        return m_LongNumber;
     }
+    private String m_Description;
     @Override
     public void setDescription(String m_Description) throws XtumlException {
         checkLiving();
@@ -147,6 +142,11 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             this.m_Description = m_Description;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Description", oldValue, this.m_Description));
         }
+    }
+    @Override
+    public String getDescription() throws XtumlException {
+        checkLiving();
+        return m_Description;
     }
     private int m_StartDate;
     @Override
@@ -195,11 +195,6 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
     }
     private int m_ActualEndDate;
     @Override
-    public int getActualEndDate() throws XtumlException {
-        checkLiving();
-        return m_ActualEndDate;
-    }
-    @Override
     public void setActualEndDate(int m_ActualEndDate) throws XtumlException {
         checkLiving();
         if (m_ActualEndDate != this.m_ActualEndDate) {
@@ -208,7 +203,17 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_ActualEndDate", oldValue, this.m_ActualEndDate));
         }
     }
+    @Override
+    public int getActualEndDate() throws XtumlException {
+        checkLiving();
+        return m_ActualEndDate;
+    }
     private double m_Budget;
+    @Override
+    public double getBudget() throws XtumlException {
+        checkLiving();
+        return m_Budget;
+    }
     @Override
     public void setBudget(double m_Budget) throws XtumlException {
         checkLiving();
@@ -217,11 +222,6 @@ public class InitiativeImpl extends ModelInstance<Initiative,Pm> implements Init
             this.m_Budget = m_Budget;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Budget", oldValue, this.m_Budget));
         }
-    }
-    @Override
-    public double getBudget() throws XtumlException {
-        checkLiving();
-        return m_Budget;
     }
 
 
@@ -312,23 +312,23 @@ class EmptyInitiative extends ModelInstance<Initiative,Pm> implements Initiative
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setShortNumber( String m_ShortNumber ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getShortNumber() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getLongNumber() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setShortNumber( String m_ShortNumber ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setLongNumber( String m_LongNumber ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getDescription() throws XtumlException {
+    public String getLongNumber() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setDescription( String m_Description ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getDescription() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setStartDate( int m_StartDate ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -348,17 +348,17 @@ class EmptyInitiative extends ModelInstance<Initiative,Pm> implements Initiative
     public int getEndDate() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getActualEndDate() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setActualEndDate( int m_ActualEndDate ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setBudget( double m_Budget ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public int getActualEndDate() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public double getBudget() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setBudget( double m_Budget ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

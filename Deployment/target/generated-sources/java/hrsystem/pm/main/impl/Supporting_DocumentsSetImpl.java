@@ -28,18 +28,6 @@ public class Supporting_DocumentsSetImpl extends InstanceSet<Supporting_Document
     public void setName( String m_Name ) throws XtumlException {
         for ( Supporting_Documents supporting_documents : this ) supporting_documents.setName( m_Name );
     }
-    @Override
-    public void setDocument( String m_Document ) throws XtumlException {
-        for ( Supporting_Documents supporting_documents : this ) supporting_documents.setDocument( m_Document );
-    }
-    @Override
-    public void setNotes( String m_Notes ) throws XtumlException {
-        for ( Supporting_Documents supporting_documents : this ) supporting_documents.setNotes( m_Notes );
-    }
-    @Override
-    public void setState( String m_State ) throws XtumlException {
-        for ( Supporting_Documents supporting_documents : this ) supporting_documents.setState( m_State );
-    }
 
 
     // selections

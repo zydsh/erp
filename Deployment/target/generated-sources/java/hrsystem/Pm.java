@@ -126,7 +126,7 @@ public class Pm extends Component<Pm> {
         mile.setSdDescription("");
         mile.setNotes("");
         mile.setIncompleteReasons("");
-        context().relate_( init, mile );
+        context().relate_R60_Milestone_achieved_by_Initiative( mile, init );
     }
 
     public void Initialize() throws XtumlException {

@@ -37,24 +37,44 @@ public class EmployeeSetImpl extends InstanceSet<EmployeeSet,Employee> implement
 
     // attributes
     @Override
+    public void setEmployeeID( int m_EmployeeID ) throws XtumlException {
+        for ( Employee employee : this ) employee.setEmployeeID( m_EmployeeID );
+    }
+    @Override
     public void setDegree( String m_Degree ) throws XtumlException {
         for ( Employee employee : this ) employee.setDegree( m_Degree );
+    }
+    @Override
+    public void setOfficePhone( String m_OfficePhone ) throws XtumlException {
+        for ( Employee employee : this ) employee.setOfficePhone( m_OfficePhone );
+    }
+    @Override
+    public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException {
+        for ( Employee employee : this ) employee.setSickLeaveBalance( m_SickLeaveBalance );
+    }
+    @Override
+    public void setMiddleName( String m_MiddleName ) throws XtumlException {
+        for ( Employee employee : this ) employee.setMiddleName( m_MiddleName );
+    }
+    @Override
+    public void setNationalID( int m_NationalID ) throws XtumlException {
+        for ( Employee employee : this ) employee.setNationalID( m_NationalID );
     }
     @Override
     public void setFirstName( String m_FirstName ) throws XtumlException {
         for ( Employee employee : this ) employee.setFirstName( m_FirstName );
     }
     @Override
-    public void setEmployeeID( int m_EmployeeID ) throws XtumlException {
-        for ( Employee employee : this ) employee.setEmployeeID( m_EmployeeID );
+    public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException {
+        for ( Employee employee : this ) employee.setLeaveBalance( m_LeaveBalance );
     }
     @Override
-    public void setGender( String m_Gender ) throws XtumlException {
-        for ( Employee employee : this ) employee.setGender( m_Gender );
+    public void setEmail( String m_Email ) throws XtumlException {
+        for ( Employee employee : this ) employee.setEmail( m_Email );
     }
     @Override
-    public void setSickLeaveBalance( int m_SickLeaveBalance ) throws XtumlException {
-        for ( Employee employee : this ) employee.setSickLeaveBalance( m_SickLeaveBalance );
+    public void setLastName( String m_LastName ) throws XtumlException {
+        for ( Employee employee : this ) employee.setLastName( m_LastName );
     }
     @Override
     public void setDateOfBirth( int m_DateOfBirth ) throws XtumlException {
@@ -65,28 +85,8 @@ public class EmployeeSetImpl extends InstanceSet<EmployeeSet,Employee> implement
         for ( Employee employee : this ) employee.setStart_Date( m_Start_Date );
     }
     @Override
-    public void setLastName( String m_LastName ) throws XtumlException {
-        for ( Employee employee : this ) employee.setLastName( m_LastName );
-    }
-    @Override
-    public void setEmail( String m_Email ) throws XtumlException {
-        for ( Employee employee : this ) employee.setEmail( m_Email );
-    }
-    @Override
-    public void setNationalID( int m_NationalID ) throws XtumlException {
-        for ( Employee employee : this ) employee.setNationalID( m_NationalID );
-    }
-    @Override
-    public void setMiddleName( String m_MiddleName ) throws XtumlException {
-        for ( Employee employee : this ) employee.setMiddleName( m_MiddleName );
-    }
-    @Override
-    public void setLeaveBalance( int m_LeaveBalance ) throws XtumlException {
-        for ( Employee employee : this ) employee.setLeaveBalance( m_LeaveBalance );
-    }
-    @Override
-    public void setOfficePhone( String m_OfficePhone ) throws XtumlException {
-        for ( Employee employee : this ) employee.setOfficePhone( m_OfficePhone );
+    public void setGender( String m_Gender ) throws XtumlException {
+        for ( Employee employee : this ) employee.setGender( m_Gender );
     }
 
 
