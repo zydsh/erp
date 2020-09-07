@@ -11,8 +11,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Polo extends IModelInstance<Polo,Pm> {
 
     // attributes
-    public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
+    public String getName() throws XtumlException;
 
 
     // operations

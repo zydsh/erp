@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Marco extends IModelInstance<Marco,Pm> {
 
     // attributes
-    public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
+    public String getName() throws XtumlException;
 
 
     // operations

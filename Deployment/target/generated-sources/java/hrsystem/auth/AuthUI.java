@@ -26,7 +26,26 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
     }
 
     // inbound messages
+    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
+    }
+
+    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
+    }
+
     public void Initialize() throws XtumlException {
+    }
+
+    public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
+        Account account = context().Account_instances().anyWhere(selected -> StringUtil.equality(((Account)selected).getUsername(), p_Username) && StringUtil.equality(((Account)selected).getPassword(), p_OldPassword));
+        if ( !account.isEmpty() ) {
+            account.setPassword(p_NewPassword);
+            context().UI().Reply( account.getEmployeeID(), account.getUsername(), "Password changed successfully", true );
+            context().LOG().LogInfo( ( "UI: Password changed successfully." + " Username " ) + account.getUsername() );
+        }
+        else {
+            context().LOG().LogInfo( ( "UI: Password changed unsuccessful. Wrong username or password" + " Username " ) + p_Username );
+            context().UI().Reply( 0, p_Username, "Wrong username or password", false );
+        }
     }
 
     public void ReadEmployeePermissions( final int p_EmployeeID ) throws XtumlException {
@@ -46,25 +65,6 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
             context().LOG().LogInfo( "Employee either does not exist or has no account or has is not assigned a group" );
             context().UI().Reply( 0, "", "Employee either does not exist or has no account or has is not assigned a group", false );
         }
-    }
-
-    public void CreateNewAccount( final String p_First_Name,  final String p_Last_Name,  final int p_EmployeeID ) throws XtumlException {
-    }
-
-    public void ChangePassword( final String p_Username,  final String p_OldPassword,  final String p_NewPassword ) throws XtumlException {
-        Account account = context().Account_instances().anyWhere(selected -> StringUtil.equality(((Account)selected).getUsername(), p_Username) && StringUtil.equality(((Account)selected).getPassword(), p_OldPassword));
-        if ( !account.isEmpty() ) {
-            account.setPassword(p_NewPassword);
-            context().UI().Reply( account.getEmployeeID(), account.getUsername(), "Password changed successfully", true );
-            context().LOG().LogInfo( ( "UI: Password changed successfully." + " Username " ) + account.getUsername() );
-        }
-        else {
-            context().LOG().LogInfo( ( "UI: Password changed unsuccessful. Wrong username or password" + " Username " ) + p_Username );
-            context().UI().Reply( 0, p_Username, "Wrong username or password", false );
-        }
-    }
-
-    public void AddToGroup( final int p_EmployeeID,  final String p_Group ) throws XtumlException {
     }
 
     public void CheckUsernamePassword( final String p_Username,  final String p_Password ) throws XtumlException {
@@ -98,20 +98,20 @@ public class AuthUI extends Port<Auth> implements IAuthentication {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IAuthentication.SIGNAL_NO_INITIALIZE:
-                Initialize();
-                break;
-            case IAuthentication.SIGNAL_NO_READEMPLOYEEPERMISSIONS:
-                ReadEmployeePermissions(IntegerUtil.deserialize(message.get(0)));
+            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
+                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
                 break;
             case IAuthentication.SIGNAL_NO_CREATENEWACCOUNT:
                 CreateNewAccount(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
                 break;
+            case IAuthentication.SIGNAL_NO_INITIALIZE:
+                Initialize();
+                break;
             case IAuthentication.SIGNAL_NO_CHANGEPASSWORD:
                 ChangePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
-            case IAuthentication.SIGNAL_NO_ADDTOGROUP:
-                AddToGroup(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));
+            case IAuthentication.SIGNAL_NO_READEMPLOYEEPERMISSIONS:
+                ReadEmployeePermissions(IntegerUtil.deserialize(message.get(0)));
                 break;
             case IAuthentication.SIGNAL_NO_CHECKUSERNAMEPASSWORD:
                 CheckUsernamePassword(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)));

@@ -27,6 +27,10 @@ public class PmUI extends Port<Pm> implements IProjects {
     }
 
     // inbound messages
+    public void Initialize() throws XtumlException {
+        context().Initialize();
+    }
+
     public void ReadMilestones( final String p_InitiativeName,  final String p_InitiativeShortNumber,  final String p_InitiativeLongNumber ) throws XtumlException {
         Initiative initiative = context().Initiative_instances().anyWhere(selected -> ( StringUtil.equality(((Initiative)selected).getName(), p_InitiativeName) || StringUtil.equality(((Initiative)selected).getLongNumber(), p_InitiativeLongNumber) ) || StringUtil.equality(((Initiative)selected).getShortNumber(), p_InitiativeShortNumber));
         MilestoneSet milestones = initiative.R60_achieves_Milestone();
@@ -62,10 +66,6 @@ public class PmUI extends Port<Pm> implements IProjects {
         }
     }
 
-    public void Initialize() throws XtumlException {
-        context().Initialize();
-    }
-
 
 
     // outbound messages
@@ -74,13 +74,13 @@ public class PmUI extends Port<Pm> implements IProjects {
         else {
         }
     }
-    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
-        if ( satisfied() ) send(new IProjects.Reply(p_msg, p_state));
+    public void SendStrategies( final String p_Number,  final String p_Name,  final String p_Description ) throws XtumlException {
+        if ( satisfied() ) send(new IProjects.SendStrategies(p_Number, p_Name, p_Description));
         else {
         }
     }
-    public void SendStrategies( final String p_Number,  final String p_Name,  final String p_Description ) throws XtumlException {
-        if ( satisfied() ) send(new IProjects.SendStrategies(p_Number, p_Name, p_Description));
+    public void Reply( final String p_msg,  final boolean p_state ) throws XtumlException {
+        if ( satisfied() ) send(new IProjects.Reply(p_msg, p_state));
         else {
         }
     }
@@ -90,14 +90,14 @@ public class PmUI extends Port<Pm> implements IProjects {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
+            case IProjects.SIGNAL_NO_INITIALIZE:
+                Initialize();
+                break;
             case IProjects.SIGNAL_NO_READMILESTONES:
                 ReadMilestones(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
             case IProjects.SIGNAL_NO_READSTRATEGIES:
                 ReadStrategies();
-                break;
-            case IProjects.SIGNAL_NO_INITIALIZE:
-                Initialize();
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

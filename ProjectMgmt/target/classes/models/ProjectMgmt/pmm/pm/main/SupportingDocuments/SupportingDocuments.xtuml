@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'SupportingDocuments',
 	4,
 	'SupportingDocuments',
-	'',
+	'A documents that proves a milestone
+or an output was achieved.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("dc7a82cf-dcc6-421b-86ba-f8078bf9082d",

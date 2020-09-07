@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'Project',
 	5,
 	'Project',
-	'',
+	'A group of activities set to achieve an 
+outcome with a defined beginning and end ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("8f3b3ef7-4c30-489b-9029-e3c2cf675fa7",
@@ -23,6 +24,24 @@ INSERT INTO O_ATTR
 	'Name',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("50b42cde-8f48-4790-a483-ec1fc90f918e",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("50b42cde-8f48-4790-a483-ec1fc90f918e",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("50b42cde-8f48-4790-a483-ec1fc90f918e",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"8f3b3ef7-4c30-489b-9029-e3c2cf675fa7",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
 INSERT INTO O_ID

@@ -2,9 +2,11 @@ package hrsystem.pm.main.impl;
 
 
 import hrsystem.pm.main.InitiativeSet;
+import hrsystem.pm.main.MilestoneSet;
 import hrsystem.pm.main.Project;
 import hrsystem.pm.main.ProjectSet;
 import hrsystem.pm.main.impl.InitiativeSetImpl;
+import hrsystem.pm.main.impl.MilestoneSetImpl;
 
 import io.ciera.runtime.summit.classes.InstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
@@ -36,6 +38,12 @@ public class ProjectSetImpl extends InstanceSet<ProjectSet,Project> implements P
         InitiativeSet initiativeset = new InitiativeSetImpl();
         for ( Project project : this ) initiativeset.add( project.R5_implements_Initiative() );
         return initiativeset;
+    }
+    @Override
+    public MilestoneSet R8_reaches_Milestone() throws XtumlException {
+        MilestoneSet milestoneset = new MilestoneSetImpl();
+        for ( Project project : this ) milestoneset.addAll( project.R8_reaches_Milestone() );
+        return milestoneset;
     }
 
 

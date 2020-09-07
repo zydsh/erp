@@ -36,6 +36,11 @@ public class UIProjects extends Port<UI> implements IProjects {
 
 
     // outbound messages
+    public void ReadStrategies() throws XtumlException {
+        if ( satisfied() ) send(new IProjects.ReadStrategies());
+        else {
+        }
+    }
     public void Initialize() throws XtumlException {
         if ( satisfied() ) send(new IProjects.Initialize());
         else {
@@ -43,11 +48,6 @@ public class UIProjects extends Port<UI> implements IProjects {
     }
     public void ReadMilestones( final String p_InitiativeName,  final String p_InitiativeShortNumber,  final String p_InitiativeLongNumber ) throws XtumlException {
         if ( satisfied() ) send(new IProjects.ReadMilestones(p_InitiativeName, p_InitiativeShortNumber, p_InitiativeLongNumber));
-        else {
-        }
-    }
-    public void ReadStrategies() throws XtumlException {
-        if ( satisfied() ) send(new IProjects.ReadStrategies());
         else {
         }
     }

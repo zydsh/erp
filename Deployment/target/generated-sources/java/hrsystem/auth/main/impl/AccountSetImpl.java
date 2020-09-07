@@ -29,12 +29,12 @@ public class AccountSetImpl extends InstanceSet<AccountSet,Account> implements A
         for ( Account account : this ) account.setUsername( m_Username );
     }
     @Override
-    public void setEmployeeID( int m_EmployeeID ) throws XtumlException {
-        for ( Account account : this ) account.setEmployeeID( m_EmployeeID );
-    }
-    @Override
     public void setPassword( String m_Password ) throws XtumlException {
         for ( Account account : this ) account.setPassword( m_Password );
+    }
+    @Override
+    public void setEmployeeID( int m_EmployeeID ) throws XtumlException {
+        for ( Account account : this ) account.setEmployeeID( m_EmployeeID );
     }
 
 

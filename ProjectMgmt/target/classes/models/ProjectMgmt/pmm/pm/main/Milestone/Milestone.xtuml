@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'Milestone',
 	3,
 	'Milestone',
-	'',
+	'A marker that signify a development stage of an intiative 
+or a project.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("6c37ef3f-ab87-4651-8b8d-fd010ddd5dcb",
