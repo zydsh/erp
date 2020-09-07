@@ -54,7 +54,8 @@ INSERT INTO O_ATTR
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
 	"9aa16f78-ce2a-40f9-b6a6-c9f855c435b6",
 	'CeilingFund',
-	'',
+	'A fund limited by a given amount
+defined yearly.',
 	'',
 	'CeilingFund',
 	0,
@@ -72,7 +73,7 @@ INSERT INTO O_ATTR
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
 	"76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
 	'RequestFund',
-	'',
+	'The fund requested for the year.',
 	'',
 	'RequestFund',
 	0,

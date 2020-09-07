@@ -18,7 +18,7 @@ INSERT INTO O_ATTR
 	"9ff5973f-5f07-43ea-9880-93a4d9c3f570",
 	"1bf145b3-0bfd-4c8c-abc3-b6b2a0694432",
 	'Amount',
-	'',
+	'The total amount of funds for a year. ',
 	'',
 	'Amount',
 	0,
