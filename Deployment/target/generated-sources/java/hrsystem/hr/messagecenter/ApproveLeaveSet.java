@@ -10,9 +10,9 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface ApproveLeaveSet extends IInstanceSet<ApproveLeaveSet,ApproveLeave> {
 
     // attributes
-    public void setStarting( int m_Starting ) throws XtumlException;
     public void setEnding( int m_Ending ) throws XtumlException;
     public void setContent( String m_Content ) throws XtumlException;
+    public void setStarting( int m_Starting ) throws XtumlException;
     public void setLeaveRequesterID( int m_LeaveRequesterID ) throws XtumlException;
 
 

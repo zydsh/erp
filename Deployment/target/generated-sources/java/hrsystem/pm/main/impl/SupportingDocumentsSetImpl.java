@@ -25,6 +25,10 @@ public class SupportingDocumentsSetImpl extends InstanceSet<SupportingDocumentsS
 
     // attributes
     @Override
+    public void setNotes( String m_Notes ) throws XtumlException {
+        for ( SupportingDocuments supportingdocuments : this ) supportingdocuments.setNotes( m_Notes );
+    }
+    @Override
     public void setName( String m_Name ) throws XtumlException {
         for ( SupportingDocuments supportingdocuments : this ) supportingdocuments.setName( m_Name );
     }
@@ -35,10 +39,6 @@ public class SupportingDocumentsSetImpl extends InstanceSet<SupportingDocumentsS
     @Override
     public void setState( String m_State ) throws XtumlException {
         for ( SupportingDocuments supportingdocuments : this ) supportingdocuments.setState( m_State );
-    }
-    @Override
-    public void setNotes( String m_Notes ) throws XtumlException {
-        for ( SupportingDocuments supportingdocuments : this ) supportingdocuments.setNotes( m_Notes );
     }
 
 

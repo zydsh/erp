@@ -29,12 +29,12 @@ public class ItemSetImpl extends InstanceSet<ItemSet,Item> implements ItemSet {
         for ( Item item : this ) item.setStatus( m_Status );
     }
     @Override
-    public void setType( UnresolvedType0 m_Type ) throws XtumlException {
-        for ( Item item : this ) item.setType( m_Type );
-    }
-    @Override
     public void setCategory( String m_Category ) throws XtumlException {
         for ( Item item : this ) item.setCategory( m_Category );
+    }
+    @Override
+    public void setType( String m_Type ) throws XtumlException {
+        for ( Item item : this ) item.setType( m_Type );
     }
     @Override
     public void setFund( int m_Fund ) throws XtumlException {

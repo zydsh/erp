@@ -75,11 +75,6 @@ public class ChapterImpl extends ModelInstance<Chapter,Fms> implements Chapter {
     // attributes
     private String m_Code;
     @Override
-    public String getCode() throws XtumlException {
-        checkLiving();
-        return m_Code;
-    }
-    @Override
     public void setCode(String m_Code) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Code, this.m_Code)) {
@@ -88,7 +83,17 @@ public class ChapterImpl extends ModelInstance<Chapter,Fms> implements Chapter {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Code", oldValue, this.m_Code));
         }
     }
+    @Override
+    public String getCode() throws XtumlException {
+        checkLiving();
+        return m_Code;
+    }
     private String m_Name;
+    @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
     @Override
     public void setName(String m_Name) throws XtumlException {
         checkLiving();
@@ -98,12 +103,12 @@ public class ChapterImpl extends ModelInstance<Chapter,Fms> implements Chapter {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
     }
-    @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-        return m_Name;
-    }
     private double m_CeilingFund;
+    @Override
+    public double getCeilingFund() throws XtumlException {
+        checkLiving();
+        return m_CeilingFund;
+    }
     @Override
     public void setCeilingFund(double m_CeilingFund) throws XtumlException {
         checkLiving();
@@ -112,11 +117,6 @@ public class ChapterImpl extends ModelInstance<Chapter,Fms> implements Chapter {
             this.m_CeilingFund = m_CeilingFund;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_CeilingFund", oldValue, this.m_CeilingFund));
         }
-    }
-    @Override
-    public double getCeilingFund() throws XtumlException {
-        checkLiving();
-        return m_CeilingFund;
     }
     private double m_RequestFund;
     @Override
@@ -225,23 +225,23 @@ public class ChapterImpl extends ModelInstance<Chapter,Fms> implements Chapter {
 class EmptyChapter extends ModelInstance<Chapter,Fms> implements Chapter {
 
     // attributes
-    public String getCode() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setCode( String m_Code ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public String getCode() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setCeilingFund( double m_CeilingFund ) throws XtumlException {
+    public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public double getCeilingFund() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setCeilingFund( double m_CeilingFund ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public double getRequestFund() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

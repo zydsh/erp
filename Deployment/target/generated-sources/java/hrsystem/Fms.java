@@ -62,7 +62,7 @@ public class Fms extends Component<Fms> {
     public void CreatePEIs() throws XtumlException {
         Item item = ItemImpl.create( context() );
         item.setCategory("");
-        item.setType(.);
+        item.setType("");
         item.setStatus("");
         item.setFund(0);
         Budget budget = BudgetImpl.create( context() );

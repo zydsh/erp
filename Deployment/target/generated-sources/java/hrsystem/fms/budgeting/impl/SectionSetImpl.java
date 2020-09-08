@@ -27,6 +27,30 @@ public class SectionSetImpl extends InstanceSet<SectionSet,Section> implements S
 
     // attributes
     @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Section section : this ) section.setName( m_Name );
+    }
+    @Override
+    public void setAmount( double m_Amount ) throws XtumlException {
+        for ( Section section : this ) section.setAmount( m_Amount );
+    }
+    @Override
+    public void setFundvsIncome( double m_FundvsIncome ) throws XtumlException {
+        for ( Section section : this ) section.setFundvsIncome( m_FundvsIncome );
+    }
+    @Override
+    public void setCode( String m_Code ) throws XtumlException {
+        for ( Section section : this ) section.setCode( m_Code );
+    }
+    @Override
+    public void setOriginalFund( double m_OriginalFund ) throws XtumlException {
+        for ( Section section : this ) section.setOriginalFund( m_OriginalFund );
+    }
+    @Override
+    public void setBalance( double m_Balance ) throws XtumlException {
+        for ( Section section : this ) section.setBalance( m_Balance );
+    }
+    @Override
     public void setComments( String m_Comments ) throws XtumlException {
         for ( Section section : this ) section.setComments( m_Comments );
     }
@@ -39,6 +63,10 @@ public class SectionSetImpl extends InstanceSet<SectionSet,Section> implements S
         for ( Section section : this ) section.setTotalSpending( m_TotalSpending );
     }
     @Override
+    public void setEconomicCategory( String m_EconomicCategory ) throws XtumlException {
+        for ( Section section : this ) section.setEconomicCategory( m_EconomicCategory );
+    }
+    @Override
     public void setRequestedFund( double m_RequestedFund ) throws XtumlException {
         for ( Section section : this ) section.setRequestedFund( m_RequestedFund );
     }
@@ -47,36 +75,8 @@ public class SectionSetImpl extends InstanceSet<SectionSet,Section> implements S
         for ( Section section : this ) section.setPostponedFund( m_PostponedFund );
     }
     @Override
-    public void setCode( String m_Code ) throws XtumlException {
-        for ( Section section : this ) section.setCode( m_Code );
-    }
-    @Override
-    public void setEconomicCategory( String m_EconomicCategory ) throws XtumlException {
-        for ( Section section : this ) section.setEconomicCategory( m_EconomicCategory );
-    }
-    @Override
-    public void setFundvsIncome( double m_FundvsIncome ) throws XtumlException {
-        for ( Section section : this ) section.setFundvsIncome( m_FundvsIncome );
-    }
-    @Override
-    public void setOriginalFund( double m_OriginalFund ) throws XtumlException {
-        for ( Section section : this ) section.setOriginalFund( m_OriginalFund );
-    }
-    @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Section section : this ) section.setName( m_Name );
-    }
-    @Override
     public void setRemainingExpenses( double m_RemainingExpenses ) throws XtumlException {
         for ( Section section : this ) section.setRemainingExpenses( m_RemainingExpenses );
-    }
-    @Override
-    public void setBalance( double m_Balance ) throws XtumlException {
-        for ( Section section : this ) section.setBalance( m_Balance );
-    }
-    @Override
-    public void setAmount( double m_Amount ) throws XtumlException {
-        for ( Section section : this ) section.setAmount( m_Amount );
     }
 
 

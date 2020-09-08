@@ -129,11 +129,6 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     }
     private String m_Code;
     @Override
-    public String getCode() throws XtumlException {
-        checkLiving();
-        return m_Code;
-    }
-    @Override
     public void setCode(String m_Code) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Code, this.m_Code)) {
@@ -141,6 +136,11 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             this.m_Code = m_Code;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Code", oldValue, this.m_Code));
         }
+    }
+    @Override
+    public String getCode() throws XtumlException {
+        checkLiving();
+        return m_Code;
     }
     private String m_Type;
     @Override
@@ -159,6 +159,11 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     }
     private String m_SuccessCriteria;
     @Override
+    public String getSuccessCriteria() throws XtumlException {
+        checkLiving();
+        return m_SuccessCriteria;
+    }
+    @Override
     public void setSuccessCriteria(String m_SuccessCriteria) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_SuccessCriteria, this.m_SuccessCriteria)) {
@@ -166,11 +171,6 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             this.m_SuccessCriteria = m_SuccessCriteria;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_SuccessCriteria", oldValue, this.m_SuccessCriteria));
         }
-    }
-    @Override
-    public String getSuccessCriteria() throws XtumlException {
-        checkLiving();
-        return m_SuccessCriteria;
     }
     private int m_CompletePlanned;
     @Override
@@ -204,6 +204,11 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     }
     private boolean m_Complete;
     @Override
+    public boolean getComplete() throws XtumlException {
+        checkLiving();
+        return m_Complete;
+    }
+    @Override
     public void setComplete(boolean m_Complete) throws XtumlException {
         checkLiving();
         if (m_Complete != this.m_Complete) {
@@ -211,11 +216,6 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             this.m_Complete = m_Complete;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Complete", oldValue, this.m_Complete));
         }
-    }
-    @Override
-    public boolean getComplete() throws XtumlException {
-        checkLiving();
-        return m_Complete;
     }
     private int m_Weight;
     @Override
@@ -264,11 +264,6 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     }
     private String m_sdDescription;
     @Override
-    public String getSdDescription() throws XtumlException {
-        checkLiving();
-        return m_sdDescription;
-    }
-    @Override
     public void setSdDescription(String m_sdDescription) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_sdDescription, this.m_sdDescription)) {
@@ -276,6 +271,11 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             this.m_sdDescription = m_sdDescription;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_sdDescription", oldValue, this.m_sdDescription));
         }
+    }
+    @Override
+    public String getSdDescription() throws XtumlException {
+        checkLiving();
+        return m_sdDescription;
     }
     private String m_Notes;
     @Override
@@ -294,6 +294,11 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
     }
     private String m_IncompleteReasons;
     @Override
+    public String getIncompleteReasons() throws XtumlException {
+        checkLiving();
+        return m_IncompleteReasons;
+    }
+    @Override
     public void setIncompleteReasons(String m_IncompleteReasons) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_IncompleteReasons, this.m_IncompleteReasons)) {
@@ -301,11 +306,6 @@ public class MilestoneImpl extends ModelInstance<Milestone,Pm> implements Milest
             this.m_IncompleteReasons = m_IncompleteReasons;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_IncompleteReasons", oldValue, this.m_IncompleteReasons));
         }
-    }
-    @Override
-    public String getIncompleteReasons() throws XtumlException {
-        checkLiving();
-        return m_IncompleteReasons;
     }
 
 
@@ -420,11 +420,11 @@ class EmptyMilestone extends ModelInstance<Milestone,Pm> implements Milestone {
     public void setFullCode( String m_FullCode ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getCode() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setCode( String m_Code ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getCode() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setType( String m_Type ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -432,11 +432,11 @@ class EmptyMilestone extends ModelInstance<Milestone,Pm> implements Milestone {
     public String getType() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setSuccessCriteria( String m_SuccessCriteria ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getSuccessCriteria() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setSuccessCriteria( String m_SuccessCriteria ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setCompletePlanned( int m_CompletePlanned ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -450,11 +450,11 @@ class EmptyMilestone extends ModelInstance<Milestone,Pm> implements Milestone {
     public void setCompleteActual( int m_CompleteActual ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setComplete( boolean m_Complete ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public boolean getComplete() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setComplete( boolean m_Complete ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getWeight() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -474,11 +474,11 @@ class EmptyMilestone extends ModelInstance<Milestone,Pm> implements Milestone {
     public String getSdState() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getSdDescription() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setSdDescription( String m_sdDescription ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getSdDescription() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setNotes( String m_Notes ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -486,11 +486,11 @@ class EmptyMilestone extends ModelInstance<Milestone,Pm> implements Milestone {
     public String getNotes() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setIncompleteReasons( String m_IncompleteReasons ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getIncompleteReasons() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setIncompleteReasons( String m_IncompleteReasons ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

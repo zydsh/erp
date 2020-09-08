@@ -40,16 +40,9 @@ INSERT INTO O_ATTR
 	'',
 	'Type',
 	0,
-	"7cfe0028-0f3f-4007-be5b-f46f498fed98",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("7cfe0028-0f3f-4007-be5b-f46f498fed98",
-	"00000000-0000-0000-0000-000000000000",
-	'Income',
-	'',
-	'',
-	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("4081e390-5801-4d92-9d3b-c4cc0327ccdc",
 	"b1072175-b465-43c1-889a-ac3139f611ed");
