@@ -5,85 +5,24 @@ INSERT INTO O_OBJ
 	'Expenses',
 	3,
 	'Expenses',
-	'A categorization of funds assigned to a section',
+	'Represents regular expenses ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
-	VALUES ("4081e390-5801-4d92-9d3b-c4cc0327ccdc",
+	VALUES ("4aa53ed3-dce8-4145-af64-c6d132b28242",
 	"b1072175-b465-43c1-889a-ac3139f611ed");
 INSERT INTO O_BATTR
-	VALUES ("4081e390-5801-4d92-9d3b-c4cc0327ccdc",
+	VALUES ("4aa53ed3-dce8-4145-af64-c6d132b28242",
 	"b1072175-b465-43c1-889a-ac3139f611ed");
 INSERT INTO O_ATTR
-	VALUES ("4081e390-5801-4d92-9d3b-c4cc0327ccdc",
+	VALUES ("4aa53ed3-dce8-4145-af64-c6d132b28242",
 	"b1072175-b465-43c1-889a-ac3139f611ed",
-	"2d17d55f-6614-487d-bd8d-8d402ef98b16",
-	'Status',
-	'',
-	'',
-	'Status',
-	0,
-	"c6e70c71-a471-4a0d-a571-c7ebb0a255a2",
-	'',
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("c6e70c71-a471-4a0d-a571-c7ebb0a255a2",
 	"00000000-0000-0000-0000-000000000000",
-	'Status',
-	'',
-	'',
-	'../../../../SharedTypes/SharedTypes.xtuml');
-INSERT INTO O_NBATTR
-	VALUES ("4aa53ed3-dce8-4145-af64-c6d132b28242",
-	"b1072175-b465-43c1-889a-ac3139f611ed");
-INSERT INTO O_BATTR
-	VALUES ("4aa53ed3-dce8-4145-af64-c6d132b28242",
-	"b1072175-b465-43c1-889a-ac3139f611ed");
-INSERT INTO O_ATTR
-	VALUES ("4aa53ed3-dce8-4145-af64-c6d132b28242",
-	"b1072175-b465-43c1-889a-ac3139f611ed",
-	"4081e390-5801-4d92-9d3b-c4cc0327ccdc",
 	'Fund',
 	'',
 	'',
 	'Fund',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("af37d6cb-59db-482b-b215-9ac7e6e504e3",
-	"b1072175-b465-43c1-889a-ac3139f611ed");
-INSERT INTO O_BATTR
-	VALUES ("af37d6cb-59db-482b-b215-9ac7e6e504e3",
-	"b1072175-b465-43c1-889a-ac3139f611ed");
-INSERT INTO O_ATTR
-	VALUES ("af37d6cb-59db-482b-b215-9ac7e6e504e3",
-	"b1072175-b465-43c1-889a-ac3139f611ed",
-	"00000000-0000-0000-0000-000000000000",
-	'Code',
-	'',
-	'',
-	'Code',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("2d17d55f-6614-487d-bd8d-8d402ef98b16",
-	"b1072175-b465-43c1-889a-ac3139f611ed");
-INSERT INTO O_BATTR
-	VALUES ("2d17d55f-6614-487d-bd8d-8d402ef98b16",
-	"b1072175-b465-43c1-889a-ac3139f611ed");
-INSERT INTO O_ATTR
-	VALUES ("2d17d55f-6614-487d-bd8d-8d402ef98b16",
-	"b1072175-b465-43c1-889a-ac3139f611ed",
-	"af37d6cb-59db-482b-b215-9ac7e6e504e3",
-	'Name',
-	'',
-	'',
-	'Name',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -107,19 +46,9 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"b1072175-b465-43c1-889a-ac3139f611ed");
-INSERT INTO O_OIDA
-	VALUES ("af37d6cb-59db-482b-b215-9ac7e6e504e3",
-	"b1072175-b465-43c1-889a-ac3139f611ed",
-	0,
-	'Code');
 INSERT INTO O_ID
 	VALUES (1,
 	"b1072175-b465-43c1-889a-ac3139f611ed");
-INSERT INTO O_OIDA
-	VALUES ("2d17d55f-6614-487d-bd8d-8d402ef98b16",
-	"b1072175-b465-43c1-889a-ac3139f611ed",
-	1,
-	'Name');
 INSERT INTO O_ID
 	VALUES (2,
 	"b1072175-b465-43c1-889a-ac3139f611ed");

@@ -2,57 +2,21 @@
 
 INSERT INTO O_OBJ
 	VALUES ("69967d24-1e46-4bc1-99b7-c74d79b0148e",
-	'Programs',
+	'ProgramFund',
 	5,
-	'Programs',
-	'',
+	'ProgramFund',
+	'Represents the fund assigned to a program or a project',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
-	VALUES ("ece8fb95-3dff-412a-aa13-4773ca7e6062",
+	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
 	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
 INSERT INTO O_BATTR
-	VALUES ("ece8fb95-3dff-412a-aa13-4773ca7e6062",
+	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
 	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
 INSERT INTO O_ATTR
-	VALUES ("ece8fb95-3dff-412a-aa13-4773ca7e6062",
+	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
 	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
 	"00000000-0000-0000-0000-000000000000",
-	'Code',
-	'',
-	'',
-	'Code',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("36b01df8-c428-439b-b6a7-587748bfff8d",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
-INSERT INTO O_BATTR
-	VALUES ("36b01df8-c428-439b-b6a7-587748bfff8d",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
-INSERT INTO O_ATTR
-	VALUES ("36b01df8-c428-439b-b6a7-587748bfff8d",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
-	"ece8fb95-3dff-412a-aa13-4773ca7e6062",
-	'Name',
-	'',
-	'',
-	'Name',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
-INSERT INTO O_BATTR
-	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
-INSERT INTO O_ATTR
-	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
-	"36b01df8-c428-439b-b6a7-587748bfff8d",
 	'Expenses',
 	'The budget amount dedicated to spending',
 	'',
@@ -97,31 +61,6 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
-	VALUES ("fdf49f34-b42a-4f8b-ab9d-cfcd8ac17546",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
-INSERT INTO O_BATTR
-	VALUES ("fdf49f34-b42a-4f8b-ab9d-cfcd8ac17546",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
-INSERT INTO O_ATTR
-	VALUES ("fdf49f34-b42a-4f8b-ab9d-cfcd8ac17546",
-	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
-	"fd79bbc2-78bb-41b3-9d6a-0c46c5f8de94",
-	'Status',
-	'Indicates if the program is existing or new.',
-	'',
-	'Status',
-	0,
-	"c6e70c71-a471-4a0d-a571-c7ebb0a255a2",
-	'',
-	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("c6e70c71-a471-4a0d-a571-c7ebb0a255a2",
-	"00000000-0000-0000-0000-000000000000",
-	'Status',
-	'',
-	'',
-	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
