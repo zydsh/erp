@@ -55,10 +55,27 @@ INSERT INTO S_SYNC
 	'CreatePEIs',
 	'',
 	'create object instance item of Item;
-item.Category="";
-item.Type="";//Income::Expenditure;
-item.Status = "";
+item.Basis = "حسب السقف";
+item.Category=Category::Income; 
+item.Type=Income::Expenditure;
+item.Status = "قائم";
 item.Fund= 0;
+
+create object instance item of Item;
+item.Basis = "حسب السقف";
+item.Category=Category::Income;//"الإيراد";
+item.Type=Income::Expenditure;
+item.Status = "قائم";
+item.Fund= 0;
+
+
+create object instance item of Item;
+item.Basis = "حسب الطلب";
+item.Category=Category::Budget;//"الميزانية";
+item.Type=Income::Expenditure;
+item.Status = "قائم";
+item.Fund= 0;
+
 
 create object instance budget of Budget;
 budget.Year="2021";

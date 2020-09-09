@@ -18,6 +18,7 @@
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/pm/main/impl/SupportingDocumentsSetImpl.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/Pm.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/hr/main/impl/JobSetImpl.java
+/Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/sharedtypes/Income.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/UI.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/hr/HrUI.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/fms/budgeting/Section.java
@@ -32,6 +33,7 @@
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/auth/main/AccountSet.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/hr/main/impl/EmployeeSetImpl.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/auth/main/GroupSet.java
+/Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/sharedtypes/Category.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/hr/main/PayslipItemSet.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/pm/main/impl/ProjectImpl.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/auth/main/impl/GroupSetImpl.java
@@ -113,6 +115,7 @@
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/hr/messagecenter/impl/ApproveLeaveImpl.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/hr/main/impl/BonusImpl.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/pm/PmUI.java
+/Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/sharedtypes/Satus.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/hr/HrUI_Ops.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/hr/main/Job.java
 /Users/ziyadalshaikh/git/erp/hrp/Deployment/target/generated-sources/java/hrsystem/ui/UIApp.java

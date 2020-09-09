@@ -123,6 +123,11 @@ public class SectionImpl extends ModelInstance<Section,Fms> implements Section {
     }
     private double m_Amount;
     @Override
+    public double getAmount() throws XtumlException {
+        checkLiving();
+        return m_Amount;
+    }
+    @Override
     public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
         if (m_Amount != this.m_Amount) {
@@ -131,17 +136,7 @@ public class SectionImpl extends ModelInstance<Section,Fms> implements Section {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
     }
-    @Override
-    public double getAmount() throws XtumlException {
-        checkLiving();
-        return m_Amount;
-    }
     private double m_ApprovedFunds;
-    @Override
-    public double getApprovedFunds() throws XtumlException {
-        checkLiving();
-        return m_ApprovedFunds;
-    }
     @Override
     public void setApprovedFunds(double m_ApprovedFunds) throws XtumlException {
         checkLiving();
@@ -151,12 +146,12 @@ public class SectionImpl extends ModelInstance<Section,Fms> implements Section {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_ApprovedFunds", oldValue, this.m_ApprovedFunds));
         }
     }
-    private double m_TotalSpending;
     @Override
-    public double getTotalSpending() throws XtumlException {
+    public double getApprovedFunds() throws XtumlException {
         checkLiving();
-        return m_TotalSpending;
+        return m_ApprovedFunds;
     }
+    private double m_TotalSpending;
     @Override
     public void setTotalSpending(double m_TotalSpending) throws XtumlException {
         checkLiving();
@@ -165,6 +160,11 @@ public class SectionImpl extends ModelInstance<Section,Fms> implements Section {
             this.m_TotalSpending = m_TotalSpending;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_TotalSpending", oldValue, this.m_TotalSpending));
         }
+    }
+    @Override
+    public double getTotalSpending() throws XtumlException {
+        checkLiving();
+        return m_TotalSpending;
     }
     private double m_RemainingExpenses;
     @Override
@@ -228,11 +228,6 @@ public class SectionImpl extends ModelInstance<Section,Fms> implements Section {
     }
     private double m_Balance;
     @Override
-    public double getBalance() throws XtumlException {
-        checkLiving();
-        return m_Balance;
-    }
-    @Override
     public void setBalance(double m_Balance) throws XtumlException {
         checkLiving();
         if (m_Balance != this.m_Balance) {
@@ -241,12 +236,12 @@ public class SectionImpl extends ModelInstance<Section,Fms> implements Section {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Balance", oldValue, this.m_Balance));
         }
     }
-    private double m_RequestedFund;
     @Override
-    public double getRequestedFund() throws XtumlException {
+    public double getBalance() throws XtumlException {
         checkLiving();
-        return m_RequestedFund;
+        return m_Balance;
     }
+    private double m_RequestedFund;
     @Override
     public void setRequestedFund(double m_RequestedFund) throws XtumlException {
         checkLiving();
@@ -255,6 +250,11 @@ public class SectionImpl extends ModelInstance<Section,Fms> implements Section {
             this.m_RequestedFund = m_RequestedFund;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_RequestedFund", oldValue, this.m_RequestedFund));
         }
+    }
+    @Override
+    public double getRequestedFund() throws XtumlException {
+        checkLiving();
+        return m_RequestedFund;
     }
     private String m_EconomicCategory;
     @Override
@@ -390,23 +390,23 @@ class EmptySection extends ModelInstance<Section,Fms> implements Section {
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setAmount( double m_Amount ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public double getApprovedFunds() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setAmount( double m_Amount ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setApprovedFunds( double m_ApprovedFunds ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public double getTotalSpending() throws XtumlException {
+    public double getApprovedFunds() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setTotalSpending( double m_TotalSpending ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getTotalSpending() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public double getRemainingExpenses() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -432,17 +432,17 @@ class EmptySection extends ModelInstance<Section,Fms> implements Section {
     public double getPostponedFund() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public double getBalance() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setBalance( double m_Balance ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public double getRequestedFund() throws XtumlException {
+    public double getBalance() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setRequestedFund( double m_RequestedFund ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public double getRequestedFund() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public String getEconomicCategory() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

@@ -13,6 +13,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+import sharedtypes.Category;
+import sharedtypes.Income;
+
 
 public class ItemSetImpl extends InstanceSet<ItemSet,Item> implements ItemSet {
 
@@ -25,15 +28,19 @@ public class ItemSetImpl extends InstanceSet<ItemSet,Item> implements ItemSet {
 
     // attributes
     @Override
+    public void setCategory( Category m_Category ) throws XtumlException {
+        for ( Item item : this ) item.setCategory( m_Category );
+    }
+    @Override
     public void setStatus( String m_Status ) throws XtumlException {
         for ( Item item : this ) item.setStatus( m_Status );
     }
     @Override
-    public void setCategory( String m_Category ) throws XtumlException {
-        for ( Item item : this ) item.setCategory( m_Category );
+    public void setBasis( String m_Basis ) throws XtumlException {
+        for ( Item item : this ) item.setBasis( m_Basis );
     }
     @Override
-    public void setType( String m_Type ) throws XtumlException {
+    public void setType( Income m_Type ) throws XtumlException {
         for ( Item item : this ) item.setType( m_Type );
     }
     @Override

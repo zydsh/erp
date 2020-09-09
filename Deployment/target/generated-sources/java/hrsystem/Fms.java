@@ -36,6 +36,9 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.TreeMap;
 
+import sharedtypes.Category;
+import sharedtypes.Income;
+
 
 public class Fms extends Component<Fms> {
 
@@ -61,9 +64,22 @@ public class Fms extends Component<Fms> {
     // domain functions
     public void CreatePEIs() throws XtumlException {
         Item item = ItemImpl.create( context() );
-        item.setCategory("");
-        item.setType("");
-        item.setStatus("");
+        item.setBasis("حسب السقف");
+        item.setCategory(Category.INCOME);
+        item.setType(Income.EXPENDITURE);
+        item.setStatus("قائم");
+        item.setFund(0);
+        item = ItemImpl.create( context() );
+        item.setBasis("حسب السقف");
+        item.setCategory(Category.INCOME);
+        item.setType(Income.EXPENDITURE);
+        item.setStatus("قائم");
+        item.setFund(0);
+        item = ItemImpl.create( context() );
+        item.setBasis("حسب الطلب");
+        item.setCategory(Category.BUDGET);
+        item.setType(Income.EXPENDITURE);
+        item.setStatus("قائم");
         item.setFund(0);
         Budget budget = BudgetImpl.create( context() );
         budget.setYear("2021");

@@ -45,6 +45,10 @@ public class PmUI extends Port<Pm> implements IProjects {
         }
     }
 
+    public void Initialize() throws XtumlException {
+        context().Initialize();
+    }
+
     public void ReadStrategies() throws XtumlException {
         StrategySet strategies = context().Strategy_instances();
         if ( !strategies.isEmpty() ) {
@@ -60,10 +64,6 @@ public class PmUI extends Port<Pm> implements IProjects {
         else {
             context().LOG().LogInfo( "Strategy: No strategyies found in the system " );
         }
-    }
-
-    public void Initialize() throws XtumlException {
-        context().Initialize();
     }
 
 
@@ -93,11 +93,11 @@ public class PmUI extends Port<Pm> implements IProjects {
             case IProjects.SIGNAL_NO_READMILESTONES:
                 ReadMilestones(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), StringUtil.deserialize(message.get(2)));
                 break;
-            case IProjects.SIGNAL_NO_READSTRATEGIES:
-                ReadStrategies();
-                break;
             case IProjects.SIGNAL_NO_INITIALIZE:
                 Initialize();
+                break;
+            case IProjects.SIGNAL_NO_READSTRATEGIES:
+                ReadStrategies();
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

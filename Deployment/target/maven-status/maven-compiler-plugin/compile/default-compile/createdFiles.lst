@@ -17,6 +17,7 @@ hrsystem/hr/main/impl/EmptyDepartment.class
 interfaces/IData$ReadBonusList.class
 hrsystem/hr/HrAuthenticate.class
 hrsystem/hr/main/impl/ScaleImpl.class
+sharedtypes/Category.class
 hrsystem/fms/budgeting/impl/EmptyItem.class
 hrsystem/auth/main/AccountSet.class
 hrsystem/fms/budgeting/impl/ChapterSetImpl.class
@@ -145,6 +146,7 @@ interfaces/IData$SendLeaveSpecification.class
 interfaces/IAuthentication$SendEmployeePermissions.class
 interfaces/IAuthentication$ReadEmployeePermissions.class
 shared/IOps$Return_Employee_Payment.class
+sharedtypes/Income.class
 hrsystem/hr/main/Leave.class
 hrsystem/fms/budgeting/impl/BudgetSetImpl.class
 shared/IOps$CommenceEmployee.class
@@ -177,6 +179,7 @@ hrsystem/Auth.class
 hrsystem/Fms.class
 hrsystem/hr/main/impl/EmployeeImpl$LeaveStarted.class
 interfaces/IData$ReadLeaveSpecification.class
+sharedtypes/Satus.class
 hrsystem/hr/main/impl/ScaleSetImpl.class
 hrsystem/fms/FmsUI.class
 hrsystem/hr/main/impl/BonusSpecificationSetImpl.class

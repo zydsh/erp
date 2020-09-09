@@ -20,6 +20,9 @@ import io.ciera.runtime.summit.types.IXtumlType;
 import io.ciera.runtime.summit.types.StringUtil;
 import io.ciera.runtime.summit.types.UniqueId;
 
+import sharedtypes.Category;
+import sharedtypes.Income;
+
 
 public class ItemImpl extends ModelInstance<Item,Fms> implements Item {
 
@@ -31,16 +34,18 @@ public class ItemImpl extends ModelInstance<Item,Fms> implements Item {
     // constructors
     private ItemImpl( Fms context ) {
         this.context = context;
-        m_Category = "";
-        m_Type = "";
+        m_Basis = "";
+        m_Category = Category.UNINITIALIZED_ENUM;
+        m_Type = Income.UNINITIALIZED_ENUM;
         m_Status = "";
         m_Fund = 0;
         R3_attributed_to_Section_inst = SectionImpl.EMPTY_SECTION;
     }
 
-    private ItemImpl( Fms context, UniqueId instanceId, String m_Category, String m_Type, String m_Status, int m_Fund ) {
+    private ItemImpl( Fms context, UniqueId instanceId, String m_Basis, Category m_Category, Income m_Type, String m_Status, int m_Fund ) {
         super(instanceId);
         this.context = context;
+        this.m_Basis = m_Basis;
         this.m_Category = m_Category;
         this.m_Type = m_Type;
         this.m_Status = m_Status;
@@ -57,8 +62,8 @@ public class ItemImpl extends ModelInstance<Item,Fms> implements Item {
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Item create( Fms context, UniqueId instanceId, String m_Category, String m_Type, String m_Status, int m_Fund ) throws XtumlException {
-        Item newItem = new ItemImpl( context, instanceId, m_Category, m_Type, m_Status, m_Fund );
+    public static Item create( Fms context, UniqueId instanceId, String m_Basis, Category m_Category, Income m_Type, String m_Status, int m_Fund ) throws XtumlException {
+        Item newItem = new ItemImpl( context, instanceId, m_Basis, m_Category, m_Type, m_Status, m_Fund );
         if ( context.addInstance( newItem ) ) {
             return newItem;
         }
@@ -68,42 +73,52 @@ public class ItemImpl extends ModelInstance<Item,Fms> implements Item {
 
 
     // attributes
-    private String m_Category;
+    private String m_Basis;
     @Override
-    public void setCategory(String m_Category) throws XtumlException {
+    public void setBasis(String m_Basis) throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Category, this.m_Category)) {
-            final String oldValue = this.m_Category;
+        if (StringUtil.inequality(m_Basis, this.m_Basis)) {
+            final String oldValue = this.m_Basis;
+            this.m_Basis = m_Basis;
+            getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Basis", oldValue, this.m_Basis));
+        }
+    }
+    @Override
+    public String getBasis() throws XtumlException {
+        checkLiving();
+        return m_Basis;
+    }
+    private Category m_Category;
+    @Override
+    public void setCategory(Category m_Category) throws XtumlException {
+        checkLiving();
+        if (m_Category.inequality( this.m_Category)) {
+            final Category oldValue = this.m_Category;
             this.m_Category = m_Category;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Category", oldValue, this.m_Category));
         }
     }
     @Override
-    public String getCategory() throws XtumlException {
+    public Category getCategory() throws XtumlException {
         checkLiving();
         return m_Category;
     }
-    private String m_Type;
+    private Income m_Type;
     @Override
-    public String getType() throws XtumlException {
+    public Income getType() throws XtumlException {
         checkLiving();
         return m_Type;
     }
     @Override
-    public void setType(String m_Type) throws XtumlException {
+    public void setType(Income m_Type) throws XtumlException {
         checkLiving();
-        if (StringUtil.inequality(m_Type, this.m_Type)) {
-            final String oldValue = this.m_Type;
+        if (m_Type.inequality( this.m_Type)) {
+            final Income oldValue = this.m_Type;
             this.m_Type = m_Type;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Type", oldValue, this.m_Type));
         }
     }
     private String m_Status;
-    @Override
-    public String getStatus() throws XtumlException {
-        checkLiving();
-        return m_Status;
-    }
     @Override
     public void setStatus(String m_Status) throws XtumlException {
         checkLiving();
@@ -112,6 +127,11 @@ public class ItemImpl extends ModelInstance<Item,Fms> implements Item {
             this.m_Status = m_Status;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Status", oldValue, this.m_Status));
         }
+    }
+    @Override
+    public String getStatus() throws XtumlException {
+        checkLiving();
+        return m_Status;
     }
     private int m_Fund;
     @Override
@@ -185,23 +205,29 @@ public class ItemImpl extends ModelInstance<Item,Fms> implements Item {
 class EmptyItem extends ModelInstance<Item,Fms> implements Item {
 
     // attributes
-    public void setCategory( String m_Category ) throws XtumlException {
+    public void setBasis( String m_Basis ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getCategory() throws XtumlException {
+    public String getBasis() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getType() throws XtumlException {
+    public void setCategory( Category m_Category ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public Category getCategory() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setType( String m_Type ) throws XtumlException {
+    public Income getType() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setType( Income m_Type ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public void setStatus( String m_Status ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public String getStatus() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
-    public void setStatus( String m_Status ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getFund() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

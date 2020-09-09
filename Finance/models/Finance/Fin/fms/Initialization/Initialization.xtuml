@@ -56,24 +56,24 @@ INSERT INTO S_SYNC
 	'',
 	'create object instance item of Item;
 item.Basis = "حسب السقف";
-item.Category="الميزانية";
-item.Type="نفقات عامة";//Income::Expenditure;
-item.Status = "قائم";
+item.Category=Category::Income; 
+item.Type=Income::Expenditure;
+item.Status = Status::Existing; //"قائم";
 item.Fund= 0;
 
 create object instance item of Item;
 item.Basis = "حسب السقف";
-item.Category="الإيراد";
-item.Type="نفقات عامة";//Income::Expenditure;
-item.Status = "قائم";
+item.Category=Category::Income;//"الإيراد";
+item.Type=Income::Expenditure;
+item.Status = Status::Existing;//"قائم";
 item.Fund= 0;
 
 
 create object instance item of Item;
 item.Basis = "حسب الطلب";
-item.Category="الميزانية";
-item.Type="نفقات عامة";//Income::Expenditure;
-item.Status = "قائم";
+item.Category=Category::Budget;//"الميزانية";
+item.Type=Income::Expenditure;
+item.Status = Status::Existing;//"قائم";
 item.Fund= 0;
 
 

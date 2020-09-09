@@ -27,16 +27,16 @@ public class ChapterSetImpl extends InstanceSet<ChapterSet,Chapter> implements C
 
     // attributes
     @Override
-    public void setRequestFund( double m_RequestFund ) throws XtumlException {
-        for ( Chapter chapter : this ) chapter.setRequestFund( m_RequestFund );
+    public void setCeilingFund( double m_CeilingFund ) throws XtumlException {
+        for ( Chapter chapter : this ) chapter.setCeilingFund( m_CeilingFund );
     }
     @Override
     public void setCode( String m_Code ) throws XtumlException {
         for ( Chapter chapter : this ) chapter.setCode( m_Code );
     }
     @Override
-    public void setCeilingFund( double m_CeilingFund ) throws XtumlException {
-        for ( Chapter chapter : this ) chapter.setCeilingFund( m_CeilingFund );
+    public void setRequestFund( double m_RequestFund ) throws XtumlException {
+        for ( Chapter chapter : this ) chapter.setRequestFund( m_RequestFund );
     }
     @Override
     public void setName( String m_Name ) throws XtumlException {

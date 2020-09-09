@@ -29,12 +29,12 @@ public class StrategySetImpl extends InstanceSet<StrategySet,Strategy> implement
         for ( Strategy strategy : this ) strategy.setNumber( m_Number );
     }
     @Override
-    public void setName( String m_Name ) throws XtumlException {
-        for ( Strategy strategy : this ) strategy.setName( m_Name );
-    }
-    @Override
     public void setDescription( String m_Description ) throws XtumlException {
         for ( Strategy strategy : this ) strategy.setDescription( m_Description );
+    }
+    @Override
+    public void setName( String m_Name ) throws XtumlException {
+        for ( Strategy strategy : this ) strategy.setName( m_Name );
     }
 
 

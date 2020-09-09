@@ -115,6 +115,11 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
     }
     private String m_Content;
     @Override
+    public String getContent() throws XtumlException {
+        checkLiving();
+        return m_Content;
+    }
+    @Override
     public void setContent(String m_Content) throws XtumlException {
         checkLiving();
         if (StringUtil.inequality(m_Content, this.m_Content)) {
@@ -122,11 +127,6 @@ public class ApproveLeaveImpl extends ModelInstance<ApproveLeave,Hr> implements 
             this.m_Content = m_Content;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Content", oldValue, this.m_Content));
         }
-    }
-    @Override
-    public String getContent() throws XtumlException {
-        checkLiving();
-        return m_Content;
     }
 
 
@@ -211,11 +211,11 @@ class EmptyApproveLeave extends ModelInstance<ApproveLeave,Hr> implements Approv
     public int getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setContent( String m_Content ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getContent() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setContent( String m_Content ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

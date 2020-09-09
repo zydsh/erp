@@ -1,0 +1,147 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("69967d24-1e46-4bc1-99b7-c74d79b0148e",
+	'Programs',
+	5,
+	'Programs',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("ece8fb95-3dff-412a-aa13-4773ca7e6062",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_BATTR
+	VALUES ("ece8fb95-3dff-412a-aa13-4773ca7e6062",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_ATTR
+	VALUES ("ece8fb95-3dff-412a-aa13-4773ca7e6062",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
+	"00000000-0000-0000-0000-000000000000",
+	'Code',
+	'',
+	'',
+	'Code',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("36b01df8-c428-439b-b6a7-587748bfff8d",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_BATTR
+	VALUES ("36b01df8-c428-439b-b6a7-587748bfff8d",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_ATTR
+	VALUES ("36b01df8-c428-439b-b6a7-587748bfff8d",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
+	"ece8fb95-3dff-412a-aa13-4773ca7e6062",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_BATTR
+	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_ATTR
+	VALUES ("4b3a2a43-17f8-4288-a9f1-087323acd6ab",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
+	"36b01df8-c428-439b-b6a7-587748bfff8d",
+	'Expenses',
+	'The budget amount dedicated to spending',
+	'',
+	'Expenses',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("f0251b84-35a0-4bcd-8037-ccd5de2c44bb",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_BATTR
+	VALUES ("f0251b84-35a0-4bcd-8037-ccd5de2c44bb",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_ATTR
+	VALUES ("f0251b84-35a0-4bcd-8037-ccd5de2c44bb",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
+	"4b3a2a43-17f8-4288-a9f1-087323acd6ab",
+	'Fund',
+	'Requested fund',
+	'',
+	'Fund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("fd79bbc2-78bb-41b3-9d6a-0c46c5f8de94",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_BATTR
+	VALUES ("fd79bbc2-78bb-41b3-9d6a-0c46c5f8de94",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_ATTR
+	VALUES ("fd79bbc2-78bb-41b3-9d6a-0c46c5f8de94",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
+	"f0251b84-35a0-4bcd-8037-ccd5de2c44bb",
+	'Revenue',
+	'The amount funded from organization''s revenue',
+	'',
+	'Revenue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("fdf49f34-b42a-4f8b-ab9d-cfcd8ac17546",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_BATTR
+	VALUES ("fdf49f34-b42a-4f8b-ab9d-cfcd8ac17546",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_ATTR
+	VALUES ("fdf49f34-b42a-4f8b-ab9d-cfcd8ac17546",
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e",
+	"fd79bbc2-78bb-41b3-9d6a-0c46c5f8de94",
+	'Status',
+	'Indicates if the program is existing or new.',
+	'',
+	'Status',
+	0,
+	"c6e70c71-a471-4a0d-a571-c7ebb0a255a2",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("c6e70c71-a471-4a0d-a571-c7ebb0a255a2",
+	"00000000-0000-0000-0000-000000000000",
+	'Status',
+	'',
+	'',
+	'../../../../SharedTypes/SharedTypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_ID
+	VALUES (1,
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO O_ID
+	VALUES (2,
+	"69967d24-1e46-4bc1-99b7-c74d79b0148e");
+INSERT INTO PE_PE
+	VALUES ("69967d24-1e46-4bc1-99b7-c74d79b0148e",
+	1,
+	"c26f9757-6560-45ec-91a4-1073eb423d52",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("c26f9757-6560-45ec-91a4-1073eb423d52",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Budgeting',
+	'',
+	0,
+	'../Budgeting.xtuml');

@@ -15,12 +15,12 @@ public interface Chapter extends IModelInstance<Chapter,Fms> {
     // attributes
     public void setCode( String m_Code ) throws XtumlException;
     public String getCode() throws XtumlException;
-    public String getName() throws XtumlException;
     public void setName( String m_Name ) throws XtumlException;
-    public double getCeilingFund() throws XtumlException;
+    public String getName() throws XtumlException;
     public void setCeilingFund( double m_CeilingFund ) throws XtumlException;
-    public double getRequestFund() throws XtumlException;
+    public double getCeilingFund() throws XtumlException;
     public void setRequestFund( double m_RequestFund ) throws XtumlException;
+    public double getRequestFund() throws XtumlException;
 
 
     // operations

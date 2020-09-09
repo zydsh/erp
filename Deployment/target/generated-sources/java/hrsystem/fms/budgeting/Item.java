@@ -7,16 +7,21 @@ import hrsystem.fms.budgeting.Section;
 import io.ciera.runtime.summit.classes.IModelInstance;
 import io.ciera.runtime.summit.exceptions.XtumlException;
 
+import sharedtypes.Category;
+import sharedtypes.Income;
+
 
 public interface Item extends IModelInstance<Item,Fms> {
 
     // attributes
-    public void setCategory( String m_Category ) throws XtumlException;
-    public String getCategory() throws XtumlException;
-    public String getType() throws XtumlException;
-    public void setType( String m_Type ) throws XtumlException;
-    public String getStatus() throws XtumlException;
+    public void setBasis( String m_Basis ) throws XtumlException;
+    public String getBasis() throws XtumlException;
+    public void setCategory( Category m_Category ) throws XtumlException;
+    public Category getCategory() throws XtumlException;
+    public Income getType() throws XtumlException;
+    public void setType( Income m_Type ) throws XtumlException;
     public void setStatus( String m_Status ) throws XtumlException;
+    public String getStatus() throws XtumlException;
     public int getFund() throws XtumlException;
     public void setFund( int m_Fund ) throws XtumlException;
 
