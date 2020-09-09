@@ -80,7 +80,7 @@ INSERT INTO GD_GE
 	"c6e70c71-a471-4a0d-a571-c7ebb0a255a2",
 	52,
 	0,
-	'Finance::SharedTypes::Satus');
+	'Finance::SharedTypes::Status');
 INSERT INTO GD_SHP
 	VALUES ("ac635e10-610c-4d3f-82c8-39a8152b3cc8");
 INSERT INTO GD_NCS
@@ -160,7 +160,7 @@ INSERT INTO PE_PE
 INSERT INTO S_DT
 	VALUES ("c6e70c71-a471-4a0d-a571-c7ebb0a255a2",
 	"00000000-0000-0000-0000-000000000000",
-	'Satus',
+	'Status',
 	'',
 	'');
 INSERT INTO S_EDT

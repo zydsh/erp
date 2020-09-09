@@ -7,9 +7,19 @@ INSERT INTO O_OBJ
 	'Budget',
 	'Total amount of funds assigned for a year',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("f6b7004a-2343-4488-91b8-37b4d07890d3",
-	"9ff5973f-5f07-43ea-9880-93a4d9c3f570");
+	"9ff5973f-5f07-43ea-9880-93a4d9c3f570",
+	'//accumelate the total funds from chapters by ceiling and requested.
+select many chapters related by self->Chapter[R100.''divided''];
+
+for each chapter in chapters
+	self.Ceiling = self.Ceiling + chapter.Ceiling;
+	self.Requested = self.Requested + chapter.Requested;
+end for;
+',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("f6b7004a-2343-4488-91b8-37b4d07890d3",
 	"9ff5973f-5f07-43ea-9880-93a4d9c3f570");
@@ -17,12 +27,12 @@ INSERT INTO O_ATTR
 	VALUES ("f6b7004a-2343-4488-91b8-37b4d07890d3",
 	"9ff5973f-5f07-43ea-9880-93a4d9c3f570",
 	"1bf145b3-0bfd-4c8c-abc3-b6b2a0694432",
-	'Amount',
+	'Ceiling',
 	'The total amount of funds for a year. ',
 	'',
-	'Amount',
+	'Ceiling',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -41,6 +51,24 @@ INSERT INTO O_ATTR
 	'Year',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("3e5733d3-dbde-4aff-af59-60cf3cb93f6d",
+	"9ff5973f-5f07-43ea-9880-93a4d9c3f570");
+INSERT INTO O_BATTR
+	VALUES ("3e5733d3-dbde-4aff-af59-60cf3cb93f6d",
+	"9ff5973f-5f07-43ea-9880-93a4d9c3f570");
+INSERT INTO O_ATTR
+	VALUES ("3e5733d3-dbde-4aff-af59-60cf3cb93f6d",
+	"9ff5973f-5f07-43ea-9880-93a4d9c3f570",
+	"f6b7004a-2343-4488-91b8-37b4d07890d3",
+	'Requested',
+	'',
+	'',
+	'Requested',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
 INSERT INTO O_ID

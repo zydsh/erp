@@ -43,9 +43,26 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
-	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	'//accumelate the total funds from sections/expenses and programs.
+select many sections related by self->Expenses[R116.''requests by ceilling''];
+ceiling = 0;
+for each section in sections
+	ceiling = ceiling + section.Fund;
+end for;
+
+
+select many programs related by self->ProgramFund[R104.''requests by ceilling''];
+
+for each program in programs
+	ceiling = ceiling + program.Fund;
+end for;
+
+self.Ceiling= ceiling;',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
@@ -53,18 +70,35 @@ INSERT INTO O_ATTR
 	VALUES ("76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
 	"9aa16f78-ce2a-40f9-b6a6-c9f855c435b6",
-	'CeilingFund',
+	'Ceiling',
 	'A fund limited by a given amount
 defined yearly.',
 	'',
-	'CeilingFund',
+	'Ceiling',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("a20ca4d6-805b-49b0-bfc6-13cc812e8afa",
-	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	'//get the total funds from sections/expenses and programs.
+select many sections related by self->Expenses[R115.''requests''];
+requested =0;
+for each section in sections
+	requested = requested + section.Fund;
+end for;
+
+
+select many programs related by self->ProgramFund[R103.''requests''];
+
+for each program in programs
+	requested = requested + program.Fund;
+end for;
+
+self.Requested = requested;',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("a20ca4d6-805b-49b0-bfc6-13cc812e8afa",
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
@@ -72,12 +106,12 @@ INSERT INTO O_ATTR
 	VALUES ("a20ca4d6-805b-49b0-bfc6-13cc812e8afa",
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
 	"76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
-	'RequestFund',
+	'Requested',
 	'The fund requested for the year.',
 	'',
-	'RequestFund',
+	'Requested',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
 INSERT INTO O_ID
