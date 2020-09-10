@@ -1,0 +1,149 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	'Chapter',
+	1,
+	'Chapter',
+	'A specific area of spending or revenue within a budget',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("9aa16f78-ce2a-40f9-b6a6-c9f855c435b6",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_BATTR
+	VALUES ("9aa16f78-ce2a-40f9-b6a6-c9f855c435b6",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_ATTR
+	VALUES ("9aa16f78-ce2a-40f9-b6a6-c9f855c435b6",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	"544b98ea-4f6b-475d-b1e1-81902939f36e",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("544b98ea-4f6b-475d-b1e1-81902939f36e",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_BATTR
+	VALUES ("544b98ea-4f6b-475d-b1e1-81902939f36e",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_ATTR
+	VALUES ("544b98ea-4f6b-475d-b1e1-81902939f36e",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	"00000000-0000-0000-0000-000000000000",
+	'Code',
+	'',
+	'',
+	'Code',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	'//accumelate the total funds from sections/expenses and programs.
+select many sections related by self->Expenses[R116.''requests by ceilling''];
+ceiling = 0;
+for each section in sections
+	ceiling = ceiling + section.Fund;
+end for;
+
+
+select many programs related by self->ProgramFund[R104.''requests by ceilling''];
+
+for each program in programs
+	ceiling = ceiling + program.Fund;
+end for;
+
+self.Ceiling= ceiling;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_ATTR
+	VALUES ("76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	"9aa16f78-ce2a-40f9-b6a6-c9f855c435b6",
+	'Ceiling',
+	'A fund limited by a given amount
+defined yearly.',
+	'',
+	'Ceiling',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("a20ca4d6-805b-49b0-bfc6-13cc812e8afa",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	'//get the total funds from sections/expenses and programs.
+select many sections related by self->Expenses[R115.''requests''];
+requested =0;
+for each section in sections
+	requested = requested + section.Fund;
+end for;
+
+
+select many programs related by self->ProgramFund[R103.''requests''];
+
+for each program in programs
+	requested = requested + program.Fund;
+end for;
+
+self.Requested = requested;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("a20ca4d6-805b-49b0-bfc6-13cc812e8afa",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_ATTR
+	VALUES ("a20ca4d6-805b-49b0-bfc6-13cc812e8afa",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	"76c07802-a5be-4c00-bb62-9c8ebfee9a0f",
+	'Requested',
+	'The fund requested for the year.',
+	'',
+	'Requested',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_OIDA
+	VALUES ("544b98ea-4f6b-475d-b1e1-81902939f36e",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	0,
+	'Code');
+INSERT INTO O_ID
+	VALUES (1,
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_OIDA
+	VALUES ("9aa16f78-ce2a-40f9-b6a6-c9f855c435b6",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	1,
+	'Name');
+INSERT INTO O_ID
+	VALUES (2,
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO PE_PE
+	VALUES ("bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	1,
+	"c26f9757-6560-45ec-91a4-1073eb423d52",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("c26f9757-6560-45ec-91a4-1073eb423d52",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Budgeting',
+	'',
+	0,
+	'../Budgeting.xtuml');

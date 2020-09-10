@@ -1,0 +1,68 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("5efb7de1-f405-4ba8-9530-0fa304c690bc",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Types',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("9fdeff75-5200-49cd-a8fd-fde79910f0b8",
+	112,
+	"5efb7de1-f405-4ba8-9530-0fa304c690bc",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'Finance::Fin::fms::Types');
+INSERT INTO DIM_DIA
+	VALUES ("9fdeff75-5200-49cd-a8fd-fde79910f0b8",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO EP_PKGREF
+	VALUES ("5efb7de1-f405-4ba8-9530-0fa304c690bc",
+	"432aeb3e-69c3-4409-a66c-58e88a187b30");
+INSERT INTO EP_PKG_PROXY
+	VALUES ("432aeb3e-69c3-4409-a66c-58e88a187b30",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'SharedTypes',
+	'',
+	0,
+	'../../../SharedTypes/SharedTypes.xtuml');
+INSERT INTO PE_PE
+	VALUES ("5efb7de1-f405-4ba8-9530-0fa304c690bc",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"8d322bed-f6f2-48fc-b59c-77870565eb6e",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("8d322bed-f6f2-48fc-b59c-77870565eb6e",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'fms',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../fms.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("a012df04-a680-4110-97c4-3a91068c4346",
+	'Finance',
+	1,
+	'../../../Finance.xtuml');

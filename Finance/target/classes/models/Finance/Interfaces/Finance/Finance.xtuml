@@ -1,0 +1,63 @@
+-- BP 7.1.6 content: Interface syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO C_I
+	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	"00000000-0000-0000-0000-000000000000",
+	'Finance',
+	'');
+INSERT INTO C_EP
+	VALUES ("6859b7aa-16e9-436c-88b1-66c0bf7f2cbf",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'Initialize',
+	'');
+INSERT INTO C_AS
+	VALUES ("6859b7aa-16e9-436c-88b1-66c0bf7f2cbf",
+	'Initialize',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateSection',
+	'');
+INSERT INTO C_AS
+	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
+	'CreateSection',
+	'',
+	0,
+	"6859b7aa-16e9-436c-88b1-66c0bf7f2cbf");
+INSERT INTO C_PP
+	VALUES ("49eb5854-bb80-49fe-b3db-8506bb5d0024",
+	"5cd5923e-2b59-43c7-845d-64e491e99e41",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Code',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("3e2f6881-7488-42ae-b7d9-a56c23e83599",
+	"5cd5923e-2b59-43c7-845d-64e491e99e41",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"49eb5854-bb80-49fe-b3db-8506bb5d0024");
+INSERT INTO PE_PE
+	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	1,
+	"41ca92a7-284c-4c18-b537-baf576a50193",
+	"00000000-0000-0000-0000-000000000000",
+	6);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("41ca92a7-284c-4c18-b537-baf576a50193",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Interfaces',
+	'',
+	0,
+	'../Interfaces.xtuml');
