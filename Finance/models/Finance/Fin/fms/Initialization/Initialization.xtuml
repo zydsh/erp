@@ -98,6 +98,10 @@ create object instance section of Section;
 section.Code= "282141";
 section.Name="نفقات سرية";
 
+create object instance section of Section;
+section.Code= "00000";
+section.Name="نفقات نثرية";
+
 create object instance expenseRequest of Expenses;
 expenseRequest.Fund=500000;
 expenseRequest.Revenue= 0;

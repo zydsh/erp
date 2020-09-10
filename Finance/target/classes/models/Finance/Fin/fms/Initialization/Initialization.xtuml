@@ -98,6 +98,10 @@ create object instance section of Section;
 section.Code= "282141";
 section.Name="نفقات سرية";
 
+create object instance section of Section;
+section.Code= "00000";
+section.Name="نفقات نثرية";
+
 create object instance expenseRequest of Expenses;
 expenseRequest.Fund=500000;
 expenseRequest.Revenue= 0;
@@ -140,7 +144,254 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'CreatePEI_Chapter21',
 	'',
-	'',
+	'select any budget from instances of Budget;
+
+create object instance chapter of Chapter;
+chapter.Code = "٢١";
+chapter.Name="تعويضات العاملين";
+
+if (not empty budget)
+	relate chapter to budget across R100.''belongs'';
+end if;
+
+
+
+ 
+
+
+create object instance section of Section;
+section.Code= "211111";
+section.Name="رواتب الموظفين المدنيين";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=295000000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=295000000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+
+
+ 
+
+
+create object instance section of Section;
+section.Code= "211114";
+section.Name="أجور العمال";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=1000000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=1000000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+
+
+ 
+
+create object instance section of Section;
+section.Code= "2111157";
+section.Name="رواتب الموظفين المؤقتة الأخرى";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=1000000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=1000000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+
+
+
+create object instance section of Section;
+section.Code= "211121";
+section.Name="بدلات الموظفين المدنيين";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=112000000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=112000000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+
+ 
+
+
+create object instance section of Section;
+section.Code= "211124";
+section.Name="بدلات العمال ";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=126000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=126000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+
+
+ 
+
+
+create object instance section of Section;
+section.Code= "212133";
+section.Name="تأمين طبي للعاملين خارج المملكة - للأجهزة الحكومية ";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=126000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=126000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+
+create object instance section of Section;
+section.Code= "212201";
+section.Name="مكافأة نهاية الخدمة للموظفين المدنيين (الكادر العام)";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=126000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=126000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+create object instance section of Section;
+section.Code= "212204";
+section.Name="مكافأة نهاية الخدمة للموظفين المدنيين (الكادر العام)";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=126000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=126000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+create object instance section of Section;
+section.Code= "212208";
+section.Name="مكافأة نهاية الخدمة لوظائف المستخدمين";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=126000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=126000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+
+////
+
+
+create object instance section of Section;
+section.Code= "212213";
+section.Name="مكافأة نهاية الخدمة للعمال";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=126000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=126000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+create object instance section of Section;
+section.Code= "212215";
+section.Name="مكافأة نهاية الخدمة لموظفي التشغيل المباشر";
+
+create object instance expenseRequest of Expenses;
+expenseRequest.Fund=126000;
+expenseRequest.Revenue= 0;
+
+relate expenseRequest to section across R105.''specified by'';
+relate expenseRequest to chapter across R115.''requested by'';
+
+create object instance expenseCieling of Expenses;
+expenseCieling.Fund=126000;
+expenseCieling.Revenue= 0;
+
+relate expenseCieling to section across R105.''specified by'';
+relate expenseCieling to chapter across R116.''requested by ceilling'';
+
+
+
+
+
+
+
+
+
+',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
