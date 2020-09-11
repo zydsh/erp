@@ -328,7 +328,7 @@ if (not empty budgets)
 	LOG::LogInfo(message:"Sending budget list .." );	
 	
 	for each budget in budgets
-			//UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested);		
+			UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested);		
 			LOG::LogInfo(message:"Sent: Budget "+ budget.Year);
 			LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:budget.Ceiling );
 			LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:budget.Requested );	
@@ -384,6 +384,61 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'Reply',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0cfd372b-9920-434a-a0a5-5eab902b7658",
+	"bdf466da-9e85-466d-a4bb-c6684a370aad",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("0cfd372b-9920-434a-a0a5-5eab902b7658",
+	'ReadChapters',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
+select many chapters related by budget->Chapter[R100.''divided''];
+
+if (not empty chapters) 
+	LOG::LogInfo(message:"Sending chapter list .." );	
+	
+	for each chapter in chapters
+			UI::SendChapters( Code:chapter.Code, Name:chapter.Name, Ceiling:chapter.Ceiling, Requested:chapter.Requested);		
+			LOG::LogInfo(message:"Sent: Chapter: "+ chapter.Code+ ", "+chapter.Name);
+			LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:chapter.Ceiling );
+			LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:chapter.Requested );	
+	end for;
+
+  LOG::LogInfo(message:"Sending chapter list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are no chapters registered in the system" );	
+
+  	UI::Reply( msg:"There are no chapters registered in the system", state:False );  
+  end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadChapters',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f0f49109-ead5-417f-b572-502f697bd93e",
+	"70cffc85-c610-407d-a0de-b2fd7776c2f3",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("f0f49109-ead5-417f-b572-502f697bd93e",
+	'SendChapters',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("70cffc85-c610-407d-a0de-b2fd7776c2f3",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendChapters',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

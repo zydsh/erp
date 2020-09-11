@@ -54,7 +54,7 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'testReadChapters',
 	'',
-	'Finance::ReadChapters( BudgetYear:"2021" ); ',
+	'Finance::ReadChapters( BudgetYear:"2021" );',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
