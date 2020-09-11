@@ -47,6 +47,87 @@ INSERT INTO C_PP
 	0,
 	'',
 	"49eb5854-bb80-49fe-b3db-8506bb5d0024");
+INSERT INTO C_EP
+	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgets',
+	'');
+INSERT INTO C_AS
+	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
+	'ReadBudgets',
+	'',
+	0,
+	"5cd5923e-2b59-43c7-845d-64e491e99e41");
+INSERT INTO C_EP
+	VALUES ("981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendBudgets',
+	'');
+INSERT INTO C_AS
+	VALUES ("981b3bfb-f8e5-468d-87ef-6341359c2931",
+	'SendBudgets',
+	'',
+	1,
+	"65121dc7-3592-49f6-9f96-1cf25a688cf6");
+INSERT INTO C_PP
+	VALUES ("321d9d45-3e71-42ed-b184-c0df6e06c392",
+	"981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Year',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("a2e3911b-7a04-4995-a5fc-468c2e4f7b2c",
+	"981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Ceiling',
+	'',
+	0,
+	'',
+	"321d9d45-3e71-42ed-b184-c0df6e06c392");
+INSERT INTO C_PP
+	VALUES ("292e819e-1bd4-41b8-87a7-2c60c3bb13d7",
+	"981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Requested',
+	'',
+	0,
+	'',
+	"a2e3911b-7a04-4995-a5fc-468c2e4f7b2c");
+INSERT INTO C_EP
+	VALUES ("02b58a71-1200-4020-bdc9-809f601deab1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'Reply',
+	'');
+INSERT INTO C_AS
+	VALUES ("02b58a71-1200-4020-bdc9-809f601deab1",
+	'Reply',
+	'',
+	1,
+	"981b3bfb-f8e5-468d-87ef-6341359c2931");
+INSERT INTO C_PP
+	VALUES ("af3261f0-a2e9-4b43-9d78-13d24a02d7a6",
+	"02b58a71-1200-4020-bdc9-809f601deab1",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'msg',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("3365bfad-8104-4272-b08a-8e1d715d3076",
+	"02b58a71-1200-4020-bdc9-809f601deab1",
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'state',
+	'',
+	0,
+	'',
+	"af3261f0-a2e9-4b43-9d78-13d24a02d7a6");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

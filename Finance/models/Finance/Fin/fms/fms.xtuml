@@ -305,13 +305,85 @@ INSERT INTO SPR_PS
 	'CreateSection',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'CreateSection',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("68ec02e2-2e5f-46c0-98b2-f3f945c8e339",
+	"65121dc7-3592-49f6-9f96-1cf25a688cf6",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("68ec02e2-2e5f-46c0-98b2-f3f945c8e339",
+	'ReadBudgets',
+	'',
+	'select many budgets from instances of Budget; 
+
+if (not empty budgets) 
+	LOG::LogInfo(message:"Sending budget list .." );	
+	
+	for each budget in budgets
+			//UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested);		
+			LOG::LogInfo(message:"Sent: Budget "+ budget.Year);
+			LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:budget.Ceiling );
+			LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:budget.Requested );	
+	end for;
+
+  LOG::LogInfo(message:"Sending budget list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are no budgets registered in the system" );	
+
+  	UI::Reply( msg:"There are no budgets registered in the system", state:False );  
+  end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgets',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("32424e3b-bb9a-42d8-927d-5b4a0f13494a",
+	"981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("32424e3b-bb9a-42d8-927d-5b4a0f13494a",
+	'SendBudgets',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendBudgets',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("3be763d8-f081-4b48-be89-54d8ebae2d8a",
+	"02b58a71-1200-4020-bdc9-809f601deab1",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("3be763d8-f081-4b48-be89-54d8ebae2d8a",
+	'Reply',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("02b58a71-1200-4020-bdc9-809f601deab1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'Reply',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
