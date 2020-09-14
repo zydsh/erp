@@ -54,13 +54,37 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'testReadChapters',
 	'',
-	'Finance::ReadChapters( BudgetYear:"2021" );',
+	'Finance::ReadChapters( BudgetYear:"2021" ); ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
 	0);
 INSERT INTO PE_PE
 	VALUES ("dbdc7375-699f-479e-a535-a28b3b089fe1",
+	1,
+	"5413f889-8a84-4a44-9f73-94de865c5ed6",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("58df081e-382a-4205-886a-9723abf18b58",
+	"00000000-0000-0000-0000-000000000000",
+	'testReadSections',
+	'',
+	'LOG::LogInfo(message:"Testing: Section Requested: ");
+
+Finance::ReadSectionsRequested( BudgetYear:"2021", ChapterCode:"٢١" );
+
+LOG::LogInfo(message:"Testing: Section Ceiling: ");
+
+Finance::ReadSectionsCeiling( BudgetYear:"2021", ChapterCode:"٢٨" );
+
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("58df081e-382a-4205-886a-9723abf18b58",
 	1,
 	"5413f889-8a84-4a44-9f73-94de865c5ed6",
 	"00000000-0000-0000-0000-000000000000",
