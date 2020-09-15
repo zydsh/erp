@@ -62,8 +62,6 @@ budget.Year="2021";
 //LOG::LogInfo(message:"Budget: "+ budget.Year+" created successfully" );
 //LOG::LogReal( message:"with an amount of: ", r:budget.Amount );	
 
-
-
 create object instance chapter of Chapter;
 chapter.Code = "٢٣";
 chapter.Name="استهلاك الرأس المال الثابت";
@@ -98,10 +96,7 @@ create object instance section of Section;
 section.Code= "282141";
 section.Name="نفقات سرية";
 
-create object instance section of Section;
-section.Code= "00000";
-section.Name="نفقات نثرية";
-
+ 
 create object instance expenseRequest of Expenses;
 expenseRequest.Fund=500000;
 expenseRequest.Revenue= 0;
@@ -154,9 +149,6 @@ if (not empty budget)
 	relate chapter to budget across R100.''belongs'';
 end if;
 
-
-
- 
 
 
 create object instance section of Section;

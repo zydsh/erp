@@ -305,13 +305,268 @@ INSERT INTO SPR_PS
 	'CreateSection',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'CreateSection',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("68ec02e2-2e5f-46c0-98b2-f3f945c8e339",
+	"65121dc7-3592-49f6-9f96-1cf25a688cf6",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("68ec02e2-2e5f-46c0-98b2-f3f945c8e339",
+	'ReadBudgets',
+	'',
+	'select many budgets from instances of Budget; 
+
+if (not empty budgets) 
+	LOG::LogInfo(message:"Sending budget list .." );	
+	
+	for each budget in budgets
+			UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested);		
+			LOG::LogInfo(message:"Sent: Budget "+ budget.Year);
+			LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:budget.Ceiling );
+			LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:budget.Requested );	
+	end for;
+
+  LOG::LogInfo(message:"Sending budget list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are no budgets registered in the system" );	
+
+  	UI::Reply( msg:"There are no budgets registered in the system", state:False );  
+  end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgets',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("32424e3b-bb9a-42d8-927d-5b4a0f13494a",
+	"981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("32424e3b-bb9a-42d8-927d-5b4a0f13494a",
+	'SendBudgets',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendBudgets',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("3be763d8-f081-4b48-be89-54d8ebae2d8a",
+	"02b58a71-1200-4020-bdc9-809f601deab1",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("3be763d8-f081-4b48-be89-54d8ebae2d8a",
+	'Reply',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("02b58a71-1200-4020-bdc9-809f601deab1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'Reply',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0cfd372b-9920-434a-a0a5-5eab902b7658",
+	"bdf466da-9e85-466d-a4bb-c6684a370aad",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("0cfd372b-9920-434a-a0a5-5eab902b7658",
+	'ReadChapters',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
+select many chapters related by budget->Chapter[R100.''divided''];
+
+if (not empty chapters) 
+	LOG::LogInfo(message:"Sending chapter list .." );	
+	
+	for each chapter in chapters
+			UI::SendChapters( Code:chapter.Code, Name:chapter.Name, Ceiling:chapter.Ceiling, Requested:chapter.Requested);		
+			LOG::LogInfo(message:"Sent: Chapter: "+ chapter.Code+ ", "+chapter.Name);
+			LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:chapter.Ceiling );
+			LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:chapter.Requested );	
+	end for;
+
+  LOG::LogInfo(message:"Sending chapter list is complete" );	
+  
+  else 
+  	LOG::LogInfo(message:"There are no chapters registered in the system" );	
+
+  	UI::Reply( msg:"There are no chapters registered in the system", state:False );  
+  end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadChapters',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f0f49109-ead5-417f-b572-502f697bd93e",
+	"70cffc85-c610-407d-a0de-b2fd7776c2f3",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("f0f49109-ead5-417f-b572-502f697bd93e",
+	'SendChapters',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("70cffc85-c610-407d-a0de-b2fd7776c2f3",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendChapters',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("2fb2b152-5a14-4b7b-950b-d414de821b21",
+	"b7daccf5-4ee4-4e07-877f-35586f6ba785",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("2fb2b152-5a14-4b7b-950b-d414de821b21",
+	'ReadSectionsRequested',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
+select any chapter related by budget->Chapter[R100.''divided''] where selected.Code==param.ChapterCode;
+
+if (not empty chapter) 
+	LOG::LogInfo(message:"Sending section requested list .." );	
+	select many sectionsRequests related by chapter->Expenses[R115.''requests''];
+	//select any section related by sectionsRequests->Section[R105.''specified by''];
+if ( not empty sectionsRequests) //and (not empty section)
+	for each sectionR  in sectionsRequests
+			select one section related by sectionR->Section[R105.''specified by''];
+			UI::SendSectionsRequested( Code:section.Code, Name:section.Name, RequestedFund:sectionR.Fund, RequestedRevenue:sectionR.Revenue );
+			LOG::LogInfo(message:"Sent: Section: "+ section.Code+ ", "+section.Name);
+			LOG::LogInfo(message:", Requested Fund: "); LOG::LogInteger( message:sectionR.Fund );
+			LOG::LogInfo(message:", Requested Revenue: "); LOG::LogInteger( message:sectionR.Revenue );	
+	
+	end for;
+  LOG::LogInfo(message:"Sending section requested complete" );	
+  else 
+  	
+  	LOG::LogInfo(message:"There are no sections registered in the system" );	
+  	UI::Reply( msg:"There are no sections registered in the system", state:False );  
+
+  	
+  end if;
+
+  else 
+  	LOG::LogInfo(message:"There are no sections registered in the system" );	
+  	UI::Reply( msg:"There are no sections registered in the system", state:False );  
+ end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b7daccf5-4ee4-4e07-877f-35586f6ba785",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadSectionsRequested',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("b6ad793f-bf29-4d4e-afc0-ef503b84c74e",
+	"b6724746-1a25-4086-8a5f-53fae643a17f",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("b6ad793f-bf29-4d4e-afc0-ef503b84c74e",
+	'SendSectionsRequested',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendSectionsRequested',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
+	"dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
+	'ReadSectionsCeiling',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
+select any chapter related by budget->Chapter[R100.''divided''] where selected.Code==param.ChapterCode;
+
+if (not empty chapter) 
+	LOG::LogInfo(message:"Sending section requested list .." );	
+	select many sections related by chapter->Expenses[R116.''requests by ceilling''];
+	//select any section related by sectionsRequests->Section[R105.''specified by''];
+if ( not empty sections) //and (not empty section)
+	for each sectionC  in sections
+			select one section related by sectionC->Section[R105.''specified by''];
+			UI::SendSectionsCeiling( Code:section.Code, Name:section.Name, Fund:sectionC.Fund, Revenue:sectionC.Revenue );
+			LOG::LogInfo(message:"Sent: Section: "+ section.Code+ ", "+section.Name);
+			LOG::LogInfo(message:", Ceiling Fund: "); LOG::LogInteger( message:sectionC.Fund );
+			LOG::LogInfo(message:", Ceiling Revenue: "); LOG::LogInteger( message:sectionC.Revenue );	
+	
+	end for;
+  LOG::LogInfo(message:"Sending section requested complete" );	
+  else 
+  	
+  	LOG::LogInfo(message:"There are no sections registered in the system" );	
+  	UI::Reply( msg:"There are no sections registered in the system", state:False );  
+
+  	
+  end if;
+
+  else 
+  	LOG::LogInfo(message:"There are no sections registered in the system" );	
+  	UI::Reply( msg:"There are no sections registered in the system", state:False );  
+ end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadSectionsCeiling',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("cdb99240-640b-4f03-9f54-92fbf3cc520f",
+	"1f6a3814-0c98-4dd6-bac0-080a5a7a0c35",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("cdb99240-640b-4f03-9f54-92fbf3cc520f",
+	'SendSectionsCeiling',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1f6a3814-0c98-4dd6-bac0-080a5a7a0c35",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendSectionsCeiling',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

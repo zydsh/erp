@@ -421,7 +421,8 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'CreatePEI_Employees',
 	'',
-	'create object instance emp of Employee;
+	'
+create object instance emp of Employee;
 		emp.EmployeeID = 1420000;
 		emp.NationalID = 1041000000;
 		emp.FirstName = "Khalid";

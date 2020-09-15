@@ -1,0 +1,122 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("80db556a-61ae-4226-af0b-6ece7f8284ad",
+	'FundAccount',
+	2,
+	'FundAccount',
+	'A functional division of funds',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("6a3a0833-dfb4-418d-b3cf-0e8e7fb28f8c",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("6a3a0833-dfb4-418d-b3cf-0e8e7fb28f8c",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("6a3a0833-dfb4-418d-b3cf-0e8e7fb28f8c",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"00000000-0000-0000-0000-000000000000",
+	'Spending',
+	'',
+	'',
+	'Spending',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("520b3b9b-e5ef-46d7-91f2-b317abd08944",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("520b3b9b-e5ef-46d7-91f2-b317abd08944",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("520b3b9b-e5ef-46d7-91f2-b317abd08944",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"6a3a0833-dfb4-418d-b3cf-0e8e7fb28f8c",
+	'FundvsIncome',
+	'',
+	'',
+	'FundvsIncome',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("3d2158ef-100a-40e3-8ce8-6b0d22c42c1e",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("3d2158ef-100a-40e3-8ce8-6b0d22c42c1e",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("3d2158ef-100a-40e3-8ce8-6b0d22c42c1e",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"520b3b9b-e5ef-46d7-91f2-b317abd08944",
+	'PostponedFund',
+	'',
+	'',
+	'PostponedFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("3ecbcfcb-b7ac-430b-bd47-af98c135d6cd",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("3ecbcfcb-b7ac-430b-bd47-af98c135d6cd",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("3ecbcfcb-b7ac-430b-bd47-af98c135d6cd",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"3d2158ef-100a-40e3-8ce8-6b0d22c42c1e",
+	'Balance',
+	'',
+	'',
+	'Balance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("3614a54b-86af-420f-87e9-f64e8d680a92",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("3614a54b-86af-420f-87e9-f64e8d680a92",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("3614a54b-86af-420f-87e9-f64e8d680a92",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"3ecbcfcb-b7ac-430b-bd47-af98c135d6cd",
+	'Comments',
+	'',
+	'',
+	'Comments',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ID
+	VALUES (1,
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ID
+	VALUES (2,
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO PE_PE
+	VALUES ("80db556a-61ae-4226-af0b-6ece7f8284ad",
+	1,
+	"c26f9757-6560-45ec-91a4-1073eb423d52",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("c26f9757-6560-45ec-91a4-1073eb423d52",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Budgeting',
+	'',
+	0,
+	'../Budgeting.xtuml');

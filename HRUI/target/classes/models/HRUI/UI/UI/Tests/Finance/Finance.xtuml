@@ -1,0 +1,110 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("5413f889-8a84-4a44-9f73-94de865c5ed6",
+	"00000000-0000-0000-0000-000000000000",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'Finance',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("23030d37-65be-41be-8648-cb1a900723ab",
+	112,
+	"5413f889-8a84-4a44-9f73-94de865c5ed6",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'HRUI::UI::UI::Tests::Finance');
+INSERT INTO DIM_DIA
+	VALUES ("23030d37-65be-41be-8648-cb1a900723ab",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("7a62de83-8d72-4a79-9b8b-dafad889aa7f",
+	"00000000-0000-0000-0000-000000000000",
+	'testReadBudgets',
+	'',
+	'Finance::ReadBudgets();',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("7a62de83-8d72-4a79-9b8b-dafad889aa7f",
+	1,
+	"5413f889-8a84-4a44-9f73-94de865c5ed6",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("dbdc7375-699f-479e-a535-a28b3b089fe1",
+	"00000000-0000-0000-0000-000000000000",
+	'testReadChapters',
+	'',
+	'Finance::ReadChapters( BudgetYear:"2021" ); ',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("dbdc7375-699f-479e-a535-a28b3b089fe1",
+	1,
+	"5413f889-8a84-4a44-9f73-94de865c5ed6",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("58df081e-382a-4205-886a-9723abf18b58",
+	"00000000-0000-0000-0000-000000000000",
+	'testReadSections',
+	'',
+	'LOG::LogInfo(message:"Testing: Section Requested: ");
+
+Finance::ReadSectionsRequested( BudgetYear:"2021", ChapterCode:"٢١" );
+
+LOG::LogInfo(message:"Testing: Section Ceiling: ");
+
+Finance::ReadSectionsCeiling( BudgetYear:"2021", ChapterCode:"٢٨" );
+
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("58df081e-382a-4205-886a-9723abf18b58",
+	1,
+	"5413f889-8a84-4a44-9f73-94de865c5ed6",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("5413f889-8a84-4a44-9f73-94de865c5ed6",
+	1,
+	"f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	7);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f302aa73-3b6f-4030-b781-5dff4a4ef1da",
+	"00000000-0000-0000-0000-000000000000",
+	"2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'Tests',
+	'',
+	0,
+	'../Tests.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("2c3138a3-3ff5-4efa-8889-cc3514678e23",
+	'HRUI',
+	1,
+	'../../../../HRUI.xtuml');
