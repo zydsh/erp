@@ -80,9 +80,9 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("1ff4e701-f53d-4011-809b-8a1989138b10",
 	"55b03e70-b101-4405-b791-b5200cd0af6e",
-	1,
+	3,
 	'',
-	'Waiting for the review to complete',
+	'',
 	0);
 INSERT INTO SM_MOAH
 	VALUES ("ac5e994e-9042-45f9-b776-37ddfc829d90",
@@ -94,7 +94,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("ac5e994e-9042-45f9-b776-37ddfc829d90",
 	"55b03e70-b101-4405-b791-b5200cd0af6e",
-	1,
+	3,
 	'',
 	'',
 	0);
@@ -108,7 +108,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("6b1d6aa7-09d3-4759-a96d-6b31059729b0",
 	"55b03e70-b101-4405-b791-b5200cd0af6e",
-	1,
+	3,
 	'',
 	'',
 	0);
@@ -122,7 +122,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("3f8f7b85-c6d7-4029-881c-7a501405fc11",
 	"55b03e70-b101-4405-b791-b5200cd0af6e",
-	1,
+	3,
 	'',
 	'',
 	0);
@@ -136,7 +136,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("d6290d30-9b98-4718-a306-4cbce1194efc",
 	"55b03e70-b101-4405-b791-b5200cd0af6e",
-	1,
+	3,
 	'',
 	'',
 	0);
@@ -150,7 +150,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("098d4d3e-c86c-4ad1-b7e2-ad26eebc9ac1",
 	"55b03e70-b101-4405-b791-b5200cd0af6e",
-	1,
+	3,
 	'',
 	'',
 	0);
@@ -164,7 +164,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("71f843a6-d102-474d-8cfc-1d6a03b7465f",
 	"55b03e70-b101-4405-b791-b5200cd0af6e",
-	1,
+	3,
 	'',
 	'',
 	0);
