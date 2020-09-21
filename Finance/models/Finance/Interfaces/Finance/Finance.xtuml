@@ -353,6 +353,69 @@ INSERT INTO C_PP
 	0,
 	'',
 	"2ff715e8-6a3e-4b53-8c54-180f0a9f2e08");
+INSERT INTO C_EP
+	VALUES ("c5d4f896-7924-4716-a86c-318e3273e594",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AcceptRequestedSection',
+	'');
+INSERT INTO C_AS
+	VALUES ("c5d4f896-7924-4716-a86c-318e3273e594",
+	'AcceptRequestedSection',
+	'',
+	0,
+	"1f6a3814-0c98-4dd6-bac0-080a5a7a0c35");
+INSERT INTO C_PP
+	VALUES ("e8aedfa0-d6b8-45c8-b611-8d296177f695",
+	"c5d4f896-7924-4716-a86c-318e3273e594",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Code',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("3d2a89e7-d63d-4e66-ba68-1a0a834594d5",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AcceptCeillingSection',
+	'');
+INSERT INTO C_AS
+	VALUES ("3d2a89e7-d63d-4e66-ba68-1a0a834594d5",
+	'AcceptCeillingSection',
+	'',
+	0,
+	"c5d4f896-7924-4716-a86c-318e3273e594");
+INSERT INTO C_PP
+	VALUES ("021a2ee8-cc50-4dee-ae3e-1a6e69e417ee",
+	"3d2a89e7-d63d-4e66-ba68-1a0a834594d5",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Code',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReviewSection',
+	'');
+INSERT INTO C_AS
+	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
+	'ReviewSection',
+	'',
+	0,
+	"3d2a89e7-d63d-4e66-ba68-1a0a834594d5");
+INSERT INTO C_PP
+	VALUES ("77f5a02f-3e18-4c4a-8ad4-543247d10df5",
+	"589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Code',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,
