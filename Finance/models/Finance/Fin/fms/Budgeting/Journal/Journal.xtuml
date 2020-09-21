@@ -7,9 +7,50 @@ INSERT INTO O_OBJ
 	'Journal',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("e2d20bb1-bd86-45a0-b250-ffa45038f57e",
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+INSERT INTO O_BATTR
+	VALUES ("e2d20bb1-bd86-45a0-b250-ffa45038f57e",
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+INSERT INTO O_ATTR
+	VALUES ("e2d20bb1-bd86-45a0-b250-ffa45038f57e",
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("15e0f536-524d-4b77-9d13-5cb90bb6ea1f",
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+INSERT INTO O_BATTR
+	VALUES ("15e0f536-524d-4b77-9d13-5cb90bb6ea1f",
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+INSERT INTO O_ATTR
+	VALUES ("15e0f536-524d-4b77-9d13-5cb90bb6ea1f",
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424",
+	"e2d20bb1-bd86-45a0-b250-ffa45038f57e",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+INSERT INTO O_OIDA
+	VALUES ("e2d20bb1-bd86-45a0-b250-ffa45038f57e",
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424",
+	0,
+	'Name');
 INSERT INTO O_ID
 	VALUES (1,
 	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
