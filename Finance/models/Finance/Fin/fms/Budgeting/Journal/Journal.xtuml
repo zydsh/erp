@@ -1,21 +1,26 @@
 -- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
 
 INSERT INTO O_OBJ
-	VALUES ("3be3bc3f-ee49-4bcd-86ec-140a835d9424",
+	VALUES ("72ef00a4-d185-49ee-9707-36c8708f6b54",
 	'Journal',
-	9,
+	13,
 	'Journal',
-	'',
+	'A specification class of a journal. 
+A journal is a detailed account of all 
+financial transaction entries. A journal 
+may have subsidary journals, where each
+journal has a list of entries and amounts
+representing debits and credit payments.  ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
-	VALUES ("e2d20bb1-bd86-45a0-b250-ffa45038f57e",
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+	VALUES ("784482ba-9115-4566-9098-cf6f84fb33b0",
+	"72ef00a4-d185-49ee-9707-36c8708f6b54");
 INSERT INTO O_BATTR
-	VALUES ("e2d20bb1-bd86-45a0-b250-ffa45038f57e",
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+	VALUES ("784482ba-9115-4566-9098-cf6f84fb33b0",
+	"72ef00a4-d185-49ee-9707-36c8708f6b54");
 INSERT INTO O_ATTR
-	VALUES ("e2d20bb1-bd86-45a0-b250-ffa45038f57e",
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424",
+	VALUES ("784482ba-9115-4566-9098-cf6f84fb33b0",
+	"72ef00a4-d185-49ee-9707-36c8708f6b54",
 	"00000000-0000-0000-0000-000000000000",
 	'Name',
 	'',
@@ -26,15 +31,15 @@ INSERT INTO O_ATTR
 	'',
 	'');
 INSERT INTO O_NBATTR
-	VALUES ("15e0f536-524d-4b77-9d13-5cb90bb6ea1f",
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+	VALUES ("45f51a29-f286-4957-8b5f-0edaceb9da95",
+	"72ef00a4-d185-49ee-9707-36c8708f6b54");
 INSERT INTO O_BATTR
-	VALUES ("15e0f536-524d-4b77-9d13-5cb90bb6ea1f",
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+	VALUES ("45f51a29-f286-4957-8b5f-0edaceb9da95",
+	"72ef00a4-d185-49ee-9707-36c8708f6b54");
 INSERT INTO O_ATTR
-	VALUES ("15e0f536-524d-4b77-9d13-5cb90bb6ea1f",
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424",
-	"e2d20bb1-bd86-45a0-b250-ffa45038f57e",
+	VALUES ("45f51a29-f286-4957-8b5f-0edaceb9da95",
+	"72ef00a4-d185-49ee-9707-36c8708f6b54",
+	"784482ba-9115-4566-9098-cf6f84fb33b0",
 	'Description',
 	'',
 	'',
@@ -45,20 +50,15 @@ INSERT INTO O_ATTR
 	'');
 INSERT INTO O_ID
 	VALUES (0,
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
-INSERT INTO O_OIDA
-	VALUES ("e2d20bb1-bd86-45a0-b250-ffa45038f57e",
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424",
-	0,
-	'Name');
+	"72ef00a4-d185-49ee-9707-36c8708f6b54");
 INSERT INTO O_ID
 	VALUES (1,
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+	"72ef00a4-d185-49ee-9707-36c8708f6b54");
 INSERT INTO O_ID
 	VALUES (2,
-	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
+	"72ef00a4-d185-49ee-9707-36c8708f6b54");
 INSERT INTO PE_PE
-	VALUES ("3be3bc3f-ee49-4bcd-86ec-140a835d9424",
+	VALUES ("72ef00a4-d185-49ee-9707-36c8708f6b54",
 	1,
 	"c26f9757-6560-45ec-91a4-1073eb423d52",
 	"00000000-0000-0000-0000-000000000000",

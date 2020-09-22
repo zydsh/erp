@@ -258,7 +258,7 @@ if (not empty chapterC)
 		UI::Reply( msg:"New ceiling funding approved for "+newSection.Name, state: true );
 	else 
 		LOG::LogInfo(message:"An error has occurred, ceiling funding has no section ");
-		UI::Reply( msg:"An error has occurred, ceiling funding has no section ", state: true );
+		UI::Reply( msg:"An error has occurred, ceiling funding has no section ", state: false );
 
 	end if;
 
@@ -273,12 +273,14 @@ elif (not empty chapterR)
 		UI::Reply( msg:"New requested funding approved for "+newSection.Name, state: true );
 	else 
 		LOG::LogInfo(message:"An error has occurred, requested funding has no section ");
-		UI::Reply( msg:"An error has occurred, requested funding has no section ", state: true );
+		UI::Reply( msg:"An error has occurred, requested funding has no section ", state: false );
 
 	end if;
 
 else
-	
+		LOG::LogInfo(message:"An error has occurred, requested funding has no chapter ");
+		UI::Reply( msg:"An error has occurred, requested funding has no chapter ", state: false );
+
 end if;
 
 

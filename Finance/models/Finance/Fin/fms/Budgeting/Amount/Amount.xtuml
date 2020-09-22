@@ -2,45 +2,27 @@
 
 INSERT INTO O_OBJ
 	VALUES ("f7390926-0034-4f6d-b506-b354a703d60e",
-	'EntryDetail',
+	'Amount',
 	11,
-	'EntryDetail',
-	'',
+	'Amount',
+	'Represents a currencey amount in Saudi Riyals.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
-	VALUES ("f3f3d480-6b95-4374-8fe1-ac76ce4482cf",
+	VALUES ("f4799883-b50e-4541-b0db-7323eb8b920b",
 	"f7390926-0034-4f6d-b506-b354a703d60e");
 INSERT INTO O_BATTR
-	VALUES ("f3f3d480-6b95-4374-8fe1-ac76ce4482cf",
+	VALUES ("f4799883-b50e-4541-b0db-7323eb8b920b",
 	"f7390926-0034-4f6d-b506-b354a703d60e");
 INSERT INTO O_ATTR
-	VALUES ("f3f3d480-6b95-4374-8fe1-ac76ce4482cf",
+	VALUES ("f4799883-b50e-4541-b0db-7323eb8b920b",
 	"f7390926-0034-4f6d-b506-b354a703d60e",
 	"00000000-0000-0000-0000-000000000000",
-	'Date',
+	'Value',
 	'',
 	'',
-	'Date',
+	'Value',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("691eb3b6-7482-4dcd-85b4-3beb6e189e10",
-	"f7390926-0034-4f6d-b506-b354a703d60e");
-INSERT INTO O_BATTR
-	VALUES ("691eb3b6-7482-4dcd-85b4-3beb6e189e10",
-	"f7390926-0034-4f6d-b506-b354a703d60e");
-INSERT INTO O_ATTR
-	VALUES ("691eb3b6-7482-4dcd-85b4-3beb6e189e10",
-	"f7390926-0034-4f6d-b506-b354a703d60e",
-	"f3f3d480-6b95-4374-8fe1-ac76ce4482cf",
-	'Description',
-	'',
-	'',
-	'Description',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_ID
