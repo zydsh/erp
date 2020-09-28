@@ -1928,7 +1928,7 @@ INSERT INTO SPR_RS
 	VALUES ("1b5624a3-eab4-47ca-937a-f07e2f63728c",
 	'SendSectionsCeiling',
 	'',
-	'',
+	'::SendSections( Code:param.Code, Name:param.Name, Fund:param.Fund, Revenue:param.Revenue );',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
