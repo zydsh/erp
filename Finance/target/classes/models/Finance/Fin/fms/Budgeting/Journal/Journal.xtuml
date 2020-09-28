@@ -1,23 +1,23 @@
 -- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
 
 INSERT INTO O_OBJ
-	VALUES ("b3948e8c-2568-4b6a-aa44-339d8372bfb8",
-	'RevenueAccount',
-	8,
-	'RevenueAccount',
+	VALUES ("3be3bc3f-ee49-4bcd-86ec-140a835d9424",
+	'Journal',
+	9,
+	'Journal',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_ID
 	VALUES (0,
-	"b3948e8c-2568-4b6a-aa44-339d8372bfb8");
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
 INSERT INTO O_ID
 	VALUES (1,
-	"b3948e8c-2568-4b6a-aa44-339d8372bfb8");
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
 INSERT INTO O_ID
 	VALUES (2,
-	"b3948e8c-2568-4b6a-aa44-339d8372bfb8");
+	"3be3bc3f-ee49-4bcd-86ec-140a835d9424");
 INSERT INTO PE_PE
-	VALUES ("b3948e8c-2568-4b6a-aa44-339d8372bfb8",
+	VALUES ("3be3bc3f-ee49-4bcd-86ec-140a835d9424",
 	1,
 	"c26f9757-6560-45ec-91a4-1073eb423d52",
 	"00000000-0000-0000-0000-000000000000",

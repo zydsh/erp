@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("80db556a-61ae-4226-af0b-6ece7f8284ad",
-	'FundAccount',
+	'GeneralLedger',
 	2,
-	'FundAccount',
+	'GeneralLedger',
 	'A functional division of funds',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR

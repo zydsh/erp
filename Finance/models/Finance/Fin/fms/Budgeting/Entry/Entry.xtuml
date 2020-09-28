@@ -1,0 +1,71 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("67984216-89e7-4b52-b6c6-2a2b0e6f9bfe",
+	'Entry',
+	10,
+	'Entry',
+	'A transaction recorded on a specific date, 
+representing a financial event that occurred.
+It represents the first entry point 
+of a transaction recorded.  ',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("75a81ee3-82da-4ff6-ad72-dd28916b1a5a",
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe");
+INSERT INTO O_BATTR
+	VALUES ("75a81ee3-82da-4ff6-ad72-dd28916b1a5a",
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe");
+INSERT INTO O_ATTR
+	VALUES ("75a81ee3-82da-4ff6-ad72-dd28916b1a5a",
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe",
+	"00000000-0000-0000-0000-000000000000",
+	'Date',
+	'',
+	'',
+	'Date',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("d8832ba7-f528-4a5a-b49c-63e551d0db5c",
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe");
+INSERT INTO O_BATTR
+	VALUES ("d8832ba7-f528-4a5a-b49c-63e551d0db5c",
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe");
+INSERT INTO O_ATTR
+	VALUES ("d8832ba7-f528-4a5a-b49c-63e551d0db5c",
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe",
+	"75a81ee3-82da-4ff6-ad72-dd28916b1a5a",
+	'Desecription',
+	'',
+	'',
+	'Desecription',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe");
+INSERT INTO O_ID
+	VALUES (1,
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe");
+INSERT INTO O_ID
+	VALUES (2,
+	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe");
+INSERT INTO PE_PE
+	VALUES ("67984216-89e7-4b52-b6c6-2a2b0e6f9bfe",
+	1,
+	"c26f9757-6560-45ec-91a4-1073eb423d52",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("c26f9757-6560-45ec-91a4-1073eb423d52",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Budgeting',
+	'',
+	0,
+	'../Budgeting.xtuml');
