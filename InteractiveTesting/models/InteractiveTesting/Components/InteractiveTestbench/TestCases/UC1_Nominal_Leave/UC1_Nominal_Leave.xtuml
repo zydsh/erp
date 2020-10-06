@@ -1,0 +1,206 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("5b750303-1680-4c67-9b50-b06a24a234b5",
+	'UC1_Nominal_Leave',
+	1,
+	'UC1_Nominal_Leave',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("5c29dcc3-99ab-417f-9eae-82a3159c92ab",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	'Run',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'create object instance nominalLeave of UC1_Nominal_Leave;
+
+//select any nominalLeave from instances of UC1_Nominal_Leave;
+
+//generate UC1_Nominal_Leave1:LeaveRequest(EmployeeID:param.EmployeeID) to nominalLeave;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TFR
+	VALUES ("ae25e693-6590-4ab9-8895-000a30d834c3",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	'LeaveSpecsHandle',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'
+if (self.SelectedLeave ==False)
+	self.SelectedLeave= True;
+	generate UC1_Nominal_Leave2:LeaveSpecification(LeaveType:param.LeaveType) to self;
+end if;',
+	1,
+	'',
+	"5c29dcc3-99ab-417f-9eae-82a3159c92ab",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("2a6660f5-4f75-44e6-8511-40c666533d7f",
+	"ae25e693-6590-4ab9-8895-000a30d834c3",
+	'LeaveType',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("7b04a80f-3e5b-4816-b306-062832e1c8ae",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_BATTR
+	VALUES ("7b04a80f-3e5b-4816-b306-062832e1c8ae",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ATTR
+	VALUES ("7b04a80f-3e5b-4816-b306-062832e1c8ae",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("11775e97-eae0-44a8-b24d-7b3df68ea053",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_BATTR
+	VALUES ("11775e97-eae0-44a8-b24d-7b3df68ea053",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ATTR
+	VALUES ("11775e97-eae0-44a8-b24d-7b3df68ea053",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	"7b04a80f-3e5b-4816-b306-062832e1c8ae",
+	'EmployeeID',
+	'',
+	'',
+	'EmployeeID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("921d4ddd-4cef-4d83-978b-b2cb3c829053",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_BATTR
+	VALUES ("921d4ddd-4cef-4d83-978b-b2cb3c829053",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ATTR
+	VALUES ("921d4ddd-4cef-4d83-978b-b2cb3c829053",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	"11775e97-eae0-44a8-b24d-7b3df68ea053",
+	'LeaveType',
+	'',
+	'',
+	'LeaveType',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("283e1c01-a2b8-4d57-974a-cd0b64d1fe6c",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_BATTR
+	VALUES ("283e1c01-a2b8-4d57-974a-cd0b64d1fe6c",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ATTR
+	VALUES ("283e1c01-a2b8-4d57-974a-cd0b64d1fe6c",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	"921d4ddd-4cef-4d83-978b-b2cb3c829053",
+	'Approve',
+	'',
+	'',
+	'Approve',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'',
+	'True');
+INSERT INTO O_DBATTR
+	VALUES ("b9cc5ff6-a61f-4019-947d-9f69d15b5143",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	'week=7*24*60*60;
+self.LeaveEnd = self.LeaveStart+ week;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("b9cc5ff6-a61f-4019-947d-9f69d15b5143",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ATTR
+	VALUES ("b9cc5ff6-a61f-4019-947d-9f69d15b5143",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	"283e1c01-a2b8-4d57-974a-cd0b64d1fe6c",
+	'LeaveEnd',
+	'',
+	'',
+	'LeaveEnd',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("8814a951-71ec-4f7e-b922-de23aedf02e4",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	'self.LeaveStart = TIM::current_seconds();',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("8814a951-71ec-4f7e-b922-de23aedf02e4",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ATTR
+	VALUES ("8814a951-71ec-4f7e-b922-de23aedf02e4",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	"b9cc5ff6-a61f-4019-947d-9f69d15b5143",
+	'LeaveStart',
+	'',
+	'',
+	'LeaveStart',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("e7e7d261-f910-499c-96ef-b3befad84906",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_BATTR
+	VALUES ("e7e7d261-f910-499c-96ef-b3befad84906",
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ATTR
+	VALUES ("e7e7d261-f910-499c-96ef-b3befad84906",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	"8814a951-71ec-4f7e-b922-de23aedf02e4",
+	'SelectedLeave',
+	'',
+	'',
+	'SelectedLeave',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'',
+	'Flase');
+INSERT INTO O_ID
+	VALUES (0,
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ID
+	VALUES (1,
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO O_ID
+	VALUES (2,
+	"5b750303-1680-4c67-9b50-b06a24a234b5");
+INSERT INTO PE_PE
+	VALUES ("5b750303-1680-4c67-9b50-b06a24a234b5",
+	1,
+	"f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'TestCases',
+	'',
+	0,
+	'../TestCases.xtuml');

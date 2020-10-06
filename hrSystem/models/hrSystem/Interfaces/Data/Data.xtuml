@@ -1046,6 +1046,42 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SelectAnyEmployee',
+	'');
+INSERT INTO C_AS
+	VALUES ("6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83",
+	'SelectAnyEmployee',
+	'',
+	0,
+	"55a9f3b2-80bb-4f18-849a-63ec5716bb21");
+INSERT INTO C_EP
+	VALUES ("33b8e220-d4ff-4add-9e14-3c408f991d0f",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SelectAnyBonus',
+	'');
+INSERT INTO C_AS
+	VALUES ("33b8e220-d4ff-4add-9e14-3c408f991d0f",
+	'SelectAnyBonus',
+	'',
+	0,
+	"6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83");
+INSERT INTO C_EP
+	VALUES ("b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GeneratePayslips',
+	'');
+INSERT INTO C_AS
+	VALUES ("b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
+	'GeneratePayslips',
+	'',
+	0,
+	"33b8e220-d4ff-4add-9e14-3c408f991d0f");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

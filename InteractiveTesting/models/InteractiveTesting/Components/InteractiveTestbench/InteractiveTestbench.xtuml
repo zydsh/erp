@@ -41,7 +41,7 @@ INSERT INTO GD_SHP
 INSERT INTO GD_CTR
 	VALUES ("90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_ND
-	VALUES (819.000000,
+	VALUES (1259.000000,
 	155.000000,
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_GE
@@ -65,12 +65,12 @@ INSERT INTO DIM_CON
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_CON
 	VALUES ("2281850d-1d02-4b6b-9080-dfa30597446e",
-	4919.000000,
+	5359.000000,
 	3222.000000,
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_CON
 	VALUES ("78bc956e-f139-4d0b-b5ce-696d0f47d5e7",
-	4919.000000,
+	5359.000000,
 	3162.000000,
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_CON
@@ -377,14 +377,14 @@ INSERT INTO GD_LS
 	"2a9ddc35-bef9-4403-a286-e430f7d8e8f5");
 INSERT INTO DIM_WAY
 	VALUES ("03b4415d-07ea-4556-8d58-2f4a018fd92e",
-	4919.000000,
+	5359.000000,
 	3222.000000,
 	"3fab252b-37dc-4b17-a58a-c069b8dc2518",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("2a9ddc35-bef9-4403-a286-e430f7d8e8f5",
-	4994.000000,
+	5434.000000,
 	3222.000000,
 	"3fab252b-37dc-4b17-a58a-c069b8dc2518",
 	"00000000-0000-0000-0000-000000000000",
@@ -477,14 +477,14 @@ INSERT INTO GD_LS
 	"2fdf8724-fc4b-4adf-9ed6-c9f1bbe8843a");
 INSERT INTO DIM_WAY
 	VALUES ("bba45af6-5c9c-4182-bf59-fbee7f517f6b",
-	4919.000000,
+	5359.000000,
 	3162.000000,
 	"851fe885-f034-4d60-8ee9-15397732d275",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("2fdf8724-fc4b-4adf-9ed6-c9f1bbe8843a",
-	4994.000000,
+	5434.000000,
 	3162.000000,
 	"851fe885-f034-4d60-8ee9-15397732d275",
 	"00000000-0000-0000-0000-000000000000",
@@ -602,6 +602,54 @@ INSERT INTO DIM_ED
 	VALUES ("205d7ef7-74d2-4db0-9913-76df4d67121c",
 	"00000000-0000-0000-0000-000000000000",
 	"ac708e1a-0546-4d2f-a7e3-43c2df245ff5");
+INSERT INTO GD_GE
+	VALUES ("c4bd47a3-60d2-4816-b30a-1f7ff5ceb8fe",
+	"ea46afea-6341-4d09-b7bf-47957e0558c7",
+	"6c488dd4-2928-43b4-969b-df7ed5b5160e",
+	108,
+	0,
+	'InteractiveTesting::Components::InteractiveTestbench::Functions');
+INSERT INTO GD_SHP
+	VALUES ("c4bd47a3-60d2-4816-b30a-1f7ff5ceb8fe");
+INSERT INTO GD_NCS
+	VALUES ("c4bd47a3-60d2-4816-b30a-1f7ff5ceb8fe");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"c4bd47a3-60d2-4816-b30a-1f7ff5ceb8fe");
+INSERT INTO DIM_GE
+	VALUES (4927.000000,
+	3100.000000,
+	"c4bd47a3-60d2-4816-b30a-1f7ff5ceb8fe",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("c4bd47a3-60d2-4816-b30a-1f7ff5ceb8fe",
+	0,
+	"90803358-5ddc-40fa-869c-01572973e288");
+INSERT INTO GD_GE
+	VALUES ("320cde13-7057-412e-974a-dab6607e5474",
+	"ea46afea-6341-4d09-b7bf-47957e0558c7",
+	"f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	108,
+	0,
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases');
+INSERT INTO GD_SHP
+	VALUES ("320cde13-7057-412e-974a-dab6607e5474");
+INSERT INTO GD_NCS
+	VALUES ("320cde13-7057-412e-974a-dab6607e5474");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"320cde13-7057-412e-974a-dab6607e5474");
+INSERT INTO DIM_GE
+	VALUES (5147.000000,
+	3100.000000,
+	"320cde13-7057-412e-974a-dab6607e5474",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("320cde13-7057-412e-974a-dab6607e5474",
+	0,
+	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_DIA
 	VALUES ("ea46afea-6341-4d09-b7bf-47957e0558c7",
 	'',
@@ -635,7 +683,7 @@ INSERT INTO SPR_RS
 	'RequestEmployeeLeave',
 	'An employee requests to have a leave of absence of a specific type. ',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b39132b4-2259-4b62-a9f3-6437a0d18916",
@@ -653,7 +701,7 @@ INSERT INTO SPR_RS
 	'ReturnFromLeave',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("70a38333-8004-469c-92f7-2882ec9995e4",
@@ -671,7 +719,7 @@ INSERT INTO SPR_RS
 	'AssignJobToEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7a8b2a52-93db-4e92-962c-904439127495",
@@ -689,7 +737,7 @@ INSERT INTO SPR_RS
 	'AssignBonusToEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("91ad9e90-38b4-4680-8c47-49049aaf3fbe",
@@ -707,7 +755,7 @@ INSERT INTO SPR_RS
 	'CommenceEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("71d23c22-d473-42f5-b0c0-b02ad3c5e158",
@@ -725,7 +773,7 @@ INSERT INTO SPR_RS
 	'GenerateEmployeePayslip',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("efa24004-2976-4948-bdf6-f0bf405f08fe",
@@ -743,7 +791,7 @@ INSERT INTO SPR_RS
 	'Return_Employee_Payment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("17ffcb19-fa91-46b2-b867-ee86de86db68",
@@ -761,7 +809,7 @@ INSERT INTO SPR_RS
 	'ApproveEmployeeLeave',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("d94c13b0-32b8-4236-942e-57f41ea108fa",
@@ -779,7 +827,7 @@ INSERT INTO SPR_RS
 	'RejectEmployeeLeave',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("68395ea3-c159-43f2-8c29-b680f2eebfef",
@@ -819,8 +867,11 @@ INSERT INTO SPR_RS
 	VALUES ("b8b527a9-4193-43a9-a0fe-1badeeec5f4b",
 	'SendEmployee',
 	'',
-	'',
-	3,
+	'
+select any hr from instances of HumanResources;
+
+hr.EmployeeHandle( EmployeeID:param.EmployeeID );',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ef336545-2505-4c4c-966f-e73bd04cebbc",
@@ -838,7 +889,7 @@ INSERT INTO SPR_RS
 	'CreateLeaveSpecification',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3c8dd825-949a-424e-bf6c-9b9a9fa3f74e",
@@ -856,7 +907,7 @@ INSERT INTO SPR_RS
 	'DeleteLeaveSpecification',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c32f4f5c-4c54-4ec7-b6f8-9af0f0e4f799",
@@ -874,7 +925,7 @@ INSERT INTO SPR_RS
 	'ReadLeaveSpecification',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("d3b55439-1e69-4e4a-b581-e40430d5017f",
@@ -891,8 +942,10 @@ INSERT INTO SPR_RS
 	VALUES ("1b522c90-f439-45d8-8c5a-0cc952d9baf2",
 	'SendLeaveSpecification',
 	'',
-	'',
-	3,
+	'select any nominalLeave from instances of UC1_Nominal_Leave;
+nominalLeave.LeaveSpecsHandle( LeaveType:param.Name );
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("595e353d-727f-414e-9d55-756babc4ae04",
@@ -910,7 +963,7 @@ INSERT INTO SPR_RS
 	'CreateEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2c504ade-8ec5-4e67-8105-589d8a205c18",
@@ -928,7 +981,7 @@ INSERT INTO SPR_RS
 	'ReadEmployeeList',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5a45e7fa-046b-44f4-9bf7-6603e95bbe83",
@@ -946,7 +999,7 @@ INSERT INTO SPR_RS
 	'Reply',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f833a052-90f9-4e64-9d55-99c5ddf5e403",
@@ -964,7 +1017,7 @@ INSERT INTO SPR_RS
 	'ReplyNewEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("28c1324f-fa4b-4d57-8093-089ef52816b3",
@@ -982,7 +1035,7 @@ INSERT INTO SPR_RS
 	'Initialize',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c394831f-741a-4da7-9a06-59aab6fe9a65",
@@ -1000,7 +1053,7 @@ INSERT INTO SPR_RS
 	'ReadEmployeeMessage',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4faa150b-b378-4b6d-a581-fc2bda46bcfa",
@@ -1018,7 +1071,7 @@ INSERT INTO SPR_RS
 	'SendEmployeeMessages',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3d328faa-80d8-4b87-8f4e-bceeff720379",
@@ -1036,7 +1089,7 @@ INSERT INTO SPR_RS
 	'AssignEmployeeBonus',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1c973eb8-41f0-4af1-a445-cd95097185cd",
@@ -1054,7 +1107,7 @@ INSERT INTO SPR_RS
 	'StopEmployeeBonus',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("aadcd44b-2f47-4775-83c0-303d622cb3d4",
@@ -1072,7 +1125,7 @@ INSERT INTO SPR_RS
 	'ReadEmployeeBonuses',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("125ff518-1430-490c-9f5e-10dee396d19e",
@@ -1090,7 +1143,7 @@ INSERT INTO SPR_RS
 	'SendEmployeeBonuses',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2a7c483e-1365-4e6a-b621-b6d08edd5af1",
@@ -1108,7 +1161,7 @@ INSERT INTO SPR_RS
 	'ReadJobList',
 	'Request for all registered jobs in the system',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2c6a9de5-1cba-40bc-b112-f992ee3d0a61",
@@ -1126,7 +1179,7 @@ INSERT INTO SPR_RS
 	'SendJobList',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4e0f81e2-08a0-4b7a-aa0c-4ec2a0472748",
@@ -1143,8 +1196,11 @@ INSERT INTO SPR_RS
 	VALUES ("c3c00437-f8c8-4f35-8c60-a5b559736b4c",
 	'SendBonusList',
 	'',
-	'',
-	3,
+	'select any bonus from instances of UC2_Bonus ; 
+generate UC2_Bonus2:BonusSelected(BonusName:param.Name) to bonus;
+ 
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6a7f8346-cbc4-4c69-8736-c456dea71c22",
@@ -1162,7 +1218,7 @@ INSERT INTO SPR_RS
 	'ReadBonusList',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ace2c172-7284-4b90-a4e9-bbc94f9829d3",
@@ -1180,7 +1236,7 @@ INSERT INTO SPR_RS
 	'ReadDepartmentList',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5b8ccfea-06d3-43e7-a5fa-c3b88dd10267",
@@ -1198,7 +1254,7 @@ INSERT INTO SPR_RS
 	'SendDepartmentList',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3e5a9f1d-ee7a-4423-82bb-a520ace5e526",
@@ -1216,7 +1272,7 @@ INSERT INTO SPR_RS
 	'ReadScales',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4e967c81-8dfe-43f5-a436-08c840c2f00d",
@@ -1234,7 +1290,7 @@ INSERT INTO SPR_RS
 	'SendScales',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("14de2da3-2734-41fc-9374-c068a4d03b6d",
@@ -1252,7 +1308,7 @@ INSERT INTO SPR_RS
 	'ReadGrades',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("35309483-e61a-4c1a-9be4-8878cc390932",
@@ -1270,7 +1326,7 @@ INSERT INTO SPR_RS
 	'SendGrades',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("28a21f28-8aa3-461d-84d4-c81bf6b15b9d",
@@ -1288,7 +1344,7 @@ INSERT INTO SPR_RS
 	'GetSalaryStructure',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b1ddf6bb-6a7d-44a3-a156-1f7e355f6e8f",
@@ -1306,7 +1362,7 @@ INSERT INTO SPR_RS
 	'SendSalaryStructure',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6c3406ec-0d2e-428c-b8b2-04bca4ad28c1",
@@ -1324,13 +1380,67 @@ INSERT INTO SPR_RS
 	'GetEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("55a9f3b2-80bb-4f18-849a-63ec5716bb21",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'GetEmployee',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("c8de5c2f-2de0-45da-abde-a2afa31f92ed",
+	"6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("c8de5c2f-2de0-45da-abde-a2afa31f92ed",
+	'SelectAnyEmployee',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SelectAnyEmployee',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("27ae3d30-e10a-4bfa-8693-63ea4d18f288",
+	"33b8e220-d4ff-4add-9e14-3c408f991d0f",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("27ae3d30-e10a-4bfa-8693-63ea4d18f288",
+	'SelectAnyBonus',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("33b8e220-d4ff-4add-9e14-3c408f991d0f",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SelectAnyBonus',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("e7df364b-b181-48b2-a02e-7401f8c97864",
+	"b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("e7df364b-b181-48b2-a02e-7401f8c97864",
+	'GeneratePayslips',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GeneratePayslips',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
@@ -1365,7 +1475,7 @@ INSERT INTO SPR_RS
 	'Initialize',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6859b7aa-16e9-436c-88b1-66c0bf7f2cbf",
@@ -1383,7 +1493,7 @@ INSERT INTO SPR_RS
 	'CreateSection',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
@@ -1401,7 +1511,7 @@ INSERT INTO SPR_RS
 	'ReadBudgets',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
@@ -1419,7 +1529,7 @@ INSERT INTO SPR_RS
 	'SendBudgets',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("981b3bfb-f8e5-468d-87ef-6341359c2931",
@@ -1437,7 +1547,7 @@ INSERT INTO SPR_RS
 	'Reply',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("02b58a71-1200-4020-bdc9-809f601deab1",
@@ -1455,7 +1565,7 @@ INSERT INTO SPR_RS
 	'ReadChapters',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
@@ -1473,7 +1583,7 @@ INSERT INTO SPR_RS
 	'SendChapters',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("70cffc85-c610-407d-a0de-b2fd7776c2f3",
@@ -1491,7 +1601,7 @@ INSERT INTO SPR_RS
 	'ReadSectionsRequested',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b7daccf5-4ee4-4e07-877f-35586f6ba785",
@@ -1509,7 +1619,7 @@ INSERT INTO SPR_RS
 	'SendSectionsRequested',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
@@ -1527,7 +1637,7 @@ INSERT INTO SPR_RS
 	'ReadSectionsCeiling',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
@@ -1545,7 +1655,7 @@ INSERT INTO SPR_RS
 	'SendSectionsCeiling',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1f6a3814-0c98-4dd6-bac0-080a5a7a0c35",
@@ -1563,7 +1673,7 @@ INSERT INTO SPR_RS
 	'AcceptRequestedSection',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c5d4f896-7924-4716-a86c-318e3273e594",
@@ -1581,7 +1691,7 @@ INSERT INTO SPR_RS
 	'AcceptCeillingSection',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3d2a89e7-d63d-4e66-ba68-1a0a834594d5",
@@ -1599,7 +1709,7 @@ INSERT INTO SPR_RS
 	'ReviewSection',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
@@ -1640,7 +1750,7 @@ INSERT INTO SPR_RS
 	'ReadStrategies',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f611d3fb-9d80-4a08-af29-b6b81f33b91e",
@@ -1658,7 +1768,7 @@ INSERT INTO SPR_RS
 	'SendStrategies',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("e995f3cf-f39a-49fb-b19a-f7fca5a6575f",
@@ -1676,7 +1786,7 @@ INSERT INTO SPR_RS
 	'Reply',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6062fcf7-0864-4e03-a22a-bea39834ef9d",
@@ -1694,7 +1804,7 @@ INSERT INTO SPR_RS
 	'Initialize',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("e0b36002-56f9-4df1-9356-a98484736a3a",
@@ -1714,7 +1824,7 @@ INSERT INTO SPR_RS
 an initiative. One parameter is enough
 to identify the initiative.',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("0fb486de-51ef-4059-86fb-07272aa62973",
@@ -1734,7 +1844,7 @@ INSERT INTO SPR_RS
 	'SendMilestones',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("164afa80-0634-483c-873c-74974775a70c",
@@ -1775,7 +1885,7 @@ INSERT INTO SPR_RS
 	'CreateNewAccount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
@@ -1793,7 +1903,7 @@ INSERT INTO SPR_RS
 	'Reply',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("33c71ef4-d154-40bf-bfc7-33de5096bb4b",
@@ -1811,7 +1921,7 @@ INSERT INTO SPR_RS
 	'ChangePassword',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("0a248ffe-e10f-4d82-8d59-33b993f89f71",
@@ -1829,7 +1939,7 @@ INSERT INTO SPR_RS
 	'Initialize',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("37841549-bc78-49d8-83fe-4f80dc5b9f45",
@@ -1847,7 +1957,7 @@ INSERT INTO SPR_RS
 	'AddToGroup',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("9ab42de4-652f-4783-bb1c-50674e391f4f",
@@ -1865,7 +1975,7 @@ INSERT INTO SPR_RS
 	'CheckUsernamePassword',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a2b9a551-5d4f-4bdb-9776-e71898ae21e8",
@@ -1883,7 +1993,7 @@ INSERT INTO SPR_RS
 	'ReadEmployeePermissions',
 	'It returns a group permission through sendEmployeePermissions',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4d5be10d-2c2f-4a8b-b4b4-45a20225a476",
@@ -1901,7 +2011,7 @@ INSERT INTO SPR_RS
 	'SendEmployeePermissions',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c33771ee-f17e-4255-b8a2-f8e2e5b49479",

@@ -1415,6 +1415,60 @@ INSERT INTO C_EP_PROXY
 	'GetEmployee',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("35a48b49-77cf-4530-a6af-83f223481839",
+	"6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("35a48b49-77cf-4530-a6af-83f223481839",
+	'SelectAnyEmployee',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SelectAnyEmployee',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("29e17241-a84b-488d-8303-270f2f2cc391",
+	"33b8e220-d4ff-4add-9e14-3c408f991d0f",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("29e17241-a84b-488d-8303-270f2f2cc391",
+	'SelectAnyBonus',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("33b8e220-d4ff-4add-9e14-3c408f991d0f",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SelectAnyBonus',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("752a7667-62be-4466-b046-a13e82ea6d7a",
+	"b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("752a7667-62be-4466-b046-a13e82ea6d7a",
+	'GeneratePayslips',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GeneratePayslips',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

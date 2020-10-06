@@ -319,8 +319,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"7f572c52-9d2b-4c6f-8b53-7ce55c787008");
 INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
+	VALUES (5158.000000,
+	3930.000000,
 	"7f572c52-9d2b-4c6f-8b53-7ce55c787008",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -419,8 +419,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"b8ad734c-789c-428c-9af1-5a214ad8ff22");
 INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
+	VALUES (4902.000000,
+	3930.000000,
 	"b8ad734c-789c-428c-9af1-5a214ad8ff22",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -1661,6 +1661,66 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'GetEmployee',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("af3c4782-338b-4467-a38c-a0126ada8896",
+	"6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("af3c4782-338b-4467-a38c-a0126ada8896",
+	'SelectAnyEmployee',
+	'',
+	'select any emp from instances of Employee ; 
+
+UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, Email:emp.Email,OfficePhone:emp.OfficePhone, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance, Salary:emp.getSalary());
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6fc3ff28-f4a0-45e3-8cdd-c38c1a097b83",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SelectAnyEmployee',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0e5b2650-7c1c-46b9-a1d6-923bbc4412e0",
+	"33b8e220-d4ff-4add-9e14-3c408f991d0f",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("0e5b2650-7c1c-46b9-a1d6-923bbc4412e0",
+	'SelectAnyBonus',
+	'',
+	'select any bonus from instances of BonusSpecification; 
+UI::SendBonusList( Name:bonus.Name, Percent:bonus.Percent );		
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("33b8e220-d4ff-4add-9e14-3c408f991d0f",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SelectAnyBonus',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("6cb4779c-e54f-4c8c-9b27-02b09a4db6a1",
+	"b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("6cb4779c-e54f-4c8c-9b27-02b09a4db6a1",
+	'GeneratePayslips',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'GeneratePayslips',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

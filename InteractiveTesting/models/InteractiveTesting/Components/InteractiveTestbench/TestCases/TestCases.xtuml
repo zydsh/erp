@@ -1,0 +1,105 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'TestCases',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("f0ec821c-9dd2-4d57-85b1-c905ad7f5bb0",
+	112,
+	"f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	200,
+	150,
+	0,
+	'4.1.17',
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases');
+INSERT INTO GD_GE
+	VALUES ("2abaaead-3cfa-42a6-bccb-815132fca996",
+	"f0ec821c-9dd2-4d57-85b1-c905ad7f5bb0",
+	"5b750303-1680-4c67-9b50-b06a24a234b5",
+	21,
+	0,
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC1_Nominal_Leave');
+INSERT INTO GD_SHP
+	VALUES ("2abaaead-3cfa-42a6-bccb-815132fca996");
+INSERT INTO GD_NCS
+	VALUES ("2abaaead-3cfa-42a6-bccb-815132fca996");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"2abaaead-3cfa-42a6-bccb-815132fca996");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"2abaaead-3cfa-42a6-bccb-815132fca996",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("2abaaead-3cfa-42a6-bccb-815132fca996",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_GE
+	VALUES ("5b2731d2-3de6-476a-a0e8-7575a003a7e4",
+	"f0ec821c-9dd2-4d57-85b1-c905ad7f5bb0",
+	"c56cd9bf-98b7-4521-a18b-742645191282",
+	21,
+	0,
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC2_Bonus');
+INSERT INTO GD_SHP
+	VALUES ("5b2731d2-3de6-476a-a0e8-7575a003a7e4");
+INSERT INTO GD_NCS
+	VALUES ("5b2731d2-3de6-476a-a0e8-7575a003a7e4");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"5b2731d2-3de6-476a-a0e8-7575a003a7e4");
+INSERT INTO DIM_GE
+	VALUES (220.000000,
+	0.000000,
+	"5b2731d2-3de6-476a-a0e8-7575a003a7e4",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("5b2731d2-3de6-476a-a0e8-7575a003a7e4",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_DIA
+	VALUES ("f0ec821c-9dd2-4d57-85b1-c905ad7f5bb0",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PE_PE
+	VALUES ("f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"c0b8fbfb-8bc0-44cd-8adb-3cc421fc189e",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("c0b8fbfb-8bc0-44cd-8adb-3cc421fc189e",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'InteractiveTestbench',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../InteractiveTestbench.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("e9af1555-bf5e-4176-a48b-88abbf636450",
+	'InteractiveTesting',
+	1,
+	'../../../InteractiveTesting.xtuml');

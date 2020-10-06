@@ -42,11 +42,34 @@ INSERT INTO O_TPARM
 INSERT INTO O_TFR
 	VALUES ("a09a32cd-a57c-4c57-a3e5-43debb8df180",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	'createPayment',
+	'createPayslip',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'',
+	1,
+	'time = TIM::current_seconds();
+create object instance salaryItem of PayslipItem;
+salaryItem.Name = "Salary";
+salaryItem.Date = time;
+salaryItem.Amount = self.getSalary();
+salaryItem.Type = Types::PayslipItemType::Earning;
+
+relate self to salaryItem across R3.''an earning or a deduction is recorded in a'';
+
+select many bonuses related by self->Bonus[R4.''gets a''];
+beforeItem = salaryItem;
+for each bonus in bonuses
+	select one bonusSpec related by bonus->BonusSpecification[R16.''is specified by''];
+	create object instance bonusItem of PayslipItem;
+	bonusItem.Name = bonusSpec.Name;
+	bonusItem.Date = time;
+	bonusItem.Amount = bonus.Amount;
+	bonusItem.Type = Types::PayslipItemType::Earning;
+	relate bonusItem to beforeItem across R18.''listed after'';
+	beforeItem = bonusItem;
+end for;
+
+//select many bonusItems related by salaryItem->PayslipItem[R18.''listed after''];
+',
 	1,
 	'',
 	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
