@@ -72,7 +72,7 @@ INSERT INTO O_ATTR
 	"80db556a-61ae-4226-af0b-6ece7f8284ad",
 	"3d2158ef-100a-40e3-8ce8-6b0d22c42c1e",
 	'Balance',
-	'',
+	'Orginal balance assigned to the account. ',
 	'',
 	'Balance',
 	0,
@@ -95,6 +95,100 @@ INSERT INTO O_ATTR
 	'Comments',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("204a19f9-22c4-457a-9bad-1a9401341196",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("204a19f9-22c4-457a-9bad-1a9401341196",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("204a19f9-22c4-457a-9bad-1a9401341196",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"3614a54b-86af-420f-87e9-f64e8d680a92",
+	'NetBalance',
+	'The amount remaining after adding budget additions and deducting
+reductions and transfers.',
+	'',
+	'NetBalance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("2e8b539c-c714-42b2-9973-1e25af7ee94b",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("2e8b539c-c714-42b2-9973-1e25af7ee94b",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("2e8b539c-c714-42b2-9973-1e25af7ee94b",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"204a19f9-22c4-457a-9bad-1a9401341196",
+	'Reduction',
+	'',
+	'',
+	'Reduction',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("bf971fb2-10ba-4a58-8368-cff28f8e47f7",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("bf971fb2-10ba-4a58-8368-cff28f8e47f7",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("bf971fb2-10ba-4a58-8368-cff28f8e47f7",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"2e8b539c-c714-42b2-9973-1e25af7ee94b",
+	'TransfersCR',
+	'',
+	'',
+	'TransfersCR',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("66f203d3-cd64-4f79-9ff0-ac98141d3e61",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_BATTR
+	VALUES ("66f203d3-cd64-4f79-9ff0-ac98141d3e61",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("66f203d3-cd64-4f79-9ff0-ac98141d3e61",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"bf971fb2-10ba-4a58-8368-cff28f8e47f7",
+	'TransfersDB',
+	'Amounts in debt transferred from an account to another.',
+	'',
+	'TransfersDB',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("232d591e-8974-487d-96fb-26e39992c48d",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	'self.GeneralTotal = self.NetBalance - self.Spending;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("232d591e-8974-487d-96fb-26e39992c48d",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad");
+INSERT INTO O_ATTR
+	VALUES ("232d591e-8974-487d-96fb-26e39992c48d",
+	"80db556a-61ae-4226-af0b-6ece7f8284ad",
+	"66f203d3-cd64-4f79-9ff0-ac98141d3e61",
+	'GeneralTotal',
+	'The amount after spending is deducted from net balance.',
+	'',
+	'GeneralTotal',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_ID
