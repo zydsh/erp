@@ -718,6 +718,53 @@ INSERT INTO C_EP_PROXY
 	'ReviewSection',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("7eacf167-7d01-49a9-8545-9798e43402ca",
+	"4af6aae3-9881-4881-b6df-74baed99177c",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("7eacf167-7d01-49a9-8545-9798e43402ca",
+	'CreateCashJournal',
+	'',
+	'
+
+select any cashJournal from instances of Journal where selected.Name == "Cash";
+
+if (empty cashJournal)
+	create object instance cashJ of Journal;
+	cashJ.Name = "Cash";
+	cashJ.Description= "Records cash payments for internal transactions";
+	
+	create object instance dec of DoubleEntryColumn;
+	dec.Title = "Debit Cash/ Credit Employee Compensation ";
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4af6aae3-9881-4881-b6df-74baed99177c",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateCashJournal',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("236f0bcf-61cf-4676-817f-32acefca971b",
+	"213a3dad-a44b-4913-8a5b-81662bea017f",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("236f0bcf-61cf-4676-817f-32acefca971b",
+	'CreateSubLedger',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateSubLedger',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",

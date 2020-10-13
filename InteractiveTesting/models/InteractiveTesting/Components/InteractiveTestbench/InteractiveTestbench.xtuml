@@ -1434,7 +1434,7 @@ INSERT INTO SPR_RS
 	'GeneratePayslips',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b14ac457-f14f-4ed9-89e1-401e0a5a4b58",
@@ -1716,6 +1716,42 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReviewSection',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("a035118b-f1af-4528-926a-90e9679be4ac",
+	"4af6aae3-9881-4881-b6df-74baed99177c",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("a035118b-f1af-4528-926a-90e9679be4ac",
+	'CreateCashJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4af6aae3-9881-4881-b6df-74baed99177c",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateCashJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("85da1fb9-d05f-4088-8f1e-64bffca39231",
+	"213a3dad-a44b-4913-8a5b-81662bea017f",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("85da1fb9-d05f-4088-8f1e-64bffca39231",
+	'CreateSubLedger',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateSubLedger',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

@@ -416,6 +416,39 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("4af6aae3-9881-4881-b6df-74baed99177c",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateCashJournal',
+	'');
+INSERT INTO C_AS
+	VALUES ("4af6aae3-9881-4881-b6df-74baed99177c",
+	'CreateCashJournal',
+	'',
+	0,
+	"589cda45-8d2a-41a6-aa56-c37c2f74f0bb");
+INSERT INTO C_PP
+	VALUES ("bdfdea90-abcb-446c-8803-3f725fcec93a",
+	"4af6aae3-9881-4881-b6df-74baed99177c",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateCompensationLedger',
+	'');
+INSERT INTO C_AS
+	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
+	'CreateCompensationLedger',
+	'',
+	0,
+	"4af6aae3-9881-4881-b6df-74baed99177c");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,
