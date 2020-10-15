@@ -79,6 +79,42 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("da0966df-647e-41cb-92c0-6a9e11bb8e5f",
+	"a7141e3e-8734-4525-9f28-039813a84758");
+INSERT INTO O_BATTR
+	VALUES ("da0966df-647e-41cb-92c0-6a9e11bb8e5f",
+	"a7141e3e-8734-4525-9f28-039813a84758");
+INSERT INTO O_ATTR
+	VALUES ("da0966df-647e-41cb-92c0-6a9e11bb8e5f",
+	"a7141e3e-8734-4525-9f28-039813a84758",
+	"86586be5-3c44-45da-a818-f7fcc6331330",
+	'Costs',
+	'The total budget of the program of several years.',
+	'',
+	'Costs',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("2a2d73d3-792a-451b-a7b3-5413f5290a0c",
+	"a7141e3e-8734-4525-9f28-039813a84758");
+INSERT INTO O_BATTR
+	VALUES ("2a2d73d3-792a-451b-a7b3-5413f5290a0c",
+	"a7141e3e-8734-4525-9f28-039813a84758");
+INSERT INTO O_ATTR
+	VALUES ("2a2d73d3-792a-451b-a7b3-5413f5290a0c",
+	"a7141e3e-8734-4525-9f28-039813a84758",
+	"da0966df-647e-41cb-92c0-6a9e11bb8e5f",
+	'Expenditure',
+	'The amounts spent of the budget from previous years.',
+	'',
+	'Expenditure',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"a7141e3e-8734-4525-9f28-039813a84758");

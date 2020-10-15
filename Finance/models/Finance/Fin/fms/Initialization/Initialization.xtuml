@@ -24,7 +24,7 @@ INSERT INTO GD_MD
 	0,
 	0,
 	0,
-	'',
+	'4.1.17',
 	'Finance::Fin::fms::Initialization');
 INSERT INTO DIM_DIA
 	VALUES ("2dd10ec3-30ab-443a-9b89-6a9240a80d94",
@@ -995,6 +995,28 @@ relate expenseCieling to chapter across R116.''requested by ceilling'';
 	0);
 INSERT INTO PE_PE
 	VALUES ("b8256152-59ee-4f51-a87a-2b6d29202315",
+	1,
+	"e958e1e6-0f5f-4631-bf16-a8d04e661a5a",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("29840196-bf8d-4fc4-88cd-eeadaf3a5a1d",
+	"00000000-0000-0000-0000-000000000000",
+	'CreatePEI_Ledgers',
+	'',
+	'create object instance ledger of Ledger;
+ledger.Name = "Cash";
+ledger.Description = "Records cash transactions for every accounting period";
+
+create object instance accPayable of Ledger;
+accPayable.Name = "Accounts Payable";
+accPayable.Description = "Represents the organizations obligations";',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("29840196-bf8d-4fc4-88cd-eeadaf3a5a1d",
 	1,
 	"e958e1e6-0f5f-4631-bf16-a8d04e661a5a",
 	"00000000-0000-0000-0000-000000000000",

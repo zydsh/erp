@@ -1742,7 +1742,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("85da1fb9-d05f-4088-8f1e-64bffca39231",
-	'CreateSubLedger',
+	'CreateCompensationLedger',
 	'',
 	'',
 	3,
@@ -1751,7 +1751,25 @@ INSERT INTO C_EP_PROXY
 	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'CreateSubLedger',
+	'CreateCompensationLedger',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("6ae660ad-8946-46d9-914c-280823ecd5ab",
+	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("6ae660ad-8946-46d9-914c-280823ecd5ab",
+	'OperationalizeBudget',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'OperationalizeBudget',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

@@ -753,7 +753,7 @@ INSERT INTO SPR_PEP
 	"84b7e49f-98e2-4539-b496-50575c189964");
 INSERT INTO SPR_PS
 	VALUES ("236f0bcf-61cf-4676-817f-32acefca971b",
-	'CreateSubLedger',
+	'CreateCompensationLedger',
 	'',
 	'',
 	3,
@@ -762,7 +762,36 @@ INSERT INTO C_EP_PROXY
 	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'CreateSubLedger',
+	'CreateCompensationLedger',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("fa6c80d5-002a-4a73-8291-6ea0b8458836",
+	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("fa6c80d5-002a-4a73-8291-6ea0b8458836",
+	'OperationalizeBudget',
+	'',
+	'
+select any budget from instances of Budget where selected.Year == param.Year;
+
+select many expenses related by budget->Chapter[R100.''divided'']->Expenses[R111.''funds''];
+
+if (not empty expenses)
+	for each expense in expenses
+		create object instance ledger of Ledger;
+		relate expense to ledger across R117.''provides funds to'';
+		//then create subledgers
+	end for;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'OperationalizeBudget',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
