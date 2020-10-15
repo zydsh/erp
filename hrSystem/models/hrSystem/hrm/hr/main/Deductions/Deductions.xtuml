@@ -1,0 +1,87 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("c1ac5857-731b-4e3f-811a-dfeffb18d4f4",
+	'Deductions',
+	16,
+	'Deductions',
+	'A monetary amount deducted from employee benefits 
+based on employee absence for example.  ',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("43d87664-5a22-4569-b905-36bde7224d18",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO O_BATTR
+	VALUES ("43d87664-5a22-4569-b905-36bde7224d18",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO O_ATTR
+	VALUES ("43d87664-5a22-4569-b905-36bde7224d18",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4",
+	"00000000-0000-0000-0000-000000000000",
+	'Amount',
+	'',
+	'',
+	'Amount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("176a9ad9-2f5f-4077-bbe0-9b753caf0f26",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO O_BATTR
+	VALUES ("176a9ad9-2f5f-4077-bbe0-9b753caf0f26",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO O_ATTR
+	VALUES ("176a9ad9-2f5f-4077-bbe0-9b753caf0f26",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4",
+	"43d87664-5a22-4569-b905-36bde7224d18",
+	'Date',
+	'',
+	'',
+	'Date',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("2f152e65-fb56-4503-9203-d077d72b2ce5",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO O_BATTR
+	VALUES ("2f152e65-fb56-4503-9203-d077d72b2ce5",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO O_ATTR
+	VALUES ("2f152e65-fb56-4503-9203-d077d72b2ce5",
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4",
+	"176a9ad9-2f5f-4077-bbe0-9b753caf0f26",
+	'Reason',
+	'',
+	'',
+	'Reason',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO O_ID
+	VALUES (1,
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO O_ID
+	VALUES (2,
+	"c1ac5857-731b-4e3f-811a-dfeffb18d4f4");
+INSERT INTO PE_PE
+	VALUES ("c1ac5857-731b-4e3f-811a-dfeffb18d4f4",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

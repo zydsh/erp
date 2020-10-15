@@ -251,13 +251,13 @@ if (not empty chapterC)
 	relate self to chapterC across R111.''funded by'';
 	
 	if (not empty oldSection)
-		LOG::LogInfo(message:"Existing section ceiling funding approved for "+oldSection.Name);
+		//LOG::LogInfo(message:"Existing section ceiling funding approved for "+oldSection.Name);
 		UI::Reply( msg:"Existing section ceiling funding approved for "+oldSection.Name, state: true );
 	elif (not empty newSection)
-		LOG::LogInfo(message:"New ceiling funding approved for "+newSection.Name);
+	//	LOG::LogInfo(message:"New ceiling funding approved for "+newSection.Name);
 		UI::Reply( msg:"New ceiling funding approved for "+newSection.Name, state: true );
 	else 
-		LOG::LogInfo(message:"An error has occurred, ceiling funding has no section ");
+	//	LOG::LogInfo(message:"An error has occurred, ceiling funding has no section ");
 		UI::Reply( msg:"An error has occurred, ceiling funding has no section ", state: false );
 
 	end if;
@@ -266,19 +266,19 @@ elif (not empty chapterR)
 	relate self to chapterR across R111.''funded by'';
 	
 	if (not empty oldSection)
-		LOG::LogInfo(message:"Existing section requested funding approved for "+oldSection.Name);
+		//LOG::LogInfo(message:"Existing section requested funding approved for "+oldSection.Name);
 		UI::Reply( msg:"Existing section requested funding approved for "+oldSection.Name, state: true );
 	elif (not empty newSection)
-		LOG::LogInfo(message:"New requested funding approved for "+newSection.Name);
+	//	LOG::LogInfo(message:"New requested funding approved for "+newSection.Name);
 		UI::Reply( msg:"New requested funding approved for "+newSection.Name, state: true );
 	else 
-		LOG::LogInfo(message:"An error has occurred, requested funding has no section ");
+		//LOG::LogInfo(message:"An error has occurred, requested funding has no section ");
 		UI::Reply( msg:"An error has occurred, requested funding has no section ", state: false );
 
 	end if;
 
 else
-		LOG::LogInfo(message:"An error has occurred, requested funding has no chapter ");
+	//	LOG::LogInfo(message:"An error has occurred, requested funding has no chapter ");
 		UI::Reply( msg:"An error has occurred, requested funding has no chapter ", state: false );
 
 end if;

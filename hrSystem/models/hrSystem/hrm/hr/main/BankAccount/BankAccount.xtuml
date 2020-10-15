@@ -1,0 +1,74 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("16f479df-52b5-4738-a0fd-28f7de018429",
+	'BankAccount',
+	15,
+	'BankAccount',
+	'A financial account that receives employee benefits through regular electronic transfers. ',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("46ce25b4-c323-4ce8-9860-fe8f657ce5b8",
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO O_BATTR
+	VALUES ("46ce25b4-c323-4ce8-9860-fe8f657ce5b8",
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO O_ATTR
+	VALUES ("46ce25b4-c323-4ce8-9860-fe8f657ce5b8",
+	"16f479df-52b5-4738-a0fd-28f7de018429",
+	"00000000-0000-0000-0000-000000000000",
+	'IBAN',
+	'A unique string used for bank transfers consisting of two letters representing the country
+code, and thirty seven alphanumeric characters. ',
+	'',
+	'IBAN',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c3c0ab7a-4b62-4a35-a0b7-66c373dd4e2f",
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO O_BATTR
+	VALUES ("c3c0ab7a-4b62-4a35-a0b7-66c373dd4e2f",
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO O_ATTR
+	VALUES ("c3c0ab7a-4b62-4a35-a0b7-66c373dd4e2f",
+	"16f479df-52b5-4738-a0fd-28f7de018429",
+	"46ce25b4-c323-4ce8-9860-fe8f657ce5b8",
+	'Name',
+	'The name of the bank that hosts the employee account.',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO O_OIDA
+	VALUES ("46ce25b4-c323-4ce8-9860-fe8f657ce5b8",
+	"16f479df-52b5-4738-a0fd-28f7de018429",
+	0,
+	'IBAN');
+INSERT INTO O_ID
+	VALUES (1,
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO O_ID
+	VALUES (2,
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO PE_PE
+	VALUES ("16f479df-52b5-4738-a0fd-28f7de018429",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

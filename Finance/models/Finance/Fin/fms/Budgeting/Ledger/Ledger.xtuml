@@ -1,23 +1,21 @@
 -- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
 
 INSERT INTO O_OBJ
-	VALUES ("858cbc8e-9cdf-4395-a0b8-5a9d97b68276",
+	VALUES ("5e0164c0-09b7-4111-baf3-02b9429b0782",
 	'Ledger',
-	12,
+	15,
 	'Ledger',
-	'An accounting record that organizes payments 
-and expenses based on the financial statement
-an organization prepares. ',
+	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
-	VALUES ("3fffc5e5-2590-403c-becf-9d862cfef973",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
+	VALUES ("c08bf1f2-644a-4830-a307-7569236fa4b3",
+	"5e0164c0-09b7-4111-baf3-02b9429b0782");
 INSERT INTO O_BATTR
-	VALUES ("3fffc5e5-2590-403c-becf-9d862cfef973",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
+	VALUES ("c08bf1f2-644a-4830-a307-7569236fa4b3",
+	"5e0164c0-09b7-4111-baf3-02b9429b0782");
 INSERT INTO O_ATTR
-	VALUES ("3fffc5e5-2590-403c-becf-9d862cfef973",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276",
+	VALUES ("c08bf1f2-644a-4830-a307-7569236fa4b3",
+	"5e0164c0-09b7-4111-baf3-02b9429b0782",
 	"00000000-0000-0000-0000-000000000000",
 	'Name',
 	'',
@@ -28,15 +26,15 @@ INSERT INTO O_ATTR
 	'',
 	'');
 INSERT INTO O_NBATTR
-	VALUES ("87ddb6b1-b046-439b-aca5-86df5bc93782",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
+	VALUES ("20df1d5e-8bea-4b21-9077-a87eefa4d08b",
+	"5e0164c0-09b7-4111-baf3-02b9429b0782");
 INSERT INTO O_BATTR
-	VALUES ("87ddb6b1-b046-439b-aca5-86df5bc93782",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
+	VALUES ("20df1d5e-8bea-4b21-9077-a87eefa4d08b",
+	"5e0164c0-09b7-4111-baf3-02b9429b0782");
 INSERT INTO O_ATTR
-	VALUES ("87ddb6b1-b046-439b-aca5-86df5bc93782",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276",
-	"3fffc5e5-2590-403c-becf-9d862cfef973",
+	VALUES ("20df1d5e-8bea-4b21-9077-a87eefa4d08b",
+	"5e0164c0-09b7-4111-baf3-02b9429b0782",
+	"c08bf1f2-644a-4830-a307-7569236fa4b3",
 	'Description',
 	'',
 	'',
@@ -45,40 +43,22 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
-INSERT INTO O_NBATTR
-	VALUES ("5d3d7463-afb6-4de1-a90e-bd54bfc1f48f",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
-INSERT INTO O_BATTR
-	VALUES ("5d3d7463-afb6-4de1-a90e-bd54bfc1f48f",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
-INSERT INTO O_ATTR
-	VALUES ("5d3d7463-afb6-4de1-a90e-bd54bfc1f48f",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276",
-	"87ddb6b1-b046-439b-aca5-86df5bc93782",
-	'Balance',
-	'',
-	'',
-	'Balance',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'',
-	'');
 INSERT INTO O_ID
 	VALUES (0,
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
+	"5e0164c0-09b7-4111-baf3-02b9429b0782");
 INSERT INTO O_OIDA
-	VALUES ("3fffc5e5-2590-403c-becf-9d862cfef973",
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276",
+	VALUES ("c08bf1f2-644a-4830-a307-7569236fa4b3",
+	"5e0164c0-09b7-4111-baf3-02b9429b0782",
 	0,
 	'Name');
 INSERT INTO O_ID
 	VALUES (1,
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
+	"5e0164c0-09b7-4111-baf3-02b9429b0782");
 INSERT INTO O_ID
 	VALUES (2,
-	"858cbc8e-9cdf-4395-a0b8-5a9d97b68276");
+	"5e0164c0-09b7-4111-baf3-02b9429b0782");
 INSERT INTO PE_PE
-	VALUES ("858cbc8e-9cdf-4395-a0b8-5a9d97b68276",
+	VALUES ("5e0164c0-09b7-4111-baf3-02b9429b0782",
 	1,
 	"c26f9757-6560-45ec-91a4-1073eb423d52",
 	"00000000-0000-0000-0000-000000000000",

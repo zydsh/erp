@@ -1,0 +1,135 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("6abf4420-64e5-4198-9c38-4ae5873908b5",
+	'HumanResources',
+	1,
+	'HumanResources',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("4e12813c-4360-44da-a886-442b047e8997",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5",
+	'Create',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'create object instance hr of HumanResources;
+
+UC1_Nominal_Leave::Run();
+UC2_Bonus::Run();
+
+generate HumanResources3:StartTest() to hr;//UC1_Nominal_Leave1:LeaveRequest(EmployeeID:param.EmployeeID) to nominalLeave;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TFR
+	VALUES ("ee62c1c5-e9f1-4911-a83b-d0ce732ee2fe",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5",
+	'EmployeeHandle',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'
+If (self.LeaveTest == False)
+	generate HumanResources1:StartLeaveTest(EmployeeID:param.EmployeeID) to self;
+	self.LeaveTest=True;
+elif (self.BonusTest == False)
+	generate HumanResources5:StartBonusTest(EmployeeID:param.EmployeeID) to self;
+	self.BonusTest=True;
+else 
+	generate HumanResources7:EndTest() to self;
+end if;
+',
+	1,
+	'',
+	"4e12813c-4360-44da-a886-442b047e8997",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("24b83088-b965-435a-9088-baaa1e0b4f90",
+	"ee62c1c5-e9f1-4911-a83b-d0ce732ee2fe",
+	'EmployeeID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("567edb21-0b27-45f0-ad19-d855536c42c2",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO O_BATTR
+	VALUES ("567edb21-0b27-45f0-ad19-d855536c42c2",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO O_ATTR
+	VALUES ("567edb21-0b27-45f0-ad19-d855536c42c2",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c70669aa-576b-49ac-8f69-1f5de692a8df",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO O_BATTR
+	VALUES ("c70669aa-576b-49ac-8f69-1f5de692a8df",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO O_ATTR
+	VALUES ("c70669aa-576b-49ac-8f69-1f5de692a8df",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5",
+	"567edb21-0b27-45f0-ad19-d855536c42c2",
+	'LeaveTest',
+	'',
+	'',
+	'LeaveTest',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'',
+	'False');
+INSERT INTO O_NBATTR
+	VALUES ("420cdcef-f5cc-4873-a2aa-6c4bbd04bab8",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO O_BATTR
+	VALUES ("420cdcef-f5cc-4873-a2aa-6c4bbd04bab8",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO O_ATTR
+	VALUES ("420cdcef-f5cc-4873-a2aa-6c4bbd04bab8",
+	"6abf4420-64e5-4198-9c38-4ae5873908b5",
+	"c70669aa-576b-49ac-8f69-1f5de692a8df",
+	'BonusTest',
+	'',
+	'',
+	'BonusTest',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'',
+	'False');
+INSERT INTO O_ID
+	VALUES (0,
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO O_ID
+	VALUES (1,
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO O_ID
+	VALUES (2,
+	"6abf4420-64e5-4198-9c38-4ae5873908b5");
+INSERT INTO PE_PE
+	VALUES ("6abf4420-64e5-4198-9c38-4ae5873908b5",
+	1,
+	"52fbe60d-4df2-48e1-bb35-a161cdfa1e01",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("52fbe60d-4df2-48e1-bb35-a161cdfa1e01",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'Classes',
+	'',
+	0,
+	'../Classes.xtuml');

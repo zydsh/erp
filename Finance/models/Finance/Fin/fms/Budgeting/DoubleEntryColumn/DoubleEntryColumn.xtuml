@@ -2,12 +2,12 @@
 
 INSERT INTO O_OBJ
 	VALUES ("3be3bc3f-ee49-4bcd-86ec-140a835d9424",
-	'DubleEntryColumn',
+	'DoubleEntryColumn',
 	9,
-	'DubleEntryColumn',
+	'DoubleEntryColumn',
 	'Represents the credit/debit association for each journal.
-For example, a sales jouranl may have two double entry 
-columns may look as follows:
+For example, a sales journal may have two double entry 
+looking as follows:
 
 | DR Accts. Receivable  | DR Cost of Goods
 | CR Sales			    | CR Merchandise Inventory
