@@ -1798,145 +1798,6 @@ INSERT INTO DIM_ED
 	"c0f92f83-620e-4a79-9a8f-42698649f789",
 	"a2f31a4f-e48b-4125-8d2f-9845fdc4c5e0");
 INSERT INTO GD_GE
-	VALUES ("74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"4ded1592-b33e-4721-98ce-7c46ad492c64",
-	"a14222fe-4cba-4224-84dd-62e939d0ec54",
-	24,
-	0,
-	'hrSystem::hrm::hr::main::R17');
-INSERT INTO GD_CON
-	VALUES ("74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("0b22dd9d-af05-4c4f-bc0c-9d2f0b401ec8",
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	0,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (0.000000,
-	0.000000,
-	"0b22dd9d-af05-4c4f-bc0c-9d2f0b401ec8");
-INSERT INTO DIM_GE
-	VALUES (1350.000000,
-	277.000000,
-	"0b22dd9d-af05-4c4f-bc0c-9d2f0b401ec8",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("0b22dd9d-af05-4c4f-bc0c-9d2f0b401ec8",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("a0004396-b9ec-4ccd-ba0a-cc5c8d9d539e",
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	2,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (0.000000,
-	0.000000,
-	"a0004396-b9ec-4ccd-ba0a-cc5c8d9d539e");
-INSERT INTO DIM_GE
-	VALUES (1421.000000,
-	317.500000,
-	"a0004396-b9ec-4ccd-ba0a-cc5c8d9d539e",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("a0004396-b9ec-4ccd-ba0a-cc5c8d9d539e",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("568d6991-063b-4a8b-afe4-4bb6536399a7",
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	1,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (0.000000,
-	0.000000,
-	"568d6991-063b-4a8b-afe4-4bb6536399a7");
-INSERT INTO DIM_GE
-	VALUES (1370.000000,
-	385.000000,
-	"568d6991-063b-4a8b-afe4-4bb6536399a7",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("568d6991-063b-4a8b-afe4-4bb6536399a7",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_LS
-	VALUES ("c1d77e94-9094-47c1-8480-15910c7e9974",
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"00000000-0000-0000-0000-000000000000",
-	"4dc6fac2-23c5-41b0-94ea-e2c0acff2e32",
-	"c8ea3819-f908-4a9a-820f-10c58ccf75b1");
-INSERT INTO GD_LS
-	VALUES ("bedadfe0-563a-43a2-b0f0-3543f7075310",
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"a75c2d6d-e007-4ad4-9577-099e02f48f80",
-	"a98021a9-dd95-487e-9de5-d6a66a506197",
-	"47a8a86c-4dba-43fa-b00e-5972d418142c");
-INSERT INTO GD_LS
-	VALUES ("fadac3a6-9edc-4a2e-a72c-283b901014a8",
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"bedadfe0-563a-43a2-b0f0-3543f7075310",
-	"47a8a86c-4dba-43fa-b00e-5972d418142c",
-	"0c2c655d-df25-4e6e-b390-386087da5665");
-INSERT INTO GD_LS
-	VALUES ("a75c2d6d-e007-4ad4-9577-099e02f48f80",
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"c1d77e94-9094-47c1-8480-15910c7e9974",
-	"c8ea3819-f908-4a9a-820f-10c58ccf75b1",
-	"a98021a9-dd95-487e-9de5-d6a66a506197");
-INSERT INTO DIM_WAY
-	VALUES ("4dc6fac2-23c5-41b0-94ea-e2c0acff2e32",
-	1344.000000,
-	312.000000,
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_WAY
-	VALUES ("0c2c655d-df25-4e6e-b390-386087da5665",
-	1368.000000,
-	378.000000,
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"00000000-0000-0000-0000-000000000000",
-	"4dc6fac2-23c5-41b0-94ea-e2c0acff2e32");
-INSERT INTO DIM_WAY
-	VALUES ("a98021a9-dd95-487e-9de5-d6a66a506197",
-	1452.000000,
-	252.000000,
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_WAY
-	VALUES ("47a8a86c-4dba-43fa-b00e-5972d418142c",
-	1452.000000,
-	377.000000,
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_WAY
-	VALUES ("c8ea3819-f908-4a9a-820f-10c58ccf75b1",
-	1344.000000,
-	252.000000,
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("74c43efe-b4e9-47f6-a56c-046284a9cd7a",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ED
-	VALUES ("f4e3e2d7-5c3a-4e4d-935b-4ccbfadac6e9",
-	"bdf535fc-d105-45d2-a6c3-b33563811570",
-	"74c43efe-b4e9-47f6-a56c-046284a9cd7a");
-INSERT INTO GD_GE
 	VALUES ("0d80fcb4-6539-4859-a9fe-6280c83a88d6",
 	"4ded1592-b33e-4721-98ce-7c46ad492c64",
 	"2a7839db-c3d7-475e-899a-f96b95133902",
@@ -3151,7 +3012,7 @@ INSERT INTO O_OBJ_PROXY
 	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
 	'JobRecord',
 	9,
-	'EJ',
+	'JobRecord',
 	'Holds the history of jobs held by an employee. 
 The first job may be followed by at most one
 job. Similarly, the last held job will have 
@@ -3196,6 +3057,9 @@ INSERT INTO O_OBJ_PROXY
 	6,
 	'PayslipItem',
 	'Represents all earnings and deductions made to an employees'' pay. 
+An employee may have more than one instance at a month representing 
+different items. In addition to salary, as the main item, 
+other items include bonuses and deductions.  
 ',
 	"00000000-0000-0000-0000-000000000000",
 	'./PayslipItem/PayslipItem.xtuml');
@@ -3545,7 +3409,7 @@ INSERT INTO O_OBJ_PROXY
 	'Specifies the types of leave offered to employees. 
 When employees request leave, they are asked to 
 choose one leave type to apply for. Employees 
-and the HR departmenet will hold a record of 
+and the HR department will hold a record of 
 the past leave instances that employees consumed. 
 ',
 	"00000000-0000-0000-0000-000000000000",
@@ -3572,12 +3436,12 @@ INSERT INTO O_OBJ_PROXY
 	'Leave',
 	10,
 	'Leave',
-	'Represents the leave instance an employee either: 
+	'Represents the leave instance an employee consumes, either: 
 	a. created in the past as result of requesting 
 	   a specific type of leave, or
 	b. created to be consumed in the future representing 
 	   a planned leave of absence,
-	c. created and currently beign consumed as an active 
+	c. created and currently being consumed as an active 
 	   leave of absence to end in a future date.',
 	"00000000-0000-0000-0000-000000000000",
 	'./Leave/Leave.xtuml');
@@ -3741,57 +3605,6 @@ INSERT INTO R_OIR
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("c39c1845-3f72-4e66-b803-ddb53c761997",
-	1,
-	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
-	"00000000-0000-0000-0000-000000000000",
-	9);
-INSERT INTO R_SIMP
-	VALUES ("a14222fe-4cba-4224-84dd-62e939d0ec54");
-INSERT INTO R_REL
-	VALUES ("a14222fe-4cba-4224-84dd-62e939d0ec54",
-	17,
-	'Established when an employee leaves 
-a job and is assigned a new job.
-The association helps track the 
-record of employee''s career 
-progression within the organization.',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO R_PART
-	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	"a14222fe-4cba-4224-84dd-62e939d0ec54",
-	"12da1406-85ce-440b-b581-366e3a1445a7",
-	0,
-	1,
-	'preceded by');
-INSERT INTO R_RTO
-	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	"a14222fe-4cba-4224-84dd-62e939d0ec54",
-	"12da1406-85ce-440b-b581-366e3a1445a7",
-	-1);
-INSERT INTO R_OIR
-	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	"a14222fe-4cba-4224-84dd-62e939d0ec54",
-	"12da1406-85ce-440b-b581-366e3a1445a7",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO R_PART
-	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	"a14222fe-4cba-4224-84dd-62e939d0ec54",
-	"de8e9e0d-2978-49bc-9184-4135e89a9ace",
-	0,
-	1,
-	'proceeded by');
-INSERT INTO R_RTO
-	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	"a14222fe-4cba-4224-84dd-62e939d0ec54",
-	"de8e9e0d-2978-49bc-9184-4135e89a9ace",
-	-1);
-INSERT INTO R_OIR
-	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	"a14222fe-4cba-4224-84dd-62e939d0ec54",
-	"de8e9e0d-2978-49bc-9184-4135e89a9ace",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO PE_PE
-	VALUES ("a14222fe-4cba-4224-84dd-62e939d0ec54",
 	1,
 	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
 	"00000000-0000-0000-0000-000000000000",
@@ -4267,7 +4080,8 @@ INSERT INTO O_OBJ_PROXY
 	'Deductions',
 	16,
 	'Deductions',
-	'',
+	'A monetary amount deducted from employee benefits 
+based on employee absence for example.  ',
 	"00000000-0000-0000-0000-000000000000",
 	'./Deductions/Deductions.xtuml');
 INSERT INTO PE_PE

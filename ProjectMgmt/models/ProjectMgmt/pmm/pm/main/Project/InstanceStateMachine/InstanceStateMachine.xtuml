@@ -1,0 +1,46 @@
+-- BP 7.1.6 content: InstanceStateMachine syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO SM_ISM
+	VALUES ("fdb2b7cb-1327-49b4-9591-e64362e80c97",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO SM_SM
+	VALUES ("fdb2b7cb-1327-49b4-9591-e64362e80c97",
+	'',
+	0);
+INSERT INTO SM_MOORE
+	VALUES ("fdb2b7cb-1327-49b4-9591-e64362e80c97");
+INSERT INTO GD_MD
+	VALUES ("229d0479-744d-4ae1-9116-5752501aeb3a",
+	8,
+	"fdb2b7cb-1327-49b4-9591-e64362e80c97",
+	40,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'4.1.17',
+	'ProjectMgmt::pmm::pm::main::Project::Instance State Machine');
+INSERT INTO DIM_DIA
+	VALUES ("229d0479-744d-4ae1-9116-5752501aeb3a",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_OBJ_PROXY
+	VALUES ("1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	'Project',
+	5,
+	'Project',
+	'A group of activities set to achieve an 
+outcome with a defined beginning and end ',
+	"00000000-0000-0000-0000-000000000000",
+	'../Project.xtuml');

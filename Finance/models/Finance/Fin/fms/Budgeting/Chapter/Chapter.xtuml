@@ -5,7 +5,7 @@ INSERT INTO O_OBJ
 	'Chapter',
 	1,
 	'Chapter',
-	'A specific area of spending or revenue within a budget',
+	'A specific budgetary account which holds spending or revenue within a budget',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("9aa16f78-ce2a-40f9-b6a6-c9f855c435b6",
@@ -18,7 +18,7 @@ INSERT INTO O_ATTR
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
 	"544b98ea-4f6b-475d-b1e1-81902939f36e",
 	'Name',
-	'',
+	'A short name for the account that represents the account''s functional area.',
 	'',
 	'Name',
 	0,
@@ -36,7 +36,7 @@ INSERT INTO O_ATTR
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
 	"00000000-0000-0000-0000-000000000000",
 	'Code',
-	'',
+	'A short number that uniquely identifies the account/chapter.',
 	'',
 	'Code',
 	0,
@@ -83,17 +83,15 @@ INSERT INTO O_DBATTR
 	VALUES ("a20ca4d6-805b-49b0-bfc6-13cc812e8afa",
 	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
 	'//get the total funds from sections/expenses and programs.
-select many sections related by self->Expenses[R115.''requests''];
 requested =0;
-for each section in sections
-	requested = requested + section.Fund;
-end for;
-
-
 select many programs related by self->ProgramFund[R103.''requests''];
-
 for each program in programs
 	requested = requested + program.Fund;
+end for;
+
+select many sections related by self->Expenses[R115.''requests''];
+for each section in sections
+	requested = requested + section.Fund;
 end for;
 
 self.Requested = requested;',
@@ -110,6 +108,63 @@ INSERT INTO O_ATTR
 	'The fund requested for the year.',
 	'',
 	'Requested',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("ff312c03-8991-4520-be35-cb60711bc797",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	'//get the total funds from sections/expenses and programs.
+select many programs related by self->ProgramFund[R110.''funds''];
+funds =0;
+
+for each program in programs
+	funds = funds + program.Fund;
+end for;
+
+select many sections related by self->Expenses[R111.''funds''];
+
+
+for each section in sections
+	funds = funds + section.Fund;
+end for;
+
+self.Funds = funds;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("ff312c03-8991-4520-be35-cb60711bc797",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_ATTR
+	VALUES ("ff312c03-8991-4520-be35-cb60711bc797",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	"a20ca4d6-805b-49b0-bfc6-13cc812e8afa",
+	'Funds',
+	'',
+	'',
+	'Funds',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("268edfaf-f994-4bdb-b8c5-651559da0958",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	'',
+	3,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("268edfaf-f994-4bdb-b8c5-651559da0958",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef");
+INSERT INTO O_ATTR
+	VALUES ("268edfaf-f994-4bdb-b8c5-651559da0958",
+	"bc324d1d-5d89-4db9-a4c9-9a8dd83ea0ef",
+	"ff312c03-8991-4520-be35-cb60711bc797",
+	'Revenue',
+	'',
+	'',
+	'Revenue',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',

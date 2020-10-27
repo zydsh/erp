@@ -2100,6 +2100,78 @@ INSERT INTO C_EP_PROXY
 	'OperationalizeBudget',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("08e1ffe0-0eda-4fec-86c4-cabe2d6e010b",
+	"0029c564-7df3-4dc3-b1d4-213ee84017e0",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("08e1ffe0-0eda-4fec-86c4-cabe2d6e010b",
+	'CreateExpensesJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("0029c564-7df3-4dc3-b1d4-213ee84017e0",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateExpensesJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("ed6d6a86-2095-4224-86e3-dd0ade534b9f",
+	"fa89e2e2-e384-4047-bea3-d32dbd3806ce",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("ed6d6a86-2095-4224-86e3-dd0ade534b9f",
+	'CreateDoubleEntryColumn',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("fa89e2e2-e384-4047-bea3-d32dbd3806ce",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateDoubleEntryColumn',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("519268d5-1d74-4caf-a442-d26d331f6b76",
+	"14263288-10da-45a4-a725-342659396c5d",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("519268d5-1d74-4caf-a442-d26d331f6b76",
+	'CreateLedger',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("14263288-10da-45a4-a725-342659396c5d",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateLedger',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("fbf8407a-4195-4e84-8d42-07294bd80f13",
+	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("fbf8407a-4195-4e84-8d42-07294bd80f13",
+	'RecordSalaryEntry',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'RecordSalaryEntry',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",

@@ -48,11 +48,11 @@ INSERT INTO O_ATTR
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"75ea8f9b-899f-4d29-a147-17cab714f84e",
 	'Salary',
-	'The salary increases by a yearlly allowance defined in the Grade class.
+	'The salary increases by a yearly allowance defined in the Grade class. 
 Job holds the step value when an employee is first assigned.
-For example, engineering gradutes are assigned grade 7, step 4.
-The step increase every year by one, thus adds an allowance amount for every step added.
-The allowance stops when the step reaches to its maximum steps defined in Grade (see NumberOfSteps).',
+For example, engineering graduates are assigned grade 7, step 4. 
+The step increase every year by one, thus adds an allowance amount for every step added. 
+The allowance stops when the step reaches to its maximum steps defined in Grade. (see NumberOfSteps).',
 	'',
 	'Salary',
 	0,
@@ -108,10 +108,10 @@ INSERT INTO O_ATTR
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"af947c66-aa53-4e84-9f61-9b46f992ed7a",
 	'PromotionDate',
-	'The date the job is expected to be assigned to another employee as 
-the current employee is promoted. Typically, appointment dates 
-are after promotion dates (2-5 months late). But financial benifits are
-calcualted for the next job based on promotion date. 
+	'The date the job is expected to be assigned to another employee as the 
+current employee is promoted. Typically, appointment dates 
+are after promotion dates (2-5 months late). But financial benefits are
+calculated for the next job based on promotion date. 
 ',
 	'',
 	'PromotionDate',
@@ -148,7 +148,8 @@ INSERT INTO O_ATTR
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"9069a680-874d-4ab3-a1f7-ac1a344ee59b",
 	'Description',
-	'',
+	'A written narritive that outline tasks and duties expected 
+by the employer to be fullfeled by the occupent of the position.',
 	'',
 	'Description',
 	0,
@@ -166,10 +167,11 @@ INSERT INTO O_ATTR
 	"735ac3f1-a8fe-46c2-b440-67e649269472",
 	"b8c22b65-a741-41a5-a7a0-0b552b5d88fd",
 	'PensionDeduction',
-	' A pension percentage is deducted monthly. 
- At this stage we will deduct the amounts
- until we get further details on how these 
- amounts are handled. 
+	'A pension percentage is deducted monthly. 
+Employees pay half of their pension as deduction from their salary, 
+the other half is paid by the organization. 
+At this stage we will deduct the amounts until we get further details 
+on how these amounts are handled. 
 ',
 	'',
 	'PensionDeduction',

@@ -470,6 +470,207 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("315238fb-a25c-4536-9f15-13d51d5c3bfa",
+	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Journal',
+	'',
+	0,
+	'',
+	"0261cafa-4735-41f8-a280-45475113fac1");
+INSERT INTO C_PP
+	VALUES ("bca47c06-7b1b-4dd0-9a4f-e74a654f1054",
+	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'APLedger',
+	'',
+	0,
+	'',
+	"315238fb-a25c-4536-9f15-13d51d5c3bfa");
+INSERT INTO C_PP
+	VALUES ("d6d094bb-3823-49ce-8200-af3f6bd61016",
+	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'CashLedger',
+	'',
+	0,
+	'',
+	"bca47c06-7b1b-4dd0-9a4f-e74a654f1054");
+INSERT INTO C_EP
+	VALUES ("0029c564-7df3-4dc3-b1d4-213ee84017e0",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateExpensesJournal',
+	'');
+INSERT INTO C_AS
+	VALUES ("0029c564-7df3-4dc3-b1d4-213ee84017e0",
+	'CreateExpensesJournal',
+	'',
+	0,
+	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd");
+INSERT INTO C_PP
+	VALUES ("89640f6b-f945-4011-9a62-31b4802531d5",
+	"0029c564-7df3-4dc3-b1d4-213ee84017e0",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("fa89e2e2-e384-4047-bea3-d32dbd3806ce",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateDoubleEntryColumn',
+	'');
+INSERT INTO C_AS
+	VALUES ("fa89e2e2-e384-4047-bea3-d32dbd3806ce",
+	'CreateDoubleEntryColumn',
+	'',
+	0,
+	"0029c564-7df3-4dc3-b1d4-213ee84017e0");
+INSERT INTO C_PP
+	VALUES ("e2ab9128-186a-42f1-8a57-9c6a097f571a",
+	"fa89e2e2-e384-4047-bea3-d32dbd3806ce",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Title',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("9352024e-f789-4664-b13d-94b57ec6f1e8",
+	"fa89e2e2-e384-4047-bea3-d32dbd3806ce",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"e2ab9128-186a-42f1-8a57-9c6a097f571a");
+INSERT INTO C_PP
+	VALUES ("925c77f7-81f1-4fcf-9cad-c0084f6cb1ae",
+	"fa89e2e2-e384-4047-bea3-d32dbd3806ce",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Debit',
+	'',
+	0,
+	'',
+	"9352024e-f789-4664-b13d-94b57ec6f1e8");
+INSERT INTO C_PP
+	VALUES ("e5cf6ab3-5dba-4a80-b131-76cf17796c75",
+	"fa89e2e2-e384-4047-bea3-d32dbd3806ce",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Credit',
+	'',
+	0,
+	'',
+	"925c77f7-81f1-4fcf-9cad-c0084f6cb1ae");
+INSERT INTO C_EP
+	VALUES ("14263288-10da-45a4-a725-342659396c5d",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateLedger',
+	'');
+INSERT INTO C_AS
+	VALUES ("14263288-10da-45a4-a725-342659396c5d",
+	'CreateLedger',
+	'',
+	0,
+	"fa89e2e2-e384-4047-bea3-d32dbd3806ce");
+INSERT INTO C_PP
+	VALUES ("526ce61c-463c-4d88-b5f6-692d2e42383b",
+	"14263288-10da-45a4-a725-342659396c5d",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("2dd9832d-43c0-406a-9346-18392bf2cbd0",
+	"14263288-10da-45a4-a725-342659396c5d",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"526ce61c-463c-4d88-b5f6-692d2e42383b");
+INSERT INTO C_PP
+	VALUES ("61c04714-95f9-49f1-b6eb-4c9cd9096787",
+	"14263288-10da-45a4-a725-342659396c5d",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Currency',
+	'',
+	0,
+	'',
+	"2dd9832d-43c0-406a-9346-18392bf2cbd0");
+INSERT INTO C_EP
+	VALUES ("cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'RecordSalaryEntry',
+	'');
+INSERT INTO C_AS
+	VALUES ("cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	'RecordSalaryEntry',
+	'',
+	0,
+	"14263288-10da-45a4-a725-342659396c5d");
+INSERT INTO C_PP
+	VALUES ("d2bd5bf3-d424-4051-80e4-11431f4ca957",
+	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Journal',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("b7d612fe-7256-4139-beb2-02a8e3678cf4",
+	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Date',
+	'',
+	0,
+	'',
+	"d2bd5bf3-d424-4051-80e4-11431f4ca957");
+INSERT INTO C_PP
+	VALUES ("b00926cd-5faa-4044-97a2-7b3729fd1cd1",
+	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"b7d612fe-7256-4139-beb2-02a8e3678cf4");
+INSERT INTO C_PP
+	VALUES ("2ac5a333-f80b-412c-829c-d068109348c4",
+	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Amount',
+	'',
+	0,
+	'',
+	"b00926cd-5faa-4044-97a2-7b3729fd1cd1");
+INSERT INTO C_PP
+	VALUES ("bd52f9af-76f8-4749-a092-6c9a82fc1d81",
+	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'BudgetYear',
+	'',
+	0,
+	'',
+	"2ac5a333-f80b-412c-829c-d068109348c4");
+INSERT INTO C_PP
+	VALUES ("e3c8265a-ed6c-43bf-b7cb-4e47073818f6",
+	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Account',
+	'',
+	0,
+	'',
+	"bd52f9af-76f8-4749-a092-6c9a82fc1d81");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

@@ -21,7 +21,8 @@ INSERT INTO O_ATTR
 	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe",
 	"00000000-0000-0000-0000-000000000000",
 	'Date',
-	'',
+	'Provides the date a transaction occurred. The dates are recorded
+in seconds but transformed for users to represent Gregorian or Hijri calendars.',
 	'',
 	'Date',
 	0,
@@ -39,7 +40,7 @@ INSERT INTO O_ATTR
 	"67984216-89e7-4b52-b6c6-2a2b0e6f9bfe",
 	"75a81ee3-82da-4ff6-ad72-dd28916b1a5a",
 	'Desecription',
-	'',
+	'A short sentence to signify any details available related to the transaction.',
 	'',
 	'Desecription',
 	0,

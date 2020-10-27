@@ -434,8 +434,7 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==1;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:1) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
  
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -454,8 +453,7 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==2;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:2) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -473,8 +471,7 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==3;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:3) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -492,8 +489,7 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==4;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:4) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -511,8 +507,7 @@ create object instance emp of Employee;
 		emp.Degree = "PhD";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==5;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:5) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -531,8 +526,7 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==6;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:6) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -550,8 +544,7 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==7;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:7) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -569,8 +562,7 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==8;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:8) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -588,8 +580,7 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==9;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:9) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -607,8 +598,7 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Female";
 
-select any job from instances of Job where selected.Job_ID==10;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:10) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
@@ -627,8 +617,7 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc"; 
 		emp.Gender = "Male";
 
-select any job from instances of Job where selected.Job_ID==11;
-relate emp to job across R6.''currently occupies'';
+generate Employee7:Recruited(JobID:11) to emp;
 emp.commenceEmployee( National_ID:emp.NationalID );
 
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );

@@ -17,7 +17,7 @@ INSERT INTO O_TFR
 	VALUES ("be9ae7cd-0096-466e-96e9-de7eda95bc04",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'commenceEmployee',
-	'',
+	'Assigns a start date for  employees as they start work on day one. ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'LOG::LogInfo(message:"An employee attempts to commence." );
@@ -43,7 +43,9 @@ INSERT INTO O_TFR
 	VALUES ("a09a32cd-a57c-4c57-a3e5-43debb8df180",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'createPayslip',
-	'',
+	'For each employee, the operation builds a pay-slip by creating instances of 
+PayslipItem one for salary from Job or or more from from Bonus, and one or more 
+from Deductions.',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'week = 7*24*60*60;
@@ -106,7 +108,7 @@ INSERT INTO O_TFR
 	VALUES ("9b2a8127-fc3a-470f-a20c-386a1ab29b60",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'getSalary',
-	'',
+	'Gets the salary of an employee from an instance of Job',
 	"ba5eda7a-def5-0000-0000-000000000003",
 	1,
 	'

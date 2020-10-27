@@ -1010,7 +1010,7 @@ ledger.Description = "Records cash transactions for every accounting period";
 
 create object instance accPayable of Ledger;
 accPayable.Name = "Accounts Payable";
-accPayable.Description = "Represents the organizations obligations";',
+accPayable.Description = "Represents the organizations payment obligations";',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
