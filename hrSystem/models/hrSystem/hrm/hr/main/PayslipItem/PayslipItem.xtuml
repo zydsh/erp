@@ -6,6 +6,9 @@ INSERT INTO O_OBJ
 	6,
 	'PayslipItem',
 	'Represents all earnings and deductions made to an employees'' pay. 
+An employee may have more than one instance at a month representing 
+different items. In addition to salary, as the main item, 
+other items include bonuses and deductions.  
 ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
@@ -38,7 +41,7 @@ INSERT INTO O_ATTR
 	"7f175134-1bcc-4efa-a1cc-aa0de302792e",
 	'Amount',
 	'Represents either the earning added or deduction made to a payment. 
-In Saudi Riyals (SR).',
+Payment are in Saudi Riyals (SR).',
 	'',
 	'Amount',
 	0,
@@ -56,7 +59,10 @@ INSERT INTO O_ATTR
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
 	"83d5c484-8327-406b-ac58-d53b787805f1",
 	'Date',
-	'',
+	'The date the payment is registered. The actual date of payment
+is different. Date difference between registration and actual
+payment may not exceed a month for salaries. For other payments,
+late payments for bonus or deductions are expected.',
 	'',
 	'Date',
 	0,
@@ -99,7 +105,8 @@ INSERT INTO O_ATTR
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
 	"09e26df2-e004-4b05-a7c7-f01f571b3b31",
 	'Hold',
-	'Hold the payment item for review if the amount is problematic. ',
+	'Hold the payment item for review if the amount is problematic. 
+The default value is false.',
 	'',
 	'Hold',
 	0,

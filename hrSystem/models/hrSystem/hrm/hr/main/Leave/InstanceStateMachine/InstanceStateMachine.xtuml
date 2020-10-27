@@ -424,7 +424,6 @@ INSERT INTO SM_ACT
 select one employee related by self->Employee[R7.''to be taken by''];
 
 relate self to employee across R5.''is currently taken by'';
-unrelate self from employee across R7.''to be taken by'';
 
 generate Employee5:LeaveStarted() to employee;
 
@@ -468,6 +467,10 @@ relate self to employee across R11.''consumed by'';//.''to be taken by''; //.''i
 unrelate self from employee across R5.''is currently taken by'';
 
 generate Employee6:LeaveEnded() to employee;
+
+//deduct leave days from employee leave balance
+select one leavespec related by self->LeaveSpecification[R15.''is specified by a''];
+employee.LeaveBalance = employee.LeaveBalance- self.NumberOfDays;
 
 LOG::LogInfo(message:"Employee leave ended");
 
@@ -1125,12 +1128,12 @@ INSERT INTO O_OBJ_PROXY
 	'Leave',
 	10,
 	'Leave',
-	'Represents the leave instance an employee either: 
+	'Represents the leave instance an employee consumes, either: 
 	a. created in the past as result of requesting 
 	   a specific type of leave, or
 	b. created to be consumed in the future representing 
 	   a planned leave of absence,
-	c. created and currently beign consumed as an active 
+	c. created and currently being consumed as an active 
 	   leave of absence to end in a future date.',
 	"00000000-0000-0000-0000-000000000000",
 	'../Leave.xtuml');

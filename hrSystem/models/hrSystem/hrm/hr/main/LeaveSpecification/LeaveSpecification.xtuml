@@ -8,7 +8,7 @@ INSERT INTO O_OBJ
 	'Specifies the types of leave offered to employees. 
 When employees request leave, they are asked to 
 choose one leave type to apply for. Employees 
-and the HR departmenet will hold a record of 
+and the HR department will hold a record of 
 the past leave instances that employees consumed. 
 ',
 	"00000000-0000-0000-0000-000000000000");
@@ -23,7 +23,8 @@ INSERT INTO O_ATTR
 	"9b1676f7-d0d0-4e5f-b315-c269f4e2ef45",
 	"00000000-0000-0000-0000-000000000000",
 	'Name',
-	'',
+	'Signifies the leave type which may be a regular leave, an exceptional leave,
+or sick leave. The name should be a short string that is indicative of the leave type.',
 	'',
 	'Name',
 	0,

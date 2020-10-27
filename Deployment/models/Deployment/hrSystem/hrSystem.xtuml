@@ -952,8 +952,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"9354f686-d132-4692-91ae-e4aff796ad8f");
 INSERT INTO DIM_GE
-	VALUES (257.000000,
-	450.000000,
+	VALUES (258.000000,
+	395.000000,
 	"9354f686-d132-4692-91ae-e4aff796ad8f",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -1263,7 +1263,7 @@ INSERT INTO GD_GE
 	"f90338b2-6428-4c70-8265-14301d613708",
 	106,
 	0,
-	'Deployment::hrSystem::HRUI::UI::UI::Port1::Finance');
+	'Deployment::hrSystem::HRUI::UI::UI::Finance::Finance');
 INSERT INTO GD_CON
 	VALUES ("2feb918d-e16a-46bd-89f5-65a9091f7e12",
 	"00000000-0000-0000-0000-000000000000");
@@ -1392,7 +1392,7 @@ INSERT INTO GD_GE
 	"99cd2fa9-1c82-4863-b995-210679ddbe66",
 	105,
 	0,
-	'Deployment::hrSystem::Finance::Fin::fms::Port1::Finance');
+	'Deployment::hrSystem::Finance::Fin::fms::UI::Finance');
 INSERT INTO GD_CON
 	VALUES ("0209cc28-1a7a-40be-b5b6-ea034c6cc001",
 	"00000000-0000-0000-0000-000000000000");
@@ -1633,7 +1633,7 @@ INSERT INTO C_PO_PROXY
 INSERT INTO CL_POR
 	VALUES ("4c760bab-adf1-4e16-99f4-b4d05a7c90a3",
 	"e3c55bd0-8616-4bf0-843e-f8b478e864ae",
-	'Port1',
+	'Finance',
 	"f650d462-98b9-4546-b2f8-3b0fb3aaa23c");
 INSERT INTO CL_IIR
 	VALUES ("f90338b2-6428-4c70-8265-14301d613708",
@@ -1656,7 +1656,7 @@ INSERT INTO C_IR_PROXY
 INSERT INTO C_PO_PROXY
 	VALUES ("e3c55bd0-8616-4bf0-843e-f8b478e864ae",
 	"f859e576-0e98-4f6e-9102-2f3ef0483432",
-	'Port1',
+	'Finance',
 	0,
 	0,
 	'../../../../HRUI/models/HRUI/UI/UI/UI.xtuml');
@@ -1957,7 +1957,7 @@ INSERT INTO CL_IC
 INSERT INTO CL_POR
 	VALUES ("f38bcdb7-8467-44a7-8e58-7b018e9090dd",
 	"b03ef202-9610-4966-9106-e832fced131e",
-	'Port1',
+	'UI',
 	"465ec6b5-bad5-4c7e-bf6d-2f0e1f56a6d4");
 INSERT INTO CL_IIR
 	VALUES ("99cd2fa9-1c82-4863-b995-210679ddbe66",
@@ -1982,7 +1982,7 @@ INSERT INTO C_IR_PROXY
 INSERT INTO C_PO_PROXY
 	VALUES ("b03ef202-9610-4966-9106-e832fced131e",
 	"8d322bed-f6f2-48fc-b59c-77870565eb6e",
-	'Port1',
+	'UI',
 	0,
 	0,
 	'../../../../Finance/models/Finance/Fin/fms/fms.xtuml');
@@ -2138,7 +2138,7 @@ INSERT INTO C_SF
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624",
 	"84b7e49f-98e2-4539-b496-50575c189964",
 	'',
-	'fms::Port1::Finance -o)- UI::Port1::Finance');
+	'fms::UI::Finance -o)- UI::Finance::Finance');
 INSERT INTO PE_PE
 	VALUES ("e46f7d5e-8ad7-43bf-94d7-1e5fbd50f8bd",
 	1,
@@ -2150,14 +2150,14 @@ INSERT INTO C_R_PROXY
 	'Finance',
 	'',
 	'Unnamed Interface',
-	'UI::Port1::Finance',
+	'UI::Finance::Finance',
 	'../../../../HRUI/models/HRUI/UI/UI/UI.xtuml');
 INSERT INTO C_P_PROXY
 	VALUES ("84b7e49f-98e2-4539-b496-50575c189964",
 	'Finance',
 	'Unnamed Interface',
 	'',
-	'fms::Port1::Finance',
+	'fms::UI::Finance',
 	'../../../../Finance/models/Finance/Fin/fms/fms.xtuml');
 INSERT INTO PE_PE
 	VALUES ("288c22ae-6527-4e5d-a62e-5d023f8efc80",
