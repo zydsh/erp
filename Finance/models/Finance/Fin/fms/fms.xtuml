@@ -780,7 +780,7 @@ INSERT INTO SPR_PS
 	'CreateCompensationLedger',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
@@ -876,7 +876,7 @@ INSERT INTO SPR_PS
 	'CreateDoubleEntryColumn',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("fa89e2e2-e384-4047-bea3-d32dbd3806ce",
@@ -894,7 +894,7 @@ INSERT INTO SPR_PS
 	'CreateLedger',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("14263288-10da-45a4-a725-342659396c5d",
@@ -911,26 +911,48 @@ INSERT INTO SPR_PS
 	VALUES ("1a383467-1437-496b-93f2-f4b604b00b54",
 	'RecordSalaryEntry',
 	'',
-	'select any budget from instances of BudgetD where selected.Year == param.BudgetYear;
-select any journal related by budget->JournalD[R11] where selected.Name == param.Journal;// instances of Journal
-create object instance entryd of EntryD;
-create object instance doubleEntry of DoubleEntry;
-relate entryd to doubleEntry across R4;
-select any accountd related by budget->AccountD[R1]; //where selected. == param.Account;
+	'//select any budget from instances of BudgetD where selected.Year == param.BudgetYear;
+//select any journal related by budget->JournalD[R11] where selected.Name == param.Journal;// instances of Journal
+//create object instance entryd of EntryD;
+//create object instance doubleEntry of DoubleEntry;
+//relate entryd to doubleEntry across R4;
+//select any accountd related by budget->AccountD[R1]; //where selected. == param.Account;
 
 //select any journal from instances of Journal where selected.Name == param.Journal;
 
 //select any doubleEntry related by journal->DoubleEntryColumn[R131.''has''];
 
-create object instance entry of Entry;
-entry.Date = param.Date;
-entry.Desecription = param.Description;
+//create object instance entry of Entry;
+//entry.Date = param.Date;
+//entry.Desecription = param.Description;
 
-create object instance amount of Amount;
-amount.Value = param.Amount;
+//create object instance amount of Amount;
+//amount.Value = param.Amount;
 
-relate amount to entry across R124.''registered by'';
+//relate amount to entry across R124.''registered by'';
 //relate amount to doubleEntry across R132.''is recorded by'';
+create object instance account of AccountSpecification;
+create object instance exp of Expenditure;
+create object instance prog of Program;
+
+relate account to exp across R18;
+//relate account to prog across R18;
+
+select any journal from instances of JournalD where selected.Name == "Salary";
+create object instance entry of EntryD;
+entry.Date = param.Date;
+//entry.Desecription = param.Description;
+create object instance amount of Amount;
+amount.Amount = param.Amount;
+relate entry to amount across R4;
+
+select one column related by journal->Column[R16.''has single''];
+relate amount to column across R13;
+select one debit related by column->AccountSpecification[R14.''debits'']->AccountD[R17.''operates''];
+select one credit related by column->AccountSpecification[R15.''credits'']->AccountD[R17.''operates''];
+
+relate amount to debit across R3.''debits'';
+relate amount to credit across R5.''credits'';
 ',
 	1,
 	0);

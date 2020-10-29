@@ -618,15 +618,6 @@ INSERT INTO C_AS
 	0,
 	"14263288-10da-45a4-a725-342659396c5d");
 INSERT INTO C_PP
-	VALUES ("d2bd5bf3-d424-4051-80e4-11431f4ca957",
-	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'Journal',
-	'',
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
 	VALUES ("b7d612fe-7256-4139-beb2-02a8e3678cf4",
 	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
 	"ba5eda7a-def5-0000-0000-000000000002",
@@ -634,7 +625,7 @@ INSERT INTO C_PP
 	'',
 	0,
 	'',
-	"d2bd5bf3-d424-4051-80e4-11431f4ca957");
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO C_PP
 	VALUES ("b00926cd-5faa-4044-97a2-7b3729fd1cd1",
 	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
@@ -653,24 +644,6 @@ INSERT INTO C_PP
 	0,
 	'',
 	"b00926cd-5faa-4044-97a2-7b3729fd1cd1");
-INSERT INTO C_PP
-	VALUES ("bd52f9af-76f8-4749-a092-6c9a82fc1d81",
-	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'BudgetYear',
-	'',
-	0,
-	'',
-	"2ac5a333-f80b-412c-829c-d068109348c4");
-INSERT INTO C_PP
-	VALUES ("e3c8265a-ed6c-43bf-b7cb-4e47073818f6",
-	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'Account',
-	'',
-	0,
-	'',
-	"bd52f9af-76f8-4749-a092-6c9a82fc1d81");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

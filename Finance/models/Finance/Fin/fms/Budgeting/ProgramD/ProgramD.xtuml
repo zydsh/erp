@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("a7141e3e-8734-4525-9f28-039813a84758",
-	'Program',
+	'ProgramD',
 	7,
-	'Program',
+	'ProgramD',
 	'Specifies a program or a project',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
