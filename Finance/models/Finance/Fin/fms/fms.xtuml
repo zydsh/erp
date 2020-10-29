@@ -599,42 +599,24 @@ INSERT INTO SPR_PEP
 	"84b7e49f-98e2-4539-b496-50575c189964");
 INSERT INTO SPR_PS
 	VALUES ("ca73f249-e868-4388-b482-56a046f73b6e",
-	'AcceptRequestedSection',
+	'AcceptRequested',
 	'',
 	'
-select any section from instances of Section where selected.Code == param.Code; 
+select any account from instances of AccountSpecification where selected.Code == param.Code; 
 
-if (not empty section)
-	select many odlExpense related by section->Expenses[R105.''specifies''];
-	select many newExpense related by section->Expenses[R106.''sepecifies new''];
-
-	if ( not empty odlExpense)
-		for each request in odlExpense
-			select one chapter related by request->Chapter[R115.''requested by''];
-			if (not empty chapter) 
-				generate Expenses1:Accept to request;
+if (not empty account)
+	select many budgets related by account->Account[R20.''budgetize''];
+	if (not empty budgets)
+		for each budget in budgets
+			select one requested related by budget->Requested[R19];
+			//select one requested related by budget->Requested[R19];
+			if (not empty requested)
+				generate Account1:Accept to budget;
 			else
-				generate Expenses3:Reject to request;
+				generate Account2:Reject to budget;
 			end if;
 		end for;
-
-	elif (not empty newExpense)
-		for each request in newExpense
-			select one chapter related by request->Chapter[R115.''requested by''];
-			if (not empty chapter) 
-				generate Expenses1:Accept to request;
-			else
-				generate Expenses3:Reject to request;
-			end if;
-		end for;
-	else
-		LOG::LogInfo(message:"No expense instance found for section: "+ section.Name);
-
-end if;
-
-else
-		LOG::LogInfo(message:"No section found ");
-
+	end if;
 end if;
 ',
 	1,
@@ -643,7 +625,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("c5d4f896-7924-4716-a86c-318e3273e594",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptRequestedSection',
+	'AcceptRequested',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
@@ -652,42 +634,24 @@ INSERT INTO SPR_PEP
 	"84b7e49f-98e2-4539-b496-50575c189964");
 INSERT INTO SPR_PS
 	VALUES ("6d8f28a6-f174-4e38-9d54-c4b2f9162417",
-	'AcceptCeillingSection',
+	'AcceptCeiling',
 	'',
 	'
-select any section from instances of Section where selected.Code == param.Code; 
+select any account from instances of AccountSpecification where selected.Code == param.Code; 
 
-if (not empty section)
-	select many odlExpense related by section->Expenses[R105.''specifies''];
-	select many newExpense related by section->Expenses[R106.''sepecifies new''];
-
-	if ( not empty odlExpense)
-		for each request in odlExpense
-			select one chapter related by request->Chapter[R116.''requested by ceilling''];
-			if (not empty chapter) 
-				generate Expenses1:Accept to request;
+if (not empty account)
+	select many budgets related by account->Account[R20.''budgetize''];
+	if (not empty budgets)
+		for each budget in budgets
+			select one ceiling related by budget->Ceiling[R19];
+			//select one requested related by budget->Requested[R19];
+			if (not empty ceiling)
+				generate Account1:Accept to budget;
 			else
-				generate Expenses3:Reject to request;
+				generate Account2:Reject to budget;
 			end if;
 		end for;
-
-	elif (not empty newExpense)
-		for each request in newExpense
-			select one chapter related by request->Chapter[R116.''requested by ceilling''];
-			if (not empty chapter) 
-				generate Expenses1:Accept to request;
-			else
-				generate Expenses3:Reject to request;
-			end if;
-		end for;
-	else
-		LOG::LogInfo(message:"No expense instance found for section: "+ section.Name);
-
-end if;
-
-else
-		LOG::LogInfo(message:"No section found ");
-
+	end if;
 end if;
 ',
 	1,
@@ -696,7 +660,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("3d2a89e7-d63d-4e66-ba68-1a0a834594d5",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptCeillingSection',
+	'AcceptCeiling',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
@@ -961,6 +925,36 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'RecordSalaryEntry',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("15950020-b631-4080-8153-1b3c026b1c1a",
+	"83844281-52e7-47ba-963e-bcf6b9a2f440",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("15950020-b631-4080-8153-1b3c026b1c1a",
+	'OperationalizeAccount',
+	'',
+	'
+select many accounts from instances of AccountSpecification where selected.Code == param.Code; 
+
+for each account in accounts
+	select many budgets related by account->Account[R20.''budgetize''];
+	for each budget in budgets
+		generate Account4:Open to budget;
+	end for;
+
+end for;
+
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("83844281-52e7-47ba-963e-bcf6b9a2f440",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'OperationalizeAccount',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

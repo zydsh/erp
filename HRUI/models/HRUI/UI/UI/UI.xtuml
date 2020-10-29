@@ -1998,7 +1998,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("a3eda8b8-fffd-4935-8b3e-2b93dec57b4b",
-	'AcceptRequestedSection',
+	'AcceptRequested',
 	'',
 	'',
 	3,
@@ -2007,7 +2007,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("c5d4f896-7924-4716-a86c-318e3273e594",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptRequestedSection',
+	'AcceptRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2016,7 +2016,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("9e15bd02-f7ad-44a3-8574-3cf945383ec0",
-	'AcceptCeillingSection',
+	'AcceptCeiling',
 	'',
 	'',
 	3,
@@ -2025,7 +2025,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("3d2a89e7-d63d-4e66-ba68-1a0a834594d5",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptCeillingSection',
+	'AcceptCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2170,6 +2170,24 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'RecordSalaryEntry',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("3f3784e7-993b-4770-94a3-b4f93ce23b9d",
+	"83844281-52e7-47ba-963e-bcf6b9a2f440",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("3f3784e7-993b-4770-94a3-b4f93ce23b9d",
+	'OperationalizeExpense',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("83844281-52e7-47ba-963e-bcf6b9a2f440",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'OperationalizeExpense',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
