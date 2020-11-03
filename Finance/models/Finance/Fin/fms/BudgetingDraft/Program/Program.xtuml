@@ -5,7 +5,7 @@ INSERT INTO O_OBJ
 	'Program',
 	11,
 	'Program',
-	'',
+	'Represents the fund assigned to a program or a project',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("0cbe2d47-3ae3-4c7c-ba60-a241b374174e",

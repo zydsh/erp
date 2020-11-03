@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("9ff5973f-5f07-43ea-9880-93a4d9c3f570",
-	'Budget',
+	'Budgetx',
 	4,
-	'Budget',
+	'Budgetx',
 	'Specifics organizations'' budget of the year. 
 It holds the total amount of funds assigned for a given year.',
 	"00000000-0000-0000-0000-000000000000");
