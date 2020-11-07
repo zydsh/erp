@@ -84,35 +84,34 @@ INSERT INTO O_ATTR
 	'',
 	'Type',
 	0,
-	"5fbec3b5-5432-4916-a145-7491c3552f7e",
+	"786cf160-f04d-46a9-88cc-61af8ed4d857",
 	'',
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("5fbec3b5-5432-4916-a145-7491c3552f7e",
+	VALUES ("786cf160-f04d-46a9-88cc-61af8ed4d857",
 	"00000000-0000-0000-0000-000000000000",
-	'PayslipItemType',
+	'Paytype',
 	'',
 	'',
-	'../../Types/Types.xtuml');
+	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
-	VALUES ("4417d3f0-6ede-45c0-8841-4edb80ce9dc1",
+	VALUES ("3500d774-1a70-449a-b89e-0fb5253f6372",
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
 INSERT INTO O_BATTR
-	VALUES ("4417d3f0-6ede-45c0-8841-4edb80ce9dc1",
+	VALUES ("3500d774-1a70-449a-b89e-0fb5253f6372",
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
 INSERT INTO O_ATTR
-	VALUES ("4417d3f0-6ede-45c0-8841-4edb80ce9dc1",
+	VALUES ("3500d774-1a70-449a-b89e-0fb5253f6372",
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
 	"09e26df2-e004-4b05-a7c7-f01f571b3b31",
-	'Hold',
-	'Hold the payment item for review if the amount is problematic. 
-The default value is false.',
+	'current_state',
 	'',
-	'Hold',
+	'',
+	'current_state',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000001",
+	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
-	'false');
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");

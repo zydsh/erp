@@ -1,0 +1,73 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	'Journal',
+	9,
+	'Journal',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("89383897-e1e8-4eda-b97c-f46bebf138b1",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1");
+INSERT INTO O_BATTR
+	VALUES ("89383897-e1e8-4eda-b97c-f46bebf138b1",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1");
+INSERT INTO O_ATTR
+	VALUES ("89383897-e1e8-4eda-b97c-f46bebf138b1",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("f80dec19-8229-4f4a-8dd3-8bb83f20b702",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1");
+INSERT INTO O_BATTR
+	VALUES ("f80dec19-8229-4f4a-8dd3-8bb83f20b702",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1");
+INSERT INTO O_ATTR
+	VALUES ("f80dec19-8229-4f4a-8dd3-8bb83f20b702",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	"89383897-e1e8-4eda-b97c-f46bebf138b1",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1");
+INSERT INTO O_OIDA
+	VALUES ("89383897-e1e8-4eda-b97c-f46bebf138b1",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	0,
+	'Name');
+INSERT INTO O_ID
+	VALUES (1,
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1");
+INSERT INTO O_ID
+	VALUES (2,
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1");
+INSERT INTO PE_PE
+	VALUES ("ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	1,
+	"4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Financing',
+	'',
+	0,
+	'../Financing.xtuml');
