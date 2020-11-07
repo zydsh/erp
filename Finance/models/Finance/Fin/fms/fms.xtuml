@@ -712,24 +712,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("236f0bcf-61cf-4676-817f-32acefca971b",
-	"213a3dad-a44b-4913-8a5b-81662bea017f",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("236f0bcf-61cf-4676-817f-32acefca971b",
-	'CreateCompensationLedger',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'CreateCompensationLedger',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
 	VALUES ("fa6c80d5-002a-4a73-8291-6ea0b8458836",
 	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
 	"84b7e49f-98e2-4539-b496-50575c189964");
@@ -808,42 +790,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("49da544e-519e-4240-aed4-c0acc917dcab",
-	"fa89e2e2-e384-4047-bea3-d32dbd3806ce",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("49da544e-519e-4240-aed4-c0acc917dcab",
-	'CreateDoubleEntryColumn',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("fa89e2e2-e384-4047-bea3-d32dbd3806ce",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'CreateDoubleEntryColumn',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
-	VALUES ("fbf603c2-7172-4114-b895-675829276a3f",
-	"14263288-10da-45a4-a725-342659396c5d",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("fbf603c2-7172-4114-b895-675829276a3f",
-	'CreateLedger',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("14263288-10da-45a4-a725-342659396c5d",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'CreateLedger',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
 	VALUES ("1a383467-1437-496b-93f2-f4b604b00b54",
 	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
 	"84b7e49f-98e2-4539-b496-50575c189964");
@@ -905,6 +851,107 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'OperationalizeAccount',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0489b01a-8c34-452b-aec8-f5308802fd18",
+	"66540b4a-f006-4f50-bbee-e5c4357da8aa",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("0489b01a-8c34-452b-aec8-f5308802fd18",
+	'SingleColumnEntry',
+	'',
+	'
+select any journal from instances of Journal where selected.Name == param.JournalName;
+create object instance entry of Entry;
+entry.Date = param.Date;
+entry.Description = param.Description;
+create object instance amount of Amount;
+amount.Amount = param.Amount;
+relate entry to amount across R4;
+
+select one column related by journal->Column[R16.''has single''];
+relate amount to column across R13;
+select one debit related by column->AccountSpecification[R14.''debits'']->Account[R17.''operates''];
+select one credit related by column->AccountSpecification[R15.''credits'']->Account[R17.''operates''];
+
+relate amount to debit across R3.''debits'';
+relate amount to credit across R5.''credits'';
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("66540b4a-f006-4f50-bbee-e5c4357da8aa",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SingleColumnEntry',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a8f28913-9a09-4091-a074-5d6cfad99dd8",
+	"1a5bf26d-531a-4a0b-88c4-c813ed57ca06",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("a8f28913-9a09-4091-a074-5d6cfad99dd8",
+	'CreateJournal',
+	'',
+	'
+
+select any journal from instances of Journal where selected.Name == param.Name;
+
+if (empty journal)
+	create object instance newj of Journal;
+	newj.Name = param.Name;
+	newj.Description = param.Name;
+	create object instance column of Column;
+	column.Title = param.ColumnTitle;
+	column.Description = param.ColumnDescription;	
+	select any accountDebit from instances of AccountSpecification where selected.Code ==param.DebitAccountCode;
+	select any accountCredit from instances of AccountSpecification where selected.Code ==param.CreditAccountCode;
+
+	if ( not empty accountDebit) and (not empty accountDebit)
+		relate column to accountDebit across R14.''debits'';
+		relate column to accountCredit across R15.''credits'';
+	end if;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1a5bf26d-531a-4a0b-88c4-c813ed57ca06",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateJournal',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("d04fba87-bad3-4017-abae-0de68ff62439",
+	"1436beee-420c-431f-b5b2-c7da633acd31",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("d04fba87-bad3-4017-abae-0de68ff62439",
+	'AddJournalColumn',
+	'',
+	'select any journal from instances of Journal where selected.Name == param.JournalName;
+
+if (not empty journal)
+	create object instance column of Column;
+	column.Title = param.ColumnTitle;
+	column.Description = param.ColumnDescription;	
+	select any accountDebit from instances of AccountSpecification where selected.Code ==param.DebitAccountCode;
+	select any accountCredit from instances of AccountSpecification where selected.Code ==param.CreditAccountCode;
+
+	if ( not empty accountDebit) and (not empty accountDebit)
+		relate column to accountDebit across R14.''debits'';
+		relate column to accountCredit across R15.''credits'';
+	end if;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1436beee-420c-431f-b5b2-c7da633acd31",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AddJournalColumn',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

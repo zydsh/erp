@@ -41,7 +41,7 @@ INSERT INTO GD_SHP
 INSERT INTO GD_CTR
 	VALUES ("22c561a4-ee72-4e8f-84da-cdbb45c655c2");
 INSERT INTO DIM_ND
-	VALUES (6024.000000,
+	VALUES (6244.000000,
 	3912.000000,
 	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
 INSERT INTO DIM_GE
@@ -60,7 +60,7 @@ INSERT INTO DIM_CON
 	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
 INSERT INTO DIM_CON
 	VALUES ("86841c08-a84a-4f5a-a878-84a5c9f5f33e",
-	6012.000000,
+	6232.000000,
 	3798.000000,
 	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
 INSERT INTO DIM_CON
@@ -171,7 +171,7 @@ INSERT INTO DIM_ND
 	0.000000,
 	"94c84429-69ec-4583-92ef-497fc5dcbef2");
 INSERT INTO DIM_GE
-	VALUES (6038.000000,
+	VALUES (6258.000000,
 	3760.000000,
 	"94c84429-69ec-4583-92ef-497fc5dcbef2",
 	"00000000-0000-0000-0000-000000000000");
@@ -206,14 +206,14 @@ INSERT INTO GD_LS
 	"6c0c627e-0162-4eb4-be4c-c47f58d80e70");
 INSERT INTO DIM_WAY
 	VALUES ("68587c51-fdf3-4ffc-99f2-481514f1cb57",
-	6012.000000,
+	6232.000000,
 	3798.000000,
 	"344cfe7a-656c-4d5f-a957-f583acaabce4",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("6c0c627e-0162-4eb4-be4c-c47f58d80e70",
-	6087.000000,
+	6307.000000,
 	3798.000000,
 	"344cfe7a-656c-4d5f-a957-f583acaabce4",
 	"00000000-0000-0000-0000-000000000000",
@@ -231,30 +231,6 @@ INSERT INTO DIM_ED
 	VALUES ("86841c08-a84a-4f5a-a878-84a5c9f5f33e",
 	"00000000-0000-0000-0000-000000000000",
 	"344cfe7a-656c-4d5f-a957-f583acaabce4");
-INSERT INTO GD_GE
-	VALUES ("41a72021-f2a6-4f26-9eaf-272631bd6cfb",
-	"21553115-9288-4d3e-8559-d2181be63ed7",
-	"e478bab8-eddd-471e-aa6a-8f1e9bf99762",
-	108,
-	0,
-	'hrSystem::hrm::hr::Types');
-INSERT INTO GD_SHP
-	VALUES ("41a72021-f2a6-4f26-9eaf-272631bd6cfb");
-INSERT INTO GD_NCS
-	VALUES ("41a72021-f2a6-4f26-9eaf-272631bd6cfb");
-INSERT INTO DIM_ND
-	VALUES (200.000000,
-	150.000000,
-	"41a72021-f2a6-4f26-9eaf-272631bd6cfb");
-INSERT INTO DIM_GE
-	VALUES (5360.000000,
-	3100.000000,
-	"41a72021-f2a6-4f26-9eaf-272631bd6cfb",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("41a72021-f2a6-4f26-9eaf-272631bd6cfb",
-	0,
-	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
 INSERT INTO GD_GE
 	VALUES ("cf93fdb8-1b7a-48d5-a4e5-2fc706e211d1",
 	"21553115-9288-4d3e-8559-d2181be63ed7",
@@ -525,6 +501,30 @@ INSERT INTO DIM_GE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
 	VALUES ("ff210d6c-ed25-4d0d-b07e-1c17e45cd48b",
+	0,
+	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
+INSERT INTO GD_GE
+	VALUES ("aefbef27-8ced-4db0-a842-47fa0b88797f",
+	"21553115-9288-4d3e-8559-d2181be63ed7",
+	"43a8496a-0a39-4e1b-a3bb-b32eef9d6597",
+	108,
+	0,
+	'hrSystem::hrm::hr::Type');
+INSERT INTO GD_SHP
+	VALUES ("aefbef27-8ced-4db0-a842-47fa0b88797f");
+INSERT INTO GD_NCS
+	VALUES ("aefbef27-8ced-4db0-a842-47fa0b88797f");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"aefbef27-8ced-4db0-a842-47fa0b88797f");
+INSERT INTO DIM_GE
+	VALUES (6020.000000,
+	3100.000000,
+	"aefbef27-8ced-4db0-a842-47fa0b88797f",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("aefbef27-8ced-4db0-a842-47fa0b88797f",
 	0,
 	"22c561a4-ee72-4e8f-84da-cdbb45c655c2");
 INSERT INTO DIM_DIA
@@ -1726,6 +1726,112 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'GeneratePayslips',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("584782bf-c7bf-4608-92e3-2d00cf77693e",
+	"90157033-ea84-4297-8ec6-2489009427d9",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("584782bf-c7bf-4608-92e3-2d00cf77693e",
+	'ReadLastPaymentSlip',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("90157033-ea84-4297-8ec6-2489009427d9",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadLastPaymentSlip',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("4a16c268-5cbe-4860-abe2-593851223e20",
+	"cffefcb9-ce5b-4cfa-8b51-d73e822f2f05",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("4a16c268-5cbe-4860-abe2-593851223e20",
+	'HoldPayment',
+	'',
+	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a'']
+where selected.Date == param.Date and selected.Amount == param.Amount;
+
+if (not empty payment)
+	generate PayslipItem3:Hold to payment;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("cffefcb9-ce5b-4cfa-8b51-d73e822f2f05",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'HoldPayment',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("ef164225-7c1c-4def-a921-df4c12b303b0",
+	"91155baf-161c-4e0e-a180-3247516947b6",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("ef164225-7c1c-4def-a921-df4c12b303b0",
+	'ApprovePayment',
+	'',
+	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a'']
+where selected.Date == param.Date and selected.Amount == param.Amount;
+
+if (not empty payment)
+	generate PayslipItem1:Approve to payment;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("91155baf-161c-4e0e-a180-3247516947b6",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ApprovePayment',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("ad7c1099-2b81-4938-a581-21d20eb05451",
+	"5263e581-733b-40ff-983f-ed9f08b53635",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("ad7c1099-2b81-4938-a581-21d20eb05451",
+	'SendPayItems',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5263e581-733b-40ff-983f-ed9f08b53635",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendPayItems',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("8dba4f38-b0a6-44ff-a3a8-5abaa85fe856",
+	"c7a20020-6a45-4436-b12e-9c46128bf89d",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("8dba4f38-b0a6-44ff-a3a8-5abaa85fe856",
+	'ReadPayItems',
+	'',
+	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a''];
+if (not empty payment)
+	generate PayslipItem5:Review to payment;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c7a20020-6a45-4436-b12e-9c46128bf89d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadPayItems',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

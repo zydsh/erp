@@ -1,0 +1,45 @@
+-- BP 7.1.6 content: InstanceStateMachine syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO SM_ISM
+	VALUES ("bdba5c1c-fff7-4f8d-8133-14e92d77babc",
+	"f82d3560-1242-4992-82ed-701241ae57bc");
+INSERT INTO SM_SM
+	VALUES ("bdba5c1c-fff7-4f8d-8133-14e92d77babc",
+	'',
+	0);
+INSERT INTO SM_MOORE
+	VALUES ("bdba5c1c-fff7-4f8d-8133-14e92d77babc");
+INSERT INTO GD_MD
+	VALUES ("b206e88b-24f0-44d6-b0b2-db941d3fa973",
+	8,
+	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
+	40,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine');
+INSERT INTO DIM_DIA
+	VALUES ("b206e88b-24f0-44d6-b0b2-db941d3fa973",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_OBJ_PROXY
+	VALUES ("f82d3560-1242-4992-82ed-701241ae57bc",
+	'UC3_Payroll',
+	3,
+	'UC3_Payroll',
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'../UC3_Payroll.xtuml');
