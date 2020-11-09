@@ -10,6 +10,32 @@ The organization structure is formed by a structure
 of departments within departments that has one 
 manager.',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("2239b9dd-05d3-4911-98d2-feb43cc66d5c",
+	"e01e59b4-a14b-4f8e-9875-07022c90269e",
+	'assignManagerRole',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'select any emp from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select one manager related by self->Employee[R23.''is managed by'']; 
+unrelate self from manager across R23;
+
+relate self to emp across R23.''is managed by'';
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("9e6368e0-d91b-436b-9f7e-00f793716b56",
+	"2239b9dd-05d3-4911-98d2-feb43cc66d5c",
+	'EmployeeID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("2a5eb2c3-204b-4d60-9f93-2fdd3b329207",
 	"e01e59b4-a14b-4f8e-9875-07022c90269e");

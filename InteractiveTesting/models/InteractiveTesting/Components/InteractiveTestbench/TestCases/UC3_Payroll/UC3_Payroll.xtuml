@@ -96,14 +96,21 @@ INSERT INTO O_ATTR
 	VALUES ("6078f250-ee08-453d-aa6e-a3d63c2b303d",
 	"f82d3560-1242-4992-82ed-701241ae57bc",
 	"577901b4-5f42-4696-bdbd-de4aab7691e5",
-	'Hold',
+	'Status',
 	'',
 	'',
-	'Hold',
+	'Status',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000001",
+	"2867a7ba-5644-49e1-ad29-9db839993610",
 	'',
-	'False');
+	'Initial');
+INSERT INTO S_DT_PROXY
+	VALUES ("2867a7ba-5644-49e1-ad29-9db839993610",
+	"00000000-0000-0000-0000-000000000000",
+	'Payitem',
+	'',
+	'',
+	'../../../../../../../hrSystem/models/hrSystem/SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("27e1b340-47ad-4e76-abb4-b4b7c5e6e1f7",
 	"f82d3560-1242-4992-82ed-701241ae57bc");
@@ -131,13 +138,31 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("0eee7933-69df-466b-9076-23d7fa506d64",
 	"f82d3560-1242-4992-82ed-701241ae57bc",
-	"6078f250-ee08-453d-aa6e-a3d63c2b303d",
+	"df0a5333-0d38-48e9-bc9f-03e0bcd54f4d",
 	'current_state',
 	'',
 	'',
 	'current_state',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("df0a5333-0d38-48e9-bc9f-03e0bcd54f4d",
+	"f82d3560-1242-4992-82ed-701241ae57bc");
+INSERT INTO O_BATTR
+	VALUES ("df0a5333-0d38-48e9-bc9f-03e0bcd54f4d",
+	"f82d3560-1242-4992-82ed-701241ae57bc");
+INSERT INTO O_ATTR
+	VALUES ("df0a5333-0d38-48e9-bc9f-03e0bcd54f4d",
+	"f82d3560-1242-4992-82ed-701241ae57bc",
+	"6078f250-ee08-453d-aa6e-a3d63c2b303d",
+	'Success',
+	'',
+	'',
+	'Success',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
 	'',
 	'');
 INSERT INTO O_ID
