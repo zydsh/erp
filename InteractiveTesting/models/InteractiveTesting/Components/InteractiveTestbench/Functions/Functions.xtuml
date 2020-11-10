@@ -38,8 +38,8 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'Initialize',
 	'',
-	'HRData::Initialize();
-Finance::Initialize();
+	'//HRData::Initialize();
+//Finance::Initialize();
 HumanResources::Create();',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,

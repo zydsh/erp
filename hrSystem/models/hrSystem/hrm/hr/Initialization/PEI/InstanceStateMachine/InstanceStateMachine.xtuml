@@ -1201,8 +1201,8 @@ INSERT INTO SM_ACT
 generate PEI6:commence to self;
 //set a timer to end leave and generate an event to transit state
 //waitingTime = 1000000;
-create event instance commence of PEI6:commence to self;
-startLeaveTmr = TIM::timer_start( event_inst: commence, microseconds:1000000);',
+//create event instance commence of PEI6:commence to self;
+//startLeaveTmr = TIM::timer_start( event_inst: commence, microseconds:1000000);',
 	'',
 	0);
 INSERT INTO SM_TAH

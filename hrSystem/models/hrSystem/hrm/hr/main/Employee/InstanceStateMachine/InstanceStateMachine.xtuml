@@ -810,7 +810,7 @@ INSERT INTO SM_ACT
 	VALUES ("e351d643-506f-43ec-bb39-88a2d799107c",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	1,
-	'LOG::LogInfo(message:"Employee:"+ self.FirstName+" "+self.LastName+" is currently working");
+	'//LOG::LogInfo(message:"Employee:"+ self.FirstName+" "+self.LastName+" is currently working");
 ',
 	'',
 	0);
@@ -826,7 +826,7 @@ INSERT INTO SM_ACT
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	1,
 	'
-LOG::LogInfo(message:"Employee:"+ self.FirstName+" "+self.LastName+" is currently on leave");
+//LOG::LogInfo(message:"Employee:"+ self.FirstName+" "+self.LastName+" is currently on leave");
 
 
 ',
