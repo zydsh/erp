@@ -62,7 +62,9 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'Initialize',
 	'',
-	'::CreatePEIs();',
+	'//::CreatePEIs();
+create object instance pei of PEI;
+generate PEI2:InitializeComplete to pei;',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
