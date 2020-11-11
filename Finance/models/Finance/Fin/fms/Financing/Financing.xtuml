@@ -4042,7 +4042,7 @@ INSERT INTO R_PART
 	"7496a8cd-9771-4f48-b99d-e0ae96d4a3db",
 	0,
 	1,
-	'part ');
+	'part');
 INSERT INTO R_RTO
 	VALUES ("ec54c712-12e9-4268-9a8f-d9173675ec67",
 	"0f661f89-eabe-4734-8e6b-ffd8858f4e1a",
