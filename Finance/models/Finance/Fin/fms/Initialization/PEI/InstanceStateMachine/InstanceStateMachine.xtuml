@@ -538,7 +538,9 @@ for each account in accounts
 	if (empty expenditure)
 		create object instance budgetAccount of Account;
 		create object instance ceiling of Ceiling;
+		ceiling.Fund=1530050;
 		create object instance requested of Requested;
+		requested.Revenue = 2340210;
 		create object instance ap of AccountPayble;
 		relate account to ap across R22;
 	 	relate account to budgetAccount across R20;
