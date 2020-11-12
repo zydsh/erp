@@ -132,11 +132,11 @@ INSERT INTO C_EP
 	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadChapters',
+	'ReadExpenditureAccounts',
 	'');
 INSERT INTO C_AS
 	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
-	'ReadChapters',
+	'ReadExpenditureAccounts',
 	'',
 	0,
 	"02b58a71-1200-4020-bdc9-809f601deab1");

@@ -1,0 +1,32 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176",
+	'Cash',
+	16,
+	'Cash',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_ID
+	VALUES (0,
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_ID
+	VALUES (1,
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_ID
+	VALUES (2,
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO PE_PE
+	VALUES ("dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176",
+	1,
+	"4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Financing',
+	'',
+	0,
+	'../Financing.xtuml');

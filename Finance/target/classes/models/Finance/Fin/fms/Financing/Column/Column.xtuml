@@ -1,0 +1,83 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("2243fe3d-0a95-4aa3-a947-24cff91ba626",
+	'Column',
+	10,
+	'Column',
+	'Represents the credit/debit association for each journal.
+For example, a sales journal may have two double entry 
+looking as follows:
+
+| DR Accts. Receivable  | DR Cost of Goods
+| CR Sales			    | CR Merchandise Inventory
+--------------------------------------------------
+| SR	5,200			| SR    3,800
+
+
+Each column within a journal has two accounts: one
+for debit and one for credit. If sale is made for
+SR 5,200, then the same amount entered doubly entered
+once for account receivables account as debit, and another 
+at the sales account as credit.   
+',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("6ede1aaa-14ad-439f-92c1-8d9e85e6b5ba",
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
+INSERT INTO O_BATTR
+	VALUES ("6ede1aaa-14ad-439f-92c1-8d9e85e6b5ba",
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
+INSERT INTO O_ATTR
+	VALUES ("6ede1aaa-14ad-439f-92c1-8d9e85e6b5ba",
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626",
+	"00000000-0000-0000-0000-000000000000",
+	'Title',
+	'',
+	'',
+	'Title',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c576a54a-5f32-4322-a591-47fbf3b2b426",
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
+INSERT INTO O_BATTR
+	VALUES ("c576a54a-5f32-4322-a591-47fbf3b2b426",
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
+INSERT INTO O_ATTR
+	VALUES ("c576a54a-5f32-4322-a591-47fbf3b2b426",
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626",
+	"6ede1aaa-14ad-439f-92c1-8d9e85e6b5ba",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
+INSERT INTO O_ID
+	VALUES (1,
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
+INSERT INTO O_ID
+	VALUES (2,
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
+INSERT INTO PE_PE
+	VALUES ("2243fe3d-0a95-4aa3-a947-24cff91ba626",
+	1,
+	"4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Financing',
+	'',
+	0,
+	'../Financing.xtuml');

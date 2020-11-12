@@ -392,19 +392,23 @@ INSERT INTO SPR_PEP
 	"84b7e49f-98e2-4539-b496-50575c189964");
 INSERT INTO SPR_PS
 	VALUES ("0cfd372b-9920-434a-a0a5-5eab902b7658",
-	'ReadChapters',
+	'ReadExpenditureAccounts',
 	'',
 	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
-select many chapters related by budget->Chapter[R100.''divided''];
+select many accounts related by budget->Account[R1.''assigned''];
 
-if (not empty chapters) 
-	LOG::LogInfo(message:"Sending chapter list .." );	
+if (not empty accounts) 
+	LOG::LogInfo(message:"Sending account list .." );	
 	
-	for each chapter in chapters
-			UI::SendChapters( Code:chapter.Code, Name:chapter.Name, Ceiling:chapter.Ceiling, Requested:chapter.Requested);		
-			LOG::LogInfo(message:"Sent: Chapter: "+ chapter.Code+ ", "+chapter.Name);
-			LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:chapter.Ceiling );
-			LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:chapter.Requested );	
+	for each account in accounts
+		select one specaccount related by account->AccountSpecification[R20.''budgetized by'']->AccountSpecification[R8.''part''];
+		if (empty specaccount)
+			select one expenditure related by account->AccountSpecification[R20.''budgetized by'']->Expenditure[R18];
+			UI::SendChapters( Code:specaccount.Code, Name:specaccount.Name, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund);		
+			//LOG::LogInfo(message:"Sent: Chapter: "+ chapter.Code+ ", "+chapter.Name);
+			//LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:chapter.Ceiling );
+			//LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:chapter.Requested );	
+		end if;
 	end for;
 
   LOG::LogInfo(message:"Sending chapter list is complete" );	
@@ -420,7 +424,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadChapters',
+	'ReadExpenditureAccounts',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP

@@ -459,7 +459,7 @@ INSERT INTO SM_ACT
 	1,
 	'select one employee related by self->Employee[R5.''is currently taken by''];
 
-relate self to employee across R11.''consumed by'';//.''to be taken by''; //.''is consumed by'';
+relate self to employee across R11.''consumed by'';
 
 unrelate self from employee across R5.''is currently taken by'';
 
@@ -469,7 +469,6 @@ generate Employee6:LeaveEnded() to employee;
 select one leavespec related by self->LeaveSpecification[R15.''is specified by a''];
 employee.LeaveBalance = employee.LeaveBalance- self.NumberOfDays;
 
-LOG::LogInfo(message:"Employee leave ended");
 
 ',
 	'',
