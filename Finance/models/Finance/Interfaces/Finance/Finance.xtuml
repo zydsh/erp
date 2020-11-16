@@ -399,11 +399,11 @@ INSERT INTO C_EP
 	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReviewSection',
+	'ReviewAccount',
 	'');
 INSERT INTO C_AS
 	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
-	'ReviewSection',
+	'ReviewAccount',
 	'',
 	0,
 	"3d2a89e7-d63d-4e66-ba68-1a0a834594d5");
@@ -450,41 +450,14 @@ INSERT INTO C_AS
 	0,
 	"4af6aae3-9881-4881-b6df-74baed99177c");
 INSERT INTO C_PP
-	VALUES ("0261cafa-4735-41f8-a280-45475113fac1",
+	VALUES ("358921bb-3ec5-4d1b-9b1f-ea163d92a4e3",
 	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
 	"ba5eda7a-def5-0000-0000-000000000004",
-	'Year',
+	'Code',
 	'',
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("315238fb-a25c-4536-9f15-13d51d5c3bfa",
-	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'Journal',
-	'',
-	0,
-	'',
-	"0261cafa-4735-41f8-a280-45475113fac1");
-INSERT INTO C_PP
-	VALUES ("bca47c06-7b1b-4dd0-9a4f-e74a654f1054",
-	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'APLedger',
-	'',
-	0,
-	'',
-	"315238fb-a25c-4536-9f15-13d51d5c3bfa");
-INSERT INTO C_PP
-	VALUES ("d6d094bb-3823-49ce-8200-af3f6bd61016",
-	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'CashLedger',
-	'',
-	0,
-	'',
-	"bca47c06-7b1b-4dd0-9a4f-e74a654f1054");
 INSERT INTO C_EP
 	VALUES ("0029c564-7df3-4dc3-b1d4-213ee84017e0",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",

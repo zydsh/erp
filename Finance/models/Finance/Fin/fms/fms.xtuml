@@ -581,23 +581,17 @@ INSERT INTO SPR_PS
 	VALUES ("ca73f249-e868-4388-b482-56a046f73b6e",
 	'AcceptRequested',
 	'',
-	'
-select any account from instances of AccountSpecification where selected.Code == param.Code; 
-
-if (not empty account)
-	select many budgets related by account->Account[R20.''budgetize''];
-	if (not empty budgets)
-		for each budget in budgets
-			select one requested related by budget->Requested[R19];
-			//select one requested related by budget->Requested[R19];
-			if (not empty requested)
-				generate Account1:Accept to budget;
-			else
-				generate Account2:Reject to budget;
-			end if;
-		end for;
+	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
+select many accounts related by accountSpec->Account[R20.''budgetize''];
+for each account in accounts
+	select one requested related by account->Requested[R19];
+	
+	if (not empty requested)
+		generate Account1:Accept to account;
+	else
+		generate Account2:Reject to account;
 	end if;
-end if;
+end for;
 ',
 	1,
 	0);
@@ -616,23 +610,16 @@ INSERT INTO SPR_PS
 	VALUES ("6d8f28a6-f174-4e38-9d54-c4b2f9162417",
 	'AcceptCeiling',
 	'',
-	'
-select any account from instances of AccountSpecification where selected.Code == param.Code; 
-
-if (not empty account)
-	select many budgets related by account->Account[R20.''budgetize''];
-	if (not empty budgets)
-		for each budget in budgets
-			select one ceiling related by budget->Ceiling[R19];
-			//select one requested related by budget->Requested[R19];
-			if (not empty ceiling)
-				generate Account1:Accept to budget;
-			else
-				generate Account2:Reject to budget;
-			end if;
-		end for;
+	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
+select many accounts related by accountSpec->Account[R20.''budgetize''];
+for each account in accounts
+	select one ceiling related by account->Ceiling[R19];
+	if (not empty ceiling)
+		generate Account1:Accept to account;
+	else
+		generate Account2:Reject to account;
 	end if;
-end if;
+end for;
 ',
 	1,
 	0);
@@ -649,33 +636,15 @@ INSERT INTO SPR_PEP
 	"84b7e49f-98e2-4539-b496-50575c189964");
 INSERT INTO SPR_PS
 	VALUES ("4d4a7767-746c-40a2-be26-f334e0c6728c",
-	'ReviewSection',
+	'ReviewAccount',
 	'',
 	'
-select any section from instances of Section where selected.Code == param.Code; 
+select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
+select many accounts related by accountSpec->Account[R20.''budgetize''];
+for each account in accounts
+	generate Account3:Review to account;
+end for;
 
-if (not empty section)
-	select many odlExpense related by section->Expenses[R105.''specifies''];
-	select many newExpense related by section->Expenses[R106.''sepecifies new''];
-
-	if ( not empty odlExpense)
-		for each request in odlExpense
-			generate Expenses2:Review to request;
-		end for;
- 
-	elif (not empty newExpense)
-		for each request in newExpense
-			generate Expenses2:Review to request;
-		end for;
-	else
-		LOG::LogInfo(message:"No expense instance found for section: "+ section.Name);
-
-	end if;
-
-else
-		LOG::LogInfo(message:"No section found ");
-
-end if;
 ',
 	1,
 	0);
@@ -683,7 +652,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReviewSection',
+	'ReviewAccount',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
@@ -723,38 +692,12 @@ INSERT INTO SPR_PS
 	VALUES ("fa6c80d5-002a-4a73-8291-6ea0b8458836",
 	'OperationalizeBudget',
 	'',
-	'select any budgetD from instances of BudgetD where selected.Year == param.Year;
-create object instance journald of JournalD;
-relate budgetD to journald across R11;
-
-
-
-select any budget from instances of Budget where selected.Year == param.Year;
-
-select many expenses related by budget->Chapter[R100.''divided'']->Expenses[R111.''funds''];
-
-select any journal from instances of Journal where selected.Name == param.Journal;
-
-//subledger;
-select any apLedger from instances of Ledger where selected.Name == param.APLedger;
-select any cashLedger from instances of Ledger where selected.Name == param.CashLedger;
-
-//select many ledgers related by journal->DoubleEntryColumn[R131.''has'']->SubLedger[R129.''debits''];//->Chapter[R100.''divided'']->Expenses[R111.''funds''];
- 
-if (not empty expenses)
-	for each expense in expenses
-		create object instance account of Account;
-		relate expense to account across R117.''provides funds to'';
-		create object instance ap of SubLedger;
-		create object instance cash of SubLedger;
-		relate ap to apLedger across R134.''belongs to'';
-		relate cash to cashLedger across R134.''belongs to'';
-		select any doubleEntry  related by journal->DoubleEntryColumn[R131.''has'']; 
-		relate ap to doubleEntry across R130.''credited by'';
-		relate cash to doubleEntry across R129.''debited by'';
-	end for;
-
-end if;',
+	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
+select many accounts related by accountSpec->Account[R20.''budgetize''];
+for each account in accounts
+		generate Account4:Open to account;
+end for;
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -836,7 +779,7 @@ INSERT INTO SPR_PS
 	'OperationalizeAccount',
 	'',
 	'
-select many accounts from instances of AccountSpecification where selected.Code == param.Code; 
+select many accounts from instances of AccountSpecification where selected.Code == paramsCode; 
 
 for each account in accounts
 	select many budgets related by account->Account[R20.''budgetize''];
@@ -845,6 +788,9 @@ for each account in accounts
 	end for;
 
 end for;
+
+
+
 
 
 ',

@@ -718,6 +718,7 @@ INSERT INTO SM_ACT
 	'if (self.Name == param.Name) and (param.Status==hrSystem::SharedTypes::Payitem::Approved)
 	self.Status = hrSystem::SharedTypes::Payitem::Approved;
 	HRData::MakePayment( EmployeeID:self.ID, Date:param.Date, Amount:param.Amount );
+	Finance::RecordSalaryEntry( Date:self.Date, Description:self.Name, Amount:self.Amount );
 else 
 	self.Success = false;
 end if;
