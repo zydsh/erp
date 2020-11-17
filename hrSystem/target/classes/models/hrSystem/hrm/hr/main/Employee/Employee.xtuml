@@ -46,7 +46,7 @@ create object instance salaryItem of PayslipItem;
 salaryItem.Name = "Salary";
 salaryItem.Date = time;
 salaryItem.Amount = self.getSalary();
-salaryItem.Type = Types::PayslipItemType::Earning;
+salaryItem.Type = Paytype::Earning;
 
 relate self to salaryItem across R3.''an earning or a deduction is recorded in a'';
 beforeItem = salaryItem;
@@ -59,7 +59,7 @@ for each bonus in bonuses
 	bonusItem.Name = bonusSpec.Name;
 	bonusItem.Date = time;
 	bonusItem.Amount = bonus.Amount;
-	bonusItem.Type = Types::PayslipItemType::Earning;
+	bonusItem.Type = Paytype::Earning;
 	relate self to bonusItem across R3.''an earning or a deduction is recorded in a'';
 	relate bonusItem to beforeItem across R18.''listed after'';
 	beforeItem = bonusItem;
@@ -70,7 +70,7 @@ create object instance pensionItem of PayslipItem;
 pensionItem.Name = "Pension";
 pensionItem.Date = time;
 pensionItem.Amount = self.getSalary() * self.Pension;
-pensionItem.Type = Types::PayslipItemType::Deduction;
+pensionItem.Type = Paytype::Deduction;//Types::PayslipItemType::Deduction;
 
 relate self to pensionItem across R3.''an earning or a deduction is recorded in a'';
 relate pensionItem to beforeItem across R18.''listed after'';
@@ -83,7 +83,7 @@ for each deduction in deductions
 	deductionItem.Name = deduction.Reason;
 	deductionItem.Date = deduction.Date;
 	deductionItem.Amount = deduction.Amount;
-	deductionItem.Type = Types::PayslipItemType::Deduction;
+	deductionItem.Type = Paytype::Deduction;
 	relate self to deductionItem across R3.''an earning or a deduction is recorded in a'';
 	relate deductionItem to beforeItem across R18.''listed after'';
 	beforeItem = deductionItem;

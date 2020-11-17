@@ -677,16 +677,15 @@ INSERT INTO SPR_PS
 	VALUES ("3651b838-5ea1-4197-b710-d25799ce3be8",
 	'CommenceEmployee',
 	'',
-	' //Employee::commenceEmployee( National_ID:param.National_ID ); 
- 
- select any employee from instances of Employee where selected.NationalID==param.National_ID;
- if ( not empty employee )
- 	employee.commenceEmployee( National_ID:param.National_ID);
-	
+	' select any employee from instances of Employee where selected.NationalID==param.National_ID;
+
+if ( not empty employee )
+ 	employee.commence();
 else 
 	LOG::LogInfo(message:"Employee is not registered!" );
 	UI::Reply( msg:"Employee is not found.", state:False);
 end if;
+ 
 ',
 	1,
 	0);
@@ -1737,7 +1736,7 @@ INSERT INTO SPR_PS
 	'ReadLastPaymentSlip',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("90157033-ea84-4297-8ec6-2489009427d9",
@@ -1803,7 +1802,7 @@ INSERT INTO SPR_PS
 	'SendPayItem',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5263e581-733b-40ff-983f-ed9f08b53635",

@@ -2016,7 +2016,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("6f21f063-c876-4ecc-b31d-0bee1d3236bc",
-	'ReadChapters',
+	'ReadExpenditureAccounts',
 	'',
 	'',
 	1,
@@ -2025,7 +2025,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadChapters',
+	'ReadExpenditureAccounts',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2047,30 +2047,12 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("8847449b-f6fb-448b-89e5-f7ad293eccf3",
-	"b7daccf5-4ee4-4e07-877f-35586f6ba785",
-	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
-INSERT INTO SPR_RS
-	VALUES ("8847449b-f6fb-448b-89e5-f7ad293eccf3",
-	'ReadSectionsRequested',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("b7daccf5-4ee4-4e07-877f-35586f6ba785",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'ReadSectionsRequested',
-	'',
-	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("ff8e2aa3-5425-4cf6-8a35-efa36f422dc2",
 	"b6724746-1a25-4086-8a5f-53fae643a17f",
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("ff8e2aa3-5425-4cf6-8a35-efa36f422dc2",
-	'SendSectionsRequested',
+	'SendRequested',
 	'',
 	'::SendSections( Code:param.Code, Name:param.Name, Fund:param.RequestedFund, Revenue:param.RequestedRevenue );',
 	1,
@@ -2079,7 +2061,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'SendSectionsRequested',
+	'SendRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2088,7 +2070,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("eef4a957-33c3-4f58-a9cf-5954c8d682f2",
-	'ReadSectionsCeiling',
+	'ReadCeiling',
 	'',
 	'',
 	1,
@@ -2097,7 +2079,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadSectionsCeiling',
+	'ReadCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2106,7 +2088,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("1b5624a3-eab4-47ca-937a-f07e2f63728c",
-	'SendSectionsCeiling',
+	'SendCeiling',
 	'',
 	'::SendSections( Code:param.Code, Name:param.Name, Fund:param.Fund, Revenue:param.Revenue );',
 	1,
@@ -2115,7 +2097,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("1f6a3814-0c98-4dd6-bac0-080a5a7a0c35",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'SendSectionsCeiling',
+	'SendCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2160,7 +2142,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("772a7107-409a-4879-b180-bde08a559043",
-	'ReviewSection',
+	'ReviewAccount',
 	'',
 	'',
 	3,
@@ -2169,7 +2151,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReviewSection',
+	'ReviewAccount',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2314,6 +2296,24 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'AddJournalColumn',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("165610cb-bece-4c3e-b51d-e259030ca718",
+	"6a03da54-e74f-4e6e-af7f-e9c0bac1fa3c",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("165610cb-bece-4c3e-b51d-e259030ca718",
+	'ReadRequested',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6a03da54-e74f-4e6e-af7f-e9c0bac1fa3c",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
