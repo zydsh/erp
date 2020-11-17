@@ -474,7 +474,7 @@ INSERT INTO SPR_PS
 	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
 select many accounts related by budget->Account[R1.''assigned''];
 
-if (not empty accounts) 
+if (not empty accounts)  
 	for each account in accounts
 		select one ceiling related by account->Ceiling[R19];
 		if (not empty ceiling)
