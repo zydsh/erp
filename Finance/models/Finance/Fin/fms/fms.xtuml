@@ -609,8 +609,7 @@ if (empty cashJournal)
 	cashJ.Name = "Cash";
 	cashJ.Description= "Records cash payments for internal transactions";
 	
-	create object instance dec of DoubleEntryColumn;
-	dec.Title = "Debit Cash/ Credit Employee Compensation ";
+
 end if;',
 	1,
 	0);

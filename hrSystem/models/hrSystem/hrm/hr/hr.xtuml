@@ -678,7 +678,8 @@ INSERT INTO SPR_PS
 	'CommenceEmployee',
 	'',
 	' select any employee from instances of Employee where selected.NationalID==param.National_ID;
- if ( not empty employee )
+
+if ( not empty employee )
  	employee.commence();
 else 
 	LOG::LogInfo(message:"Employee is not registered!" );
