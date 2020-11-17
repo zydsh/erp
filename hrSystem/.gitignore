@@ -1,0 +1,10 @@
+target/*
+/Debug/
+/gen/code_generation/
+/doc/
+
+*.oal_err
+*.pref
+*.gif
+*.png
+*.html

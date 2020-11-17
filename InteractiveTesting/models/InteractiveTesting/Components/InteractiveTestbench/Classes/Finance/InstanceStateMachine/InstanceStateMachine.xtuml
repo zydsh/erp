@@ -480,7 +480,8 @@ INSERT INTO SM_ACT
 	VALUES ("a3e49449-6762-45d5-a937-ac66767f3513",
 	"0865f4ab-3f26-48c0-8e45-ce049010a32e",
 	1,
-	'select many payroll from instances of UC3_Payroll;
+	'select any payroll from instances of UC3_Payroll;
+generate UC3_Payroll1:Review to payroll;
 ',
 	'',
 	0);

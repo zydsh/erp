@@ -1,0 +1,68 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("a18d1aff-cd27-4612-bd72-05edfb5a877e",
+	'Account',
+	1,
+	'Account',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("396e4e7f-2b48-48ef-9ac5-bdf69dc44e49",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO O_BATTR
+	VALUES ("396e4e7f-2b48-48ef-9ac5-bdf69dc44e49",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO O_ATTR
+	VALUES ("396e4e7f-2b48-48ef-9ac5-bdf69dc44e49",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
+	"00000000-0000-0000-0000-000000000000",
+	'OpeningBalance',
+	'',
+	'',
+	'OpeningBalance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("75a38bd9-8a92-48e6-b78d-20b486986330",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO O_BATTR
+	VALUES ("75a38bd9-8a92-48e6-b78d-20b486986330",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO O_ATTR
+	VALUES ("75a38bd9-8a92-48e6-b78d-20b486986330",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
+	"396e4e7f-2b48-48ef-9ac5-bdf69dc44e49",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO O_ID
+	VALUES (1,
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO O_ID
+	VALUES (2,
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO PE_PE
+	VALUES ("a18d1aff-cd27-4612-bd72-05edfb5a877e",
+	1,
+	"4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Financing',
+	'',
+	0,
+	'../Financing.xtuml');

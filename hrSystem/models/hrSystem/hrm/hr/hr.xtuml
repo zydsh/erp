@@ -677,16 +677,15 @@ INSERT INTO SPR_PS
 	VALUES ("3651b838-5ea1-4197-b710-d25799ce3be8",
 	'CommenceEmployee',
 	'',
-	' //Employee::commenceEmployee( National_ID:param.National_ID ); 
- 
- select any employee from instances of Employee where selected.NationalID==param.National_ID;
- if ( not empty employee )
- 	employee.commenceEmployee( National_ID:param.National_ID);
-	
+	' select any employee from instances of Employee where selected.NationalID==param.National_ID;
+
+if ( not empty employee )
+ 	employee.commence();
 else 
 	LOG::LogInfo(message:"Employee is not registered!" );
 	UI::Reply( msg:"Employee is not found.", state:False);
 end if;
+ 
 ',
 	1,
 	0);
@@ -1737,7 +1736,7 @@ INSERT INTO SPR_PS
 	'ReadLastPaymentSlip',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("90157033-ea84-4297-8ec6-2489009427d9",
@@ -1800,16 +1799,16 @@ INSERT INTO SPR_PEP
 	"7a26de32-2a7f-4ded-892b-659b05817114");
 INSERT INTO SPR_PS
 	VALUES ("ad7c1099-2b81-4938-a581-21d20eb05451",
-	'SendPayItems',
+	'SendPayItem',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5263e581-733b-40ff-983f-ed9f08b53635",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
-	'SendPayItems',
+	'SendPayItem',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO SPR_PEP
@@ -1818,10 +1817,11 @@ INSERT INTO SPR_PEP
 	"7a26de32-2a7f-4ded-892b-659b05817114");
 INSERT INTO SPR_PS
 	VALUES ("8dba4f38-b0a6-44ff-a3a8-5abaa85fe856",
-	'ReadPayItems',
+	'ReadPayItem',
 	'',
 	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
-select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a''];
+select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a'']
+where selected.Date ==param.Date and selected.Amount==param.Amount;
 if (not empty payment)
 	generate PayslipItem5:Review to payment;
 end if;',
@@ -1831,7 +1831,53 @@ INSERT INTO C_EP_PROXY
 	VALUES ("c7a20020-6a45-4436-b12e-9c46128bf89d",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
-	'ReadPayItems',
+	'ReadPayItem',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("332ce880-80c5-4b6c-aa07-b0f08ef54e2f",
+	"2bad8a42-18b7-4bc0-835b-098dface2ad8",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("332ce880-80c5-4b6c-aa07-b0f08ef54e2f",
+	'ReadAnyPayItem',
+	'',
+	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a''];
+if (not empty payment)
+	generate PayslipItem5:Review to payment;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2bad8a42-18b7-4bc0-835b-098dface2ad8",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadAnyPayItem',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("e8356c09-60c5-4449-8e5e-f5a9ad2e8c44",
+	"82c1845d-90b7-4251-845f-6535427dad9e",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("e8356c09-60c5-4449-8e5e-f5a9ad2e8c44",
+	'MakePayment',
+	'',
+	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a'']
+where selected.Date == param.Date and selected.Amount == param.Amount;
+
+if (not empty payment)
+	generate PayslipItem2:Pay to payment;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("82c1845d-90b7-4251-845f-6535427dad9e",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'MakePayment',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

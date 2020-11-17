@@ -16,82 +16,90 @@ that has a grade which corresponds to a basic salary. ',
 INSERT INTO O_TFR
 	VALUES ("be9ae7cd-0096-466e-96e9-de7eda95bc04",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	'commenceEmployee',
-	'',
+	'commence',
+	'Assigns a start date for  employees as they start work on day one. ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
-	'LOG::LogInfo(message:"An employee attempts to commence." );
+	'//LOG::LogInfo(message:"An employee attempts to commence." );
 
 	generate Employee2:commenced() to self;
 	self.Start_Date = TIM::current_seconds();
-	UI::Reply( msg:"Employee has commenced ", state:True);
+	//UI::Reply( msg:"Employee has commenced ", state:True);
 ',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	0);
-INSERT INTO O_TPARM
-	VALUES ("f112e62e-b613-494c-9e97-ab4e67b80ebd",
-	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
-	'National_ID',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
 INSERT INTO O_TFR
 	VALUES ("a09a32cd-a57c-4c57-a3e5-43debb8df180",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
-	'createPayment',
-	'',
+	'createPayslip',
+	'For each employee, the operation builds a pay-slip by creating instances of 
+PayslipItem one for salary from Job or or more from from Bonus, and one or more 
+from Deductions.',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	0,
-	'',
+	1,
+	'week = 7*24*60*60;
+time = TIM::current_seconds();
+
+create object instance salaryItem of PayslipItem;
+salaryItem.Name = "Salary";
+salaryItem.Date = time;
+salaryItem.Amount = self.getSalary();
+salaryItem.Type = Paytype::Earning;
+
+relate self to salaryItem across R3.''an earning or a deduction is recorded in a'';
+beforeItem = salaryItem;
+
+select many bonuses related by self->Bonus[R4.''gets a''];
+if ( not empty bonuses)
+for each bonus in bonuses
+	select one bonusSpec related by bonus->BonusSpecification[R16.''is specified by''];
+	create object instance bonusItem of PayslipItem;
+	bonusItem.Name = bonusSpec.Name;
+	bonusItem.Date = time;
+	bonusItem.Amount = bonus.Amount;
+	bonusItem.Type = Paytype::Earning;
+	relate self to bonusItem across R3.''an earning or a deduction is recorded in a'';
+	relate bonusItem to beforeItem across R18.''listed after'';
+	beforeItem = bonusItem;
+end for;
+end if;
+
+create object instance pensionItem of PayslipItem;
+pensionItem.Name = "Pension";
+pensionItem.Date = time;
+pensionItem.Amount = self.getSalary() * self.Pension;
+pensionItem.Type = Paytype::Deduction;//Types::PayslipItemType::Deduction;
+
+relate self to pensionItem across R3.''an earning or a deduction is recorded in a'';
+relate pensionItem to beforeItem across R18.''listed after'';
+
+lastMonth = time - (week*4);
+select many deductions related by self->Deductions[R25.''subject ''] where selected.Date >=lastMonth;
+if ( not empty deductions)
+for each deduction in deductions
+ 	create object instance deductionItem of PayslipItem;
+	deductionItem.Name = deduction.Reason;
+	deductionItem.Date = deduction.Date;
+	deductionItem.Amount = deduction.Amount;
+	deductionItem.Type = Paytype::Deduction;
+	relate self to deductionItem across R3.''an earning or a deduction is recorded in a'';
+	relate deductionItem to beforeItem across R18.''listed after'';
+	beforeItem = deductionItem;
+end for;
+end if;
+//select many bonusItems related by salaryItem->PayslipItem[R18.''listed after''];
+',
 	1,
 	'',
 	"be9ae7cd-0096-466e-96e9-de7eda95bc04",
 	0);
-INSERT INTO O_TPARM
-	VALUES ("c8d7855a-0b36-49ff-bd1e-fc6e0ab8df1a",
-	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
-	'National_ID',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("25fa7a52-eb64-4af1-9ca8-bd938e8926d2",
-	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
-	'Name',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	0,
-	'',
-	"c8d7855a-0b36-49ff-bd1e-fc6e0ab8df1a",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("284b64f2-0a78-4504-87d5-d65b41918ada",
-	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
-	'Amount',
-	"ba5eda7a-def5-0000-0000-000000000003",
-	0,
-	'',
-	"25fa7a52-eb64-4af1-9ca8-bd938e8926d2",
-	'');
-INSERT INTO O_TPARM
-	VALUES ("52cde002-beb4-4766-b863-6fc7332b55ba",
-	"a09a32cd-a57c-4c57-a3e5-43debb8df180",
-	'Date',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"284b64f2-0a78-4504-87d5-d65b41918ada",
-	'');
 INSERT INTO O_TFR
 	VALUES ("9b2a8127-fc3a-470f-a20c-386a1ab29b60",
 	"8d628b4f-d7b2-4646-bca8-47297794ec19",
 	'getSalary',
-	'',
+	'Gets the salary of an employee from an instance of Job',
 	"ba5eda7a-def5-0000-0000-000000000003",
 	1,
 	'
@@ -356,6 +364,24 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("53e2cfd4-40fe-4da7-8ce9-6f3466bd90a6",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_BATTR
+	VALUES ("53e2cfd4-40fe-4da7-8ce9-6f3466bd90a6",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19");
+INSERT INTO O_ATTR
+	VALUES ("53e2cfd4-40fe-4da7-8ce9-6f3466bd90a6",
+	"8d628b4f-d7b2-4646-bca8-47297794ec19",
+	"ced1568c-393b-4af3-b8b9-3936e3628080",
+	'Pension',
+	'',
+	'',
+	'Pension',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'0.09');
 INSERT INTO O_ID
 	VALUES (0,
 	"8d628b4f-d7b2-4646-bca8-47297794ec19");

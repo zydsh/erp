@@ -21,11 +21,35 @@ INSERT INTO GD_MD
 	1,
 	0,
 	0,
-	0,
-	0,
+	200,
+	150,
 	0,
 	'4.1.17',
 	'hrSystem::hrm::hr::Initialization');
+INSERT INTO GD_GE
+	VALUES ("009ced85-a1dd-4aa2-83d5-18b31d34b6a9",
+	"0e21b614-cf45-4d71-8943-4aeb52d49d80",
+	"bf1c0350-d0fc-4b0a-ba95-037d562d965c",
+	21,
+	0,
+	'hrSystem::hrm::hr::Initialization::PEI');
+INSERT INTO GD_SHP
+	VALUES ("009ced85-a1dd-4aa2-83d5-18b31d34b6a9");
+INSERT INTO GD_NCS
+	VALUES ("009ced85-a1dd-4aa2-83d5-18b31d34b6a9");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"009ced85-a1dd-4aa2-83d5-18b31d34b6a9");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"009ced85-a1dd-4aa2-83d5-18b31d34b6a9",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("009ced85-a1dd-4aa2-83d5-18b31d34b6a9",
+	0,
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_DIA
 	VALUES ("0e21b614-cf45-4d71-8943-4aeb52d49d80",
 	'',
@@ -38,11 +62,15 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'Initialize',
 	'',
-	'::CreatePEI_Leave();
-::CreatePEI_Scale();
-::CreatePEI_Employees();
-::CreatePEI_Departments();
-::CreatePEI_Bonus(); 
+	'create object instance pei of PEI;
+generate  PEI1:createLeave() to pei;
+
+//::CreatePEI_Leave();
+//::CreatePEI_Scale();
+//::CreatePEI_Departments();
+//::CreatePEI_Employees();
+//::CreatePEI_Bonus(); 
+//::CommenceEmployees();
 
 //::CreatePEIs();',
 	"ba5eda7a-def5-0000-0000-000000000000",
@@ -434,10 +462,9 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:1) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
- 
+generate Employee7:Recruited(JobID:1, Department: "Human Resources") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+  
 
 //LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
 
@@ -453,11 +480,9 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:2) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:2, Department: "Human Resources") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+ 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1422222;
@@ -471,11 +496,10 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:3) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:3, Department: "Human Resources") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+ 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1423333;
@@ -489,11 +513,10 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:4) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:4, Department: "President Office" ) to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+ 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1424444;
@@ -507,11 +530,10 @@ create object instance emp of Employee;
 		emp.Degree = "PhD";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:5) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:5, Department: "Vice President for Services") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+ 
 
 
 create object instance emp of Employee;
@@ -526,11 +548,10 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:6) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:6, Department:"Finance") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+ 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1426666; 
@@ -544,11 +565,10 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:7) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:7, Department:"Finance") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+ 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1427777; 
@@ -562,11 +582,10 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:8) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:8, Department:"Finance") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+ 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1428888; 
@@ -580,11 +599,10 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:9) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:9, Department: "Vice President for Services") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+ 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1429999; 
@@ -598,11 +616,10 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc";
 		emp.Gender = "Female";
 
-generate Employee7:Recruited(JobID:10) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:10, Department: "Vice President for Services") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+ 
 
 
 create object instance emp of Employee;
@@ -617,11 +634,10 @@ create object instance emp of Employee;
 		emp.Degree = "Bsc"; 
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:11) to emp;
-emp.commenceEmployee( National_ID:emp.NationalID );
-
+generate Employee7:Recruited(JobID:11, Department: "President Office") to emp;
 Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
-//LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
+
+
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
@@ -642,67 +658,35 @@ INSERT INTO S_SYNC
 create object instance departmentHR of Department;
 departmentHR.Name = "Human Resources";
 departmentHR.Mission = "Manages employees functions";
+departmentHR.assignManagerRole( EmployeeID:1422222 );
+Authenticate::AddToGroup( EmployeeID:1422222, Group:"Managers" );
+Authenticate::AddToGroup( EmployeeID:1422222, Group:"HR" ); 
+
+
 //LOG::LogInfo(message:"Department: Created "+ departmentHR.Name );	
 
-//add manager
-select any mgr from instances of Employee where selected.EmployeeID==1422222;
-relate mgr to departmentHR across R23.''manages'';
-relate mgr to departmentHR across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" ); 
-
-
-//add employees to HR
-select any mgr from instances of Employee where selected.EmployeeID==1421111;
-relate mgr to departmentHR across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
-
-select any mgr from instances of Employee where selected.EmployeeID==1420000;
-relate mgr to departmentHR across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
 
 //create Finance department
 create object instance departmentFin of Department;
-departmentFin.Name = "Finance Resources";
+departmentFin.Name = "Finance";
 departmentFin.Mission = "Manages finance ";
+departmentFin.assignManagerRole( EmployeeID:1427777 );
+Authenticate::AddToGroup( EmployeeID:1427777, Group:"Managers" );
+
+
 //LOG::LogInfo(message:"Department: Created "+ departmentFin.Name );	
-
-//add manager to Finance
-select any mgr from instances of Employee where selected.EmployeeID==1427777;
-relate mgr to departmentFin across R23.''manages'';
-relate mgr to departmentFin across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-
-//add employees to Finance
-select any mgr from instances of Employee where selected.EmployeeID==1426666;
-relate mgr to departmentHR across R21.''working within'';
-//Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
-
-select any mgr from instances of Employee where selected.EmployeeID==1425555;
-relate mgr to departmentHR across R21.''working within''; 
-//Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"HR" );
 
 
 // create VP office
 create object instance vpServices of Department;
 vpServices.Name = "Vice President for Services";
 vpServices.Mission = "Manage organization supporting services";
+vpServices.assignManagerRole( EmployeeID:1424444 );
+Authenticate::AddToGroup( EmployeeID:1424444, Group:"Managers" );
+
+
 //LOG::LogInfo(message:"Department: Created "+ vpServices.Name );	
 
-//add manager to VP
-select any mgr from instances of Employee where selected.EmployeeID==1424444;
-relate mgr to vpServices across R23.''manages'';
-relate mgr to vpServices across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-
-
-
-//add employees to VP
-select any emp from instances of Employee where selected.EmployeeID==1428888;
-relate emp to vpServices across R21.''working within'';
-
-select any emp from instances of Employee where selected.EmployeeID==1429999;
-relate emp to vpServices across R21.''working within'';
 
 //relate HR to VP 
 relate vpServices to departmentHR  across R22.''is divided into'';
@@ -715,20 +699,26 @@ relate vpServices to departmentFin  across R22.''is divided into'';
 create object instance President of Department;
 President.Name = "President Office";
 President.Mission = "Manage all organization activities";
+departmentHR.assignManagerRole( EmployeeID:1423333 );
+Authenticate::AddToGroup( EmployeeID:1423333, Group:"Managers" );
+
 //LOG::LogInfo(message:"Departments: created: "+ President.Name );	
 
-select any mgr from instances of Employee where selected.EmployeeID==1423333;
-relate mgr to President across R23.''manages'';
-relate mgr to President across R21.''working within'';
-Authenticate::AddToGroup( EmployeeID:mgr.EmployeeID, Group:"Managers" );
-
-//adding employees to president office
-select any emp from instances of Employee where selected.EmployeeID==1430000; 
-relate emp to vpServices across R21.''working within'';
 
 //relate to VP
 relate President to vpServices across R22.''is divided into'';
 //LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ President.Name);	
+
+
+
+
+ 
+
+ 
+
+
+
+
 
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
@@ -813,6 +803,25 @@ bonus.Percent = 0.4;
 	0);
 INSERT INTO PE_PE
 	VALUES ("fe901ef0-f95f-4d7b-9967-053d10714221",
+	1,
+	"1d95e14a-3187-4f1b-a720-f30782ec2088",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("01126b91-937f-4df5-8a61-c3771af24164",
+	"00000000-0000-0000-0000-000000000000",
+	'CommenceEmployees',
+	'',
+	'select many employees from instances of Employee;
+for each employee in employees
+	employee.commence();
+end for;',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("01126b91-937f-4df5-8a61-c3771af24164",
 	1,
 	"1d95e14a-3187-4f1b-a720-f30782ec2088",
 	"00000000-0000-0000-0000-000000000000",

@@ -24,7 +24,7 @@ INSERT INTO GD_MD
 	0,
 	0,
 	0,
-	'',
+	'4.1.17',
 	'Authenticate::Auth::Auth::Utl');
 INSERT INTO DIM_DIA
 	VALUES ("4f54dd85-f390-47e7-8e50-d7077bd0785c",

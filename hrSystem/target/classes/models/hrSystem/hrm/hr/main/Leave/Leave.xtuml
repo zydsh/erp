@@ -5,12 +5,12 @@ INSERT INTO O_OBJ
 	'Leave',
 	10,
 	'Leave',
-	'Represents the leave instance an employee either: 
+	'Represents the leave instance an employee consumes, either: 
 	a. created in the past as result of requesting 
 	   a specific type of leave, or
 	b. created to be consumed in the future representing 
 	   a planned leave of absence,
-	c. created and currently beign consumed as an active 
+	c. created and currently being consumed as an active 
 	   leave of absence to end in a future date.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
@@ -24,7 +24,12 @@ INSERT INTO O_ATTR
 	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
 	"00000000-0000-0000-0000-000000000000",
 	'Starting',
-	'',
+	'The date the leave of absence starts/ed. 
+If the date is in the future, the leave of absence is under 
+request or have been approved to be consumed in the future. 
+If the date is in the past, the leave of absence is partially consumed,  
+thus the employee is on leave, or the leave is consumed completely 
+if the leave has ended.',
 	'',
 	'Starting',
 	0,
@@ -42,7 +47,12 @@ INSERT INTO O_ATTR
 	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
 	"2cbebbe4-9052-473f-8bef-be86c7202ac9",
 	'Ending',
-	'',
+	'The date the leave of absence ends/ed.
+If the end is in the future, it indicates 
+that the leave of absence has not started, 
+or the leave has started but is not consumed completely. 
+
+',
 	'',
 	'Ending',
 	0,
@@ -58,13 +68,35 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("445925d3-b989-439f-8299-45ca171dfe66",
 	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
-	"ceb62efe-bd43-4144-aa88-b838114d1638",
+	"42efe58f-02ed-4a51-a046-8e8957c25846",
 	'current_state',
 	'',
 	'',
 	'current_state',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("42efe58f-02ed-4a51-a046-8e8957c25846",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	'self.NumberOfDays = self.Ending - self.Starting;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("42efe58f-02ed-4a51-a046-8e8957c25846",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b");
+INSERT INTO O_ATTR
+	VALUES ("42efe58f-02ed-4a51-a046-8e8957c25846",
+	"bfb663ff-4e27-4ce1-a4d8-64470cc0972b",
+	"ceb62efe-bd43-4144-aa88-b838114d1638",
+	'NumberOfDays',
+	'Leave days are the days between start and the end of leave
+dates including weekends and public holidays.  ',
+	'',
+	'NumberOfDays',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
 INSERT INTO O_ID

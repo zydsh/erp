@@ -5,7 +5,7 @@ INSERT INTO SM_ISM
 	"2451d579-2b01-4bdf-92ad-b6de8d147bb6");
 INSERT INTO SM_SM
 	VALUES ("1cc240ff-5dfe-4147-a210-f8467890d719",
-	'',
+	'Models the behavior of assigning a value for bonus payment.',
 	0);
 INSERT INTO SM_MOORE
 	VALUES ("1cc240ff-5dfe-4147-a210-f8467890d719");
@@ -186,7 +186,8 @@ INSERT INTO SM_ACT
 	select one job related by self->Employee[R4.''is given to an'']->Job[R6.''currently occupies''];
 	select one bonus related by self->BonusSpecification[R16.''is specified by''];
 	self.Amount = job.Salary * bonus.Percent; ',
-	'',
+	'Calculates the bonus amount based on employees'' salary.   
+The percentage is given by the bonus specification class.',
 	0);
 INSERT INTO SM_MOAH
 	VALUES ("560accc2-78ab-4e02-a9a8-15d126a608e8",
