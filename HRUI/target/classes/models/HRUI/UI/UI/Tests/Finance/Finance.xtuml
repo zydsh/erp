@@ -54,7 +54,7 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'testReadChapters',
 	'',
-	'Finance::ReadChapters( BudgetYear:"2021" ); ',
+	'//Finance::ReadChapters( BudgetYear:"2021" ); ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
@@ -72,11 +72,11 @@ INSERT INTO S_SYNC
 	'',
 	'LOG::LogInfo(message:"Testing: Section Requested: ");
 
-Finance::ReadSectionsRequested( BudgetYear:"2021", ChapterCode:"٢١" );
+Finance::ReadRequested( BudgetYear:"2021");
 
 LOG::LogInfo(message:"Testing: Section Ceiling: ");
 
-Finance::ReadSectionsCeiling( BudgetYear:"2021", ChapterCode:"٢٨" );
+Finance::ReadCeiling( BudgetYear:"2021");
 
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",

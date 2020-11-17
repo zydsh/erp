@@ -1,0 +1,156 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'Expenditure',
+	15,
+	'Expenditure',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_DBATTR
+	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'select many funds related by self->AccountSpecification[R18]->AccountSpecification[R8.''divided''];
+
+for each fund in funds 
+	select many fc related by fund->Account[R20.''budgetize'']->Ceiling[R19]; 
+	for each f in fc
+		if (not empty f)
+			self.CeilingFund = f.Fund + self.CeilingFund;
+		end if;
+	end for;
+end for;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ATTR
+	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	"00000000-0000-0000-0000-000000000000",
+	'CeilingFund',
+	'',
+	'',
+	'CeilingFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("1008e2be-5714-48c0-958d-4f04914f9b98",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'select many funds related by self->AccountSpecification[R18]->AccountSpecification[R8.''divided''];
+
+for each fund in funds 
+	select many fc related by fund->Account[R20.''budgetize'']->Ceiling[R19]; 
+	for each f in fc
+		if (not empty f)
+			self.CeilingRevenue = f.Fund + self.CeilingRevenue;
+		end if;
+	end for;
+end for;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("1008e2be-5714-48c0-958d-4f04914f9b98",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ATTR
+	VALUES ("1008e2be-5714-48c0-958d-4f04914f9b98",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	"bd8376c2-edc6-45fc-8bb3-ac2827edf851",
+	'CeilingRevenue',
+	'',
+	'',
+	'CeilingRevenue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("35087317-c7d5-45e3-bb9d-864787666da8",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'select many funds related by self->AccountSpecification[R18]->AccountSpecification[R8.''divided''];
+
+for each fund in funds 
+	select many fr related by fund->Account[R20.''budgetize'']->Requested[R19]; 
+	for each f in fr
+		if (not empty f)
+			self.RequestedFund = f.Fund + self.RequestedFund;
+		end if;
+	end for;
+end for;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("35087317-c7d5-45e3-bb9d-864787666da8",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ATTR
+	VALUES ("35087317-c7d5-45e3-bb9d-864787666da8",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	"1008e2be-5714-48c0-958d-4f04914f9b98",
+	'RequestedFund',
+	'',
+	'',
+	'RequestedFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("dd86938e-20c8-4ba9-b6be-2c84c7260b74",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'select many funds related by self->AccountSpecification[R18]->AccountSpecification[R8.''divided''];
+
+for each fund in funds 
+	select many fr related by fund->Account[R20.''budgetize'']->Requested[R19]; 
+	for each f in fr
+		if (not empty f)
+			self.RequestedRevenue = f.Fund + self.RequestedRevenue;
+		end if;
+	end for;
+end for;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("dd86938e-20c8-4ba9-b6be-2c84c7260b74",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ATTR
+	VALUES ("dd86938e-20c8-4ba9-b6be-2c84c7260b74",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	"35087317-c7d5-45e3-bb9d-864787666da8",
+	'RequestedRevenue',
+	'',
+	'',
+	'RequestedRevenue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ID
+	VALUES (1,
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ID
+	VALUES (2,
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO PE_PE
+	VALUES ("311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	1,
+	"4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("4d16c76f-7499-433f-bf47-4cf1149390b7",
+	"00000000-0000-0000-0000-000000000000",
+	"a012df04-a680-4110-97c4-3a91068c4346",
+	'Financing',
+	'',
+	0,
+	'../Financing.xtuml');

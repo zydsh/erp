@@ -6,6 +6,9 @@ INSERT INTO O_OBJ
 	6,
 	'PayslipItem',
 	'Represents all earnings and deductions made to an employees'' pay. 
+An employee may have more than one instance at a month representing 
+different items. In addition to salary, as the main item, 
+other items include bonuses and deductions.  
 ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
@@ -38,7 +41,7 @@ INSERT INTO O_ATTR
 	"7f175134-1bcc-4efa-a1cc-aa0de302792e",
 	'Amount',
 	'Represents either the earning added or deduction made to a payment. 
-In Saudi Riyals (SR).',
+Payment are in Saudi Riyals (SR).',
 	'',
 	'Amount',
 	0,
@@ -56,7 +59,10 @@ INSERT INTO O_ATTR
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
 	"83d5c484-8327-406b-ac58-d53b787805f1",
 	'Date',
-	'',
+	'The date the payment is registered. The actual date of payment
+is different. Date difference between registration and actual
+payment may not exceed a month for salaries. For other payments,
+late payments for bonus or deductions are expected.',
 	'',
 	'Date',
 	0,
@@ -78,16 +84,34 @@ INSERT INTO O_ATTR
 	'',
 	'Type',
 	0,
-	"5fbec3b5-5432-4916-a145-7491c3552f7e",
+	"786cf160-f04d-46a9-88cc-61af8ed4d857",
 	'',
 	'');
 INSERT INTO S_DT_PROXY
-	VALUES ("5fbec3b5-5432-4916-a145-7491c3552f7e",
+	VALUES ("786cf160-f04d-46a9-88cc-61af8ed4d857",
 	"00000000-0000-0000-0000-000000000000",
-	'PayslipItemType',
+	'Paytype',
 	'',
 	'',
-	'../../Types/Types.xtuml');
+	'../../../../SharedTypes/SharedTypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("3500d774-1a70-449a-b89e-0fb5253f6372",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_BATTR
+	VALUES ("3500d774-1a70-449a-b89e-0fb5253f6372",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");
+INSERT INTO O_ATTR
+	VALUES ("3500d774-1a70-449a-b89e-0fb5253f6372",
+	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60",
+	"09e26df2-e004-4b05-a7c7-f01f571b3b31",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"622a686c-4cf9-46a6-b88d-99c3d6e8ac60");

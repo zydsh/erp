@@ -614,7 +614,7 @@ INSERT INTO SM_ACT
 	VALUES ("e1dc89d7-702b-4ef1-8466-a2121650bd3a",
 	"ad16e642-1b31-4967-829f-bc2ffad4a0eb",
 	1,
-	'',
+	'self.TestComplete = True;',
 	'',
 	0);
 INSERT INTO SM_MOAH

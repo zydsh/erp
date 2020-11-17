@@ -41,7 +41,7 @@ INSERT INTO GD_SHP
 INSERT INTO GD_CTR
 	VALUES ("90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_ND
-	VALUES (1259.000000,
+	VALUES (1479.000000,
 	155.000000,
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_GE
@@ -65,12 +65,12 @@ INSERT INTO DIM_CON
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_CON
 	VALUES ("2281850d-1d02-4b6b-9080-dfa30597446e",
-	5359.000000,
+	5579.000000,
 	3222.000000,
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_CON
 	VALUES ("78bc956e-f139-4d0b-b5ce-696d0f47d5e7",
-	5359.000000,
+	5579.000000,
 	3162.000000,
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_CON
@@ -377,14 +377,14 @@ INSERT INTO GD_LS
 	"2a9ddc35-bef9-4403-a286-e430f7d8e8f5");
 INSERT INTO DIM_WAY
 	VALUES ("03b4415d-07ea-4556-8d58-2f4a018fd92e",
-	5359.000000,
+	5579.000000,
 	3222.000000,
 	"3fab252b-37dc-4b17-a58a-c069b8dc2518",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("2a9ddc35-bef9-4403-a286-e430f7d8e8f5",
-	5434.000000,
+	5654.000000,
 	3222.000000,
 	"3fab252b-37dc-4b17-a58a-c069b8dc2518",
 	"00000000-0000-0000-0000-000000000000",
@@ -477,14 +477,14 @@ INSERT INTO GD_LS
 	"2fdf8724-fc4b-4adf-9ed6-c9f1bbe8843a");
 INSERT INTO DIM_WAY
 	VALUES ("bba45af6-5c9c-4182-bf59-fbee7f517f6b",
-	5359.000000,
+	5579.000000,
 	3162.000000,
 	"851fe885-f034-4d60-8ee9-15397732d275",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
 	VALUES ("2fdf8724-fc4b-4adf-9ed6-c9f1bbe8843a",
-	5434.000000,
+	5654.000000,
 	3162.000000,
 	"851fe885-f034-4d60-8ee9-15397732d275",
 	"00000000-0000-0000-0000-000000000000",
@@ -648,6 +648,30 @@ INSERT INTO DIM_GE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
 	VALUES ("320cde13-7057-412e-974a-dab6607e5474",
+	0,
+	"90803358-5ddc-40fa-869c-01572973e288");
+INSERT INTO GD_GE
+	VALUES ("697fea1a-4de3-4b09-8dac-c30266821692",
+	"ea46afea-6341-4d09-b7bf-47957e0558c7",
+	"c1d34fe8-0923-4a79-9495-3f6937e2fe90",
+	108,
+	0,
+	'InteractiveTesting::Components::InteractiveTestbench::Interaction');
+INSERT INTO GD_SHP
+	VALUES ("697fea1a-4de3-4b09-8dac-c30266821692");
+INSERT INTO GD_NCS
+	VALUES ("697fea1a-4de3-4b09-8dac-c30266821692");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"697fea1a-4de3-4b09-8dac-c30266821692");
+INSERT INTO DIM_GE
+	VALUES (5367.000000,
+	3100.000000,
+	"697fea1a-4de3-4b09-8dac-c30266821692",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("697fea1a-4de3-4b09-8dac-c30266821692",
 	0,
 	"90803358-5ddc-40fa-869c-01572973e288");
 INSERT INTO DIM_DIA
@@ -869,8 +893,15 @@ INSERT INTO SPR_RS
 	'',
 	'
 select any hr from instances of HumanResources;
+select any fin from instances of Finance;
 
-hr.EmployeeHandle( EmployeeID:param.EmployeeID );',
+if (hr.TestComplete == False)
+	hr.EmployeeHandle( EmployeeID:param.EmployeeID );
+elif ( fin.TestComplete == False)
+	fin.FinanceHandle( EmployeeID:param.EmployeeID, EmployeeName:param.FirstName+" "+param.LastName);
+end if;
+
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1443,6 +1474,136 @@ INSERT INTO C_EP_PROXY
 	'GeneratePayslips',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("e149e242-a7d9-4883-804a-c8a1a88e2ffe",
+	"90157033-ea84-4297-8ec6-2489009427d9",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("e149e242-a7d9-4883-804a-c8a1a88e2ffe",
+	'ReadLastPaymentSlip',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("90157033-ea84-4297-8ec6-2489009427d9",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadLastPaymentSlip',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("653381a0-31f9-48a9-8901-7ce1b2d90fe6",
+	"cffefcb9-ce5b-4cfa-8b51-d73e822f2f05",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("653381a0-31f9-48a9-8901-7ce1b2d90fe6",
+	'HoldPayment',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("cffefcb9-ce5b-4cfa-8b51-d73e822f2f05",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'HoldPayment',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("7ba6aeb0-728e-446d-98d0-7741e2d0a907",
+	"91155baf-161c-4e0e-a180-3247516947b6",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("7ba6aeb0-728e-446d-98d0-7741e2d0a907",
+	'ApprovePayment',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("91155baf-161c-4e0e-a180-3247516947b6",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ApprovePayment',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("5d795cdd-6a05-49d2-8004-b1d0ed59fdd3",
+	"5263e581-733b-40ff-983f-ed9f08b53635",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("5d795cdd-6a05-49d2-8004-b1d0ed59fdd3",
+	'SendPayItem',
+	'',
+	'select many payrolls from instances of UC3_Payroll;
+
+for each payroll in payrolls
+ generate UC3_Payroll2:Decide(Name:param.Name, Amount:param.Amount, Date:param.Date, Type:param.Type, Status:param.Status) to payroll;
+end for;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5263e581-733b-40ff-983f-ed9f08b53635",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendPayItem',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("d8ba0e33-1a08-4ab6-9d06-99b7383b7e8d",
+	"c7a20020-6a45-4436-b12e-9c46128bf89d",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("d8ba0e33-1a08-4ab6-9d06-99b7383b7e8d",
+	'ReadPayItem',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c7a20020-6a45-4436-b12e-9c46128bf89d",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadPayItem',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("df670211-1761-4cb1-b490-00ff3a3d3a47",
+	"2bad8a42-18b7-4bc0-835b-098dface2ad8",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("df670211-1761-4cb1-b490-00ff3a3d3a47",
+	'ReadAnyPayItem',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2bad8a42-18b7-4bc0-835b-098dface2ad8",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadAnyPayItem',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("306d41af-5a2f-42c1-b043-216bb118ffc3",
+	"82c1845d-90b7-4251-845f-6535427dad9e",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("306d41af-5a2f-42c1-b043-216bb118ffc3",
+	'MakePayment',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("82c1845d-90b7-4251-845f-6535427dad9e",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'MakePayment',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -1562,7 +1723,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("e7a8df39-ce98-49d2-857d-fe96735412f8",
-	'ReadChapters',
+	'ReadExpenditureAccounts',
 	'',
 	'',
 	1,
@@ -1571,7 +1732,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadChapters',
+	'ReadExpenditureAccounts',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -1593,30 +1754,12 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("1e80403a-80c0-44dc-bb6d-d38de7df4364",
-	"b7daccf5-4ee4-4e07-877f-35586f6ba785",
-	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
-INSERT INTO SPR_RS
-	VALUES ("1e80403a-80c0-44dc-bb6d-d38de7df4364",
-	'ReadSectionsRequested',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("b7daccf5-4ee4-4e07-877f-35586f6ba785",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'ReadSectionsRequested',
-	'',
-	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("f5791700-2f49-429c-9e85-e06a2f75dfc3",
 	"b6724746-1a25-4086-8a5f-53fae643a17f",
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("f5791700-2f49-429c-9e85-e06a2f75dfc3",
-	'SendSectionsRequested',
+	'SendRequested',
 	'',
 	'',
 	1,
@@ -1625,7 +1768,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'SendSectionsRequested',
+	'SendRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -1634,7 +1777,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("20cabc62-336e-42fe-97c8-6b90e1bea39f",
-	'ReadSectionsCeiling',
+	'ReadCeiling',
 	'',
 	'',
 	1,
@@ -1643,7 +1786,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadSectionsCeiling',
+	'ReadCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -1652,7 +1795,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("d9529c5d-ef8a-42d9-8aa5-7139b085b063",
-	'SendSectionsCeiling',
+	'SendCeiling',
 	'',
 	'',
 	1,
@@ -1661,7 +1804,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("1f6a3814-0c98-4dd6-bac0-080a5a7a0c35",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'SendSectionsCeiling',
+	'SendCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -1670,7 +1813,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("cf8097f8-23ec-4aa4-849e-cb160d32e237",
-	'AcceptRequestedSection',
+	'AcceptRequested',
 	'',
 	'',
 	1,
@@ -1679,7 +1822,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("c5d4f896-7924-4716-a86c-318e3273e594",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptRequestedSection',
+	'AcceptRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -1688,7 +1831,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("252e7d2e-6770-42b1-bf43-c48b20a06674",
-	'AcceptCeillingSection',
+	'AcceptCeiling',
 	'',
 	'',
 	1,
@@ -1697,7 +1840,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("3d2a89e7-d63d-4e66-ba68-1a0a834594d5",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptCeillingSection',
+	'AcceptCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -1706,7 +1849,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("5aff6ef0-0086-4d59-98ee-f07446ca9cd8",
-	'ReviewSection',
+	'ReviewAccount',
 	'',
 	'',
 	1,
@@ -1715,7 +1858,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReviewSection',
+	'ReviewAccount',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -1737,24 +1880,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("85da1fb9-d05f-4088-8f1e-64bffca39231",
-	"213a3dad-a44b-4913-8a5b-81662bea017f",
-	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
-INSERT INTO SPR_RS
-	VALUES ("85da1fb9-d05f-4088-8f1e-64bffca39231",
-	'CreateCompensationLedger',
-	'',
-	'',
-	3,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("213a3dad-a44b-4913-8a5b-81662bea017f",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'CreateCompensationLedger',
-	'',
-	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("6ae660ad-8946-46d9-914c-280823ecd5ab",
 	"71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
@@ -1770,6 +1895,132 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'OperationalizeBudget',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("9d3feffc-926a-4431-988d-d66d9495063a",
+	"0029c564-7df3-4dc3-b1d4-213ee84017e0",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("9d3feffc-926a-4431-988d-d66d9495063a",
+	'CreateExpensesJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("0029c564-7df3-4dc3-b1d4-213ee84017e0",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateExpensesJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("0427b0d5-bff8-4659-aece-80a0fa7dfc1b",
+	"cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("0427b0d5-bff8-4659-aece-80a0fa7dfc1b",
+	'RecordSalaryEntry',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("cad988db-7e9b-4e52-9100-0b43eaedb0a7",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'RecordSalaryEntry',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("d1da4eb8-9897-4c03-b1ac-7ba104f44e5e",
+	"83844281-52e7-47ba-963e-bcf6b9a2f440",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("d1da4eb8-9897-4c03-b1ac-7ba104f44e5e",
+	'OperationalizeAccount',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("83844281-52e7-47ba-963e-bcf6b9a2f440",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'OperationalizeAccount',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("97b3b472-83e5-4e17-9239-36fa092e3224",
+	"66540b4a-f006-4f50-bbee-e5c4357da8aa",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("97b3b472-83e5-4e17-9239-36fa092e3224",
+	'SingleColumnEntry',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("66540b4a-f006-4f50-bbee-e5c4357da8aa",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SingleColumnEntry',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("8f9906c3-d142-4c7e-8335-41f6b3e7e6fb",
+	"1a5bf26d-531a-4a0b-88c4-c813ed57ca06",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("8f9906c3-d142-4c7e-8335-41f6b3e7e6fb",
+	'CreateJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1a5bf26d-531a-4a0b-88c4-c813ed57ca06",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("53f81ea1-ee59-4a80-9c7a-4961666bd640",
+	"1436beee-420c-431f-b5b2-c7da633acd31",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("53f81ea1-ee59-4a80-9c7a-4961666bd640",
+	'AddJournalColumn',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1436beee-420c-431f-b5b2-c7da633acd31",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AddJournalColumn',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("fe9e65b0-7c31-41ab-bd44-1925a33489ab",
+	"6a03da54-e74f-4e6e-af7f-e9c0bac1fa3c",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("fe9e65b0-7c31-41ab-bd44-1925a33489ab",
+	'ReadRequested',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6a03da54-e74f-4e6e-af7f-e9c0bac1fa3c",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

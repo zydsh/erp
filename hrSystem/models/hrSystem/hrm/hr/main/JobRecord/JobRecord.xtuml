@@ -4,7 +4,7 @@ INSERT INTO O_OBJ
 	VALUES ("63ad13d3-10ff-46b3-86b1-2018487fbb6d",
 	'JobRecord',
 	9,
-	'EJ',
+	'JobRecord',
 	'Holds the history of jobs held by an employee. 
 The first job may be followed by at most one
 job. Similarly, the last held job will have 
@@ -24,24 +24,6 @@ INSERT INTO O_ATTR
 	'The last date an employee held the job ',
 	'',
 	'EndDate',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'',
-	'');
-INSERT INTO O_NBATTR
-	VALUES ("062bdb06-1aee-4100-bca6-2ffd1545bbcb",
-	"63ad13d3-10ff-46b3-86b1-2018487fbb6d");
-INSERT INTO O_BATTR
-	VALUES ("062bdb06-1aee-4100-bca6-2ffd1545bbcb",
-	"63ad13d3-10ff-46b3-86b1-2018487fbb6d");
-INSERT INTO O_ATTR
-	VALUES ("062bdb06-1aee-4100-bca6-2ffd1545bbcb",
-	"63ad13d3-10ff-46b3-86b1-2018487fbb6d",
-	"4b8de829-dccf-4c7f-8de9-1abe12f5f8b7",
-	'StartingDate',
-	'The date that the employee first held the job.',
-	'',
-	'StartingDate',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',

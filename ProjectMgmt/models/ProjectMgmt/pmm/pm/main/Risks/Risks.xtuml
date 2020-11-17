@@ -1,0 +1,140 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("0b07dd65-4d51-4151-9ab7-3deb52614963",
+	'Risks',
+	8,
+	'Risks',
+	'The possibility of an undesired outcome to occur. ',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("ef1ab1b5-67ea-4001-a2a6-206ce5a4f28d",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_BATTR
+	VALUES ("ef1ab1b5-67ea-4001-a2a6-206ce5a4f28d",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_ATTR
+	VALUES ("ef1ab1b5-67ea-4001-a2a6-206ce5a4f28d",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963",
+	"00000000-0000-0000-0000-000000000000",
+	'ID',
+	'A unique sequential number assigned as an identifier',
+	'',
+	'ID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("5b1eaa13-f799-4ffd-ad3e-4badb8cb8a95",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_BATTR
+	VALUES ("5b1eaa13-f799-4ffd-ad3e-4badb8cb8a95",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_ATTR
+	VALUES ("5b1eaa13-f799-4ffd-ad3e-4badb8cb8a95",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963",
+	"ef1ab1b5-67ea-4001-a2a6-206ce5a4f28d",
+	'Title',
+	'A short description of the risk',
+	'',
+	'Title',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("5dbcdee3-c6f9-4fe6-b17e-b9997d3c7ab0",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_BATTR
+	VALUES ("5dbcdee3-c6f9-4fe6-b17e-b9997d3c7ab0",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_ATTR
+	VALUES ("5dbcdee3-c6f9-4fe6-b17e-b9997d3c7ab0",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963",
+	"5b1eaa13-f799-4ffd-ad3e-4badb8cb8a95",
+	'Severity',
+	'The extent that the risk may harm the progress of a project  ',
+	'',
+	'Severity',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ea5943e3-0c10-4360-a34e-d477ddb0bcc8",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_BATTR
+	VALUES ("ea5943e3-0c10-4360-a34e-d477ddb0bcc8",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_ATTR
+	VALUES ("ea5943e3-0c10-4360-a34e-d477ddb0bcc8",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963",
+	"5dbcdee3-c6f9-4fe6-b17e-b9997d3c7ab0",
+	'Probability',
+	'A measure of the likelihood of the risk becoming an issue',
+	'',
+	'Probability',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("baf98f9d-c64c-48c1-be08-529ec8629987",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_BATTR
+	VALUES ("baf98f9d-c64c-48c1-be08-529ec8629987",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_ATTR
+	VALUES ("baf98f9d-c64c-48c1-be08-529ec8629987",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963",
+	"ea5943e3-0c10-4360-a34e-d477ddb0bcc8",
+	'Description',
+	'',
+	'',
+	'Description',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("9b3158ea-db51-470b-bafc-07623cc95122",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_BATTR
+	VALUES ("9b3158ea-db51-470b-bafc-07623cc95122",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_ATTR
+	VALUES ("9b3158ea-db51-470b-bafc-07623cc95122",
+	"0b07dd65-4d51-4151-9ab7-3deb52614963",
+	"baf98f9d-c64c-48c1-be08-529ec8629987",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_ID
+	VALUES (1,
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO O_ID
+	VALUES (2,
+	"0b07dd65-4d51-4151-9ab7-3deb52614963");
+INSERT INTO PE_PE
+	VALUES ("0b07dd65-4d51-4151-9ab7-3deb52614963",
+	1,
+	"6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

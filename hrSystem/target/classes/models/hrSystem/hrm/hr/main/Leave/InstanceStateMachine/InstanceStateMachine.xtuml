@@ -385,9 +385,9 @@ INSERT INTO SM_ACT
 	'
 //set a timer to start leave
 // generate an event to transit state 
-LOG::LogInfo(message:"Employee leave approved");
+//LOG::LogInfo(message:"Employee leave approved");
 
-LOG::LogInfo(message:"Leave started timer for future leave ");
+//LOG::LogInfo(message:"Leave started timer for future leave ");
 
 timeUntilLeaveStarts = self.Starting - TIM::current_seconds();
 create event instance StartLeave of Leave2:StartLeave() to self;
@@ -424,16 +424,12 @@ INSERT INTO SM_ACT
 select one employee related by self->Employee[R7.''to be taken by''];
 
 relate self to employee across R5.''is currently taken by'';
-unrelate self from employee across R7.''to be taken by'';
 
 generate Employee5:LeaveStarted() to employee;
 
 LOG::LogInfo(message:"Employee leave started");
 
-//set a timer to end leave and generate an event to transit state
-timeUntilLeaveEnds = self.Ending - TIM::current_seconds();
-create event instance EndLeave of Leave3:EndLeave() to self;
-startLeaveTmr = TIM::timer_start( event_inst: EndLeave, microseconds:timeUntilLeaveEnds);',
+',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -463,13 +459,16 @@ INSERT INTO SM_ACT
 	1,
 	'select one employee related by self->Employee[R5.''is currently taken by''];
 
-relate self to employee across R11.''consumed by'';//.''to be taken by''; //.''is consumed by'';
+relate self to employee across R11.''consumed by'';
 
 unrelate self from employee across R5.''is currently taken by'';
 
 generate Employee6:LeaveEnded() to employee;
 
-LOG::LogInfo(message:"Employee leave ended");
+//deduct leave days from employee leave balance
+select one leavespec related by self->LeaveSpecification[R15.''is specified by a''];
+employee.LeaveBalance = employee.LeaveBalance- self.NumberOfDays;
+
 
 ',
 	'',
@@ -500,7 +499,7 @@ INSERT INTO SM_ACT
 	"ef7162e6-d2b5-4d58-9a87-c7e422338c59",
 	1,
 	'//Make room for another leave to be requested  
-LOG::LogInfo(message:"Employee leave rejected");
+//LOG::LogInfo(message:"Employee leave rejected");
 
 select one employee related by self->Employee[R7.''to be taken by''];
 unrelate self from employee across R7.''to be taken by'';
@@ -1125,12 +1124,12 @@ INSERT INTO O_OBJ_PROXY
 	'Leave',
 	10,
 	'Leave',
-	'Represents the leave instance an employee either: 
+	'Represents the leave instance an employee consumes, either: 
 	a. created in the past as result of requesting 
 	   a specific type of leave, or
 	b. created to be consumed in the future representing 
 	   a planned leave of absence,
-	c. created and currently beign consumed as an active 
+	c. created and currently being consumed as an active 
 	   leave of absence to end in a future date.',
 	"00000000-0000-0000-0000-000000000000",
 	'../Leave.xtuml');
