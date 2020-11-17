@@ -530,16 +530,16 @@ INSERT INTO SM_ACT
 	VALUES ("9d7906a7-facf-4377-987f-440d077f7bbc",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'create object instance account of AccountSpecification;
-account.Code = "٢١";
-account.Name="تعويضات العاملين";
+	'//create object instance account of AccountSpecification;
+//account.Code = "٢١";
+//account.Name="تعويضات العاملين";
 
-create object instance account of AccountSpecification;
-account.Code = "٢٢";
-account.Name="السلع والخدمات";
+//create object instance account of AccountSpecification;
+//account.Code = "٢٢";
+//account.Name="السلع والخدمات";
 
 
-create object instance account of AccountSpecification;
+/*create object instance account of AccountSpecification;
 account.Code = "٢٣";
 account.Name="استهلاك الرأس المال الثابت";
 
@@ -574,8 +574,7 @@ for each account in accounts
 	relate account to expenditure across R18; 
 end for;
 
-generate PEI1:AccountsComplete() to self;
-',
+generate PEI1:AccountsComplete() to self;*/',
 	'',
 	0);
 INSERT INTO SM_MOAH
@@ -589,7 +588,7 @@ INSERT INTO SM_ACT
 	VALUES ("afdd2f36-6d1c-4714-8513-df713894e318",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'nameCode[22] = "211111";
+	'/*nameCode[22] = "211111";
 nameCode[21] = "رواتب الموظفين المدنيين";
 nameCode[20]= "211114";
 nameCode[19]="أجور العمال";
@@ -625,7 +624,7 @@ while (i >=1)
 end while;
 
  
-generate PEI3:Subaccount21Complete to self;
+generate PEI3:Subaccount21Complete to self;*/
  
 ',
 	'',
@@ -669,7 +668,7 @@ INSERT INTO SM_ACT
 	VALUES ("35224c8d-d299-43e1-acdd-24d29f85636c",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'create object instance budget of Budget;
+	'/*create object instance budget of Budget;
 budget.Year=param.Year;
 
 select many accounts from instances of AccountSpecification;
@@ -690,7 +689,7 @@ for each account in accounts
 	end if;
 end for;
 
-generate PEI5:BudgetsComplete() to self;
+generate PEI5:BudgetsComplete() to self;*/
 ',
 	'',
 	0);
@@ -705,7 +704,7 @@ INSERT INTO SM_ACT
 	VALUES ("c1c1831f-cb52-42e1-af66-ac5671280337",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'nameCode[14]= "221111";
+	'/*nameCode[14]= "221111";
 nameCode[13]="استهلاك الكهرباء";
 nameCode[12]= "221112";
 nameCode[11]="إيصال الكهرباء";
@@ -733,7 +732,7 @@ end while;
 
  
  
-generate PEI4:Subaccount22Complete(Year:self.Year) to self;
+generate PEI4:Subaccount22Complete(Year:self.Year) to self;*/
 ',
 	'',
 	0);
