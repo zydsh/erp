@@ -201,11 +201,11 @@ INSERT INTO C_EP
 	VALUES ("b7daccf5-4ee4-4e07-877f-35586f6ba785",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadSectionsRequested',
+	'ReadRequested',
 	'');
 INSERT INTO C_AS
 	VALUES ("b7daccf5-4ee4-4e07-877f-35586f6ba785",
-	'ReadSectionsRequested',
+	'ReadRequested',
 	'',
 	0,
 	"70cffc85-c610-407d-a0de-b2fd7776c2f3");
@@ -218,24 +218,15 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("8c969ee2-d895-4067-b2c5-72681c095782",
-	"b7daccf5-4ee4-4e07-877f-35586f6ba785",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'ChapterCode',
-	'',
-	0,
-	'',
-	"9bba34ae-a33c-4719-8506-769254c9bb0c");
 INSERT INTO C_EP
 	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'SendSectionsRequested',
+	'SendRequested',
 	'');
 INSERT INTO C_AS
 	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
-	'SendSectionsRequested',
+	'SendRequested',
 	'',
 	1,
 	"b7daccf5-4ee4-4e07-877f-35586f6ba785");
@@ -279,11 +270,11 @@ INSERT INTO C_EP
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadSectionsCeiling',
+	'ReadCeiling',
 	'');
 INSERT INTO C_AS
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
-	'ReadSectionsCeiling',
+	'ReadCeiling',
 	'',
 	0,
 	"b6724746-1a25-4086-8a5f-53fae643a17f");
@@ -296,24 +287,15 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("c5faa20a-e6f8-49d9-865d-3b3656539d84",
-	"dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'ChapterCode',
-	'',
-	0,
-	'',
-	"5ac1f5b9-7dee-4b2f-82c8-cb03b0df9cbd");
 INSERT INTO C_EP
 	VALUES ("1f6a3814-0c98-4dd6-bac0-080a5a7a0c35",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'SendSectionsCeiling',
+	'SendCeiling',
 	'');
 INSERT INTO C_AS
 	VALUES ("1f6a3814-0c98-4dd6-bac0-080a5a7a0c35",
-	'SendSectionsCeiling',
+	'SendCeiling',
 	'',
 	1,
 	"dd6db19b-bdef-4d21-b22a-6b03d86bfa5a");
