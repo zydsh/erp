@@ -144,7 +144,7 @@ INSERT INTO GD_GE
 	"756c174f-4dd7-4dd4-9c14-63860769ebae",
 	24,
 	0,
-	'ProjectMgmt::pmm::pm::main::R3');
+	'ProjectMgmt::pmm::pm::main::R67');
 INSERT INTO GD_CON
 	VALUES ("d2b927b6-54d3-4cc7-b47a-c08beeda5466",
 	"00000000-0000-0000-0000-000000000000");
@@ -352,7 +352,7 @@ INSERT INTO GD_GE
 	"f1e1de69-3800-430e-86da-74d373b49806",
 	24,
 	0,
-	'ProjectMgmt::pmm::pm::main::R10');
+	'ProjectMgmt::pmm::pm::main::R66');
 INSERT INTO GD_CON
 	VALUES ("b8137643-bf1d-4c45-acb9-27fd621af6e5",
 	"00000000-0000-0000-0000-000000000000");
@@ -552,7 +552,7 @@ INSERT INTO GD_GE
 	"28fcd849-0cdc-4ecf-a15b-dda6670f6df7",
 	24,
 	0,
-	'ProjectMgmt::pmm::pm::main::R5');
+	'ProjectMgmt::pmm::pm::main::R69');
 INSERT INTO GD_CON
 	VALUES ("c5847bbf-e8cf-42e7-bd8a-2dd527b251e9",
 	"00000000-0000-0000-0000-000000000000");
@@ -1256,7 +1256,7 @@ INSERT INTO R_SIMP
 	VALUES ("756c174f-4dd7-4dd4-9c14-63860769ebae");
 INSERT INTO R_REL
 	VALUES ("756c174f-4dd7-4dd4-9c14-63860769ebae",
-	3,
+	67,
 	'Eshtablished when a milestone is completed.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
@@ -1321,7 +1321,7 @@ INSERT INTO R_SIMP
 	VALUES ("f1e1de69-3800-430e-86da-74d373b49806");
 INSERT INTO R_REL
 	VALUES ("f1e1de69-3800-430e-86da-74d373b49806",
-	10,
+	66,
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
@@ -1431,7 +1431,7 @@ INSERT INTO R_SIMP
 	VALUES ("28fcd849-0cdc-4ecf-a15b-dda6670f6df7");
 INSERT INTO R_REL
 	VALUES ("28fcd849-0cdc-4ecf-a15b-dda6670f6df7",
-	5,
+	69,
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
@@ -1678,7 +1678,7 @@ INSERT INTO O_OBJ_PROXY
 	'Risks',
 	8,
 	'Risks',
-	'',
+	'The possibility of an undesired outcome to occur. ',
 	"00000000-0000-0000-0000-000000000000",
 	'./Risks/Risks.xtuml');
 INSERT INTO PE_PE

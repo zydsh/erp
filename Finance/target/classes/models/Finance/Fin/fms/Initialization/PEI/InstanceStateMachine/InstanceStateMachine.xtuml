@@ -675,7 +675,7 @@ INSERT INTO SM_ACT
 	VALUES ("35224c8d-d299-43e1-acdd-24d29f85636c",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'create object instance budget of Budget;
+	'/*create object instance budget of Budget;
 budget.Year=param.Year;
 
 select many accounts from instances of AccountSpecification;
@@ -696,7 +696,7 @@ for each account in accounts
 	end if;
 end for;
 
-generate PEI5:BudgetsComplete() to self;
+generate PEI5:BudgetsComplete() to self;*/
 ',
 	'',
 	0);
