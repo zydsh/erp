@@ -541,7 +541,7 @@ account.Name="السلع والخدمات";
 
 create object instance account of AccountSpecification;
 account.Code = "٢٣";
-account.Name="استهلاك الرأس المال الثابت";
+account.Name="استهلاك الرأس المال الثابت"; 
 
 create object instance account of AccountSpecification;
 account.Code = "٢٤";

@@ -448,13 +448,13 @@ INSERT INTO SPR_PS
 	'ReadCeiling',
 	'',
 	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
-select many accounts related by budget->Account[R100.''assigned''];
+select many accounts related by budget->Account[R1.''assigned''];
 
 if (not empty accounts)  
 	for each account in accounts
-		select one ceiling related by account->Ceiling[R119];
+		select one ceiling related by account->Ceiling[R19];
 		if (not empty ceiling)
-			select one spec related by account->AccountSpecification[R120.''budgetized by''];
+			select one spec related by account->AccountSpecification[R12.''budgetized by''];
 			UI::SendRequested( Code:spec.Code, Name:spec.Name, RequestedFund:ceiling.Fund, RequestedRevenue:ceiling.Revenue );
 		end if;
 	end for;
@@ -825,13 +825,13 @@ INSERT INTO SPR_PS
 	'ReadRequested',
 	'',
 	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
-select many accounts related by budget->Account[R100.''assigned''];
+select many accounts related by budget->Account[R1.''assigned''];
 
 if (not empty accounts) 
 	for each account in accounts
-		select one requested related by account->Requested[R119];
+		select one requested related by account->Requested[R19];
 		if (not empty requested)
-			select one spec related by account->AccountSpecification[R120.''budgetized by''];
+			select one spec related by account->AccountSpecification[R12.''budgetized by''];
 			UI::SendRequested( Code:spec.Code, Name:spec.Name, RequestedFund:requested.Fund, RequestedRevenue:requested.Revenue );
 		end if;
 	end for;
