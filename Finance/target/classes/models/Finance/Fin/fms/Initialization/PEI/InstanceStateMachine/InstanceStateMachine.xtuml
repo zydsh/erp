@@ -572,8 +572,8 @@ select many accounts from instances of AccountSpecification;
 for each account in accounts
 	create object instance expenditure of Expenditure;
 	create object instance ap of AccountPayble;
-	relate account to expenditure across R18; 
-	relate account to ap across R22;
+	relate account to expenditure across R118; 
+	relate account to ap across R122;
 end for;
 
 generate PEI1:AccountsComplete() to self;',
@@ -623,9 +623,9 @@ while (i >=1)
 	create object instance ap of AccountPayble;
 	subaccount.Code= nameCode[i];
 	subaccount.Name=nameCode[i-1];
-	relate subaccount to account across R8.''part'';
-	relate subaccount to subexpend across R18;
-	relate subaccount to ap across R22;
+	relate subaccount to account across R108.''part'';
+	relate subaccount to subexpend across R118;
+	relate subaccount to ap across R122;
 
 	i = i-2;
 end while;
@@ -735,9 +735,9 @@ while (i >=1)
 	create object instance ap of AccountPayble;
 	subaccount.Code= nameCode[i];
 	subaccount.Name=nameCode[i-1];
-	relate subaccount to account across R8.''part'';
-	relate subaccount to subexpend across R18;
-	relate subaccount to ap across R22;
+	relate subaccount to account across R108.''part'';
+	relate subaccount to subexpend across R118;
+	relate subaccount to ap across R122;
 
 	i = i-2;
 end while;

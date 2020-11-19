@@ -371,15 +371,15 @@ INSERT INTO SPR_PS
 	'ReadExpenditureAccounts',
 	'',
 	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
-select many accounts related by budget->Account[R1.''assigned''];
+select many accounts related by budget->Account[R100.''assigned''];
 
 if (not empty accounts) 
 	LOG::LogInfo(message:"Sending account list .." );	
 	
 	for each account in accounts
-		select one specaccount related by account->AccountSpecification[R20.''budgetized by'']->AccountSpecification[R8.''part''];
+		select one specaccount related by account->AccountSpecification[R120.''budgetized by'']->AccountSpecification[R108.''part''];
 		if (empty specaccount)
-			select one expenditure related by account->AccountSpecification[R20.''budgetized by'']->Expenditure[R18];
+			select one expenditure related by account->AccountSpecification[R120.''budgetized by'']->Expenditure[R118];
 			UI::SendChapters( Code:specaccount.Code, Name:specaccount.Name, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund);		
 			//LOG::LogInfo(message:"Sent: Chapter: "+ chapter.Code+ ", "+chapter.Name);
 			//LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:chapter.Ceiling );
@@ -448,13 +448,13 @@ INSERT INTO SPR_PS
 	'ReadCeiling',
 	'',
 	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
-select many accounts related by budget->Account[R1.''assigned''];
+select many accounts related by budget->Account[R100.''assigned''];
 
 if (not empty accounts)  
 	for each account in accounts
-		select one ceiling related by account->Ceiling[R19];
+		select one ceiling related by account->Ceiling[R119];
 		if (not empty ceiling)
-			select one spec related by account->AccountSpecification[R20.''budgetized by''];
+			select one spec related by account->AccountSpecification[R120.''budgetized by''];
 			UI::SendRequested( Code:spec.Code, Name:spec.Name, RequestedFund:ceiling.Fund, RequestedRevenue:ceiling.Revenue );
 		end if;
 	end for;
@@ -495,9 +495,9 @@ INSERT INTO SPR_PS
 	'AcceptRequested',
 	'',
 	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-select many accounts related by accountSpec->Account[R20.''budgetize''];
+select many accounts related by accountSpec->Account[R120.''budgetize''];
 for each account in accounts
-	select one requested related by account->Requested[R19];
+	select one requested related by account->Requested[R119];
 	
 	if (not empty requested)
 		generate Account1:Accept to account;
@@ -524,9 +524,9 @@ INSERT INTO SPR_PS
 	'AcceptCeiling',
 	'',
 	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-select many accounts related by accountSpec->Account[R20.''budgetize''];
+select many accounts related by accountSpec->Account[R120.''budgetize''];
 for each account in accounts
-	select one ceiling related by account->Ceiling[R19];
+	select one ceiling related by account->Ceiling[R119];
 	if (not empty ceiling)
 		generate Account1:Accept to account;
 	else
@@ -553,7 +553,7 @@ INSERT INTO SPR_PS
 	'',
 	'
 select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-select many accounts related by accountSpec->Account[R20.''budgetize''];
+select many accounts related by accountSpec->Account[R120.''budgetize''];
 for each account in accounts
 	generate Account3:Review to account;
 end for;
@@ -605,7 +605,7 @@ INSERT INTO SPR_PS
 	'OperationalizeBudget',
 	'',
 	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-select many accounts related by accountSpec->Account[R20.''budgetize''];
+select many accounts related by accountSpec->Account[R120.''budgetize''];
 for each account in accounts
 		generate Account4:Open to account;
 end for;
@@ -663,15 +663,15 @@ entry.Date = param.Date;
 entry.Description = param.Description;
 create object instance amount of Amount;
 amount.Amount = param.Amount;
-relate entry to amount across R4;
+relate entry to amount across R104;
 
-select one column related by journal->Column[R16.''has single''];
-relate amount to column across R13;
-select one debit related by column->AccountSpecification[R14.''debits'']->Account[R17.''operates''];
-select one credit related by column->AccountSpecification[R15.''credits'']->Account[R17.''operates''];
+select one column related by journal->Column[R116.''has single''];
+relate amount to column across R113;
+select one debit related by column->AccountSpecification[R114.''debits'']->Account[R117.''operates''];
+select one credit related by column->AccountSpecification[R115.''credits'']->Account[R117.''operates''];
 
-relate amount to debit across R3.''debits'';
-relate amount to credit across R5.''credits'';
+relate amount to debit across R103.''debits'';
+relate amount to credit across R105.''credits'';
 ',
 	1,
 	0);
@@ -694,7 +694,7 @@ INSERT INTO SPR_PS
 select many accounts from instances of AccountSpecification where selected.Code == param.Code; 
 
 for each account in accounts
-	select many budgets related by account->Account[R20.''budgetize''];
+	select many budgets related by account->Account[R120.''budgetize''];
 	for each budget in budgets
 		generate Account4:Open to budget;
 	end for;
@@ -730,15 +730,15 @@ entry.Date = param.Date;
 entry.Description = param.Description;
 create object instance amount of Amount;
 amount.Amount = param.Amount;
-relate entry to amount across R4;
+relate entry to amount across R104;
 
-select one column related by journal->Column[R16.''has single''];
-relate amount to column across R13;
-select one debit related by column->AccountSpecification[R14.''debits'']->Account[R17.''operates''];
-select one credit related by column->AccountSpecification[R15.''credits'']->Account[R17.''operates''];
+select one column related by journal->Column[R116.''has single''];
+relate amount to column across R113;
+select one debit related by column->AccountSpecification[R114.''debits'']->Account[R117.''operates''];
+select one credit related by column->AccountSpecification[R115.''credits'']->Account[R117.''operates''];
 
-relate amount to debit across R3.''debits'';
-relate amount to credit across R5.''credits'';
+relate amount to debit across R103.''debits'';
+relate amount to credit across R105.''credits'';
 ',
 	1,
 	0);
@@ -772,8 +772,8 @@ if (empty journal)
 	select any accountCredit from instances of AccountSpecification where selected.Code ==param.CreditAccountCode;
 
 	if ( not empty accountDebit) and (not empty accountDebit)
-		relate column to accountDebit across R14.''debits'';
-		relate column to accountCredit across R15.''credits'';
+		relate column to accountDebit across R114.''debits'';
+		relate column to accountCredit across R115.''credits'';
 	end if;
 end if;',
 	1,
@@ -803,8 +803,8 @@ if (not empty journal)
 	select any accountCredit from instances of AccountSpecification where selected.Code ==param.CreditAccountCode;
 
 	if ( not empty accountDebit) and (not empty accountDebit)
-		relate column to accountDebit across R14.''debits'';
-		relate column to accountCredit across R15.''credits'';
+		relate column to accountDebit across R114.''debits'';
+		relate column to accountCredit across R115.''credits'';
 	end if;
 end if;',
 	1,
@@ -825,13 +825,13 @@ INSERT INTO SPR_PS
 	'ReadRequested',
 	'',
 	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
-select many accounts related by budget->Account[R1.''assigned''];
+select many accounts related by budget->Account[R100.''assigned''];
 
 if (not empty accounts) 
 	for each account in accounts
-		select one requested related by account->Requested[R19];
+		select one requested related by account->Requested[R119];
 		if (not empty requested)
-			select one spec related by account->AccountSpecification[R20.''budgetized by''];
+			select one spec related by account->AccountSpecification[R120.''budgetized by''];
 			UI::SendRequested( Code:spec.Code, Name:spec.Name, RequestedFund:requested.Fund, RequestedRevenue:requested.Revenue );
 		end if;
 	end for;

@@ -675,12 +675,12 @@ INSERT INTO SM_ACT
 	VALUES ("35224c8d-d299-43e1-acdd-24d29f85636c",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'/*create object instance budget of Budget;
+	'create object instance budget of Budget;
 budget.Year=param.Year;
 
 select many accounts from instances of AccountSpecification;
 for each account in accounts
-	select one expenditure related by account->Expenditure[R18];
+	select one expenditure related by account->Expenditure[R118];
 	if (empty expenditure)
 		create object instance budgetAccount of Account;
 		create object instance ceiling of Ceiling;
@@ -688,15 +688,15 @@ for each account in accounts
 		create object instance requested of Requested;
 		requested.Revenue = 2340210;
 		create object instance ap of AccountPayble;
-		relate account to ap across R22;
-	 	relate account to budgetAccount across R20;
-		relate budgetAccount to ceiling across R19;
-		relate budgetAccount to requested across R19;
-		relate budgetAccount to budget across R1.''belongs to'';
+		relate account to ap across R122;
+	 	relate account to budgetAccount across R120;
+		relate budgetAccount to ceiling across R119;
+		relate budgetAccount to requested across R119;
+		relate budgetAccount to budget across R100.''belongs to'';
 	end if;
 end for;
 
-generate PEI5:BudgetsComplete() to self;*/
+generate PEI5:BudgetsComplete() to self;
 ',
 	'',
 	0);
