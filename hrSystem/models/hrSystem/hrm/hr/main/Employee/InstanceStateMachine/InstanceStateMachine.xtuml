@@ -930,7 +930,7 @@ select one job related by self->Job[R6.''currently occupies''];
 
 unrelate self from job across R6.''currently occupies'';
 
-relate self to job across R1.''occupied'';
+relate self to job across R10.''occupied'';
 
 ',
 	'',
