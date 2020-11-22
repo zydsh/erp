@@ -691,11 +691,11 @@ relate entry to amount across R4;
 
 select one column related by journal->Column[R16.''has single''];
 relate amount to column across R13;
-select one debit related by column->AccountSpecification[R14.''debits'']->Account[R17.''operates''];
-select one credit related by column->AccountSpecification[R15.''credits'']->Account[R17.''operates''];
+select one debit related by column->AccountSpecification[R140.''debits'']->Account[R17.''operates''];
+select one credit related by column->AccountSpecification[R150.''credits'']->Account[R17.''operates''];
 
-relate amount to debit across R3.''debits'';
-relate amount to credit across R5.''credits'';
+relate amount to debit across R30.''debits'';
+relate amount to credit across R50.''credits'';
 ',
 	1,
 	0);
@@ -758,11 +758,11 @@ relate entry to amount across R4;
 
 select one column related by journal->Column[R16.''has single''];
 relate amount to column across R13;
-select one debit related by column->AccountSpecification[R14.''debits'']->Account[R17.''operates''];
-select one credit related by column->AccountSpecification[R15.''credits'']->Account[R17.''operates''];
+select one debit related by column->AccountSpecification[R140.''debits'']->Account[R17.''operates''];
+select one credit related by column->AccountSpecification[R150.''credits'']->Account[R17.''operates''];
 
-relate amount to debit across R3.''debits'';
-relate amount to credit across R5.''credits'';
+relate amount to debit across R30.''debits'';
+relate amount to credit across R50.''credits'';
 ',
 	1,
 	0);
@@ -796,8 +796,8 @@ if (empty journal)
 	select any accountCredit from instances of AccountSpecification where selected.Code ==param.CreditAccountCode;
 
 	if ( not empty accountDebit) and (not empty accountDebit)
-		relate column to accountDebit across R14.''debits'';
-		relate column to accountCredit across R15.''credits'';
+		relate column to accountDebit across R140.''debits'';
+		relate column to accountCredit across R150.''credits'';
 	end if;
 end if;',
 	1,
@@ -827,8 +827,8 @@ if (not empty journal)
 	select any accountCredit from instances of AccountSpecification where selected.Code ==param.CreditAccountCode;
 
 	if ( not empty accountDebit) and (not empty accountDebit)
-		relate column to accountDebit across R14.''debits'';
-		relate column to accountCredit across R15.''credits'';
+		relate column to accountDebit across R140.''debits'';
+		relate column to accountCredit across R150.''credits'';
 	end if;
 end if;',
 	1,
