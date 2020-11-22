@@ -663,7 +663,7 @@ INSERT INTO SM_ACT
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	1,
 	'	select one account related by self->AccountSpecification[R202.''budgetized by''];
-	relate self to account across R17.''operated by'';
+	relate self to account across R170.''operated by'';
 	select one child related by account->Expenditure[R180];
 	if ( not empty child)
 			create object instance operation of OperationalAccount;
