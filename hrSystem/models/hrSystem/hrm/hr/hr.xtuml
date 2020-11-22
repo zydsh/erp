@@ -1754,7 +1754,7 @@ INSERT INTO SPR_PS
 	'HoldPayment',
 	'',
 	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
-select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a'']
+select any payment related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a'']
 where selected.Date == param.Date and selected.Amount == param.Amount;
 
 if (not empty payment)
@@ -1778,7 +1778,7 @@ INSERT INTO SPR_PS
 	'ApprovePayment',
 	'',
 	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
-select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a'']
+select any payment related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a'']
 where selected.Date == param.Date and selected.Amount == param.Amount;
 
 if (not empty payment)
@@ -1820,7 +1820,7 @@ INSERT INTO SPR_PS
 	'ReadPayItem',
 	'',
 	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
-select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a'']
+select any payment related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a'']
 where selected.Date ==param.Date and selected.Amount==param.Amount;
 if (not empty payment)
 	generate PayslipItem5:Review to payment;
@@ -1843,7 +1843,7 @@ INSERT INTO SPR_PS
 	'ReadAnyPayItem',
 	'',
 	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
-select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a''];
+select any payment related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a''];
 if (not empty payment)
 	generate PayslipItem5:Review to payment;
 end if;',
@@ -1865,7 +1865,7 @@ INSERT INTO SPR_PS
 	'MakePayment',
 	'',
 	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
-select any payment related by employee->PayslipItem[R3.''an earning or a deduction is recorded in a'']
+select any payment related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a'']
 where selected.Date == param.Date and selected.Amount == param.Amount;
 
 if (not empty payment)

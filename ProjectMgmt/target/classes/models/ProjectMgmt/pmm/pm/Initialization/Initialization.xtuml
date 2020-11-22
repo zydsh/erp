@@ -81,7 +81,7 @@ init.ActualEndDate=0;
 init.EndDate = 0;
 init.Budget= 800000;
 
-relate init to str1 across R10.''implements'';
+relate init to str1 across R66.''implements'';
 
 create object instance mile of Milestone;
 mile.Name = "اكتمال الدراسات المساندة";

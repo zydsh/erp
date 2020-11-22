@@ -10,10 +10,10 @@ INSERT INTO O_OBJ
 INSERT INTO O_DBATTR
 	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
-	'select many funds related by self->AccountSpecification[R18]->AccountSpecification[R8.''divided''];
+	'select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
 
 for each fund in funds 
-	select many fc related by fund->Account[R20.''budgetize'']->Ceiling[R19]; 
+	select many fc related by fund->Account[R202.''budgetize'']->Ceiling[R190]; 
 	for each f in fc
 		if (not empty f)
 			self.CeilingFund = f.Fund + self.CeilingFund;
@@ -41,10 +41,10 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("1008e2be-5714-48c0-958d-4f04914f9b98",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
-	'select many funds related by self->AccountSpecification[R18]->AccountSpecification[R8.''divided''];
+	'select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
 
 for each fund in funds 
-	select many fc related by fund->Account[R20.''budgetize'']->Ceiling[R19]; 
+	select many fc related by fund->Account[R202.''budgetize'']->Ceiling[R190]; 
 	for each f in fc
 		if (not empty f)
 			self.CeilingRevenue = f.Fund + self.CeilingRevenue;
@@ -72,10 +72,10 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("35087317-c7d5-45e3-bb9d-864787666da8",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
-	'select many funds related by self->AccountSpecification[R18]->AccountSpecification[R8.''divided''];
+	'select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
 
 for each fund in funds 
-	select many fr related by fund->Account[R20.''budgetize'']->Requested[R19]; 
+	select many fr related by fund->Account[R202.''budgetize'']->Requested[R190]; 
 	for each f in fr
 		if (not empty f)
 			self.RequestedFund = f.Fund + self.RequestedFund;
@@ -103,10 +103,10 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("dd86938e-20c8-4ba9-b6be-2c84c7260b74",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
-	'select many funds related by self->AccountSpecification[R18]->AccountSpecification[R8.''divided''];
+	'select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
 
 for each fund in funds 
-	select many fr related by fund->Account[R20.''budgetize'']->Requested[R19]; 
+	select many fr related by fund->Account[R202.''budgetize'']->Requested[R190]; 
 	for each f in fr
 		if (not empty f)
 			self.RequestedRevenue = f.Fund + self.RequestedRevenue;
