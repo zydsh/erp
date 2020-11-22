@@ -925,7 +925,7 @@ INSERT INTO SM_ACT
 
 select one job related by self->Job[R6.''currently occupies''];
 
-create object instance record of Test;
+create object instance record of BankAccount;
 //record.EndDate = TIM::current_seconds();
 
 unrelate self from job across R6.''currently occupies'';
