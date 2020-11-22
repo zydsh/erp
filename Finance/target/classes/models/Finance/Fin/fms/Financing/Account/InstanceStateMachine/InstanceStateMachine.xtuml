@@ -667,10 +667,10 @@ INSERT INTO SM_ACT
 	select one child related by account->Expenditure[R18];
 	if ( not empty child)
 			create object instance operation of OperationalAccount;
-			relate self to operation across R2;
+			relate self to operation across R200;
 	else
 			create object instance operation of OperationalProgram;
-			relate self to operation across R2;
+			relate self to operation across R200;
 	end if;
 
 ',

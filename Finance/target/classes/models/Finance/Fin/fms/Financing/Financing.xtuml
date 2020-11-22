@@ -313,7 +313,7 @@ INSERT INTO GD_GE
 	"ace87379-b67e-4939-976f-bcd532922e2a",
 	36,
 	0,
-	'Finance::Fin::fms::Financing::R2');
+	'Finance::Fin::fms::Financing::R200');
 INSERT INTO GD_CON
 	VALUES ("82b2c4c6-ea3a-48d5-a25a-f7d979424f55",
 	"00000000-0000-0000-0000-000000000000");
@@ -453,7 +453,7 @@ INSERT INTO GD_GE
 	"a6919ae1-9f47-4f97-87e1-abea3e3c720e",
 	35,
 	0,
-	'Finance::Fin::fms::Financing::R2::OperationalProgram');
+	'Finance::Fin::fms::Financing::R200::OperationalProgram');
 INSERT INTO GD_CON
 	VALUES ("3504274d-62ae-49a5-a09f-67d17e9dc5e4",
 	"00000000-0000-0000-0000-000000000000");
@@ -579,7 +579,7 @@ INSERT INTO GD_GE
 	"338d38e7-840a-4c06-a195-ee527ec546f9",
 	35,
 	0,
-	'Finance::Fin::fms::Financing::R2::OperationalAccount');
+	'Finance::Fin::fms::Financing::R200::OperationalAccount');
 INSERT INTO GD_CON
 	VALUES ("7dcc835c-54de-40ee-9b7d-48b2acdb96a6",
 	"00000000-0000-0000-0000-000000000000");
@@ -3735,7 +3735,7 @@ INSERT INTO R_SUBSUP
 	VALUES ("ace87379-b67e-4939-976f-bcd532922e2a");
 INSERT INTO R_REL
 	VALUES ("ace87379-b67e-4939-976f-bcd532922e2a",
-	2,
+	200,
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_SUPER
