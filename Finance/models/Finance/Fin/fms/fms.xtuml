@@ -401,7 +401,7 @@ if (not empty accounts)
 	LOG::LogInfo(message:"Sending account list .." );	
 	
 	for each account in accounts
-		select one specaccount related by account->AccountSpecification[R20.''budgetized by'']->AccountSpecification[R80.''part''];
+		select one specaccount related by account->AccountSpecification[R20.''budgetized by'']->AccountSpecification[R8.''part''];
 		if (empty specaccount)
 			select one expenditure related by account->AccountSpecification[R20.''budgetized by'']->Expenditure[R180];
 			UI::SendChapters( Code:specaccount.Code, Name:specaccount.Name, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund);		
