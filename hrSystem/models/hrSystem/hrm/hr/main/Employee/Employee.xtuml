@@ -82,7 +82,7 @@ for each deduction in deductions
  	create object instance deductionItem of PayslipItem;
 	deductionItem.Name = deduction.Reason;
 	deductionItem.Date = deduction.Date;
-	deductionItem.Amount = deduction.Amount;
+	deductionItem.Amount = deduction.Amount; 
 	deductionItem.Type = Paytype::Deduction;
 	relate self to deductionItem across R13.''an earning or a deduction is recorded in a'';
 	relate deductionItem to beforeItem across R18.''listed after'';
