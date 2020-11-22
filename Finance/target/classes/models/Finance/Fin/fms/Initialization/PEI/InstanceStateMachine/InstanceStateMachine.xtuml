@@ -682,11 +682,11 @@ for each account in accounts
 		create object instance requested of Requested;
 		requested.Revenue = 2340210;
 		create object instance ap of AccountPayble;
-		relate account to ap across R22;
-	 	relate account to budgetAccount across R20;
-		relate budgetAccount to ceiling across R19;
-		relate budgetAccount to requested across R19;
-		relate budgetAccount to budget across R1.''belongs to'';
+		relate account to ap across R220;
+	 	relate account to budgetAccount across R202;
+		relate budgetAccount to ceiling across R190;
+		relate budgetAccount to requested across R190;
+		relate budgetAccount to budget across R100.''belongs to'';
 	end if;
 end for;
 

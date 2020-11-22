@@ -13,7 +13,7 @@ INSERT INTO O_DBATTR
 	'select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
 
 for each fund in funds 
-	select many fc related by fund->Account[R20.''budgetize'']->Ceiling[R19]; 
+	select many fc related by fund->Account[R202.''budgetize'']->Ceiling[R190]; 
 	for each f in fc
 		if (not empty f)
 			self.CeilingFund = f.Fund + self.CeilingFund;
@@ -44,7 +44,7 @@ INSERT INTO O_DBATTR
 	'select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
 
 for each fund in funds 
-	select many fc related by fund->Account[R20.''budgetize'']->Ceiling[R19]; 
+	select many fc related by fund->Account[R202.''budgetize'']->Ceiling[R190]; 
 	for each f in fc
 		if (not empty f)
 			self.CeilingRevenue = f.Fund + self.CeilingRevenue;
@@ -75,7 +75,7 @@ INSERT INTO O_DBATTR
 	'select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
 
 for each fund in funds 
-	select many fr related by fund->Account[R20.''budgetize'']->Requested[R19]; 
+	select many fr related by fund->Account[R202.''budgetize'']->Requested[R190]; 
 	for each f in fr
 		if (not empty f)
 			self.RequestedFund = f.Fund + self.RequestedFund;
@@ -106,7 +106,7 @@ INSERT INTO O_DBATTR
 	'select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
 
 for each fund in funds 
-	select many fr related by fund->Account[R20.''budgetize'']->Requested[R19]; 
+	select many fr related by fund->Account[R202.''budgetize'']->Requested[R190]; 
 	for each f in fr
 		if (not empty f)
 			self.RequestedRevenue = f.Fund + self.RequestedRevenue;
