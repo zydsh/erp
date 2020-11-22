@@ -63,24 +63,6 @@ INSERT INTO O_ATTR
 	'',
 	'');
 INSERT INTO O_NBATTR
-	VALUES ("7ceb3afe-de99-449f-b767-45581bca1337",
-	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
-INSERT INTO O_BATTR
-	VALUES ("7ceb3afe-de99-449f-b767-45581bca1337",
-	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
-INSERT INTO O_ATTR
-	VALUES ("7ceb3afe-de99-449f-b767-45581bca1337",
-	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
-	"f8e9b143-60f9-418f-8181-65fdacbf19b6",
-	'current_state',
-	'',
-	'',
-	'current_state',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000006",
-	'',
-	'');
-INSERT INTO O_NBATTR
 	VALUES ("8c23cc25-6ba3-4c6f-8b9e-6c602c0f57a7",
 	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
 INSERT INTO O_BATTR
