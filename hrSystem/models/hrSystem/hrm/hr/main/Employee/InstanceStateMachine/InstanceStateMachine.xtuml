@@ -923,14 +923,14 @@ INSERT INTO SM_ACT
 	1,
 	'
 
-/*select one job related by self->Job[R6.''currently occupies''];
+select one job related by self->Job[R6.''currently occupies''];
 
 create object instance record of JobRecord;
 record.EndDate = TIM::current_seconds();
 
 relate self to job across R1.''occupied'' using record;
 
-unrelate self from job across R6.''currently occupies'';*/
+unrelate self from job across R6.''currently occupies'';
 
 ',
 	'',
