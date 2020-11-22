@@ -930,7 +930,7 @@ record.EndDate = TIM::current_seconds();
 
 unrelate self from job across R6.''currently occupies'';
 
-relate self to job across R20.''to be promoted to'';
+relate self to job across R10.''occupied'' using record;
 
 ',
 	'',
