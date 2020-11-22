@@ -639,7 +639,7 @@ INSERT INTO GD_GE
 	"530f1098-b3d4-41ce-9703-226713b24bac",
 	24,
 	0,
-	'hrSystem::hrm::hr::main::R3');
+	'hrSystem::hrm::hr::main::R13');
 INSERT INTO GD_CON
 	VALUES ("b863d636-885d-43d8-a95d-9556a3cffc78",
 	"00000000-0000-0000-0000-000000000000");
@@ -2731,8 +2731,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"869b401f-a2bb-4f81-af83-3452507dc399");
 INSERT INTO DIM_GE
-	VALUES (553.000000,
-	696.000000,
+	VALUES (557.000000,
+	724.000000,
 	"869b401f-a2bb-4f81-af83-3452507dc399",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -3346,7 +3346,7 @@ INSERT INTO R_SIMP
 	VALUES ("530f1098-b3d4-41ce-9703-226713b24bac");
 INSERT INTO R_REL
 	VALUES ("530f1098-b3d4-41ce-9703-226713b24bac",
-	3,
+	13,
 	'Established for each payment item 
 employees earn or deducted from 
 their monthly payslip. ',

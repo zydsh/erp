@@ -197,7 +197,7 @@ INSERT INTO SM_STATE
 	VALUES ("43148ab9-9335-4387-9d08-b2499cfb64bd",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
 	"00000000-0000-0000-0000-000000000000",
-	'OnHold ',
+	'OnHold',
 	3,
 	0);
 INSERT INTO SM_SEME
@@ -454,7 +454,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("62bbbb17-d171-407b-9b9f-e9a277b9c587",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -469,7 +469,7 @@ INSERT INTO SM_ACT
 	VALUES ("26d550d2-aca4-4c4a-ae26-995033430828",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
 	1,
-	'select one employee related by self->Employee[R3.''records an earning or deduction to''];
+	'select one employee related by self->Employee[R13.''records an earning or deduction to''];
 select one employeeApproved related by self->Employee[R27.''approved for''];
 if (empty employeeApproved)
 	relate self to employee across R27.''approved for'';
@@ -488,7 +488,7 @@ INSERT INTO SM_ACT
 	VALUES ("00f66604-a81d-44bc-9d34-ba38e1575f00",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
 	1,
-	'select one employee related by self->Employee[R3.''records an earning or deduction to''];
+	'select one employee related by self->Employee[R13.''records an earning or deduction to''];
 select one heldEmployee related by self->Employee[R26.''held for''];
 
 if ( empty heldEmployee)
@@ -523,7 +523,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("195ee6fc-28ca-4b0a-a261-5e0942255d05",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -537,7 +537,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("82bca5ae-2019-4ca8-a81d-1da8defb4cdb",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -551,7 +551,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("68e30e77-9a6b-4f20-b8e4-9c2f61c6d625",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -565,7 +565,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("ffe9eac5-2a9a-42d0-95c7-717501d677d3",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -579,7 +579,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("31fc069f-f27d-4281-96bb-328df1d0d5a3",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -593,7 +593,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("4fefdd30-bc81-446b-b2ea-07be7877132d",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -607,7 +607,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("0b9db219-8533-481f-a9c3-992dcac5329f",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -758,7 +758,7 @@ INSERT INTO GD_GE
 	"43148ab9-9335-4387-9d08-b2499cfb64bd",
 	41,
 	0,
-	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::OnHold ');
+	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::OnHold');
 INSERT INTO GD_SHP
 	VALUES ("00100804-f695-495d-8e94-e905fa7e352e");
 INSERT INTO GD_NCS
@@ -1177,7 +1177,7 @@ INSERT INTO GD_GE
 	"7d9d5439-5159-4529-88e6-ed59112d0675",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::OnHold ::PayslipItem1: Approve');
+	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::OnHold::PayslipItem1: Approve');
 INSERT INTO GD_CON
 	VALUES ("9a9d2880-1284-4c1a-90b9-529b60d6dde9",
 	"00000000-0000-0000-0000-000000000000");
@@ -1411,7 +1411,7 @@ INSERT INTO GD_GE
 	"ae2c3a73-8ed1-495e-bf79-bf500dafaa94",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::OnHold ::PayslipItem4: Disolve');
+	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::OnHold::PayslipItem4: Disolve');
 INSERT INTO GD_CON
 	VALUES ("9a44df0e-9716-480f-9f84-1ea1eb9b639c",
 	"00000000-0000-0000-0000-000000000000");

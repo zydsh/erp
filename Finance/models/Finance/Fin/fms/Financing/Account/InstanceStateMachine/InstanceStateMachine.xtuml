@@ -521,7 +521,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("171a4f48-a452-4ada-990a-09b027d3ce92",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -535,7 +535,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("dad970ba-1cde-4296-9c0b-934313d3d251",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -549,7 +549,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("e1fc407b-11fe-4f48-a361-6139054a3783",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -563,7 +563,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("ac21a1e6-be53-450d-b05c-8086cb0cedee",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -577,7 +577,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("682ff759-77a1-497b-8538-b2b2ea9018a1",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -591,7 +591,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("bdad7328-dd98-4235-877c-21599e3ab188",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -605,7 +605,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("263561d1-dc14-49a5-ba03-c5dbfcfc41e1",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -619,7 +619,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("cda1e069-0eb9-42b2-816a-915ddb2cd630",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -633,7 +633,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("0e510449-33b1-432a-a903-05c715d43f40",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -647,7 +647,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("8c10e44f-55da-4716-a8ea-9fdbe67f4d63",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -662,15 +662,15 @@ INSERT INTO SM_ACT
 	VALUES ("ba2826ad-53a4-47b1-8501-e9d977b7e446",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	1,
-	'	select one account related by self->AccountSpecification[R20.''budgetized by''];
-	relate self to account across R17.''operated by'';
-	select one child related by account->Expenditure[R18];
+	'	select one account related by self->AccountSpecification[R202.''budgetized by''];
+	relate self to account across R170.''operated by'';
+	select one child related by account->Expenditure[R180];
 	if ( not empty child)
 			create object instance operation of OperationalAccount;
-			relate self to operation across R2;
+			relate self to operation across R200;
 	else
 			create object instance operation of OperationalProgram;
-			relate self to operation across R2;
+			relate self to operation across R200;
 	end if;
 
 ',
@@ -686,7 +686,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("b23ae723-d504-44e8-a6d5-5b9edbb55c43",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -701,9 +701,9 @@ INSERT INTO SM_ACT
 	VALUES ("9a44e5ec-8da5-4aef-bf0e-96b76cf3f5fc",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	1,
-	'	select one account related by self->AccountSpecification[R17.''operated by''];
-	relate self to account across R7.''served previously by'';
-	unrelate self from account across R17.''operated by'';',
+	'	select one account related by self->AccountSpecification[R170.''operated by''];
+	relate self to account across R70.''served previously by'';
+	unrelate self from account across R170.''operated by'';',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -716,7 +716,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("6514f9c0-adb0-4d88-8798-68d8bcad2e0b",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
