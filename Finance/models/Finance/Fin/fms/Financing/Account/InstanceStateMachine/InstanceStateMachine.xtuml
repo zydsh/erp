@@ -663,7 +663,7 @@ INSERT INTO SM_ACT
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	1,
 	'	select one account related by self->AccountSpecification[R202.''budgetized by''];
-	relate self to account across R17.''operated by'';
+	relate self to account across R170.''operated by'';
 	select one child related by account->Expenditure[R180];
 	if ( not empty child)
 			create object instance operation of OperationalAccount;
@@ -701,9 +701,9 @@ INSERT INTO SM_ACT
 	VALUES ("9a44e5ec-8da5-4aef-bf0e-96b76cf3f5fc",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	1,
-	'	select one account related by self->AccountSpecification[R17.''operated by''];
+	'	select one account related by self->AccountSpecification[R170.''operated by''];
 	relate self to account across R70.''served previously by'';
-	unrelate self from account across R17.''operated by'';',
+	unrelate self from account across R170.''operated by'';',
 	'',
 	0);
 INSERT INTO SM_TAH

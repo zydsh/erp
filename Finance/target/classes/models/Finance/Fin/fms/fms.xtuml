@@ -687,12 +687,12 @@ entry.Date = param.Date;
 entry.Description = param.Description;
 create object instance amount of Amount;
 amount.Amount = param.Amount;
-relate entry to amount across R4;
+relate entry to amount across R40;
 
-select one column related by journal->Column[R16.''has single''];
-relate amount to column across R13;
-select one debit related by column->AccountSpecification[R140.''debits'']->Account[R17.''operates''];
-select one credit related by column->AccountSpecification[R150.''credits'']->Account[R17.''operates''];
+select one column related by journal->Column[R160.''has single''];
+relate amount to column across R130;
+select one debit related by column->AccountSpecification[R140.''debits'']->Account[R170.''operates''];
+select one credit related by column->AccountSpecification[R150.''credits'']->Account[R170.''operates''];
 
 relate amount to debit across R30.''debits'';
 relate amount to credit across R50.''credits'';
@@ -754,12 +754,12 @@ entry.Date = param.Date;
 entry.Description = param.Description;
 create object instance amount of Amount;
 amount.Amount = param.Amount;
-relate entry to amount across R4;
+relate entry to amount across R40;
 
-select one column related by journal->Column[R16.''has single''];
-relate amount to column across R13;
-select one debit related by column->AccountSpecification[R140.''debits'']->Account[R17.''operates''];
-select one credit related by column->AccountSpecification[R150.''credits'']->Account[R17.''operates''];
+select one column related by journal->Column[R160.''has single''];
+relate amount to column across R130;
+select one debit related by column->AccountSpecification[R140.''debits'']->Account[R170.''operates''];
+select one credit related by column->AccountSpecification[R150.''credits'']->Account[R170.''operates''];
 
 relate amount to debit across R30.''debits'';
 relate amount to credit across R50.''credits'';
