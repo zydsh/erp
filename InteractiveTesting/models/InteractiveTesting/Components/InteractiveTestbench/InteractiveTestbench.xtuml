@@ -967,8 +967,8 @@ INSERT INTO SPR_RS
 	VALUES ("1b522c90-f439-45d8-8c5a-0cc952d9baf2",
 	'SendLeaveSpecification',
 	'',
-	'select any nominalLeave from instances of UC1_Nominal_Leave;
-nominalLeave.LeaveSpecsHandle( LeaveType:param.Name );
+	' select any pei from instances of PEI;
+ generate PEI5:LeaveRecieved(Name: param.Name) to pei;
 ',
 	1,
 	0);
@@ -1221,9 +1221,8 @@ INSERT INTO SPR_RS
 	VALUES ("c3c00437-f8c8-4f35-8c60-a5b559736b4c",
 	'SendBonusList',
 	'',
-	'select any bonus from instances of UC2_Bonus ; 
-generate UC2_Bonus2:BonusSelected(BonusName:param.Name) to bonus;
- 
+	' select any pei from instances of PEI;
+ generate PEI3:BonusRecieved(Name: param.Name) to pei;
 ',
 	1,
 	0);
