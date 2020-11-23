@@ -1287,7 +1287,7 @@ if (not empty promotedJob)
  		end for;
  	end if;
 else
-	select any tobePromoted from Job where selected.Job_ID == param.JobID;
+	select any tobePromoted from Job where selected.Job_ID == param.JobID; 
 	relate self to tobePromoted across R20.''to be promoted to'';
 end if;',
 	'',
