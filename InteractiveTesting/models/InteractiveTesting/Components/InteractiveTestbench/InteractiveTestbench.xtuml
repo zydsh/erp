@@ -1483,7 +1483,7 @@ INSERT INTO SPR_RS
 	'ReadLastPaymentSlip',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("90157033-ea84-4297-8ec6-2489009427d9",
@@ -1501,7 +1501,7 @@ INSERT INTO SPR_RS
 	'HoldPayment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("cffefcb9-ce5b-4cfa-8b51-d73e822f2f05",
@@ -1519,7 +1519,7 @@ INSERT INTO SPR_RS
 	'ApprovePayment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("91155baf-161c-4e0e-a180-3247516947b6",
@@ -1559,7 +1559,7 @@ INSERT INTO SPR_RS
 	'ReadPayItem',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c7a20020-6a45-4436-b12e-9c46128bf89d",
@@ -1577,7 +1577,7 @@ INSERT INTO SPR_RS
 	'ReadAnyPayItem',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2bad8a42-18b7-4bc0-835b-098dface2ad8",
@@ -1595,13 +1595,32 @@ INSERT INTO SPR_RS
 	'MakePayment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("82c1845d-90b7-4251-845f-6535427dad9e",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'MakePayment',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("8fe51571-e288-4394-a180-eb462b176e11",
+	"2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("8fe51571-e288-4394-a180-eb462b176e11",
+	'InitializeComplete',
+	'',
+	'select any hr from instances of HumanResources ;
+generate HumanResources3:StartTest to hr;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'InitializeComplete',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
@@ -1870,7 +1889,7 @@ INSERT INTO SPR_RS
 	'CreateCashJournal',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4af6aae3-9881-4881-b6df-74baed99177c",
@@ -1888,7 +1907,7 @@ INSERT INTO SPR_RS
 	'OperationalizeBudget',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("71e6c481-f6b0-4dc2-abd7-cc835dc3dbfd",
@@ -1906,7 +1925,7 @@ INSERT INTO SPR_RS
 	'CreateExpensesJournal',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("0029c564-7df3-4dc3-b1d4-213ee84017e0",
@@ -1924,7 +1943,7 @@ INSERT INTO SPR_RS
 	'RecordSalaryEntry',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("cad988db-7e9b-4e52-9100-0b43eaedb0a7",
@@ -1942,7 +1961,7 @@ INSERT INTO SPR_RS
 	'OperationalizeAccount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("83844281-52e7-47ba-963e-bcf6b9a2f440",
@@ -1960,7 +1979,7 @@ INSERT INTO SPR_RS
 	'SingleColumnEntry',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("66540b4a-f006-4f50-bbee-e5c4357da8aa",
@@ -1978,7 +1997,7 @@ INSERT INTO SPR_RS
 	'CreateJournal',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1a5bf26d-531a-4a0b-88c4-c813ed57ca06",
@@ -1996,7 +2015,7 @@ INSERT INTO SPR_RS
 	'AddJournalColumn',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1436beee-420c-431f-b5b2-c7da633acd31",
@@ -2014,7 +2033,7 @@ INSERT INTO SPR_RS
 	'ReadRequested',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6a03da54-e74f-4e6e-af7f-e9c0bac1fa3c",

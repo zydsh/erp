@@ -1351,6 +1351,18 @@ INSERT INTO C_PP
 	0,
 	'',
 	"40cf9599-a26e-4671-9fa3-7d9eda542be7");
+INSERT INTO C_EP
+	VALUES ("2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'InitializeComplete',
+	'');
+INSERT INTO C_AS
+	VALUES ("2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5",
+	'InitializeComplete',
+	'',
+	1,
+	"82c1845d-90b7-4251-845f-6535427dad9e");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,
