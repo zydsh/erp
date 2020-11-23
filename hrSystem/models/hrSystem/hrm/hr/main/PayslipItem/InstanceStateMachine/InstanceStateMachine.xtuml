@@ -690,7 +690,10 @@ INSERT INTO SM_ACT
 	VALUES ("62bbbb17-d171-407b-9b9f-e9a277b9c587",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
 	1,
-	'',
+	'select one employee related by self->Employee[R29.''potsponed for''];
+if (not empty employee)
+	unrelate self from employee across R29.''potsponed for'';
+end if;',
 	'',
 	0);
 INSERT INTO SM_MOAH
@@ -856,8 +859,9 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("1c67acc5-a390-430e-89b4-0a173a856441",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
-	'',
+	1,
+	'select one employee related by self->Employee[R13.''records an earning or deduction to''];
+relate self to employee across R29.''potsponed for'';',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -870,7 +874,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("66d3956e-e57f-4bed-865a-dd8a1e82ba38",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -884,7 +888,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("87dc59a3-8563-4e37-b20a-7cc565c8174e",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
-	3,
+	1,
 	'',
 	'',
 	0);

@@ -63,6 +63,15 @@ INSERT INTO SM_EVTDI
 	'',
 	"dac0edb1-a946-459f-9304-3cbfaa414f24",
 	"04d339ba-e8cc-4294-a909-5c7e0b9edb4e");
+INSERT INTO SM_EVTDI
+	VALUES ("317179fc-db66-4b0b-b13a-6fd3851f1e3e",
+	"578a9157-0393-4beb-a34e-98d66c420ea2",
+	'JobID',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	"320d8096-f68b-47de-89f2-5cc1988da4c5",
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_LEVT
 	VALUES ("33282659-04d8-451d-b159-568da7a8c685",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
@@ -238,7 +247,7 @@ INSERT INTO SM_EVT
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	"00000000-0000-0000-0000-000000000000",
 	10,
-	'PaymentDue',
+	'Promoted',
 	0,
 	'',
 	'Employee10',
@@ -1258,7 +1267,29 @@ INSERT INTO SM_ACT
 	VALUES ("732b31d0-97fd-4c90-8b56-e3f22ee2826a",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
 	1,
-	'',
+	'//select any job from instances of Job where selected.Job_ID == param.JobID;
+
+select one promotedJob related by self->Job[R20.''to be promoted to''] where selected.Job_ID ==param.JobID;
+
+if (not empty promotedJob)
+	select one currentJob related by self->Job[R6.''currently occupies''];
+ 	unrelate self from currentJob across R6.''currently occupies'';
+ 	unrelate self from promotedJob across R20.''to be promoted to'';
+ 	relate self to promotedJob across R6.''currently occupies'';
+ 	create object instance record of JobRecord;
+	record.EndDate = TIM::current_seconds();
+ 	relate self to currentJob across R10.''occupied'' using record;
+ 	//release due payments
+ 	select many payments related by self->PayslipItem[R29.''has postponed payments''];
+ 	if (not empty payments)
+ 		for each payment in payments
+ 			generate PayslipItem7:Earned to payment;
+ 		end for;
+ 	end if;
+else
+	select any tobePromoted from Job where selected.Job_ID == param.JobID;
+	relate self to tobePromoted across R20.''to be promoted to'';
+end if;',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -1271,7 +1302,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("fcb42e52-5223-4428-b6c2-59e2bf23e22f",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -1285,7 +1316,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("3be1a707-0f2e-4627-9736-10d20cd2fc0e",
 	"578a9157-0393-4beb-a34e-98d66c420ea2",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -1398,7 +1429,7 @@ INSERT INTO DIM_CON
 	"b06b9136-d932-4536-9273-dec4bf1b26f8");
 INSERT INTO DIM_CON
 	VALUES ("7ec44531-9d54-4195-91e4-36a6436647d2",
-	1139.000000,
+	1103.000000,
 	774.000000,
 	"b06b9136-d932-4536-9273-dec4bf1b26f8");
 INSERT INTO DIM_CON
@@ -2201,7 +2232,7 @@ INSERT INTO DIM_ELE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_CON
 	VALUES ("1616b69d-5855-4ffc-8d74-e2a5e198febd",
-	1139.000000,
+	1103.000000,
 	839.000000,
 	"29ceea13-3848-46f1-aaaf-8afebc23fc2a");
 INSERT INTO DIM_CON
@@ -2215,7 +2246,7 @@ INSERT INTO GD_GE
 	"64f6a8b0-f2d5-4e90-bcb4-e36db7218095",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::Employee::Instance State Machine::Working::Employee10: PaymentDue');
+	'hrSystem::hrm::hr::main::Employee::Instance State Machine::Working::Employee10: Promoted');
 INSERT INTO GD_CON
 	VALUES ("34b24650-049c-41bf-8414-325126971b40",
 	"00000000-0000-0000-0000-000000000000");
@@ -2250,7 +2281,7 @@ INSERT INTO DIM_ND
 	"1cefc06c-7f6e-4f5b-a250-d44d5c7f2f83");
 INSERT INTO DIM_GE
 	VALUES (957.000000,
-	800.000000,
+	789.000000,
 	"1cefc06c-7f6e-4f5b-a250-d44d5c7f2f83",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -2281,21 +2312,21 @@ INSERT INTO GD_LS
 	"34b24650-049c-41bf-8414-325126971b40",
 	"00000000-0000-0000-0000-000000000000",
 	"63ca1d5b-d63e-4795-a128-69742937f160",
-	"53a9169c-d58a-42c9-a062-f382f402c9bd");
+	"8839b527-d172-47ec-8eea-a7fe96660e82");
 INSERT INTO DIM_WAY
 	VALUES ("63ca1d5b-d63e-4795-a128-69742937f160",
-	1139.000000,
+	1103.000000,
 	774.000000,
 	"34b24650-049c-41bf-8414-325126971b40",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
-	VALUES ("53a9169c-d58a-42c9-a062-f382f402c9bd",
-	1139.000000,
+	VALUES ("8839b527-d172-47ec-8eea-a7fe96660e82",
+	1103.000000,
 	839.000000,
 	"34b24650-049c-41bf-8414-325126971b40",
 	"00000000-0000-0000-0000-000000000000",
-	"63ca1d5b-d63e-4795-a128-69742937f160");
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,

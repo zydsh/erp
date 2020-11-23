@@ -59,6 +59,7 @@ if (not empty promotedJob)
 	salaryItem.Amount = promotedJob.Salary - self.getSalary();
 	salaryItem.Type = Paytype::Earning;
 	relate self to salaryItem across R13.''an earning or a deduction is recorded in a'';
+	generate PayslipItem6:Postponed to salaryItem;
 	beforeItem = salaryItem;
 	generate PayslipItem6:Postponed to salaryItem;
 end if;
