@@ -892,14 +892,8 @@ INSERT INTO SPR_RS
 	'SendEmployee',
 	'',
 	'
-select any hr from instances of HumanResources;
-select any fin from instances of Finance;
-
-if (hr.TestComplete == False)
-	hr.EmployeeHandle( EmployeeID:param.EmployeeID );
-elif ( fin.TestComplete == False)
-	fin.FinanceHandle( EmployeeID:param.EmployeeID, EmployeeName:param.FirstName+" "+param.LastName);
-end if;
+select any pei from instances of PEI;
+generate PEI1:employeeRecieved(EmployeeID: param.EmployeeID) to pei;
 
 ',
 	1,
