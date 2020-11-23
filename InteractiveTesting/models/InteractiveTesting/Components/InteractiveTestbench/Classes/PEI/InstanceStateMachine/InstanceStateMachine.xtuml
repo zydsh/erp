@@ -1128,7 +1128,8 @@ INSERT INTO SM_ACT
 	VALUES ("97195af8-08b3-42b0-a428-52b0deb1ee37",
 	"cb6f8388-4322-4dd1-9d80-f9689f283254",
 	1,
-	'',
+	'create object instance hr of HumanResources;
+generate HumanResources3:StartTest to hr;',
 	'',
 	0);
 INSERT INTO SM_TAH

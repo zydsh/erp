@@ -566,8 +566,10 @@ INSERT INTO SM_ACT
 	VALUES ("61dd402e-d53d-4deb-bc6c-488743ffa29d",
 	"ad16e642-1b31-4967-829f-bc2ffad4a0eb",
 	1,
-	' 	select any emp from instances of Employee;
- 	select any bonusTest from instances of UC2_Bonus;
+	'// 	select any bonus from instances of Bonus;
+ 	select any emp from instances of Employee;
+ 	create object instance bonusTest of UC2_Bonus;
+ 	//select any bonusTest from instances of UC2_Bonus;
 	generate UC2_Bonus1:EmployeeSelected(EmployeeID:emp.EmployeeID) to bonusTest;
 ',
 	'',
