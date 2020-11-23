@@ -51,6 +51,18 @@ salaryItem.Type = Paytype::Earning;
 relate self to salaryItem across R13.''an earning or a deduction is recorded in a'';
 beforeItem = salaryItem;
 
+select one promotedJob related by self->Job[R20.''to be promoted to''];
+if (not empty promotedJob)
+	create object instance salaryItem of PayslipItem;
+	salaryItem.Name = "Salary";
+	salaryItem.Date = time;
+	salaryItem.Amount = promotedJob.Salary - self.getSalary();
+	salaryItem.Type = Paytype::Earning;
+	relate self to salaryItem across R13.''an earning or a deduction is recorded in a'';
+	beforeItem = salaryItem;
+	generate PayslipItem6:Postponed to salaryItem;
+end if;
+
 select many bonuses related by self->Bonus[R4.''gets a''];
 if ( not empty bonuses)
 for each bonus in bonuses
@@ -63,6 +75,21 @@ for each bonus in bonuses
 	relate self to bonusItem across R13.''an earning or a deduction is recorded in a'';
 	relate bonusItem to beforeItem across R18.''listed after'';
 	beforeItem = bonusItem;
+	
+if (not empty promotedJob)
+	create object instance retroBonusItem of PayslipItem;
+	select one bonusSpec related by bonus->BonusSpecification[R16.''is specified by''];
+	retroBonusItem.Name = bonusSpec.Name;
+	retroBonusItem.Date = time;
+	retroBonusItem.Amount = (promotedJob.Salary*bonusSpec.Percent)-bonus.Amount;
+	retroBonusItem.Type = Paytype::Earning;
+	relate self to retroBonusItem across R13.''an earning or a deduction is recorded in a'';
+	relate retroBonusItem to beforeItem across R18.''listed after'';
+	beforeItem = retroBonusItem;
+	generate PayslipItem6:Postponed to retroBonusItem;
+
+end if;
+
 end for;
 end if;
 
@@ -87,9 +114,25 @@ for each deduction in deductions
 	relate self to deductionItem across R13.''an earning or a deduction is recorded in a'';
 	relate deductionItem to beforeItem across R18.''listed after'';
 	beforeItem = deductionItem;
+	
+// need to be adjusted to how deductions are calculated
+/*if (not empty promotedJob)
+	create object instance retroDeductionItem of PayslipItem;
+	retroDeductionItem.Name = deduction.Reason;
+	retroDeductionItem.Date = time;
+	retroDeductionItem.Amount = deduction.Amount;
+	retroDeductionItem.Type = Paytype::Deduction;
+	relate self to retroDeductionItem across R13.''an earning or a deduction is recorded in a'';
+	relate retroDeductionItem to beforeItem across R18.''listed after'';
+	beforeItem = retroDeductionItem;
+	generate PayslipItem6:Postponed to retroDeductionItem;
+
+end if;*/
+
 end for;
 end if;
-//select many bonusItems related by salaryItem->PayslipItem[R18.''listed after''];
+
+	 
 ',
 	1,
 	'',
