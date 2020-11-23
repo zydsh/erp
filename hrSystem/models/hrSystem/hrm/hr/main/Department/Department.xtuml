@@ -19,7 +19,10 @@ INSERT INTO O_TFR
 	1,
 	'select any emp from instances of Employee where selected.EmployeeID == param.EmployeeID;
 select one manager related by self->Employee[R23.''is managed by'']; 
-unrelate self from manager across R23;
+
+if (not empty manager)
+	unrelate self from manager across R23;
+end if;
 
 relate self to emp across R23.''is managed by'';
 ',
