@@ -36,17 +36,48 @@ INSERT INTO DIM_DIA
 INSERT INTO S_SYNC
 	VALUES ("657dddcd-8120-46f8-9586-b6d5c9b10e84",
 	"00000000-0000-0000-0000-000000000000",
-	'Initialize',
+	'InitializeHR',
 	'',
-	'//HRData::Initialize();
-//Finance::Initialize();
-HumanResources::Create();',
+	'HRData::Initialize();
+',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
 	0);
 INSERT INTO PE_PE
 	VALUES ("657dddcd-8120-46f8-9586-b6d5c9b10e84",
+	1,
+	"6c488dd4-2928-43b4-969b-df7ed5b5160e",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("9f7fb8b0-ddfe-4ce6-a32f-8764061ea2ea",
+	"00000000-0000-0000-0000-000000000000",
+	'InitializeFin',
+	'',
+	'Finance::Initialize();',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("9f7fb8b0-ddfe-4ce6-a32f-8764061ea2ea",
+	1,
+	"6c488dd4-2928-43b4-969b-df7ed5b5160e",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("7c3cd1a6-0a1e-49ee-8af5-67fc08f98158",
+	"00000000-0000-0000-0000-000000000000",
+	'InitializeTestbench',
+	'',
+	'create object instance pei of PEI;',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("7c3cd1a6-0a1e-49ee-8af5-67fc08f98158",
 	1,
 	"6c488dd4-2928-43b4-969b-df7ed5b5160e",
 	"00000000-0000-0000-0000-000000000000",

@@ -1880,6 +1880,24 @@ INSERT INTO C_EP_PROXY
 	'MakePayment',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("eb63ebde-7bee-48a2-93e7-344bd593ed5a",
+	"2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("eb63ebde-7bee-48a2-93e7-344bd593ed5a",
+	'InitializeComplete',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'InitializeComplete',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
