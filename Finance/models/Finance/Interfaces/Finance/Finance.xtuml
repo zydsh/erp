@@ -98,6 +98,24 @@ INSERT INTO C_PP
 	0,
 	'',
 	"a2e3911b-7a04-4995-a5fc-468c2e4f7b2c");
+INSERT INTO C_PP
+	VALUES ("fad2f97e-c310-46cb-a915-8fd5fc26cc0c",
+	"981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'CeilingRevenue',
+	'',
+	0,
+	'',
+	"292e819e-1bd4-41b8-87a7-2c60c3bb13d7");
+INSERT INTO C_PP
+	VALUES ("47372b33-4504-4236-8714-9314b911f80e",
+	"981b3bfb-f8e5-468d-87ef-6341359c2931",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'RequestedRevenue',
+	'',
+	0,
+	'',
+	"fad2f97e-c310-46cb-a915-8fd5fc26cc0c");
 INSERT INTO C_EP
 	VALUES ("02b58a71-1200-4020-bdc9-809f601deab1",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",

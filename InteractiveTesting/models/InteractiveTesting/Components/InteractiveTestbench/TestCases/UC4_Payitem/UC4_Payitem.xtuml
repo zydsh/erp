@@ -1,0 +1,136 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("79c253a3-0171-4c6e-b128-cbe4b9dd2097",
+	'UC4_Payitem',
+	4,
+	'UC4_Payitem',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("56018307-b3b2-4c6f-94bd-de83f881f4f6",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_BATTR
+	VALUES ("56018307-b3b2-4c6f-94bd-de83f881f4f6",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_ATTR
+	VALUES ("56018307-b3b2-4c6f-94bd-de83f881f4f6",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097",
+	"00000000-0000-0000-0000-000000000000",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("5d0d4c6e-d699-4c22-84d7-ef761fd1074e",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_BATTR
+	VALUES ("5d0d4c6e-d699-4c22-84d7-ef761fd1074e",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_ATTR
+	VALUES ("5d0d4c6e-d699-4c22-84d7-ef761fd1074e",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097",
+	"56018307-b3b2-4c6f-94bd-de83f881f4f6",
+	'Date',
+	'',
+	'',
+	'Date',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("15629eb4-31b5-4e69-bd14-0f061aade195",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_BATTR
+	VALUES ("15629eb4-31b5-4e69-bd14-0f061aade195",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_ATTR
+	VALUES ("15629eb4-31b5-4e69-bd14-0f061aade195",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097",
+	"5d0d4c6e-d699-4c22-84d7-ef761fd1074e",
+	'Type',
+	'',
+	'',
+	'Type',
+	0,
+	"786cf160-f04d-46a9-88cc-61af8ed4d857",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("786cf160-f04d-46a9-88cc-61af8ed4d857",
+	"00000000-0000-0000-0000-000000000000",
+	'Paytype',
+	'',
+	'',
+	'../../../../../../../hrSystem/models/hrSystem/SharedTypes/SharedTypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("b4efd3b0-4753-45c2-8e0a-f2e94295e855",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_BATTR
+	VALUES ("b4efd3b0-4753-45c2-8e0a-f2e94295e855",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_ATTR
+	VALUES ("b4efd3b0-4753-45c2-8e0a-f2e94295e855",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097",
+	"15629eb4-31b5-4e69-bd14-0f061aade195",
+	'Amount',
+	'',
+	'',
+	'Amount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("356a16fb-994d-497b-b7cf-3b1db5bb51a9",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_BATTR
+	VALUES ("356a16fb-994d-497b-b7cf-3b1db5bb51a9",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_ATTR
+	VALUES ("356a16fb-994d-497b-b7cf-3b1db5bb51a9",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097",
+	"b4efd3b0-4753-45c2-8e0a-f2e94295e855",
+	'Status',
+	'',
+	'',
+	'Status',
+	0,
+	"2867a7ba-5644-49e1-ad29-9db839993610",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("2867a7ba-5644-49e1-ad29-9db839993610",
+	"00000000-0000-0000-0000-000000000000",
+	'Payitem',
+	'',
+	'',
+	'../../../../../../../hrSystem/models/hrSystem/SharedTypes/SharedTypes.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_ID
+	VALUES (1,
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_ID
+	VALUES (2,
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO PE_PE
+	VALUES ("79c253a3-0171-4c6e-b128-cbe4b9dd2097",
+	1,
+	"f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'TestCases',
+	'',
+	0,
+	'../TestCases.xtuml');
