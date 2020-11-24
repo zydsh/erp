@@ -183,6 +183,24 @@ INSERT INTO S_ENUM
 	'',
 	"2867a7ba-5644-49e1-ad29-9db839993610",
 	"1aa48007-0d74-419a-b5d3-213c29493f44");
+INSERT INTO S_ENUM
+	VALUES ("2ff9286c-d805-4e1d-b3a1-a71524aacb1e",
+	'Paid',
+	'',
+	"2867a7ba-5644-49e1-ad29-9db839993610",
+	"d4465dfe-6504-4495-9ace-c78a0a4a0c41");
+INSERT INTO S_ENUM
+	VALUES ("7095cdeb-ce1b-4afc-8aad-c7a6e095ce5b",
+	'Postponed',
+	'',
+	"2867a7ba-5644-49e1-ad29-9db839993610",
+	"2ff9286c-d805-4e1d-b3a1-a71524aacb1e");
+INSERT INTO S_ENUM
+	VALUES ("380c5376-52a8-4490-b00d-c5001f2228f1",
+	'Suspended',
+	'',
+	"2867a7ba-5644-49e1-ad29-9db839993610",
+	"7095cdeb-ce1b-4afc-8aad-c7a6e095ce5b");
 INSERT INTO PE_PE
 	VALUES ("2867a7ba-5644-49e1-ad29-9db839993610",
 	1,
