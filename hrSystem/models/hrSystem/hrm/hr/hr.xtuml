@@ -1889,7 +1889,7 @@ INSERT INTO SPR_PS
 	'InitializeComplete',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5",
@@ -1965,6 +1965,82 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'ProcessPayments',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("36706e74-0775-4ec0-b68b-835459db2bdc",
+	"a6b1d002-eafd-45fb-b2ff-eb3f5cdb0ec7",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("36706e74-0775-4ec0-b68b-835459db2bdc",
+	'ProcessAllPayments',
+	'',
+	'select many employees from instances of Employee;
+for each emp in employees
+	select any payment related by emp->PayslipItem[R13.''an earning or a deduction is recorded in a''];
+	if (not empty payment)
+		generate PayslipItem2:Pay to payment;
+	end if;
+end for;
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a6b1d002-eafd-45fb-b2ff-eb3f5cdb0ec7",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ProcessAllPayments',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("21ac974e-cb7f-4c45-9329-84a000583894",
+	"a28b505e-7b17-44b0-922f-33c66c441fb6",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("21ac974e-cb7f-4c45-9329-84a000583894",
+	'HoldAllPayments',
+	'',
+	'select many employees from instances of Employee;
+for each emp in employees
+	select any payment related by emp->PayslipItem[R13.''an earning or a deduction is recorded in a''];
+	if (not empty payment)
+		generate PayslipItem3:Hold to payment;
+	end if;
+end for;
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a28b505e-7b17-44b0-922f-33c66c441fb6",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'HoldAllPayments',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("213397c5-ee1b-4040-9830-e15e89b779df",
+	"0408efa5-ca8c-4d6b-bfa4-77c6a753bb5e",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("213397c5-ee1b-4040-9830-e15e89b779df",
+	'SuspendPayment',
+	'',
+	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select any payment related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a'']
+where selected.Date == param.Date and selected.Amount == param.Amount;
+
+if (not empty payment)
+	generate PayslipItem4:Suspend to payment;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("0408efa5-ca8c-4d6b-bfa4-77c6a753bb5e",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SuspendPayment',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

@@ -76,7 +76,7 @@ INSERT INTO SM_EVT
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
 	"00000000-0000-0000-0000-000000000000",
 	4,
-	'Disolve',
+	'Suspend',
 	0,
 	'',
 	'PayslipItem4',
@@ -433,7 +433,7 @@ INSERT INTO SM_STATE
 	VALUES ("6743b619-93ce-4276-a644-67525a38fa5e",
 	"b9bc6562-f284-4aee-a4d3-97cd2b004a67",
 	"00000000-0000-0000-0000-000000000000",
-	'Dissolved',
+	'Suspended',
 	5,
 	0);
 INSERT INTO SM_CH
@@ -1654,7 +1654,7 @@ INSERT INTO GD_GE
 	"6743b619-93ce-4276-a644-67525a38fa5e",
 	41,
 	0,
-	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::Dissolved');
+	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::Suspended');
 INSERT INTO GD_SHP
 	VALUES ("b19b64b6-c544-4de4-a133-d250b9df979f");
 INSERT INTO GD_NCS
@@ -1688,7 +1688,7 @@ INSERT INTO GD_GE
 	"ae2c3a73-8ed1-495e-bf79-bf500dafaa94",
 	42,
 	0,
-	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::OnHold::PayslipItem4: Disolve');
+	'hrSystem::hrm::hr::main::PayslipItem::Instance State Machine::OnHold::PayslipItem4: Suspend');
 INSERT INTO GD_CON
 	VALUES ("9a44df0e-9716-480f-9f84-1ea1eb9b639c",
 	"00000000-0000-0000-0000-000000000000");
