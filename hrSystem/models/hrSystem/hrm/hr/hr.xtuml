@@ -1828,7 +1828,7 @@ for each payment in payments
 	select one held related by payment->Employee[R26.''held for''];
 	select one paid related by payment->Employee[R28.''paid for''];	
 	select one postponed related by payment->Employee[R29.''potsponed for''];	
-	select one suspended related by payment->Employee[R333.''is suspened''];	
+	select one suspended related by payment->Employee[R31.''is suspened''];	
 
 if (not empty approved)
 	Status =Payitem::Approved;
