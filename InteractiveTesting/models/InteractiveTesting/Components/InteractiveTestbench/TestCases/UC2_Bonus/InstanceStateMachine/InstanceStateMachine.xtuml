@@ -182,8 +182,8 @@ INSERT INTO SM_ACT
 	VALUES ("49bee05e-ce75-4de1-9f6c-c26c8745164b",
 	"00bcbf11-bab7-4a22-9d44-30f28647bed3",
 	1,
-	'	select any hr from instances of HumanResources;
-	generate HumanResources6:BonusTestComplete() to hr;
+	'//	select any hr from instances of HumanResources;
+//	generate HumanResources6:BonusTestComplete() to hr;
 ',
 	'',
 	0);
@@ -237,7 +237,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("b4715505-e298-42af-97b5-78c6f7f5f01c",
 	"00bcbf11-bab7-4a22-9d44-30f28647bed3",
-	3,
+	1,
 	'',
 	'',
 	0);

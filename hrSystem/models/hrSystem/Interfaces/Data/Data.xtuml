@@ -1363,6 +1363,69 @@ INSERT INTO C_AS
 	'',
 	1,
 	"82c1845d-90b7-4251-845f-6535427dad9e");
+INSERT INTO C_EP
+	VALUES ("b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ApprovePayitems',
+	'');
+INSERT INTO C_AS
+	VALUES ("b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	'ApprovePayitems',
+	'',
+	0,
+	"2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5");
+INSERT INTO C_PP
+	VALUES ("3d2b5e04-96d3-4766-8d2f-9f56c4ffdd8f",
+	"b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("c74839d7-3928-47a9-80c0-5bcf172fa193",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'HoldPayitems',
+	'');
+INSERT INTO C_AS
+	VALUES ("c74839d7-3928-47a9-80c0-5bcf172fa193",
+	'HoldPayitems',
+	'',
+	0,
+	"b6fb72f5-0be5-4c68-958d-9e4bb19ce139");
+INSERT INTO C_PP
+	VALUES ("cf0a21a9-8453-447b-993a-0c471a028a9d",
+	"c74839d7-3928-47a9-80c0-5bcf172fa193",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("514c75a6-caad-4830-9823-67f34472d3b6",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ProcessPayments',
+	'');
+INSERT INTO C_AS
+	VALUES ("514c75a6-caad-4830-9823-67f34472d3b6",
+	'ProcessPayments',
+	'',
+	0,
+	"c74839d7-3928-47a9-80c0-5bcf172fa193");
+INSERT INTO C_PP
+	VALUES ("470aeefa-8f70-4fda-a358-64673127a88b",
+	"514c75a6-caad-4830-9823-67f34472d3b6",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

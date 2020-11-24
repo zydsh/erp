@@ -1529,11 +1529,7 @@ INSERT INTO SPR_RS
 	VALUES ("5d795cdd-6a05-49d2-8004-b1d0ed59fdd3",
 	'SendPayItem',
 	'',
-	'select many payrolls from instances of UC3_Payroll;
-
-for each payroll in payrolls
- generate UC3_Payroll2:Decide(Name:param.Name, Amount:param.Amount, Date:param.Date, Type:param.Type, Status:param.Status) to payroll;
-end for;',
+	' ',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1614,6 +1610,60 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'InitializeComplete',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("a8394282-9f08-4201-8e77-7db285e87b62",
+	"b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("a8394282-9f08-4201-8e77-7db285e87b62",
+	'ApprovePayitems',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ApprovePayitems',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("2a8d8687-051a-4cda-94c5-dee5edf7604c",
+	"c74839d7-3928-47a9-80c0-5bcf172fa193",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("2a8d8687-051a-4cda-94c5-dee5edf7604c",
+	'HoldPayitems',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c74839d7-3928-47a9-80c0-5bcf172fa193",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'HoldPayitems',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("db8fe7c5-6344-4d7e-801a-4c2226c667ad",
+	"514c75a6-caad-4830-9823-67f34472d3b6",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("db8fe7c5-6344-4d7e-801a-4c2226c667ad",
+	'ProcessPayments',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("514c75a6-caad-4830-9823-67f34472d3b6",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ProcessPayments',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

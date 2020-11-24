@@ -10,64 +10,32 @@ INSERT INTO SM_SM
 INSERT INTO SM_MOORE
 	VALUES ("bdba5c1c-fff7-4f8d-8133-14e92d77babc");
 INSERT INTO SM_EVTDI
-	VALUES ("ee35875b-47a1-476f-81ec-0a9e5f1ecc1a",
+	VALUES ("9ae12cdb-024c-4582-86f9-77a486ceab16",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	'Amount',
+	'EmployeeID',
 	'',
-	"ba5eda7a-def5-0000-0000-000000000003",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
-	"31d4b3ef-1717-488d-bf70-7f3eb2265e2d");
+	"8149be5f-60ec-48de-aeb5-80dd715a194a",
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_EVTDI
-	VALUES ("c992449c-9b34-49cf-8ada-00683e8b88b5",
+	VALUES ("c3d628a6-925a-4567-bf65-f8291c4320d7",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	'Date',
+	'EmployeeID',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	"c61f4222-75af-4202-8b33-884084288635",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_EVTDI
+	VALUES ("4a85ef85-621e-4dae-893c-8dc048ef7600",
+	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
+	'EmployeeID',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	"f512db8a-f41e-4749-9761-e901bed6e31e",
-	"ee35875b-47a1-476f-81ec-0a9e5f1ecc1a");
-INSERT INTO SM_EVTDI
-	VALUES ("31d4b3ef-1717-488d-bf70-7f3eb2265e2d",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	'Name',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'',
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_EVTDI
-	VALUES ("2ef9ae7f-d537-4b83-9090-656e5ea52336",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	'Type',
-	'',
-	"786cf160-f04d-46a9-88cc-61af8ed4d857",
-	'',
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
-	"c992449c-9b34-49cf-8ada-00683e8b88b5");
-INSERT INTO S_DT_PROXY
-	VALUES ("786cf160-f04d-46a9-88cc-61af8ed4d857",
-	"00000000-0000-0000-0000-000000000000",
-	'Paytype',
-	'',
-	'',
-	'../../../../../../../../hrSystem/models/hrSystem/SharedTypes/SharedTypes.xtuml');
-INSERT INTO SM_EVTDI
-	VALUES ("e7683306-7f61-4cb1-b8be-8de4de373e7a",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	'Status',
-	'',
-	"2867a7ba-5644-49e1-ad29-9db839993610",
-	'',
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
-	"2ef9ae7f-d537-4b83-9090-656e5ea52336");
-INSERT INTO S_DT_PROXY
-	VALUES ("2867a7ba-5644-49e1-ad29-9db839993610",
-	"00000000-0000-0000-0000-000000000000",
-	'Payitem',
-	'',
-	'',
-	'../../../../../../../../hrSystem/models/hrSystem/SharedTypes/SharedTypes.xtuml');
 INSERT INTO SM_LEVT
 	VALUES ("d3f58bbd-50a1-491f-90c7-be6f9d699284",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
@@ -81,7 +49,7 @@ INSERT INTO SM_EVT
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000",
 	1,
-	'Review',
+	'TestStarted',
 	0,
 	'',
 	'UC3_Payroll1',
@@ -99,7 +67,7 @@ INSERT INTO SM_EVT
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000",
 	2,
-	'Decide',
+	'Held',
 	0,
 	'',
 	'UC3_Payroll2',
@@ -117,7 +85,7 @@ INSERT INTO SM_EVT
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000",
 	3,
-	'Approve',
+	'Approved',
 	0,
 	'',
 	'UC3_Payroll3',
@@ -135,7 +103,7 @@ INSERT INTO SM_EVT
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000",
 	4,
-	'Read',
+	'Paid',
 	0,
 	'',
 	'UC3_Payroll4',
@@ -203,17 +171,17 @@ INSERT INTO SM_SEME
 	"d3f58bbd-50a1-491f-90c7-be6f9d699284",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("42ea2118-ea01-4e9e-964c-3ad65abe0492",
+	"f512db8a-f41e-4749-9761-e901bed6e31e",
+	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO SM_SEME
 	VALUES ("42ea2118-ea01-4e9e-964c-3ad65abe0492",
 	"f512db8a-f41e-4749-9761-e901bed6e31e",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("42ea2118-ea01-4e9e-964c-3ad65abe0492",
-	"8149be5f-60ec-48de-aeb5-80dd715a194a",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
 INSERT INTO SM_SEME
 	VALUES ("42ea2118-ea01-4e9e-964c-3ad65abe0492",
 	"8149be5f-60ec-48de-aeb5-80dd715a194a",
@@ -248,12 +216,6 @@ INSERT INTO SM_SEME
 	"d3f58bbd-50a1-491f-90c7-be6f9d699284",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("f3a3cf77-382f-45e5-862d-18e826e1f814",
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
 INSERT INTO SM_SEME
 	VALUES ("f3a3cf77-382f-45e5-862d-18e826e1f814",
 	"f512db8a-f41e-4749-9761-e901bed6e31e",
@@ -270,6 +232,12 @@ INSERT INTO SM_SEME
 	"8149be5f-60ec-48de-aeb5-80dd715a194a",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO SM_CH
+	VALUES ("f3a3cf77-382f-45e5-862d-18e826e1f814",
+	"c61f4222-75af-4202-8b33-884084288635",
+	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO SM_SEME
 	VALUES ("f3a3cf77-382f-45e5-862d-18e826e1f814",
 	"c61f4222-75af-4202-8b33-884084288635",
@@ -279,7 +247,7 @@ INSERT INTO SM_STATE
 	VALUES ("c1e622a6-28b2-4b50-a696-a7eb3bcf5c91",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000",
-	'Approving',
+	'Paying',
 	4,
 	0);
 INSERT INTO SM_CH
@@ -324,7 +292,7 @@ INSERT INTO SM_STATE
 	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000",
-	'ReadingHoldItem',
+	'Approving',
 	5,
 	0);
 INSERT INTO SM_CH
@@ -338,126 +306,30 @@ INSERT INTO SM_SEME
 	"d3f58bbd-50a1-491f-90c7-be6f9d699284",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_SEME
-	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_CH
 	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
-	"8149be5f-60ec-48de-aeb5-80dd715a194a",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
-	"8149be5f-60ec-48de-aeb5-80dd715a194a",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
-	"c61f4222-75af-4202-8b33-884084288635",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
-	"c61f4222-75af-4202-8b33-884084288635",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_STATE
-	VALUES ("40016911-c8f2-464a-9019-3cb1d3851425",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'ReadApprovedItem',
-	6,
-	0);
-INSERT INTO SM_CH
-	VALUES ("40016911-c8f2-464a-9019-3cb1d3851425",
-	"d3f58bbd-50a1-491f-90c7-be6f9d699284",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("40016911-c8f2-464a-9019-3cb1d3851425",
-	"d3f58bbd-50a1-491f-90c7-be6f9d699284",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_SEME
-	VALUES ("40016911-c8f2-464a-9019-3cb1d3851425",
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("40016911-c8f2-464a-9019-3cb1d3851425",
-	"8149be5f-60ec-48de-aeb5-80dd715a194a",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("40016911-c8f2-464a-9019-3cb1d3851425",
-	"8149be5f-60ec-48de-aeb5-80dd715a194a",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("40016911-c8f2-464a-9019-3cb1d3851425",
-	"c61f4222-75af-4202-8b33-884084288635",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("40016911-c8f2-464a-9019-3cb1d3851425",
-	"c61f4222-75af-4202-8b33-884084288635",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_STATE
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'Paying',
-	7,
-	0);
-INSERT INTO SM_CH
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
-	"d3f58bbd-50a1-491f-90c7-be6f9d699284",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO SM_SEME
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
-	"d3f58bbd-50a1-491f-90c7-be6f9d699284",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
 	"f512db8a-f41e-4749-9761-e901bed6e31e",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO SM_SEME
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
+	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
 	"f512db8a-f41e-4749-9761-e901bed6e31e",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
-	"8149be5f-60ec-48de-aeb5-80dd715a194a",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"00000000-0000-0000-0000-000000000000",
-	'');
 INSERT INTO SM_SEME
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
+	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
 	"8149be5f-60ec-48de-aeb5-80dd715a194a",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_CH
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
+	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
 	"c61f4222-75af-4202-8b33-884084288635",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO SM_SEME
-	VALUES ("16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
+	VALUES ("ec608d5e-960e-4ab0-968f-54c4480c32e2",
 	"c61f4222-75af-4202-8b33-884084288635",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"00000000-0000-0000-0000-000000000000");
@@ -476,7 +348,7 @@ INSERT INTO SM_NSTXN
 	VALUES ("51d98067-5bd3-44d0-bfaa-212b22bde4c6",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"42ea2118-ea01-4e9e-964c-3ad65abe0492",
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
+	"8149be5f-60ec-48de-aeb5-80dd715a194a",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("51d98067-5bd3-44d0-bfaa-212b22bde4c6",
@@ -487,7 +359,7 @@ INSERT INTO SM_NSTXN
 	VALUES ("0b1d318e-d0e5-4f69-ae90-7378aec13af2",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"f3a3cf77-382f-45e5-862d-18e826e1f814",
-	"c61f4222-75af-4202-8b33-884084288635",
+	"f512db8a-f41e-4749-9761-e901bed6e31e",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("0b1d318e-d0e5-4f69-ae90-7378aec13af2",
@@ -498,7 +370,7 @@ INSERT INTO SM_NSTXN
 	VALUES ("6b0141df-40f0-4f11-a7a2-38f39a173eeb",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"ec608d5e-960e-4ab0-968f-54c4480c32e2",
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
+	"8149be5f-60ec-48de-aeb5-80dd715a194a",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
 	VALUES ("6b0141df-40f0-4f11-a7a2-38f39a173eeb",
@@ -506,26 +378,15 @@ INSERT INTO SM_TXN
 	"c1e622a6-28b2-4b50-a696-a7eb3bcf5c91",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_NSTXN
-	VALUES ("5b7bc45b-065b-43c2-8fa0-50f12695f633",
+	VALUES ("37004a79-35a9-430e-8051-fd539198d1db",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	"c1e622a6-28b2-4b50-a696-a7eb3bcf5c91",
 	"c61f4222-75af-4202-8b33-884084288635",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
-	VALUES ("5b7bc45b-065b-43c2-8fa0-50f12695f633",
+	VALUES ("37004a79-35a9-430e-8051-fd539198d1db",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"40016911-c8f2-464a-9019-3cb1d3851425",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_NSTXN
-	VALUES ("addc1b5e-5a09-4328-9dfd-fd532046841d",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"40016911-c8f2-464a-9019-3cb1d3851425",
-	"f512db8a-f41e-4749-9761-e901bed6e31e",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_TXN
-	VALUES ("addc1b5e-5a09-4328-9dfd-fd532046841d",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
+	"8b62a6fe-1f83-4115-8b6a-6f825cb4104f",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_MOAH
 	VALUES ("1769c3d2-8f80-4cfb-b81c-8fd5f19ab542",
@@ -537,8 +398,9 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("1769c3d2-8f80-4cfb-b81c-8fd5f19ab542",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	3,
-	'',
+	1,
+	'//select any fin from instances of Finance;
+//generate Finance6:TestComplete to fin;',
 	'',
 	0);
 INSERT INTO SM_MOAH
@@ -553,7 +415,10 @@ INSERT INTO SM_ACT
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	1,
 	'
-HRData::ReadAnyPayItem( EmployeeID:self.ID );',
+select any emp from instances of Employee;
+HRData::ApprovePayitems( EmployeeID:emp.EmployeeID ); 
+generate UC3_Payroll3:Approved(EmployeeID: emp.EmployeeID) to self;
+',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -581,20 +446,8 @@ INSERT INTO SM_ACT
 	VALUES ("13203a8a-5e68-43f9-878f-37dea3bfb6c6",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	1,
-	'
-if (self.Name == param.Name) and (param.Status==hrSystem::SharedTypes::Payitem::Initial)
-	self.Status = hrSystem::SharedTypes::Payitem::Hold;
-	self.Amount = param.Amount;
-	self.Date = param.Date;
-	self.Status = param.Status;
-	self.Type = param.Type;
-	HRData::HoldPayment( EmployeeID:self.ID, Date:param.Date, Amount:param.Amount );
-else
-	self.Success = false;
-end if;
-
-generate UC3_Payroll4:Read to self;
-
+	'HRData::HoldPayitems( EmployeeID:param.EmployeeID );  
+generate UC3_Payroll2:Held(EmployeeID: param.EmployeeID) to self;
 ',
 	'',
 	0);
@@ -608,7 +461,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("b9e82273-19ec-470a-936c-eb12536823cb",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -623,14 +476,8 @@ INSERT INTO SM_ACT
 	VALUES ("e13a8aa3-cc0a-4d06-8ee7-b6e19791f481",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	1,
-	'if (self.Name == param.Name) and (param.Status==hrSystem::SharedTypes::Payitem::Hold)
-	self.Status = hrSystem::SharedTypes::Payitem::Approved;
-	HRData::ApprovePayment( EmployeeID:self.ID, Date:param.Date, Amount:param.Amount );
-else 
-	self.Success = false;
-end if;
-
-generate UC3_Payroll4:Read to self;
+	'HRData::ProcessPayments( EmployeeID:param.EmployeeID ); 
+generate UC3_Payroll4:Paid(EmployeeID: param.EmployeeID) to self;
 ',
 	'',
 	0);
@@ -645,7 +492,9 @@ INSERT INTO SM_ACT
 	VALUES ("7d3d0e24-ccfa-47ce-a958-346a74cecabd",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	1,
-	'HRData::ReadPayItem( EmployeeID:self.ID, Date:self.Date, Amount:self.Amount );',
+	'HRData::ApprovePayitems( EmployeeID:param.EmployeeID ); 
+generate UC3_Payroll3:Approved(EmployeeID: param.EmployeeID) to self;
+',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -658,7 +507,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("5ff6f8fe-b5ef-4596-b3c9-ecdc5d3b4247",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -672,68 +521,19 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("43ef134b-a79a-42bc-9815-c87a8edde47c",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	3,
-	'',
-	'',
-	0);
-INSERT INTO SM_MOAH
-	VALUES ("ac3d7318-bc7e-4a17-ae06-769b5201255f",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"40016911-c8f2-464a-9019-3cb1d3851425");
-INSERT INTO SM_AH
-	VALUES ("ac3d7318-bc7e-4a17-ae06-769b5201255f",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc");
-INSERT INTO SM_ACT
-	VALUES ("ac3d7318-bc7e-4a17-ae06-769b5201255f",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	1,
-	'HRData::ReadPayItem( EmployeeID:self.ID, Date:self.Date, Amount:self.Amount );',
+	'',
 	'',
 	0);
 INSERT INTO SM_TAH
-	VALUES ("0131dc88-ea26-41ea-a5c3-c7250bda0fa9",
+	VALUES ("de9e4560-ab14-41e1-98dd-fbfe9477eb77",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"5b7bc45b-065b-43c2-8fa0-50f12695f633");
+	"37004a79-35a9-430e-8051-fd539198d1db");
 INSERT INTO SM_AH
-	VALUES ("0131dc88-ea26-41ea-a5c3-c7250bda0fa9",
+	VALUES ("de9e4560-ab14-41e1-98dd-fbfe9477eb77",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc");
 INSERT INTO SM_ACT
-	VALUES ("0131dc88-ea26-41ea-a5c3-c7250bda0fa9",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	3,
-	'',
-	'',
-	0);
-INSERT INTO SM_MOAH
-	VALUES ("7d50b44a-291e-4655-97a8-3b3979074d58",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"16e38e65-5e2f-40e8-bbe5-1d577c3d23cc");
-INSERT INTO SM_AH
-	VALUES ("7d50b44a-291e-4655-97a8-3b3979074d58",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc");
-INSERT INTO SM_ACT
-	VALUES ("7d50b44a-291e-4655-97a8-3b3979074d58",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	1,
-	'if (self.Name == param.Name) and (param.Status==hrSystem::SharedTypes::Payitem::Approved)
-	self.Status = hrSystem::SharedTypes::Payitem::Approved;
-	HRData::MakePayment( EmployeeID:self.ID, Date:param.Date, Amount:param.Amount );
-	Finance::RecordSalaryEntry( Date:self.Date, Description:self.Name, Amount:self.Amount );
-else 
-	self.Success = false;
-end if;
-',
-	'',
-	0);
-INSERT INTO SM_TAH
-	VALUES ("177454fd-8854-4c99-9d9b-5218099f9d95",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	"addc1b5e-5a09-4328-9dfd-fd532046841d");
-INSERT INTO SM_AH
-	VALUES ("177454fd-8854-4c99-9d9b-5218099f9d95",
-	"bdba5c1c-fff7-4f8d-8133-14e92d77babc");
-INSERT INTO SM_ACT
-	VALUES ("177454fd-8854-4c99-9d9b-5218099f9d95",
+	VALUES ("de9e4560-ab14-41e1-98dd-fbfe9477eb77",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	3,
 	'',
@@ -787,6 +587,11 @@ INSERT INTO DIM_CON
 	4177.000000,
 	3276.000000,
 	"55b4b525-1eea-4635-94db-e63562e160c2");
+INSERT INTO DIM_CON
+	VALUES ("6a991bdf-9c3f-4340-b07f-029f09c89396",
+	4116.000000,
+	3313.000000,
+	"55b4b525-1eea-4635-94db-e63562e160c2");
 INSERT INTO GD_GE
 	VALUES ("2fbaffd2-10ee-45b7-a4cf-4f480293318b",
 	"b206e88b-24f0-44d6-b0b2-db941d3fa973",
@@ -832,7 +637,7 @@ INSERT INTO GD_GE
 	"933f6596-008e-4e86-9aab-3e79a7271de0",
 	42,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Initial::UC3_Payroll1: Review');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Initial::UC3_Payroll1: TestStarted');
 INSERT INTO GD_CON
 	VALUES ("7c67739f-a9cb-458a-bbe9-50a665ea62e4",
 	"00000000-0000-0000-0000-000000000000");
@@ -976,7 +781,7 @@ INSERT INTO GD_GE
 	"51d98067-5bd3-44d0-bfaa-212b22bde4c6",
 	42,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::SelectingItem::UC3_Payroll2: Decide');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::SelectingItem::UC3_Payroll3: Approved');
 INSERT INTO GD_CON
 	VALUES ("5b0b9e65-3f38-4868-ac47-3d6ac5682a85",
 	"00000000-0000-0000-0000-000000000000");
@@ -1076,7 +881,7 @@ INSERT INTO GD_GE
 	"c1e622a6-28b2-4b50-a696-a7eb3bcf5c91",
 	41,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Approving');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Paying');
 INSERT INTO GD_SHP
 	VALUES ("97ba30dc-f836-467e-87f6-8abe3abd43ff");
 INSERT INTO GD_NCS
@@ -1109,13 +914,18 @@ INSERT INTO DIM_CON
 	4080.000000,
 	3469.000000,
 	"97ba30dc-f836-467e-87f6-8abe3abd43ff");
+INSERT INTO DIM_CON
+	VALUES ("efe291a0-52c2-46ab-935b-cf4c503773c1",
+	4116.000000,
+	3384.000000,
+	"97ba30dc-f836-467e-87f6-8abe3abd43ff");
 INSERT INTO GD_GE
 	VALUES ("8bca2f28-42a3-4bb1-8e62-5d6845b23c92",
 	"b206e88b-24f0-44d6-b0b2-db941d3fa973",
 	"ec608d5e-960e-4ab0-968f-54c4480c32e2",
 	41,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::ReadingHoldItem');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Approving');
 INSERT INTO GD_SHP
 	VALUES ("8bca2f28-42a3-4bb1-8e62-5d6845b23c92");
 INSERT INTO GD_NCS
@@ -1149,7 +959,7 @@ INSERT INTO GD_GE
 	"0b1d318e-d0e5-4f69-ae90-7378aec13af2",
 	42,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Holding::UC3_Payroll4: Read');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Holding::UC3_Payroll2: Held');
 INSERT INTO GD_CON
 	VALUES ("48d08505-b897-4d24-a346-4ae612ffa4a2",
 	"00000000-0000-0000-0000-000000000000");
@@ -1249,7 +1059,7 @@ INSERT INTO GD_GE
 	"6b0141df-40f0-4f11-a7a2-38f39a173eeb",
 	42,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::ReadingHoldItem::UC3_Payroll2: Decide');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Approving::UC3_Payroll3: Approved');
 INSERT INTO GD_CON
 	VALUES ("c8099882-b1a7-404b-9dbf-a292cc2ae79d",
 	"00000000-0000-0000-0000-000000000000");
@@ -1357,268 +1167,105 @@ INSERT INTO DIM_ED
 	"8a8122d6-5688-4744-91da-986ce9496a24",
 	"c8099882-b1a7-404b-9dbf-a292cc2ae79d");
 INSERT INTO GD_GE
-	VALUES ("effecb64-5dcb-41b1-8077-0d34f306d7bd",
+	VALUES ("d1406883-801e-4552-babc-1a5597ca6e13",
 	"b206e88b-24f0-44d6-b0b2-db941d3fa973",
-	"40016911-c8f2-464a-9019-3cb1d3851425",
-	41,
-	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::ReadApprovedItem');
-INSERT INTO GD_SHP
-	VALUES ("effecb64-5dcb-41b1-8077-0d34f306d7bd");
-INSERT INTO GD_NCS
-	VALUES ("effecb64-5dcb-41b1-8077-0d34f306d7bd");
-INSERT INTO DIM_ND
-	VALUES (133.000000,
-	73.000000,
-	"effecb64-5dcb-41b1-8077-0d34f306d7bd");
-INSERT INTO DIM_GE
-	VALUES (4044.000000,
-	3648.000000,
-	"effecb64-5dcb-41b1-8077-0d34f306d7bd",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("effecb64-5dcb-41b1-8077-0d34f306d7bd",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_CON
-	VALUES ("fccbb9c2-e401-4caa-b666-31c9cfd22620",
-	4080.000000,
-	3648.000000,
-	"effecb64-5dcb-41b1-8077-0d34f306d7bd");
-INSERT INTO DIM_CON
-	VALUES ("e82209cb-3b8d-4a3e-a8a5-dcf8da74bc9f",
-	4177.000000,
-	3684.000000,
-	"effecb64-5dcb-41b1-8077-0d34f306d7bd");
-INSERT INTO GD_GE
-	VALUES ("d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
-	"b206e88b-24f0-44d6-b0b2-db941d3fa973",
-	"5b7bc45b-065b-43c2-8fa0-50f12695f633",
+	"37004a79-35a9-430e-8051-fd539198d1db",
 	42,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Approving::UC3_Payroll4: Read');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Paying::UC3_Payroll4: Paid');
 INSERT INTO GD_CON
-	VALUES ("d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	VALUES ("d1406883-801e-4552-babc-1a5597ca6e13",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("48df4c48-0194-48b6-af3c-4452703e987f",
-	"d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	VALUES ("4cef8040-5151-4ac9-b04e-3f111b6eab67",
+	"d1406883-801e-4552-babc-1a5597ca6e13",
 	0,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"48df4c48-0194-48b6-af3c-4452703e987f");
+	"4cef8040-5151-4ac9-b04e-3f111b6eab67");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"48df4c48-0194-48b6-af3c-4452703e987f",
+	"4cef8040-5151-4ac9-b04e-3f111b6eab67",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("48df4c48-0194-48b6-af3c-4452703e987f",
+	VALUES ("4cef8040-5151-4ac9-b04e-3f111b6eab67",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("5c65ee2c-6723-4467-b7c0-ceafc1844f56",
-	"d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	VALUES ("0a258d59-ccc8-471a-85ae-984645c45fb1",
+	"d1406883-801e-4552-babc-1a5597ca6e13",
 	2,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"5c65ee2c-6723-4467-b7c0-ceafc1844f56");
+	"0a258d59-ccc8-471a-85ae-984645c45fb1");
 INSERT INTO DIM_GE
-	VALUES (3956.000000,
-	3552.000000,
-	"5c65ee2c-6723-4467-b7c0-ceafc1844f56",
+	VALUES (3992.000000,
+	3343.000000,
+	"0a258d59-ccc8-471a-85ae-984645c45fb1",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("5c65ee2c-6723-4467-b7c0-ceafc1844f56",
+	VALUES ("0a258d59-ccc8-471a-85ae-984645c45fb1",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("d52b67d8-ca32-4340-ac90-4009fdd2829c",
-	"d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	VALUES ("c4772e4c-a171-4ac1-8338-2f24b1b7f52d",
+	"d1406883-801e-4552-babc-1a5597ca6e13",
 	1,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"d52b67d8-ca32-4340-ac90-4009fdd2829c");
+	"c4772e4c-a171-4ac1-8338-2f24b1b7f52d");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"d52b67d8-ca32-4340-ac90-4009fdd2829c",
+	"c4772e4c-a171-4ac1-8338-2f24b1b7f52d",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("d52b67d8-ca32-4340-ac90-4009fdd2829c",
+	VALUES ("c4772e4c-a171-4ac1-8338-2f24b1b7f52d",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_LS
-	VALUES ("3be25db4-1aab-42f7-b437-7ac38220e2ed",
-	"d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	VALUES ("d6b1b09e-2df0-4ebc-8b9a-45624428ec37",
+	"d1406883-801e-4552-babc-1a5597ca6e13",
 	"00000000-0000-0000-0000-000000000000",
-	"cf372294-6637-4715-bd55-23baa49c9c29",
-	"7d64c50e-ac5f-4fe3-90ae-8a053e8e3748");
+	"6268c000-da0a-4c23-8657-f9dc4f9ccb60",
+	"864ec0b7-f32c-4e1c-970a-f9b4493121b6");
 INSERT INTO DIM_WAY
-	VALUES ("cf372294-6637-4715-bd55-23baa49c9c29",
-	4080.000000,
-	3469.000000,
-	"d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	VALUES ("6268c000-da0a-4c23-8657-f9dc4f9ccb60",
+	4116.000000,
+	3384.000000,
+	"d1406883-801e-4552-babc-1a5597ca6e13",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
-	VALUES ("7d64c50e-ac5f-4fe3-90ae-8a053e8e3748",
-	4080.000000,
-	3648.000000,
-	"d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	VALUES ("864ec0b7-f32c-4e1c-970a-f9b4493121b6",
+	4116.000000,
+	3313.000000,
+	"d1406883-801e-4552-babc-1a5597ca6e13",
 	"00000000-0000-0000-0000-000000000000",
-	"cf372294-6637-4715-bd55-23baa49c9c29");
+	"6268c000-da0a-4c23-8657-f9dc4f9ccb60");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	"d1406883-801e-4552-babc-1a5597ca6e13",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("d497bdd1-4bb6-4ad7-a7a4-93c50deca508",
+	VALUES ("d1406883-801e-4552-babc-1a5597ca6e13",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ED
-	VALUES ("82a7eb27-795c-49ca-9a91-00d8688f6bf9",
-	"fccbb9c2-e401-4caa-b666-31c9cfd22620",
-	"d497bdd1-4bb6-4ad7-a7a4-93c50deca508");
-INSERT INTO GD_GE
-	VALUES ("8898da52-a562-44ef-80c6-806fa28f3550",
-	"b206e88b-24f0-44d6-b0b2-db941d3fa973",
-	"16e38e65-5e2f-40e8-bbe5-1d577c3d23cc",
-	41,
-	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::Paying');
-INSERT INTO GD_SHP
-	VALUES ("8898da52-a562-44ef-80c6-806fa28f3550");
-INSERT INTO GD_NCS
-	VALUES ("8898da52-a562-44ef-80c6-806fa28f3550");
-INSERT INTO DIM_ND
-	VALUES (145.000000,
-	61.000000,
-	"8898da52-a562-44ef-80c6-806fa28f3550");
-INSERT INTO DIM_GE
-	VALUES (4356.000000,
-	3660.000000,
-	"8898da52-a562-44ef-80c6-806fa28f3550",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("8898da52-a562-44ef-80c6-806fa28f3550",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_CON
-	VALUES ("a4b34f2f-14ec-4a62-bf42-29e2ce4630da",
-	4356.000000,
-	3684.000000,
-	"8898da52-a562-44ef-80c6-806fa28f3550");
-INSERT INTO GD_GE
-	VALUES ("f16aea24-30b7-4fa6-9da2-602bed571b71",
-	"b206e88b-24f0-44d6-b0b2-db941d3fa973",
-	"addc1b5e-5a09-4328-9dfd-fd532046841d",
-	42,
-	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC3_Payroll::Instance State Machine::ReadApprovedItem::UC3_Payroll2: Decide');
-INSERT INTO GD_CON
-	VALUES ("f16aea24-30b7-4fa6-9da2-602bed571b71",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("071566bf-9731-4faa-8be0-b8f46ae19d66",
-	"f16aea24-30b7-4fa6-9da2-602bed571b71",
-	0,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (0.000000,
-	0.000000,
-	"071566bf-9731-4faa-8be0-b8f46ae19d66");
-INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
-	"071566bf-9731-4faa-8be0-b8f46ae19d66",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("071566bf-9731-4faa-8be0-b8f46ae19d66",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("3a294a53-e3d3-468b-a64d-7b406a7760dd",
-	"f16aea24-30b7-4fa6-9da2-602bed571b71",
-	2,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (132.000000,
-	49.000000,
-	"3a294a53-e3d3-468b-a64d-7b406a7760dd");
-INSERT INTO DIM_GE
-	VALUES (4198.000000,
-	3628.000000,
-	"3a294a53-e3d3-468b-a64d-7b406a7760dd",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("3a294a53-e3d3-468b-a64d-7b406a7760dd",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_CTXT
-	VALUES ("1cd64bfc-16be-484e-8237-8fa20c5c9679",
-	"f16aea24-30b7-4fa6-9da2-602bed571b71",
-	1,
-	0.000000,
-	0.000000);
-INSERT INTO DIM_ND
-	VALUES (0.000000,
-	0.000000,
-	"1cd64bfc-16be-484e-8237-8fa20c5c9679");
-INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
-	"1cd64bfc-16be-484e-8237-8fa20c5c9679",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("1cd64bfc-16be-484e-8237-8fa20c5c9679",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO GD_LS
-	VALUES ("4b65f85c-cdf9-4d68-8f12-63f66c58afcf",
-	"f16aea24-30b7-4fa6-9da2-602bed571b71",
-	"00000000-0000-0000-0000-000000000000",
-	"a7487e57-2446-4a76-96c7-7f3f464ed12a",
-	"f496ae5c-413b-4a21-ba8b-efba15680bc7");
-INSERT INTO DIM_WAY
-	VALUES ("a7487e57-2446-4a76-96c7-7f3f464ed12a",
-	4177.000000,
-	3684.000000,
-	"f16aea24-30b7-4fa6-9da2-602bed571b71",
-	"00000000-0000-0000-0000-000000000000",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_WAY
-	VALUES ("f496ae5c-413b-4a21-ba8b-efba15680bc7",
-	4356.000000,
-	3684.000000,
-	"f16aea24-30b7-4fa6-9da2-602bed571b71",
-	"00000000-0000-0000-0000-000000000000",
-	"a7487e57-2446-4a76-96c7-7f3f464ed12a");
-INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
-	"f16aea24-30b7-4fa6-9da2-602bed571b71",
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ELE
-	VALUES ("f16aea24-30b7-4fa6-9da2-602bed571b71",
-	0,
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO DIM_ED
-	VALUES ("e82209cb-3b8d-4a3e-a8a5-dcf8da74bc9f",
-	"a4b34f2f-14ec-4a62-bf42-29e2ce4630da",
-	"f16aea24-30b7-4fa6-9da2-602bed571b71");
+	VALUES ("efe291a0-52c2-46ab-935b-cf4c503773c1",
+	"6a991bdf-9c3f-4340-b07f-029f09c89396",
+	"d1406883-801e-4552-babc-1a5597ca6e13");
 INSERT INTO DIM_DIA
 	VALUES ("b206e88b-24f0-44d6-b0b2-db941d3fa973",
 	'',

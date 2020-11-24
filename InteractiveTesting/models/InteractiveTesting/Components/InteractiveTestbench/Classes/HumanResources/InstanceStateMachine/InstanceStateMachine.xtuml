@@ -571,6 +571,7 @@ INSERT INTO SM_ACT
  	create object instance bonusTest of UC2_Bonus;
  	//select any bonusTest from instances of UC2_Bonus;
 	generate UC2_Bonus1:EmployeeSelected(EmployeeID:emp.EmployeeID) to bonusTest;
+	generate HumanResources6:BonusTestComplete to self;
 ',
 	'',
 	0);
@@ -599,8 +600,8 @@ INSERT INTO SM_ACT
 	VALUES ("250a3a32-2ab7-4e9a-8c36-6ff63e841c01",
 	"ad16e642-1b31-4967-829f-bc2ffad4a0eb",
 	1,
-	'HRData::GeneratePayslips();
-generate HumanResources7:EndTest to self;',
+	'create object instance fin of Finance;
+generate Finance1:StartTest to fin;',
 	'',
 	0);
 INSERT INTO SM_TAH
