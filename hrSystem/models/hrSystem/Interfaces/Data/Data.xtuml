@@ -1256,11 +1256,11 @@ INSERT INTO C_EP
 	VALUES ("c7a20020-6a45-4436-b12e-9c46128bf89d",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
-	'ReadPayItem',
+	'ReadPayItems',
 	'');
 INSERT INTO C_AS
 	VALUES ("c7a20020-6a45-4436-b12e-9c46128bf89d",
-	'ReadPayItem',
+	'ReadPayItems',
 	'',
 	0,
 	"5263e581-733b-40ff-983f-ed9f08b53635");
@@ -1273,24 +1273,6 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("551ffde3-fdce-4a20-8973-af290572f7ae",
-	"c7a20020-6a45-4436-b12e-9c46128bf89d",
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'Date',
-	'',
-	0,
-	'',
-	"a37c6fbf-cbaf-46f1-9c08-42ff0ebf07ca");
-INSERT INTO C_PP
-	VALUES ("9d56547c-dbf0-416e-a475-fa1f66876757",
-	"c7a20020-6a45-4436-b12e-9c46128bf89d",
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'Amount',
-	'',
-	0,
-	'',
-	"551ffde3-fdce-4a20-8973-af290572f7ae");
 INSERT INTO C_EP
 	VALUES ("2bad8a42-18b7-4bc0-835b-098dface2ad8",
 	"e4418dca-a348-4559-93d1-2765b2e75800",

@@ -1817,21 +1817,43 @@ INSERT INTO SPR_PEP
 	"7a26de32-2a7f-4ded-892b-659b05817114");
 INSERT INTO SPR_PS
 	VALUES ("8dba4f38-b0a6-44ff-a3a8-5abaa85fe856",
-	'ReadPayItem',
+	'ReadPayItems',
 	'',
-	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
-select any payment related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a'']
-where selected.Date ==param.Date and selected.Amount==param.Amount;
-if (not empty payment)
-	generate PayslipItem5:Review to payment;
-end if;',
+	'Status =Payitem::Initial;
+select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+select many payments related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a''];
+
+for each payment in payments
+	select one approved related by payment->Employee[R27.''approved for''];	
+	select one held related by payment->Employee[R26.''held for''];
+	select one paid related by payment->Employee[R28.''paid for''];	
+	select one postponed related by payment->Employee[R29.''potsponed for''];	
+	select one suspended related by payment->Employee[R30.''is suspened''];	
+
+if (not empty approved)
+	Status =Payitem::Approved;
+elif (not empty held)
+		Status =Payitem::Hold;
+elif (not empty paid)
+	Status =Payitem::Paid;
+elif (not empty postponed)
+	Status =Payitem::Postponed;
+elif (not empty suspended)
+	Status =Payitem::Suspended;
+end if;
+	UI::SendPayItem( Name:payment.Name, Date:payment.Date, Type:payment.Type, Amount:payment.Amount, Status:Status);
+
+end for;
+
+
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c7a20020-6a45-4436-b12e-9c46128bf89d",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
-	'ReadPayItem',
+	'ReadPayItems',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO SPR_PEP
