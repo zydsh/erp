@@ -892,14 +892,8 @@ INSERT INTO SPR_RS
 	'SendEmployee',
 	'',
 	'
-select any hr from instances of HumanResources;
-select any fin from instances of Finance;
-
-if (hr.TestComplete == False)
-	hr.EmployeeHandle( EmployeeID:param.EmployeeID );
-elif ( fin.TestComplete == False)
-	fin.FinanceHandle( EmployeeID:param.EmployeeID, EmployeeName:param.FirstName+" "+param.LastName);
-end if;
+select any pei from instances of PEI;
+generate PEI1:employeeRecieved(EmployeeID: param.EmployeeID) to pei;
 
 ',
 	1,
@@ -973,8 +967,8 @@ INSERT INTO SPR_RS
 	VALUES ("1b522c90-f439-45d8-8c5a-0cc952d9baf2",
 	'SendLeaveSpecification',
 	'',
-	'select any nominalLeave from instances of UC1_Nominal_Leave;
-nominalLeave.LeaveSpecsHandle( LeaveType:param.Name );
+	' select any pei from instances of PEI;
+ generate PEI5:LeaveRecieved(Name: param.Name) to pei;
 ',
 	1,
 	0);
@@ -1227,9 +1221,8 @@ INSERT INTO SPR_RS
 	VALUES ("c3c00437-f8c8-4f35-8c60-a5b559736b4c",
 	'SendBonusList',
 	'',
-	'select any bonus from instances of UC2_Bonus ; 
-generate UC2_Bonus2:BonusSelected(BonusName:param.Name) to bonus;
- 
+	' select any pei from instances of PEI;
+ generate PEI3:BonusRecieved(Name: param.Name) to pei;
 ',
 	1,
 	0);
@@ -1536,11 +1529,7 @@ INSERT INTO SPR_RS
 	VALUES ("5d795cdd-6a05-49d2-8004-b1d0ed59fdd3",
 	'SendPayItem',
 	'',
-	'select many payrolls from instances of UC3_Payroll;
-
-for each payroll in payrolls
- generate UC3_Payroll2:Decide(Name:param.Name, Amount:param.Amount, Date:param.Date, Type:param.Type, Status:param.Status) to payroll;
-end for;',
+	' ',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1621,6 +1610,60 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'InitializeComplete',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("a8394282-9f08-4201-8e77-7db285e87b62",
+	"b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("a8394282-9f08-4201-8e77-7db285e87b62",
+	'ApprovePayitems',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ApprovePayitems',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("2a8d8687-051a-4cda-94c5-dee5edf7604c",
+	"c74839d7-3928-47a9-80c0-5bcf172fa193",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("2a8d8687-051a-4cda-94c5-dee5edf7604c",
+	'HoldPayitems',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c74839d7-3928-47a9-80c0-5bcf172fa193",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'HoldPayitems',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("db8fe7c5-6344-4d7e-801a-4c2226c667ad",
+	"514c75a6-caad-4830-9823-67f34472d3b6",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("db8fe7c5-6344-4d7e-801a-4c2226c667ad",
+	'ProcessPayments',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("514c75a6-caad-4830-9823-67f34472d3b6",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ProcessPayments',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

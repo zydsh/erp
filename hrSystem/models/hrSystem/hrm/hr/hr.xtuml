@@ -1898,6 +1898,75 @@ INSERT INTO C_EP_PROXY
 	'InitializeComplete',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("57ceed77-d495-4eaa-98cd-b2f742473521",
+	"b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("57ceed77-d495-4eaa-98cd-b2f742473521",
+	'ApprovePayitems',
+	'',
+	'select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;
+select many payments related by emp->PayslipItem[R13.''an earning or a deduction is recorded in a''];
+for each pym in payments
+	generate PayslipItem1:Approve to pym;
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ApprovePayitems',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("d56b1592-1eea-4274-9309-8d206d038353",
+	"c74839d7-3928-47a9-80c0-5bcf172fa193",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("d56b1592-1eea-4274-9309-8d206d038353",
+	'HoldPayitems',
+	'',
+	'select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;
+select many payments related by emp->PayslipItem[R13.''an earning or a deduction is recorded in a''];
+for each pym in payments
+	generate PayslipItem3:Hold to pym;
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c74839d7-3928-47a9-80c0-5bcf172fa193",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'HoldPayitems',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f1d6081c-cc95-476d-9a3f-2194c81f05e5",
+	"514c75a6-caad-4830-9823-67f34472d3b6",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("f1d6081c-cc95-476d-9a3f-2194c81f05e5",
+	'ProcessPayments',
+	'',
+	'select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;
+select many payments related by emp->PayslipItem[R13.''an earning or a deduction is recorded in a''];
+for each pym in payments
+	generate PayslipItem2:Pay to pym;
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("514c75a6-caad-4830-9823-67f34472d3b6",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ProcessPayments',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

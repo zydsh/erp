@@ -71,7 +71,8 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'InitializeTestbench',
 	'',
-	'create object instance pei of PEI;',
+	'create object instance pei of PEI;
+generate PEI7:InitializedPEI to pei;',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',

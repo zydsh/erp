@@ -1,0 +1,50 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("021e290b-fa0d-4ac1-9ec4-43a8236e06a9",
+	'Employee',
+	4,
+	'Employee',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("2021c0be-6be4-4071-9183-4e9d9e4506dd",
+	"021e290b-fa0d-4ac1-9ec4-43a8236e06a9");
+INSERT INTO O_BATTR
+	VALUES ("2021c0be-6be4-4071-9183-4e9d9e4506dd",
+	"021e290b-fa0d-4ac1-9ec4-43a8236e06a9");
+INSERT INTO O_ATTR
+	VALUES ("2021c0be-6be4-4071-9183-4e9d9e4506dd",
+	"021e290b-fa0d-4ac1-9ec4-43a8236e06a9",
+	"00000000-0000-0000-0000-000000000000",
+	'EmployeeID',
+	'',
+	'',
+	'EmployeeID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"021e290b-fa0d-4ac1-9ec4-43a8236e06a9");
+INSERT INTO O_ID
+	VALUES (1,
+	"021e290b-fa0d-4ac1-9ec4-43a8236e06a9");
+INSERT INTO O_ID
+	VALUES (2,
+	"021e290b-fa0d-4ac1-9ec4-43a8236e06a9");
+INSERT INTO PE_PE
+	VALUES ("021e290b-fa0d-4ac1-9ec4-43a8236e06a9",
+	1,
+	"52fbe60d-4df2-48e1-bb35-a161cdfa1e01",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("52fbe60d-4df2-48e1-bb35-a161cdfa1e01",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'Classes',
+	'',
+	0,
+	'../Classes.xtuml');
