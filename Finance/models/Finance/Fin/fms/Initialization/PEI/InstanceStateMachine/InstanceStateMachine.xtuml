@@ -676,19 +676,23 @@ select many accounts from instances of AccountSpecification;
 for each account in accounts
 	select one expenditure related by account->Expenditure[R180];
 	if (empty expenditure)
-		create object instance budgetAccount of Account;
+		create object instance budgetAccountCeiling of Account;
 		create object instance ceiling of Ceiling;
 		ceiling.Fund=1530050;
 		ceiling.Revenue = 100200;
+		relate budgetAccountCeiling to ceiling across R190;
+		relate account to budgetAccountCeiling across R202;
+		relate budgetAccountCeiling to budget across R100.''belongs to'';
+
+		create object instance budgetAccountRequested of Account;
 		create object instance requested of Requested;
 		requested.Fund = 2340210;
 		requested.Revenue = 200400;
-		create object instance ap of AccountPayble;
-		relate account to ap across R220;
-	 	relate account to budgetAccount across R202;
-		relate budgetAccount to ceiling across R190;
-		relate budgetAccount to requested across R190;
-		relate budgetAccount to budget across R100.''belongs to'';
+		//create object instance ap of AccountPayble;
+		//relate account to ap across R220;
+		relate budgetAccountRequested to requested across R190;
+		relate account to budgetAccountRequested across R202;
+		relate budgetAccountRequested to budget across R100.''belongs to'';
 	end if;
 end for;
 
