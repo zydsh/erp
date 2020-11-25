@@ -510,16 +510,9 @@ INSERT INTO SPR_PS
 	'AcceptRequested',
 	'',
 	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-select many accounts related by accountSpec->Account[R202.''budgetize''];
-for each account in accounts
-	select one requested related by account->Requested[R190];
-	
-	if (not empty requested)
-		generate Account1:Accept to account;
-	else
-		generate Account2:Reject to account;
-	end if;
-end for;
+if (not empty accountSpec)
+	generate AccountSpecification2:RequestedChosen to accountSpec;
+end if;
 ',
 	1,
 	0);
@@ -539,15 +532,9 @@ INSERT INTO SPR_PS
 	'AcceptCeiling',
 	'',
 	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-select many accounts related by accountSpec->Account[R202.''budgetize''];
-for each account in accounts
-	select one ceiling related by account->Ceiling[R190];
-	if (not empty ceiling)
-		generate Account1:Accept to account;
-	else
-		generate Account2:Reject to account;
-	end if;
-end for;
+if (not empty accountSpec)
+	generate AccountSpecification1:CeilingChosen to accountSpec;
+end if;
 ',
 	1,
 	0);

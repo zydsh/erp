@@ -2108,7 +2108,8 @@ INSERT INTO SPR_RS
 	VALUES ("c81a5e3a-8512-4e45-865f-529573e9041f",
 	'SendBudgets',
 	'',
-	'::SendBudgets( Year:param.Year, Cieling:param.Ceiling, Requested:param.Requested, CeilingRevenue:param.CeilingRevenue, RequestedRevenue:param.RequestedRevenue ); ',
+	'::SendBudgets( Year:param.Year, Cieling:param.Ceiling, Requested:param.Requested, CeilingRevenue:param.CeilingRevenue, RequestedRevenue:param.RequestedRevenue ); 
+LOG::LogInfo( message:"Send budgets"+ param.Year );',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
