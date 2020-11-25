@@ -29,11 +29,16 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("25eba0db-1f28-4497-86c9-4b45fc46d076",
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
-	'select many accounts related by self->Account[R100.''assigned''];
+	'ce =0;
+select many accounts related by self->Account[R100.''assigned''];
 for each account in accounts 
 	select one ceiling related by account->Ceiling[R190];
-	self.Ceiling = self.Ceiling + ceiling.Fund;
+	if (not empty ceiling)
+		ce = ce + ceiling.Fund;
+	end if;
 end for;
+
+self.Ceiling = ce;
 
 ',
 	1,
@@ -56,12 +61,16 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("32c614cb-45e6-4625-a3d3-ae03093545e0",
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
-	'select many accounts related by self->Account[R100.''assigned''];
+	're=0;
+select many accounts related by self->Account[R100.''assigned''];
 for each account in accounts 
 	select one requested related by account->Requested[R190];
-	self.Requested = self.Requested + requested.Fund;
+	if (not empty requested)
+		re = re + requested.Fund;
+	end if;
 end for;
-',
+
+self.Requested = re;',
 	1,
 	0);
 INSERT INTO O_BATTR
@@ -82,12 +91,16 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("cfead01b-9e42-4a52-afd0-69d5d05b33dd",
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
-	'select many accounts related by self->Account[R100.''assigned''];
+	'cr = 0;
+select many accounts related by self->Account[R100.''assigned''];
 for each account in accounts 
 	select one ceiling related by account->Ceiling[R190];
-	self.CeilingRevenue = self.CeilingRevenue + ceiling.Revenue;
+	if (not empty ceiling)
+		cr = cr + ceiling.Revenue;
+	end if;
 end for;
-',
+
+self.CeilingRevenue = cr;',
 	1,
 	0);
 INSERT INTO O_BATTR
@@ -126,12 +139,15 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("f718b825-5683-409f-a804-a21247bae6e9",
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
-	'select many accounts related by self->Account[R100.''assigned''];
+	'rr =0;
+select many accounts related by self->Account[R100.''assigned''];
 for each account in accounts 
 	select one requested related by account->Requested[R190];
-	self.RequestedRevenue = self.RequestedRevenue + requested.Revenue;
+	if (not empty requested)
+		rr = rr + requested.Revenue;
+	end if;
 end for;
-',
+self.RequestedRevenue = rr;',
 	1,
 	0);
 INSERT INTO O_BATTR
@@ -152,6 +168,11 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"c14b6239-719a-4401-8f20-e31870ddf92e");
+INSERT INTO O_OIDA
+	VALUES ("cc1d659a-b46f-499c-81c3-a6e7a61542b1",
+	"c14b6239-719a-4401-8f20-e31870ddf92e",
+	0,
+	'Year');
 INSERT INTO O_ID
 	VALUES (1,
 	"c14b6239-719a-4401-8f20-e31870ddf92e");
