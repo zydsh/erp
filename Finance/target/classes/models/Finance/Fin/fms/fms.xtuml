@@ -328,7 +328,7 @@ if (not empty budgets)
 	for each budget in budgets
 			UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested, CeilingRevenue:budget.CeilingRevenue, RequestedRevenue:budget.RequestedRevenue);	
 	end for;
-  else 
+  else  
  
   	UI::Reply( msg:"There are no budgets registered in the system", state:False );  
   end if; ',
