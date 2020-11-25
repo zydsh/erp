@@ -462,7 +462,7 @@ INSERT INTO SPR_PS
 	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
 	'ReadAccountFunds',
 	'',
-	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
+	'/*select any budget from instances of Budget where selected.Year == param.BudgetYear; 
 select many accounts related by budget->Account[R100.''assigned''];
 
 if (not empty accounts)  
@@ -473,7 +473,7 @@ if (not empty accounts)
 			UI::SendRequested( Code:spec.Code, Name:spec.Name, RequestedFund:ceiling.Fund, RequestedRevenue:ceiling.Revenue );
 		end if;
 	end for;
-end if;',
+end if;*/',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
