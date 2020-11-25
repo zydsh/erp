@@ -488,7 +488,7 @@ if (not empty account)
 					requested = requestedSubtype.Fund;
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
-			end for;
+			end for; 
 				UI::SendBudgets( Year:budget.Year, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
 
 		end for;	
