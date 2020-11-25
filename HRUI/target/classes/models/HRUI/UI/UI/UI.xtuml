@@ -2108,7 +2108,7 @@ INSERT INTO SPR_RS
 	VALUES ("c81a5e3a-8512-4e45-865f-529573e9041f",
 	'SendBudgets',
 	'',
-	'::SendBudgets( Year:param.Year, Cieling:param.Ceiling, Requested:param.Requested, CeilingRevenue:param.CeilingRevenue, RequestedRevenue:param.RequestedRevenue ); 
+	'::SendBudgets( Year:param.Year, Ceiling:param.Ceiling, Requested:param.Requested, CeilingRevenue:param.CeilingRevenue, RequestedRevenue:param.RequestedRevenue ); 
 ',
 	1,
 	0);
@@ -2197,7 +2197,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("eef4a957-33c3-4f58-a9cf-5954c8d682f2",
-	'ReadCeiling',
+	'ReadAccountFunds',
 	'',
 	'',
 	1,
@@ -2206,7 +2206,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadCeiling',
+	'ReadAccountFunds',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2441,6 +2441,24 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadRequested',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("5e1cb251-b01c-4dd8-b7bf-d71c35cb5025",
+	"91d79d8a-bc07-4781-9771-bf41b16882d8",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("5e1cb251-b01c-4dd8-b7bf-d71c35cb5025",
+	'ReadBudget',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("91d79d8a-bc07-4781-9771-bf41b16882d8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudget',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
