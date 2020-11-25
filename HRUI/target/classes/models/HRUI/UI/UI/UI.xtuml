@@ -1604,7 +1604,7 @@ INSERT INTO SPR_RS
 	'InitializeComplete',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2bb5bd3d-5b24-4c3e-9e61-d6fab1aca9f5",
@@ -1622,7 +1622,7 @@ INSERT INTO SPR_RS
 	'ApprovePayitems',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b6fb72f5-0be5-4c68-958d-9e4bb19ce139",
@@ -1640,7 +1640,7 @@ INSERT INTO SPR_RS
 	'HoldPayitems',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c74839d7-3928-47a9-80c0-5bcf172fa193",
@@ -1658,7 +1658,7 @@ INSERT INTO SPR_RS
 	'ProcessPayments',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("514c75a6-caad-4830-9823-67f34472d3b6",
@@ -1676,7 +1676,7 @@ INSERT INTO SPR_RS
 	'ProcessAllPayments',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a6b1d002-eafd-45fb-b2ff-eb3f5cdb0ec7",
@@ -1694,7 +1694,7 @@ INSERT INTO SPR_RS
 	'HoldAllPayments',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a28b505e-7b17-44b0-922f-33c66c441fb6",
@@ -1712,7 +1712,7 @@ INSERT INTO SPR_RS
 	'SuspendPayment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("0408efa5-ca8c-4d6b-bfa4-77c6a753bb5e",
@@ -2108,7 +2108,7 @@ INSERT INTO SPR_RS
 	VALUES ("c81a5e3a-8512-4e45-865f-529573e9041f",
 	'SendBudgets',
 	'',
-	'::SendBudgets( Year:param.Year, Cieling:param.Ceiling, Requested:param.Requested );',
+	'::SendBudgets( Year:param.Year, Cieling:param.Ceiling, Requested:param.Requested, CeilingRevenue:param.CeilingRevenue, RequestedRevenue:param.RequestedRevenue );',
 	1,
 	0);
 INSERT INTO C_EP_PROXY

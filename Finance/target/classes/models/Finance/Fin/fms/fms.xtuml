@@ -324,21 +324,12 @@ INSERT INTO SPR_PS
 	'',
 	'select many budgets from instances of Budget; 
 
-if (not empty budgets) 
-	LOG::LogInfo(message:"Sending budget list .." );	
-	
+if (not empty budgets) 	
 	for each budget in budgets
-			UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested);		
-			LOG::LogInfo(message:"Sent: Budget "+ budget.Year);
-			LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:budget.Ceiling );
-			LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:budget.Requested );	
+			UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested, CeilingRevenue:budget.CeilingRevenue, RequestedRevenue:budget.RequestedRevenue);		
 	end for;
-
-  LOG::LogInfo(message:"Sending budget list is complete" );	
-  
   else 
-  	LOG::LogInfo(message:"There are no budgets registered in the system" );	
-
+ 
   	UI::Reply( msg:"There are no budgets registered in the system", state:False );  
   end if; ',
 	1,

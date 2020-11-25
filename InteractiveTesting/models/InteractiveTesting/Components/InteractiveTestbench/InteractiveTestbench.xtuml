@@ -1529,7 +1529,12 @@ INSERT INTO SPR_RS
 	VALUES ("5d795cdd-6a05-49d2-8004-b1d0ed59fdd3",
 	'SendPayItem',
 	'',
-	' ',
+	'create object instance payitem  of UC4_Payitem;
+payitem.Name = param.Name;
+payitem.Date = param.Date;
+payitem.Type = param.Type;
+payitem.Amount = param.Amount;
+payitem.Status = param.Status;',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1545,7 +1550,7 @@ INSERT INTO SPR_REP
 	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
 INSERT INTO SPR_RS
 	VALUES ("d8ba0e33-1a08-4ab6-9d06-99b7383b7e8d",
-	'ReadPayItem',
+	'ReadPayItems',
 	'',
 	'',
 	1,
@@ -1554,7 +1559,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("c7a20020-6a45-4436-b12e-9c46128bf89d",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
-	'ReadPayItem',
+	'ReadPayItems',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO SPR_REP

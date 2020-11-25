@@ -399,8 +399,10 @@ INSERT INTO SM_ACT
 	VALUES ("1769c3d2-8f80-4cfb-b81c-8fd5f19ab542",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	1,
-	'//select any fin from instances of Finance;
-//generate Finance6:TestComplete to fin;',
+	'select many emps from instances of Employee;
+for each emp in emps
+	HRData::ReadPayItems( EmployeeID: emp.EmployeeID);
+end for;',
 	'',
 	0);
 INSERT INTO SM_MOAH
@@ -477,8 +479,13 @@ INSERT INTO SM_ACT
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
 	1,
 	'HRData::ProcessPayments( EmployeeID:param.EmployeeID ); 
-generate UC3_Payroll4:Paid(EmployeeID: param.EmployeeID) to self;
-',
+
+//set a timer to end leave and generate an event to transit state
+waitingTime = 10000000;
+create event instance commence of UC3_Payroll4:Paid(EmployeeID: param.EmployeeID) to self;
+startLeaveTmr = TIM::timer_start( event_inst: commence, microseconds:waitingTime);
+
+//generate UC3_Payroll4:Paid(EmployeeID: param.EmployeeID) to self;',
 	'',
 	0);
 INSERT INTO SM_MOAH
@@ -535,7 +542,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("de9e4560-ab14-41e1-98dd-fbfe9477eb77",
 	"bdba5c1c-fff7-4f8d-8133-14e92d77babc",
-	3,
+	1,
 	'',
 	'',
 	0);

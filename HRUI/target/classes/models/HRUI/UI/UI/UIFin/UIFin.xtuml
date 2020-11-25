@@ -70,6 +70,24 @@ INSERT INTO S_SPARM
 	'',
 	"79a79875-57d3-4952-b2c4-a8c068d6d344",
 	'');
+INSERT INTO S_SPARM
+	VALUES ("0113ba4d-0b77-42bb-85ed-4e20e3dea405",
+	"707b7e5b-8ca9-4b1a-93fd-23db58d95296",
+	'CeilingRevenue',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"95651c0e-d1e8-4d78-8dd0-8f732cce780e",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("7d874a6c-741a-466d-8f4e-c24b66e3e965",
+	"707b7e5b-8ca9-4b1a-93fd-23db58d95296",
+	'RequestedRevenue',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"0113ba4d-0b77-42bb-85ed-4e20e3dea405",
+	'');
 INSERT INTO PE_PE
 	VALUES ("707b7e5b-8ca9-4b1a-93fd-23db58d95296",
 	1,
@@ -169,7 +187,7 @@ INSERT INTO S_SYNC
 	'',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_SPARM

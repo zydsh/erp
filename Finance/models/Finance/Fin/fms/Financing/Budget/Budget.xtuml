@@ -26,9 +26,18 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("25eba0db-1f28-4497-86c9-4b45fc46d076",
-	"c14b6239-719a-4401-8f20-e31870ddf92e");
+	"c14b6239-719a-4401-8f20-e31870ddf92e",
+	'select many accounts related by self->Account[R100.''assigned''];
+for each account in accounts 
+	select one ceiling related by account->Ceiling[R190];
+	self.Ceiling = self.Ceiling + ceiling.Fund;
+end for;
+
+',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("25eba0db-1f28-4497-86c9-4b45fc46d076",
 	"c14b6239-719a-4401-8f20-e31870ddf92e");
@@ -44,9 +53,17 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("32c614cb-45e6-4625-a3d3-ae03093545e0",
-	"c14b6239-719a-4401-8f20-e31870ddf92e");
+	"c14b6239-719a-4401-8f20-e31870ddf92e",
+	'select many accounts related by self->Account[R100.''assigned''];
+for each account in accounts 
+	select one requested related by account->Requested[R190];
+	self.Requested = self.Requested + requested.Fund;
+end for;
+',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("32c614cb-45e6-4625-a3d3-ae03093545e0",
 	"c14b6239-719a-4401-8f20-e31870ddf92e");
@@ -62,9 +79,17 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("cfead01b-9e42-4a52-afd0-69d5d05b33dd",
-	"c14b6239-719a-4401-8f20-e31870ddf92e");
+	"c14b6239-719a-4401-8f20-e31870ddf92e",
+	'select many accounts related by self->Account[R100.''assigned''];
+for each account in accounts 
+	select one ceiling related by account->Ceiling[R190];
+	self.CeilingRevenue = self.CeilingRevenue + ceiling.Revenue;
+end for;
+',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("cfead01b-9e42-4a52-afd0-69d5d05b33dd",
 	"c14b6239-719a-4401-8f20-e31870ddf92e");
@@ -72,10 +97,10 @@ INSERT INTO O_ATTR
 	VALUES ("cfead01b-9e42-4a52-afd0-69d5d05b33dd",
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
 	"32c614cb-45e6-4625-a3d3-ae03093545e0",
-	'Revenue',
+	'CeilingRevenue',
+	'Represents the ceiling revenue expected for the budget year. ',
 	'',
-	'',
-	'Revenue',
+	'CeilingRevenue',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -89,11 +114,37 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("dad2da19-4a08-4689-b200-385dc835f80e",
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
+	"f718b825-5683-409f-a804-a21247bae6e9",
+	'Fund',
+	'',
+	'',
+	'Fund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("f718b825-5683-409f-a804-a21247bae6e9",
+	"c14b6239-719a-4401-8f20-e31870ddf92e",
+	'select many accounts related by self->Account[R100.''assigned''];
+for each account in accounts 
+	select one requested related by account->Requested[R190];
+	self.RequestedRevenue = self.RequestedRevenue + requested.Revenue;
+end for;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("f718b825-5683-409f-a804-a21247bae6e9",
+	"c14b6239-719a-4401-8f20-e31870ddf92e");
+INSERT INTO O_ATTR
+	VALUES ("f718b825-5683-409f-a804-a21247bae6e9",
+	"c14b6239-719a-4401-8f20-e31870ddf92e",
 	"cfead01b-9e42-4a52-afd0-69d5d05b33dd",
-	'Fund',
+	'RequestedRevenue',
 	'',
 	'',
-	'Fund',
+	'RequestedRevenue',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
