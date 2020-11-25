@@ -489,7 +489,7 @@ if (not empty account)
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
 			end for; 
-				UI::SendBudgets( Year:budget.Year, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
+				UI::SendBudgets( Year:subaccount.Code, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
 
 		end for;	
 	else
@@ -511,7 +511,7 @@ if (not empty account)
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
 			end for; 
-				UI::SendBudgets( Year:budget.Year, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
+				UI::SendBudgets( Year:account.Code, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
 
 	end if;
 end if;
