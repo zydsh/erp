@@ -7,17 +7,43 @@ INSERT INTO O_OBJ
 	'Expenditure',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("e1d97c53-92bb-458e-a5bd-c13772c83351",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'CeilingFund',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	1,
+	'cf = 0;
+select one account related by self->AccountSpecification[R180];//->AccountSpecification[R80.''divided''];
+select many subaccounts related by account->AccountSpecification[R80.''divided''];
+for each subaccount in subaccounts 
+	select many baccount related by subaccount->Account[R202.''budgetize'']; 
+	for each f in baccount
+		select one ceiling related by f->Ceiling[R190];
+		if (not empty ceiling)
+			cf = ceiling.Fund + cf; 
+		end if;
+	end for;
+end for;
+
+return cf;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
 INSERT INTO O_DBATTR
 	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	'cf = 0;
-select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
-
-for each fund in funds 
-	select many fc related by fund->Account[R202.''budgetize'']->Ceiling[R190]; 
-	for each f in fc
-		if (not empty f)
-			cf = f.Fund + cf;
+select many subaccounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+//select many subaccounts related by account->AccountSpecification[R80.''divided''];
+for each subaccount in subaccounts 
+	select many baccount related by subaccount->Account[R202.''budgetize'']; 
+	for each f in baccount
+		select one ceiling related by f->Ceiling[R190];
+		if (not empty ceiling)
+			cf = ceiling.Fund + cf; 
 		end if;
 	end for;
 end for;

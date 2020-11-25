@@ -462,18 +462,60 @@ INSERT INTO SPR_PS
 	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
 	'ReadAccountFunds',
 	'',
-	'/*select any budget from instances of Budget where selected.Year == param.BudgetYear; 
-select many accounts related by budget->Account[R100.''assigned''];
+	'select any budget from instances of Budget where selected.Year == param.Year; 
+select any account from instances of AccountSpecification where selected.Code ==param.Code;
 
-if (not empty accounts)  
-	for each account in accounts
-		select one ceiling related by account->Ceiling[R190];
-		if (not empty ceiling)
-			select one spec related by account->AccountSpecification[R202.''budgetized by''];
-			UI::SendRequested( Code:spec.Code, Name:spec.Name, RequestedFund:ceiling.Fund, RequestedRevenue:ceiling.Revenue );
-		end if;
-	end for;
-end if;*/',
+if (not empty account)  
+	select one expenditure related by account->Expenditure[R180];
+	select many subaccounts related by account->AccountSpecification[R80.''divided''];	
+	if (not empty expenditure) 
+		UI::SendBudgets( Year:param.Year, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+		for each subaccount in subaccounts
+			select many budgetAccs related by subaccount->Account[R202.''budgetize''];
+				ceiling = 0;
+				requested = 0;
+				revenueCeiling = 0;
+				revenueRequested=0;
+			for each bgt in budgetAccs
+				
+				select one ceilingSubtype related by bgt->Ceiling[R190];
+				if (not empty ceilingSubtype)
+					ceiling = ceilingSubtype.Fund;
+					revenueCeiling = ceilingSubtype.Revenue;
+				end if;
+				select one requestedSubtype related by bgt->Requested[R190];
+				if (not empty requestedSubtype)
+					requested = requestedSubtype.Fund;
+					revenueRequested = requestedSubtype.Revenue;
+				end if;
+			end for; 
+				UI::SendBudgets( Year:subaccount.Code, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
+
+		end for;	
+	else
+			select many budgetAccs related by account->Account[R202.''budgetize''];
+				ceiling = 0;
+				requested = 0;
+				revenueCeiling = 0;
+				revenueRequested=0;
+			for each bgt in budgetAccs
+				
+				select one ceilingSubtype related by bgt->Ceiling[R190];
+				if (not empty ceilingSubtype)
+					ceiling = ceilingSubtype.Fund;
+					revenueCeiling = ceilingSubtype.Revenue;
+				end if;
+				select one requestedSubtype related by bgt->Requested[R190];
+				if (not empty requestedSubtype)
+					requested = requestedSubtype.Fund;
+					revenueRequested = requestedSubtype.Revenue;
+				end if;
+			end for; 
+				UI::SendBudgets( Year:account.Code, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
+
+	end if;
+end if;
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
