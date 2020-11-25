@@ -184,7 +184,7 @@ INSERT INTO S_SYNC
 	'',
 	'LOG::LogInfo(message:"UI: Sending employee: "+param.FirstName+" "+param.LastName);	 
 
-//::SendEmployee( EmployeeID:param.EmployeeID, NationalID:param.NationalID, FirstName:param.FirstName, MiddleName:param.MiddleName, LastName:param.LastName,  DateOfBirth:param.DateOfBirth, Degree:param.Degree, Gender:param.Gender, StartDate:param.StartDate, LeaveBalance:param.LeaveBalance, SickLeaveBalance:param.SickLeaveBalance, Size:param.Size ); ',
+',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
@@ -736,7 +736,7 @@ INSERT INTO S_SYNC
 	'',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_SPARM
@@ -779,7 +779,7 @@ INSERT INTO S_SYNC
 	'',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_SPARM
