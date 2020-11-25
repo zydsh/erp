@@ -36,8 +36,8 @@ INSERT INTO O_DBATTR
 	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	'cf = 0;
-select one account related by self->AccountSpecification[R180]; //->AccountSpecification[R80.''divided''];
-select many subaccounts related by account->AccountSpecification[R80.''divided''];
+select many subaccounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+//select many subaccounts related by account->AccountSpecification[R80.''divided''];
 for each subaccount in subaccounts 
 	select many baccount related by subaccount->Account[R202.''budgetize'']; 
 	for each f in baccount
