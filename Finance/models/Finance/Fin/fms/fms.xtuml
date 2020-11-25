@@ -327,7 +327,7 @@ INSERT INTO SPR_PS
 if (not empty budgets) 	
 	for each budget in budgets
 			UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested, CeilingRevenue:budget.CeilingRevenue, RequestedRevenue:budget.RequestedRevenue);	
-	end for;
+	end for; 
   else  
  
   	UI::Reply( msg:"There are no budgets registered in the system", state:False );  
@@ -460,9 +460,9 @@ INSERT INTO SPR_PEP
 	"84b7e49f-98e2-4539-b496-50575c189964");
 INSERT INTO SPR_PS
 	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
-	'ReadCeiling',
+	'ReadAccountFunds',
 	'',
-	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
+	'/*select any budget from instances of Budget where selected.Year == param.BudgetYear; 
 select many accounts related by budget->Account[R100.''assigned''];
 
 if (not empty accounts)  
@@ -473,14 +473,14 @@ if (not empty accounts)
 			UI::SendRequested( Code:spec.Code, Name:spec.Name, RequestedFund:ceiling.Fund, RequestedRevenue:ceiling.Revenue );
 		end if;
 	end for;
-end if;',
+end if;*/',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadCeiling',
+	'ReadAccountFunds',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
@@ -846,6 +846,31 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadRequested',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("eaff4c5b-f402-4cde-8218-9d4fdb4de564",
+	"91d79d8a-bc07-4781-9771-bf41b16882d8",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("eaff4c5b-f402-4cde-8218-9d4fdb4de564",
+	'ReadBudget',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.Year; 
+
+if (not empty budget) 	
+ 		UI::SendBudgets( Year:budget.Year, Ceiling:budget.Ceiling, Requested:budget.Requested, CeilingRevenue:budget.CeilingRevenue, RequestedRevenue:budget.RequestedRevenue);	
+ else  
+ 
+  	UI::Reply( msg:"There are no budgets registered in the system", state:False );  
+end if; ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("91d79d8a-bc07-4781-9771-bf41b16882d8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudget',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
