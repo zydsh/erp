@@ -492,7 +492,27 @@ if (not empty account)
 				UI::SendBudgets( Year:budget.Year, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
 
 		end for;	
-	
+	else
+			select many budgetAccs related by account->Account[R202.''budgetize''];
+				ceiling = 0;
+				requested = 0;
+				revenueCeiling = 0;
+				revenueRequested=0;
+			for each bgt in budgetAccs
+				
+				select one ceilingSubtype related by bgt->Ceiling[R190];
+				if (not empty ceilingSubtype)
+					ceiling = ceilingSubtype.Fund;
+					revenueCeiling = ceilingSubtype.Revenue;
+				end if;
+				select one requestedSubtype related by bgt->Requested[R190];
+				if (not empty requestedSubtype)
+					requested = requestedSubtype.Fund;
+					revenueRequested = requestedSubtype.Revenue;
+				end if;
+			end for; 
+				UI::SendBudgets( Year:budget.Year, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
+
 	end if;
 end if;
 
