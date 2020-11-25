@@ -530,7 +530,8 @@ INSERT INTO SM_ACT
 	VALUES ("9d7906a7-facf-4377-987f-440d077f7bbc",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'create object instance account of AccountSpecification;
+	'
+create object instance account of AccountSpecification;
 account.Code = "٢١";
 account.Name="تعويضات العاملين";
 
@@ -670,7 +671,7 @@ INSERT INTO SM_ACT
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
 	'create object instance budget of Budget;
-budget.Year=param.Year;
+budget.Year="2021";
 
 select many accounts from instances of AccountSpecification;
 for each account in accounts

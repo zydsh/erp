@@ -462,16 +462,18 @@ INSERT INTO SPR_PS
 	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
 	'ReadAccountFunds',
 	'',
-	'select any budget from instances of Budget where selected.Year == param.Year; 
-select any account related by budget->Account[R100.''assigned'']->AccountSpecification[R202.''budgetized by''] 
-where selected.Code ==param.Code;
+	'//select any budget from instances of Budget where selected.Year == param.Year; 
+select any account from instances of AccountSpecification where selected.Code ==param.Code;
 
 if (not empty account)  
 	select one expenditure related by account->Expenditure[R180];
-	select many subaccounts related by account->AccountSpecification[R80.''divided''];	
-	if (not empty expenditure) and ( not empty subaccounts)
-		UI::SendBudgets( Year:budget.Year, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
-		for each subaccount in subaccounts
+	//select many subaccounts related by account->AccountSpecification[R80.''divided''];	
+	if (not empty expenditure) 
+		UI::SendBudgets( Year:param.Year, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+	end if;
+end if;
+
+		/*for each subaccount in subaccounts
 			select many budgetAccs related by subaccount->Account[R202.''budgetize''];
 			for each bgt in budgetAccs
 				ceiling = 0;
@@ -489,9 +491,7 @@ if (not empty account)
 				UI::SendBudgets( Year:budget.Year, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:requestedCeiling);
 
 			end for;
-		end for;	
-	end if;
-end if;',
+		end for;	*/',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
