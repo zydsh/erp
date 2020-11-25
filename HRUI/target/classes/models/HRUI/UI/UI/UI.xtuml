@@ -2109,7 +2109,7 @@ INSERT INTO SPR_RS
 	'SendBudgets',
 	'',
 	'::SendBudgets( Year:param.Year, Ceiling:param.Ceiling, Requested:param.Requested, CeilingRevenue:param.CeilingRevenue, RequestedRevenue:param.RequestedRevenue ); 
-',
+LOG::LogInfo( message:"Send Expend" ); LOG::LogInteger( message:param.Ceiling );',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -2452,7 +2452,7 @@ INSERT INTO SPR_RS
 	'ReadBudget',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("91d79d8a-bc07-4781-9771-bf41b16882d8",
