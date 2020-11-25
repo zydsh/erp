@@ -267,11 +267,11 @@ INSERT INTO C_EP
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadCeiling',
+	'ReadAccountFunds',
 	'');
 INSERT INTO C_AS
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
-	'ReadCeiling',
+	'ReadAccountFunds',
 	'',
 	0,
 	"b6724746-1a25-4086-8a5f-53fae643a17f");
@@ -279,11 +279,20 @@ INSERT INTO C_PP
 	VALUES ("5ac1f5b9-7dee-4b2f-82c8-cb03b0df9cbd",
 	"dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"ba5eda7a-def5-0000-0000-000000000004",
-	'BudgetYear',
+	'Year',
 	'',
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("71d4f8f1-2bed-47cd-ac26-651111c8a89a",
+	"dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Code',
+	'',
+	0,
+	'',
+	"5ac1f5b9-7dee-4b2f-82c8-cb03b0df9cbd");
 INSERT INTO C_EP
 	VALUES ("1f6a3814-0c98-4dd6-bac0-080a5a7a0c35",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
@@ -715,6 +724,27 @@ INSERT INTO C_PP
 	"6a03da54-e74f-4e6e-af7f-e9c0bac1fa3c",
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'BudgetYear',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("91d79d8a-bc07-4781-9771-bf41b16882d8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudget',
+	'');
+INSERT INTO C_AS
+	VALUES ("91d79d8a-bc07-4781-9771-bf41b16882d8",
+	'ReadBudget',
+	'',
+	0,
+	"6a03da54-e74f-4e6e-af7f-e9c0bac1fa3c");
+INSERT INTO C_PP
+	VALUES ("a121669e-e39c-478c-becc-63e884581c0a",
+	"91d79d8a-bc07-4781-9771-bf41b16882d8",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Year',
 	'',
 	0,
 	'',

@@ -2144,6 +2144,24 @@ INSERT INTO C_EP_PROXY
 	'ReadRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("f6955e6d-2dfe-48ba-b35a-97e058e86bc6",
+	"91d79d8a-bc07-4781-9771-bf41b16882d8",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("f6955e6d-2dfe-48ba-b35a-97e058e86bc6",
+	'ReadBudget',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("91d79d8a-bc07-4781-9771-bf41b16882d8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudget',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
