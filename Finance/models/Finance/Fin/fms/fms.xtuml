@@ -414,7 +414,7 @@ if (not empty account)
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
 			end for; 
-			UI::SendAccountFunds( Code:account.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+			UI::SendAccountFunds( Code:subaccount.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
 
 		end for;	
 	else
@@ -436,7 +436,7 @@ if (not empty account)
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
 			end for; 
-				UI::SendAccountFunds( Code:account.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+				UI::SendAccountFunds( Code:account.Code, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
 
 	end if;
 end if;
@@ -559,43 +559,6 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'AcceptCeiling',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
-	VALUES ("4d4a7767-746c-40a2-be26-f334e0c6728c",
-	"589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("4d4a7767-746c-40a2-be26-f334e0c6728c",
-	'ReviewAccount',
-	'',
-	'
-select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-select many accounts related by accountSpec->Account[R202.''budgetize''];
-if (not empty accounts)
-	for each account in accounts
-		generate Account3:Review to account;
-	end for;
-else
-	select many subaccounts related by accountSpec->AccountSpecification[R80.''divided''];
-	if (not empty subaccounts)
-		for each subaccount in subaccounts
-			select many budgetAccounts related by subaccount->Account[R202.''budgetize''];
-			for each ba in budgetAccounts
-				generate Account3:Review to ba;
-			end for;
-		end for;
-	end if;
-end if;
-
-',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'ReviewAccount',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
@@ -919,6 +882,71 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SendAccountFunds',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("cb58ace9-ffdf-40bb-8c22-f9e5a2fa19bb",
+	"f4c86c50-3cbb-4efe-8ae7-d2336046cde3",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("cb58ace9-ffdf-40bb-8c22-f9e5a2fa19bb",
+	'ReadAccepted',
+	'',
+	'select many accounts from instances of AccountSpecification;
+for each account in accounts
+select one expenditure related by account->Expenditure[R180];
+if (empty expenditure)
+	select many bas related by account->Account[R202.''budgetize''];
+	if (not empty bas)
+		for each ba in bas
+			generate Account6:AcceptRequested to ba;
+		end for;
+	end if;
+end if;
+end for;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f4c86c50-3cbb-4efe-8ae7-d2336046cde3",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadAccepted',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a597a557-627c-4307-9dc6-d800edad04a4",
+	"67fe4628-f24e-4262-b8dd-ba67c1070cf8",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("a597a557-627c-4307-9dc6-d800edad04a4",
+	'ReadRejected',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("67fe4628-f24e-4262-b8dd-ba67c1070cf8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadRejected',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("1dbad819-882f-44ba-803e-45b54856db8d",
+	"74267771-8f23-4b1d-a0ec-7edad8977687",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("1dbad819-882f-44ba-803e-45b54856db8d",
+	'SendAccount',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("74267771-8f23-4b1d-a0ec-7edad8977687",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendAccount',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

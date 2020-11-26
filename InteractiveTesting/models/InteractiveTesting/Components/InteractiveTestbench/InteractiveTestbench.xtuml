@@ -1923,24 +1923,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("5aff6ef0-0086-4d59-98ee-f07446ca9cd8",
-	"589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
-	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
-INSERT INTO SPR_RS
-	VALUES ("5aff6ef0-0086-4d59-98ee-f07446ca9cd8",
-	'ReviewAccount',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'ReviewAccount',
-	'',
-	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("a035118b-f1af-4528-926a-90e9679be4ac",
 	"4af6aae3-9881-4881-b6df-74baed99177c",
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
@@ -2142,6 +2124,65 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SendAccountFunds',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("2324070d-b4e6-40a2-9bf8-3adf34c7bd0a",
+	"f4c86c50-3cbb-4efe-8ae7-d2336046cde3",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("2324070d-b4e6-40a2-9bf8-3adf34c7bd0a",
+	'ReadAccepted',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f4c86c50-3cbb-4efe-8ae7-d2336046cde3",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadAccepted',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("0ebf4800-7a37-4e0b-b2e2-b2bbd7f426a1",
+	"67fe4628-f24e-4262-b8dd-ba67c1070cf8",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("0ebf4800-7a37-4e0b-b2e2-b2bbd7f426a1",
+	'ReadRejected',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("67fe4628-f24e-4262-b8dd-ba67c1070cf8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadRejected',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("12c01f5d-138e-4422-982e-a562a23fcc62",
+	"74267771-8f23-4b1d-a0ec-7edad8977687",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("12c01f5d-138e-4422-982e-a562a23fcc62",
+	'SendAccount',
+	'',
+	'	create object instance account of UC7_Accepted;
+	account.Code = param.Code;
+	account.Name = param.Name;
+	account.Fund = param.Fund;
+	account.Revenue = param.Revenue;
+	',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("74267771-8f23-4b1d-a0ec-7edad8977687",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendAccount',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
