@@ -2065,24 +2065,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("bc898972-1d24-4095-8c1c-5f092f9b9a4e",
-	"5cd5923e-2b59-43c7-845d-64e491e99e41",
-	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
-INSERT INTO SPR_RS
-	VALUES ("bc898972-1d24-4095-8c1c-5f092f9b9a4e",
-	'CreateSection',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'CreateSection',
-	'',
-	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("e4a2696a-7435-4310-b52e-6977f7160371",
 	"65121dc7-3592-49f6-9f96-1cf25a688cf6",
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
@@ -2138,42 +2120,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("6f21f063-c876-4ecc-b31d-0bee1d3236bc",
-	"bdf466da-9e85-466d-a4bb-c6684a370aad",
-	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
-INSERT INTO SPR_RS
-	VALUES ("6f21f063-c876-4ecc-b31d-0bee1d3236bc",
-	'ReadExpenditureAccounts',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'ReadExpenditureAccounts',
-	'',
-	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_REP
-	VALUES ("f4245b56-1f16-4898-86c8-d02343fd7eb2",
-	"70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
-INSERT INTO SPR_RS
-	VALUES ("f4245b56-1f16-4898-86c8-d02343fd7eb2",
-	'SendChapters',
-	'',
-	'::SendChapters( Code:param.Code, Name:param.Name, Ceiling:param.Ceiling, Requested:param.Requested);',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'SendChapters',
-	'',
-	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("ff8e2aa3-5425-4cf6-8a35-efa36f422dc2",
 	"b6724746-1a25-4086-8a5f-53fae643a17f",
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
@@ -2198,7 +2144,10 @@ INSERT INTO SPR_REP
 INSERT INTO SPR_RS
 	VALUES ("eef4a957-33c3-4f58-a9cf-5954c8d682f2",
 	'ReadAccountFunds',
-	'',
+	'Reads accounts and sub-accounts of a the current year budget. If the code
+represents a sub-account it will returen the sub-account only, if the code
+sent represents the account, it sends the contents of the accounts and
+all of its sub-accounts.',
 	'',
 	1,
 	0);
@@ -2207,7 +2156,10 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadAccountFunds',
-	'',
+	'Reads accounts and sub-accounts of a the current year budget. If the code
+represents a sub-account it will returen the sub-account only, if the code
+sent represents the account, it sends the contents of the accounts and
+all of its sub-accounts.',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
 	VALUES ("1b5624a3-eab4-47ca-937a-f07e2f63728c",

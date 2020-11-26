@@ -18,47 +18,17 @@ INSERT INTO C_AS
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO C_EP
-	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
+	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'CreateSection',
+	'ReadBudgets',
 	'');
 INSERT INTO C_AS
-	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
-	'CreateSection',
+	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
+	'ReadBudgets',
 	'',
 	0,
 	"6859b7aa-16e9-436c-88b1-66c0bf7f2cbf");
-INSERT INTO C_PP
-	VALUES ("49eb5854-bb80-49fe-b3db-8506bb5d0024",
-	"5cd5923e-2b59-43c7-845d-64e491e99e41",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'Code',
-	'',
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("3e2f6881-7488-42ae-b7d9-a56c23e83599",
-	"5cd5923e-2b59-43c7-845d-64e491e99e41",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'Name',
-	'',
-	0,
-	'',
-	"49eb5854-bb80-49fe-b3db-8506bb5d0024");
-INSERT INTO C_EP
-	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'ReadBudgets',
-	'');
-INSERT INTO C_AS
-	VALUES ("65121dc7-3592-49f6-9f96-1cf25a688cf6",
-	'ReadBudgets',
-	'',
-	0,
-	"5cd5923e-2b59-43c7-845d-64e491e99e41");
 INSERT INTO C_EP
 	VALUES ("981b3bfb-f8e5-468d-87ef-6341359c2931",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
@@ -147,86 +117,17 @@ INSERT INTO C_PP
 	'',
 	"af3261f0-a2e9-4b43-9d78-13d24a02d7a6");
 INSERT INTO C_EP
-	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
+	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadExpenditureAccounts',
+	'SendRequested',
 	'');
 INSERT INTO C_AS
-	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
-	'ReadExpenditureAccounts',
+	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
+	'SendRequested',
 	'',
-	0,
+	1,
 	"02b58a71-1200-4020-bdc9-809f601deab1");
-INSERT INTO C_PP
-	VALUES ("c2c55b09-f7a8-46cd-b0a7-aa6301232619",
-	"bdf466da-9e85-466d-a4bb-c6684a370aad",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'BudgetYear',
-	'',
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_EP
-	VALUES ("70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'SendChapters',
-	'');
-INSERT INTO C_AS
-	VALUES ("70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	'SendChapters',
-	'',
-	1,
-	"bdf466da-9e85-466d-a4bb-c6684a370aad");
-INSERT INTO C_PP
-	VALUES ("e8ed2cb6-7670-45e7-8417-f9018e18fba9",
-	"70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'Code',
-	'',
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("7aaf50b4-7eb3-4168-bdb1-e27b15f410eb",
-	"70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"ba5eda7a-def5-0000-0000-000000000004",
-	'Name',
-	'',
-	0,
-	'',
-	"e8ed2cb6-7670-45e7-8417-f9018e18fba9");
-INSERT INTO C_PP
-	VALUES ("27174ab1-6264-444d-89c8-6f4021817bfe",
-	"70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'Ceiling',
-	'',
-	0,
-	'',
-	"7aaf50b4-7eb3-4168-bdb1-e27b15f410eb");
-INSERT INTO C_PP
-	VALUES ("4e96e5b5-8860-4667-b21e-4f26bf486a0f",
-	"70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'Requested',
-	'',
-	0,
-	'',
-	"27174ab1-6264-444d-89c8-6f4021817bfe");
-INSERT INTO C_EP
-	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'SendRequested',
-	'');
-INSERT INTO C_AS
-	VALUES ("b6724746-1a25-4086-8a5f-53fae643a17f",
-	'SendRequested',
-	'',
-	1,
-	"70cffc85-c610-407d-a0de-b2fd7776c2f3");
 INSERT INTO C_PP
 	VALUES ("3ea023f9-a953-4d2f-841a-31f5f23c0f50",
 	"b6724746-1a25-4086-8a5f-53fae643a17f",
