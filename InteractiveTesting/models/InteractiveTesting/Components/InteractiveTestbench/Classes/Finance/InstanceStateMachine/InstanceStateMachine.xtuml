@@ -531,7 +531,7 @@ INSERT INTO SM_STATE
 	VALUES ("446d5fd7-3211-48c3-9b10-3e1f7d2240b7",
 	"0865f4ab-3f26-48c0-8e45-ce049010a32e",
 	"00000000-0000-0000-0000-000000000000",
-	'TestingBudgets2',
+	'TestingAccounts',
 	5,
 	0);
 INSERT INTO SM_CH
@@ -793,7 +793,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("5fa92d0f-b35f-4324-9d1e-d1c8765789d3",
 	"0865f4ab-3f26-48c0-8e45-ce049010a32e",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -1278,7 +1278,7 @@ INSERT INTO GD_GE
 	"446d5fd7-3211-48c3-9b10-3e1f7d2240b7",
 	41,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::Classes::Finance::Instance State Machine::TestingBudgets2');
+	'InteractiveTesting::Components::InteractiveTestbench::Classes::Finance::Instance State Machine::TestingAccounts');
 INSERT INTO GD_SHP
 	VALUES ("a4b86ceb-1e0f-476e-8298-e1baa6b96fbc");
 INSERT INTO GD_NCS

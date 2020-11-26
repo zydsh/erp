@@ -1680,7 +1680,7 @@ INSERT INTO SPR_RS
 	'ProcessAllPayments',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a6b1d002-eafd-45fb-b2ff-eb3f5cdb0ec7",
@@ -1698,7 +1698,7 @@ INSERT INTO SPR_RS
 	'HoldAllPayments',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a28b505e-7b17-44b0-922f-33c66c441fb6",
@@ -1716,7 +1716,7 @@ INSERT INTO SPR_RS
 	'SuspendPayment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("0408efa5-ca8c-4d6b-bfa4-77c6a753bb5e",
@@ -2159,13 +2159,37 @@ INSERT INTO SPR_RS
 	'ReadBudget',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("91d79d8a-bc07-4781-9771-bf41b16882d8",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadBudget',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("93081f0a-c33c-40b3-8d72-6a2d43f778e2",
+	"5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("93081f0a-c33c-40b3-8d72-6a2d43f778e2",
+	'SendAccountFunds',
+	'',
+	'create  object instance account of UC6_ReadAccounts;
+account.Code = param.Code;
+account.Ceiling = param.Ceiling;
+account.Requested = param.Requested;
+account.CRevenue = param.CeilingRevenue;
+account.RRevenue = param.RequestedRevenue;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendAccountFunds',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
