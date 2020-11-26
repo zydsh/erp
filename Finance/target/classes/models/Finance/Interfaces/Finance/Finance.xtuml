@@ -749,6 +749,63 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendAccountFunds',
+	'');
+INSERT INTO C_AS
+	VALUES ("5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	'SendAccountFunds',
+	'',
+	1,
+	"91d79d8a-bc07-4781-9771-bf41b16882d8");
+INSERT INTO C_PP
+	VALUES ("846c4d2e-a07f-4197-a259-3535f9ead242",
+	"5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Code',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("7633d028-11ec-4a5d-8907-23c479856d73",
+	"5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Ceiling',
+	'',
+	0,
+	'',
+	"846c4d2e-a07f-4197-a259-3535f9ead242");
+INSERT INTO C_PP
+	VALUES ("9d39d7bc-334b-43e7-9b50-8d6f90623485",
+	"5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Requested',
+	'',
+	0,
+	'',
+	"7633d028-11ec-4a5d-8907-23c479856d73");
+INSERT INTO C_PP
+	VALUES ("2186d80c-4b7a-429c-b70a-0b6bba15377e",
+	"5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'CeilingRevenue',
+	'',
+	0,
+	'',
+	"9d39d7bc-334b-43e7-9b50-8d6f90623485");
+INSERT INTO C_PP
+	VALUES ("bbf4c671-7901-4980-9fd6-1546f45f79ca",
+	"5dab3256-d9fc-42e8-9b6b-bda3055328e3",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'RequestedRevenue',
+	'',
+	0,
+	'',
+	"2186d80c-4b7a-429c-b70a-0b6bba15377e");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

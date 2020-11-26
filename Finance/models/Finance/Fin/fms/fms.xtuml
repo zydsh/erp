@@ -462,8 +462,7 @@ INSERT INTO SPR_PS
 	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
 	'ReadAccountFunds',
 	'',
-	'select any budget from instances of Budget where selected.Year == param.Year; 
-select any account from instances of AccountSpecification where selected.Code ==param.Code;
+	'select any account from instances of AccountSpecification where selected.Code ==param.Code;
 
 if (not empty account)  
 	select one expenditure related by account->Expenditure[R180];
