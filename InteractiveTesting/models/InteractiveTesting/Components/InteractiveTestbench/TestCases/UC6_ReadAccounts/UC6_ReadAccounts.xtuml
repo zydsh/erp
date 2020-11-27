@@ -7,6 +7,21 @@ INSERT INTO O_OBJ
 	'UC6_ReadAccounts',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("298eb55a-497a-4a9b-8d09-1415ad9e281c",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	'run',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any read from instances of UC6_ReadAccounts;
+if (not empty read)
+	generate UC6_ReadAccounts1:Test to read;
+end if;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
 INSERT INTO O_NBATTR
 	VALUES ("daf8499b-8e2a-48d5-b78a-c8524e80c85b",
 	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
@@ -97,6 +112,42 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
+INSERT INTO O_NBATTR
+	VALUES ("d1c04cd8-d11a-4cc7-b30d-5ddf34c442c7",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("d1c04cd8-d11a-4cc7-b30d-5ddf34c442c7",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("d1c04cd8-d11a-4cc7-b30d-5ddf34c442c7",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"e1cc5585-f264-4330-aea5-d2e4d224fe28",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("91927da0-dbfe-4ae0-a39d-42fbefd6c4cc",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("91927da0-dbfe-4ae0-a39d-42fbefd6c4cc",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("91927da0-dbfe-4ae0-a39d-42fbefd6c4cc",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"d1c04cd8-d11a-4cc7-b30d-5ddf34c442c7",
+	'Open',
+	'',
+	'',
+	'Open',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'',
+	'False');
 INSERT INTO O_ID
 	VALUES (0,
 	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");

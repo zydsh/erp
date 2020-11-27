@@ -297,24 +297,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("ebb0a2bc-16f2-4619-a9c3-efbba05f06c0",
-	"5cd5923e-2b59-43c7-845d-64e491e99e41",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("ebb0a2bc-16f2-4619-a9c3-efbba05f06c0",
-	'CreateSection',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("5cd5923e-2b59-43c7-845d-64e491e99e41",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'CreateSection',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
 	VALUES ("68ec02e2-2e5f-46c0-98b2-f3f945c8e339",
 	"65121dc7-3592-49f6-9f96-1cf25a688cf6",
 	"84b7e49f-98e2-4539-b496-50575c189964");
@@ -378,65 +360,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("0cfd372b-9920-434a-a0a5-5eab902b7658",
-	"bdf466da-9e85-466d-a4bb-c6684a370aad",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("0cfd372b-9920-434a-a0a5-5eab902b7658",
-	'ReadExpenditureAccounts',
-	'',
-	'select any budget from instances of Budget where selected.Year == param.BudgetYear; 
-select many accounts related by budget->Account[R100.''assigned''];
-
-if (not empty accounts) 
-	LOG::LogInfo(message:"Sending account list .." );	
-	
-	for each account in accounts
-		select one specaccount related by account->AccountSpecification[R202.''budgetized by'']->AccountSpecification[R80.''part''];
-		if (empty specaccount)
-			select one expenditure related by account->AccountSpecification[R202.''budgetized by'']->Expenditure[R180];
-			UI::SendChapters( Code:specaccount.Code, Name:specaccount.Name, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund);		
-			//LOG::LogInfo(message:"Sent: Chapter: "+ chapter.Code+ ", "+chapter.Name);
-			//LOG::LogInfo(message:", Cieling: "); LOG::LogInteger( message:chapter.Ceiling );
-			//LOG::LogInfo(message:", Requested: "); LOG::LogInteger( message:chapter.Requested );	
-		end if;
-	end for;
-
-  LOG::LogInfo(message:"Sending chapter list is complete" );	
-  
-  else 
-  	LOG::LogInfo(message:"There are no chapters registered in the system" );	
-
-  	UI::Reply( msg:"There are no chapters registered in the system", state:False );  
-  end if; ',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("bdf466da-9e85-466d-a4bb-c6684a370aad",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'ReadExpenditureAccounts',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
-	VALUES ("f0f49109-ead5-417f-b572-502f697bd93e",
-	"70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("f0f49109-ead5-417f-b572-502f697bd93e",
-	'SendChapters',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("70cffc85-c610-407d-a0de-b2fd7776c2f3",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'SendChapters',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
 	VALUES ("b6ad793f-bf29-4d4e-afc0-ef503b84c74e",
 	"b6724746-1a25-4086-8a5f-53fae643a17f",
 	"84b7e49f-98e2-4539-b496-50575c189964");
@@ -461,9 +384,11 @@ INSERT INTO SPR_PEP
 INSERT INTO SPR_PS
 	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
 	'ReadAccountFunds',
-	'',
-	'select any budget from instances of Budget where selected.Year == param.Year; 
-select any account from instances of AccountSpecification where selected.Code ==param.Code;
+	'Reads accounts and sub-accounts of a the current year budget. If the code
+represents a sub-account it will returen the sub-account only, if the code
+sent represents the account, it sends the contents of the accounts and
+all of its sub-accounts.',
+	'select any account from instances of AccountSpecification where selected.Code ==param.Code;
 
 if (not empty account)  
 	select one expenditure related by account->Expenditure[R180];
@@ -489,7 +414,7 @@ if (not empty account)
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
 			end for; 
-			UI::SendAccountFunds( Code:account.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+			UI::SendAccountFunds( Code:subaccount.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
 
 		end for;	
 	else
@@ -511,7 +436,7 @@ if (not empty account)
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
 			end for; 
-				UI::SendAccountFunds( Code:account.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+				UI::SendAccountFunds( Code:account.Code, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
 
 	end if;
 end if;
@@ -523,7 +448,10 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadAccountFunds',
-	'',
+	'Reads accounts and sub-accounts of a the current year budget. If the code
+represents a sub-account it will returen the sub-account only, if the code
+sent represents the account, it sends the contents of the accounts and
+all of its sub-accounts.',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("cdb99240-640b-4f03-9f54-92fbf3cc520f",
@@ -552,8 +480,31 @@ INSERT INTO SPR_PS
 	'AcceptRequested',
 	'',
 	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-if (not empty accountSpec)
-	generate AccountSpecification2:RequestedChosen to accountSpec;
+select many accounts related by accountSpec->Account[R202.''budgetize''];
+if (not empty accounts)
+	for each account in accounts
+		select one requested related by account->Requested[R190];
+		if (not empty requested)
+			generate Account1:Accept to account;
+		else
+			generate Account2:Reject to account;
+		end if;
+	end for;
+else
+	select many subaccounts related by accountSpec->AccountSpecification[R80.''divided''];
+	if (not empty subaccounts)
+		for each subaccount in subaccounts
+			select many budgetAccounts related by subaccount->Account[R202.''budgetize''];
+			for each ba in budgetAccounts
+				select one requested related by ba->Requested[R190];
+				if (not empty requested)
+					generate Account1:Accept to ba;
+				else
+					generate Account2:Reject to ba;
+				end if;
+			end for;
+		end for;
+	end if;
 end if;
 ',
 	1,
@@ -574,8 +525,31 @@ INSERT INTO SPR_PS
 	'AcceptCeiling',
 	'',
 	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-if (not empty accountSpec)
-	generate AccountSpecification1:CeilingChosen to accountSpec;
+select many accounts related by accountSpec->Account[R202.''budgetize''];
+if (not empty accounts)
+	for each account in accounts
+		select one ceiling related by account->Ceiling[R190];
+		if (not empty ceiling)
+			generate Account1:Accept to account;
+		else
+			generate Account2:Reject to account;
+		end if;
+	end for;
+else
+	select many subaccounts related by accountSpec->AccountSpecification[R80.''divided''];
+	if (not empty subaccounts)
+		for each subaccount in subaccounts
+			select many budgetAccounts related by subaccount->Account[R202.''budgetize''];
+			for each ba in budgetAccounts
+				select one ceiling related by ba->Ceiling[R190];
+				if (not empty ceiling)
+					generate Account1:Accept to ba;
+				else
+					generate Account2:Reject to ba;
+				end if;
+			end for;
+		end for;
+	end if;
 end if;
 ',
 	1,
@@ -585,31 +559,6 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'AcceptCeiling',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
-	VALUES ("4d4a7767-746c-40a2-be26-f334e0c6728c",
-	"589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("4d4a7767-746c-40a2-be26-f334e0c6728c",
-	'ReviewAccount',
-	'',
-	'
-select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
-select many accounts related by accountSpec->Account[R202.''budgetize''];
-for each account in accounts
-	generate Account3:Review to account;
-end for;
-
-',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("589cda45-8d2a-41a6-aa56-c37c2f74f0bb",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'ReviewAccount',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
@@ -734,21 +683,23 @@ INSERT INTO SPR_PS
 	VALUES ("15950020-b631-4080-8153-1b3c026b1c1a",
 	'OperationalizeAccount',
 	'',
-	'
-select many accounts from instances of AccountSpecification where selected.Code == param.Code; 
-
-for each account in accounts
-	select many budgets related by account->Account[R202.''budgetize''];
-	for each budget in budgets
-		generate Account4:Open to budget;
+	'select any accountSpec from instances of AccountSpecification where selected.Code == param.Code; 
+select many accounts related by accountSpec->Account[R202.''budgetize''];
+if (not empty accounts)
+	for each account in accounts
+		generate Account4:Open to account;
 	end for;
-
-end for;
-
-
-
-
-
+else
+	select many subaccounts related by accountSpec->AccountSpecification[R80.''divided''];
+	if (not empty subaccounts)
+		for each subaccount in subaccounts
+			select many budgetAccounts related by subaccount->Account[R202.''budgetize''];
+			for each ba in budgetAccounts
+				generate Account4:Open to ba;
+			end for;
+		end for;
+	end if;
+end if;
 ',
 	1,
 	0);
@@ -931,6 +882,159 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SendAccountFunds',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("cb58ace9-ffdf-40bb-8c22-f9e5a2fa19bb",
+	"f4c86c50-3cbb-4efe-8ae7-d2336046cde3",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("cb58ace9-ffdf-40bb-8c22-f9e5a2fa19bb",
+	'ReadAccepted',
+	'',
+	'select many accounts from instances of AccountSpecification;
+for each account in accounts
+select one expenditure related by account->Expenditure[R180];
+if (empty expenditure)
+	select many bas related by account->Account[R202.''budgetize''];
+	if (not empty bas)
+		for each ba in bas
+			generate Account6:AcceptRequested to ba;
+		end for;
+	end if;
+end if;
+end for;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f4c86c50-3cbb-4efe-8ae7-d2336046cde3",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadAccepted',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a597a557-627c-4307-9dc6-d800edad04a4",
+	"67fe4628-f24e-4262-b8dd-ba67c1070cf8",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("a597a557-627c-4307-9dc6-d800edad04a4",
+	'ReadRejected',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("67fe4628-f24e-4262-b8dd-ba67c1070cf8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadRejected',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("1dbad819-882f-44ba-803e-45b54856db8d",
+	"74267771-8f23-4b1d-a0ec-7edad8977687",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("1dbad819-882f-44ba-803e-45b54856db8d",
+	'SendAccount',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("74267771-8f23-4b1d-a0ec-7edad8977687",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendAccount',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("71f78ed0-dada-44da-a6b9-3776be676df5",
+	"7c0b0b8e-8aed-4f78-8fba-f2671976d884",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("71f78ed0-dada-44da-a6b9-3776be676df5",
+	'ReadAccounts',
+	'',
+	'select many accounts from instances of AccountSpecification;
+
+for each account in accounts
+	select one expenditure related by account->Expenditure[R180];
+	if (empty expenditure)
+		select one opaccount related by account->Account[R170.''operates''];
+		if (not empty opaccount)
+			UI::SendAccount( Code:account.Code, Name:account.Name, Fund:opaccount.OpeningBalance, Revenue:0 );
+		end if;
+	end if;
+end for;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7c0b0b8e-8aed-4f78-8fba-f2671976d884",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadAccounts',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0e41f1bb-ff46-455e-9cf8-4947a5aca03b",
+	"9035e841-f394-4cac-949b-3dbd8846ee1b",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("0e41f1bb-ff46-455e-9cf8-4947a5aca03b",
+	'AcceptAllRequested',
+	'',
+	'select many accountSpec from instances of AccountSpecification; 
+select many accounts related by accountSpec->Account[R202.''budgetize''];
+if (not empty accounts)
+	for each account in accounts
+		select one requested related by account->Requested[R190];
+		if (not empty requested)
+			generate Account1:Accept to account;
+		else
+			generate Account2:Reject to account;
+		end if;
+	end for;
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("9035e841-f394-4cac-949b-3dbd8846ee1b",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AcceptAllRequested',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("4ac14223-9a08-4a38-b9ba-4dc10bc60606",
+	"2066a758-e796-4d69-9ac9-ed03819719e5",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("4ac14223-9a08-4a38-b9ba-4dc10bc60606",
+	'AcceptAllCeiling',
+	'',
+	'select many accountSpec from instances of AccountSpecification; 
+select many accounts related by accountSpec->Account[R202.''budgetize''];
+if (not empty accounts)
+	for each account in accounts
+		select one ceiling related by account->Ceiling[R190];
+		if (not empty ceiling)
+			generate Account1:Accept to account;
+		else
+			generate Account2:Reject to account;
+		end if;
+	end for;
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2066a758-e796-4d69-9ac9-ed03819719e5",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AcceptAllCeiling',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

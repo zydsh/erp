@@ -1,0 +1,104 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("f4e36d54-975b-49f7-adfe-960d20c446bb",
+	'UC7_Accepted',
+	7,
+	'UC7_Accepted',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("0160a752-4a41-4ade-a305-5608675097cb",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_BATTR
+	VALUES ("0160a752-4a41-4ade-a305-5608675097cb",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_ATTR
+	VALUES ("0160a752-4a41-4ade-a305-5608675097cb",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb",
+	"00000000-0000-0000-0000-000000000000",
+	'Code',
+	'',
+	'',
+	'Code',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("e3ed04fd-2496-4782-bfad-f41a74fb851f",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_BATTR
+	VALUES ("e3ed04fd-2496-4782-bfad-f41a74fb851f",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_ATTR
+	VALUES ("e3ed04fd-2496-4782-bfad-f41a74fb851f",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb",
+	"0160a752-4a41-4ade-a305-5608675097cb",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("b72245b7-9264-491a-906d-e45458078a9d",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_BATTR
+	VALUES ("b72245b7-9264-491a-906d-e45458078a9d",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_ATTR
+	VALUES ("b72245b7-9264-491a-906d-e45458078a9d",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb",
+	"e3ed04fd-2496-4782-bfad-f41a74fb851f",
+	'Fund',
+	'',
+	'',
+	'Fund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("d8d59ea1-14f9-42a6-8b58-d488871b9097",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_BATTR
+	VALUES ("d8d59ea1-14f9-42a6-8b58-d488871b9097",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_ATTR
+	VALUES ("d8d59ea1-14f9-42a6-8b58-d488871b9097",
+	"f4e36d54-975b-49f7-adfe-960d20c446bb",
+	"b72245b7-9264-491a-906d-e45458078a9d",
+	'Revenue',
+	'',
+	'',
+	'Revenue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_ID
+	VALUES (1,
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO O_ID
+	VALUES (2,
+	"f4e36d54-975b-49f7-adfe-960d20c446bb");
+INSERT INTO PE_PE
+	VALUES ("f4e36d54-975b-49f7-adfe-960d20c446bb",
+	1,
+	"f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'TestCases',
+	'',
+	0,
+	'../TestCases.xtuml');
