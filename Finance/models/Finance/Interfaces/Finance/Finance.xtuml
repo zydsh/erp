@@ -755,6 +755,42 @@ INSERT INTO C_PP
 	0,
 	'',
 	"5d1b475d-64ec-41a8-a576-983c5776980c");
+INSERT INTO C_EP
+	VALUES ("7c0b0b8e-8aed-4f78-8fba-f2671976d884",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadAccounts',
+	'');
+INSERT INTO C_AS
+	VALUES ("7c0b0b8e-8aed-4f78-8fba-f2671976d884",
+	'ReadAccounts',
+	'',
+	0,
+	"74267771-8f23-4b1d-a0ec-7edad8977687");
+INSERT INTO C_EP
+	VALUES ("9035e841-f394-4cac-949b-3dbd8846ee1b",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AcceptAllRequested',
+	'');
+INSERT INTO C_AS
+	VALUES ("9035e841-f394-4cac-949b-3dbd8846ee1b",
+	'AcceptAllRequested',
+	'',
+	0,
+	"7c0b0b8e-8aed-4f78-8fba-f2671976d884");
+INSERT INTO C_EP
+	VALUES ("2066a758-e796-4d69-9ac9-ed03819719e5",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AcceptAllCeiling',
+	'');
+INSERT INTO C_AS
+	VALUES ("2066a758-e796-4d69-9ac9-ed03819719e5",
+	'AcceptAllCeiling',
+	'',
+	0,
+	"9035e841-f394-4cac-949b-3dbd8846ee1b");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

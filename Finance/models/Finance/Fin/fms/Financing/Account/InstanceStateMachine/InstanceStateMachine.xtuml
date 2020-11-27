@@ -763,13 +763,21 @@ INSERT INTO SM_ACT
 	'	select one account related by self->AccountSpecification[R202.''budgetized by''];
 	relate self to account across R170.''operated by'';
 	select one child related by account->Expenditure[R180];
-	if ( not empty child)
+	if ( empty child)
 			create object instance operation of OperationalAccount;
 			relate self to operation across R200;
+			select one ceiling related by self->Ceiling[R190];
+			select one requested related by self->Requested[R190];
+			if (not empty ceiling)
+				self.OpeningBalance = ceiling.Fund;
+			else
+				self.OpeningBalance = requested.Fund;
+			end if; 
 	else
 			create object instance operation of OperationalProgram;
 			relate self to operation across R200;
 	end if;
+	unrelate self from account across R202.''budgetized by'';
 
 ',
 	'',
@@ -880,7 +888,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("5f97a45a-48d9-4706-95da-09167ab1eaa3",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -894,7 +902,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("2c456ad6-04f5-4e63-b1fa-a92824a6aba1",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	3,
+	1,
 	'',
 	'',
 	0);
