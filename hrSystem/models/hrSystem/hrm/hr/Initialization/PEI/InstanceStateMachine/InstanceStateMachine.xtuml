@@ -2101,7 +2101,7 @@ INSERT INTO SM_ACT
 	'select many employees from instances of Employee;
 
 for each emp in employees
-	Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+	Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email);
 end for;
 
 generate  PEI7:assignPositions() to self;
