@@ -463,7 +463,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:1, Department: "Human Resources") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
   
 
 //LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -481,7 +481,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:2, Department: "Human Resources") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
  
 
 create object instance emp of Employee;
@@ -497,7 +497,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:3, Department: "Human Resources") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
  
 
@@ -514,7 +514,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:4, Department: "President Office" ) to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
  
 
@@ -531,7 +531,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:5, Department: "Vice President for Services") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
  
 
@@ -549,7 +549,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:6, Department:"Finance") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
  
 
@@ -566,7 +566,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:7, Department:"Finance") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
  
 
@@ -583,7 +583,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:8, Department:"Finance") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
  
 
@@ -600,7 +600,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:9, Department: "Vice President for Services") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
  
 
@@ -617,7 +617,7 @@ create object instance emp of Employee;
 		emp.Gender = "Female";
 
 generate Employee7:Recruited(JobID:10, Department: "Vice President for Services") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
  
 
@@ -635,7 +635,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:11, Department: "President Office") to emp;
-Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:emp.Email );
 
 
 ',
