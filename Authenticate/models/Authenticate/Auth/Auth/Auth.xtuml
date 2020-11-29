@@ -398,8 +398,8 @@ select many account from instances of Account where selected.EmployeeID==param.E
 if ( empty account)
 	create object instance acc of Account;
 	acc.EmployeeID = param.EmployeeID;
-	acc.Username = ::getUserName( F:param.First_Name, L:param.Last_Name);
-	acc.Password = ::getPassword( EmployeeID:param.EmployeeID, FirstLastName:param.First_Name+param.Last_Name, CurrentSeconds:TIM::current_seconds());
+	acc.Username = param.Username;//::getUserName( F:param.First_Name, L:param.Last_Name);
+	acc.Password = "12345";//::getPassword( EmployeeID:param.EmployeeID, FirstLastName:param.First_Name+param.Last_Name, CurrentSeconds:TIM::current_seconds());
 	
 	select any group from instances of Group where selected.Name=="Employees";
 	relate acc to group across R1.''a member of'';

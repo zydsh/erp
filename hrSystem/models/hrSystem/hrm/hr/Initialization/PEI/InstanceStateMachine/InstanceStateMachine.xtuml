@@ -1304,21 +1304,21 @@ INSERT INTO SM_ACT
 	'//self.initiateLeave();
 //create leave 
 create object instance leaveSpecification of LeaveSpecification;
-		leaveSpecification.Name = "Regular Leave";
+		leaveSpecification.Name = "إجازة اعتيادية";
 		leaveSpecification.MaximumDays = 105;
 		leaveSpecification.MinimumDays = 5;
 
 //LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
 
 create object instance leaveSpecification of LeaveSpecification;
-		leaveSpecification.Name = "Sick Leave";
+		leaveSpecification.Name = "إجازة مرضية";
 		leaveSpecification.MaximumDays = 5;
 		leaveSpecification.MinimumDays = 1;
 
 //LOG::LogInfo(message:"Leave: Added "+ leaveSpecification.Name +" successfully." );	
 
 create object instance leaveSpecification of LeaveSpecification;
-		leaveSpecification.Name = "Exceptional Leave";
+		leaveSpecification.Name = "إجازة استثنائية";
 		leaveSpecification.MaximumDays = 365;
 		leaveSpecification.MinimumDays = 180;
 
@@ -1358,8 +1358,8 @@ INSERT INTO SM_ACT
 	'//create payscale
 
 create object instance scale of Scale;
-	scale.Name = "General Schedule";
-	scale.Description = "The general scale of the organization";
+	scale.Name = "السلم العام";
+	scale.Description = "السلم العام حسب نظام الخدمة المدنية";
 		
 ////LOG::LogInfo(message:"Scale: Added "+ scale.Name +" successfully." );	
 
@@ -1734,19 +1734,19 @@ INSERT INTO SM_ACT
 
 //create Departments
 create object instance departmentHR of Department;
-departmentHR.Name = "Human Resources";
-departmentHR.Mission = "Manages employees functions";
+departmentHR.Name = "إدارة الموارد البشرية";
+departmentHR.Mission = "تتولى إدارة شئون الموظفين بما في ذلك التدريب والتقويم السنوي";
   
 //create Finance department
 create object instance departmentFin of Department;
-departmentFin.Name = "Finance";
-departmentFin.Mission = "Manages finance ";
+departmentFin.Name = "المالية";
+departmentFin.Mission = "إدارة ميزانية المؤسسة وما يحلق بذلك من مهام إدارة التدفقات النقدية والإنفاق على التكاليف التشغيلية";
  
 
 // create VP office
 create object instance vpServices of Department;
-vpServices.Name = "Vice President for Services";
-vpServices.Mission = "Manage organization supporting services";
+vpServices.Name = "نائب الرئيس للخدمات المساندة";
+vpServices.Mission = "إدارة الخدمات المساندة";
  
 //LOG::LogInfo(message:"Department: Created "+ vpServices.Name );	
 
@@ -1760,8 +1760,8 @@ relate vpServices to departmentFin  across R22.''is divided into'';
 
 //create the President office
 create object instance President of Department;
-President.Name = "President Office";
-President.Mission = "Manage all organization activities";
+President.Name = "مكتب الرئيس";
+President.Mission = "إدارة أعمال الرئيس داخل المؤسسية وخارجها ";
  
 //LOG::LogInfo(message:"Departments: created: "+ President.Name );	
 
@@ -1805,14 +1805,15 @@ INSERT INTO SM_ACT
 create object instance emp of Employee;
 		emp.EmployeeID = 1420000;
 		emp.NationalID = 1041000000;
-		emp.FirstName = "Khalid";
-		emp.MiddleName = "Abdulaziz";
-		emp.LastName = "Alrajeh";
+		emp.FirstName = "خالد";
+		emp.MiddleName = "عبدالعزيز";
+		emp.LastName = "الراجح";
 		emp.Email = "K.Alrajeh@kacst.edu.sa";
 		emp.OfficePhone = "4815553";
 		emp.DateOfBirth = 19691034;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
+		
 
 generate Employee7:Recruited(JobID:1, Department: "Human Resources") to emp;
   
@@ -1822,9 +1823,9 @@ generate Employee7:Recruited(JobID:1, Department: "Human Resources") to emp;
 create object instance emp of Employee;
 		emp.EmployeeID = 1421111;
 		emp.NationalID = 1041000001;
-		emp.FirstName = "Saad";
-		emp.MiddleName = "Abdullah";
-		emp.LastName = "Alassaf";
+		emp.FirstName = "سعد";
+		emp.MiddleName = "عبدالله";
+		emp.LastName = "العساف";
 		emp.Email = "S.Alassaf@kacst.edu.sa";
 		emp.OfficePhone = "4811113";
 		emp.DateOfBirth = 19691034;
@@ -1837,9 +1838,9 @@ generate Employee7:Recruited(JobID:2, Department: "Human Resources") to emp;
 create object instance emp of Employee;
 		emp.EmployeeID = 1422222;
 		emp.NationalID = 1041000002;
-		emp.FirstName = "Saud";
-		emp.MiddleName = "Abdullah";
-		emp.LastName = "Almanea";
+		emp.FirstName = "سعود";
+		emp.MiddleName = "عبدالله";
+		emp.LastName = "المانع";
 		emp.Email = "S.Almanea@kacst.edu.sa";
 		emp.OfficePhone = "4812223";
 		emp.DateOfBirth = 19691034;
@@ -1853,9 +1854,9 @@ generate Employee7:Recruited(JobID:3, Department: "Human Resources") to emp;
 create object instance emp of Employee;
 		emp.EmployeeID = 1423333;
 		emp.NationalID = 1041000003;
-		emp.FirstName = "Khalid";
-		emp.MiddleName = "Abdulaziz";
-		emp.LastName = "Alfaleh";
+		emp.FirstName = "خالد";
+		emp.MiddleName = "عبدالعزيز";
+		emp.LastName = "الفالح";
 		emp.Email = "K.Alfaleh@kacst.edu.sa";
 		emp.OfficePhone = "4815553";
 		emp.DateOfBirth = 19691034;

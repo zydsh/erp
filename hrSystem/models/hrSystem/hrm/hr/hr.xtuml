@@ -970,7 +970,7 @@ if ( empty employee)
 		emp.Gender = param.Gender;
 		
 		//generate employee username and password
-		Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID );
+		Authenticate::CreateNewAccount( First_Name:emp.FirstName, Last_Name:emp.LastName, EmployeeID:emp.EmployeeID, Username:param.Username );
 		
 	//	LOG::LogInfo(message:"Employee added successfully." );	
 		UI::Reply( msg:"Employee added successfully.", state:True);
