@@ -44,6 +44,15 @@ INSERT INTO C_PP
 	0,
 	'',
 	"aea4ec01-a71f-40b9-8972-7758f99ee977");
+INSERT INTO C_PP
+	VALUES ("c31364aa-2859-425e-8ffa-d834f4beab21",
+	"745c8944-f1fd-43e1-b9fd-3ab7b4ebabe4",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Username',
+	'',
+	0,
+	'',
+	"e34c8056-c2c3-4782-bce4-d38df6318897");
 INSERT INTO C_EP
 	VALUES ("33c71ef4-d154-40bf-bfc7-33de5096bb4b",
 	"eacac566-0bb4-4486-8d8d-9ede960d5e50",

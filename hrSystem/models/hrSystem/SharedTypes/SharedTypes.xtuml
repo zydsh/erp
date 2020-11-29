@@ -125,6 +125,18 @@ INSERT INTO S_ENUM
 	'',
 	"61bb1764-10be-4079-9a5c-540fe35aa552",
 	"a9d2c913-e8cb-4a72-8993-e95242db0f6c");
+INSERT INTO S_ENUM
+	VALUES ("bcb09ebc-6bb0-450f-bc8d-e56d306c6bf5",
+	'ذكر',
+	'',
+	"61bb1764-10be-4079-9a5c-540fe35aa552",
+	"19f865ba-1fdc-4663-b3eb-7932a7e5edc3");
+INSERT INTO S_ENUM
+	VALUES ("c698de1b-7d9f-4a11-9e95-1ba32c6e7f81",
+	'أنثى',
+	'',
+	"61bb1764-10be-4079-9a5c-540fe35aa552",
+	"bcb09ebc-6bb0-450f-bc8d-e56d306c6bf5");
 INSERT INTO PE_PE
 	VALUES ("61bb1764-10be-4079-9a5c-540fe35aa552",
 	1,
