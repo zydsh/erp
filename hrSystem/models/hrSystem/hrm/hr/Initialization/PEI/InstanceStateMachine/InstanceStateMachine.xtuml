@@ -1744,7 +1744,7 @@ departmentFin.Mission = "إدارة ميزانية المؤسسة وما يحل�
  
 
 // create VP office
-create object instance vpServices of Department;
+create object instance vpServices of Department; 
 vpServices.Name = "نائب الرئيس للخدمات المساندة";
 vpServices.Mission = "إدارة الخدمات المساندة";
  
@@ -1761,7 +1761,7 @@ relate vpServices to departmentFin  across R22.''is divided into'';
 //create the President office
 create object instance President of Department;
 President.Name = "مكتب الرئيس";
-President.Mission = "إدارة أعمال الرئيس داخل المؤسسية وخارجها ";
+President.Mission = "إدارة أعمال الرئيس داخل المؤسسة وخارجها ";
  
 //LOG::LogInfo(message:"Departments: created: "+ President.Name );	
 
@@ -1815,7 +1815,7 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 		
 
-generate Employee7:Recruited(JobID:1, Department: "Human Resources") to emp;
+generate Employee7:Recruited(JobID:1, Department: "إدارة الموارد البشرية") to emp;
   
 
 //LOG::LogInfo(message:"Employee: Added "+ emp.FirstName+" "+emp.LastName +" successfully." );	
@@ -1832,7 +1832,7 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:2, Department: "Human Resources") to emp;
+generate Employee7:Recruited(JobID:2, Department: "إدارة الموارد البشرية") to emp;
  
 
 create object instance emp of Employee;
@@ -1847,7 +1847,7 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:3, Department: "Human Resources") to emp;
+generate Employee7:Recruited(JobID:3, Department: "إدارة الموارد المؤسسية") to emp;
 
  
 
@@ -1863,101 +1863,101 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:4, Department: "President Office" ) to emp;
+generate Employee7:Recruited(JobID:4, Department: "مكتب الرئيس" ) to emp;
 
  
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1424444;
 		emp.NationalID = 1041000004; 
-		emp.FirstName = "Saud";
-		emp.MiddleName = "Abdullah";
-		emp.LastName = "Aba Alkhail";
+		emp.FirstName = "سعود";
+		emp.MiddleName = "عبدالله";
+		emp.LastName = "أبا الخيل";
 		emp.Email = "S.AbaAlkhail@kacst.edu.sa";
 		emp.OfficePhone = "4816663";
 		emp.DateOfBirth = 19781012;
 		emp.Degree = "PhD";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:5, Department: "Vice President for Services") to emp;
+generate Employee7:Recruited(JobID:5, Department: "نائب الرئيس للخدمات المساندة") to emp;
 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1425555; 
 		emp.NationalID = 1041000005;
-		emp.FirstName = "Saleh";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Alotaibi";
+		emp.FirstName = "صالح";
+		emp.MiddleName = "فهد";
+		emp.LastName = "العتيبي";
 		emp.Email = "S.Alotaibi@kacst.edu.sa";
 		emp.OfficePhone = "4531";
 		emp.DateOfBirth = 19811034;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:6, Department:"Finance") to emp;
+generate Employee7:Recruited(JobID:6, Department:"المالية") to emp;
 
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1426666; 
 		emp.NationalID = 1041000006;
-		emp.FirstName = "Riyadh";
-		emp.MiddleName = "Fahad";
-		emp.LastName = "Almutairi";
+		emp.FirstName = "رياض";
+		emp.MiddleName = "فهد";
+		emp.LastName = "المطيري";
 		emp.Email = "R.Almutairi@kacst.edu.sa";
 		emp.OfficePhone = "4441";
 		emp.DateOfBirth = 19821034;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:7, Department:"Finance") to emp;
+generate Employee7:Recruited(JobID:7, Department:"المالية") to emp;
 
  
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1427777; 
 		emp.NationalID = 1041000007;
-		emp.FirstName = "Raed";
-		emp.MiddleName = "Saad";
-		emp.LastName = "Alshareef";
+		emp.FirstName = "رائد";
+		emp.MiddleName = "سعد";
+		emp.LastName = "الشريف";
 		emp.Email = "R.Alshareef@kacst.edu.sa";
 		emp.OfficePhone = "4221";
 		emp.DateOfBirth = 19831034;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:8, Department:"Finance") to emp;
+generate Employee7:Recruited(JobID:8, Department:"المالية") to emp;
 
  
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1428888; 
 		emp.NationalID = 1041000008;
-		emp.FirstName = "Shaleh";
-		emp.MiddleName = "Gaed";
-		emp.LastName = "Alotaibi";
+		emp.FirstName = "صالح";
+		emp.MiddleName = "سعود";
+		emp.LastName = "العتيبي";
 		emp.Email = "S.Alotaibi@kacst.edu.sa";
 		emp.OfficePhone = "4391";
 		emp.DateOfBirth = 19841034;
 		emp.Degree = "Bsc";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:9, Department: "Vice President for Services") to emp;
+generate Employee7:Recruited(JobID:9, Department: "نائب الرئيس للخدمات المساندة") to emp;
 
  
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1429999; 
 		emp.NationalID = 1041000009;
-		emp.FirstName = "Sarah";
-		emp.MiddleName = "Abdullah";
-		emp.LastName = "Alameer";
+		emp.FirstName = "سارة";
+		emp.MiddleName = "عبدالله";
+		emp.LastName = "العمير";
 		emp.Email = "S.Alameer@kacst.edu.sa";
 		emp.OfficePhone = "4301";
 		emp.DateOfBirth = 19861034;
 		emp.Degree = "Bsc";
 		emp.Gender = "Female";
 
-generate Employee7:Recruited(JobID:10, Department: "Vice President for Services") to emp;
+generate Employee7:Recruited(JobID:10, Department: "نائب الرئيس للخدمات المساندة") to emp;
 
  
 
@@ -1965,16 +1965,16 @@ generate Employee7:Recruited(JobID:10, Department: "Vice President for Services"
 create object instance emp of Employee;
 		emp.EmployeeID = 1430000; 
 		emp.NationalID = 1041000010;
-		emp.FirstName = "Ahmad";  
-		emp.MiddleName = "Ziyad";
-		emp.LastName = "Alshaikh";
+		emp.FirstName = "أحمد";  
+		emp.MiddleName = "زياد";
+		emp.LastName = "آل الشيخ";
 		emp.Email = "A.Alshaikh@kacst.edu.sa";
 		emp.OfficePhone = "4814001";
 		emp.DateOfBirth = 20200318;
 		emp.Degree = "Bsc"; 
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:11, Department: "President Office") to emp;
+generate Employee7:Recruited(JobID:11, Department: "مكتب الرئيس") to emp;
 
 
 
@@ -2008,25 +2008,25 @@ INSERT INTO SM_ACT
 	"7e1555d3-ec12-4911-9a25-5bf22293b8f8",
 	1,
 	'create object instance bonus of BonusSpecification;
-bonus.Name = "1.5 hour overtime";
+bonus.Name = "ساعة ونصف خارج دوام";
 bonus.Percent = 0.15;
 //LOG::LogInfo(message:"Bonus: Created "+ bonus.Name );	
 
 
 create object instance bonus of BonusSpecification;
-bonus.Name = "Scarcity";
+bonus.Name = "بدل ندرة";
 bonus.Percent = 0.3;
 //LOG::LogInfo(message:"Bonus: Created "+ bonus.Name );	
 
 
 create object instance bonus of BonusSpecification;
-bonus.Name = "Computing";
+bonus.Name = "بدل حاسب";
 bonus.Percent = 0.25;
 //LOG::LogInfo(message:"Bonus: Created "+ bonus.Name );	
 
 
 create object instance bonus of BonusSpecification;
-bonus.Name = "Research";
+bonus.Name = "بدل بحث علمي";
 bonus.Percent = 0.4;
 //LOG::LogInfo(message:"Bonus: Created "+ bonus.Name );	
 
@@ -2066,6 +2066,8 @@ INSERT INTO SM_ACT
 for each employee in employees
 	generate Employee2:commenced() to employee;
 	employee.Start_Date = TIM::current_seconds();
+	employee.SickLeaveBalance = 5;
+	employee.LeaveBalance = 35;
 
 end for;
 
@@ -2134,23 +2136,23 @@ INSERT INTO SM_ACT
 	"7e1555d3-ec12-4911-9a25-5bf22293b8f8",
 	1,
 	'//create Departments
-select any dep from instances  of Department where selected.Name =="Human Resources";
+select any dep from instances  of Department where selected.Name =="إدارة الموارد البشرية";
 dep.assignManagerRole( EmployeeID:1422222 );
 Authenticate::AddToGroup( EmployeeID:1422222, Group:"Managers" );
 Authenticate::AddToGroup( EmployeeID:1422222, Group:"HR" ); 
 
 //create Finance department
-select any dep from instances  of Department where selected.Name == "Finance";
+select any dep from instances  of Department where selected.Name == "المالية";
 dep.assignManagerRole( EmployeeID:1427777 );
 Authenticate::AddToGroup( EmployeeID:1427777, Group:"Managers" );
 
 // create VP office
-select any dep from instances  of Department where selected.Name == "Vice President for Services";
+select any dep from instances  of Department where selected.Name == "نائب الرئيس للخدمات المساندة";
 dep.assignManagerRole( EmployeeID:1424444 );
 Authenticate::AddToGroup( EmployeeID:1424444, Group:"Managers" );
 
 //create the President office
-select any dep from instances  of Department where selected.Name == "President Office";
+select any dep from instances  of Department where selected.Name == "مكتب الرئيس";
 dep.assignManagerRole( EmployeeID:1423333 );
 Authenticate::AddToGroup( EmployeeID:1423333, Group:"Managers" );
 
