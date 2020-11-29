@@ -1869,7 +1869,7 @@ generate Employee7:Recruited(JobID:4, Department: "President Office" ) to emp;
 
 create object instance emp of Employee;
 		emp.EmployeeID = 1424444;
-		emp.NationalID = 1041000004;
+		emp.NationalID = 1041000004; 
 		emp.FirstName = "Saud";
 		emp.MiddleName = "Abdullah";
 		emp.LastName = "Aba Alkhail";
