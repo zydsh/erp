@@ -1733,6 +1733,10 @@ INSERT INTO SM_ACT
 	'//self.initiateDepartments();
 
 //create Departments
+create object instance departmentIT of Department;
+departmentIT.Name = "تقنية المعلومات";
+departmentIT.Mission = "إدارة الخدمات الالكترونية";
+
 create object instance departmentHR of Department;
 departmentHR.Name = "إدارة الموارد البشرية";
 departmentHR.Mission = "تتولى إدارة شئون الموظفين بما في ذلك التدريب والتقويم السنوي";
@@ -1752,10 +1756,12 @@ vpServices.Mission = "إدارة الخدمات المساندة";
 
 
 //relate HR to VP 
-relate vpServices to departmentHR  across R22.''is divided into'';
+relate departmentIT  to  vpServices across R22.''is divided into'';
+
+relate departmentHR to vpServices  across R22.''is divided into'';
 //LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentHR.Name);	
-relate vpServices to departmentFin  across R22.''is divided into'';
-//LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentFin.Name);	
+relate departmentFin to vpServices  across R22.''is divided into'';
+//LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ departmentFin.Name);	departmentIT
 
 
 //create the President office
@@ -1767,7 +1773,7 @@ President.Mission = "إدارة أعمال الرئيس داخل المؤسسة 
 
 
 //relate to VP
-relate President to vpServices across R22.''is divided into'';
+relate President to vpServices across R22.''is part of'';
 //LOG::LogInfo(message:"Departments: related: "+ vpServices.Name+" to "+ President.Name);	
 
 
@@ -1847,7 +1853,7 @@ create object instance emp of Employee;
 		emp.Degree = "Mcs";
 		emp.Gender = "Male";
 
-generate Employee7:Recruited(JobID:3, Department: "إدارة الموارد المؤسسية") to emp;
+generate Employee7:Recruited(JobID:3, Department: "إدارة الموارد البشرية") to emp;
 
  
 
