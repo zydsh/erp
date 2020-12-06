@@ -2065,6 +2065,96 @@ INSERT INTO C_EP_PROXY
 	'SuspendPayment',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("04973973-f7b2-495f-8ea5-57a390f9b1ce",
+	"dc97b35f-e6b3-4ebb-bfd5-75ff93a4619c",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("04973973-f7b2-495f-8ea5-57a390f9b1ce",
+	'CreateJob',
+	'',
+	'select any job from instances of Job where selected.Job_ID==param.Job_ID;
+
+if (empty job)
+create object instance job of Job;
+	job.Job_ID = param.Job_ID;
+	job.Title = param.Title;
+	job.Description = param.Description;
+	job.PensionDeduction = param.PentionDeduction; 
+	
+	select any grade from instances of Grade where selected.Name==param.Grade;
+	if (not empty grade)
+		relate job to grade across R9.''assigned'';
+	end if;
+
+end if;
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("dc97b35f-e6b3-4ebb-bfd5-75ff93a4619c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateJob',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("2eb7840f-dd4c-4058-90c5-05fbbc63c9bc",
+	"dc92126a-5bc2-40e4-a13b-6009747d86cf",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("2eb7840f-dd4c-4058-90c5-05fbbc63c9bc",
+	'CreateBonus',
+	'',
+	'select any bonus from instances of BonusSpecification where selected.Name==param.Name;
+
+if (empty bonus)
+create object instance bonus of BonusSpecification;
+	bonus.Name = param.Name;
+	bonus.Percent = param.Percent;
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("dc92126a-5bc2-40e4-a13b-6009747d86cf",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateBonus',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("11b88d2f-a4c9-4d73-a778-bcdc09be75a7",
+	"da90ce68-5e1a-462f-b3bf-af9eb17e7185",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("11b88d2f-a4c9-4d73-a778-bcdc09be75a7",
+	'EditEmployee',
+	'',
+	'select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;
+
+if (not empty emp)
+	emp.NationalID = param.NationalID;
+	emp.FirstName = param.FirstName;
+	emp.MiddleName = param.MiddleName;
+	emp.LastName = param.LasName;
+	emp.OfficePhone = param.OfficePhone;
+	emp.DateOfBirth = param.DateOfBirth;
+	emp.Degree = param.Degree;
+	emp.Gender = param.Gender;
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("da90ce68-5e1a-462f-b3bf-af9eb17e7185",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'EditEmployee',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

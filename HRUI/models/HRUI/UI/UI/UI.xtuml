@@ -1721,6 +1721,60 @@ INSERT INTO C_EP_PROXY
 	'SuspendPayment',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("d4e66e87-ef26-426c-98ce-a95a8ef488ea",
+	"dc97b35f-e6b3-4ebb-bfd5-75ff93a4619c",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("d4e66e87-ef26-426c-98ce-a95a8ef488ea",
+	'CreateJob',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("dc97b35f-e6b3-4ebb-bfd5-75ff93a4619c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateJob',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("4ec8476d-5fc0-4c60-b444-def66e4f6bc9",
+	"dc92126a-5bc2-40e4-a13b-6009747d86cf",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("4ec8476d-5fc0-4c60-b444-def66e4f6bc9",
+	'CreateBonus',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("dc92126a-5bc2-40e4-a13b-6009747d86cf",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateBonus',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("8e7f8141-e468-4e10-bc29-466c8bdd5d08",
+	"da90ce68-5e1a-462f-b3bf-af9eb17e7185",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("8e7f8141-e468-4e10-bc29-466c8bdd5d08",
+	'EditEmployee',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("da90ce68-5e1a-462f-b3bf-af9eb17e7185",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'EditEmployee',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -2491,7 +2545,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("1df2208c-32f6-478d-965b-67000c0bc33e",
-	'AcceptRequested',
+	'AcceptAllRequested',
 	'',
 	'',
 	3,
@@ -2500,7 +2554,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("9035e841-f394-4cac-949b-3dbd8846ee1b",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptRequested',
+	'AcceptAllRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2509,7 +2563,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("64557934-dcd2-49a1-b0da-46a04043c3f7",
-	'AcceptCeiling',
+	'AcceptAllCeiling',
 	'',
 	'',
 	3,
@@ -2518,7 +2572,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("2066a758-e796-4d69-9ac9-ed03819719e5",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptCeiling',
+	'AcceptAllCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
