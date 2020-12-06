@@ -370,6 +370,213 @@ INSERT INTO C_EP_PROXY
 	'SendMilestones',
 	'',
 	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("74480299-c78b-48d9-86f9-59530cbae277",
+	"4d8c9fe4-1360-4d30-90fd-12402e63d2a3",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("74480299-c78b-48d9-86f9-59530cbae277",
+	'CreateInitiative',
+	'',
+	'select any init from instances of Initiative where selected.Name==param.Name;
+
+if (empty init)
+create object instance init of Initiative;
+	init.Name = param.Name;
+	init.Description = param.Description;
+	init.Budget = param.Budget;
+	init.StartDate = param.StartDate;
+	init.EndDate = param.EndDate;
+	init.ShortNumber = param.ShortNumber;
+	init.LongNumber = param.LongNumber;
+	
+select any str from instances of Strategy where selected.Number==param.Strategy;
+if (not empty str)
+	relate str  to  init across R66.''implemented by'';
+end if;
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4d8c9fe4-1360-4d30-90fd-12402e63d2a3",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'CreateInitiative',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("445026c0-0c23-4db4-bb30-716bba960152",
+	"a46a1746-64f0-4558-ae36-f10f118eaa24",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("445026c0-0c23-4db4-bb30-716bba960152",
+	'CreateStrategy',
+	'',
+	'select any str from instances of Strategy where selected.Number==param.Number;
+
+if (empty str)
+create object instance str of Strategy;
+str.Number = param.Number;
+str.Name = param.Name;
+str.Description = param.Description;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a46a1746-64f0-4558-ae36-f10f118eaa24",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'CreateStrategy',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("74682f0f-133c-40de-8af6-fa8b603b9d5c",
+	"b68f3204-5e86-499d-88df-db00b93866ef",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("74682f0f-133c-40de-8af6-fa8b603b9d5c",
+	'CreateProject',
+	'',
+	'select any prg from instances of Project where selected.Code==param.Code;
+
+if (empty prg)
+	create object instance prg of Project;
+	prg.Code = param.Code;
+	prg.Name = param.Name;
+	prg.Description = param.Description;
+	prg.StartDate = param.StartDate;
+	prg.EndDate = param.EndDate;
+	prg.Budget = param.Budget;
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b68f3204-5e86-499d-88df-db00b93866ef",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'CreateProject',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("551042e3-86b8-4fb2-800e-adefb63bb954",
+	"1afcea8f-1baf-4bd0-999f-9363af4ca62d",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("551042e3-86b8-4fb2-800e-adefb63bb954",
+	'ReadInitiatives',
+	'',
+	'select many inits from instances of Initiative ; 
+   
+ // LOG::LogInfo(message:"Sending employee set .." );	
+
+  for each init in inits
+		UI::SendInitiatives( Name:init.Name, ShortNumber:init.ShortNumber, LongNumber:init.LongNumber, Description:init.Description, StartDate:init.StartDate, EndDate:init.EndDate);
+  end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1afcea8f-1baf-4bd0-999f-9363af4ca62d",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'ReadInitiatives',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("5036b75b-0167-40ef-ab58-0fe06ce2335d",
+	"1d5ac5a5-3c6f-45dc-ba1a-b7dd16ef624e",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("5036b75b-0167-40ef-ab58-0fe06ce2335d",
+	'SendInitiatives',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1d5ac5a5-3c6f-45dc-ba1a-b7dd16ef624e",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'SendInitiatives',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("332607a5-c30d-462e-87b0-d76aefef858a",
+	"bc328c2e-2892-4f5f-869a-c51fcb125847",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("332607a5-c30d-462e-87b0-d76aefef858a",
+	'ReadProjects',
+	'',
+	'select many prgs from instances of Project ; 
+   
+ // LOG::LogInfo(message:"Sending employee set .." );	
+
+  for each prg in prgs
+	UI::SendProjects( Code:prg.Code, Name:prg.Name, Description:prg.Description, StartDate:prg.StartDate, EndDate:prg.EndDate, Budget:prg.Budget );
+  end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("bc328c2e-2892-4f5f-869a-c51fcb125847",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'ReadProjects',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("1d1c1d29-83d8-4a46-be68-136cf90022f0",
+	"8dc4a734-be3b-4ab9-a837-6a24b94e3215",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("1d1c1d29-83d8-4a46-be68-136cf90022f0",
+	'SendProjects',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("8dc4a734-be3b-4ab9-a837-6a24b94e3215",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'SendProjects',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("4bfccb35-e103-4711-907a-6f7a84e00079",
+	"823d6250-b774-4665-8272-9dc2cc28eadd",
+	"1ba050a2-d419-4423-b771-96be8886d0a0");
+INSERT INTO SPR_PS
+	VALUES ("4bfccb35-e103-4711-907a-6f7a84e00079",
+	'AddMilestone',
+	'',
+	'select any init from instances of Initiative where selected.Name==param.Initiative;
+if (not empty init) 
+	create object instance mile of Milestone;
+	mile.FullCode = param.FullCode;
+	mile.Name = param.Name;
+	mile.CompletePlanned = param.CompletePlanned;
+	mile.SuccessCriteria = param.SucessCriteria;
+	mile.Weight = param.Weight;
+	mile.Percentage = param.Percentage;
+	mile.Notes = param.Notes;
+	relate init to mile across R60.''achieves'';
+
+end if;
+ ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("823d6250-b774-4665-8272-9dc2cc28eadd",
+	"b9747524-a416-4a89-a9ef-0062b1f78a12",
+	-1,
+	'AddMilestone',
+	'',
+	'../../Interfaces/Projects/Projects.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("b9747524-a416-4a89-a9ef-0062b1f78a12",
 	"00000000-0000-0000-0000-000000000000",
