@@ -2218,7 +2218,7 @@ if (not empty emp)
 	for each bonus in bonuses 
 		select one spec related by bonus->BonusSpecification[R16.''is specified by''];
 		if ( spec.Name == param.Bonus)
-			generate Bonus2:deactivateBonus to bonus;
+			generate Bonus2:deactivateBonus to bonus; 
 		end if;
 	end for;
 end if;',
