@@ -1523,8 +1523,9 @@ relate grade14 to grade15 across R14.''above'';
 //create jobs
 create object instance job of Job;
 	job.Job_ID = 1;
-	job.Title = "Front-End Junior Software Engineer ";
-	job.Description = "Developing front end solutions";
+	job.Title = "مهندس برمجيات أول واجهات المستخدم";
+	//job.Title = "Front-End Junior Software Engineer ";
+	job.Description = "تطوير واجهات المستخدمين";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="8";
@@ -1535,8 +1536,9 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 2;
-	job.Title = "Back-End Junior Software Engineer ";
-	job.Description = "Developing back end solutions";
+	job.Title = "مهندس برمجيات أول البنية التحتية";
+	//job.Title = "Back-End Junior Software Engineer ";
+	job.Description = "تطوير حلول أنظمة البنية التحتية";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="8";
@@ -1546,8 +1548,9 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 3;
-	job.Title = "Senior Software Engineer ";
-	job.Description = "Manging front/back end solutions";
+	job.Title = "مهندس برمجيات";
+	//job.Title = "Senior Software Engineer ";
+	job.Description = "تطوير حلول أنظمة الموارد المؤسسية";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="10";
@@ -1558,8 +1561,8 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 4;
-	job.Title = "HR Specialist ";
-	job.Description = "Recruting and evaluting employee profiles";
+	job.Title = "مختص موارد بشرية";
+	job.Description = "التوظيف وتقييم الموظفين";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="9";
@@ -1569,8 +1572,9 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 5;
-	job.Title = "Lead Software Engineer ";
-	job.Description = "Manging software teams solutions";
+	job.Title = "كبير مهندسي برمجيات";
+	//job.Title = "Lead Software Engineer ";
+	job.Description = "الإشراف على فرق هندسة البرمجيات";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="12";
@@ -1580,8 +1584,8 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 6;
-	job.Title = "Finance Manager ";
-	job.Description = "Manging finance";
+	job.Title = "مدير مالية";
+	job.Description = "إدارة الشؤون المالية";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="14";
@@ -1591,8 +1595,8 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 7;
-	job.Title = "Payroll Manager ";
-	job.Description = "Manging payroll";
+	job.Title = "مدير مسيرات";
+	job.Description = "إدارة الرواتب ومراجعتها";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="10";
@@ -1602,8 +1606,8 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 8;
-	job.Title = "Budget Manager ";
-	job.Description = "Manging budget";
+	job.Title = "مدير ميزانية";
+	job.Description = "إدارة الميزانية السنوية وصرف المستحقات وإدارة التدفقات النقدية";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="10";
@@ -1614,8 +1618,8 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 9;
-	job.Title = "President ";
-	job.Description = "Manges the organization";
+	job.Title = "الرئيس";
+	job.Description = "يرأس جهاز المؤسسة";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="15";
@@ -1626,8 +1630,8 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 10;
-	job.Title = "HR Expert ";
-	job.Description = "Analyze HR Data";
+	job.Title = "خبير موارد بشرية";
+	job.Description = "محلل بيانات موارد بشرية";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="9";
@@ -1637,8 +1641,8 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 11;
-	job.Title = "HR Specilast ";
-	job.Description = "Works at HR";
+	job.Title = "مختص موارد بشرية";
+	job.Description = "يعمل لإدارة شئون الموظفين";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="8";
@@ -1648,8 +1652,8 @@ relate job to grade across R9.''assigned'';
 
  create object instance job of Job;
 	job.Job_ID = 12;
-	job.Title = "HR Specilast ";
-	job.Description = "Works at HR";
+	job.Title = "مختص موارد بشرية";
+	job.Description = "يعمل لإدارة شئون الموظفين";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="8";
@@ -1659,8 +1663,8 @@ relate job to grade across R9.''assigned'';
  
 create object instance job of Job;
 	job.Job_ID = 13;
-	job.Title = "HR Specilast ";
-	job.Description = "Works at HR";
+	job.Title = "مختص موارد بشرية";
+	job.Description = "يعمل لإدارة شئون الموظفين";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="8";
@@ -1670,8 +1674,9 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 14;
-	job.Title = "HR Specilast ";
-	job.Description = "Works at HR";
+	job.Title = "مختص موارد بشرية";
+	//job.Title = "HR Specilast ";
+	job.Description = "يعمل لإدارة شئون الموظفين";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="8";
@@ -1681,8 +1686,9 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 15;
-	job.Title = "Finance Specilast ";
-	job.Description = "Works at Finance";
+	job.Title = "مختص مالية";
+	//job.Title = "Finance Specilast ";
+	job.Description = "إدارة الشؤون المالية";
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="8";
@@ -1692,8 +1698,10 @@ relate job to grade across R9.''assigned'';
 
 create object instance job of Job;
 	job.Job_ID = 16;
-	job.Title = "Finance Specilast ";
-	job.Description = "Works at Finance";
+	job.Title = "مختص مالية";
+	//job.Title = "Finance Specilast ";
+	job.Description = "إدارة الشؤون المالية";
+
 	job.PensionDeduction = 0.09;
 
 select any grade from instances of Grade where selected.Name=="8";

@@ -1725,6 +1725,114 @@ INSERT INTO C_EP_PROXY
 	'SuspendPayment',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("22c0e73c-9bdd-4c66-9965-f85db18c1cbe",
+	"dc97b35f-e6b3-4ebb-bfd5-75ff93a4619c",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("22c0e73c-9bdd-4c66-9965-f85db18c1cbe",
+	'CreateJob',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("dc97b35f-e6b3-4ebb-bfd5-75ff93a4619c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateJob',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("b85c7260-211a-4268-8338-f5838a113e96",
+	"dc92126a-5bc2-40e4-a13b-6009747d86cf",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("b85c7260-211a-4268-8338-f5838a113e96",
+	'CreateBonus',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("dc92126a-5bc2-40e4-a13b-6009747d86cf",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateBonus',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("658dac37-9131-4765-a8d9-56b6a59b0521",
+	"da90ce68-5e1a-462f-b3bf-af9eb17e7185",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("658dac37-9131-4765-a8d9-56b6a59b0521",
+	'EditEmployee',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("da90ce68-5e1a-462f-b3bf-af9eb17e7185",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'EditEmployee',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("b8311765-803c-4c28-b009-7bba063e2e97",
+	"5ecfcadd-83ce-49f9-96ef-99a6d8648024",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("b8311765-803c-4c28-b009-7bba063e2e97",
+	'CreateDepartment',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5ecfcadd-83ce-49f9-96ef-99a6d8648024",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateDepartment',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("361f31f8-27fd-4664-bb08-e6199f1b468a",
+	"f5453211-15b8-41a8-9d59-fedb2102012c",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("361f31f8-27fd-4664-bb08-e6199f1b468a",
+	'DeleteEmployee',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f5453211-15b8-41a8-9d59-fedb2102012c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'DeleteEmployee',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("c14cc0e4-442f-445c-83d5-b6f9a8aaedc4",
+	"b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("c14cc0e4-442f-445c-83d5-b6f9a8aaedc4",
+	'UnassignBonus',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'UnassignBonus',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -2217,16 +2325,16 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("c8b8a4f9-dcaa-4d28-8707-ff799ead87e2",
-	'AcceptRequested',
+	'AcceptAllRequested',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("9035e841-f394-4cac-949b-3dbd8846ee1b",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptRequested',
+	'AcceptAllRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2235,16 +2343,16 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("7e18fb87-9e0d-43e8-994f-63c2d81777c4",
-	'AcceptCeiling',
+	'AcceptAllCeiling',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2066a758-e796-4d69-9ac9-ed03819719e5",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'AcceptCeiling',
+	'AcceptAllCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
