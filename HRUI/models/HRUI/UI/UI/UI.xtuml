@@ -1775,6 +1775,60 @@ INSERT INTO C_EP_PROXY
 	'EditEmployee',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("626f65b8-9218-4423-a6da-139b9aed4cc9",
+	"5ecfcadd-83ce-49f9-96ef-99a6d8648024",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("626f65b8-9218-4423-a6da-139b9aed4cc9",
+	'CreateDepartment',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5ecfcadd-83ce-49f9-96ef-99a6d8648024",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateDepartment',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("45428060-6097-4c51-b496-d2d3ea3a23a5",
+	"f5453211-15b8-41a8-9d59-fedb2102012c",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("45428060-6097-4c51-b496-d2d3ea3a23a5",
+	'DeleteEmployee',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f5453211-15b8-41a8-9d59-fedb2102012c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'DeleteEmployee',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("0e4b9138-2e8f-4531-8067-dc2256924443",
+	"b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("0e4b9138-2e8f-4531-8067-dc2256924443",
+	'UnassignBonus',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'UnassignBonus',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

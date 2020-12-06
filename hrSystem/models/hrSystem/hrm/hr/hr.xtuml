@@ -1002,11 +1002,7 @@ INSERT INTO SPR_PS
  // LOG::LogInfo(message:"Sending employee set .." );	
 
   for each emp in employeeSet
-	UI::SendEmployee( EmployeeID:emp.EmployeeID, NationalID:emp.NationalID, FirstName:emp.FirstName, MiddleName:emp.MiddleName, LastName:emp.LastName, Email:emp.Email,OfficePhone:emp.OfficePhone, DateOfBirth:emp.DateOfBirth, Degree:emp.Degree, Gender:emp.Gender, StartDate:emp.Start_Date, LeaveBalance:emp.LeaveBalance, SickLeaveBalance:emp.SickLeaveBalance, Salary:emp.getSalary());
-	//LOG::LogInfo(message:"Sent:"+ emp.FirstName+" "+emp.MiddleName+" "+emp.LastName);	
-	//LOG::LogReal( message:"Salary ", r:emp.getSalary() );
-
-
+  	generate Employee12:RequestRecieved to emp;
   end for;
 
  // LOG::LogInfo(message:"Sending employee set is complete" );	
@@ -2153,6 +2149,86 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'EditEmployee',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("34f610fe-264b-4999-8afc-c929708f887e",
+	"5ecfcadd-83ce-49f9-96ef-99a6d8648024",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("34f610fe-264b-4999-8afc-c929708f887e",
+	'CreateDepartment',
+	'',
+	'select any dep from instances of Department where selected.Name==param.Name;
+
+if (empty dep)
+	create object instance dep of Department; 
+	dep.Name = param.Name;
+	dep.Mission = param.Mission;
+	select any parent from instances of Department where selected.Name==param.Name;
+	if (not empty parent)
+		relate parent to dep across R22.''is part of'';
+	end if;
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5ecfcadd-83ce-49f9-96ef-99a6d8648024",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'CreateDepartment',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("7c5eeaa9-d5e1-46f2-95b3-c6c382bf23f3",
+	"f5453211-15b8-41a8-9d59-fedb2102012c",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("7c5eeaa9-d5e1-46f2-95b3-c6c382bf23f3",
+	'DeleteEmployee',
+	'',
+	'select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;
+if (not empty emp)
+	generate Employee9:Resign to emp;
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f5453211-15b8-41a8-9d59-fedb2102012c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'DeleteEmployee',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f4efd991-20fd-4ccc-a37e-1e143831a0c2",
+	"b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("f4efd991-20fd-4ccc-a37e-1e143831a0c2",
+	'UnassignBonus',
+	'',
+	'select any emp from instances of Employee where selected.EmployeeID==param.EmployeeID;
+
+if (not empty emp)
+	select many bonuses related by emp->Bonus[R4.''gets a''];
+	for each bonus in bonuses 
+		select one spec related by bonus->BonusSpecification[R16.''is specified by''];
+		if ( spec.Name == param.Bonus)
+			generate Bonus2:deactivateBonus to bonus;
+		end if;
+	end for;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'UnassignBonus',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY

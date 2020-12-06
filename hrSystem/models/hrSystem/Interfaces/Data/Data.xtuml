@@ -1717,6 +1717,57 @@ INSERT INTO C_PP
 	0,
 	'',
 	"1a61f711-1466-4b3f-af64-e0c3980bc970");
+INSERT INTO C_EP
+	VALUES ("f5453211-15b8-41a8-9d59-fedb2102012c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'DeleteEmployee',
+	'');
+INSERT INTO C_AS
+	VALUES ("f5453211-15b8-41a8-9d59-fedb2102012c",
+	'DeleteEmployee',
+	'',
+	0,
+	"5ecfcadd-83ce-49f9-96ef-99a6d8648024");
+INSERT INTO C_PP
+	VALUES ("c3d029eb-524d-4816-966c-98a5b86f5abe",
+	"f5453211-15b8-41a8-9d59-fedb2102012c",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'UnassignBonus',
+	'');
+INSERT INTO C_AS
+	VALUES ("b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	'UnassignBonus',
+	'',
+	0,
+	"f5453211-15b8-41a8-9d59-fedb2102012c");
+INSERT INTO C_PP
+	VALUES ("234d09a2-e4b9-4e4b-8c32-4b388a1bf249",
+	"b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'EmployeeID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("080afdc3-2da5-4051-89aa-e5d74bf429ac",
+	"b33a91da-1d71-48af-8823-a3a19f5aaa63",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Bonus',
+	'',
+	0,
+	'',
+	"234d09a2-e4b9-4e4b-8c32-4b388a1bf249");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,
