@@ -2709,7 +2709,7 @@ INSERT INTO SPR_RS
 	VALUES ("f51fa4ff-5cbc-4def-a7ed-605735e20127",
 	'SendAccount',
 	'',
-	'::SendAccount( Code:param.Code, Name:param.Name, OpeningBalance:param.Fund, Revenue:param.Revenue);',
+	'::SendAccount( Code:param.Code, Name:param.Name, OpeningBalance:param.Fund, Revenue:param.Revenue); ',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
