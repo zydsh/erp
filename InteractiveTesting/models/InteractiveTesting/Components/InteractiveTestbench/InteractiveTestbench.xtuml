@@ -2355,6 +2355,78 @@ INSERT INTO C_EP_PROXY
 	'AcceptAllCeiling',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("48ac8a9b-7569-481e-acce-098f1b8177e2",
+	"06fde7aa-a08d-478c-bcaa-ea497aac3e67",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("48ac8a9b-7569-481e-acce-098f1b8177e2",
+	'CreateAccount',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("06fde7aa-a08d-478c-bcaa-ea497aac3e67",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateAccount',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("3bd8d478-3401-45d0-89b1-e1a1cc478072",
+	"d257ef17-118c-46f2-baee-50fc1bea26d2",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("3bd8d478-3401-45d0-89b1-e1a1cc478072",
+	'CreateProgram',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("d257ef17-118c-46f2-baee-50fc1bea26d2",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateProgram',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("ca322a7f-f4fd-4d21-affd-dd17c0e0c319",
+	"02e23735-c427-4a5e-9847-9a45a7aec390",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("ca322a7f-f4fd-4d21-affd-dd17c0e0c319",
+	'ReadPrograms',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("02e23735-c427-4a5e-9847-9a45a7aec390",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadPrograms',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("0e02e9e3-3da6-4d50-98f3-ca7876275475",
+	"5e4dba38-71b7-4d49-ac82-9e50d82d122f",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("0e02e9e3-3da6-4d50-98f3-ca7876275475",
+	'SendPrograms',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5e4dba38-71b7-4d49-ac82-9e50d82d122f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendPrograms',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
