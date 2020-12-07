@@ -1037,6 +1037,118 @@ INSERT INTO C_EP_PROXY
 	'AcceptAllCeiling',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("bd700da6-5722-47de-98ad-2f410af1f417",
+	"06fde7aa-a08d-478c-bcaa-ea497aac3e67",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("bd700da6-5722-47de-98ad-2f410af1f417",
+	'CreateAccount',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code==param.ParentAccount;
+
+if (not empty account)
+	create object instance acc of AccountSpecification;
+	acc.Code = param.Code;
+	acc.Name = param.Name;
+	acc.Description= param.Description;
+	relate account to acc across R80.''part'';
+	
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("06fde7aa-a08d-478c-bcaa-ea497aac3e67",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateAccount',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("701487d9-90ae-4587-970d-b5b1b9e4e791",
+	"d257ef17-118c-46f2-baee-50fc1bea26d2",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("701487d9-90ae-4587-970d-b5b1b9e4e791",
+	'CreateProgram',
+	'',
+	'select any program from instances of AccountSpecification where selected.Code==param.Code;
+
+if (empty program)
+	create object instance program of AccountSpecification;
+	program.Code = param.Code;
+	program.Name = param.Name;
+	program.Description= param.Description;
+	create object instance subProgram of Program;
+	subProgram.Costs = param.Costs;
+	subProgram.Duration = param.Duration;
+	subProgram.StartDate = param.StartDate;
+	subProgram.Expenditure = param.Expenditure;
+	relate program to subProgram across R180;
+	select any account from instances of AccountSpecification where selected.Code==param.Account;
+	if (not empty account)
+		select one expenditure related by account->Expenditure[R180];
+		relate expenditure to subProgram across R210;
+	end if;
+
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("d257ef17-118c-46f2-baee-50fc1bea26d2",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateProgram',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a41456a2-69f1-4107-aba7-d2ef6e5d126f",
+	"02e23735-c427-4a5e-9847-9a45a7aec390",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("a41456a2-69f1-4107-aba7-d2ef6e5d126f",
+	'ReadPrograms',
+	'',
+	'select many programs from instances of Program; 
+
+if (not empty programs)
+	for each program in programs 
+		select one parantProgram related by program->AccountSpecification[R180];
+		select one expenditure related by program->Expenditure[R210.''earmarks''];
+		if (not empty expenditure)
+			select one account related by expenditure->AccountSpecification[R180];
+		UI::SendPrograms( Code:parantProgram.Code, Name:parantProgram.Name, Description:parantProgram.Description, Costs:program.Costs, Duration:program.Duration, StartDate:program.StartDate, Expenditure:program.Expenditure, Account:account.Code);
+		end if;
+
+	end for;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("02e23735-c427-4a5e-9847-9a45a7aec390",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadPrograms',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("813b97e5-3152-4fb1-8eff-0475bde7ee3b",
+	"5e4dba38-71b7-4d49-ac82-9e50d82d122f",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("813b97e5-3152-4fb1-8eff-0475bde7ee3b",
+	'SendPrograms',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5e4dba38-71b7-4d49-ac82-9e50d82d122f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendPrograms',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",

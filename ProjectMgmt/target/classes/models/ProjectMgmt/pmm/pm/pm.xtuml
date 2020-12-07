@@ -494,7 +494,7 @@ INSERT INTO SPR_PS
 	'SendInitiatives',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1d5ac5a5-3c6f-45dc-ba1a-b7dd16ef624e",
@@ -567,7 +567,7 @@ if (not empty init)
 	relate init to mile across R60.''achieves'';
 
 end if;
-',
+ ',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
