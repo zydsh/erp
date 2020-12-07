@@ -2709,8 +2709,8 @@ INSERT INTO SPR_RS
 	VALUES ("f51fa4ff-5cbc-4def-a7ed-605735e20127",
 	'SendAccount',
 	'',
-	'',
-	3,
+	'::SendAccount( Code:param.Code, Name:param.Name, OpeningBalance:param.Fund, Revenue:param.Revenue);',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("74267771-8f23-4b1d-a0ec-7edad8977687",
@@ -2835,7 +2835,7 @@ INSERT INTO SPR_RS
 	VALUES ("83beb421-5c82-40b6-95eb-57e6e2b84899",
 	'SendPrograms',
 	'',
-	'::SendPorgrams( Code:param.Code, Name:param.Name, Description:param.Description, Costs:param.Costs, Duration:param.Duration, StartDate:param.StartDate, Expenditure:param.Expenditure, Account:param.Account );',
+	'::SendPorgrams( Code:param.Code, Name:param.Name, Description:param.Description, Costs:param.Costs, Duration:param.Duration, StartDate:param.StartDate, Expenditure:param.Expenditure, Account:param.Account ); ',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
