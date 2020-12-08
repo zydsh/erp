@@ -1837,7 +1837,7 @@ elif (not empty postponed)
 elif (not empty suspended)
 	Status =Payitem::Suspended;
 end if;
-	UI::SendPayItem( Name:payment.Name, Date:payment.Date, Type:payment.Type, Amount:payment.Amount, Status:Status);
+	UI::SendPayItem(EmployeeID:employee.EmployeeID, Name:payment.Name, Date:payment.Date, Type:payment.Type, Amount:payment.Amount, Status:Status);
 
 end for;
 
