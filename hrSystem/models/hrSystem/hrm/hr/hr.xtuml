@@ -2248,7 +2248,7 @@ select many approved related by employee->PayslipItem[R27.''recorded approved ea
 		if (not empty payment)
 			UI::SendPayItem(EmployeeID:employee.EmployeeID, Name:payment.Name, Date:payment.Date, Type:payment.Type, Amount:payment.Amount, Status:Payitem::Approved);
 		end if;
-	 end for;
+	 end for; 
 	end if;
 end for;
 

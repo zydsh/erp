@@ -789,7 +789,7 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
-	"00000000-0000-0000-0000-000000000000",
+	"446d283c-eee2-4a12-9733-35dfa024c813",
 	'');
 INSERT INTO S_SPARM
 	VALUES ("b97d530a-ce60-4bf2-8d3f-f0cca83056ce",
@@ -841,6 +841,15 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../../../hrSystem/models/hrSystem/SharedTypes/SharedTypes.xtuml');
+INSERT INTO S_SPARM
+	VALUES ("446d283c-eee2-4a12-9733-35dfa024c813",
+	"fa5398bc-3a84-423b-abbb-c5a7d8903965",
+	'EmployeeID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO PE_PE
 	VALUES ("fa5398bc-3a84-423b-abbb-c5a7d8903965",
 	1,
