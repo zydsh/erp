@@ -1531,7 +1531,7 @@ INSERT INTO SPR_RS
 	VALUES ("a8711d47-b15b-4722-b032-50d5e703fa3a",
 	'SendPayItem',
 	'',
-	'::SendPayItem( Name:param.Name, Date:param.Date, Type:param.Type, Amount:param.Amount, Status:param.Status );',
+	'::SendPayItem( EmployeeID: param.EmployeeID, Name:param.Name, Date:param.Date, Type:param.Type, Amount:param.Amount, Status:param.Status );',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
