@@ -1829,6 +1829,24 @@ INSERT INTO C_EP_PROXY
 	'UnassignBonus',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("ce19264f-59e1-43c1-b893-90a1fb1147b3",
+	"aa09d611-f31a-4432-8338-0ab25d7d2e03",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("ce19264f-59e1-43c1-b893-90a1fb1147b3",
+	'ReadApprovedPayItems',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("aa09d611-f31a-4432-8338-0ab25d7d2e03",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadApprovedPayItems',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

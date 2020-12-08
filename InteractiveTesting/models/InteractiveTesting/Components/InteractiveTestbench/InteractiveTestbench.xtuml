@@ -1734,7 +1734,7 @@ INSERT INTO SPR_RS
 	'CreateJob',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("dc97b35f-e6b3-4ebb-bfd5-75ff93a4619c",
@@ -1752,7 +1752,7 @@ INSERT INTO SPR_RS
 	'CreateBonus',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("dc92126a-5bc2-40e4-a13b-6009747d86cf",
@@ -1770,7 +1770,7 @@ INSERT INTO SPR_RS
 	'EditEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("da90ce68-5e1a-462f-b3bf-af9eb17e7185",
@@ -1788,7 +1788,7 @@ INSERT INTO SPR_RS
 	'CreateDepartment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5ecfcadd-83ce-49f9-96ef-99a6d8648024",
@@ -1806,7 +1806,7 @@ INSERT INTO SPR_RS
 	'DeleteEmployee',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f5453211-15b8-41a8-9d59-fedb2102012c",
@@ -1824,13 +1824,31 @@ INSERT INTO SPR_RS
 	'UnassignBonus',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b33a91da-1d71-48af-8823-a3a19f5aaa63",
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'UnassignBonus',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("2992e3d4-6cb4-4d3d-a07b-56795c1d6828",
+	"aa09d611-f31a-4432-8338-0ab25d7d2e03",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("2992e3d4-6cb4-4d3d-a07b-56795c1d6828",
+	'ReadApprovedPayItems',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("aa09d611-f31a-4432-8338-0ab25d7d2e03",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadApprovedPayItems',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
@@ -2364,7 +2382,7 @@ INSERT INTO SPR_RS
 	'CreateAccount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("06fde7aa-a08d-478c-bcaa-ea497aac3e67",
@@ -2382,7 +2400,7 @@ INSERT INTO SPR_RS
 	'CreateProgram',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("d257ef17-118c-46f2-baee-50fc1bea26d2",
@@ -2400,7 +2418,7 @@ INSERT INTO SPR_RS
 	'ReadPrograms',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("02e23735-c427-4a5e-9847-9a45a7aec390",
@@ -2418,7 +2436,7 @@ INSERT INTO SPR_RS
 	'SendPrograms',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5e4dba38-71b7-4d49-ac82-9e50d82d122f",
@@ -2571,7 +2589,7 @@ INSERT INTO SPR_RS
 	'CreateInitiative',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4d8c9fe4-1360-4d30-90fd-12402e63d2a3",
@@ -2589,7 +2607,7 @@ INSERT INTO SPR_RS
 	'CreateStrategy',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a46a1746-64f0-4558-ae36-f10f118eaa24",
@@ -2607,7 +2625,7 @@ INSERT INTO SPR_RS
 	'CreateProject',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b68f3204-5e86-499d-88df-db00b93866ef",
@@ -2625,7 +2643,7 @@ INSERT INTO SPR_RS
 	'ReadInitiatives',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1afcea8f-1baf-4bd0-999f-9363af4ca62d",
@@ -2643,7 +2661,7 @@ INSERT INTO SPR_RS
 	'SendInitiatives',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1d5ac5a5-3c6f-45dc-ba1a-b7dd16ef624e",
@@ -2661,7 +2679,7 @@ INSERT INTO SPR_RS
 	'ReadProjects',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("bc328c2e-2892-4f5f-869a-c51fcb125847",
@@ -2679,7 +2697,7 @@ INSERT INTO SPR_RS
 	'SendProjects',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("8dc4a734-be3b-4ab9-a837-6a24b94e3215",
@@ -2697,7 +2715,7 @@ INSERT INTO SPR_RS
 	'AddMilestone',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("823d6250-b774-4665-8272-9dc2cc28eadd",
