@@ -2231,6 +2231,38 @@ INSERT INTO C_EP_PROXY
 	'UnassignBonus',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a1a62077-7d1c-4008-82e8-833c6aa265a5",
+	"aa09d611-f31a-4432-8338-0ab25d7d2e03",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("a1a62077-7d1c-4008-82e8-833c6aa265a5",
+	'ReadApprovedPayItems',
+	'',
+	'select many employees from instances of Employee; 
+
+for each employee in employees
+select many approved related by employee->PayslipItem[R27.''recorded approved earnings''];	
+	if (not empty approved)
+	 for each payment in approved
+		if (not empty payment)
+			UI::SendPayItem(EmployeeID:employee.EmployeeID, Name:payment.Name, Date:payment.Date, Type:payment.Type, Amount:payment.Amount, Status:Payitem::Approved);
+		end if;
+	 end for; 
+	end if;
+end for;
+
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("aa09d611-f31a-4432-8338-0ab25d7d2e03",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadApprovedPayItems',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

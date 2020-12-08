@@ -1777,6 +1777,18 @@ INSERT INTO C_PP
 	0,
 	'',
 	"234d09a2-e4b9-4e4b-8c32-4b388a1bf249");
+INSERT INTO C_EP
+	VALUES ("aa09d611-f31a-4432-8338-0ab25d7d2e03",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadApprovedPayItems',
+	'');
+INSERT INTO C_AS
+	VALUES ("aa09d611-f31a-4432-8338-0ab25d7d2e03",
+	'ReadApprovedPayItems',
+	'',
+	0,
+	"b33a91da-1d71-48af-8823-a3a19f5aaa63");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,
