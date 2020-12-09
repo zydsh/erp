@@ -1140,13 +1140,70 @@ INSERT INTO SPR_PS
 	'SendPrograms',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("5e4dba38-71b7-4d49-ac82-9e50d82d122f",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SendPrograms',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("72503029-779a-42a1-aa10-e52ccadc3fe7",
+	"b889a567-01cd-4c5f-8256-fb6cfebed0e1",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("72503029-779a-42a1-aa10-e52ccadc3fe7",
+	'ReadTAccount',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code ==param.Code;
+
+if (not empty account)
+		select many subaccounts related by account->AccountSpecification[R80.''divided''];
+		if ( empty subaccounts)
+			select many credits related by account->Account[R170.''operates'']->Amount[R50.''credited by''];
+			select many debits related by account->Account[R170.''operates'']->Amount[R30.''debited by''];
+			if (not empty credits)
+				for each credit in credits
+					select one entry related by credit->Entry[R40.''recorded for''];
+					UI::SendTAccount( Code:account.Code, Amount:credit.Amount, Date: entry.Date, Description: entry.Description );
+				end for;
+			end if;
+			if (not empty debits)
+				for each debit in debits
+					select one entry related by debit->Entry[R40.''recorded for''];
+					UI::SendTAccount( Code:account.Code, Amount:debit.Amount, Date: entry.Date, Description: entry.Description );
+				end for;
+			end if;
+		end if;	
+
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b889a567-01cd-4c5f-8256-fb6cfebed0e1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadTAccount',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("b9616493-caef-4c78-b0d5-4148987258d4",
+	"964e4528-df32-45e2-b28e-47ebf5c4701f",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("b9616493-caef-4c78-b0d5-4148987258d4",
+	'SendTAccount',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("964e4528-df32-45e2-b28e-47ebf5c4701f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendTAccount',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
