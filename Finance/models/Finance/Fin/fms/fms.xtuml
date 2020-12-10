@@ -1161,7 +1161,8 @@ INSERT INTO SPR_PS
 
 if (not empty account)
 		select many subaccounts related by account->AccountSpecification[R80.''divided''];
-		if ( empty subaccounts)
+		select one expenditute related by account->Expenditure[R180];
+		if ( empty subaccounts) and (not empty expenditute)
 			select many credits related by account->Account[R170.''operates'']->Amount[R50.''credited by''];
 			select many debits related by account->Account[R170.''operates'']->Amount[R30.''debited by''];
 			if (not empty credits)
@@ -1197,13 +1198,65 @@ INSERT INTO SPR_PS
 	'SendTAccount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("964e4528-df32-45e2-b28e-47ebf5c4701f",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SendTAccount',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("6dc92d1d-d6d9-4eab-9684-c7a03210c265",
+	"6303db2a-0872-4a00-9303-e7f5c19f327a",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("6dc92d1d-d6d9-4eab-9684-c7a03210c265",
+	'ReadChartAccounts',
+	'',
+	'select many accounts from instances of AccountSpecification;
+if (not empty accounts)
+	for each account in accounts
+		select many subaccounts related by account->AccountSpecification[R80.''divided''];
+		if ( not empty subaccounts)
+			select one operatedAccount related by account->Account[R170.''operates''];
+			select one operation related by operatedAccount->OperationalAccount[R200];
+			if (not empty operatedAccount) and (not empty operation)
+				UI::SendChartAccounts(Code: account.Code, OpeningBalance:operatedAccount.OpeningBalance, 
+				AddedFunds:operation.AddedFunds, Reduction:operation.Balance, Balance:operation.Balance, 
+				NetBalance:operation.NetBalance, GrandTotal:operation.GrandTotal);
+			end if;
+		end if;
+	end for;
+end if;
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("6303db2a-0872-4a00-9303-e7f5c19f327a",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadChartAccounts',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("906f3a06-a80f-40f4-9919-4d8de57fb77e",
+	"44c696b3-09fa-4f86-b339-b216e98d59a1",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("906f3a06-a80f-40f4-9919-4d8de57fb77e",
+	'SendChartAccounts',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("44c696b3-09fa-4f86-b339-b216e98d59a1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendChartAccounts',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
