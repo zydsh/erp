@@ -90,7 +90,7 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("d90f589e-335d-457a-89e5-8598c6062d33",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'commitments = 0;
+	'commitments = 0.0;
 select many amounts related by self->Account[R200]->Amount[R250.''commited to''];
 if (not empty amounts)
 	for each amount in amounts
@@ -119,7 +119,7 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("10766932-2040-4eac-906e-11567c7f8565",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'spenditure = 0;
+	'spenditure = 0.0;
 select many amounts related by self->Account[R200]->Amount[R50.''credited by''];
 select many transferDebits related by self->Account[R200]->Amount[R240.''transfer debit of''];
 
