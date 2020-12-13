@@ -712,7 +712,9 @@ INSERT INTO SM_ACT
 	VALUES ("c1c1831f-cb52-42e1-af66-ac5671280337",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'nameCode[14]= "221111";
+	'nameCode[16]= "221151";
+nameCode[15]="الشحن الجوي";
+nameCode[14]= "221111";
 nameCode[13]="استهلاك الكهرباء";
 nameCode[12]= "221112";
 nameCode[11]="إيصال الكهرباء";
@@ -729,7 +731,7 @@ nameCode[1]="أجور البريد";
 
  
 select any account from instances of AccountSpecification where selected.Code =="٢٢";
-i=14;
+i=16;
 while (i >=1)
 	create object instance subaccount of AccountSpecification;
 	subaccount.Code= nameCode[i];
@@ -738,7 +740,18 @@ while (i >=1)
 	i = i-2;
 end while;
 
- 
+// adding 32124 account for Salary
+	create object instance salary of AccountSpecification;
+	salary.Code= "32124";
+	salary.Name="حساب جاري وزارة المالية";
+	salary.Description = "حساب ضمن شجرةالحسابات المعتمدة لصرف المسير الشهري للرواتب";
+	
+	create object instance cash of Cash;
+	relate salary to cash across R220;
+	create object instance cashAccount of Account;
+	relate salary to cashAccount across R170.''operates'';
+
+
  
 generate PEI4:Subaccount22Complete(Year:self.Year) to self;
 ',
@@ -783,10 +796,25 @@ INSERT INTO SM_ACT
 	VALUES ("10791a72-4513-4e03-9323-922346c67ddf",
 	"ccb657ab-2034-4ec7-992b-409d7b739cb3",
 	1,
-	'create object instance journal of Journal;
-journal.Name = "Salary";
-journal.Description="Recording monthly salaries";
-',
+	'select any journal from instances of Journal where selected.Name == "Salary";
+
+if (empty journal)
+	create object instance newj of Journal;
+	newj.Name = "Salary";
+	newj.Description = "Journal for paying employee benifits";
+	create object instance column of Column;
+	column.Title = "Debit Cash/Credit Salary";
+	column.Description = "";
+	relate column to newj across R160.''serves'';
+	
+	select any accountDebit from instances of AccountSpecification where selected.Code =="32124";
+	select any accountCredit from instances of AccountSpecification where selected.Code =="211111";
+
+	if ( not empty accountDebit) and (not empty accountDebit)
+		relate column to accountDebit across R140.''debits'';
+		relate column to accountCredit across R150.''credits'';
+	end if;
+end if;',
 	'',
 	0);
 INSERT INTO SM_TAH
