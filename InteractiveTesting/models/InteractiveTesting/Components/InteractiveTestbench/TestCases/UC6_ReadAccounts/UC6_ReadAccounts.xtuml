@@ -148,6 +148,24 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000001",
 	'',
 	'False');
+INSERT INTO O_NBATTR
+	VALUES ("d6deaf1b-fe8f-45a0-817f-e669be870bc6",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("d6deaf1b-fe8f-45a0-817f-e669be870bc6",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("d6deaf1b-fe8f-45a0-817f-e669be870bc6",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"91927da0-dbfe-4ae0-a39d-42fbefd6c4cc",
+	'Salary',
+	'',
+	'',
+	'Salary',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'23900.00');
 INSERT INTO O_ID
 	VALUES (0,
 	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");

@@ -1842,7 +1842,7 @@ INSERT INTO SPR_RS
 	'ReadApprovedPayItems',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("aa09d611-f31a-4432-8338-0ab25d7d2e03",
@@ -2454,7 +2454,7 @@ INSERT INTO SPR_RS
 	'ReadTAccount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b889a567-01cd-4c5f-8256-fb6cfebed0e1",
@@ -2472,7 +2472,7 @@ INSERT INTO SPR_RS
 	'SendTAccount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("964e4528-df32-45e2-b28e-47ebf5c4701f",
@@ -2490,7 +2490,7 @@ INSERT INTO SPR_RS
 	'ReadChartAccounts',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("6303db2a-0872-4a00-9303-e7f5c19f327a",
@@ -2507,14 +2507,65 @@ INSERT INTO SPR_RS
 	VALUES ("eb861c6b-b370-459b-a3c9-b5d248bba907",
 	'SendChartAccounts',
 	'',
-	'',
-	3,
+	'select any uc9 from instances of UC9_Operationalized where selected.Code == param.Code;
+if (not empty uc9)
+	uc9.AddedFunds = param.AddedFunds;
+	uc9.Reduction = param.Reduction;
+	uc9.TransferDebit = param.TransferDebit;
+	uc9.TransferCredit = param.TransferCredit;
+	uc9.NetBalance = param.NetBalance;
+	uc9.Spending = param.Spending;
+	uc9.GrandTotal = param.GrandTotal;
+	uc9.DocumantryCredits = param.DocumantryCredits;
+	uc9.Custodies = param.Custodies;
+	uc9.Paid = param.Paid;
+	uc9.Balance = param.Balance;
+	uc9.Percentage = param.Percentage;
+
+end if;',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("44c696b3-09fa-4f86-b339-b216e98d59a1",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SendChartAccounts',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("86d496ee-e82f-4d59-a616-e6da49bc09ba",
+	"23c49591-ddb9-472c-a127-aac9bf81fd5b",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("86d496ee-e82f-4d59-a616-e6da49bc09ba",
+	'ReadChartAccount',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("23c49591-ddb9-472c-a127-aac9bf81fd5b",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadChartAccount',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("f5c45808-cd2f-4850-921e-5d802d3c0e13",
+	"826bbbc5-69a0-4741-a185-2c93ffe2a1b1",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("f5c45808-cd2f-4850-921e-5d802d3c0e13",
+	'CreateSalaryJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("826bbbc5-69a0-4741-a185-2c93ffe2a1b1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateSalaryJournal',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

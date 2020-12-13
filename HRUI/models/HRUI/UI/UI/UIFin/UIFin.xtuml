@@ -532,22 +532,13 @@ INSERT INTO S_SPARM
 	"bcd1adbc-3b86-4d91-b2cb-3a139cb38a35",
 	'');
 INSERT INTO S_SPARM
-	VALUES ("f5beb5c3-8ff9-4133-9400-bdeda28ec361",
-	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
-	'Balance',
-	"ba5eda7a-def5-0000-0000-000000000003",
-	0,
-	'',
-	"76252647-1047-40aa-9d4b-2b68693703f3",
-	'');
-INSERT INTO S_SPARM
 	VALUES ("52bf79cb-a900-47c4-9caa-e4fa7d8fa2d0",
 	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
 	'NetBalance',
 	"ba5eda7a-def5-0000-0000-000000000003",
 	0,
 	'',
-	"f5beb5c3-8ff9-4133-9400-bdeda28ec361",
+	"94f4b244-48bb-48cf-80a8-1da4568f2c2d",
 	'');
 INSERT INTO S_SPARM
 	VALUES ("44f98433-f5c9-4f19-9f49-da6a1d22a5b4",
@@ -556,7 +547,79 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000003",
 	0,
 	'',
+	"2bd0a6fe-0c3c-43ee-b022-d48e57938460",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("e49de294-8409-49a6-baea-31c003109d07",
+	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
+	'TransferDebit',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"76252647-1047-40aa-9d4b-2b68693703f3",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("94f4b244-48bb-48cf-80a8-1da4568f2c2d",
+	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
+	'TransferCredit',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"e49de294-8409-49a6-baea-31c003109d07",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("2bd0a6fe-0c3c-43ee-b022-d48e57938460",
+	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
+	'Spending',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
 	"52bf79cb-a900-47c4-9caa-e4fa7d8fa2d0",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("cf39b5e1-5d93-4547-9e7d-29f62ebe7cec",
+	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
+	'DocumantryCredits',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"44f98433-f5c9-4f19-9f49-da6a1d22a5b4",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("4644351a-2854-4f6c-89a5-a2c1f0b8629c",
+	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
+	'Custodies',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"cf39b5e1-5d93-4547-9e7d-29f62ebe7cec",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("cb9186b2-72fd-4241-a143-faccdb96ba90",
+	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
+	'Balance',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"a8ecbde9-50ad-4df4-af9e-34f61dbc2c55",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("b98d7e07-8b27-49dc-a660-261400b21124",
+	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
+	'Percentage',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"cb9186b2-72fd-4241-a143-faccdb96ba90",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("a8ecbde9-50ad-4df4-af9e-34f61dbc2c55",
+	"19e55ba0-3757-43c8-b01c-a4f08137b0fc",
+	'Paid',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"4644351a-2854-4f6c-89a5-a2c1f0b8629c",
 	'');
 INSERT INTO PE_PE
 	VALUES ("19e55ba0-3757-43c8-b01c-a4f08137b0fc",

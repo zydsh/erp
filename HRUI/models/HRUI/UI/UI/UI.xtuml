@@ -2925,7 +2925,7 @@ INSERT INTO SPR_RS
 	VALUES ("308a43aa-04ed-403b-b877-189c22ee9231",
 	'SendChartAccounts',
 	'',
-	'::SendChartAccounts( Code:param.Code, OpeningBalance:param.OpeningBalance, AddedFunds:param.AddedFunds, Reduction:param.Reduction, Balance:param.Balance, NetBalance:param.NetBalance, GrandTotal:param.GrandTotal);',
+	'::SendChartAccounts( Code:param.Code, OpeningBalance:param.OpeningBalance, AddedFunds:param.AddedFunds, Reduction:param.Reduction, TransferDebit:param.TransferDebit, TransferCredit:param.TransferCredit, NetBalance:param.NetBalance, Spending:param.Spending, GrandTotal:param.GrandTotal, DocumantryCredits:param.DocumantryCredits, Custodies:param.Custodies, Paid:param.Paid, Balance:param.Balance, Percentage:param.Percentage);',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -2933,6 +2933,42 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SendChartAccounts',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("62ba5c6f-7f9f-469b-bc51-abc553703b87",
+	"23c49591-ddb9-472c-a127-aac9bf81fd5b",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("62ba5c6f-7f9f-469b-bc51-abc553703b87",
+	'ReadChartAccount',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("23c49591-ddb9-472c-a127-aac9bf81fd5b",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadChartAccount',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("9399d968-4578-433c-9ee6-c50d74fb9d18",
+	"826bbbc5-69a0-4741-a185-2c93ffe2a1b1",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("9399d968-4578-433c-9ee6-c50d74fb9d18",
+	'CreateSalaryJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("826bbbc5-69a0-4741-a185-2c93ffe2a1b1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateSalaryJournal',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
