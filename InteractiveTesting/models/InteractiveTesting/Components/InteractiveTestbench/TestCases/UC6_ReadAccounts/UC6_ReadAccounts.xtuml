@@ -166,6 +166,78 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'23900.00');
+INSERT INTO O_NBATTR
+	VALUES ("316fd76f-56fc-4879-b792-9e59ce277c5a",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("316fd76f-56fc-4879-b792-9e59ce277c5a",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("316fd76f-56fc-4879-b792-9e59ce277c5a",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"d6deaf1b-fe8f-45a0-817f-e669be870bc6",
+	'TransferFromAccount',
+	'',
+	'',
+	'TransferFromAccount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'211114');
+INSERT INTO O_NBATTR
+	VALUES ("9335005d-f2c8-411f-91b9-abecdbf4cc12",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("9335005d-f2c8-411f-91b9-abecdbf4cc12",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("9335005d-f2c8-411f-91b9-abecdbf4cc12",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"316fd76f-56fc-4879-b792-9e59ce277c5a",
+	'TransferToAccount',
+	'',
+	'',
+	'TransferToAccount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'211111');
+INSERT INTO O_NBATTR
+	VALUES ("5aa47d70-b4ba-4ca8-a270-a11aa0f3c333",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("5aa47d70-b4ba-4ca8-a270-a11aa0f3c333",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("5aa47d70-b4ba-4ca8-a270-a11aa0f3c333",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"9335005d-f2c8-411f-91b9-abecdbf4cc12",
+	'TransferColumn',
+	'',
+	'',
+	'TransferColumn',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'transfer');
+INSERT INTO O_NBATTR
+	VALUES ("e148faa8-ca76-42df-8957-240f01a3475d",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("e148faa8-ca76-42df-8957-240f01a3475d",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("e148faa8-ca76-42df-8957-240f01a3475d",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"5aa47d70-b4ba-4ca8-a270-a11aa0f3c333",
+	'TransferAmount',
+	'',
+	'',
+	'TransferAmount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'200000');
 INSERT INTO O_ID
 	VALUES (0,
 	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");

@@ -814,7 +814,9 @@ if (empty journal)
 		relate column to accountDebit across R140.''debits'';
 		relate column to accountCredit across R150.''credits'';
 	end if;
-end if;',
+end if;
+
+',
 	'',
 	0);
 INSERT INTO SM_TAH

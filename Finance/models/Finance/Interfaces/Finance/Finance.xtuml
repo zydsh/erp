@@ -1262,6 +1262,144 @@ INSERT INTO C_AS
 	'',
 	0,
 	"23c49591-ddb9-472c-a127-aac9bf81fd5b");
+INSERT INTO C_EP
+	VALUES ("65e6efde-caed-4815-8465-bbc6fa133eba",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AccountTransfers',
+	'');
+INSERT INTO C_AS
+	VALUES ("65e6efde-caed-4815-8465-bbc6fa133eba",
+	'AccountTransfers',
+	'',
+	0,
+	"826bbbc5-69a0-4741-a185-2c93ffe2a1b1");
+INSERT INTO C_PP
+	VALUES ("92e581cd-dd57-4492-8d4d-36bf22871307",
+	"65e6efde-caed-4815-8465-bbc6fa133eba",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Amount',
+	'',
+	0,
+	'',
+	"2f92f080-70da-4b00-90c3-bf27935882d8");
+INSERT INTO C_PP
+	VALUES ("fbd8b5be-5de5-4f44-a59b-15c37ab1c89c",
+	"65e6efde-caed-4815-8465-bbc6fa133eba",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Date',
+	'',
+	0,
+	'',
+	"92e581cd-dd57-4492-8d4d-36bf22871307");
+INSERT INTO C_PP
+	VALUES ("384bb987-1b76-4ca4-ac96-aaa1863846f6",
+	"65e6efde-caed-4815-8465-bbc6fa133eba",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"fbd8b5be-5de5-4f44-a59b-15c37ab1c89c");
+INSERT INTO C_PP
+	VALUES ("2f92f080-70da-4b00-90c3-bf27935882d8",
+	"65e6efde-caed-4815-8465-bbc6fa133eba",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Column',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("fc97608a-1b57-458d-992c-b6c2c2a5b88f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateTransfersJournal',
+	'');
+INSERT INTO C_AS
+	VALUES ("fc97608a-1b57-458d-992c-b6c2c2a5b88f",
+	'CreateTransfersJournal',
+	'',
+	0,
+	"65e6efde-caed-4815-8465-bbc6fa133eba");
+INSERT INTO C_EP
+	VALUES ("4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AddTransferColumn',
+	'');
+INSERT INTO C_AS
+	VALUES ("4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	'AddTransferColumn',
+	'',
+	0,
+	"fc97608a-1b57-458d-992c-b6c2c2a5b88f");
+INSERT INTO C_PP
+	VALUES ("92b33219-91d2-4dc3-bb16-5a2fca5a93ef",
+	"4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'TransferFrom',
+	'',
+	0,
+	'',
+	"d58d6e61-2fa8-473a-9d6c-74de09d0a431");
+INSERT INTO C_PP
+	VALUES ("60a75b78-bb9b-4235-b477-817fa632e297",
+	"4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'TransferTo',
+	'',
+	0,
+	'',
+	"92b33219-91d2-4dc3-bb16-5a2fca5a93ef");
+INSERT INTO C_PP
+	VALUES ("d58d6e61-2fa8-473a-9d6c-74de09d0a431",
+	"4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Title',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SettleTransfer',
+	'');
+INSERT INTO C_AS
+	VALUES ("bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	'SettleTransfer',
+	'',
+	0,
+	"4b5177fb-2cac-4c7f-92b2-229c367f53b8");
+INSERT INTO C_PP
+	VALUES ("b43cc316-6454-4934-a0ca-8508d1ad1587",
+	"bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Column',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("e96203e8-4c49-4028-b8a9-8f0870cdaf22",
+	"bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Amount',
+	'',
+	0,
+	'',
+	"b43cc316-6454-4934-a0ca-8508d1ad1587");
+INSERT INTO C_PP
+	VALUES ("928489fd-e84a-48b5-bc15-892640f4488e",
+	"bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Date',
+	'',
+	0,
+	'',
+	"e96203e8-4c49-4028-b8a9-8f0870cdaf22");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,
