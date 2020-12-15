@@ -2559,13 +2559,85 @@ INSERT INTO SPR_RS
 	'CreateSalaryJournal',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("826bbbc5-69a0-4741-a185-2c93ffe2a1b1",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'CreateSalaryJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("94f616d6-7afe-4fce-97df-e41a11868363",
+	"65e6efde-caed-4815-8465-bbc6fa133eba",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("94f616d6-7afe-4fce-97df-e41a11868363",
+	'AccountTransfers',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("65e6efde-caed-4815-8465-bbc6fa133eba",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AccountTransfers',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("a199aba2-30ba-47b3-848c-01abcac5105b",
+	"fc97608a-1b57-458d-992c-b6c2c2a5b88f",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("a199aba2-30ba-47b3-848c-01abcac5105b",
+	'CreateTransfersJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("fc97608a-1b57-458d-992c-b6c2c2a5b88f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateTransfersJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("bc8087f5-699b-4ea0-ac03-d2d53318ddcf",
+	"4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("bc8087f5-699b-4ea0-ac03-d2d53318ddcf",
+	'AddTransferColumn',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AddTransferColumn',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("96b7b32e-1ecc-4daa-89b9-905af9876f52",
+	"bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("96b7b32e-1ecc-4daa-89b9-905af9876f52",
+	'SettleTransfer',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SettleTransfer',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

@@ -121,7 +121,7 @@ INSERT INTO O_DBATTR
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
 	'spenditure = 0.0;
 select many amounts related by self->Account[R200]->Amount[R50.''credited by''];
-select many transferDebits related by self->Account[R200]->Amount[R240.''transfer debit of''];
+select many transferCredits related by self->Account[R200]->Amount[R230.''transfer credit of''];
 
 if (not empty amounts)
 	for each amount in amounts
@@ -129,9 +129,9 @@ if (not empty amounts)
 	end for;
 end if;
 
-if (not empty transferDebits)
-	for each transfer in transferDebits
-		spenditure =  spenditure - transfer.Amount;
+if (not empty transferCredits)
+	for each transfer in transferCredits
+		spenditure =  spenditure + transfer.Amount;
 	end for;
 end if;
 
@@ -158,7 +158,14 @@ INSERT INTO O_DBATTR
 	VALUES ("095084c1-403a-4633-b578-94f27ac52259",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
 	'select one account related by self->Account[R200];
-self.Percentage = (self.Balance/account.OpeningBalance)*100;
+p = self.Balance/self.NetBalance;
+if ( p > 1)
+	self.Percentage = (1+(self.Balance/self.NetBalance))*100; 
+else
+	self.Percentage = (1-(self.Balance/self.NetBalance))*100; 
+
+end if;
+	
 ',
 	1,
 	0);
@@ -177,9 +184,17 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("645b7829-9313-4809-b093-d5ec46e2ea81",
-	"5543b746-cd55-402b-ac07-ba33f11ee1b1");
+	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
+	'transfer= 0;
+select many amounts related by self->Account[R200]->Amount[R240.''transfer debit of''];
+for each amount in amounts
+	transfer = amount.Amount + transfer;
+end for;
+self.TransferDebit = transfer;',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("645b7829-9313-4809-b093-d5ec46e2ea81",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1");
@@ -195,9 +210,17 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("aab03925-95a5-41c0-9a9a-30edf6f8f44f",
-	"5543b746-cd55-402b-ac07-ba33f11ee1b1");
+	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
+	'transfer= 0;
+select many amounts related by self->Account[R200]->Amount[R230.''transfer credit of''];
+for each amount in amounts
+	transfer = amount.Amount + transfer;
+end for;
+self.TransferCredit = transfer;',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("aab03925-95a5-41c0-9a9a-30edf6f8f44f",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1");

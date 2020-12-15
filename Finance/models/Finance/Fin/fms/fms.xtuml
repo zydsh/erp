@@ -1334,6 +1334,146 @@ INSERT INTO C_EP_PROXY
 	'CreateSalaryJournal',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a763886c-6f9e-488f-a294-0a49b8fdffda",
+	"65e6efde-caed-4815-8465-bbc6fa133eba",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("a763886c-6f9e-488f-a294-0a49b8fdffda",
+	'AccountTransfers',
+	'',
+	'select any transfers from instances of Journal where selected.Name == "المناقلات";
+if (not empty transfers)
+	select any column related by transfers->Column[R120.''has''] where selected.Title == param.Column;
+	if (not empty column)
+	create object instance entry of Entry;
+		entry.Date = param.Date;
+		entry.Description = param.Description;
+		relate entry to transfers across R101.''made to'';
+	create object instance amount of Amount;
+		amount.Amount = param.Amount;
+		relate column to amount across R130.''holds'';
+	select one debit related by column->AccountSpecification[R140.''debits'']->Account[R170.''operates''];
+	select one credit related by column->AccountSpecification[R150.''credits'']->Account[R170.''operates''];
+	relate amount to debit across R240.''is debit transfer'';
+	relate amount to credit across R230.''is credit transfer'';
+	
+	end if;
+
+end if;
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("65e6efde-caed-4815-8465-bbc6fa133eba",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AccountTransfers',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("6462cac8-67ef-4312-97bc-c2979d34e94c",
+	"fc97608a-1b57-458d-992c-b6c2c2a5b88f",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("6462cac8-67ef-4312-97bc-c2979d34e94c",
+	'CreateTransfersJournal',
+	'',
+	'select any transfers from instances of Journal where selected.Name == "المناقلات";
+
+if (empty transfers)
+	create object instance transfers of Journal;
+	transfers.Name = "المناقلات";
+	transfers.Description= "مناقلة مبالغ بين الحسابات في السنة المالية";
+
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("fc97608a-1b57-458d-992c-b6c2c2a5b88f",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateTransfersJournal',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("e641c4c6-b692-4ad4-9da7-6713b89187ea",
+	"4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("e641c4c6-b692-4ad4-9da7-6713b89187ea",
+	'AddTransferColumn',
+	'',
+	'select any column from instances of Column where selected.Title == param.Title;
+select any transfers from instances of Journal where selected.Name == "المناقلات";
+
+if (empty column) and ( not empty transfers)
+	create object instance col of Column;
+	col.Title = param.Title;
+	relate col to transfers across R120.''corresponds'';
+	select any debit from instances of AccountSpecification where selected.Code == param.TransferTo;
+	select any credit from instances of AccountSpecification where selected.Code == param.TransferFrom;
+	if (not empty credit) and (not empty debit)
+		relate col to credit across R150.''credits'';
+		relate col to debit across R140.''debits'';
+	end if;
+
+
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("4b5177fb-2cac-4c7f-92b2-229c367f53b8",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AddTransferColumn',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("bf1fe666-b3f9-4e2d-86d1-4e93d7764a3f",
+	"bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("bf1fe666-b3f9-4e2d-86d1-4e93d7764a3f",
+	'SettleTransfer',
+	'',
+	'select any transfers from instances of Journal where selected.Name == "المناقلات";
+if (not empty transfers)
+	select any column related by transfers->Column[R120.''has''] where selected.Title == param.Column;
+	if (not empty column)
+		select many amounts related by column->Amount[R130.''holds''] where selected.Amount==param.Amount;
+		for each amount in amounts
+			select one entry related by amount->Entry[R40.''recorded for''];
+			if (entry.Date == param.Date)
+				select one debit related by amount->Account[R30.''debits''];
+				select one credit related by amount->Account[R50.''credits''];
+				if (not empty debit) and (not empty credit)
+					create object instance settleAmount of Amount;
+					settleAmount.Amount = param.Amount;
+					relate settleAmount to column across R130.''recorded under'';
+					create object instance settleEntry of Entry;
+					settleEntry.Date = TIM::current_seconds();
+					settleEntry.Description = "تسوية" + entry.Description;
+					relate debit to settleAmount across R50.''credited by'';
+					relate credit to settleAmount across R30.''debited by'';
+				end if;
+			end if;
+		end for;	
+	end if;
+
+end if;
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SettleTransfer',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
