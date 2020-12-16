@@ -3081,6 +3081,42 @@ INSERT INTO C_EP_PROXY
 	'SendTransferColumns',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("d997ff47-3fbd-4fed-8bf5-5e3ede1c51f2",
+	"7c8d21ee-c826-4e65-8c5c-0da79421b849",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("d997ff47-3fbd-4fed-8bf5-5e3ede1c51f2",
+	'AddFunds',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7c8d21ee-c826-4e65-8c5c-0da79421b849",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AddFunds',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("256ee2ee-f3b9-44d0-a82b-e9c83271df32",
+	"58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("256ee2ee-f3b9-44d0-a82b-e9c83271df32",
+	'ReduceFunds',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReduceFunds',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",

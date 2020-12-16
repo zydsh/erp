@@ -152,7 +152,7 @@ INSERT INTO O_DBATTR
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
 	'p=0.0;
 p = 1-(self.RemainingBalance/self.NetBalance);
-self.Percentage = p*100; 
+self.Percentage = p*100;  
 
 	
 ',

@@ -1519,6 +1519,66 @@ INSERT INTO C_EP_PROXY
 	'SendTransferColumns',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("71a1be77-566a-4609-a42e-f338c41c2398",
+	"7c8d21ee-c826-4e65-8c5c-0da79421b849",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("71a1be77-566a-4609-a42e-f338c41c2398",
+	'AddFunds',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code == param.Code;
+
+if (not empty account)
+	select one expenditure related by account->Expenditure[R180];
+	if ( empty expenditure)
+		select one operation related by account->Account[R170.''operates'']->OperationalAccount[R200];
+		if (not empty operation)
+			operation.AddedFunds = param.Amount;
+		end if;
+		
+	end if;
+end if;
+ ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7c8d21ee-c826-4e65-8c5c-0da79421b849",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AddFunds',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("a40546b4-d543-4ad9-b189-7ffcc22638b5",
+	"58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("a40546b4-d543-4ad9-b189-7ffcc22638b5",
+	'ReduceFunds',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code == param.Code;
+
+if (not empty account)
+	select one expenditure related by account->Expenditure[R180];
+	if ( empty expenditure)
+		select one operation related by account->Account[R170.''operates'']->OperationalAccount[R200];
+		if (not empty operation)
+			operation.Reduction = param.Amount;
+		end if;
+		
+	end if;
+end if;
+ ',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReduceFunds',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
