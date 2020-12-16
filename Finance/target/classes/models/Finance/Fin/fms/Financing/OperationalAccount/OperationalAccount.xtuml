@@ -150,7 +150,8 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("095084c1-403a-4633-b578-94f27ac52259",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'p = 1-(self.RemainingBalance/self.NetBalance);
+	'p=0.0;
+p = 1-(self.RemainingBalance/self.NetBalance);
 self.Percentage = p*100; 
 
 	
