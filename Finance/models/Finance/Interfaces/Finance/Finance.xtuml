@@ -1143,7 +1143,7 @@ INSERT INTO C_PP
 	VALUES ("72d50ef6-b20b-4b20-8136-6e733b8d0d0b",
 	"44c696b3-09fa-4f86-b339-b216e98d59a1",
 	"ba5eda7a-def5-0000-0000-000000000003",
-	'Balance',
+	'RemainingBalance',
 	'',
 	0,
 	'',
@@ -1169,7 +1169,7 @@ INSERT INTO C_PP
 INSERT INTO C_PP
 	VALUES ("f60aeb9d-4cf0-4b84-867e-6881b0085a3f",
 	"44c696b3-09fa-4f86-b339-b216e98d59a1",
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'TransferDebit',
 	'',
 	0,
@@ -1178,7 +1178,7 @@ INSERT INTO C_PP
 INSERT INTO C_PP
 	VALUES ("edcb019c-a086-4229-9718-fd6db8766991",
 	"44c696b3-09fa-4f86-b339-b216e98d59a1",
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'TransferCredit',
 	'',
 	0,
@@ -1400,6 +1400,48 @@ INSERT INTO C_PP
 	0,
 	'',
 	"e96203e8-4c49-4028-b8a9-8f0870cdaf22");
+INSERT INTO C_EP
+	VALUES ("1cf70f9f-c612-4f14-b4f6-3f2946648b55",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadTransferColumns',
+	'');
+INSERT INTO C_AS
+	VALUES ("1cf70f9f-c612-4f14-b4f6-3f2946648b55",
+	'ReadTransferColumns',
+	'',
+	0,
+	"bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010");
+INSERT INTO C_EP
+	VALUES ("074d4a34-3a95-4d59-a677-628ffda62c64",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendTransferColumns',
+	'');
+INSERT INTO C_AS
+	VALUES ("074d4a34-3a95-4d59-a677-628ffda62c64",
+	'SendTransferColumns',
+	'',
+	1,
+	"1cf70f9f-c612-4f14-b4f6-3f2946648b55");
+INSERT INTO C_PP
+	VALUES ("8b23ef5e-f49d-40b4-9426-46f38d3725b3",
+	"074d4a34-3a95-4d59-a677-628ffda62c64",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Column',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("c071de67-3856-4390-b039-f5dbc79303da",
+	"074d4a34-3a95-4d59-a677-628ffda62c64",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"8b23ef5e-f49d-40b4-9426-46f38d3725b3");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

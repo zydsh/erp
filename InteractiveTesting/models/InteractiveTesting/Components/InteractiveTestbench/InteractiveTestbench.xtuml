@@ -2519,7 +2519,7 @@ if (not empty uc9)
 	uc9.DocumantryCredits = param.DocumantryCredits;
 	uc9.Custodies = param.Custodies;
 	uc9.Paid = param.Paid;
-	uc9.Balance = param.Balance;
+	uc9.Balance = param.RemainingBalance;
 	uc9.Percentage = param.Percentage;
 
 end if;',
@@ -2577,7 +2577,7 @@ INSERT INTO SPR_RS
 	'AccountTransfers',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("65e6efde-caed-4815-8465-bbc6fa133eba",
@@ -2595,7 +2595,7 @@ INSERT INTO SPR_RS
 	'CreateTransfersJournal',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("fc97608a-1b57-458d-992c-b6c2c2a5b88f",
@@ -2613,7 +2613,7 @@ INSERT INTO SPR_RS
 	'AddTransferColumn',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4b5177fb-2cac-4c7f-92b2-229c367f53b8",
@@ -2631,13 +2631,49 @@ INSERT INTO SPR_RS
 	'SettleTransfer',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("bb4e4d77-3f37-4c9c-94eb-e3f31dcbb010",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SettleTransfer',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("72534f52-688f-4b7b-9e4e-b6ee5cc2ac3c",
+	"1cf70f9f-c612-4f14-b4f6-3f2946648b55",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("72534f52-688f-4b7b-9e4e-b6ee5cc2ac3c",
+	'ReadTransferColumns',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1cf70f9f-c612-4f14-b4f6-3f2946648b55",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadTransferColumns',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("2865e17b-86d4-4b4d-a7e0-b27de0bb89a7",
+	"074d4a34-3a95-4d59-a677-628ffda62c64",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("2865e17b-86d4-4b4d-a7e0-b27de0bb89a7",
+	'SendTransferColumns',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("074d4a34-3a95-4d59-a677-628ffda62c64",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendTransferColumns',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

@@ -238,6 +238,24 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'200000');
+INSERT INTO O_NBATTR
+	VALUES ("9e2f54e0-cb31-4f73-b8f2-be6830a501d1",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("9e2f54e0-cb31-4f73-b8f2-be6830a501d1",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("9e2f54e0-cb31-4f73-b8f2-be6830a501d1",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"e148faa8-ca76-42df-8957-240f01a3475d",
+	'TransferDate',
+	'',
+	'',
+	'TransferDate',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'20201215');
 INSERT INTO O_ID
 	VALUES (0,
 	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");

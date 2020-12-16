@@ -2925,7 +2925,9 @@ INSERT INTO SPR_RS
 	VALUES ("308a43aa-04ed-403b-b877-189c22ee9231",
 	'SendChartAccounts',
 	'',
-	'::SendChartAccounts( Code:param.Code, OpeningBalance:param.OpeningBalance, AddedFunds:param.AddedFunds, Reduction:param.Reduction, TransferDebit:param.TransferDebit, TransferCredit:param.TransferCredit, NetBalance:param.NetBalance, Spending:param.Spending, GrandTotal:param.GrandTotal, DocumantryCredits:param.DocumantryCredits, Custodies:param.Custodies, Paid:param.Paid, Balance:param.Balance, Percentage:param.Percentage);',
+	'::SendChartAccounts( Code:param.Code, OpeningBalance:param.OpeningBalance, AddedFunds:param.AddedFunds, Reduction:param.Reduction, TransferDebit:param.TransferDebit, TransferCredit:param.TransferCredit, NetBalance:param.NetBalance, Spending:param.Spending, GrandTotal:param.GrandTotal, DocumantryCredits:param.DocumantryCredits, Custodies:param.Custodies, Paid:param.Paid, RemainingBalance:param.RemainingBalance, Percentage:param.Percentage);
+LOG::LogInfo(message:"Chart Accounts: Sent! "+ param.Code);
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -3041,6 +3043,42 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SettleTransfer',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("d74d3a68-2ce0-4d0d-bfa6-30df4962406f",
+	"1cf70f9f-c612-4f14-b4f6-3f2946648b55",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("d74d3a68-2ce0-4d0d-bfa6-30df4962406f",
+	'ReadTransferColumns',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1cf70f9f-c612-4f14-b4f6-3f2946648b55",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadTransferColumns',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("6962c8dc-91dd-475f-a174-72e6c5353b58",
+	"074d4a34-3a95-4d59-a677-628ffda62c64",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("6962c8dc-91dd-475f-a174-72e6c5353b58",
+	'SendTransferColumns',
+	'',
+	'::SendTransferColumns( Column:param.Column, Description:param.Description);',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("074d4a34-3a95-4d59-a677-628ffda62c64",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendTransferColumns',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
