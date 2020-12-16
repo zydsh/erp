@@ -67,7 +67,8 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("f104dcf3-407d-4eca-a5b4-ecbb0424c59c",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'select one account related by self->Account[R200];
+	'balance = 0.0;
+select one account related by self->Account[R200];
 balance = (account.OpeningBalance+ self.AddedFunds+self.TransferCredit) - (self.Reduction+self.TransferDebit);
 self.NetBalance = balance;',
 	1,
@@ -174,7 +175,7 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("645b7829-9313-4809-b093-d5ec46e2ea81",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'transfer= 0;
+	'transfer= 0.0;
 select many amounts related by self->Account[R200]->Amount[R240.''transfer debit of''];
 for each amount in amounts
 	transfer = amount.Amount + transfer;
@@ -194,13 +195,13 @@ INSERT INTO O_ATTR
 	'',
 	'TransferDebit',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_DBATTR
 	VALUES ("aab03925-95a5-41c0-9a9a-30edf6f8f44f",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'transfer= 0;
+	'transfer= 0.0;
 select many amounts related by self->Account[R200]->Amount[R230.''transfer credit of''];
 for each amount in amounts
 	transfer = amount.Amount + transfer;
@@ -220,7 +221,7 @@ INSERT INTO O_ATTR
 	'',
 	'TransferCredit',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_NBATTR
