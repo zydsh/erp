@@ -54,16 +54,20 @@ INSERT INTO O_ATTR
 	"fd55a655-ee63-4848-9906-9073853b6815",
 	"2b80a266-8fab-4f89-a3cf-468a99b8cb61",
 	'Costs',
-	'',
+	'Represents the total cost of a program in Saudi Riyals 
+from start the date of the program to its finish.',
 	'',
 	'Costs',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("db7a1c1e-132f-4dae-884c-eff7feaecb4c",
-	"fd55a655-ee63-4848-9906-9073853b6815");
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'',
+	3,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("db7a1c1e-132f-4dae-884c-eff7feaecb4c",
 	"fd55a655-ee63-4848-9906-9073853b6815");
@@ -72,11 +76,55 @@ INSERT INTO O_ATTR
 	"fd55a655-ee63-4848-9906-9073853b6815",
 	"ec7257b4-f149-41f3-9323-0fff64c1ed07",
 	'Expenditure',
-	'',
+	'Represents the program expenditures incured in the past in Saudi Riyals.',
 	'',
 	'Expenditure',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("612e328d-5938-4729-b654-4fbb0b0bb8f5",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'commitments = 0.0;
+select one operation related by self->AccountSpecification[R180]->Account[R170.''operates'']->OperationalProgram[R200];
+self.Balance = self.Costs - (self.Expenditure+ operation.Commitments);',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("612e328d-5938-4729-b654-4fbb0b0bb8f5",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_ATTR
+	VALUES ("612e328d-5938-4729-b654-4fbb0b0bb8f5",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	"db7a1c1e-132f-4dae-884c-eff7feaecb4c",
+	'Balance',
+	'Represents the remaining funds to spent in the future: Costs minus Expenditure.',
+	'',
+	'Balance',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("f2632357-614f-4598-835c-62b1a1ef8a13",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'self.Percentage = (self.Balance/self.Costs) * 100;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("f2632357-614f-4598-835c-62b1a1ef8a13",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_ATTR
+	VALUES ("f2632357-614f-4598-835c-62b1a1ef8a13",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	"612e328d-5938-4729-b654-4fbb0b0bb8f5",
+	'Percentage',
+	'',
+	'',
+	'Percentage',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_ID

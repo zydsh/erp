@@ -69,7 +69,7 @@ INSERT INTO O_DBATTR
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
 	'balance = 0.0;
 select one account related by self->Account[R200];
-balance = (account.OpeningBalance+ self.AddedFunds+self.TransferCredit) - (self.Reduction+self.TransferDebit);
+balance = (account.OpeningBalance+ self.AddedFunds+account.TransferCredit) - (self.Reduction+account.TransferDebit);
 self.NetBalance = balance;',
 	1,
 	0);
@@ -79,7 +79,7 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("f104dcf3-407d-4eca-a5b4-ecbb0424c59c",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	"aab03925-95a5-41c0-9a9a-30edf6f8f44f",
+	"3c2a639b-e15c-4b47-883a-9fb3345db86e",
 	'NetBalance',
 	'',
 	'',
@@ -169,58 +169,6 @@ INSERT INTO O_ATTR
 	'',
 	'',
 	'Percentage',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'',
-	'');
-INSERT INTO O_DBATTR
-	VALUES ("645b7829-9313-4809-b093-d5ec46e2ea81",
-	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'transfer= 0.0;
-select many amounts related by self->Account[R200]->Amount[R240.''transfer debit of''];
-for each amount in amounts
-	transfer = amount.Amount + transfer;
-end for;
-self.TransferDebit = transfer;',
-	1,
-	0);
-INSERT INTO O_BATTR
-	VALUES ("645b7829-9313-4809-b093-d5ec46e2ea81",
-	"5543b746-cd55-402b-ac07-ba33f11ee1b1");
-INSERT INTO O_ATTR
-	VALUES ("645b7829-9313-4809-b093-d5ec46e2ea81",
-	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	"3c2a639b-e15c-4b47-883a-9fb3345db86e",
-	'TransferDebit',
-	'',
-	'',
-	'TransferDebit',
-	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
-	'',
-	'');
-INSERT INTO O_DBATTR
-	VALUES ("aab03925-95a5-41c0-9a9a-30edf6f8f44f",
-	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'transfer= 0.0;
-select many amounts related by self->Account[R200]->Amount[R230.''transfer credit of''];
-for each amount in amounts
-	transfer = amount.Amount + transfer;
-end for;
-self.TransferCredit = transfer;',
-	1,
-	0);
-INSERT INTO O_BATTR
-	VALUES ("aab03925-95a5-41c0-9a9a-30edf6f8f44f",
-	"5543b746-cd55-402b-ac07-ba33f11ee1b1");
-INSERT INTO O_ATTR
-	VALUES ("aab03925-95a5-41c0-9a9a-30edf6f8f44f",
-	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	"645b7829-9313-4809-b093-d5ec46e2ea81",
-	'TransferCredit',
-	'',
-	'',
-	'TransferCredit',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',

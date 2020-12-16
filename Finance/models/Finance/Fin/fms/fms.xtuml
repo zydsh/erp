@@ -1224,8 +1224,8 @@ if (not empty accounts)
 			select one operation related by operatedAccount->OperationalAccount[R200];
 			if (not empty operatedAccount) and (not empty operation)
 				UI::SendChartAccounts(Code: account.Code, OpeningBalance:operatedAccount.OpeningBalance, 
-				AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operation.TransferDebit, 
-				TransferCredit:operation.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
+				AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operatedAccount.TransferDebit, 
+				TransferCredit:operatedAccount.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
 				GrandTotal:operation.GrandTotal, DocumantryCredits:operation.DocumantryCredits, 
 				Custodies:operation.Custodies, Paid: operation.Paid, RemainingBalance:operation.RemainingBalance, Percentage:operation.Percentage);
 			end if;
@@ -1277,8 +1277,8 @@ if (not empty account)
 		 	select one operation related by operatedAccount->OperationalAccount[R200];
 			if (not empty operatedAccount) and (not empty operation)
 				UI::SendChartAccounts(Code: account.Code, OpeningBalance:operatedAccount.OpeningBalance, 
-		 		AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operation.TransferDebit, 
-		 		TransferCredit:operation.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
+		 		AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operatedAccount.TransferDebit, 
+		 		TransferCredit:operatedAccount.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
 		 		GrandTotal:operation.GrandTotal, DocumantryCredits:operation.DocumantryCredits, 
 		 		Custodies:operation.Custodies, Paid: operation.Paid, RemainingBalance:operation.RemainingBalance, Percentage:operation.Percentage);
 			end if;
