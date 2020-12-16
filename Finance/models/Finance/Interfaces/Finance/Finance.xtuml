@@ -1442,6 +1442,66 @@ INSERT INTO C_PP
 	0,
 	'',
 	"8b23ef5e-f49d-40b4-9426-46f38d3725b3");
+INSERT INTO C_EP
+	VALUES ("7c8d21ee-c826-4e65-8c5c-0da79421b849",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'AddFunds',
+	'');
+INSERT INTO C_AS
+	VALUES ("7c8d21ee-c826-4e65-8c5c-0da79421b849",
+	'AddFunds',
+	'',
+	0,
+	"074d4a34-3a95-4d59-a677-628ffda62c64");
+INSERT INTO C_PP
+	VALUES ("940b1182-85bf-444d-9f47-461dd5d158d0",
+	"7c8d21ee-c826-4e65-8c5c-0da79421b849",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Code',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("5d870d3d-c975-4510-85bd-c064ec0f87f3",
+	"7c8d21ee-c826-4e65-8c5c-0da79421b849",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Amount',
+	'',
+	0,
+	'',
+	"940b1182-85bf-444d-9f47-461dd5d158d0");
+INSERT INTO C_EP
+	VALUES ("58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReduceFunds',
+	'');
+INSERT INTO C_AS
+	VALUES ("58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
+	'ReduceFunds',
+	'',
+	0,
+	"7c8d21ee-c826-4e65-8c5c-0da79421b849");
+INSERT INTO C_PP
+	VALUES ("67dac066-73aa-46ea-8581-a35dcc93e129",
+	"58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Code',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("2f426b00-bc19-4d15-b390-fcb9302e69fb",
+	"58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Amount',
+	'',
+	0,
+	'',
+	"67dac066-73aa-46ea-8581-a35dcc93e129");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

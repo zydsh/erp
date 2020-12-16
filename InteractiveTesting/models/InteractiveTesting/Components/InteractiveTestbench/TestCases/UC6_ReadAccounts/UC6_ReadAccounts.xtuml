@@ -256,6 +256,42 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'20201215');
+INSERT INTO O_NBATTR
+	VALUES ("843185d6-f16b-4339-a48a-c808f5990959",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("843185d6-f16b-4339-a48a-c808f5990959",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("843185d6-f16b-4339-a48a-c808f5990959",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"9e2f54e0-cb31-4f73-b8f2-be6830a501d1",
+	'AddedFund',
+	'',
+	'',
+	'AddedFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'1000000');
+INSERT INTO O_NBATTR
+	VALUES ("d9bbb5fd-563a-4f2b-8a62-309bc4194517",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("d9bbb5fd-563a-4f2b-8a62-309bc4194517",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("d9bbb5fd-563a-4f2b-8a62-309bc4194517",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"843185d6-f16b-4339-a48a-c808f5990959",
+	'ReducedFund',
+	'',
+	'',
+	'ReducedFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'1000000');
 INSERT INTO O_ID
 	VALUES (0,
 	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
