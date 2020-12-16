@@ -1224,10 +1224,10 @@ if (not empty accounts)
 			select one operation related by operatedAccount->OperationalAccount[R200];
 			if (not empty operatedAccount) and (not empty operation)
 				UI::SendChartAccounts(Code: account.Code, OpeningBalance:operatedAccount.OpeningBalance, 
-				AddedFunds:operation.AddedFunds, Reduction:operation.Balance, TransferDebit: operation.TransferDebit, 
+				AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operation.TransferDebit, 
 				TransferCredit:operation.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
 				GrandTotal:operation.GrandTotal, DocumantryCredits:operation.DocumantryCredits, 
-				Custodies:operation.Custodies, Paid: operation.Paid, Balance:operation.Balance, Percentage:operation.Percentage);
+				Custodies:operation.Custodies, Paid: operation.Paid, RemainingBalance:operation.RemainingBalance, Percentage:operation.Percentage);
 			end if;
 		end if;
 	end for;
@@ -1280,7 +1280,7 @@ if (not empty account)
 		 		AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operation.TransferDebit, 
 		 		TransferCredit:operation.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
 		 		GrandTotal:operation.GrandTotal, DocumantryCredits:operation.DocumantryCredits, 
-		 		Custodies:operation.Custodies, Paid: operation.Paid, Balance:operation.Balance, Percentage:operation.Percentage);
+		 		Custodies:operation.Custodies, Paid: operation.Paid, RemainingBalance:operation.RemainingBalance, Percentage:operation.Percentage);
 			end if;
 
 
@@ -1353,6 +1353,7 @@ if (not empty transfers)
 	create object instance amount of Amount;
 		amount.Amount = param.Amount;
 		relate column to amount across R130.''holds'';
+		relate entry to amount across R40.''records'';
 	select one debit related by column->AccountSpecification[R140.''debits'']->Account[R170.''operates''];
 	select one credit related by column->AccountSpecification[R150.''credits'']->Account[R170.''operates''];
 	relate amount to debit across R240.''is debit transfer'';
@@ -1412,8 +1413,8 @@ if (empty column) and ( not empty transfers)
 	create object instance col of Column;
 	col.Title = param.Title;
 	relate col to transfers across R120.''corresponds'';
-	select any debit from instances of AccountSpecification where selected.Code == param.TransferTo;
-	select any credit from instances of AccountSpecification where selected.Code == param.TransferFrom;
+	select any credit from instances of AccountSpecification where selected.Code == param.TransferTo;
+	select any debit from instances of AccountSpecification where selected.Code == param.TransferFrom;
 	if (not empty credit) and (not empty debit)
 		relate col to credit across R150.''credits'';
 		relate col to debit across R140.''debits'';
@@ -1438,16 +1439,16 @@ INSERT INTO SPR_PS
 	VALUES ("bf1fe666-b3f9-4e2d-86d1-4e93d7764a3f",
 	'SettleTransfer',
 	'',
-	'select any transfers from instances of Journal where selected.Name == "المناقلات";
-if (not empty transfers)
-	select any column related by transfers->Column[R120.''has''] where selected.Title == param.Column;
+	'select any journal from instances of Journal where selected.Name == "المناقلات";
+if (not empty journal)
+	select any column related by journal->Column[R120.''has''] where selected.Title == param.Column;
 	if (not empty column)
 		select many amounts related by column->Amount[R130.''holds''] where selected.Amount==param.Amount;
 		for each amount in amounts
 			select one entry related by amount->Entry[R40.''recorded for''];
 			if (entry.Date == param.Date)
-				select one debit related by amount->Account[R30.''debits''];
-				select one credit related by amount->Account[R50.''credits''];
+				select one debit related by amount->Account[R240.''is debit transfer''];
+				select one credit related by amount->Account[R230.''is credit transfer''];
 				if (not empty debit) and (not empty credit)
 					create object instance settleAmount of Amount;
 					settleAmount.Amount = param.Amount;
@@ -1455,8 +1456,8 @@ if (not empty transfers)
 					create object instance settleEntry of Entry;
 					settleEntry.Date = TIM::current_seconds();
 					settleEntry.Description = "تسوية" + entry.Description;
-					relate debit to settleAmount across R50.''credited by'';
-					relate credit to settleAmount across R30.''debited by'';
+					relate debit to settleAmount across R230.''transfer credit of'';
+					relate credit to settleAmount across R240.''transfer debit of'';
 				end if;
 			end if;
 		end for;	
@@ -1472,6 +1473,50 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'SettleTransfer',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("874256ba-65b0-4041-9ef1-f1790aaf9b2f",
+	"1cf70f9f-c612-4f14-b4f6-3f2946648b55",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("874256ba-65b0-4041-9ef1-f1790aaf9b2f",
+	'ReadTransferColumns',
+	'',
+	'select any transfer from instances of Journal where selected.Name == "المناقلات";
+
+if (not empty transfer)
+	select many columns related by transfer->Column[R120.''has''];
+	for each column in columns
+		UI::SendTransferColumns( Column:column.Title , Description:column.Description);
+	end for;
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1cf70f9f-c612-4f14-b4f6-3f2946648b55",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadTransferColumns',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("572c13b4-cbfd-4efb-9634-9a80c3ec4762",
+	"074d4a34-3a95-4d59-a677-628ffda62c64",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("572c13b4-cbfd-4efb-9634-9a80c3ec4762",
+	'SendTransferColumns',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("074d4a34-3a95-4d59-a677-628ffda62c64",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendTransferColumns',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

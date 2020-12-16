@@ -46,7 +46,7 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("0fd37db8-edf6-4e61-8c0a-b330a51ecf86",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'self.Balance = self.NetBalance - (self.Spending+self.GrandTotal);',
+	'self.RemainingBalance = self.NetBalance - (self.Spending+self.GrandTotal);',
 	1,
 	0);
 INSERT INTO O_BATTR
@@ -56,10 +56,10 @@ INSERT INTO O_ATTR
 	VALUES ("0fd37db8-edf6-4e61-8c0a-b330a51ecf86",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
 	"ace560e5-81e2-48e3-b292-996433d81000",
-	'Balance',
+	'RemainingBalance',
 	'',
 	'',
-	'Balance',
+	'RemainingBalance',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
@@ -68,7 +68,7 @@ INSERT INTO O_DBATTR
 	VALUES ("f104dcf3-407d-4eca-a5b4-ecbb0424c59c",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
 	'select one account related by self->Account[R200];
-balance = (account.OpeningBalance+ self.AddedFunds+self.TransferDebit) - (self.Reduction+self.TransferCredit);
+balance = (account.OpeningBalance+ self.AddedFunds+self.TransferCredit) - (self.Reduction+self.TransferDebit);
 self.NetBalance = balance;',
 	1,
 	0);
@@ -121,17 +121,9 @@ INSERT INTO O_DBATTR
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
 	'spenditure = 0.0;
 select many amounts related by self->Account[R200]->Amount[R50.''credited by''];
-select many transferCredits related by self->Account[R200]->Amount[R230.''transfer credit of''];
-
 if (not empty amounts)
 	for each amount in amounts
 		spenditure = amount.Amount + spenditure;
-	end for;
-end if;
-
-if (not empty transferCredits)
-	for each transfer in transferCredits
-		spenditure =  spenditure + transfer.Amount;
 	end for;
 end if;
 
@@ -157,14 +149,9 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("095084c1-403a-4633-b578-94f27ac52259",
 	"5543b746-cd55-402b-ac07-ba33f11ee1b1",
-	'select one account related by self->Account[R200];
-p = self.Balance/self.NetBalance;
-if ( p > 1)
-	self.Percentage = (1+(self.Balance/self.NetBalance))*100; 
-else
-	self.Percentage = (1-(self.Balance/self.NetBalance))*100; 
+	'p = 1-(self.RemainingBalance/self.NetBalance);
+self.Percentage = p*100; 
 
-end if;
 	
 ',
 	1,
