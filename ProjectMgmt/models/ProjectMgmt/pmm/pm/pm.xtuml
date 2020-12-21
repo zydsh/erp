@@ -306,7 +306,7 @@ INSERT INTO SPR_PS
 	VALUES ("fb771c26-f567-47e9-95ef-de793662d641",
 	'Initialize',
 	'',
-	'::Initialize();',
+	'//::Initialize();',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
