@@ -21,11 +21,59 @@ INSERT INTO GD_MD
 	1,
 	0,
 	0,
-	0,
-	0,
+	200,
+	150,
 	0,
 	'4.1.17',
 	'ProjectMgmt::pmm::pm::Initialization');
+INSERT INTO GD_GE
+	VALUES ("99601a2d-6b23-4bf8-8b3b-be5f6dfd9501",
+	"956862db-c3e7-438e-bef6-8c180863cdda",
+	"51ba1037-474f-4d4d-9a96-70f57a3b96ef",
+	21,
+	0,
+	'ProjectMgmt::pmm::pm::Initialization::PEI');
+INSERT INTO GD_SHP
+	VALUES ("99601a2d-6b23-4bf8-8b3b-be5f6dfd9501");
+INSERT INTO GD_NCS
+	VALUES ("99601a2d-6b23-4bf8-8b3b-be5f6dfd9501");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"99601a2d-6b23-4bf8-8b3b-be5f6dfd9501");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"99601a2d-6b23-4bf8-8b3b-be5f6dfd9501",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("99601a2d-6b23-4bf8-8b3b-be5f6dfd9501",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_GE
+	VALUES ("38e71b1c-7e59-4c0a-96e4-6e444aa80b9d",
+	"956862db-c3e7-438e-bef6-8c180863cdda",
+	"dca79d28-7964-4be7-9ff9-d9aa4d6695fd",
+	21,
+	0,
+	'ProjectMgmt::pmm::pm::Initialization::Timer');
+INSERT INTO GD_SHP
+	VALUES ("38e71b1c-7e59-4c0a-96e4-6e444aa80b9d");
+INSERT INTO GD_NCS
+	VALUES ("38e71b1c-7e59-4c0a-96e4-6e444aa80b9d");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"38e71b1c-7e59-4c0a-96e4-6e444aa80b9d");
+INSERT INTO DIM_GE
+	VALUES (220.000000,
+	0.000000,
+	"38e71b1c-7e59-4c0a-96e4-6e444aa80b9d",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("38e71b1c-7e59-4c0a-96e4-6e444aa80b9d",
+	0,
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_DIA
 	VALUES ("956862db-c3e7-438e-bef6-8c180863cdda",
 	'',
@@ -36,115 +84,17 @@ INSERT INTO DIM_DIA
 INSERT INTO S_SYNC
 	VALUES ("d66f1f4b-8c4d-44bd-a8d5-087a94766bbf",
 	"00000000-0000-0000-0000-000000000000",
-	'Initialize',
+	'run',
 	'',
-	'::CreatePEIs(); ',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	1,
-	'',
-	0);
-INSERT INTO PE_PE
-	VALUES ("d66f1f4b-8c4d-44bd-a8d5-087a94766bbf",
-	1,
-	"d8941aac-fe97-4ede-8994-e08f0fa770a0",
-	"00000000-0000-0000-0000-000000000000",
-	1);
-INSERT INTO S_SYNC
-	VALUES ("b294353c-348a-4d3d-940c-92a711a36b27",
-	"00000000-0000-0000-0000-000000000000",
-	'CreatePEIs',
-	'',
-	'create object instance str1 of Strategy;
-	str1.Number = "Str 1";
-	str1.Name = "دعم البحث والتطوير لضمان استدامة منظومة تطوير المحتوى المحلي";
-	str1.Description = "يسعى هدف دعم البحث والتطوير لضمان استدامة منظومة تطوير المحتوى"
-	+"المحلي وضمان استدامة دعم البحوث عالية الجودة وتمويلها على المدى الطويل"
-	+ "وذلك لتحقيق هدف المملكة لتصبح في مقدمة دول منطقة الشرق الوسط في مجال العلوم والتقنية والابتكار بنهاية ٢٠٢٠";
-	LOG::LogInfo(message:"Strategy: Number "+ str1.Name +", Name "+str1.Name+", Description"+str1.Description );	
-
-
-create object instance str2 of Strategy; 
-	str2.Number = "Str 2";
-	str2.Name = "توطين وتطوير التقنية في القطاعات ذات الإنفاق المحلي الكبير";
-	str2.Description = "يسعى الهدف لتعزيز المحتوى المحلي من خلال نقل وتوطين التقنية ";
-	LOG::LogInfo(message:"Strategy: Number "+ str2.Name +", Name "+str2.Name+", Description"+str2.Description );	
-
-
-create object instance init of Initiative;
-init.Name = "مبادرة إطار تنظيمي لتعزيز البرمجيات الحرة ومفتوحة المصدر";
-init.ShortNumber = "687";
-init.LongNumber = "";
-init.Description= "صياغة أنظمة تدعم جودة صناعة البرمجيات الكبرى والمتوسطة وتساهم في خفض التكلفة وتوطين التقنية، ومن ذلك توسيع استخدام البرمجيات الحرة ومفتوحة المصدر ورفع كفاءة القطاع الخاص في تنفيذ برمجيات عالية الجودة حسب المقاييس العالمية ويتطلب هذا العمل تنسيق الجهود لصياغة أنظمة وقوانين لتحقيق ما سبق";
-init.StartDate=0;
-init.ActualStartDate=0;
-init.ActualEndDate=0;
-init.EndDate = 0;
-init.Budget= 800000;
-
-relate init to str1 across R66.''implements'';
-
-create object instance mile of Milestone;
-mile.Name = "اكتمال الدراسات المساندة";
-mile.FullCode= "M-01-687";
-mile.Code="1";
-mile.Type= "";//SharedTypes::Milestone::Milestone;
-mile.SuccessCriteria="تسليم التقرير";//= SharedTypes::Milestone::Milestone;
-mile.CompleteActual = 0;
-mile.CompletePlanned = 0;
-mile.Complete= false;
-mile.Weight=5;
-mile.Percentage = 5;
-mile.sdState ="";// SharedTypes::DocState::NotSubmitted;
-mile.sdDescription="";
-mile.Notes = ""; 
-mile.IncompleteReasons= "";
-
-relate mile to init across R60.''achieved by'';
-
-create object instance mile of Milestone;
-mile.Name = "الانتهاء من رفع خطابات للجهات المشاركة في ورش العمل";
-mile.FullCode= "M-02-687";
-mile.Code="2";
-mile.Type= "معلم";//SharedTypes::Milestone::Milestone;
-mile.SuccessCriteria="تسليم التقرير";//= SharedTypes::Milestone::Milestone;
-mile.CompleteActual = 0;
-mile.CompletePlanned = 0;
-mile.Complete= True;
-mile.Weight=5;
-mile.Percentage = 10;
-mile.sdState ="";// SharedTypes::DocState::NotSubmitted;
-mile.sdDescription="خطابات ردود المشاركين";
-mile.Notes = ""; 
-mile.IncompleteReasons= "";
-
-relate mile to init across R60.''achieved by'';
-
-
-create object instance mile of Milestone;
-mile.Name = "اكتمال مسودة التنظيم";
-mile.FullCode= "M-03-687";
-mile.Code="3";
-mile.Type= "معلم";//SharedTypes::Milestone::Milestone;
-mile.SuccessCriteria="تسليم التقرير";//= SharedTypes::Milestone::Milestone;
-mile.CompleteActual = 0;
-mile.CompletePlanned = 0;
-mile.Complete= True;
-mile.Weight=15;
-mile.Percentage = 25;
-mile.sdState ="";// SharedTypes::DocState::NotSubmitted;
-mile.sdDescription="مسودة التنظيم";
-mile.Notes = ""; 
-mile.IncompleteReasons= "";
-
-relate mile to init across R60.''achieved by'';
-
+	'	create object instance timer of Timer;	
+	generate Timer1:Start to timer;
 ',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
 	0);
 INSERT INTO PE_PE
-	VALUES ("b294353c-348a-4d3d-940c-92a711a36b27",
+	VALUES ("d66f1f4b-8c4d-44bd-a8d5-087a94766bbf",
 	1,
 	"d8941aac-fe97-4ede-8994-e08f0fa770a0",
 	"00000000-0000-0000-0000-000000000000",
