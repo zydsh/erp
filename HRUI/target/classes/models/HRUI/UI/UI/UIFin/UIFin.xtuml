@@ -333,7 +333,7 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("8553a343-300a-440a-82ad-adac1e7eae10",
 	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
-	'Costs',
+	'StartDate',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
@@ -351,8 +351,8 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("b4feb382-aa9c-4558-a0d5-2ebd02ac91b7",
 	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
-	'StartDate',
-	"ba5eda7a-def5-0000-0000-000000000002",
+	'AccountCode',
+	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
 	"bee71500-32db-4443-aa4a-aa9a7fa30602",
@@ -360,8 +360,8 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("891af5e0-d92f-4c53-b68d-95f3d252bf49",
 	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
-	'Expenditure',
-	"ba5eda7a-def5-0000-0000-000000000002",
+	'AccountName',
+	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
 	"b4feb382-aa9c-4558-a0d5-2ebd02ac91b7",
@@ -369,11 +369,83 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("137c1deb-8fe2-4229-acd9-151cd1716c5f",
 	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
-	'Account',
-	"ba5eda7a-def5-0000-0000-000000000004",
+	'DedicatedFunds',
+	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
 	"891af5e0-d92f-4c53-b68d-95f3d252bf49",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("f6125d9b-c6fc-4071-a30d-4e18fb6d87d2",
+	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
+	'TransferDebit',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"137c1deb-8fe2-4229-acd9-151cd1716c5f",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("028113eb-f5b4-4c2b-b3f8-a57eeb169194",
+	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
+	'TransferCredit',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"f6125d9b-c6fc-4071-a30d-4e18fb6d87d2",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("42eefbe0-4157-4955-9452-ca443177e1dc",
+	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
+	'FundsAfterTransfers',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"028113eb-f5b4-4c2b-b3f8-a57eeb169194",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("325eb6e0-3d4a-4387-927e-48abbe53839b",
+	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
+	'CurrentYearBudget',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"bbdc6c45-6a03-4456-9db8-4925cb824fab",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("4da0d629-edbe-4909-89fb-1b17ed8c7687",
+	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
+	'Commitments',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"325eb6e0-3d4a-4387-927e-48abbe53839b",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("25385b87-37c2-44b4-b90c-eb9f0ee25e45",
+	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
+	'RemainingFunds',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"4da0d629-edbe-4909-89fb-1b17ed8c7687",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("1b827899-36e8-4107-bfce-d50167c96575",
+	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
+	'Percentage',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"25385b87-37c2-44b4-b90c-eb9f0ee25e45",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("bbdc6c45-6a03-4456-9db8-4925cb824fab",
+	"49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",
+	'PastYearsSpending',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"42eefbe0-4157-4955-9452-ca443177e1dc",
 	'');
 INSERT INTO PE_PE
 	VALUES ("49b7771d-7ab1-44b8-be66-b7ae3fe6d94c",

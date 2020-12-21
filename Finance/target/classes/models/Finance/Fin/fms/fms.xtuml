@@ -1080,15 +1080,13 @@ if (empty program)
 	program.Name = param.Name;
 	program.Description= param.Description;
 	create object instance subProgram of Program;
-	subProgram.Costs = param.Costs;
+	subProgram.DedicatedFunds = param.DedicatedFunds;
 	subProgram.Duration = param.Duration;
 	subProgram.StartDate = param.StartDate;
-	subProgram.Expenditure = param.Expenditure;
 	relate program to subProgram across R180;
 	select any account from instances of AccountSpecification where selected.Code==param.Account;
 	if (not empty account)
-		select one expenditure related by account->Expenditure[R180];
-		relate expenditure to subProgram across R210;
+		relate account to subProgram across R210;
 	end if;
 
 end if;',
@@ -1114,10 +1112,15 @@ INSERT INTO SPR_PS
 if (not empty programs)
 	for each program in programs 
 		select one parantProgram related by program->AccountSpecification[R180];
-		select one expenditure related by program->Expenditure[R210.''earmarks''];
-		if (not empty expenditure)
-			select one account related by expenditure->AccountSpecification[R180];
-		UI::SendPrograms( Code:parantProgram.Code, Name:parantProgram.Name, Description:parantProgram.Description, Costs:program.Costs, Duration:program.Duration, StartDate:program.StartDate, Expenditure:program.Expenditure, Account:account.Code);
+		select one subaccount related by program->AccountSpecification[R210.''earmarks''];
+		select one operationProgram related by parantProgram->Account[R170.''operates''];
+		if (not empty subaccount)
+			UI::SendPrograms( Code:parantProgram.Code, Name:parantProgram.Name, Description:parantProgram.Description,
+			StartDate:program.StartDate, Duration:program.Duration, AccountCode:subaccount.Code, AccountName:subaccount.Name, 
+			DedicatedFunds:program.DedicatedFunds, TransferDebit:operationProgram.TransferDebit, 
+			TransferCredit:operationProgram.TransferCredit, FundsAfterTransfers:program.FundsAfterTransfers, 
+			PastYearsSpending:program.PastYearsSpending, CurrentYearBudget:operationProgram.OpeningBalance, 
+			Commitments:program.Commitments, RemainingFunds:program.RemainingFunds, Percentage:program.Percentage );
 		end if;
 
 	end for;
@@ -1129,24 +1132,6 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadPrograms',
-	'',
-	'../../Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_PEP
-	VALUES ("813b97e5-3152-4fb1-8eff-0475bde7ee3b",
-	"5e4dba38-71b7-4d49-ac82-9e50d82d122f",
-	"84b7e49f-98e2-4539-b496-50575c189964");
-INSERT INTO SPR_PS
-	VALUES ("813b97e5-3152-4fb1-8eff-0475bde7ee3b",
-	'SendPrograms',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("5e4dba38-71b7-4d49-ac82-9e50d82d122f",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'SendPrograms',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_PEP
@@ -1220,12 +1205,13 @@ if (not empty accounts)
 	for each account in accounts
 		select many subaccounts related by account->AccountSpecification[R80.''divided''];
 		if (empty subaccounts)
+			select one programSubtype related by account->Program[R180];
 			select one operatedAccount related by account->Account[R170.''operates''];
 			select one operation related by operatedAccount->OperationalAccount[R200];
-			if (not empty operatedAccount) and (not empty operation)
+			if (not empty operatedAccount) and (not empty operation) and (empty programSubtype)
 				UI::SendChartAccounts(Code: account.Code, OpeningBalance:operatedAccount.OpeningBalance, 
-				AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operation.TransferDebit, 
-				TransferCredit:operation.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
+				AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operatedAccount.TransferDebit, 
+				TransferCredit:operatedAccount.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
 				GrandTotal:operation.GrandTotal, DocumantryCredits:operation.DocumantryCredits, 
 				Custodies:operation.Custodies, Paid: operation.Paid, RemainingBalance:operation.RemainingBalance, Percentage:operation.Percentage);
 			end if;
@@ -1277,8 +1263,8 @@ if (not empty account)
 		 	select one operation related by operatedAccount->OperationalAccount[R200];
 			if (not empty operatedAccount) and (not empty operation)
 				UI::SendChartAccounts(Code: account.Code, OpeningBalance:operatedAccount.OpeningBalance, 
-		 		AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operation.TransferDebit, 
-		 		TransferCredit:operation.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
+		 		AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operatedAccount.TransferDebit, 
+		 		TransferCredit:operatedAccount.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
 		 		GrandTotal:operation.GrandTotal, DocumantryCredits:operation.DocumantryCredits, 
 		 		Custodies:operation.Custodies, Paid: operation.Paid, RemainingBalance:operation.RemainingBalance, Percentage:operation.Percentage);
 			end if;
@@ -1577,6 +1563,57 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReduceFunds',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("1924242d-1fa5-450d-9c7f-1496053d1d75",
+	"2bdb8122-8b74-4ec9-ab0a-65179955ad54",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("1924242d-1fa5-450d-9c7f-1496053d1d75",
+	'SendPrograms',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2bdb8122-8b74-4ec9-ab0a-65179955ad54",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendPrograms',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("0328f478-84d5-4a5a-906a-910f342fb80b",
+	"983c1373-b2e3-4a25-9aa6-dd61c1d1c5a6",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("0328f478-84d5-4a5a-906a-910f342fb80b",
+	'ReadProgram',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code == param.Code; 
+
+if (not empty account)
+		select one program related by account->Program[R180];
+		select one subaccount related by program->AccountSpecification[R210.''earmarks''];
+		select one operationProgram related by account->Account[R170.''operates''];
+		if (not empty subaccount)
+			UI::SendPrograms( Code:account.Code, Name:account.Name, Description:account.Description,
+			StartDate:program.StartDate, Duration:program.Duration, AccountCode:subaccount.Code, AccountName:subaccount.Name, 
+			DedicatedFunds:program.DedicatedFunds, TransferDebit:operationProgram.TransferDebit, 
+			TransferCredit:operationProgram.TransferCredit, FundsAfterTransfers:program.FundsAfterTransfers, 
+			PastYearsSpending:program.PastYearsSpending, CurrentYearBudget:operationProgram.OpeningBalance, 
+			Commitments:program.Commitments, RemainingFunds:program.RemainingFunds, Percentage:program.Percentage );
+		end if;
+
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("983c1373-b2e3-4a25-9aa6-dd61c1d1c5a6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadProgram',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

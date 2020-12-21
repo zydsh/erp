@@ -292,6 +292,24 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'1000000');
+INSERT INTO O_NBATTR
+	VALUES ("d442dffc-9b7e-434b-8ad3-e66f2af31c4f",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_BATTR
+	VALUES ("d442dffc-9b7e-434b-8ad3-e66f2af31c4f",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
+INSERT INTO O_ATTR
+	VALUES ("d442dffc-9b7e-434b-8ad3-e66f2af31c4f",
+	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c",
+	"d9bbb5fd-563a-4f2b-8a62-309bc4194517",
+	'ProgramCode',
+	'',
+	'',
+	'ProgramCode',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'400750200');
 INSERT INTO O_ID
 	VALUES (0,
 	"59a5da11-78ff-4d3b-a928-aaf0f6d86b0c");
