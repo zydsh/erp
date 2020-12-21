@@ -763,7 +763,8 @@ INSERT INTO SM_ACT
 	'	select one account related by self->AccountSpecification[R202.''budgetized by''];
 	relate self to account across R170.''operated by'';
 	select one child related by account->Expenditure[R180];
-	if ( empty child)
+	select one program related by account->Program[R180];
+	if ( empty child) and (empty program)
 			create object instance operation of OperationalAccount;
 			relate self to operation across R200;
 			select one ceiling related by self->Ceiling[R190];
@@ -773,9 +774,17 @@ INSERT INTO SM_ACT
 			else
 				self.OpeningBalance = requested.Fund;
 			end if; 
-	else
+	elif (not empty program)
 			create object instance operation of OperationalProgram;
 			relate self to operation across R200;
+			select one ceiling related by self->Ceiling[R190];
+			select one requested related by self->Requested[R190];
+			if (not empty ceiling)
+				self.OpeningBalance = ceiling.Fund;
+			else
+				self.OpeningBalance = requested.Fund;
+			end if; 
+
 	end if;
 	unrelate self from account across R202.''budgetized by'';
 

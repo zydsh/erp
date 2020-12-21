@@ -43,6 +43,58 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
+INSERT INTO O_DBATTR
+	VALUES ("d8de127b-54db-4303-a5ac-5b4dc983d29c",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
+	'transfer= 0.0;
+select many amounts related by self->Amount[R240.''transfer debit of''];
+for each amount in amounts
+	transfer = amount.Amount + transfer;
+end for;
+self.TransferDebit = transfer;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("d8de127b-54db-4303-a5ac-5b4dc983d29c",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO O_ATTR
+	VALUES ("d8de127b-54db-4303-a5ac-5b4dc983d29c",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
+	"75a38bd9-8a92-48e6-b78d-20b486986330",
+	'TransferDebit',
+	'',
+	'',
+	'TransferDebit',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("b666bc97-c615-480b-907b-07d68880a991",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
+	'transfer= 0.0;
+select many amounts related by self->Amount[R230.''transfer credit of''];
+for each amount in amounts
+	transfer = amount.Amount + transfer;
+end for;
+self.TransferCredit = transfer;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("b666bc97-c615-480b-907b-07d68880a991",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
+INSERT INTO O_ATTR
+	VALUES ("b666bc97-c615-480b-907b-07d68880a991",
+	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
+	"d8de127b-54db-4303-a5ac-5b4dc983d29c",
+	'TransferCredit',
+	'',
+	'',
+	'TransferCredit',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"a18d1aff-cd27-4612-bd72-05edfb5a877e");
