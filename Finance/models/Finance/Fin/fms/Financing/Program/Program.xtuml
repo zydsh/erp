@@ -53,11 +53,11 @@ INSERT INTO O_ATTR
 	VALUES ("ec7257b4-f149-41f3-9323-0fff64c1ed07",
 	"fd55a655-ee63-4848-9906-9073853b6815",
 	"2b80a266-8fab-4f89-a3cf-468a99b8cb61",
-	'Costs',
-	'Represents the total cost of a program in Saudi Riyals 
-from start the date of the program to its finish.',
+	'DedicatedFunds',
+	'Represents all of the funds dedicated to the program in Saudi Riyals 
+',
 	'',
-	'Costs',
+	'DedicatedFunds',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
@@ -65,8 +65,13 @@ from start the date of the program to its finish.',
 INSERT INTO O_DBATTR
 	VALUES ("db7a1c1e-132f-4dae-884c-eff7feaecb4c",
 	"fd55a655-ee63-4848-9906-9073853b6815",
-	'',
-	3,
+	'expend = 0.0; 
+select many programs related by self->AccountSpecification[R180]->Account[R70.''previously used''];
+for each program in programs 
+	expend = expend + program.OpeningBalance;
+end for;
+self.PastYearsSpending = expend;',
+	1,
 	0);
 INSERT INTO O_BATTR
 	VALUES ("db7a1c1e-132f-4dae-884c-eff7feaecb4c",
@@ -74,11 +79,11 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("db7a1c1e-132f-4dae-884c-eff7feaecb4c",
 	"fd55a655-ee63-4848-9906-9073853b6815",
-	"ec7257b4-f149-41f3-9323-0fff64c1ed07",
-	'Expenditure',
+	"9ac512a7-744d-40dc-87fe-50d5f9be52a3",
+	'PastYearsSpending',
 	'Represents the program expenditures incured in the past in Saudi Riyals.',
 	'',
-	'Expenditure',
+	'PastYearsSpending',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
@@ -88,7 +93,7 @@ INSERT INTO O_DBATTR
 	"fd55a655-ee63-4848-9906-9073853b6815",
 	'commitments = 0.0;
 select one operation related by self->AccountSpecification[R180]->Account[R170.''operates'']->OperationalProgram[R200];
-self.Balance = self.Costs - (self.Expenditure+ operation.Commitments);',
+self.RemainingFunds = self.DedicatedFunds - (self.PastYearsSpending+ operation.Commitments);',
 	1,
 	0);
 INSERT INTO O_BATTR
@@ -97,11 +102,11 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("612e328d-5938-4729-b654-4fbb0b0bb8f5",
 	"fd55a655-ee63-4848-9906-9073853b6815",
-	"db7a1c1e-132f-4dae-884c-eff7feaecb4c",
-	'Balance',
-	'Represents the remaining funds to spent in the future: Costs minus Expenditure.',
+	"96a92dd2-8b42-4faf-ba11-8be4a7b76849",
+	'RemainingFunds',
+	'Available funds after deducting past spending',
 	'',
-	'Balance',
+	'RemainingFunds',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
@@ -109,7 +114,7 @@ INSERT INTO O_ATTR
 INSERT INTO O_DBATTR
 	VALUES ("f2632357-614f-4598-835c-62b1a1ef8a13",
 	"fd55a655-ee63-4848-9906-9073853b6815",
-	'self.Percentage = (self.Balance/self.Costs) * 100;',
+	'self.Percentage = (self.RemainingFunds/self.DedicatedFunds) * 100;',
 	1,
 	0);
 INSERT INTO O_BATTR
@@ -123,6 +128,46 @@ INSERT INTO O_ATTR
 	'',
 	'',
 	'Percentage',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("9ac512a7-744d-40dc-87fe-50d5f9be52a3",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_BATTR
+	VALUES ("9ac512a7-744d-40dc-87fe-50d5f9be52a3",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_ATTR
+	VALUES ("9ac512a7-744d-40dc-87fe-50d5f9be52a3",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	"ec7257b4-f149-41f3-9323-0fff64c1ed07",
+	'FundsAfterTransfers',
+	'What remains from the dedicated funds for the program after deducting transfers',
+	'',
+	'FundsAfterTransfers',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("96a92dd2-8b42-4faf-ba11-8be4a7b76849",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'select one program related by self->AccountSpecification[R180]->Account[R170.''operates'']->OperationalProgram[R200];
+self.Commitments = program.Commitments;',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("96a92dd2-8b42-4faf-ba11-8be4a7b76849",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_ATTR
+	VALUES ("96a92dd2-8b42-4faf-ba11-8be4a7b76849",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	"db7a1c1e-132f-4dae-884c-eff7feaecb4c",
+	'Commitments',
+	'Payments to be paid in the future, representing amounts locked by a contract, for example. ',
+	'',
+	'Commitments',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',

@@ -2428,24 +2428,6 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
-	VALUES ("0e02e9e3-3da6-4d50-98f3-ca7876275475",
-	"5e4dba38-71b7-4d49-ac82-9e50d82d122f",
-	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
-INSERT INTO SPR_RS
-	VALUES ("0e02e9e3-3da6-4d50-98f3-ca7876275475",
-	'SendPrograms',
-	'',
-	'',
-	1,
-	0);
-INSERT INTO C_EP_PROXY
-	VALUES ("5e4dba38-71b7-4d49-ac82-9e50d82d122f",
-	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
-	-1,
-	'SendPrograms',
-	'',
-	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
-INSERT INTO SPR_REP
 	VALUES ("302fcb74-aa23-46fe-ae10-e89ec986e29a",
 	"b889a567-01cd-4c5f-8256-fb6cfebed0e1",
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
@@ -2685,7 +2667,7 @@ INSERT INTO SPR_RS
 	'AddFunds',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7c8d21ee-c826-4e65-8c5c-0da79421b849",
@@ -2703,13 +2685,65 @@ INSERT INTO SPR_RS
 	'ReduceFunds',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("58243d7f-7da7-4a71-b4f5-d861f0c33aa0",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReduceFunds',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("1c08def0-b538-4527-8591-7af7842708fe",
+	"2bdb8122-8b74-4ec9-ab0a-65179955ad54",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("1c08def0-b538-4527-8591-7af7842708fe",
+	'SendPrograms',
+	'',
+	'select any uc from instances of UC10_Programs; 
+if (not empty uc)
+	uc.Code = param.Code;
+	uc.Name = param.Name;
+	uc.StartDate = param.StartDate;
+	uc.Duration = param.Duration;
+	uc.AccountCode = param.AccountCode;
+	uc.AccountName = param.AccountName;
+	uc.DedicatedFunds = param.DedicatedFunds;
+	uc.FundsAfterTransfers = param.FundsAfterTransfers;
+	uc.PastYearsSpending = param.PastYearsSpending;
+	uc.CurrentYearBudget = param.CurrentYearBudget;
+	uc.Commitments = param.Commitments;
+	uc.RemainingFunds = param.RemainingFunds;
+	uc.Percentage = param.Percentage;
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2bdb8122-8b74-4ec9-ab0a-65179955ad54",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendPrograms',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("25ab10dd-67d0-4f27-ba0d-3657a7a30280",
+	"983c1373-b2e3-4a25-9aa6-dd61c1d1c5a6",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("25ab10dd-67d0-4f27-ba0d-3657a7a30280",
+	'ReadProgram',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("983c1373-b2e3-4a25-9aa6-dd61c1d1c5a6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadProgram',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

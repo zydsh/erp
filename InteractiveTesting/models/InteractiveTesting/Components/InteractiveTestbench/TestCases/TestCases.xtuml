@@ -176,7 +176,7 @@ INSERT INTO GD_GE
 	"f4e36d54-975b-49f7-adfe-960d20c446bb",
 	21,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC7_AcceptRequested');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC7_Accepted');
 INSERT INTO GD_SHP
 	VALUES ("eda756a0-3d6b-429d-83ae-9cd5717af635");
 INSERT INTO GD_NCS
@@ -200,7 +200,7 @@ INSERT INTO GD_GE
 	"5bbde7b4-26fd-4f18-a513-af0649e8aca8",
 	21,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC8_OperationalizeAccount');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC8_AcceptCeiling');
 INSERT INTO GD_SHP
 	VALUES ("e11a61f1-0d2a-4b02-b321-3d421299c324");
 INSERT INTO GD_NCS
@@ -224,7 +224,7 @@ INSERT INTO GD_GE
 	"97367f5b-78b2-4699-916f-ced5864d5181",
 	21,
 	0,
-	'InteractiveTesting::Components::InteractiveTestbench::TestCases::Unnamed Class-1');
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC9_Operationalized');
 INSERT INTO GD_SHP
 	VALUES ("df2c0ad3-4e8e-4fbe-904e-ed1cb2e5a258");
 INSERT INTO GD_NCS
@@ -240,6 +240,30 @@ INSERT INTO DIM_GE
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
 	VALUES ("df2c0ad3-4e8e-4fbe-904e-ed1cb2e5a258",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_GE
+	VALUES ("0fee3f2d-9e2c-4d18-a816-c9fb8b591ee9",
+	"f0ec821c-9dd2-4d57-85b1-c905ad7f5bb0",
+	"eb6bb0c8-56db-4d75-9d92-57ec8b478193",
+	21,
+	0,
+	'InteractiveTesting::Components::InteractiveTestbench::TestCases::UC10_Programs');
+INSERT INTO GD_SHP
+	VALUES ("0fee3f2d-9e2c-4d18-a816-c9fb8b591ee9");
+INSERT INTO GD_NCS
+	VALUES ("0fee3f2d-9e2c-4d18-a816-c9fb8b591ee9");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"0fee3f2d-9e2c-4d18-a816-c9fb8b591ee9");
+INSERT INTO DIM_GE
+	VALUES (1980.000000,
+	0.000000,
+	"0fee3f2d-9e2c-4d18-a816-c9fb8b591ee9",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("0fee3f2d-9e2c-4d18-a816-c9fb8b591ee9",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_DIA
