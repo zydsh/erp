@@ -1,0 +1,68 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("40e55bd6-6f77-41a6-a3f6-cefbd53b7980",
+	'Timer',
+	2,
+	'Timer',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("b5005198-fa60-42d6-af11-04c698f3ea56",
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980");
+INSERT INTO O_BATTR
+	VALUES ("b5005198-fa60-42d6-af11-04c698f3ea56",
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980");
+INSERT INTO O_ATTR
+	VALUES ("b5005198-fa60-42d6-af11-04c698f3ea56",
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ef2423fb-d251-4681-8f8f-f73d42fdeefd",
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980");
+INSERT INTO O_BATTR
+	VALUES ("ef2423fb-d251-4681-8f8f-f73d42fdeefd",
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980");
+INSERT INTO O_ATTR
+	VALUES ("ef2423fb-d251-4681-8f8f-f73d42fdeefd",
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980",
+	"b5005198-fa60-42d6-af11-04c698f3ea56",
+	'WaitingTime',
+	'',
+	'',
+	'WaitingTime',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'10000000');
+INSERT INTO O_ID
+	VALUES (0,
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980");
+INSERT INTO O_ID
+	VALUES (1,
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980");
+INSERT INTO O_ID
+	VALUES (2,
+	"40e55bd6-6f77-41a6-a3f6-cefbd53b7980");
+INSERT INTO PE_PE
+	VALUES ("40e55bd6-6f77-41a6-a3f6-cefbd53b7980",
+	1,
+	"6c488dd4-2928-43b4-969b-df7ed5b5160e",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("6c488dd4-2928-43b4-969b-df7ed5b5160e",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'Functions',
+	'',
+	0,
+	'../Functions.xtuml');

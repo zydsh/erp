@@ -5,7 +5,7 @@ INSERT INTO O_OBJ
 	'Account',
 	1,
 	'Account',
-	'',
+	'Represents the budget of an account for a specific year. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("396e4e7f-2b48-48ef-9ac5-bdf69dc44e49",
