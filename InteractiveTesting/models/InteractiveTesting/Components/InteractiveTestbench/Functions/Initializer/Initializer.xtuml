@@ -1,0 +1,81 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("aacbdecd-1f34-4de1-876b-60958b61eefa",
+	'Initializer',
+	1,
+	'Initializer',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("6f5c3921-edab-4cef-b96e-34ecdd0f3d9d",
+	"aacbdecd-1f34-4de1-876b-60958b61eefa",
+	'Run',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'create object instance initializer of Initializer;
+generate Initializer1:Initialized to initializer;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_NBATTR
+	VALUES ("e39b615a-b8bb-48f8-991c-941e7afafa8a",
+	"aacbdecd-1f34-4de1-876b-60958b61eefa");
+INSERT INTO O_BATTR
+	VALUES ("e39b615a-b8bb-48f8-991c-941e7afafa8a",
+	"aacbdecd-1f34-4de1-876b-60958b61eefa");
+INSERT INTO O_ATTR
+	VALUES ("e39b615a-b8bb-48f8-991c-941e7afafa8a",
+	"aacbdecd-1f34-4de1-876b-60958b61eefa",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("218aed9a-26d2-49af-965f-83915f76c5c5",
+	"aacbdecd-1f34-4de1-876b-60958b61eefa");
+INSERT INTO O_BATTR
+	VALUES ("218aed9a-26d2-49af-965f-83915f76c5c5",
+	"aacbdecd-1f34-4de1-876b-60958b61eefa");
+INSERT INTO O_ATTR
+	VALUES ("218aed9a-26d2-49af-965f-83915f76c5c5",
+	"aacbdecd-1f34-4de1-876b-60958b61eefa",
+	"e39b615a-b8bb-48f8-991c-941e7afafa8a",
+	'WaitingTime',
+	'',
+	'',
+	'WaitingTime',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'10000000');
+INSERT INTO O_ID
+	VALUES (0,
+	"aacbdecd-1f34-4de1-876b-60958b61eefa");
+INSERT INTO O_ID
+	VALUES (1,
+	"aacbdecd-1f34-4de1-876b-60958b61eefa");
+INSERT INTO O_ID
+	VALUES (2,
+	"aacbdecd-1f34-4de1-876b-60958b61eefa");
+INSERT INTO PE_PE
+	VALUES ("aacbdecd-1f34-4de1-876b-60958b61eefa",
+	1,
+	"6c488dd4-2928-43b4-969b-df7ed5b5160e",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("6c488dd4-2928-43b4-969b-df7ed5b5160e",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'Functions',
+	'',
+	0,
+	'../Functions.xtuml');
