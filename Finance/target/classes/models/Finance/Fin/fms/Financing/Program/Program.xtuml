@@ -132,9 +132,13 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("9ac512a7-744d-40dc-87fe-50d5f9be52a3",
-	"fd55a655-ee63-4848-9906-9073853b6815");
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'select one account related by self->AccountSpecification[R180]->Account[R170.''operates''];
+self.FundsAfterTransfers=self.DedicatedFunds-account.TransferDebit;',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("9ac512a7-744d-40dc-87fe-50d5f9be52a3",
 	"fd55a655-ee63-4848-9906-9073853b6815");
@@ -147,7 +151,7 @@ INSERT INTO O_ATTR
 	'',
 	'FundsAfterTransfers',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_DBATTR

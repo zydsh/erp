@@ -504,7 +504,7 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'Test_ReadAccount',
 	'',
-	'Finance::ReadAccountFunds( Code:"٢١" );',
+	'Finance::ReadBudgetAccounts();',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
