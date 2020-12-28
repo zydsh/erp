@@ -395,6 +395,15 @@ if (not empty account)
 	select many subaccounts related by account->AccountSpecification[R80.''divided''];	
 	if (not empty expenditure) 
 		UI::SendAccountFunds( Code:account.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+		UI::Reply( msg:"Account fund sent", state:True );  
+		LOG::LogInfo(message:"Sent: Account code "+ account.Code); 
+		LOG::LogReal(message:"Ceiling:", r:expenditure.CeilingFund);
+		LOG::LogReal(message:"Requested:", r:expenditure.RequestedFund);
+		LOG::LogReal(message:"C-Revenue:", r:expenditure.CeilingRevenue);
+		LOG::LogReal(message:"R-Revenue:", r:expenditure.RequestedRevenue);
+
+		// +expenditure.CeilingFund+" Managing Departmenet: "+ "");
+
 		for each subaccount in subaccounts
 			select many budgetAccs related by subaccount->Account[R202.''budgetize''];
 				ceiling = 0;
@@ -415,6 +424,7 @@ if (not empty account)
 				end if;
 			end for; 
 			UI::SendAccountFunds( Code:subaccount.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+  			UI::Reply( msg:"Subaccount funds sent", state:True );  
 
 		end for;	
 	else
