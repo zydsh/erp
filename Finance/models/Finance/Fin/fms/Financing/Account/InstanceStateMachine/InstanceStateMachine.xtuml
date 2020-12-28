@@ -307,7 +307,7 @@ INSERT INTO SM_SEME
 	"6b61a213-3e9e-42db-883c-2321ff92b63e",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO SM_CH
+INSERT INTO SM_EIGN
 	VALUES ("d4792e35-261b-408b-8eb6-92e72fc62445",
 	"83448cce-4e01-445e-95fb-72e24c7250d6",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
@@ -2029,6 +2029,6 @@ INSERT INTO O_OBJ_PROXY
 	'Account',
 	1,
 	'Account',
-	'',
+	'Represents the budget of an account for a specific year. ',
 	"00000000-0000-0000-0000-000000000000",
 	'../Account.xtuml');

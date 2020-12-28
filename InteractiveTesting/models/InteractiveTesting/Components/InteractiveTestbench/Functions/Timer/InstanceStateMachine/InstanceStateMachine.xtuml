@@ -184,10 +184,12 @@ INSERT INTO SM_ACT
 	"0d52acc8-ad10-4d1d-add5-9794b487ef2a",
 	1,
 	'select one test related by self->Initializer[R800.''runs''];
-
+select one uc6 related by self->UC6_ReadAccounts[R900.''runs'']; 
 if (not empty test)
 	generate Initializer1:Initialized to test;
 	self.WaitingTime = test.WaitingTime;
+elif (not empty uc6)
+	generate UC6_ReadAccounts1:Test to uc6;
 end if;
 
 create event instance restart of Timer3:Restart to self;

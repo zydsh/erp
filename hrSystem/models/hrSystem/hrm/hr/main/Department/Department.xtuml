@@ -79,8 +79,13 @@ INSERT INTO O_DBATTR
 	VALUES ("a26b2589-dbdb-4a89-9f09-dca20f8e6ebe",
 	"e01e59b4-a14b-4f8e-9875-07022c90269e",
 	'select one employee related by self->Employee[R23.''is managed by''];
+if (not empty employee)
+self.Manager = employee.FirstName+" "+employee.LastName;
+else 
+	self.Manager = "";
+end if;
 
-self.Manager = employee.FirstName+" "+employee.LastName;',
+',
 	1,
 	0);
 INSERT INTO O_BATTR
