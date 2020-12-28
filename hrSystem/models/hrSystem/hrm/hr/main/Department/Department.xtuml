@@ -81,7 +81,11 @@ INSERT INTO O_DBATTR
 	'select one employee related by self->Employee[R23.''is managed by''];
 if (not empty employee)
 self.Manager = employee.FirstName+" "+employee.LastName;
-end if;',
+else 
+	self.Manager = "";
+end if;
+
+',
 	1,
 	0);
 INSERT INTO O_BATTR
