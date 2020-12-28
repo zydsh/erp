@@ -853,7 +853,7 @@ INSERT INTO SM_ACT
 	VALUES ("9063de0a-27ba-4327-ad51-4223178619de",
 	"0865f4ab-3f26-48c0-8e45-ce049010a32e",
 	1,
-	'Finance::ReadAccountFunds(Code:self.Code );
+	'Finance::ReadBudgetAccount(Code:self.Code );
 
 //time = 1000000;
 //while (time > 0)

@@ -383,7 +383,7 @@ INSERT INTO SPR_PEP
 	"84b7e49f-98e2-4539-b496-50575c189964");
 INSERT INTO SPR_PS
 	VALUES ("4e78b612-ff82-4d2d-ad72-912f0f7ba07f",
-	'ReadAccountFunds',
+	'ReadBudgetAccount',
 	'Reads accounts and sub-accounts of a the current year budget. If the code
 represents a sub-account it will returen the sub-account only, if the code
 sent represents the account, it sends the contents of the accounts and
@@ -457,7 +457,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadAccountFunds',
+	'ReadBudgetAccount',
 	'Reads accounts and sub-accounts of a the current year budget. If the code
 represents a sub-account it will returen the sub-account only, if the code
 sent represents the account, it sends the contents of the accounts and
@@ -1624,6 +1624,76 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadProgram',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("77f2be29-cd01-4baf-8e10-0cdb44c2cf7e",
+	"d03ec770-4b23-4379-a807-acf97011ad3d",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("77f2be29-cd01-4baf-8e10-0cdb44c2cf7e",
+	'ReadBudgetAccounts',
+	'',
+	'select many accounts from instances of AccountSpecification;
+
+for each account in accounts
+if (not empty account)  
+	select one expenditure related by account->Expenditure[R180];
+	select many subaccounts related by account->AccountSpecification[R80.''divided''];	
+	if (not empty expenditure) and (not empty subaccounts)
+		UI::SendAccountFunds( Code:account.Code, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+		UI::Reply( msg:"Account fund sent", state:True );  
+		LOG::LogInfo(message:"Sent: Account code "+ account.Code); 
+		LOG::LogReal(message:"Ceiling:", r:expenditure.CeilingFund);
+		LOG::LogReal(message:"Requested:", r:expenditure.RequestedFund);
+		LOG::LogReal(message:"C-Revenue:", r:expenditure.CeilingRevenue);
+		LOG::LogReal(message:"R-Revenue:", r:expenditure.RequestedRevenue);
+
+
+		for each subaccount in subaccounts
+			select many budgetAccs related by subaccount->Account[R202.''budgetize''];
+				ceiling = 0;
+				requested = 0;
+				revenueCeiling = 0;
+				revenueRequested=0;
+				
+			for each bgt in budgetAccs
+				select one ceilingSubtype related by bgt->Ceiling[R190];
+				if (not empty ceilingSubtype)
+					ceiling = ceilingSubtype.Fund;
+					revenueCeiling = ceilingSubtype.Revenue;
+				end if;
+				select one requestedSubtype related by bgt->Requested[R190];
+				if (not empty requestedSubtype)
+					requested = requestedSubtype.Fund;
+					revenueRequested = requestedSubtype.Revenue;
+				end if;
+			 end for; 
+
+			UI::SendAccountFunds( Code:subaccount.Code, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
+  			UI::Reply( msg:"Subaccount funds sent", state:True );  
+			LOG::LogInfo(message:"Sent: Subaccount code "+ subaccount.Code); 
+			LOG::LogReal(message:"Ceiling:", r:ceiling);
+			LOG::LogReal(message:"Requested:", r:requested);
+			LOG::LogReal(message:"C-Revenue:", r:revenueCeiling);
+			LOG::LogReal(message:"R-Revenue:", r:revenueRequested);
+
+		end for;
+		else 
+			UI::Reply( msg:"Accounts are empty", state:False );  
+	
+		end if;
+	
+end if;
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("d03ec770-4b23-4379-a807-acf97011ad3d",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgetAccounts',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
