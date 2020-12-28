@@ -168,14 +168,14 @@ INSERT INTO C_EP
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadAccountFunds',
+	'ReadBudgetAccount',
 	'Reads accounts and sub-accounts of a the current year budget. If the code
 represents a sub-account it will returen the sub-account only, if the code
 sent represents the account, it sends the contents of the accounts and
 all of its sub-accounts.');
 INSERT INTO C_AS
 	VALUES ("dd6db19b-bdef-4d21-b22a-6b03d86bfa5a",
-	'ReadAccountFunds',
+	'ReadBudgetAccount',
 	'Reads accounts and sub-accounts of a the current year budget. If the code
 represents a sub-account it will returen the sub-account only, if the code
 sent represents the account, it sends the contents of the accounts and
@@ -1586,6 +1586,18 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("d03ec770-4b23-4379-a807-acf97011ad3d",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgetAccounts',
+	'');
+INSERT INTO C_AS
+	VALUES ("d03ec770-4b23-4379-a807-acf97011ad3d",
+	'ReadBudgetAccounts',
+	'',
+	0,
+	"983c1373-b2e3-4a25-9aa6-dd61c1d1c5a6");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,
