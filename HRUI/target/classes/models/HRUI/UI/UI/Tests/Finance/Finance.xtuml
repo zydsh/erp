@@ -38,7 +38,7 @@ INSERT INTO S_SYNC
 	"00000000-0000-0000-0000-000000000000",
 	'testReadBudgets',
 	'',
-	'Finance::ReadAccountFunds( Year:"2021", Code:"٢١" );',
+	'//Finance::ReadBudgetAccountFunds( Year:"2021", Code:"٢١" );',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	1,
 	'',
@@ -96,7 +96,7 @@ INSERT INTO S_SYNC
 	'',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
-	3,
+	1,
 	'',
 	0);
 INSERT INTO PE_PE
