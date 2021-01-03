@@ -1685,6 +1685,27 @@ INSERT INTO C_AS
 	'',
 	0,
 	"25f94d89-02d2-4b1a-9dcb-08ae03a39f46");
+INSERT INTO C_EP
+	VALUES ("c453de33-2cb1-4f48-ae7e-2c8e6e957c7a",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadTransferJournal',
+	'');
+INSERT INTO C_AS
+	VALUES ("c453de33-2cb1-4f48-ae7e-2c8e6e957c7a",
+	'ReadTransferJournal',
+	'',
+	0,
+	"e140b130-5703-40b6-948f-73122844e333");
+INSERT INTO C_PP
+	VALUES ("791b3cd1-7822-4452-ab30-9715c8555d70",
+	"c453de33-2cb1-4f48-ae7e-2c8e6e957c7a",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Column',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

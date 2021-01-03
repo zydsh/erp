@@ -1747,6 +1747,41 @@ INSERT INTO C_EP_PROXY
 	'ReadSalaryJournal',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("4e24ba06-a545-4995-a757-3f7531a35fc3",
+	"c453de33-2cb1-4f48-ae7e-2c8e6e957c7a",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("4e24ba06-a545-4995-a757-3f7531a35fc3",
+	'ReadTransferJournal',
+	'',
+	'select any journal from instances of Journal where selected.Name == "المناقلات";
+if (not empty journal)
+	select any column related by journal->Column[R120.''has''] where selected.Title==param.Column;
+	if (not empty column)
+		select many amounts related by column->Amount[R130.''holds''];
+		for each amount in amounts
+			select one entry related by amount->Entry[R40.''recorded for''];
+			UI::SendJournal( Name:journal.Name, Description:journal.Description, ColumnTitle:column.Title, 
+			ColumnDescription:column.Description, EntryDate:entry.Date, EntryDescription:entry.Description, 
+			EntryAmount:amount.Amount);
+			UI::Reply( msg:"Sent journal amount for entry within salary journal", state:True );
+		end for;
+	end if;
+else
+		UI::Reply( msg:"Salary journal is not initiated", state:False );
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c453de33-2cb1-4f48-ae7e-2c8e6e957c7a",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadTransferJournal',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
