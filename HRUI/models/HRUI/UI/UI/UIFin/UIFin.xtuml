@@ -733,6 +733,85 @@ INSERT INTO PE_PE
 	"d402b4d1-527a-422b-aa46-09cc944d2bea",
 	"00000000-0000-0000-0000-000000000000",
 	1);
+INSERT INTO S_SYNC
+	VALUES ("be23c40e-4253-42a5-804d-1454b0ddde0e",
+	"00000000-0000-0000-0000-000000000000",
+	'SendJournals',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	3,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("21830620-180d-4cd5-811e-8cd85386aab0",
+	"be23c40e-4253-42a5-804d-1454b0ddde0e",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("300fac56-9280-4b0b-98df-4dfae53f4add",
+	"be23c40e-4253-42a5-804d-1454b0ddde0e",
+	'Description',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"21830620-180d-4cd5-811e-8cd85386aab0",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("8940c8bd-5fda-406e-bf08-a456e60043e1",
+	"be23c40e-4253-42a5-804d-1454b0ddde0e",
+	'ColumnTitle',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"300fac56-9280-4b0b-98df-4dfae53f4add",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("09b94f9c-329e-4393-88e6-09cfafd441ce",
+	"be23c40e-4253-42a5-804d-1454b0ddde0e",
+	'ColumnDescription',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"8940c8bd-5fda-406e-bf08-a456e60043e1",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("fffba69c-e718-4a03-800b-5306d264062e",
+	"be23c40e-4253-42a5-804d-1454b0ddde0e",
+	'EntryDate',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"09b94f9c-329e-4393-88e6-09cfafd441ce",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("3ca6e77d-efa3-4017-8572-e25153155d71",
+	"be23c40e-4253-42a5-804d-1454b0ddde0e",
+	'EntryDescription',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"fffba69c-e718-4a03-800b-5306d264062e",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("ae33121b-ddcb-4b18-bcd9-6b3ed3e12ffa",
+	"be23c40e-4253-42a5-804d-1454b0ddde0e",
+	'EntryAmount',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"3ca6e77d-efa3-4017-8572-e25153155d71",
+	'');
+INSERT INTO PE_PE
+	VALUES ("be23c40e-4253-42a5-804d-1454b0ddde0e",
+	1,
+	"d402b4d1-527a-422b-aa46-09cc944d2bea",
+	"00000000-0000-0000-0000-000000000000",
+	1);
 INSERT INTO PE_PE
 	VALUES ("d402b4d1-527a-422b-aa46-09cc944d2bea",
 	1,
