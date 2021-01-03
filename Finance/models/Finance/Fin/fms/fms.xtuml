@@ -1696,6 +1696,57 @@ INSERT INTO C_EP_PROXY
 	'ReadBudgetAccounts',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("1fbac8dd-7670-431b-b479-c36b4f224ee3",
+	"25f94d89-02d2-4b1a-9dcb-08ae03a39f46",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("1fbac8dd-7670-431b-b479-c36b4f224ee3",
+	'SendJournal',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("25f94d89-02d2-4b1a-9dcb-08ae03a39f46",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendJournal',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("13cd371c-bca7-45d6-8e0a-30470c64b877",
+	"e140b130-5703-40b6-948f-73122844e333",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("13cd371c-bca7-45d6-8e0a-30470c64b877",
+	'ReadSalaryJournal',
+	'',
+	'select any journal from instances of Journal where selected.Name == "Salary";
+if (not empty journal)
+	select one column related by journal->Column[R160.''has single''];
+	select many amounts related by column->Amount[R130.''holds''];
+	for each amount in amounts
+		select one entry related by amount->Entry[R40.''recorded for''];
+		UI::SendJournal( Name:journal.Name, Description:journal.Description, ColumnTitle:column.Title, 
+		ColumnDescription:column.Description, EntryDate:entry.Date, EntryDescription:entry.Description, 
+		EntryAmount:amount.Amount);
+		UI::Reply( msg:"Sent journal amount for entry within salary journal", state:True );
+	end for;
+else
+		UI::Reply( msg:"Salary journal is not initiated", state:False );
+
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("e140b130-5703-40b6-948f-73122844e333",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadSalaryJournal',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
