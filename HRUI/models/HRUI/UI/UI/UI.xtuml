@@ -3141,7 +3141,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("3c060d66-9d29-458b-941a-4a211d06362c",
-	'ReadBudgetAccounts',
+	'ReadAllBudgetAccounts',
 	'',
 	'',
 	3,
@@ -3150,7 +3150,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("d03ec770-4b23-4379-a807-acf97011ad3d",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadBudgetAccounts',
+	'ReadAllBudgetAccounts',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -3223,6 +3223,42 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'CreateSubAccount',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("4ae3f38a-36a7-4a0c-8bd4-7a05fdaa4daf",
+	"020d8e36-a283-4deb-b691-699a8f5e87cb",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("4ae3f38a-36a7-4a0c-8bd4-7a05fdaa4daf",
+	'ReadBudgetAccounts',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("020d8e36-a283-4deb-b691-699a8f5e87cb",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgetAccounts',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("601a325b-4fdd-456e-8a2f-051fb7e100ed",
+	"7017f587-96d1-4ef0-a888-ae64cf3a63be",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("601a325b-4fdd-456e-8a2f-051fb7e100ed",
+	'ReadBudgetPrograms',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7017f587-96d1-4ef0-a888-ae64cf3a63be",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgetPrograms',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

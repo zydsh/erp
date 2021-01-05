@@ -1608,11 +1608,11 @@ INSERT INTO C_EP
 	VALUES ("d03ec770-4b23-4379-a807-acf97011ad3d",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadBudgetAccounts',
+	'ReadAllBudgetAccounts',
 	'');
 INSERT INTO C_AS
 	VALUES ("d03ec770-4b23-4379-a807-acf97011ad3d",
-	'ReadBudgetAccounts',
+	'ReadAllBudgetAccounts',
 	'',
 	0,
 	"983c1373-b2e3-4a25-9aa6-dd61c1d1c5a6");
@@ -1763,6 +1763,30 @@ INSERT INTO C_PP
 	0,
 	'',
 	"d5d844a3-f639-473f-b996-95d702f358af");
+INSERT INTO C_EP
+	VALUES ("020d8e36-a283-4deb-b691-699a8f5e87cb",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgetAccounts',
+	'');
+INSERT INTO C_AS
+	VALUES ("020d8e36-a283-4deb-b691-699a8f5e87cb",
+	'ReadBudgetAccounts',
+	'',
+	0,
+	"f8471943-f524-4541-840b-382b436abdb1");
+INSERT INTO C_EP
+	VALUES ("7017f587-96d1-4ef0-a888-ae64cf3a63be",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgetPrograms',
+	'');
+INSERT INTO C_AS
+	VALUES ("7017f587-96d1-4ef0-a888-ae64cf3a63be",
+	'ReadBudgetPrograms',
+	'',
+	0,
+	"020d8e36-a283-4deb-b691-699a8f5e87cb");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,
