@@ -3153,6 +3153,60 @@ INSERT INTO C_EP_PROXY
 	'ReadBudgetAccounts',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("fdd8f6e2-5bc2-4e78-a285-85ccc2daac11",
+	"25f94d89-02d2-4b1a-9dcb-08ae03a39f46",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("fdd8f6e2-5bc2-4e78-a285-85ccc2daac11",
+	'SendJournal',
+	'',
+	'::SendJournals( Name:param.Name, Description:param.Description, ColumnTitle:param.ColumnTitle, ColumnDescription:param.ColumnDescription, EntryDate:param.EntryDate, EntryDescription:param.EntryDescription, EntryAmount:param.EntryAmount);',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("25f94d89-02d2-4b1a-9dcb-08ae03a39f46",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'SendJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("eec5ef44-c3fb-47ac-896b-43f4620e67b2",
+	"e140b130-5703-40b6-948f-73122844e333",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("eec5ef44-c3fb-47ac-896b-43f4620e67b2",
+	'ReadSalaryJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("e140b130-5703-40b6-948f-73122844e333",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadSalaryJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("a54bd21c-d3cd-421e-ac44-12fed832bc8a",
+	"c453de33-2cb1-4f48-ae7e-2c8e6e957c7a",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("a54bd21c-d3cd-421e-ac44-12fed832bc8a",
+	'ReadTransferJournal',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c453de33-2cb1-4f48-ae7e-2c8e6e957c7a",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadTransferJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
