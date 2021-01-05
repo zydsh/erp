@@ -2752,7 +2752,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("aa5cbd04-5ab0-4cd4-9563-28552ebe9010",
-	'ReadBudgetAccounts',
+	'ReadAllBudgetAccounts',
 	'',
 	'',
 	3,
@@ -2761,7 +2761,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("d03ec770-4b23-4379-a807-acf97011ad3d",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadBudgetAccounts',
+	'ReadAllBudgetAccounts',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO SPR_REP
@@ -2816,6 +2816,60 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadTransferJournal',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("6d262184-5c1a-41b1-b858-96b834f9f96a",
+	"f8471943-f524-4541-840b-382b436abdb1",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("6d262184-5c1a-41b1-b858-96b834f9f96a",
+	'CreateSubAccount',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f8471943-f524-4541-840b-382b436abdb1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateSubAccount',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("29332d24-61c8-408a-96ee-7fe21ef3decf",
+	"020d8e36-a283-4deb-b691-699a8f5e87cb",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("29332d24-61c8-408a-96ee-7fe21ef3decf",
+	'ReadBudgetAccounts',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("020d8e36-a283-4deb-b691-699a8f5e87cb",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgetAccounts',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("470ca279-d783-4ec2-84ff-976ae46457ea",
+	"7017f587-96d1-4ef0-a888-ae64cf3a63be",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("470ca279-d783-4ec2-84ff-976ae46457ea",
+	'ReadBudgetPrograms',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7017f587-96d1-4ef0-a888-ae64cf3a63be",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadBudgetPrograms',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
