@@ -1641,7 +1641,7 @@ if (not empty account)
 	select one expenditure related by account->Expenditure[R180];
 	select many subaccounts related by account->AccountSpecification[R80.''divided''];	
 	if (not empty expenditure) and (not empty subaccounts)
-		UI::SendAccountFunds( Code:account.Code, Name:account.Name, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+		UI::SendAccountFunds( Code:account.Code, Name:account.Name, New:account.New, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
 		UI::Reply( msg:"Account fund sent", state:True );  
 		LOG::LogInfo(message:"Sent: Account code "+ account.Code); 
 		LOG::LogReal(message:"Ceiling:", r:expenditure.CeilingFund);
@@ -1670,7 +1670,7 @@ if (not empty account)
 				end if;
 			 end for; 
 
-			UI::SendAccountFunds( Code:subaccount.Code, Name:subaccount.Name, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
+			UI::SendAccountFunds( Code:subaccount.Code, Name:subaccount.Name, New: subaccount.New,Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
   			UI::Reply( msg:"Subaccount funds sent", state:True );  
 			LOG::LogInfo(message:"Sent: Subaccount code "+ subaccount.Code); 
 			LOG::LogReal(message:"Ceiling:", r:ceiling);
@@ -1780,6 +1780,32 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadTransferJournal',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("6f601ca3-7a8e-43c5-8484-23bea29ca7e4",
+	"f8471943-f524-4541-840b-382b436abdb1",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("6f601ca3-7a8e-43c5-8484-23bea29ca7e4",
+	'CreateSubAccount',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code==param.Code;
+
+if (empty account)
+	create object instance account of AccountSpecification;
+	account.Code = param.Code;
+	account.Name = param.Name;
+	account.Description= param.Description;
+	account.New = True;
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f8471943-f524-4541-840b-382b436abdb1",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateSubAccount',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
