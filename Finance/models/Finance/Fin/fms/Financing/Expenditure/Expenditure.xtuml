@@ -7,36 +7,11 @@ INSERT INTO O_OBJ
 	'Expenditure',
 	'',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_TFR
-	VALUES ("e1d97c53-92bb-458e-a5bd-c13772c83351",
-	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
-	'CeilingFund',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	1,
-	'cf = 0;
-select one account related by self->AccountSpecification[R180];//->AccountSpecification[R80.''divided''];
-select many subaccounts related by account->AccountSpecification[R80.''divided''];
-for each subaccount in subaccounts 
-	select many baccount related by subaccount->Account[R202.''budgetize'']; 
-	for each f in baccount
-		select one ceiling related by f->Ceiling[R190];
-		if (not empty ceiling)
-			cf = ceiling.Fund + cf; 
-		end if;
-	end for;
-end for;
-
-return cf;',
-	1,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	0);
 INSERT INTO O_DBATTR
 	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	'cf = 0;
-select many subaccounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+select many subaccounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''] where selected.New==false;
 //select many subaccounts related by account->AccountSpecification[R80.''divided''];
 for each subaccount in subaccounts 
 	select many baccount related by subaccount->Account[R202.''budgetize'']; 
@@ -70,7 +45,7 @@ INSERT INTO O_DBATTR
 	VALUES ("1008e2be-5714-48c0-958d-4f04914f9b98",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	'cr = 0;
-select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''] where selected.New==false;;
 
 for each fund in funds 
 	select many fc related by fund->Account[R202.''budgetize'']->Ceiling[R190]; 
@@ -103,7 +78,7 @@ INSERT INTO O_DBATTR
 	VALUES ("35087317-c7d5-45e3-bb9d-864787666da8",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	'rf = 0;
-select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''] where selected.New==false;;
 
 for each fund in funds 
 	select many fr related by fund->Account[R202.''budgetize'']->Requested[R190]; 
@@ -136,7 +111,7 @@ INSERT INTO O_DBATTR
 	VALUES ("dd86938e-20c8-4ba9-b6be-2c84c7260b74",
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	'rr = 0;
-select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+select many funds related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''] where selected.New==false;
 
 for each fund in funds 
 	select many fr related by fund->Account[R202.''budgetize'']->Requested[R190]; 
@@ -162,6 +137,146 @@ INSERT INTO O_ATTR
 	'',
 	'',
 	'RequestedRevenue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("3bf52411-ae0e-4cbf-b12e-27e0e1abc731",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'p = 0;
+select many accounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+if (not empty accounts)
+	for each account in accounts
+		select many programs related by account->Program[R210.''earmarked by''];
+		if (not empty programs)
+			for each program in programs
+				p= p+ program.CeilingFund;
+			end for;
+		end if;
+	end for;
+end if;
+
+self.ProgramCeilingFund = p;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("3bf52411-ae0e-4cbf-b12e-27e0e1abc731",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ATTR
+	VALUES ("3bf52411-ae0e-4cbf-b12e-27e0e1abc731",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	"dd86938e-20c8-4ba9-b6be-2c84c7260b74",
+	'ProgramCeilingFund',
+	'',
+	'',
+	'ProgramCeilingFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("c03cb651-d863-45c2-a880-e821a3d776a6",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'p = 0;
+select many accounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+if (not empty accounts)
+	for each account in accounts
+		select many programs related by account->Program[R210.''earmarked by''];
+		if (not empty programs)
+			for each program in programs
+				p= p+ program.RequestedFund;
+			end for;
+		end if;
+	end for;
+end if;
+
+self.ProgramRequestedFund = p;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("c03cb651-d863-45c2-a880-e821a3d776a6",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ATTR
+	VALUES ("c03cb651-d863-45c2-a880-e821a3d776a6",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	"3bf52411-ae0e-4cbf-b12e-27e0e1abc731",
+	'ProgramRequestedFund',
+	'',
+	'',
+	'ProgramRequestedFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("1826381e-b901-4d71-9b41-4ac505e34d8e",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'p = 0;
+select many accounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+if (not empty accounts)
+	for each account in accounts
+		select many programs related by account->Program[R210.''earmarked by''];
+		if (not empty programs)
+			for each program in programs
+				p= p+ program.CeilingRevenue;
+			end for;
+		end if;
+	end for;
+end if;
+
+self.ProgramCeilingRevenue = p;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("1826381e-b901-4d71-9b41-4ac505e34d8e",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ATTR
+	VALUES ("1826381e-b901-4d71-9b41-4ac505e34d8e",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	"c03cb651-d863-45c2-a880-e821a3d776a6",
+	'ProgramCeilingRevenue',
+	'',
+	'',
+	'ProgramCeilingRevenue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("ee1775f4-326f-4273-b286-fe7cd06e0d53",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	'p = 0;
+select many accounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''];
+if (not empty accounts)
+	for each account in accounts
+		select many programs related by account->Program[R210.''earmarked by''];
+		if (not empty programs)
+			for each program in programs
+				p= p+ program.RequestedRevenue;
+			end for;
+		end if;
+	end for;
+end if;
+
+self.ProgramRequestedRevenue = p;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("ee1775f4-326f-4273-b286-fe7cd06e0d53",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0");
+INSERT INTO O_ATTR
+	VALUES ("ee1775f4-326f-4273-b286-fe7cd06e0d53",
+	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
+	"1826381e-b901-4d71-9b41-4ac505e34d8e",
+	'ProgramRequestedRevenue',
+	'',
+	'',
+	'ProgramRequestedRevenue',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
