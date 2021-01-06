@@ -176,6 +176,142 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
+INSERT INTO O_DBATTR
+	VALUES ("dda71738-f76c-496f-884c-f21fc0501cdf",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'p = 0;
+select many budgets related by self->AccountSpecification[R180]->Account[R202.''budgetize''];
+
+if (not empty budgets)
+	for each budget in budgets
+			select one requested related by budget->Requested[R190];
+			if (not empty requested)
+					p = p + requested.Fund;
+			end if;
+	end for;
+end if;
+
+self.RequestedFund = p;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("dda71738-f76c-496f-884c-f21fc0501cdf",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_ATTR
+	VALUES ("dda71738-f76c-496f-884c-f21fc0501cdf",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	"f2632357-614f-4598-835c-62b1a1ef8a13",
+	'RequestedFund',
+	'',
+	'',
+	'RequestedFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("cafbf582-683a-477c-a04e-1d1b72053a3f",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'p = 0;
+select many budgets related by self->AccountSpecification[R180]->Account[R202.''budgetize''];
+
+if (not empty budgets)
+	for each budget in budgets
+			select one requested related by budget->Requested[R190];
+			if (not empty requested)
+					p = p + requested.Revenue;
+			end if;
+	end for;
+end if;
+
+self.RequestedRevenue = p;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("cafbf582-683a-477c-a04e-1d1b72053a3f",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_ATTR
+	VALUES ("cafbf582-683a-477c-a04e-1d1b72053a3f",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	"dda71738-f76c-496f-884c-f21fc0501cdf",
+	'RequestedRevenue',
+	'',
+	'',
+	'RequestedRevenue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("333909c4-d717-4207-893b-9273d03659f4",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'p = 0;
+select many budgets related by self->AccountSpecification[R180]->Account[R202.''budgetize''];
+
+if (not empty budgets)
+	for each budget in budgets
+			select one ceiling related by budget->Ceiling[R190];
+			if (not empty ceiling)
+					p = p + ceiling.Fund;
+			end if;
+	end for;
+end if;
+
+self.CeilingFund = p;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("333909c4-d717-4207-893b-9273d03659f4",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_ATTR
+	VALUES ("333909c4-d717-4207-893b-9273d03659f4",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	"cafbf582-683a-477c-a04e-1d1b72053a3f",
+	'CeilingFund',
+	'',
+	'',
+	'CeilingFund',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_DBATTR
+	VALUES ("326eadcc-b9aa-4056-b029-01eac617e571",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	'p = 0;
+select many budgets related by self->AccountSpecification[R180]->Account[R202.''budgetize''];
+
+if (not empty budgets)
+	for each budget in budgets
+			select one ceiling related by budget->Ceiling[R190];
+			if (not empty ceiling)
+					p = p + ceiling.Revenue;
+			end if;
+	end for;
+end if;
+
+self.CeilingRevenue = p;
+',
+	1,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("326eadcc-b9aa-4056-b029-01eac617e571",
+	"fd55a655-ee63-4848-9906-9073853b6815");
+INSERT INTO O_ATTR
+	VALUES ("326eadcc-b9aa-4056-b029-01eac617e571",
+	"fd55a655-ee63-4848-9906-9073853b6815",
+	"333909c4-d717-4207-893b-9273d03659f4",
+	'CeilingRevenue',
+	'',
+	'',
+	'CeilingRevenue',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"fd55a655-ee63-4848-9906-9073853b6815");

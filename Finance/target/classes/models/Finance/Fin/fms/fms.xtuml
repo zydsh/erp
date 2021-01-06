@@ -1884,37 +1884,17 @@ INSERT INTO SPR_PS
 	VALUES ("40428aa1-c119-4055-9e73-321895b233aa",
 	'ReadBudgetPrograms',
 	'',
-	'ceiling = 0;
-revenueCeiling = 0;
-requested = 0;
-revenueRequested=0;
-
+	'
 select many expenditures from instances of Expenditure;
 for each expend in expenditures
 	select one account related by expend->AccountSpecification[R180];
-	select many programs related by expend->AccountSpecification[R180]->Program[R210.''earmarked by''];
-	for each program in programs
-		select many budgetPrograms related by program->AccountSpecification[R180]->Account[R202.''budgetize''];
-		for each bp in budgetPrograms
-			select one cAccount related by bp->Ceiling[R190];
-			select one rAccount related by bp->Requested[R190];
-			if (not empty cAccount)
-				ceiling = ceiling+cAccount.Fund;
-				revenueCeiling = revenueCeiling+cAccount.Revenue;
-			else
-				requested = requested + rAccount.Fund;
-				revenueRequested=revenueRequested+rAccount.Revenue;
-			end if;
-		end for;
-
-	end for;
-		UI::SendAccountFunds( Code:account.Code, Name:account.Name, New:account.New, Ceiling:expend.CeilingFund, Requested:expend.RequestedFund, CeilingRevenue:expend.CeilingRevenue, RequestedRevenue:expend.RequestedRevenue);
+		UI::SendAccountFunds( Code:account.Code, Name:account.Name, New:account.New, Ceiling:expend.ProgramCeilingFund, Requested:expend.ProgramRequestedFund, CeilingRevenue:expend.ProgramCeilingRevenue, RequestedRevenue:expend.ProgramRequestedRevenue);
 		UI::Reply( msg:"Account fund sent", state:True );  
 		LOG::LogInfo(message:"Sent: Account code "+ account.Code); 
-		LOG::LogReal(message:"Ceiling:", r:expend.CeilingFund);
-		LOG::LogReal(message:"Requested:", r:expend.RequestedFund);
-		LOG::LogReal(message:"C-Revenue:", r:expend.CeilingRevenue);
-		LOG::LogReal(message:"R-Revenue:", r:expend.RequestedRevenue);
+		LOG::LogReal(message:"Ceiling:", r:expend.ProgramCeilingFund);
+		LOG::LogReal(message:"Requested:", r:expend.ProgramRequestedFund);
+		LOG::LogReal(message:"C-Revenue:", r:expend.ProgramCeilingRevenue);
+		LOG::LogReal(message:"R-Revenue:", r:expend.ProgramRequestedRevenue);
 end for;
 ',
 	1,
