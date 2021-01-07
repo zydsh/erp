@@ -423,8 +423,14 @@ if (not empty account)
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
 			end for; 
-			UI::SendAccountFunds( Code:subaccount.Code, Name:subaccount.Name, New: subaccount.New, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+			UI::SendAccountFunds( Code:subaccount.Code, Name:subaccount.Name, New: subaccount.New, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
   			UI::Reply( msg:"Subaccount funds sent", state:True );  
+  			LOG::LogInfo(message:"Sent: Account code "+ subaccount.Code); 
+			LOG::LogReal(message:"Ceiling:", r:ceiling);
+			LOG::LogReal(message:"Requested:", r:requested);
+			LOG::LogReal(message:"C-Revenue:", r:revenueCeiling);
+			LOG::LogReal(message:"R-Revenue:", r:revenueRequested);
+
 
 		end for;	
 	else
