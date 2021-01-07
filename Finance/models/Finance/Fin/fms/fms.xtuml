@@ -1162,10 +1162,13 @@ INSERT INTO SPR_PS
 
 if (not empty account)
 		select many subaccounts related by account->AccountSpecification[R80.''divided''];
-		select one expenditute related by account->Expenditure[R180];
+		select one expenditute related by account->AccountSpecification[R80.''part'']->Expenditure[R180];
 		if ( empty subaccounts) and (not empty expenditute)
 			select many credits related by account->Account[R170.''operates'']->Amount[R50.''credited by''];
 			select many debits related by account->Account[R170.''operates'']->Amount[R30.''debited by''];
+			select many tcredits related by account->Account[R170.''operates'']->Amount[R230.''transfer credit of''];
+			select many tdebits related by account->Account[R170.''operates'']->Amount[R240.''transfer debit of''];
+
 			if (not empty credits)
 				for each credit in credits
 					select one entry related by credit->Entry[R40.''recorded for''];
@@ -1178,6 +1181,21 @@ if (not empty account)
 					UI::SendTAccount( Code:account.Code, Amount:debit.Amount, Date: entry.Date, Description: entry.Description );
 				end for;
 			end if;
+			
+			if (not empty tcredits)
+				for each tcredit in tcredits
+					select one entry related by tcredit->Entry[R40.''recorded for''];
+					UI::SendTAccount( Code:account.Code, Amount:tcredit.Amount, Date: entry.Date, Description: entry.Description );
+				end for;
+			end if;
+			if (not empty tdebits)
+				for each tdebit in tdebits
+					select one entry related by tdebit->Entry[R40.''recorded for''];
+					UI::SendTAccount( Code:account.Code, Amount:tdebit.Amount, Date: entry.Date, Description: entry.Description );
+				end for;
+			end if;
+
+
 		end if;	
 
 end if;',
