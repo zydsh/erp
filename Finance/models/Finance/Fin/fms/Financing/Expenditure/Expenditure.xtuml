@@ -51,7 +51,7 @@ for each fund in funds
 	select many fc related by fund->Account[R202.''budgetize'']->Ceiling[R190]; 
 	for each f in fc
 		if (not empty f)
-			cr = f.Fund + cr;
+			cr = f.Revenue + cr;
 		end if;
 	end for;
 end for;
@@ -117,7 +117,7 @@ for each fund in funds
 	select many fr related by fund->Account[R202.''budgetize'']->Requested[R190]; 
 	for each f in fr
 		if (not empty f)
-			rr = f.Fund + rr;
+			rr = f.Revenue + rr;
 		end if;
 	end for;
 end for;
