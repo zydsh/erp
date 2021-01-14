@@ -423,8 +423,14 @@ if (not empty account)
 					revenueRequested = requestedSubtype.Revenue;
 				end if;
 			end for; 
-			UI::SendAccountFunds( Code:subaccount.Code, Name:subaccount.Name, New: subaccount.New, Ceiling:expenditure.CeilingFund, Requested:expenditure.RequestedFund, CeilingRevenue:expenditure.CeilingRevenue, RequestedRevenue:expenditure.RequestedRevenue);
+			UI::SendAccountFunds( Code:subaccount.Code, Name:subaccount.Name, New: subaccount.New, Ceiling:ceiling, Requested:requested, CeilingRevenue:revenueCeiling, RequestedRevenue:revenueRequested);
   			UI::Reply( msg:"Subaccount funds sent", state:True );  
+  			LOG::LogInfo(message:"Sent: Account code "+ subaccount.Code); 
+			LOG::LogReal(message:"Ceiling:", r:ceiling);
+			LOG::LogReal(message:"Requested:", r:requested);
+			LOG::LogReal(message:"C-Revenue:", r:revenueCeiling);
+			LOG::LogReal(message:"R-Revenue:", r:revenueRequested);
+
 
 		end for;	
 	else
@@ -1156,10 +1162,13 @@ INSERT INTO SPR_PS
 
 if (not empty account)
 		select many subaccounts related by account->AccountSpecification[R80.''divided''];
-		select one expenditute related by account->Expenditure[R180];
+		select one expenditute related by account->AccountSpecification[R80.''part'']->Expenditure[R180];
 		if ( empty subaccounts) and (not empty expenditute)
 			select many credits related by account->Account[R170.''operates'']->Amount[R50.''credited by''];
 			select many debits related by account->Account[R170.''operates'']->Amount[R30.''debited by''];
+			select many tcredits related by account->Account[R170.''operates'']->Amount[R230.''transfer credit of''];
+			select many tdebits related by account->Account[R170.''operates'']->Amount[R240.''transfer debit of''];
+
 			if (not empty credits)
 				for each credit in credits
 					select one entry related by credit->Entry[R40.''recorded for''];
@@ -1172,6 +1181,21 @@ if (not empty account)
 					UI::SendTAccount( Code:account.Code, Amount:debit.Amount, Date: entry.Date, Description: entry.Description );
 				end for;
 			end if;
+			
+			if (not empty tcredits)
+				for each tcredit in tcredits
+					select one entry related by tcredit->Entry[R40.''recorded for''];
+					UI::SendTAccount( Code:account.Code, Amount:tcredit.Amount, Date: entry.Date, Description: entry.Description );
+				end for;
+			end if;
+			if (not empty tdebits)
+				for each tdebit in tdebits
+					select one entry related by tdebit->Entry[R40.''recorded for''];
+					UI::SendTAccount( Code:account.Code, Amount:tdebit.Amount, Date: entry.Date, Description: entry.Description );
+				end for;
+			end if;
+
+
 		end if;	
 
 end if;',
@@ -1904,6 +1928,38 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadBudgetPrograms',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("9796ce7f-3375-480f-9f3a-0cfcb5e84b1f",
+	"cffbc631-c5c2-4077-9375-218b0527dee5",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("9796ce7f-3375-480f-9f3a-0cfcb5e84b1f",
+	'ModifyCeiling',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code == param.Code; 
+select many budgetAccount related by account->Account[R202.''budgetize''];
+
+
+for each baccount in budgetAccount
+	select one ceiling related by baccount->Ceiling[R190];
+	if (not empty ceiling)
+		ceiling.Fund = param.Fund;
+		ceiling.Revenue = param.Revenue;
+		UI::Reply( msg:"Ceiling modified successfully ", state: True);
+	end if;
+	UI::Reply( msg:"Ceiling is unsuccessful: could not find ceiling ", state: False);
+
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("cffbc631-c5c2-4077-9375-218b0527dee5",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ModifyCeiling',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

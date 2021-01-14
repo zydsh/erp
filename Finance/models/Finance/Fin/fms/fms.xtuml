@@ -1947,7 +1947,10 @@ for each baccount in budgetAccount
 	if (not empty ceiling)
 		ceiling.Fund = param.Fund;
 		ceiling.Revenue = param.Revenue;
+		UI::Reply( msg:"Ceiling modified successfully ", state: True);
 	end if;
+	UI::Reply( msg:"Ceiling is unsuccessful: could not find account ", state: False);
+
 end for;
 ',
 	1,
@@ -1957,6 +1960,38 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ModifyCeiling',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("9d96ec0d-b36a-4b2c-a814-a750bf2318f1",
+	"ff71f4ae-3892-42b1-9cf0-8c111dc2cb5b",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("9d96ec0d-b36a-4b2c-a814-a750bf2318f1",
+	'ModifyRequested',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code == param.Code; 
+select many budgetAccount related by account->Account[R202.''budgetize''];
+
+
+for each baccount in budgetAccount
+	select one requested related by baccount->Requested[R190];
+	if (not empty requested)
+		requested.Fund = param.Fund;
+		requested.Revenue = param.Revenue;
+		UI::Reply( msg:"Requested modified successfully ", state: True);
+	end if;
+	UI::Reply( msg:"Requested is unsuccessful: could not find account ", state: False);
+
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ff71f4ae-3892-42b1-9cf0-8c111dc2cb5b",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ModifyRequested',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
