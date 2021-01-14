@@ -1930,6 +1930,35 @@ INSERT INTO C_EP_PROXY
 	'ReadBudgetPrograms',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("9796ce7f-3375-480f-9f3a-0cfcb5e84b1f",
+	"cffbc631-c5c2-4077-9375-218b0527dee5",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("9796ce7f-3375-480f-9f3a-0cfcb5e84b1f",
+	'ModifyCeiling',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code == param.Code; 
+select many budgetAccount related by account->Account[R202.''budgetize''];
+
+
+for each baccount in budgetAccount
+	select one ceiling related by baccount->Ceiling[R190];
+	if (not empty ceiling)
+		ceiling.Fund = param.Fund;
+		ceiling.Revenue = param.Revenue;
+	end if;
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("cffbc631-c5c2-4077-9375-218b0527dee5",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ModifyCeiling',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
