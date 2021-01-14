@@ -12,7 +12,7 @@ INSERT INTO O_DBATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	'cf = 0;
 select many subaccounts related by self->AccountSpecification[R180]->AccountSpecification[R80.''divided''] where selected.New==false;
-//select many subaccounts related by account->AccountSpecification[R80.''divided''];
+
 for each subaccount in subaccounts 
 	select many baccount related by subaccount->Account[R202.''budgetize'']; 
 	for each f in baccount
@@ -51,7 +51,7 @@ for each fund in funds
 	select many fc related by fund->Account[R202.''budgetize'']->Ceiling[R190]; 
 	for each f in fc
 		if (not empty f)
-			cr = f.Fund + cr;
+			cr = f.Revenue + cr;
 		end if;
 	end for;
 end for;
@@ -117,7 +117,7 @@ for each fund in funds
 	select many fr related by fund->Account[R202.''budgetize'']->Requested[R190]; 
 	for each f in fr
 		if (not empty f)
-			rr = f.Fund + rr;
+			rr = f.Revenue + rr;
 		end if;
 	end for;
 end for;

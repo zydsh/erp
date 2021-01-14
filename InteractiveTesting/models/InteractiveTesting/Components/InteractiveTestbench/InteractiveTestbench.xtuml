@@ -2755,7 +2755,7 @@ INSERT INTO SPR_RS
 	'ReadAllBudgetAccounts',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("d03ec770-4b23-4379-a807-acf97011ad3d",
@@ -2773,7 +2773,7 @@ INSERT INTO SPR_RS
 	'SendJournal',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("25f94d89-02d2-4b1a-9dcb-08ae03a39f46",
@@ -2791,7 +2791,7 @@ INSERT INTO SPR_RS
 	'ReadSalaryJournal',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("e140b130-5703-40b6-948f-73122844e333",
@@ -2809,7 +2809,7 @@ INSERT INTO SPR_RS
 	'ReadTransferJournal',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c453de33-2cb1-4f48-ae7e-2c8e6e957c7a",
@@ -2827,7 +2827,7 @@ INSERT INTO SPR_RS
 	'CreateSubAccount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f8471943-f524-4541-840b-382b436abdb1",
@@ -2845,7 +2845,7 @@ INSERT INTO SPR_RS
 	'ReadBudgetAccounts',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("020d8e36-a283-4deb-b691-699a8f5e87cb",
@@ -2863,13 +2863,49 @@ INSERT INTO SPR_RS
 	'ReadBudgetPrograms',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7017f587-96d1-4ef0-a888-ae64cf3a63be",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadBudgetPrograms',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("9b464f7b-ea23-4243-80db-f7b47b152036",
+	"cffbc631-c5c2-4077-9375-218b0527dee5",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("9b464f7b-ea23-4243-80db-f7b47b152036",
+	'ModifyCeiling',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("cffbc631-c5c2-4077-9375-218b0527dee5",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ModifyCeiling',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("24535acb-3929-44f1-abbe-0e1b96dc4474",
+	"ff71f4ae-3892-42b1-9cf0-8c111dc2cb5b",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("24535acb-3929-44f1-abbe-0e1b96dc4474",
+	'ModifyRequested',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ff71f4ae-3892-42b1-9cf0-8c111dc2cb5b",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ModifyRequested',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
