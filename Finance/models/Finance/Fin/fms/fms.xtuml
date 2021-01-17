@@ -1994,6 +1994,66 @@ INSERT INTO C_EP_PROXY
 	'ModifyRequested',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("4d3daf4d-d551-4564-9a22-5bfce00fada6",
+	"879d3639-0c10-48ed-99a6-0945d15c4708",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("4d3daf4d-d551-4564-9a22-5bfce00fada6",
+	'CreateBudget',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.Year;
+
+ if (empty budget)
+ 	create object instance newBudget of Budget;
+ 	newBudget.Year = param.Year;
+ 	UI::Reply( msg:"Budget is created", state: True);
+ 	
+ 	select any prevBudget from instances of Budget where selected.Year == param.FromBudget;
+ 	if (not empty prevBudget)
+ 	 	select many accounts related by prevBudget->Account[R100.''assigned''];
+ 	 	for each account in accounts
+ 	 		generate Account5:Close to account;
+ 	 		create object instance newAccount of Account;
+ 	 		select one ceiling related by account->Ceiling[R190];
+ 	 		select one requested related by account->Requested[R190];
+ 	 		if ( not empty ceiling)
+ 	 			create object instance ceilingAccount of Ceiling;
+				ceilingAccount.Fund = ceiling.Fund;
+				ceilingAccount.Revenue = ceiling.Revenue;
+				relate ceilingAccount to newAccount across R190;
+			else
+ 	 			create object instance requestedAccount of Requested;
+				requestedAccount.Fund = requested.Fund;
+				requestedAccount.Revenue = requested.Revenue;
+				relate requestedAccount to newAccount across R190;
+ 	 		end if;
+ 	 		select one specAccount related by account->AccountSpecification[R70.''served previously by''];
+ 	 		
+ 	 		relate specAccount to newAccount across R202.''budgetize'';
+ 	 		relate newAccount to newBudget across R100.''belongs to'';
+
+ 	 	end for;
+ 	else
+ 		UI::Reply( msg:"Previous budget does not exist", state: False);
+
+ 	end if;
+
+ else
+ 	UI::Reply( msg:"Budget alrady exists", state: False);
+ end if; 
+ 
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("879d3639-0c10-48ed-99a6-0945d15c4708",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateBudget',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
