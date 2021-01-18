@@ -185,11 +185,16 @@ INSERT INTO SM_ACT
 	1,
 	'select one test related by self->Initializer[R800.''runs''];
 select one uc6 related by self->UC6_ReadAccounts[R900.''runs'']; 
+select one ucB related by self->UC_CreatingNewBudget[R901.''runs'']; 
+
 if (not empty test)
 	generate Initializer1:Initialized to test;
 	self.WaitingTime = test.WaitingTime;
 elif (not empty uc6)
 	generate UC6_ReadAccounts1:Test to uc6;
+elif (not empty ucB)
+	generate UC_CreatingNewBudget1:Test to ucB;
+
 end if;
 
 create event instance restart of Timer3:Restart to self;

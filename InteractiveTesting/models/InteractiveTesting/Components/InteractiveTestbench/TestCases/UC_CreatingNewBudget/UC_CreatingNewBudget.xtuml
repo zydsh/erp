@@ -1,0 +1,99 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("a83d465f-35f3-43e3-b6b6-848334ae0606",
+	'UC_CreatingNewBudget',
+	11,
+	'UC_CreatingNewBudget',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("c79f7e24-8494-420f-b4fb-e840a5ddf8fa",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606",
+	'run',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'create object instance newBudget of UC_CreatingNewBudget;
+generate UC_CreatingNewBudget1:Test to newBudget;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_NBATTR
+	VALUES ("9ba6a7fa-465f-4cab-87cf-0010440cee27",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO O_BATTR
+	VALUES ("9ba6a7fa-465f-4cab-87cf-0010440cee27",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO O_ATTR
+	VALUES ("9ba6a7fa-465f-4cab-87cf-0010440cee27",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("9b73203d-e88e-49cd-9ef7-2c87e03ca6d7",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO O_BATTR
+	VALUES ("9b73203d-e88e-49cd-9ef7-2c87e03ca6d7",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO O_ATTR
+	VALUES ("9b73203d-e88e-49cd-9ef7-2c87e03ca6d7",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606",
+	"9ba6a7fa-465f-4cab-87cf-0010440cee27",
+	'CurrentYear',
+	'Represents the previous budget year',
+	'',
+	'CurrentYear',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'2021');
+INSERT INTO O_NBATTR
+	VALUES ("52e89657-ba6d-4c3e-a340-3191893faba6",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO O_BATTR
+	VALUES ("52e89657-ba6d-4c3e-a340-3191893faba6",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO O_ATTR
+	VALUES ("52e89657-ba6d-4c3e-a340-3191893faba6",
+	"a83d465f-35f3-43e3-b6b6-848334ae0606",
+	"9b73203d-e88e-49cd-9ef7-2c87e03ca6d7",
+	'NewYear',
+	'Represents the budget for the new year ',
+	'',
+	'NewYear',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'2022');
+INSERT INTO O_ID
+	VALUES (0,
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO O_ID
+	VALUES (1,
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO O_ID
+	VALUES (2,
+	"a83d465f-35f3-43e3-b6b6-848334ae0606");
+INSERT INTO PE_PE
+	VALUES ("a83d465f-35f3-43e3-b6b6-848334ae0606",
+	1,
+	"f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'TestCases',
+	'',
+	0,
+	'../TestCases.xtuml');
