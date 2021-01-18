@@ -674,13 +674,13 @@ INSERT INTO SM_TXN
 	"05a2da0f-4371-4324-b9d8-0bdc3e1caeff",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_NSTXN
-	VALUES ("70d6c8f3-8d2e-49ae-9084-899fabaa931b",
+	VALUES ("8ab6fcd1-70fb-4102-9577-8a31cc79192a",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	"d4792e35-261b-408b-8eb6-92e72fc62445",
 	"6f9d75e6-a722-4b6a-af7f-2929d8368863",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_TXN
-	VALUES ("70d6c8f3-8d2e-49ae-9084-899fabaa931b",
+	VALUES ("8ab6fcd1-70fb-4102-9577-8a31cc79192a",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	"f0fdb393-8035-4ca2-867d-fefbac60aaa2",
 	"00000000-0000-0000-0000-000000000000");
@@ -822,8 +822,14 @@ INSERT INTO SM_ACT
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	1,
 	'	select one account related by self->AccountSpecification[R170.''operated by''];
-	relate self to account across R70.''served previously by'';
-	unrelate self from account across R170.''operated by'';',
+	if (not empty account)
+		relate self to account across R70.''served previously by'';
+		unrelate self from account across R170.''operated by'';
+	else
+		select one account related by self->AccountSpecification[R202.''budgetized by''];
+		unrelate self from account across R202.''budgetized by'';
+		relate self to account across R70.''served previously by'';
+	end if;',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -921,14 +927,14 @@ INSERT INTO SM_ACT
 	'',
 	0);
 INSERT INTO SM_TAH
-	VALUES ("ac0093ac-6627-45d6-b4f1-27276585d03a",
+	VALUES ("f158b623-05aa-4ce9-b43b-188bbe892ab7",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
-	"70d6c8f3-8d2e-49ae-9084-899fabaa931b");
+	"8ab6fcd1-70fb-4102-9577-8a31cc79192a");
 INSERT INTO SM_AH
-	VALUES ("ac0093ac-6627-45d6-b4f1-27276585d03a",
+	VALUES ("f158b623-05aa-4ce9-b43b-188bbe892ab7",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3");
 INSERT INTO SM_ACT
-	VALUES ("ac0093ac-6627-45d6-b4f1-27276585d03a",
+	VALUES ("f158b623-05aa-4ce9-b43b-188bbe892ab7",
 	"9b52851f-71fa-4df6-91aa-92cf040ab5c3",
 	3,
 	'',
@@ -1103,6 +1109,11 @@ INSERT INTO DIM_CON
 INSERT INTO DIM_CON
 	VALUES ("aa8f51a2-0e76-4090-b312-e6477cc31012",
 	4152.000000,
+	3277.000000,
+	"d2e1de48-5c2b-41ef-a85b-90f2278cfdfe");
+INSERT INTO DIM_CON
+	VALUES ("b8324842-50b2-4f67-8dea-97e74eaf7212",
+	4140.000000,
 	3277.000000,
 	"d2e1de48-5c2b-41ef-a85b-90f2278cfdfe");
 INSERT INTO GD_GE
@@ -1510,6 +1521,11 @@ INSERT INTO DIM_CON
 INSERT INTO DIM_CON
 	VALUES ("92753dd7-7b54-4ad1-b88a-f9d890d2d23f",
 	4152.000000,
+	3348.000000,
+	"000e9d73-0aae-4668-8331-a319b1e9e473");
+INSERT INTO DIM_CON
+	VALUES ("ffa1bae6-eb5b-406c-bfc0-8b91ecf0eb07",
+	4140.000000,
 	3348.000000,
 	"000e9d73-0aae-4668-8331-a319b1e9e473");
 INSERT INTO GD_GE
@@ -2047,105 +2063,105 @@ INSERT INTO DIM_ED
 	"b38c18e7-3ec6-418e-a5ea-0f317354a736",
 	"9b13096e-a6b4-40b0-ac78-2117bff05ae3");
 INSERT INTO GD_GE
-	VALUES ("8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	VALUES ("338aa3ef-abee-4835-8ea9-625f31282fc9",
 	"72523fc7-0d77-41b3-9823-dd0014b6220b",
-	"70d6c8f3-8d2e-49ae-9084-899fabaa931b",
+	"8ab6fcd1-70fb-4102-9577-8a31cc79192a",
 	42,
 	0,
 	'Finance::Fin::fms::Financing::Account::Instance State Machine::Rejected::Account5: Close');
 INSERT INTO GD_CON
-	VALUES ("8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	VALUES ("338aa3ef-abee-4835-8ea9-625f31282fc9",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("b78b59e0-137e-4dd0-bba7-1c1ebab31f8b",
-	"8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	VALUES ("cbac9cd2-52cd-4830-a538-9466730caee3",
+	"338aa3ef-abee-4835-8ea9-625f31282fc9",
 	0,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"b78b59e0-137e-4dd0-bba7-1c1ebab31f8b");
+	"cbac9cd2-52cd-4830-a538-9466730caee3");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"b78b59e0-137e-4dd0-bba7-1c1ebab31f8b",
+	"cbac9cd2-52cd-4830-a538-9466730caee3",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("b78b59e0-137e-4dd0-bba7-1c1ebab31f8b",
+	VALUES ("cbac9cd2-52cd-4830-a538-9466730caee3",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("5f5983fa-d76a-420e-acd6-cd254b3e0098",
-	"8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	VALUES ("e08dd515-cef3-4bd9-aeff-201942f6b867",
+	"338aa3ef-abee-4835-8ea9-625f31282fc9",
 	2,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"5f5983fa-d76a-420e-acd6-cd254b3e0098");
+	"e08dd515-cef3-4bd9-aeff-201942f6b867");
 INSERT INTO DIM_GE
-	VALUES (4028.000000,
+	VALUES (4016.000000,
 	3306.000000,
-	"5f5983fa-d76a-420e-acd6-cd254b3e0098",
+	"e08dd515-cef3-4bd9-aeff-201942f6b867",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("5f5983fa-d76a-420e-acd6-cd254b3e0098",
+	VALUES ("e08dd515-cef3-4bd9-aeff-201942f6b867",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_CTXT
-	VALUES ("1f88eb14-0dc6-4c34-99f6-c2ae9715c82c",
-	"8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	VALUES ("2d97e8ca-896a-4c1a-beda-c7c2e6a56f9c",
+	"338aa3ef-abee-4835-8ea9-625f31282fc9",
 	1,
 	0.000000,
 	0.000000);
 INSERT INTO DIM_ND
 	VALUES (0.000000,
 	0.000000,
-	"1f88eb14-0dc6-4c34-99f6-c2ae9715c82c");
+	"2d97e8ca-896a-4c1a-beda-c7c2e6a56f9c");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"1f88eb14-0dc6-4c34-99f6-c2ae9715c82c",
+	"2d97e8ca-896a-4c1a-beda-c7c2e6a56f9c",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("1f88eb14-0dc6-4c34-99f6-c2ae9715c82c",
+	VALUES ("2d97e8ca-896a-4c1a-beda-c7c2e6a56f9c",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO GD_LS
-	VALUES ("b0318962-a140-4450-a51d-8d6b0e22bcb4",
-	"8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	VALUES ("34cbc08d-bdc4-432e-a8ea-3c2c847bf008",
+	"338aa3ef-abee-4835-8ea9-625f31282fc9",
 	"00000000-0000-0000-0000-000000000000",
-	"d1bbdeaf-9a19-42eb-b188-a3678ebd71c7",
-	"6710a9fe-08c8-4a92-b8c3-4feb772ce140");
+	"ae555f9a-3015-4943-a8dd-1663ab0ad53f",
+	"029e0412-6e52-4b66-82bf-7cbed77bb3df");
 INSERT INTO DIM_WAY
-	VALUES ("d1bbdeaf-9a19-42eb-b188-a3678ebd71c7",
-	4152.000000,
+	VALUES ("ae555f9a-3015-4943-a8dd-1663ab0ad53f",
+	4140.000000,
 	3277.000000,
-	"8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	"338aa3ef-abee-4835-8ea9-625f31282fc9",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_WAY
-	VALUES ("6710a9fe-08c8-4a92-b8c3-4feb772ce140",
-	4152.000000,
+	VALUES ("029e0412-6e52-4b66-82bf-7cbed77bb3df",
+	4140.000000,
 	3348.000000,
-	"8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	"338aa3ef-abee-4835-8ea9-625f31282fc9",
 	"00000000-0000-0000-0000-000000000000",
-	"d1bbdeaf-9a19-42eb-b188-a3678ebd71c7");
+	"ae555f9a-3015-4943-a8dd-1663ab0ad53f");
 INSERT INTO DIM_GE
 	VALUES (0.000000,
 	0.000000,
-	"8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	"338aa3ef-abee-4835-8ea9-625f31282fc9",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
-	VALUES ("8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1",
+	VALUES ("338aa3ef-abee-4835-8ea9-625f31282fc9",
 	0,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ED
-	VALUES ("aa8f51a2-0e76-4090-b312-e6477cc31012",
-	"92753dd7-7b54-4ad1-b88a-f9d890d2d23f",
-	"8f5dd9e4-1df0-49cd-8e89-2b37d7f2dbb1");
+	VALUES ("b8324842-50b2-4f67-8dea-97e74eaf7212",
+	"ffa1bae6-eb5b-406c-bfc0-8b91ecf0eb07",
+	"338aa3ef-abee-4835-8ea9-625f31282fc9");
 INSERT INTO DIM_DIA
 	VALUES ("72523fc7-0d77-41b3-9823-dd0014b6220b",
 	'',

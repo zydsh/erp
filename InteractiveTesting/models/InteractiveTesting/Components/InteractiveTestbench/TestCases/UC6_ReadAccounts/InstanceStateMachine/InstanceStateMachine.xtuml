@@ -722,9 +722,10 @@ INSERT INTO SM_ACT
 	"d3cdf42d-a7fd-41e1-bc1a-56e60ab141fb",
 	1,
 	'self.Open = true;
-Finance::OperationalizeAccount( Code:self.Code );
-Finance::OperationalizeAccount( Code:self.TransferFromAccount );
-Finance::OperationalizeAccount( Code:self.ProgramCode );',
+Finance::Operationalize( Year:"2021" );
+//Finance::OperationalizeAccount( Code:self.Code );
+//Finance::OperationalizeAccount( Code:self.TransferFromAccount );
+//Finance::OperationalizeAccount( Code:self.ProgramCode );',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -1233,7 +1234,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("3ee2e034-0f57-4fce-839b-b5276ae0290b",
 	"d3cdf42d-a7fd-41e1-bc1a-56e60ab141fb",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -1261,7 +1262,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("0c00a730-8a07-4559-9f5b-752ebfb05801",
 	"d3cdf42d-a7fd-41e1-bc1a-56e60ab141fb",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -1289,7 +1290,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("1266046c-0d08-47fb-83b1-35d1f7b587e0",
 	"d3cdf42d-a7fd-41e1-bc1a-56e60ab141fb",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -1303,7 +1304,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("893d00b9-63ed-4c22-b70c-4e5dd930bfe5",
 	"d3cdf42d-a7fd-41e1-bc1a-56e60ab141fb",
-	3,
+	1,
 	'',
 	'',
 	0);

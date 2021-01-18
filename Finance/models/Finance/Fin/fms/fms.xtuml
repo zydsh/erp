@@ -2029,9 +2029,11 @@ INSERT INTO SPR_PS
 				relate requestedAccount to newAccount across R190;
  	 		end if;
  	 		select one specAccount related by account->AccountSpecification[R70.''served previously by''];
- 	 		
- 	 		relate specAccount to newAccount across R202.''budgetize'';
- 	 		relate newAccount to newBudget across R100.''belongs to'';
+ 	 		if (not empty specAccount)
+ 	 			relate specAccount to newAccount across R202.''budgetize'';
+ 	 			relate newAccount to newBudget across R100.''belongs to'';
+ 	 		else 
+ 	 		end if;
 
  	 	end for;
  	else
@@ -2052,6 +2054,29 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'CreateBudget',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("eb3327d1-0d9b-4dd3-a95f-162f8258ea3f",
+	"b54dad13-94d0-4401-a0df-ea4c05e12c85",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("eb3327d1-0d9b-4dd3-a95f-162f8258ea3f",
+	'Operationalize',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.Year; 
+select many accounts related by budget->Account[R100.''assigned''];
+for each account in accounts
+		generate Account4:Open to account;
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b54dad13-94d0-4401-a0df-ea4c05e12c85",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'Operationalize',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
