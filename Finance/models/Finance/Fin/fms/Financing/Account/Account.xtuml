@@ -5,7 +5,14 @@ INSERT INTO O_OBJ
 	'Account',
 	1,
 	'Account',
-	'Represents the budget of an account for a specific year. ',
+	'Represents an account budgeted 
+and operated for a specific year. 
+Two instances are created during 
+a budgeting period (4th quarter)
+to propose for next year budget. 
+Only one instance is chosen to 
+represent the budget with the 
+approved amounts.  ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("396e4e7f-2b48-48ef-9ac5-bdf69dc44e49",

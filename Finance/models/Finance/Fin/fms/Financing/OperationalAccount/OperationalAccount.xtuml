@@ -5,7 +5,9 @@ INSERT INTO O_OBJ
 	'OperationalAccount',
 	2,
 	'OperationalAccount',
-	'',
+	'Represents accounts budgeted for a financial year, 
+typically defined in the chart of accounts.
+Created to hold  a summary of all operational transactions.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("a075289e-00c2-49cf-9c0b-30985669473a",

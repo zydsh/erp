@@ -4309,7 +4309,7 @@ INSERT INTO R_PART
 	"7d6c56a1-c5f7-438f-8297-6a7c46e05989",
 	"14952cdb-cb20-4bfb-8369-c628b8f29306",
 	0,
-	0,
+	1,
 	'served previously by');
 INSERT INTO R_RTO
 	VALUES ("ec54c712-12e9-4268-9a8f-d9173675ec67",

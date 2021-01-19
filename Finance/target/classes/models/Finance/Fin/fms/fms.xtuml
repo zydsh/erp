@@ -1949,7 +1949,7 @@ for each baccount in budgetAccount
 		ceiling.Revenue = param.Revenue;
 		UI::Reply( msg:"Ceiling modified successfully ", state: True);
 	end if;
-	UI::Reply( msg:"Ceiling is unsuccessful: could not find ceiling ", state: False);
+	UI::Reply( msg:"Ceiling is unsuccessful: could not find account ", state: False);
 
 end for;
 ',
@@ -1960,6 +1960,123 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ModifyCeiling',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("9d96ec0d-b36a-4b2c-a814-a750bf2318f1",
+	"ff71f4ae-3892-42b1-9cf0-8c111dc2cb5b",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("9d96ec0d-b36a-4b2c-a814-a750bf2318f1",
+	'ModifyRequested',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code == param.Code; 
+select many budgetAccount related by account->Account[R202.''budgetize''];
+
+
+for each baccount in budgetAccount
+	select one requested related by baccount->Requested[R190];
+	if (not empty requested)
+		requested.Fund = param.Fund;
+		requested.Revenue = param.Revenue;
+		UI::Reply( msg:"Requested modified successfully ", state: True);
+	end if;
+	UI::Reply( msg:"Requested is unsuccessful: could not find account ", state: False);
+
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ff71f4ae-3892-42b1-9cf0-8c111dc2cb5b",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ModifyRequested',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("4d3daf4d-d551-4564-9a22-5bfce00fada6",
+	"879d3639-0c10-48ed-99a6-0945d15c4708",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("4d3daf4d-d551-4564-9a22-5bfce00fada6",
+	'CreateBudget',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.Year;
+
+ if (empty budget)
+ 	create object instance newBudget of Budget;
+ 	newBudget.Year = param.Year;
+ 	UI::Reply( msg:"Budget is created", state: True);
+ 	
+ 	select any prevBudget from instances of Budget where selected.Year == param.FromBudget;
+ 	if (not empty prevBudget)
+ 	 	select many accounts related by prevBudget->Account[R100.''assigned''];
+ 	 	for each account in accounts
+ 	 		generate Account5:Close to account;
+ 	 		create object instance newAccount of Account;
+ 	 		select one ceiling related by account->Ceiling[R190];
+ 	 		select one requested related by account->Requested[R190];
+ 	 		if ( not empty ceiling)
+ 	 			create object instance ceilingAccount of Ceiling;
+				ceilingAccount.Fund = ceiling.Fund;
+				ceilingAccount.Revenue = ceiling.Revenue;
+				relate ceilingAccount to newAccount across R190;
+			else
+ 	 			create object instance requestedAccount of Requested;
+				requestedAccount.Fund = requested.Fund;
+				requestedAccount.Revenue = requested.Revenue;
+				relate requestedAccount to newAccount across R190;
+ 	 		end if;
+ 	 		select one specAccount related by account->AccountSpecification[R70.''served previously by''];
+ 	 		if (not empty specAccount)
+ 	 			relate specAccount to newAccount across R202.''budgetize'';
+ 	 			relate newAccount to newBudget across R100.''belongs to'';
+ 	 		else 
+ 	 		end if;
+
+ 	 	end for;
+ 	else
+ 		UI::Reply( msg:"Previous budget does not exist", state: False);
+
+ 	end if;
+
+ else
+ 	UI::Reply( msg:"Budget alrady exists", state: False);
+ end if; 
+ 
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("879d3639-0c10-48ed-99a6-0945d15c4708",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'CreateBudget',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("eb3327d1-0d9b-4dd3-a95f-162f8258ea3f",
+	"b54dad13-94d0-4401-a0df-ea4c05e12c85",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("eb3327d1-0d9b-4dd3-a95f-162f8258ea3f",
+	'Operationalize',
+	'',
+	'select any budget from instances of Budget where selected.Year == param.Year; 
+select many accounts related by budget->Account[R100.''assigned''];
+for each account in accounts
+		generate Account4:Open to account;
+end for;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("b54dad13-94d0-4401-a0df-ea4c05e12c85",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'Operationalize',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

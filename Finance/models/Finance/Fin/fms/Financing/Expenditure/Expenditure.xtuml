@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'Expenditure',
 	15,
 	'Expenditure',
-	'',
+	'Represents the budgets assigned to an account 
+including sub-accounts and programs.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_DBATTR
 	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
