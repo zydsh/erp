@@ -5,7 +5,9 @@ INSERT INTO O_OBJ
 	'Journal',
 	9,
 	'Journal',
-	'',
+	'Represents a collection of entries. 
+Journals may be general purpose or 
+specialized.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("89383897-e1e8-4eda-b97c-f46bebf138b1",

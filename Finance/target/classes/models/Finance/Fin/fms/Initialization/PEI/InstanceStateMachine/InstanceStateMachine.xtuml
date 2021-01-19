@@ -825,7 +825,8 @@ select many accounts from instances of AccountSpecification;
 for each account in accounts
 	select one expenditure related by account->Expenditure[R180];
 	select one program related by account->Program[R180];
-	if (empty expenditure)
+	select one cash related by account->Cash[R220];
+	if (empty expenditure) and (empty cash)
 		create object instance budgetAccountCeiling of Account;
 		create object instance ceiling of Ceiling;
 		ceiling.Fund=1530050;
@@ -843,7 +844,7 @@ for each account in accounts
 		relate budgetAccountRequested to requested across R190;
 		relate account to budgetAccountRequested across R202;
 		relate budgetAccountRequested to budget across R100.''belongs to'';
-	elif (not empty program)
+	elif (not empty program) and (empty cash)
 		create object instance budgetAccountCeiling of Account;
 		create object instance ceiling of Ceiling;
 		ceiling.Fund=1000000;
