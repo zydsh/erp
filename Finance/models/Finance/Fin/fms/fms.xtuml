@@ -2079,6 +2079,36 @@ INSERT INTO C_EP_PROXY
 	'Operationalize',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f63596ac-397d-4145-a165-84863fc8c5f1",
+	"7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("f63596ac-397d-4145-a165-84863fc8c5f1",
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ',
+	'select any budget from instances of Budget where selected.Year == param.Year;
+
+ if (not empty budget)
+ 		select many budgets related by budget->Account[R100.''assigned''];
+ 		for each ba in budgets
+ 			generate Account8:Disregarded to ba;
+ 		end for;
+ else
+ 	UI::Reply( msg:"Budget does not exist", state: False);
+ end if; 
+ 
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
