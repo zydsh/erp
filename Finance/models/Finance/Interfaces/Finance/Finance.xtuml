@@ -1916,6 +1916,27 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ');
+INSERT INTO C_AS
+	VALUES ("7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ',
+	0,
+	"b54dad13-94d0-4401-a0df-ea4c05e12c85");
+INSERT INTO C_PP
+	VALUES ("ee8d9fc4-a123-4f27-9725-6b0c1380787b",
+	"7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Year',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

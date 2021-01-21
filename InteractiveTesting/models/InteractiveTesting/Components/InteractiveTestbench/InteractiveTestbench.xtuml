@@ -2935,7 +2935,7 @@ INSERT INTO SPR_RS
 	'Operationalize',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("b54dad13-94d0-4401-a0df-ea4c05e12c85",
@@ -2943,6 +2943,24 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'Operationalize',
 	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("ac8a6230-0145-4cbc-8411-28fabfb2e3d0",
+	"7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("ac8a6230-0145-4cbc-8411-28fabfb2e3d0",
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
