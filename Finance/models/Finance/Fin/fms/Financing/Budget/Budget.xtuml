@@ -19,7 +19,8 @@ INSERT INTO O_ATTR
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
 	"00000000-0000-0000-0000-000000000000",
 	'Year',
-	'',
+	'A unique identifier represented by the year
+the budget is proposed for.',
 	'',
 	'Year',
 	0,
@@ -51,7 +52,8 @@ INSERT INTO O_ATTR
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
 	"cc1d659a-b46f-499c-81c3-a6e7a61542b1",
 	'Ceiling',
-	'',
+	'The total budget according to the ceiling amount
+set by the Ministory of Finance.',
 	'',
 	'Ceiling',
 	0,
@@ -81,7 +83,7 @@ INSERT INTO O_ATTR
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
 	"25eba0db-1f28-4497-86c9-4b45fc46d076",
 	'Requested',
-	'',
+	'The total proposed budget according to the requested amount by the entity.',
 	'',
 	'Requested',
 	0,
@@ -111,16 +113,24 @@ INSERT INTO O_ATTR
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
 	"32c614cb-45e6-4625-a3d3-ae03093545e0",
 	'CeilingRevenue',
-	'Represents the ceiling revenue expected for the budget year. ',
+	'Represents the total ceiling revenue expected for the budget year. ',
 	'',
 	'CeilingRevenue',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
-INSERT INTO O_NBATTR
+INSERT INTO O_DBATTR
 	VALUES ("dad2da19-4a08-4689-b200-385dc835f80e",
-	"c14b6239-719a-4401-8f20-e31870ddf92e");
+	"c14b6239-719a-4401-8f20-e31870ddf92e",
+	'fund =0;
+select many accounts related by self->Account[R100.''assigned''];
+for each account in accounts 
+		fund = fund + account.OpeningBalance;
+end for;
+self.Fund = fund;',
+	1,
+	0);
 INSERT INTO O_BATTR
 	VALUES ("dad2da19-4a08-4689-b200-385dc835f80e",
 	"c14b6239-719a-4401-8f20-e31870ddf92e");
@@ -129,7 +139,8 @@ INSERT INTO O_ATTR
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
 	"f718b825-5683-409f-a804-a21247bae6e9",
 	'Fund',
-	'',
+	'The actual total budget for the year after accounts are approved, 
+and operational.',
 	'',
 	'Fund',
 	0,
@@ -158,7 +169,7 @@ INSERT INTO O_ATTR
 	"c14b6239-719a-4401-8f20-e31870ddf92e",
 	"cfead01b-9e42-4a52-afd0-69d5d05b33dd",
 	'RequestedRevenue',
-	'',
+	'Represents the total requested revenue expected for the budget year. ',
 	'',
 	'RequestedRevenue',
 	0,

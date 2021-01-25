@@ -20,7 +20,10 @@ INSERT INTO O_ATTR
 	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
 	"00000000-0000-0000-0000-000000000000",
 	'Name',
-	'',
+	'A unique name for the journal. 
+Some names are standard such as: master journal, or cash journal.
+Others may be specialized depending on the entity''s accounting
+practice.',
 	'',
 	'Name',
 	0,
@@ -38,7 +41,8 @@ INSERT INTO O_ATTR
 	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
 	"89383897-e1e8-4eda-b97c-f46bebf138b1",
 	'Description',
-	'',
+	'A note on the purpose of the journal and some guidelines
+on using it.',
 	'',
 	'Description',
 	0,

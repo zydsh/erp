@@ -2962,6 +2962,24 @@ INSERT INTO C_EP_PROXY
 	'DisregardBudget',
 	'Deleting a newly created budget which has not been operationalized ',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("52bab52e-2e23-4235-963f-5bd92911bc95",
+	"c11a0355-c209-48be-86a2-ab205a9c805a",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("52bab52e-2e23-4235-963f-5bd92911bc95",
+	'ReadNewPrograms',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c11a0355-c209-48be-86a2-ab205a9c805a",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadNewPrograms',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",

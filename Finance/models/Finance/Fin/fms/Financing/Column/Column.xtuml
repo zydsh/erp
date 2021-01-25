@@ -33,7 +33,8 @@ INSERT INTO O_ATTR
 	"2243fe3d-0a95-4aa3-a947-24cff91ba626",
 	"00000000-0000-0000-0000-000000000000",
 	'Title',
-	'',
+	'Indicates the two accounts being affected by an enrty amount. 
+',
 	'',
 	'Title',
 	0,
@@ -51,7 +52,8 @@ INSERT INTO O_ATTR
 	"2243fe3d-0a95-4aa3-a947-24cff91ba626",
 	"6ede1aaa-14ad-439f-92c1-8d9e85e6b5ba",
 	'Description',
-	'',
+	'A brief note on the column, explaining its use and purpose 
+with remarks on accounts affected ',
 	'',
 	'Description',
 	0,
