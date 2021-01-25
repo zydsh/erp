@@ -18,7 +18,7 @@ INSERT INTO O_ATTR
 	"9fee052f-1640-44c6-b838-78c0f9ba28ff",
 	"00000000-0000-0000-0000-000000000000",
 	'Date',
-	'',
+	'Indicates when the entry was made.',
 	'',
 	'Date',
 	0,
@@ -36,7 +36,8 @@ INSERT INTO O_ATTR
 	"9fee052f-1640-44c6-b838-78c0f9ba28ff",
 	"023d3631-c64b-49ed-adb7-aedec55e95b6",
 	'Description',
-	'',
+	'Notes on the entry that may include beneficiaries 
+and/or remarks on the purpose of the transaction ',
 	'',
 	'Description',
 	0,

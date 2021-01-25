@@ -19,7 +19,9 @@ INSERT INTO O_ATTR
 	"f739c7cd-bb8d-47ad-b214-0da9fcd30ecf",
 	"00000000-0000-0000-0000-000000000000",
 	'Fund',
-	'',
+	'Represents the amount in Saudi Riyals of 
+an account for a proposed budget based
+on the ceiling defined for the year.',
 	'',
 	'Fund',
 	0,
@@ -37,7 +39,9 @@ INSERT INTO O_ATTR
 	"f739c7cd-bb8d-47ad-b214-0da9fcd30ecf",
 	"706eb37f-81d3-4d76-b672-7a553c5b2d23",
 	'Revenue',
-	'',
+	'Represents the amount in Saudi Riyals of 
+income expected based
+on the ceiling defined for the year.',
 	'',
 	'Revenue',
 	0,
