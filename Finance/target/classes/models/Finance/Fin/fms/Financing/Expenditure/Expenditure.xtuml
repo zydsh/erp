@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'Expenditure',
 	15,
 	'Expenditure',
-	'',
+	'Represents the budgets assigned to an account 
+including sub-accounts and programs.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_DBATTR
 	VALUES ("bd8376c2-edc6-45fc-8bb3-ac2827edf851",
@@ -34,7 +35,9 @@ INSERT INTO O_ATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	"00000000-0000-0000-0000-000000000000",
 	'CeilingFund',
-	'',
+	'The total budget of sub-accounts 
+according to the ceiling amount
+set by the Ministory of Finance.',
 	'',
 	'CeilingFund',
 	0,
@@ -67,7 +70,9 @@ INSERT INTO O_ATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	"bd8376c2-edc6-45fc-8bb3-ac2827edf851",
 	'CeilingRevenue',
-	'',
+	'The total revenue of sub-accounts 
+relative to the ceiling budget
+set by the Ministory of Finance.',
 	'',
 	'CeilingRevenue',
 	0,
@@ -100,7 +105,9 @@ INSERT INTO O_ATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	"1008e2be-5714-48c0-958d-4f04914f9b98",
 	'RequestedFund',
-	'',
+	'The sub-accounts total budget
+based on to the requested budget
+by the entity.',
 	'',
 	'RequestedFund',
 	0,
@@ -134,7 +141,9 @@ INSERT INTO O_ATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	"35087317-c7d5-45e3-bb9d-864787666da8",
 	'RequestedRevenue',
-	'',
+	'The sub-accounts total revenue
+relative to the requested budget
+by the entity.',
 	'',
 	'RequestedRevenue',
 	0,
@@ -169,7 +178,9 @@ INSERT INTO O_ATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	"dd86938e-20c8-4ba9-b6be-2c84c7260b74",
 	'ProgramCeilingFund',
-	'',
+	'The programs'' total ceiling budget
+for the year earmarked by
+relative sub-accounts. ',
 	'',
 	'ProgramCeilingFund',
 	0,
@@ -204,7 +215,9 @@ INSERT INTO O_ATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	"3bf52411-ae0e-4cbf-b12e-27e0e1abc731",
 	'ProgramRequestedFund',
-	'',
+	'The programs'' total requested budget
+for the year earmarked by
+relative sub-accounts. ',
 	'',
 	'ProgramRequestedFund',
 	0,
@@ -239,7 +252,8 @@ INSERT INTO O_ATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	"c03cb651-d863-45c2-a880-e821a3d776a6",
 	'ProgramCeilingRevenue',
-	'',
+	'The programs'' total expected revenue relative to ceiling budget 
+for the year earmarked by relative sub-accounts. ',
 	'',
 	'ProgramCeilingRevenue',
 	0,
@@ -274,7 +288,8 @@ INSERT INTO O_ATTR
 	"311a98c5-77bd-489e-ac34-b3c279b41dd0",
 	"1826381e-b901-4d71-9b41-4ac505e34d8e",
 	'ProgramRequestedRevenue',
-	'',
+	'The programs'' total expected revenue relative to requested budget 
+for the year earmarked by relative sub-accounts. ',
 	'',
 	'ProgramRequestedRevenue',
 	0,

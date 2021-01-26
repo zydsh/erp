@@ -5,7 +5,10 @@ INSERT INTO O_OBJ
 	'Cash',
 	16,
 	'Cash',
-	'',
+	'Represents cash accounts as part of the left side 
+of the accounting equations (i.e. assets). The current
+system only recognizes cash accounts.
+',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_ID
 	VALUES (0,

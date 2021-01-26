@@ -5,7 +5,14 @@ INSERT INTO O_OBJ
 	'Account',
 	1,
 	'Account',
-	'Represents the budget of an account for a specific year. ',
+	'Represents an account budgeted 
+and operated for a specific year. 
+Two instances are created during 
+a budgeting period (4th quarter)
+to propose for next year budget. 
+Only one instance is chosen to 
+represent the budget with the 
+approved amounts.  ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("396e4e7f-2b48-48ef-9ac5-bdf69dc44e49",
@@ -18,7 +25,9 @@ INSERT INTO O_ATTR
 	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
 	"00000000-0000-0000-0000-000000000000",
 	'OpeningBalance',
-	'',
+	'Represents the total money amount when an account
+is opened (operationalized). The balance is the expected 
+amount to be spent starting from beginning of the financial year. ',
 	'',
 	'OpeningBalance',
 	0,
@@ -62,7 +71,11 @@ INSERT INTO O_ATTR
 	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
 	"75a38bd9-8a92-48e6-b78d-20b486986330",
 	'TransferDebit',
-	'',
+	'The amount transferred to a liability account 
+or from an asset account. The transfer increase
+the liability and decrease the asset.
+
+',
 	'',
 	'TransferDebit',
 	0,
@@ -88,7 +101,10 @@ INSERT INTO O_ATTR
 	"a18d1aff-cd27-4612-bd72-05edfb5a877e",
 	"d8de127b-54db-4303-a5ac-5b4dc983d29c",
 	'TransferCredit',
-	'',
+	'The amount transferred from a liability account 
+or to an asset account. The transfer decrease
+the liability and increase the asset.
+',
 	'',
 	'TransferCredit',
 	0,

@@ -5,7 +5,10 @@ INSERT INTO O_OBJ
 	'OperationalProgram',
 	4,
 	'OperationalProgram',
-	'',
+	'Represents program accounts budgeted for a financial year, 
+typically defined based on the list of projects/programs 
+(see class Program).
+',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_DBATTR
 	VALUES ("0931d104-2d90-4e51-9188-3b2fc2151d0f",
@@ -26,7 +29,7 @@ INSERT INTO O_ATTR
 	"e7957412-8fd9-4bea-aaf8-22e848077979",
 	"00000000-0000-0000-0000-000000000000",
 	'Commitments',
-	'',
+	'Amounts to be put on hold for a contract to be paid in the future',
 	'',
 	'Commitments',
 	0,

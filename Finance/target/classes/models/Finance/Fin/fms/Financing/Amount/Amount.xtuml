@@ -18,7 +18,7 @@ INSERT INTO O_ATTR
 	"984907e3-7685-4dd3-bcec-0d191923ce57",
 	"00000000-0000-0000-0000-000000000000",
 	'Amount',
-	'',
+	'The money amount in Saudi Riyals of an entry.',
 	'',
 	'Amount',
 	0,
