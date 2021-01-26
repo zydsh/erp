@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'AccountSpecification',
 	8,
 	'AccountSpecification',
-	'',
+	'Represents a financial account defined 
+in the chart of accounts of an organization.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("03ef29f4-5dd6-4750-84bb-ccb89dd783e1",
@@ -18,7 +19,8 @@ INSERT INTO O_ATTR
 	"ec54c712-12e9-4268-9a8f-d9173675ec67",
 	"00000000-0000-0000-0000-000000000000",
 	'Code',
-	'',
+	'A unique identfier of an account, 
+defined by the chart of accounts. ',
 	'',
 	'Code',
 	0,
@@ -36,7 +38,7 @@ INSERT INTO O_ATTR
 	"ec54c712-12e9-4268-9a8f-d9173675ec67",
 	"03ef29f4-5dd6-4750-84bb-ccb89dd783e1",
 	'Name',
-	'',
+	'A unique name defined by the chart of accounts.',
 	'',
 	'Name',
 	0,
@@ -54,7 +56,8 @@ INSERT INTO O_ATTR
 	"ec54c712-12e9-4268-9a8f-d9173675ec67",
 	"04806e1f-8539-4f16-992d-4d762121db62",
 	'Description',
-	'',
+	'A brief explanation of the purpose of the account
+and some general guidelines on how to use it.',
 	'',
 	'Description',
 	0,
@@ -72,7 +75,14 @@ INSERT INTO O_ATTR
 	"ec54c712-12e9-4268-9a8f-d9173675ec67",
 	"81bc0d8b-fe74-4e4f-804d-7037c4a00b29",
 	'New',
-	'',
+	'The chart of accounts are not all added at once,
+as number of accounts are not applicable to all organizations.
+Thus if a new account is added to the list of chart of accounts
+in the system for the first time, it is highlighted as new, with the
+value of True. After the budgetary process is complete, the budgets 
+are approved, and the new account becomes in operation;
+the value is switched to False. 
+',
 	'',
 	'New',
 	0,

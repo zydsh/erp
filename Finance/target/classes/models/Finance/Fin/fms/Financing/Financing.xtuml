@@ -196,11 +196,11 @@ INSERT INTO GD_NCS
 	VALUES ("eba45d70-d3a8-41a9-b56f-9eb09d0c1529");
 INSERT INTO DIM_ND
 	VALUES (145.000000,
-	97.000000,
+	121.000000,
 	"eba45d70-d3a8-41a9-b56f-9eb09d0c1529");
 INSERT INTO DIM_GE
 	VALUES (4536.000000,
-	2964.000000,
+	2940.000000,
 	"eba45d70-d3a8-41a9-b56f-9eb09d0c1529",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -2414,11 +2414,11 @@ INSERT INTO GD_NCS
 	VALUES ("d926eebd-f972-4cad-856f-580454708bb2");
 INSERT INTO DIM_ND
 	VALUES (180.000000,
-	108.000000,
+	144.000000,
 	"d926eebd-f972-4cad-856f-580454708bb2");
 INSERT INTO DIM_GE
 	VALUES (3924.000000,
-	2844.000000,
+	2808.000000,
 	"d926eebd-f972-4cad-856f-580454708bb2",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -2966,11 +2966,11 @@ INSERT INTO GD_NCS
 	VALUES ("6afafd64-d684-4799-b45e-e40b8cddf5a4");
 INSERT INTO DIM_ND
 	VALUES (168.000000,
-	108.000000,
+	144.000000,
 	"6afafd64-d684-4799-b45e-e40b8cddf5a4");
 INSERT INTO DIM_GE
 	VALUES (3600.000000,
-	2844.000000,
+	2808.000000,
 	"6afafd64-d684-4799-b45e-e40b8cddf5a4",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -4012,7 +4012,7 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("4ce8cad3-fcc9-4834-a3a8-10c430655264",
 	100,
-	'',
+	'Established when a budget is prepared for approval.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("c14b6239-719a-4401-8f20-e31870ddf92e",
@@ -4062,7 +4062,14 @@ INSERT INTO O_OBJ_PROXY
 	'Account',
 	1,
 	'Account',
-	'Represents the budget of an account for a specific year. ',
+	'Represents an account budgeted 
+and operated for a specific year. 
+Two instances are created during 
+a budgeting period (4th quarter)
+to propose for next year budget. 
+Only one instance is chosen to 
+represent the budget with the 
+approved amounts.  ',
 	"00000000-0000-0000-0000-000000000000",
 	'./Account/Account.xtuml');
 INSERT INTO PE_PE
@@ -4076,7 +4083,9 @@ INSERT INTO R_SUBSUP
 INSERT INTO R_REL
 	VALUES ("ace87379-b67e-4939-976f-bcd532922e2a",
 	200,
-	'',
+	'Established after a budget is approved, representing
+the start of a financial year as the account becomes
+operational.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_SUPER
 	VALUES ("a18d1aff-cd27-4612-bd72-05edfb5a877e",
@@ -4110,7 +4119,10 @@ INSERT INTO O_OBJ_PROXY
 	'OperationalProgram',
 	4,
 	'OperationalProgram',
-	'',
+	'Represents program accounts budgeted for a financial year, 
+typically defined based on the list of projects/programs 
+(see class Program).
+',
 	"00000000-0000-0000-0000-000000000000",
 	'./OperationalProgram/OperationalProgram.xtuml');
 INSERT INTO R_SUB
@@ -4131,7 +4143,9 @@ INSERT INTO O_OBJ_PROXY
 	'OperationalAccount',
 	2,
 	'OperationalAccount',
-	'',
+	'Represents accounts budgeted for a financial year, 
+typically defined in the chart of accounts.
+Created to hold  a summary of all operational transactions.',
 	"00000000-0000-0000-0000-000000000000",
 	'./OperationalAccount/OperationalAccount.xtuml');
 INSERT INTO PE_PE
@@ -4145,7 +4159,7 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("1915dc6c-59f9-4246-b3a9-8ed41f8bf283",
 	30,
-	'',
+	'Established when an account is debited.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("984907e3-7685-4dd3-bcec-0d191923ce57",
@@ -4200,7 +4214,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("091bda1d-ab0b-4f36-9946-e2121ce3b426",
 	40,
-	'',
+	'Established for at least one 
+amount entered in a journal.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("984907e3-7685-4dd3-bcec-0d191923ce57",
@@ -4241,7 +4256,7 @@ INSERT INTO O_OBJ_PROXY
 	'Entry',
 	7,
 	'Entry',
-	'',
+	'Represents a row within a journal',
 	"00000000-0000-0000-0000-000000000000",
 	'./Entry/Entry.xtuml');
 INSERT INTO PE_PE
@@ -4255,7 +4270,7 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("6e0622dc-4b00-415d-941e-57e3dbc5104f",
 	50,
-	'',
+	'Established when an account is credited.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("a18d1aff-cd27-4612-bd72-05edfb5a877e",
@@ -4302,7 +4317,9 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("7d6c56a1-c5f7-438f-8297-6a7c46e05989",
 	70,
-	'',
+	'The association is established after the budget is approved 
+and the account is operational, providing access to previous budgets
+both approved and not approved. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("ec54c712-12e9-4268-9a8f-d9173675ec67",
@@ -4326,7 +4343,8 @@ INSERT INTO O_OBJ_PROXY
 	'AccountSpecification',
 	8,
 	'AccountSpecification',
-	'',
+	'Represents a financial account defined 
+in the chart of accounts of an organization.',
 	"00000000-0000-0000-0000-000000000000",
 	'./AccountSpecification/AccountSpecification.xtuml');
 INSERT INTO R_PART
@@ -4357,7 +4375,7 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("0f661f89-eabe-4734-8e6b-ffd8858f4e1a",
 	80,
-	'',
+	'Established when an account is divided into sub-accounts',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("ec54c712-12e9-4268-9a8f-d9173675ec67",
@@ -4445,7 +4463,9 @@ INSERT INTO O_OBJ_PROXY
 	'Journal',
 	9,
 	'Journal',
-	'',
+	'Represents a collection of entries. 
+Journals may be general purpose or 
+specialized.',
 	"00000000-0000-0000-0000-000000000000",
 	'./Journal/Journal.xtuml');
 INSERT INTO PE_PE
@@ -4459,7 +4479,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("79bbfb5e-197f-4414-a8d3-2cd4fe761af3",
 	120,
-	'',
+	'Established when a journal 
+has more than one column.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("ef105bc0-5a8d-470a-a53c-420b48c984f1",
@@ -4529,7 +4550,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("4f4c86c1-e21a-4486-a8b5-d558e634d6f9",
 	130,
-	'',
+	'Established for each amount 
+recorded under a column.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("2243fe3d-0a95-4aa3-a947-24cff91ba626",
@@ -4576,7 +4598,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("be6b6652-b4e1-4d42-afc1-5881eaf01261",
 	140,
-	'',
+	'Established to assign 
+an account to be debited ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("2243fe3d-0a95-4aa3-a947-24cff91ba626",
@@ -4623,7 +4646,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("cca99552-32c8-46b6-adf8-98ab273d42bd",
 	150,
-	'',
+	'Established to assign 
+an account to be credited ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("2243fe3d-0a95-4aa3-a947-24cff91ba626",
@@ -4670,7 +4694,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("fba8ac23-ff25-4126-b868-5dff80a0dafe",
 	160,
-	'',
+	'Established for the primary column, 
+or in some cases, the only column.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("ef105bc0-5a8d-470a-a53c-420b48c984f1",
@@ -4717,7 +4742,10 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("b0b2084b-c302-4a71-a99f-1a2cc140d76f",
 	170,
-	'',
+	'Established when a budget is approved and operational,
+until a new budget is approved for the next year to replace it.
+
+',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("ec54c712-12e9-4268-9a8f-d9173675ec67",
@@ -4764,7 +4792,8 @@ INSERT INTO R_SUBSUP
 INSERT INTO R_REL
 	VALUES ("097406dd-31d6-4316-b118-ed1edbbe601c",
 	180,
-	'',
+	'Established when an account or a program is created,
+with the exclusion of sub-accounts. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_SUPER
 	VALUES ("ec54c712-12e9-4268-9a8f-d9173675ec67",
@@ -4819,7 +4848,8 @@ INSERT INTO O_OBJ_PROXY
 	'Expenditure',
 	15,
 	'Expenditure',
-	'',
+	'Represents the budgets assigned to an account 
+including sub-accounts and programs.',
 	"00000000-0000-0000-0000-000000000000",
 	'./Expenditure/Expenditure.xtuml');
 INSERT INTO PE_PE
@@ -4833,7 +4863,8 @@ INSERT INTO R_SUBSUP
 INSERT INTO R_REL
 	VALUES ("891a7603-141c-4cd2-8032-78cb41f6da31",
 	190,
-	'',
+	'Established for each account during budgetary preparation. 
+Either an account is ceiling or requested.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_SUPER
 	VALUES ("a18d1aff-cd27-4612-bd72-05edfb5a877e",
@@ -4867,7 +4898,8 @@ INSERT INTO O_OBJ_PROXY
 	'Ceiling',
 	14,
 	'Ceiling',
-	'An upper limit for an account budget for a given year.',
+	'An upper limit for an account, 
+typically less than the requested budget (see class Requested).',
 	"00000000-0000-0000-0000-000000000000",
 	'./Ceiling/Ceiling.xtuml');
 INSERT INTO R_SUB
@@ -4888,7 +4920,8 @@ INSERT INTO O_OBJ_PROXY
 	'Requested',
 	13,
 	'Requested',
-	'',
+	'Represents the budget amounts asked for, 
+typically more than the budget cap (see class Ceiling).',
 	"00000000-0000-0000-0000-000000000000",
 	'./Requested/Requested.xtuml');
 INSERT INTO PE_PE
@@ -4902,7 +4935,10 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("cdfe2a75-1b18-4c90-b819-8ee32ae619c2",
 	202,
-	'',
+	'When a new budget is prepared, one specification 
+account instance is associated with more than one account.
+The association is used until the budgetary exercise is
+complete.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("ec54c712-12e9-4268-9a8f-d9173675ec67",
@@ -4983,7 +5019,10 @@ INSERT INTO O_OBJ_PROXY
 	'Cash',
 	16,
 	'Cash',
-	'',
+	'Represents cash accounts as part of the left side 
+of the accounting equations (i.e. assets). The current
+system only recognizes cash accounts.
+',
 	"00000000-0000-0000-0000-000000000000",
 	'./Cash/Cash.xtuml');
 INSERT INTO R_SUB
@@ -5004,7 +5043,13 @@ INSERT INTO O_OBJ_PROXY
 	'AccountPayble',
 	17,
 	'AccountPayble',
-	'',
+	'Represents sub-accounts recognized 
+as holding money amounts
+payable in the future, 
+as salaries for example. 
+Other accounts
+may include utility bills, 
+employee benefits, etc.',
 	"00000000-0000-0000-0000-000000000000",
 	'./AccountPayble/AccountPayble.xtuml');
 INSERT INTO PE_PE
@@ -5018,7 +5063,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("7997d5b7-5a83-401b-b51d-166ac0892307",
 	230,
-	'',
+	'Established when money 
+is transfered from an account.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("a18d1aff-cd27-4612-bd72-05edfb5a877e",
@@ -5065,7 +5111,8 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("a75011a1-5837-4a4d-9a22-08a8942965b6",
 	240,
-	'',
+	'Established when money 
+is transfered to an account.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("a18d1aff-cd27-4612-bd72-05edfb5a877e",
@@ -5112,7 +5159,9 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("d2ebd16f-0279-406d-a8c3-eb40a405d40c",
 	250,
-	'',
+	'Established when money 
+is planned to be spent
+in the future from an account.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("984907e3-7685-4dd3-bcec-0d191923ce57",
@@ -5159,7 +5208,10 @@ INSERT INTO R_SIMP
 INSERT INTO R_REL
 	VALUES ("f652a4b4-8945-4621-88dc-d7a9422214a5",
 	210,
-	'',
+	'Eshablished for each program 
+to be assigned a reference
+to a sub-account within the 
+chart of accounts.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("fd55a655-ee63-4848-9906-9073853b6815",

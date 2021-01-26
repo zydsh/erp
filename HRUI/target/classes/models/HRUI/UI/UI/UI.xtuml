@@ -3333,6 +3333,78 @@ INSERT INTO C_EP_PROXY
 	'Operationalize',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("26ed265f-6cba-4251-94f0-00fe56747ac2",
+	"7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("26ed265f-6cba-4251-94f0-00fe56747ac2",
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("dd08ba54-56d0-4649-9508-ae4169088185",
+	"c11a0355-c209-48be-86a2-ab205a9c805a",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("dd08ba54-56d0-4649-9508-ae4169088185",
+	'ReadNewPrograms',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("c11a0355-c209-48be-86a2-ab205a9c805a",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadNewPrograms',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("c31428ec-ee29-4df6-88ac-fe92438a5ab3",
+	"3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("c31428ec-ee29-4df6-88ac-fe92438a5ab3",
+	'RelateProgram',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'RelateProgram',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("54947374-bcdf-425a-8d04-5f5987c87174",
+	"7492ca92-a79c-4976-99cc-43df760f4934",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("54947374-bcdf-425a-8d04-5f5987c87174",
+	'UnrelateProgram',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7492ca92-a79c-4976-99cc-43df760f4934",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'UnrelateProgram',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",

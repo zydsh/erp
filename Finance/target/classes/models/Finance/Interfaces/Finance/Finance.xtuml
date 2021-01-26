@@ -1916,6 +1916,90 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ');
+INSERT INTO C_AS
+	VALUES ("7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	'DisregardBudget',
+	'Deleting a newly created budget which has not been operationalized ',
+	0,
+	"b54dad13-94d0-4401-a0df-ea4c05e12c85");
+INSERT INTO C_PP
+	VALUES ("ee8d9fc4-a123-4f27-9725-6b0c1380787b",
+	"7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Year',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("c11a0355-c209-48be-86a2-ab205a9c805a",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadNewPrograms',
+	'');
+INSERT INTO C_AS
+	VALUES ("c11a0355-c209-48be-86a2-ab205a9c805a",
+	'ReadNewPrograms',
+	'',
+	0,
+	"7494c7e6-90ba-46fb-9a3b-f79244ca26a6");
+INSERT INTO C_EP
+	VALUES ("3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'RelateProgram',
+	'');
+INSERT INTO C_AS
+	VALUES ("3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
+	'RelateProgram',
+	'',
+	0,
+	"c11a0355-c209-48be-86a2-ab205a9c805a");
+INSERT INTO C_PP
+	VALUES ("b65fe951-62e7-4c36-9bae-2e4fe94347ca",
+	"3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Program',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("8e136d87-b4f5-4ecc-8523-cd2d3b1a9143",
+	"3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Account',
+	'',
+	0,
+	'',
+	"b65fe951-62e7-4c36-9bae-2e4fe94347ca");
+INSERT INTO C_EP
+	VALUES ("7492ca92-a79c-4976-99cc-43df760f4934",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'UnrelateProgram',
+	'');
+INSERT INTO C_AS
+	VALUES ("7492ca92-a79c-4976-99cc-43df760f4934",
+	'UnrelateProgram',
+	'',
+	0,
+	"3230f25e-00f9-42a1-a8b5-7fdd156e6f21");
+INSERT INTO C_PP
+	VALUES ("128d2a62-16af-407a-a121-dd3abf0b06ab",
+	"7492ca92-a79c-4976-99cc-43df760f4934",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Program',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

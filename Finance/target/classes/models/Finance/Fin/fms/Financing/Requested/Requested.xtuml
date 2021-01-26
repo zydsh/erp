@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'Requested',
 	13,
 	'Requested',
-	'',
+	'Represents the budget amounts asked for, 
+typically more than the budget cap (see class Ceiling).',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("f80936e5-564e-484d-9c5d-0956a680387b",
@@ -18,7 +19,9 @@ INSERT INTO O_ATTR
 	"86c38600-43cb-4007-a405-184512ed5334",
 	"00000000-0000-0000-0000-000000000000",
 	'Fund',
-	'',
+	'Represents the amount in Saudi Riyals of 
+an account for a proposed budget based
+on an entity requirements for a specific year.',
 	'',
 	'Fund',
 	0,
@@ -36,7 +39,9 @@ INSERT INTO O_ATTR
 	"86c38600-43cb-4007-a405-184512ed5334",
 	"f80936e5-564e-484d-9c5d-0956a680387b",
 	'Revenue',
-	'',
+	'Represents the amount in Saudi Riyals of 
+income expected based
+on the requested budget for the year.',
 	'',
 	'Revenue',
 	0,

@@ -5,7 +5,13 @@ INSERT INTO O_OBJ
 	'AccountPayble',
 	17,
 	'AccountPayble',
-	'',
+	'Represents sub-accounts recognized 
+as holding money amounts
+payable in the future, 
+as salaries for example. 
+Other accounts
+may include utility bills, 
+employee benefits, etc.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_ID
 	VALUES (0,

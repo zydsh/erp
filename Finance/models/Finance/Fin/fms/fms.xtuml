@@ -1137,6 +1137,9 @@ if (not empty programs)
 			TransferCredit:operationProgram.TransferCredit, FundsAfterTransfers:program.FundsAfterTransfers, 
 			PastYearsSpending:program.PastYearsSpending, CurrentYearBudget:operationProgram.OpeningBalance, 
 			Commitments:program.Commitments, RemainingFunds:program.RemainingFunds, Percentage:program.Percentage );
+			
+			UI::Reply( msg:"An operationalized program is sent", state:True );  
+
 		elif (not empty parantProgram)
 			UI::SendPrograms( Code:parantProgram.Code, Name:parantProgram.Name, Description:parantProgram.Description,
 			StartDate:program.StartDate, Duration:program.Duration, AccountCode:"", AccountName:"", 
@@ -1144,6 +1147,11 @@ if (not empty programs)
 			TransferCredit:0, FundsAfterTransfers:0, 
 			PastYearsSpending:0, CurrentYearBudget:0, 
 			Commitments:0, RemainingFunds:0, Percentage:0 );
+			
+			UI::Reply( msg:"A new program sent", state:True );  
+		else
+			
+			UI::Reply( msg:"Was not able to send program", state:False );  
 
 		end if;
 
@@ -2133,6 +2141,76 @@ INSERT INTO C_EP_PROXY
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'ReadNewPrograms',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("3a28d20e-4d36-4b9b-9d02-74ec56dd3307",
+	"3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("3a28d20e-4d36-4b9b-9d02-74ec56dd3307",
+	'RelateProgram',
+	'',
+	'select any programAccount from instances of AccountSpecification where selected.Code == param.Program; 
+
+select any account from instances of AccountSpecification where selected.Code == param.Account;
+
+ if (not empty programAccount) and (not empty account)
+ 	select one program related by programAccount->Program[R180];
+ 	select one superAccount related by account->Expenditure[R180];
+ 	if (empty superAccount) 
+ 		select one earmarkAccount related by program->AccountSpecification[R210.''earmarks''];
+ 		if (not empty earmarkAccount)
+ 			unrelate earmarkAccount from program across R210.''earmarked by'';
+ 			relate program to account across R210.''earmarks'';
+ 			UI::Reply( msg:"Program is related to sub-account", state:True ); 
+ 		else
+ 			relate program to account across R210.''earmarks'';
+ 			UI::Reply( msg:"Program is related to sub-account", state:True );  
+ 		end if;
+ 	else
+ 		UI::Reply( msg:"Program cannot relate to account", state:False );  
+ 	end if;
+ end if; 
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'RelateProgram',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("780e1229-cf93-4a3b-990a-b1f54e6e0652",
+	"7492ca92-a79c-4976-99cc-43df760f4934",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("780e1229-cf93-4a3b-990a-b1f54e6e0652",
+	'UnrelateProgram',
+	'',
+	'select any account from instances of AccountSpecification where selected.Code == param.Program; 
+select one program related by account->Program[R180];
+if (not empty program)
+	 	select one earmarkAccount related by program->AccountSpecification[R210.''earmarks''];	
+ 		if (not empty earmarkAccount)
+ 			unrelate earmarkAccount from program across R210.''earmarked by'';
+ 			UI::Reply( msg:"Program is unrelated to sub-account", state:True ); 
+ 		else
+ 			UI::Reply( msg:"Program is not earmarked by any sub-account", state:True );  
+ 		end if;
+else
+ 		UI::Reply( msg:"Program is not found", state:False );  
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("7492ca92-a79c-4976-99cc-43df760f4934",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'UnrelateProgram',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
