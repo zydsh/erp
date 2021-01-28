@@ -2004,11 +2004,11 @@ INSERT INTO C_EP
 	VALUES ("667e9bbf-70b1-49ba-b025-5739c424bdca",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadPrograms',
+	'ReadEarmarkedPrograms',
 	'');
 INSERT INTO C_AS
 	VALUES ("667e9bbf-70b1-49ba-b025-5739c424bdca",
-	'ReadPrograms',
+	'ReadEarmarkedPrograms',
 	'',
 	0,
 	"7492ca92-a79c-4976-99cc-43df760f4934");

@@ -2219,17 +2219,19 @@ INSERT INTO SPR_PEP
 	"84b7e49f-98e2-4539-b496-50575c189964");
 INSERT INTO SPR_PS
 	VALUES ("b9ae00cd-b671-4c73-9b89-3a585baaf804",
-	'ReadPrograms',
+	'ReadEarmarkedPrograms',
 	'',
-	'select any parantProgram from instances of AccountSpecification where selected.Code==param.Code;
+	'select any account from instances of AccountSpecification where selected.Code==param.Code;
 
-if (not empty parantProgram)
-		select one program related by parantProgram->Program[R180];
-		select one subaccount related by program->AccountSpecification[R210.''earmarks''];
+if (not empty account)
+	select many programs related by account->Program[R210.''earmarked by''];
+	if (not empty programs)
+	for each program in programs
+		select one parantProgram related by program->AccountSpecification[R180];
 		select one operationProgram related by parantProgram->Account[R170.''operates''];
-		if (not empty subaccount) and (not empty operationProgram) and (not empty subaccount)
+		if (not empty operationProgram) 
 			UI::SendPrograms( Code:parantProgram.Code, Name:parantProgram.Name, Description:parantProgram.Description,
-			StartDate:program.StartDate, Duration:program.Duration, AccountCode:subaccount.Code, AccountName:subaccount.Name, 
+			StartDate:program.StartDate, Duration:program.Duration, AccountCode:account.Code, AccountName:account.Name, 
 			DedicatedFunds:program.DedicatedFunds, TransferDebit:operationProgram.TransferDebit, 
 			TransferCredit:operationProgram.TransferCredit, FundsAfterTransfers:program.FundsAfterTransfers, 
 			PastYearsSpending:program.PastYearsSpending, CurrentYearBudget:operationProgram.OpeningBalance, 
@@ -2237,7 +2239,7 @@ if (not empty parantProgram)
 			
 			UI::Reply( msg:"An operationalized program is sent", state:True );  
 
-		elif (not empty parantProgram)
+		else
 			UI::SendPrograms( Code:parantProgram.Code, Name:parantProgram.Name, Description:parantProgram.Description,
 			StartDate:program.StartDate, Duration:program.Duration, AccountCode:"", AccountName:"", 
 			DedicatedFunds:program.DedicatedFunds, TransferDebit:0, 
@@ -2246,20 +2248,21 @@ if (not empty parantProgram)
 			Commitments:0, RemainingFunds:0, Percentage:0 );
 			
 			UI::Reply( msg:"A new program sent", state:True );  
-		else
-			
-			UI::Reply( msg:"Was not able to send program", state:False );  
 
 		end if;
 
-end if;',
+	end for;
+	end if;
+end if;
+
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("667e9bbf-70b1-49ba-b025-5739c424bdca",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadPrograms',
+	'ReadEarmarkedPrograms',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
