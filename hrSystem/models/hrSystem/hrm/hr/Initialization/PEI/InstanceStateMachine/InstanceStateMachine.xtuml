@@ -1902,7 +1902,7 @@ create object instance emp of Employee;
 		emp.FirstName = "صالح";
 		emp.MiddleName = "فهد";
 		emp.LastName = "العتيبي";
-		emp.Email = "S.Alotaibi@kacst.edu.sa";
+		emp.Email = "clive@kacst.edu.sa";
 		emp.OfficePhone = "4531";
 		emp.DateOfBirth = 19811034;
 		emp.Degree = "Bsc";
