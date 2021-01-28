@@ -3016,6 +3016,24 @@ INSERT INTO C_EP_PROXY
 	'UnrelateProgram',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("657e9e45-d70b-4234-a97a-1768f3f9ccb8",
+	"667e9bbf-70b1-49ba-b025-5739c424bdca",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("657e9e45-d70b-4234-a97a-1768f3f9ccb8",
+	'ReadPrograms',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("667e9bbf-70b1-49ba-b025-5739c424bdca",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadPrograms',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
