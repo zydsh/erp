@@ -711,7 +711,7 @@ INSERT INTO SM_ACT
 select one employeeApproved related by self->Employee[R27.''approved for''];
 if (empty employeeApproved)
 	relate self to employee across R27.''approved for'';
-	unrelate self from employee across R26.''held for'';
+	//unrelate self from employee across R26.''held for'';
 end if;',
 	'',
 	0);
