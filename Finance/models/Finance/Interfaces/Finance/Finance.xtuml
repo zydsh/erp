@@ -1004,6 +1004,22 @@ INSERT INTO C_PP
 	0,
 	'',
 	"633d5a25-71f4-47ec-8a30-a9dcec3753a4");
+INSERT INTO C_PP
+	VALUES ("071918a5-f544-4761-a6e4-201d9bf4dfd4",
+	"964e4528-df32-45e2-b28e-47ebf5c4701f",
+	"49091b5c-52f3-492e-b20e-b00819b080a4",
+	'Entry',
+	'',
+	0,
+	'',
+	"a1f8556b-985c-4db0-bc0b-7722a55d7a0a");
+INSERT INTO S_DT_PROXY
+	VALUES ("49091b5c-52f3-492e-b20e-b00819b080a4",
+	"00000000-0000-0000-0000-000000000000",
+	'Entry',
+	'',
+	'',
+	'../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO C_EP
 	VALUES ("6303db2a-0872-4a00-9303-e7f5c19f327a",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
