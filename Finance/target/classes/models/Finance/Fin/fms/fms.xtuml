@@ -1188,26 +1188,26 @@ if (not empty account)
 			if (not empty credits)
 				for each credit in credits
 					select one entry related by credit->Entry[R40.''recorded for''];
-					UI::SendTAccount( Code:account.Code, Amount:credit.Amount, Date: entry.Date, Description: entry.Description );
+					UI::SendTAccount( Code:account.Code, Amount:credit.Amount, Date: entry.Date, Description: entry.Description, Entry:SharedTypes::Entry::Credit );
 				end for;
 			end if;
 			if (not empty debits)
 				for each debit in debits
 					select one entry related by debit->Entry[R40.''recorded for''];
-					UI::SendTAccount( Code:account.Code, Amount:debit.Amount, Date: entry.Date, Description: entry.Description );
+					UI::SendTAccount( Code:account.Code, Amount:debit.Amount, Date: entry.Date, Description: entry.Description, Entry:SharedTypes::Entry::Debit );
 				end for;
 			end if;
 			
 			if (not empty tcredits)
 				for each tcredit in tcredits
 					select one entry related by tcredit->Entry[R40.''recorded for''];
-					UI::SendTAccount( Code:account.Code, Amount:tcredit.Amount, Date: entry.Date, Description: entry.Description );
+					UI::SendTAccount( Code:account.Code, Amount:tcredit.Amount, Date: entry.Date, Description: entry.Description, Entry:SharedTypes::Entry::Credit );
 				end for;
 			end if;
 			if (not empty tdebits)
 				for each tdebit in tdebits
 					select one entry related by tdebit->Entry[R40.''recorded for''];
-					UI::SendTAccount( Code:account.Code, Amount:tdebit.Amount, Date: entry.Date, Description: entry.Description );
+					UI::SendTAccount( Code:account.Code, Amount:tdebit.Amount, Date: entry.Date, Description: entry.Description, Entry:SharedTypes::Entry::Debit );
 				end for;
 			end if;
 
@@ -1259,7 +1259,7 @@ if (not empty accounts)
 			select one operatedAccount related by account->Account[R170.''operates''];
 			select one operation related by operatedAccount->OperationalAccount[R200];
 			if (not empty operatedAccount) and (not empty operation) and (empty programSubtype)
-				UI::SendChartAccounts(Code: account.Code, OpeningBalance:operatedAccount.OpeningBalance, 
+				UI::SendChartAccounts(Code: account.Code, Name: account.Name, OpeningBalance:operatedAccount.OpeningBalance, 
 				AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operatedAccount.TransferDebit, 
 				TransferCredit:operatedAccount.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
 				GrandTotal:operation.GrandTotal, DocumantryCredits:operation.DocumantryCredits, 
@@ -1312,7 +1312,7 @@ if (not empty account)
 			select one operatedAccount related by account->Account[R170.''operates''];
 		 	select one operation related by operatedAccount->OperationalAccount[R200];
 			if (not empty operatedAccount) and (not empty operation)
-				UI::SendChartAccounts(Code: account.Code, OpeningBalance:operatedAccount.OpeningBalance, 
+				UI::SendChartAccounts(Code: account.Code, Name: account.Name, OpeningBalance:operatedAccount.OpeningBalance, 
 		 		AddedFunds:operation.AddedFunds, Reduction:operation.Reduction, TransferDebit: operatedAccount.TransferDebit, 
 		 		TransferCredit:operatedAccount.TransferCredit, NetBalance:operation.NetBalance, Spending:operation.Spending, 
 		 		GrandTotal:operation.GrandTotal, DocumantryCredits:operation.DocumantryCredits, 
@@ -1353,8 +1353,8 @@ if (empty journal)
 	column.Description = "";	
 	relate column to newj across R160.''serves'';
 
-	select any accountDebit from instances of AccountSpecification where selected.Code =="32124";
-	select any accountCredit from instances of AccountSpecification where selected.Code =="211111";
+	select any accountDebit from instances of AccountSpecification where selected.Code =="211111";
+	select any accountCredit from instances of AccountSpecification where selected.Code =="32124";
 
 	if ( not empty accountDebit) and (not empty accountDebit)
 		relate column to accountDebit across R140.''debits'';

@@ -1008,7 +1008,7 @@ INSERT INTO C_PP
 	VALUES ("071918a5-f544-4761-a6e4-201d9bf4dfd4",
 	"964e4528-df32-45e2-b28e-47ebf5c4701f",
 	"49091b5c-52f3-492e-b20e-b00819b080a4",
-	'Entry',
+	'Type',
 	'',
 	0,
 	'',

@@ -572,7 +572,7 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("eb1249f8-9f74-4d5c-8156-e8b14a6eba6c",
 	"18c36bd8-75df-4fd2-bb53-fd304af212e1",
-	'Entry',
+	'Type',
 	"49091b5c-52f3-492e-b20e-b00819b080a4",
 	0,
 	'',
