@@ -2241,7 +2241,7 @@ if (not empty account)
 
 		else
 			UI::SendPrograms( Code:parantProgram.Code, Name:parantProgram.Name, Description:parantProgram.Description,
-			StartDate:program.StartDate, Duration:program.Duration, AccountCode:"", AccountName:"", 
+			StartDate:program.StartDate, Duration:program.Duration, AccountCode:account.Code, AccountName:account.Name, 
 			DedicatedFunds:program.DedicatedFunds, TransferDebit:0, 
 			TransferCredit:0, FundsAfterTransfers:0, 
 			PastYearsSpending:0, CurrentYearBudget:0, 
