@@ -2907,7 +2907,7 @@ INSERT INTO SPR_RS
 	VALUES ("308a43aa-04ed-403b-b877-189c22ee9231",
 	'SendChartAccounts',
 	'',
-	'::SendChartAccounts( Code:param.Code, OpeningBalance:param.OpeningBalance, AddedFunds:param.AddedFunds, Reduction:param.Reduction, TransferDebit:param.TransferDebit, TransferCredit:param.TransferCredit, NetBalance:param.NetBalance, Spending:param.Spending, GrandTotal:param.GrandTotal, DocumantryCredits:param.DocumantryCredits, Custodies:param.Custodies, Paid:param.Paid, RemainingBalance:param.RemainingBalance, Percentage:param.Percentage);
+	'::SendChartAccounts( Code:param.Code, Name:param.Name, OpeningBalance:param.OpeningBalance, AddedFunds:param.AddedFunds, Reduction:param.Reduction, TransferDebit:param.TransferDebit, TransferCredit:param.TransferCredit, NetBalance:param.NetBalance, Spending:param.Spending, GrandTotal:param.GrandTotal, DocumantryCredits:param.DocumantryCredits, Custodies:param.Custodies, Paid:param.Paid, RemainingBalance:param.RemainingBalance, Percentage:param.Percentage);
 LOG::LogInfo(message:"Chart Accounts: Sent! "+ param.Code);
 ',
 	1,
@@ -3411,7 +3411,7 @@ INSERT INTO SPR_REP
 	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
 INSERT INTO SPR_RS
 	VALUES ("94bcda99-98b7-40c7-a30b-b8f51426f0cb",
-	'ReadPrograms',
+	'ReadEarmarkedPrograms',
 	'',
 	'',
 	3,
@@ -3420,7 +3420,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("667e9bbf-70b1-49ba-b025-5739c424bdca",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadPrograms',
+	'ReadEarmarkedPrograms',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
