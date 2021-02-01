@@ -1188,29 +1188,31 @@ if (not empty account)
 			if (not empty credits)
 				for each credit in credits
 					select one entry related by credit->Entry[R40.''recorded for''];
-					UI::SendTAccount( Code:account.Code, Amount:credit.Amount, Date: entry.Date, Description: entry.Description );
+					UI::SendTAccount( Code:account.Code, Amount:credit.Amount, Date: entry.Date, Description: entry.Description, Type:"Credit" );
 				end for;
 			end if;
 			if (not empty debits)
 				for each debit in debits
 					select one entry related by debit->Entry[R40.''recorded for''];
-					UI::SendTAccount( Code:account.Code, Amount:debit.Amount, Date: entry.Date, Description: entry.Description );
+					UI::SendTAccount( Code:account.Code, Amount:debit.Amount, Date: entry.Date, Description: entry.Description, Type:"Debit" );
 				end for;
 			end if;
 			
 			if (not empty tcredits)
 				for each tcredit in tcredits
 					select one entry related by tcredit->Entry[R40.''recorded for''];
-					UI::SendTAccount( Code:account.Code, Amount:tcredit.Amount, Date: entry.Date, Description: entry.Description );
+					UI::SendTAccount( Code:account.Code, Amount:tcredit.Amount, Date: entry.Date, Description: entry.Description, Type:"Credit" );
 				end for;
 			end if;
+			
 			if (not empty tdebits)
 				for each tdebit in tdebits
 					select one entry related by tdebit->Entry[R40.''recorded for''];
-					UI::SendTAccount( Code:account.Code, Amount:tdebit.Amount, Date: entry.Date, Description: entry.Description );
+					UI::SendTAccount( Code:account.Code, Amount:tdebit.Amount, Date: entry.Date, Description: entry.Description, Type:"Debit" );
 				end for;
 			end if;
-
+			
+			
 
 		end if;	
 
@@ -2134,7 +2136,7 @@ INSERT INTO SPR_PS
 	'ReadNewPrograms',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c11a0355-c209-48be-86a2-ab205a9c805a",
