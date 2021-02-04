@@ -572,19 +572,12 @@ INSERT INTO S_SPARM
 INSERT INTO S_SPARM
 	VALUES ("eb1249f8-9f74-4d5c-8156-e8b14a6eba6c",
 	"18c36bd8-75df-4fd2-bb53-fd304af212e1",
-	'Entry',
-	"49091b5c-52f3-492e-b20e-b00819b080a4",
+	'Type',
+	"ba5eda7a-def5-0000-0000-000000000004",
 	0,
 	'',
 	"7fbeb98d-431a-4c56-a1fd-17533b4bcec5",
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("49091b5c-52f3-492e-b20e-b00819b080a4",
-	"00000000-0000-0000-0000-000000000000",
-	'Entry',
-	'',
-	'',
-	'../../../../../../Finance/models/Finance/SharedTypes/SharedTypes.xtuml');
 INSERT INTO PE_PE
 	VALUES ("18c36bd8-75df-4fd2-bb53-fd304af212e1",
 	1,
