@@ -2871,7 +2871,7 @@ INSERT INTO SPR_RS
 	VALUES ("32292507-55b5-4202-868d-68716f50a0c0",
 	'SendTAccount',
 	'',
-	'::SendTAccounts( Code:param.Code, Amount:param.Amount, Date:param.Date, Description:param.Description, Entry:param.Entry); ',
+	'::SendTAccounts( Code:param.Code, Amount:param.Amount, Date:param.Date, Description:param.Description, Type:param.Type); ',
 	1,
 	0);
 INSERT INTO C_EP_PROXY

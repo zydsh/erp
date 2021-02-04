@@ -2031,7 +2031,7 @@ INSERT INTO SPR_PS
  	if (not empty prevBudget)
  	 	select many accounts related by prevBudget->Account[R100.''assigned''];
  	 	for each account in accounts
- 	 		generate Account5:Close to account;
+ 	 		//generate Account5:Close to account;
  	 		create object instance newAccount of Account;
  	 		select one ceiling related by account->Ceiling[R190];
  	 		select one requested related by account->Requested[R190];
@@ -2046,11 +2046,11 @@ INSERT INTO SPR_PS
 				requestedAccount.Revenue = requested.Revenue;
 				relate requestedAccount to newAccount across R190;
  	 		end if;
- 	 		select one specAccount related by account->AccountSpecification[R70.''served previously by''];
+ 	 		select one specAccount related by account->AccountSpecification[R202.''budgetized by''];
  	 		if (not empty specAccount)
  	 			relate specAccount to newAccount across R202.''budgetize'';
  	 			relate newAccount to newBudget across R100.''belongs to'';
- 	 		else 
+ 	 		//else 
  	 		end if;
 
  	 	end for;

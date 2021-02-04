@@ -1206,7 +1206,9 @@ INSERT INTO SM_ACT
 if (not empty timer)
 	generate Timer1:Terminate to timer;
 	unrelate timer from self across R900.''runs'';
- end if;',
+ end if;
+ 
+',
 	'',
 	0);
 INSERT INTO SM_MOAH
