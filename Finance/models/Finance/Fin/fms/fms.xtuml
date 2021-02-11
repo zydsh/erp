@@ -667,20 +667,9 @@ INSERT INTO SPR_PS
 	'',
 	'
 select any journal from instances of Journal where selected.Name == "Salary";
-create object instance entry of Entry;
-entry.Date = param.Date;
-entry.Description = param.Description;
-create object instance amount of Amount;
-amount.Amount = param.Amount;
-relate entry to amount across R40;
-
-select one column related by journal->Column[R160.''has single''];
-relate amount to column across R130;
-select one debit related by column->AccountSpecification[R140.''debits'']->Account[R170.''operates''];
-select one credit related by column->AccountSpecification[R150.''credits'']->Account[R170.''operates''];
-
-relate amount to debit across R30.''debits'';
-relate amount to credit across R50.''credits'';
+if (not empty journal)
+	journal.MakeEntry( Date:param.Date, Description:param.Description, Amount:param.Amount );
+end if;
 ',
 	1,
 	0);
