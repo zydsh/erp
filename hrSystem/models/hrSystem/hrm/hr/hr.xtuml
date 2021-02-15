@@ -1102,14 +1102,11 @@ LOG::LogInfo(message:"Sending employee message set .." );
   
   for each msgTran in msgTrans
   	generate Transfers1:MessageRequested to msgTran;
-  	LOG::LogInfo(message:"Send Employee Messages Sent: "+ msg.Content);	
 
   end for;
   
   for each msgBud in msgBuds
   	generate BudgetChange1:MessageRequested to msgBud;
-  	LOG::LogInfo(message:"Send Employee Messages Sent: "+ msg.Content);	
-
   end for;
 
 
@@ -2310,7 +2307,7 @@ INSERT INTO SPR_PS
 	'SendFinanceMessage',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a3e3defe-d28f-49de-96bc-638b128fe8cb",

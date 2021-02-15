@@ -63,6 +63,11 @@ with remarks on accounts affected ',
 INSERT INTO O_ID
 	VALUES (0,
 	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
+INSERT INTO O_OIDA
+	VALUES ("6ede1aaa-14ad-439f-92c1-8d9e85e6b5ba",
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626",
+	0,
+	'Title');
 INSERT INTO O_ID
 	VALUES (1,
 	"2243fe3d-0a95-4aa3-a947-24cff91ba626");

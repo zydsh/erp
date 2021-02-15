@@ -157,7 +157,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("8d94269c-f855-4258-9ccc-0cd32cfebeb9",
 	"0722eab9-16e9-42c0-8881-a15cced0843a",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -177,7 +177,8 @@ INSERT INTO SM_ACT
  UI::SendFinanceMessage( Sender:fin.Sender, Content:fin.Content, 
  Type:fin.Type, Amount:fin.Amount, Date:fin.Date, 
  Account:self.Column, Description:self.Description ) ;
- 
+   	LOG::LogInfo(message:"Send Employee Messages Sent: "+ fin.Content);	
+
  generate Transfers2:MessageSent to self;',
 	'',
 	0);
@@ -191,7 +192,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("709980d6-c023-4824-9480-2426f9f9f833",
 	"0722eab9-16e9-42c0-8881-a15cced0843a",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -205,7 +206,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("6e4b5062-e6e1-4281-9731-a747fb717439",
 	"0722eab9-16e9-42c0-8881-a15cced0843a",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -219,7 +220,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("5249a17d-ead4-4a34-bbfd-028318ee0427",
 	"0722eab9-16e9-42c0-8881-a15cced0843a",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -233,7 +234,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("24887587-33e4-4642-ab85-7cc9c4a40207",
 	"0722eab9-16e9-42c0-8881-a15cced0843a",
-	3,
+	1,
 	'',
 	'',
 	0);
