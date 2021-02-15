@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("47bf4059-c910-439d-b613-100f0379492a",
-	'Message',
+	'FinanceMessage',
 	3,
-	'Message',
+	'FinanceMessage',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
