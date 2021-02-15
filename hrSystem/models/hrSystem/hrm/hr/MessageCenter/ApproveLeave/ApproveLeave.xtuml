@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'ApproveLeave',
 	2,
 	'ApproveLeave',
-	'',
+	'A notification on a pending leave request, 
+typically from employees to their manager.',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
 	VALUES ("99033d9e-a2fb-4a4e-836e-d26db2a72a30",

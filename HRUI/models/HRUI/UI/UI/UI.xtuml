@@ -1847,6 +1847,24 @@ INSERT INTO C_EP_PROXY
 	'ReadApprovedPayItems',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("cfc01303-f53e-4b0e-b648-61daeeeb9fd9",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("cfc01303-f53e-4b0e-b648-61daeeeb9fd9",
+	'PostFinanceMessage',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'PostFinanceMessage',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

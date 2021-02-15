@@ -1789,6 +1789,18 @@ INSERT INTO C_AS
 	'',
 	0,
 	"b33a91da-1d71-48af-8823-a3a19f5aaa63");
+INSERT INTO C_EP
+	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'PostFinanceMessage',
+	'');
+INSERT INTO C_AS
+	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	'PostFinanceMessage',
+	'',
+	0,
+	"aa09d611-f31a-4432-8338-0ab25d7d2e03");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

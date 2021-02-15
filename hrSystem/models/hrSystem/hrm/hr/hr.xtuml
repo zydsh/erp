@@ -2263,6 +2263,24 @@ INSERT INTO C_EP_PROXY
 	'ReadApprovedPayItems',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("cf0ea003-f43d-4cc9-929e-34e67ba1ec5f",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("cf0ea003-f43d-4cc9-929e-34e67ba1ec5f",
+	'PostFinanceMessage',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'PostFinanceMessage',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
