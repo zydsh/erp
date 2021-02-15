@@ -1,0 +1,69 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("3d969221-f5f9-403a-a473-632fbd304141",
+	'BudgetChange',
+	5,
+	'BudgetChange',
+	'A notification that an account''s fund is either
+reduced or increased. ',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("be29bcce-7e45-4880-ad38-38717d6428a8",
+	"3d969221-f5f9-403a-a473-632fbd304141");
+INSERT INTO O_BATTR
+	VALUES ("be29bcce-7e45-4880-ad38-38717d6428a8",
+	"3d969221-f5f9-403a-a473-632fbd304141");
+INSERT INTO O_ATTR
+	VALUES ("be29bcce-7e45-4880-ad38-38717d6428a8",
+	"3d969221-f5f9-403a-a473-632fbd304141",
+	"00000000-0000-0000-0000-000000000000",
+	'Code',
+	'',
+	'',
+	'Code',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ee826f15-d433-429c-97fd-33e2c6135b5c",
+	"3d969221-f5f9-403a-a473-632fbd304141");
+INSERT INTO O_BATTR
+	VALUES ("ee826f15-d433-429c-97fd-33e2c6135b5c",
+	"3d969221-f5f9-403a-a473-632fbd304141");
+INSERT INTO O_ATTR
+	VALUES ("ee826f15-d433-429c-97fd-33e2c6135b5c",
+	"3d969221-f5f9-403a-a473-632fbd304141",
+	"be29bcce-7e45-4880-ad38-38717d6428a8",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"3d969221-f5f9-403a-a473-632fbd304141");
+INSERT INTO O_ID
+	VALUES (1,
+	"3d969221-f5f9-403a-a473-632fbd304141");
+INSERT INTO O_ID
+	VALUES (2,
+	"3d969221-f5f9-403a-a473-632fbd304141");
+INSERT INTO PE_PE
+	VALUES ("3d969221-f5f9-403a-a473-632fbd304141",
+	1,
+	"bfe3c6f3-8045-48eb-b782-8d7442937ac3",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("bfe3c6f3-8045-48eb-b782-8d7442937ac3",
+	"00000000-0000-0000-0000-000000000000",
+	"5e81f22e-afc2-4550-9652-9c4782c6f41e",
+	'MessageCenter',
+	'',
+	0,
+	'../MessageCenter.xtuml');

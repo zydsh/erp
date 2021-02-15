@@ -1789,6 +1789,154 @@ INSERT INTO C_AS
 	'',
 	0,
 	"b33a91da-1d71-48af-8823-a3a19f5aaa63");
+INSERT INTO C_EP
+	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'PostFinanceMessage',
+	'');
+INSERT INTO C_AS
+	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	'PostFinanceMessage',
+	'',
+	0,
+	"aa09d611-f31a-4432-8338-0ab25d7d2e03");
+INSERT INTO C_PP
+	VALUES ("f74c649c-b763-4c08-9e7e-3e653f9c5bf1",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'MessageSender',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("44b845fa-2ead-4be5-94ca-ef70162cb646",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Content',
+	'',
+	0,
+	'',
+	"f74c649c-b763-4c08-9e7e-3e653f9c5bf1");
+INSERT INTO C_PP
+	VALUES ("218b3dfe-09f6-404c-b66a-7644c874ec8b",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"24c93469-d85f-4345-8864-33e8eb18592b",
+	'Type',
+	'',
+	0,
+	'',
+	"44b845fa-2ead-4be5-94ca-ef70162cb646");
+INSERT INTO S_DT_PROXY
+	VALUES ("24c93469-d85f-4345-8864-33e8eb18592b",
+	"00000000-0000-0000-0000-000000000000",
+	'Transaction',
+	'',
+	'',
+	'../../SharedTypes/SharedTypes.xtuml');
+INSERT INTO C_PP
+	VALUES ("10c584b8-f159-4951-930d-1864f4a4c8ab",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Amount',
+	'',
+	0,
+	'',
+	"218b3dfe-09f6-404c-b66a-7644c874ec8b");
+INSERT INTO C_PP
+	VALUES ("c09cb89a-d75b-4210-aede-6dbfeefb2812",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Account',
+	'',
+	0,
+	'',
+	"10c584b8-f159-4951-930d-1864f4a4c8ab");
+INSERT INTO C_PP
+	VALUES ("8ee00681-da2e-45a7-8ad5-506ae008c032",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"c09cb89a-d75b-4210-aede-6dbfeefb2812");
+INSERT INTO C_EP
+	VALUES ("a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendFinanceMessage',
+	'');
+INSERT INTO C_AS
+	VALUES ("a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	'SendFinanceMessage',
+	'',
+	1,
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a");
+INSERT INTO C_PP
+	VALUES ("477c6096-4440-45fd-80ae-1c7b26d41344",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Sender',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("519ee08a-6de8-4f58-9548-ab0d7ced51cc",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Content',
+	'',
+	0,
+	'',
+	"477c6096-4440-45fd-80ae-1c7b26d41344");
+INSERT INTO C_PP
+	VALUES ("95d05642-d79b-43d8-829b-76d5bff2e992",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"24c93469-d85f-4345-8864-33e8eb18592b",
+	'Type',
+	'',
+	0,
+	'',
+	"519ee08a-6de8-4f58-9548-ab0d7ced51cc");
+INSERT INTO C_PP
+	VALUES ("9a862fe6-143b-43e7-a2df-d82bd6d5e393",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Amount',
+	'',
+	0,
+	'',
+	"95d05642-d79b-43d8-829b-76d5bff2e992");
+INSERT INTO C_PP
+	VALUES ("372212de-de71-4b96-9daa-9ec79a8a4da5",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Date',
+	'',
+	0,
+	'',
+	"9a862fe6-143b-43e7-a2df-d82bd6d5e393");
+INSERT INTO C_PP
+	VALUES ("f5492679-b595-4682-93f8-4f630cd3ea5e",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Account',
+	'',
+	0,
+	'',
+	"372212de-de71-4b96-9daa-9ec79a8a4da5");
+INSERT INTO C_PP
+	VALUES ("2c2dc7e7-d26a-4fa9-8b2f-6314e6a69656",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Description',
+	'',
+	0,
+	'',
+	"f5492679-b595-4682-93f8-4f630cd3ea5e");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,

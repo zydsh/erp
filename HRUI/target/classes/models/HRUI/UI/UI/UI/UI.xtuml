@@ -856,6 +856,92 @@ INSERT INTO PE_PE
 	"20543efe-1176-476d-b1d2-f7083b47970b",
 	"00000000-0000-0000-0000-000000000000",
 	1);
+INSERT INTO S_SYNC
+	VALUES ("1574aa21-e76b-4948-9641-2a1cf5b928da",
+	"00000000-0000-0000-0000-000000000000",
+	'SendFinanceMessage',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	3,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("e572427f-348e-4935-ae46-b558fa39ddd3",
+	"1574aa21-e76b-4948-9641-2a1cf5b928da",
+	'Sender',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("d56ad52f-a145-4c42-bd68-4f511fb899fc",
+	"1574aa21-e76b-4948-9641-2a1cf5b928da",
+	'Content',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"e572427f-348e-4935-ae46-b558fa39ddd3",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("0bdcc470-9c4d-497f-81f4-bc6216b2fdcf",
+	"1574aa21-e76b-4948-9641-2a1cf5b928da",
+	'Type',
+	"24c93469-d85f-4345-8864-33e8eb18592b",
+	0,
+	'',
+	"d56ad52f-a145-4c42-bd68-4f511fb899fc",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("24c93469-d85f-4345-8864-33e8eb18592b",
+	"00000000-0000-0000-0000-000000000000",
+	'Transaction',
+	'',
+	'',
+	'../../../../../../hrSystem/models/hrSystem/SharedTypes/SharedTypes.xtuml');
+INSERT INTO S_SPARM
+	VALUES ("ecfd6101-a3d3-430f-ad13-1a5a61d102a1",
+	"1574aa21-e76b-4948-9641-2a1cf5b928da",
+	'Amount',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"0bdcc470-9c4d-497f-81f4-bc6216b2fdcf",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("314b472d-463a-45d1-bc47-acf7b9cb0242",
+	"1574aa21-e76b-4948-9641-2a1cf5b928da",
+	'Date',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"ecfd6101-a3d3-430f-ad13-1a5a61d102a1",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("ed02997e-3c82-4564-8006-68c2b9ea3bcc",
+	"1574aa21-e76b-4948-9641-2a1cf5b928da",
+	'Account',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"314b472d-463a-45d1-bc47-acf7b9cb0242",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("9c04163f-e39e-4e8a-b36d-c2d9a7873b14",
+	"1574aa21-e76b-4948-9641-2a1cf5b928da",
+	'Description',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"ed02997e-3c82-4564-8006-68c2b9ea3bcc",
+	'');
+INSERT INTO PE_PE
+	VALUES ("1574aa21-e76b-4948-9641-2a1cf5b928da",
+	1,
+	"20543efe-1176-476d-b1d2-f7083b47970b",
+	"00000000-0000-0000-0000-000000000000",
+	1);
 INSERT INTO PE_PE
 	VALUES ("20543efe-1176-476d-b1d2-f7083b47970b",
 	1,

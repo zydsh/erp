@@ -9,6 +9,59 @@ INSERT INTO O_OBJ
 Journals may be general purpose or 
 specialized.',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("0612ac86-266f-48d1-8d85-7d9772c76c2c",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	'MakeEntry',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'create object instance entry of Entry;
+entry.Date = param.Date;
+entry.Description = param.Description;
+
+create object instance amount of Amount;
+amount.Amount = param.Amount;
+relate entry to amount across R40;
+
+select one column related by self->Column[R160.''has single''];
+relate amount to column across R130;
+
+	if (not empty column)
+		generate Amount1:PaymentAssigned to amount;
+	end if;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("e9414587-77a8-46e7-bc1f-0abf6b01dd0b",
+	"0612ac86-266f-48d1-8d85-7d9772c76c2c",
+	'Date',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("9a118ede-86a0-4b66-93d0-fd87cf0a892f",
+	"0612ac86-266f-48d1-8d85-7d9772c76c2c",
+	'Description',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"e9414587-77a8-46e7-bc1f-0abf6b01dd0b",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("fd433d3e-d3ff-40db-a8da-06014523f310",
+	"0612ac86-266f-48d1-8d85-7d9772c76c2c",
+	'Amount',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"9a118ede-86a0-4b66-93d0-fd87cf0a892f",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("89383897-e1e8-4eda-b97c-f46bebf138b1",
 	"ef105bc0-5a8d-470a-a53c-420b48c984f1");

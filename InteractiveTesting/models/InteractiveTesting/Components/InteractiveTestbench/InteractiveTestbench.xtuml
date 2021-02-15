@@ -1851,6 +1851,42 @@ INSERT INTO C_EP_PROXY
 	'ReadApprovedPayItems',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("a2df6fc2-0c05-4624-a2ae-e6b2b4cfebd7",
+	"ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("a2df6fc2-0c05-4624-a2ae-e6b2b4cfebd7",
+	'PostFinanceMessage',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'PostFinanceMessage',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("405ef992-1e7a-477d-9701-a820001424bb",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("405ef992-1e7a-477d-9701-a820001424bb",
+	'SendFinanceMessage',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendFinanceMessage',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
@@ -3022,7 +3058,7 @@ INSERT INTO SPR_REP
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
 INSERT INTO SPR_RS
 	VALUES ("657e9e45-d70b-4234-a97a-1768f3f9ccb8",
-	'ReadPrograms',
+	'ReadEarmarkedPrograms',
 	'',
 	'',
 	3,
@@ -3031,7 +3067,7 @@ INSERT INTO C_EP_PROXY
 	VALUES ("667e9bbf-70b1-49ba-b025-5739c424bdca",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
-	'ReadPrograms',
+	'ReadEarmarkedPrograms',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
