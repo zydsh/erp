@@ -5,8 +5,105 @@ INSERT INTO O_OBJ
 	'FinanceMessage',
 	3,
 	'FinanceMessage',
-	'',
+	'A message passed between employees of the finance department
+on transactions that either require notification or approval.',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("b8c8fc51-4e6f-437c-8f8f-1b988ebc6704",
+	"47bf4059-c910-439d-b613-100f0379492a",
+	'MakeMessage',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'self.Sender = param.MessageSender;
+self.Amount = param.Amount;
+self.Content = param.Content;
+self.Date = TIM::current_seconds();
+self.Type = param.Type;
+
+//relate the message to the department manager
+select any employee from instances of Employee where selected.EmployeeID == param.MessageSender;
+select one manager related by employee->Department[R21.''working within'']->Employee[R23.''is managed by''];
+select any receiver from instances of Employee where selected.EmployeeID == manager.EmployeeID;
+
+relate self to receiver across R103.''delivered '';
+
+if (self.Type == Transaction::Addition) or (self.Type == Transaction::Reduction)
+		create object instance budget of BudgetChange;
+		budget.Code = param.Account;
+		relate budget to self across R104;
+elif (self.Type == Transaction::Transfer)
+		create object instance transfer of Transfers;
+		transfer.Column = param.Account;
+		transfer.Description = param.Description;
+		relate transfer to self across R104;
+end if;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("1fcc87ed-3d85-4c37-b0ba-a6e01c6c1cf0",
+	"b8c8fc51-4e6f-437c-8f8f-1b988ebc6704",
+	'MessageSender',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("cf7f16ca-c7fd-41c5-b27f-6ee789403476",
+	"b8c8fc51-4e6f-437c-8f8f-1b988ebc6704",
+	'Content',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"1fcc87ed-3d85-4c37-b0ba-a6e01c6c1cf0",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("d34bbe4c-05c9-4cc7-8b0a-8b6026aabb37",
+	"b8c8fc51-4e6f-437c-8f8f-1b988ebc6704",
+	'Type',
+	"24c93469-d85f-4345-8864-33e8eb18592b",
+	0,
+	'',
+	"cf7f16ca-c7fd-41c5-b27f-6ee789403476",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("24c93469-d85f-4345-8864-33e8eb18592b",
+	"00000000-0000-0000-0000-000000000000",
+	'Transaction',
+	'',
+	'',
+	'../../../../SharedTypes/SharedTypes.xtuml');
+INSERT INTO O_TPARM
+	VALUES ("27f24215-35d0-4f79-aeaf-d58ed67853f9",
+	"b8c8fc51-4e6f-437c-8f8f-1b988ebc6704",
+	'Amount',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"d34bbe4c-05c9-4cc7-8b0a-8b6026aabb37",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("3d398001-7e08-40d2-83a1-b21cd883bbfe",
+	"b8c8fc51-4e6f-437c-8f8f-1b988ebc6704",
+	'Account',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"27f24215-35d0-4f79-aeaf-d58ed67853f9",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("71b8b2ca-7dd6-4d37-a017-698bf7ac2129",
+	"b8c8fc51-4e6f-437c-8f8f-1b988ebc6704",
+	'Description',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"3d398001-7e08-40d2-83a1-b21cd883bbfe",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("5df44223-5496-478e-b735-1859dc4c7254",
 	"47bf4059-c910-439d-b613-100f0379492a");
@@ -16,7 +113,7 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("5df44223-5496-478e-b735-1859dc4c7254",
 	"47bf4059-c910-439d-b613-100f0379492a",
-	"00000000-0000-0000-0000-000000000000",
+	"8ab178dc-fe98-47f6-be30-f6f3c0be3ddc",
 	'Content',
 	'',
 	'',
@@ -43,13 +140,60 @@ INSERT INTO O_ATTR
 	"24c93469-d85f-4345-8864-33e8eb18592b",
 	'',
 	'');
-INSERT INTO S_DT_PROXY
-	VALUES ("24c93469-d85f-4345-8864-33e8eb18592b",
+INSERT INTO O_NBATTR
+	VALUES ("8ab178dc-fe98-47f6-be30-f6f3c0be3ddc",
+	"47bf4059-c910-439d-b613-100f0379492a");
+INSERT INTO O_BATTR
+	VALUES ("8ab178dc-fe98-47f6-be30-f6f3c0be3ddc",
+	"47bf4059-c910-439d-b613-100f0379492a");
+INSERT INTO O_ATTR
+	VALUES ("8ab178dc-fe98-47f6-be30-f6f3c0be3ddc",
+	"47bf4059-c910-439d-b613-100f0379492a",
 	"00000000-0000-0000-0000-000000000000",
-	'Transaction',
+	'Sender',
 	'',
 	'',
-	'../../../../SharedTypes/SharedTypes.xtuml');
+	'Sender',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("00c96ff9-a1e9-41fa-b3a9-e6e84f67d48d",
+	"47bf4059-c910-439d-b613-100f0379492a");
+INSERT INTO O_BATTR
+	VALUES ("00c96ff9-a1e9-41fa-b3a9-e6e84f67d48d",
+	"47bf4059-c910-439d-b613-100f0379492a");
+INSERT INTO O_ATTR
+	VALUES ("00c96ff9-a1e9-41fa-b3a9-e6e84f67d48d",
+	"47bf4059-c910-439d-b613-100f0379492a",
+	"40bfe2e4-82da-4d58-ac3e-0d0cb872cf5d",
+	'Amount',
+	'',
+	'',
+	'Amount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("3b3ec429-9b78-4a52-988b-4e9a3b6e213e",
+	"47bf4059-c910-439d-b613-100f0379492a");
+INSERT INTO O_BATTR
+	VALUES ("3b3ec429-9b78-4a52-988b-4e9a3b6e213e",
+	"47bf4059-c910-439d-b613-100f0379492a");
+INSERT INTO O_ATTR
+	VALUES ("3b3ec429-9b78-4a52-988b-4e9a3b6e213e",
+	"47bf4059-c910-439d-b613-100f0379492a",
+	"00c96ff9-a1e9-41fa-b3a9-e6e84f67d48d",
+	'Date',
+	'',
+	'',
+	'Date',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"47bf4059-c910-439d-b613-100f0379492a");

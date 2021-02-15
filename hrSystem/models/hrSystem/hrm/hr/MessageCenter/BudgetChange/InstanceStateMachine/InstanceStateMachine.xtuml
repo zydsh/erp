@@ -1,0 +1,46 @@
+-- BP 7.1.6 content: InstanceStateMachine syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO SM_ISM
+	VALUES ("07c310af-f503-4921-9846-f638092c156a",
+	"3d969221-f5f9-403a-a473-632fbd304141");
+INSERT INTO SM_SM
+	VALUES ("07c310af-f503-4921-9846-f638092c156a",
+	'',
+	0);
+INSERT INTO SM_MOORE
+	VALUES ("07c310af-f503-4921-9846-f638092c156a");
+INSERT INTO GD_MD
+	VALUES ("4900056f-c0ac-4faa-ac6a-d8ae88879992",
+	8,
+	"07c310af-f503-4921-9846-f638092c156a",
+	40,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'hrSystem::hrm::hr::MessageCenter::BudgetChange::Instance State Machine');
+INSERT INTO DIM_DIA
+	VALUES ("4900056f-c0ac-4faa-ac6a-d8ae88879992",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_OBJ_PROXY
+	VALUES ("3d969221-f5f9-403a-a473-632fbd304141",
+	'BudgetChange',
+	5,
+	'BudgetChange',
+	'A notification that an account''s fund is either
+reduced or increased. ',
+	"00000000-0000-0000-0000-000000000000",
+	'../BudgetChange.xtuml');

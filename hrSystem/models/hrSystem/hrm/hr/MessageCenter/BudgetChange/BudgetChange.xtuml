@@ -5,7 +5,8 @@ INSERT INTO O_OBJ
 	'BudgetChange',
 	5,
 	'BudgetChange',
-	'',
+	'A notification that an account''s fund is either
+reduced or increased. ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("be29bcce-7e45-4880-ad38-38717d6428a8",
@@ -26,21 +27,21 @@ INSERT INTO O_ATTR
 	'',
 	'');
 INSERT INTO O_NBATTR
-	VALUES ("77ccbe1e-c223-40d4-b3c1-fd580ccaa8e5",
+	VALUES ("ee826f15-d433-429c-97fd-33e2c6135b5c",
 	"3d969221-f5f9-403a-a473-632fbd304141");
 INSERT INTO O_BATTR
-	VALUES ("77ccbe1e-c223-40d4-b3c1-fd580ccaa8e5",
+	VALUES ("ee826f15-d433-429c-97fd-33e2c6135b5c",
 	"3d969221-f5f9-403a-a473-632fbd304141");
 INSERT INTO O_ATTR
-	VALUES ("77ccbe1e-c223-40d4-b3c1-fd580ccaa8e5",
+	VALUES ("ee826f15-d433-429c-97fd-33e2c6135b5c",
 	"3d969221-f5f9-403a-a473-632fbd304141",
 	"be29bcce-7e45-4880-ad38-38717d6428a8",
-	'Amount',
+	'current_state',
 	'',
 	'',
-	'Amount',
+	'current_state',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000003",
+	"ba5eda7a-def5-0000-0000-000000000006",
 	'',
 	'');
 INSERT INTO O_ID

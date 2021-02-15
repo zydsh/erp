@@ -1085,15 +1085,23 @@ INSERT INTO SPR_PS
 
 select many msgSet related by employee->ApproveLeave[R102.''is notified by''];  
 
+select many msgTrans related by employee->FinanceMessage[R103.''recieves'']->Transfers[R104];  
+
+select many msgBuds related by employee->FinanceMessage[R103.''recieves'']->BudgetChange[R104];  
+
+
  
 LOG::LogInfo(message:"Sending employee message set .." );	
 
 
   for each msg in msgSet
- 
-	UI::SendEmployeeMessages( LeaveRequesterID:msg.LeaveRequesterID, Starting:msg.Starting, Ending:msg.Ending, Content:msg.Content );
+ 	generate ApproveLeave1:MessageRequested to msg;
 	LOG::LogInfo(message:"Send Employee Messages Sent: "+ msg.Content);	
 
+  end for;
+  
+  for each msgTran in msgTrans
+  	generate Transfers1:MessageRequested to msgTran;
   end for;
 
   LOG::LogInfo(message:"Sending employee messages is complete" );	
@@ -2271,8 +2279,11 @@ INSERT INTO SPR_PS
 	VALUES ("cf0ea003-f43d-4cc9-929e-34e67ba1ec5f",
 	'PostFinanceMessage',
 	'',
-	'',
-	3,
+	'
+create object instance message of FinanceMessage;
+message.MakeMessage(MessageSender:param.MessageSender, Content:param.Content, Type:param.Type, 
+					Amount:param.Amount, Account:param.Account, Description:param.Description);',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
