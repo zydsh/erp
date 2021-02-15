@@ -2292,6 +2292,24 @@ INSERT INTO C_EP_PROXY
 	'PostFinanceMessage',
 	'',
 	'../../Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("5ee98df6-c9af-45b6-9508-aeb0125760ee",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"7a26de32-2a7f-4ded-892b-659b05817114");
+INSERT INTO SPR_PS
+	VALUES ("5ee98df6-c9af-45b6-9508-aeb0125760ee",
+	'SendFinanceMessage',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendFinanceMessage',
+	'',
+	'../../Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",

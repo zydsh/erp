@@ -1865,6 +1865,24 @@ INSERT INTO C_EP_PROXY
 	'PostFinanceMessage',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("1ae9a089-ca01-492b-a697-8ef9de21fbd5",
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"1c31e86d-2a1a-448e-afc5-190d46069bd6");
+INSERT INTO SPR_RS
+	VALUES ("1ae9a089-ca01-492b-a697-8ef9de21fbd5",
+	'SendFinanceMessage',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("a3e3defe-d28f-49de-96bc-638b128fe8cb",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'SendFinanceMessage',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	"00000000-0000-0000-0000-000000000000",
