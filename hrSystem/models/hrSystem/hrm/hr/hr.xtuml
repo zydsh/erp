@@ -1102,7 +1102,16 @@ LOG::LogInfo(message:"Sending employee message set .." );
   
   for each msgTran in msgTrans
   	generate Transfers1:MessageRequested to msgTran;
+  	LOG::LogInfo(message:"Send Employee Messages Sent: "+ msg.Content);	
+
   end for;
+  
+  for each msgBud in msgBuds
+  	generate BudgetChange1:MessageRequested to msgBud;
+  	LOG::LogInfo(message:"Send Employee Messages Sent: "+ msg.Content);	
+
+  end for;
+
 
   LOG::LogInfo(message:"Sending employee messages is complete" );	
 ',
