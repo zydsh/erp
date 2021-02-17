@@ -2099,6 +2099,18 @@ INSERT INTO C_PP
 	0,
 	'',
 	"2868a056-f0ae-406c-9724-a3a5fc430d6d");
+INSERT INTO C_EP
+	VALUES ("be8ab196-4fb1-4f06-ae32-580c88585020",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PaySalary',
+	'');
+INSERT INTO C_AS
+	VALUES ("be8ab196-4fb1-4f06-ae32-580c88585020",
+	'PaySalary',
+	'',
+	0,
+	"2fb303f1-2fc6-4e57-809a-d781521877bb");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,
