@@ -3459,6 +3459,42 @@ INSERT INTO C_EP_PROXY
 	'ReadEarmarkedPrograms',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("ada21b56-eabb-41a5-86f3-b360419ea746",
+	"beca86fe-b8bd-420a-bdcc-ffe5bde34313",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("ada21b56-eabb-41a5-86f3-b360419ea746",
+	'ReadAllTransactions',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("beca86fe-b8bd-420a-bdcc-ffe5bde34313",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadAllTransactions',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("2abb0930-7a25-4487-ab86-b9f8f137b4a5",
+	"2fb303f1-2fc6-4e57-809a-d781521877bb",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("2abb0930-7a25-4487-ab86-b9f8f137b4a5",
+	'PayAmount',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2fb303f1-2fc6-4e57-809a-d781521877bb",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PayAmount',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
