@@ -2307,6 +2307,39 @@ INSERT INTO C_EP_PROXY
 	'PayAmount',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("5c1096bb-be4c-4c8f-9257-3fba24aaee6f",
+	"94c5c798-cd59-4954-8dfc-deb2b48db517",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("5c1096bb-be4c-4c8f-9257-3fba24aaee6f",
+	'PaySalary',
+	'',
+	'month = 30*24*60*60;
+pastTwoMonths = TIM::current_seconds() - (2*month);
+select any journal from instances of Journal where selected.Name =="Salary";
+
+if (not empty journal)
+	select many entries related by journal->Entry[R101.''holds''] where selected.Date >pastTwoMonths;
+	for each entry in entries
+		select any amount from instances of Amount;
+		if (not empty amount)
+			generate Amount2:PaymentApproved to amount;
+		else 
+			LOG::LogInfo(message:"Amount not found. One or more entries are incorrect" );	
+		end if;
+	end for;
+	
+end if;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("94c5c798-cd59-4954-8dfc-deb2b48db517",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PaySalary',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",
