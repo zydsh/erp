@@ -2039,6 +2039,30 @@ INSERT INTO C_PP
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("beca86fe-b8bd-420a-bdcc-ffe5bde34313",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadAllTransactions',
+	'');
+INSERT INTO C_AS
+	VALUES ("beca86fe-b8bd-420a-bdcc-ffe5bde34313",
+	'ReadAllTransactions',
+	'',
+	0,
+	"667e9bbf-70b1-49ba-b025-5739c424bdca");
+INSERT INTO C_EP
+	VALUES ("2fb303f1-2fc6-4e57-809a-d781521877bb",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PayAmount',
+	'');
+INSERT INTO C_AS
+	VALUES ("2fb303f1-2fc6-4e57-809a-d781521877bb",
+	'PayAmount',
+	'',
+	0,
+	"beca86fe-b8bd-420a-bdcc-ffe5bde34313");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

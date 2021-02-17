@@ -2256,6 +2256,57 @@ INSERT INTO C_EP_PROXY
 	'ReadEarmarkedPrograms',
 	'',
 	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("f9775590-4da7-4192-a23e-d504d9e351ab",
+	"beca86fe-b8bd-420a-bdcc-ffe5bde34313",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("f9775590-4da7-4192-a23e-d504d9e351ab",
+	'ReadAllTransactions',
+	'',
+	'select many entries from instances of Entry;
+
+for each entry in entries
+	entry.sendTransaction();
+end for; 
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("beca86fe-b8bd-420a-bdcc-ffe5bde34313",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ReadAllTransactions',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("7d73f5c7-45c6-44ef-81aa-0f1858a4ff17",
+	"2fb303f1-2fc6-4e57-809a-d781521877bb",
+	"84b7e49f-98e2-4539-b496-50575c189964");
+INSERT INTO SPR_PS
+	VALUES ("7d73f5c7-45c6-44ef-81aa-0f1858a4ff17",
+	'PayAmount',
+	'',
+	'select many amounts from instances of Amount where selected.Amount == param.Amount;
+
+for each amount in amounts
+	select any entry from instances of Entry where selected.Date==param.Date and selected.Description==param.Description;
+	select any journal from instances of Journal where selected.Name == param.Journal;
+	if (not empty entry) and (not empty entry)
+		generate Amount2:PaymentApproved to amount;
+	else
+		LOG::LogInfo(message:"Amount not found. One or more entries are incorrect" );	
+	end if;
+end for;',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("2fb303f1-2fc6-4e57-809a-d781521877bb",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PayAmount',
+	'',
+	'../../Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",

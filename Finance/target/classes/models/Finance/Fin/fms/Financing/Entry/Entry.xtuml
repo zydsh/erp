@@ -7,6 +7,30 @@ INSERT INTO O_OBJ
 	'Entry',
 	'Represents a row within a journal',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("60d59c57-8f42-4307-a25e-7ebcbf7e19d7",
+	"9fee052f-1640-44c6-b838-78c0f9ba28ff",
+	'sendTransaction',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'select any column related by self->Amount[R40.''records'']->Column[R130.''recorded under''];
+select any amount related by self->Amount[R40.''records''];
+select one journal related by self->Journal[R101.''made to''];
+
+if (not empty column) and (not empty amount) and (not empty journal)
+	UI::SendJournal( Name:journal.Name, Description:journal.Description, 
+					ColumnTitle:column.Title, ColumnDescription:column.Title, 
+					EntryDate:self.Date, EntryDescription:self.Description, 
+					EntryAmount:amount.Amount );
+else 
+	LOG::LogInfo(message:"Entry is not sent as one or more of the relations is missing." );	
+
+end if;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
 INSERT INTO O_NBATTR
 	VALUES ("023d3631-c64b-49ed-adb7-aedec55e95b6",
 	"9fee052f-1640-44c6-b838-78c0f9ba28ff");
