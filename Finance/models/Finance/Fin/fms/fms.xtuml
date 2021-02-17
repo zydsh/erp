@@ -2292,7 +2292,7 @@ INSERT INTO SPR_PS
 for each amount in amounts
 	select any entry from instances of Entry where selected.Date==param.Date and selected.Description==param.Description;
 	select any journal from instances of Journal where selected.Name == param.Journal;
-	if (not empty entry) and (not empty entry)
+	if (not empty entry) and (not empty journal)
 		generate Amount2:PaymentApproved to amount;
 	else
 		LOG::LogInfo(message:"Amount not found. One or more entries are incorrect" );	

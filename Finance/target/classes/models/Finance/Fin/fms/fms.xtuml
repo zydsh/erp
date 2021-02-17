@@ -2287,8 +2287,18 @@ INSERT INTO SPR_PS
 	VALUES ("7d73f5c7-45c6-44ef-81aa-0f1858a4ff17",
 	'PayAmount',
 	'',
-	'',
-	3,
+	'select many amounts from instances of Amount where selected.Amount == param.Amount;
+
+for each amount in amounts
+	select any entry from instances of Entry where selected.Date==param.Date and selected.Description==param.Description;
+	select any journal from instances of Journal where selected.Name == param.Journal;
+	if (not empty entry) and (not empty entry)
+		generate Amount2:PaymentApproved to amount;
+	else
+		LOG::LogInfo(message:"Amount not found. One or more entries are incorrect" );	
+	end if;
+end for;',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2fb303f1-2fc6-4e57-809a-d781521877bb",
