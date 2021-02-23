@@ -2111,6 +2111,18 @@ INSERT INTO C_AS
 	'',
 	0,
 	"2fb303f1-2fc6-4e57-809a-d781521877bb");
+INSERT INTO C_EP
+	VALUES ("80df410d-49f8-4e17-8c92-5c85b93bff92",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PendingPay',
+	'');
+INSERT INTO C_AS
+	VALUES ("80df410d-49f8-4e17-8c92-5c85b93bff92",
+	'PendingPay',
+	'',
+	0,
+	"94c5c798-cd59-4954-8dfc-deb2b48db517");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,
