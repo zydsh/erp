@@ -1909,6 +1909,8 @@ create object instance emp of Employee;
 		emp.Gender = "Male";
 
 generate Employee7:Recruited(JobID:6, Department:"المالية") to emp;
+Authenticate::AddToGroup( EmployeeID:emp.EmployeeID, Group:"Fin" ); 
+
 
 
 create object instance emp of Employee;

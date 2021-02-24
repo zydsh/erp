@@ -1860,7 +1860,7 @@ INSERT INTO SPR_RS
 	'PostFinanceMessage',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ae51d4cc-f120-4099-b0f3-4cc2121d679a",
@@ -1878,7 +1878,7 @@ INSERT INTO SPR_RS
 	'SendFinanceMessage',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("a3e3defe-d28f-49de-96bc-638b128fe8cb",
@@ -2989,7 +2989,7 @@ INSERT INTO SPR_RS
 	'DisregardBudget',
 	'Deleting a newly created budget which has not been operationalized ',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7494c7e6-90ba-46fb-9a3b-f79244ca26a6",
@@ -3007,7 +3007,7 @@ INSERT INTO SPR_RS
 	'ReadNewPrograms',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("c11a0355-c209-48be-86a2-ab205a9c805a",
@@ -3025,7 +3025,7 @@ INSERT INTO SPR_RS
 	'RelateProgram',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("3230f25e-00f9-42a1-a8b5-7fdd156e6f21",
@@ -3043,7 +3043,7 @@ INSERT INTO SPR_RS
 	'UnrelateProgram',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7492ca92-a79c-4976-99cc-43df760f4934",
@@ -3061,7 +3061,7 @@ INSERT INTO SPR_RS
 	'ReadEarmarkedPrograms',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("667e9bbf-70b1-49ba-b025-5739c424bdca",
@@ -3079,7 +3079,7 @@ INSERT INTO SPR_RS
 	'ReadAllTransactions',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("beca86fe-b8bd-420a-bdcc-ffe5bde34313",
@@ -3097,7 +3097,7 @@ INSERT INTO SPR_RS
 	'PayAmount',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2fb303f1-2fc6-4e57-809a-d781521877bb",
@@ -3115,13 +3115,31 @@ INSERT INTO SPR_RS
 	'PaySalary',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("94c5c798-cd59-4954-8dfc-deb2b48db517",
 	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	-1,
 	'PaySalary',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("631bf42f-0b84-4f4f-84f6-20f51eb3d4e8",
+	"80df410d-49f8-4e17-8c92-5c85b93bff92",
+	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485");
+INSERT INTO SPR_RS
+	VALUES ("631bf42f-0b84-4f4f-84f6-20f51eb3d4e8",
+	'PendingPay',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("80df410d-49f8-4e17-8c92-5c85b93bff92",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PendingPay',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY

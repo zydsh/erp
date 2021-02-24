@@ -31,6 +31,24 @@ end if;',
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	0);
+INSERT INTO O_TFR
+	VALUES ("ad2eb867-b500-4eec-b98d-5f4288d96292",
+	"9fee052f-1640-44c6-b838-78c0f9ba28ff",
+	'sendPending',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'select many amounts related by self->Amount[R40.''records''];
+
+for each amount in amounts
+	generate Amount4:PaymentRequested to amount; 
+end for;
+	
+',
+	1,
+	'',
+	"60d59c57-8f42-4307-a25e-7ebcbf7e19d7",
+	0);
 INSERT INTO O_NBATTR
 	VALUES ("023d3631-c64b-49ed-adb7-aedec55e95b6",
 	"9fee052f-1640-44c6-b838-78c0f9ba28ff");
