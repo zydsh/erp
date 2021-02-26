@@ -532,6 +532,7 @@ if (not empty column) and (not empty entry) and (not empty journal)
 					 ColumnTitle:column.Title, ColumnDescription:column.Title, 
 					EntryDate:entry.Date, EntryDescription:entry.Description, 
 					EntryAmount:self.Amount );
+	LOG::LogInfo( message:"Payment sent successfuly" );
 end if;
 
 ',
@@ -547,7 +548,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("057f5cc4-564e-48d1-a5a2-6d2cd519611e",
 	"43946f14-ab0a-4593-b092-77cce9d890e6",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -561,7 +562,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("457fe465-4992-44a4-9bb9-9f1789eab476",
 	"43946f14-ab0a-4593-b092-77cce9d890e6",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -575,7 +576,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("40f720ac-3f15-471d-8efe-1c9a32703d43",
 	"43946f14-ab0a-4593-b092-77cce9d890e6",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -589,7 +590,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("29f3666b-11de-4c32-8d51-3c965aed825f",
 	"43946f14-ab0a-4593-b092-77cce9d890e6",
-	3,
+	1,
 	'',
 	'',
 	0);
