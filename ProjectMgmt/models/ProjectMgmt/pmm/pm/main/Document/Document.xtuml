@@ -2,11 +2,10 @@
 
 INSERT INTO O_OBJ
 	VALUES ("1bc7118e-b870-4930-9bfc-177e395641e0",
-	'SupportingDocuments',
+	'Document',
 	4,
-	'SupportingDocuments',
-	'A documents that proves a milestone
-or an output was achieved.',
+	'Document',
+	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
 	VALUES ("dc7a82cf-dcc6-421b-86ba-f8078bf9082d",
@@ -78,6 +77,24 @@ INSERT INTO O_ATTR
 	'Notes',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c2bdfa0c-c646-427c-afee-7d258873da33",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_BATTR
+	VALUES ("c2bdfa0c-c646-427c-afee-7d258873da33",
+	"1bc7118e-b870-4930-9bfc-177e395641e0");
+INSERT INTO O_ATTR
+	VALUES ("c2bdfa0c-c646-427c-afee-7d258873da33",
+	"1bc7118e-b870-4930-9bfc-177e395641e0",
+	"59a62e61-7667-4143-abc7-40514881fe96",
+	'AttachedTo',
+	'whether charter, project scope..etc',
+	'',
+	'AttachedTo',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
 INSERT INTO O_ID

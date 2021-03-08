@@ -1,0 +1,68 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("c2e87bcd-dc06-4d93-80e8-3b53d364b393",
+	'Hierarchy',
+	12,
+	'Hierarchy',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("35ecef54-b0ba-4afc-a30b-e61b9c21235e",
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393");
+INSERT INTO O_BATTR
+	VALUES ("35ecef54-b0ba-4afc-a30b-e61b9c21235e",
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393");
+INSERT INTO O_ATTR
+	VALUES ("35ecef54-b0ba-4afc-a30b-e61b9c21235e",
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393",
+	"00000000-0000-0000-0000-000000000000",
+	'Narme',
+	'',
+	'',
+	'Narme',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("0b489162-031d-4525-ac0f-847925ba51ad",
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393");
+INSERT INTO O_BATTR
+	VALUES ("0b489162-031d-4525-ac0f-847925ba51ad",
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393");
+INSERT INTO O_ATTR
+	VALUES ("0b489162-031d-4525-ac0f-847925ba51ad",
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393",
+	"35ecef54-b0ba-4afc-a30b-e61b9c21235e",
+	'Role',
+	'',
+	'',
+	'Role',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393");
+INSERT INTO O_ID
+	VALUES (1,
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393");
+INSERT INTO O_ID
+	VALUES (2,
+	"c2e87bcd-dc06-4d93-80e8-3b53d364b393");
+INSERT INTO PE_PE
+	VALUES ("c2e87bcd-dc06-4d93-80e8-3b53d364b393",
+	1,
+	"6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("6177f291-1d29-415e-bed8-570d8e84b959",
+	"00000000-0000-0000-0000-000000000000",
+	"3f33d3e5-7c5e-4d83-8184-e6d26143c66b",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

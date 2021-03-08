@@ -960,7 +960,7 @@ INSERT INTO GD_GE
 	"a4d6c5d4-3cb3-499a-8eb2-6a1391044b92",
 	106,
 	0,
-	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::Port1::Ops');
+	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::HROps::Ops');
 INSERT INTO GD_CON
 	VALUES ("92e57294-d768-46d7-a420-18a900251d62",
 	"00000000-0000-0000-0000-000000000000");
@@ -1060,7 +1060,7 @@ INSERT INTO GD_GE
 	"c64936db-1521-42fd-8e28-4d7cd8e2ec25",
 	106,
 	0,
-	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::Port2::Data');
+	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::HRData::Data');
 INSERT INTO GD_CON
 	VALUES ("feb7fd5a-99c4-44a7-b6e5-df88deae1b1d",
 	"00000000-0000-0000-0000-000000000000");
@@ -1160,7 +1160,7 @@ INSERT INTO GD_GE
 	"65e637ff-4723-4633-a5c5-c10a0a38ff17",
 	106,
 	0,
-	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::Port3::Finance');
+	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::Finance::Finance');
 INSERT INTO GD_CON
 	VALUES ("549351f1-1455-44d4-a0cf-d97137b43255",
 	"00000000-0000-0000-0000-000000000000");
@@ -1260,7 +1260,7 @@ INSERT INTO GD_GE
 	"5d9ae226-0e6c-443c-9a79-550f035a694d",
 	106,
 	0,
-	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::Port4::Projects');
+	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::Projects::Projects');
 INSERT INTO GD_CON
 	VALUES ("cca7b75c-7c62-4447-a9aa-62d5f8ab63d1",
 	"00000000-0000-0000-0000-000000000000");
@@ -1360,7 +1360,7 @@ INSERT INTO GD_GE
 	"6a2c071a-e18d-4811-832f-4732bcc9c1f2",
 	106,
 	0,
-	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::Port5::Authentication');
+	'InteractiveTesting::Testbench::InteractiveTesting::Components::InteractiveTestbench::Auth::Authentication');
 INSERT INTO GD_CON
 	VALUES ("d727c105-0110-46a9-8d52-8de2b63972bd",
 	"00000000-0000-0000-0000-000000000000");
@@ -1593,7 +1593,7 @@ INSERT INTO CL_IC
 INSERT INTO CL_POR
 	VALUES ("9f5a0d0b-b783-44ea-95ce-ce01354c2987",
 	"339fcde1-d94c-4fae-9a95-a23c8adf287a",
-	'Port1',
+	'HROps',
 	"dd0d4f50-6275-4e69-9bb9-8ba09b7a20eb");
 INSERT INTO CL_IIR
 	VALUES ("a4d6c5d4-3cb3-499a-8eb2-6a1391044b92",
@@ -1616,14 +1616,14 @@ INSERT INTO C_IR_PROXY
 INSERT INTO C_PO_PROXY
 	VALUES ("339fcde1-d94c-4fae-9a95-a23c8adf287a",
 	"c0b8fbfb-8bc0-44cd-8adb-3cc421fc189e",
-	'Port1',
+	'HROps',
 	0,
 	0,
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO CL_POR
 	VALUES ("9f5a0d0b-b783-44ea-95ce-ce01354c2987",
 	"1b163156-4de0-43fa-92b4-ffb552990ac1",
-	'Port2',
+	'HRData',
 	"1a6b1cb5-7404-4aba-a826-8a8cc3b6b471");
 INSERT INTO CL_IIR
 	VALUES ("c64936db-1521-42fd-8e28-4d7cd8e2ec25",
@@ -1646,14 +1646,14 @@ INSERT INTO C_IR_PROXY
 INSERT INTO C_PO_PROXY
 	VALUES ("1b163156-4de0-43fa-92b4-ffb552990ac1",
 	"c0b8fbfb-8bc0-44cd-8adb-3cc421fc189e",
-	'Port2',
+	'HRData',
 	0,
 	0,
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO CL_POR
 	VALUES ("9f5a0d0b-b783-44ea-95ce-ce01354c2987",
 	"d0b5550a-c83c-48fa-9fb3-1e11053dae7d",
-	'Port3',
+	'Finance',
 	"c4b4c4e1-944f-418b-b965-19a202afbaab");
 INSERT INTO CL_IIR
 	VALUES ("65e637ff-4723-4633-a5c5-c10a0a38ff17",
@@ -1676,14 +1676,14 @@ INSERT INTO C_IR_PROXY
 INSERT INTO C_PO_PROXY
 	VALUES ("d0b5550a-c83c-48fa-9fb3-1e11053dae7d",
 	"c0b8fbfb-8bc0-44cd-8adb-3cc421fc189e",
-	'Port3',
+	'Finance',
 	0,
 	0,
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO CL_POR
 	VALUES ("9f5a0d0b-b783-44ea-95ce-ce01354c2987",
 	"b3d8ee83-d010-42c9-9400-b7e0b11acceb",
-	'Port4',
+	'Projects',
 	"1eb701ad-e9ea-4572-8e1c-d034ee35d923");
 INSERT INTO CL_IIR
 	VALUES ("5d9ae226-0e6c-443c-9a79-550f035a694d",
@@ -1706,14 +1706,14 @@ INSERT INTO C_IR_PROXY
 INSERT INTO C_PO_PROXY
 	VALUES ("b3d8ee83-d010-42c9-9400-b7e0b11acceb",
 	"c0b8fbfb-8bc0-44cd-8adb-3cc421fc189e",
-	'Port4',
+	'Projects',
 	0,
 	0,
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO CL_POR
 	VALUES ("9f5a0d0b-b783-44ea-95ce-ce01354c2987",
 	"f408a24d-235d-4f7a-a66d-1499873734d6",
-	'Port5',
+	'Auth',
 	"b0118c44-7ffc-4b8a-a5db-318f3d686cee");
 INSERT INTO CL_IIR
 	VALUES ("6a2c071a-e18d-4811-832f-4732bcc9c1f2",
@@ -1736,7 +1736,7 @@ INSERT INTO C_IR_PROXY
 INSERT INTO C_PO_PROXY
 	VALUES ("f408a24d-235d-4f7a-a66d-1499873734d6",
 	"c0b8fbfb-8bc0-44cd-8adb-3cc421fc189e",
-	'Port5',
+	'Auth',
 	0,
 	0,
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
@@ -1994,7 +1994,7 @@ INSERT INTO C_SF
 	"87d29ceb-5cea-4d2a-890b-0c07eb4a190d",
 	"b738ee35-2e9d-421e-b69d-3017ffbef31d",
 	'',
-	'hr::UI_Ops::Ops -o)- InteractiveTestbench::Port1::Ops');
+	'hr::UI_Ops::Ops -o)- InteractiveTestbench::HROps::Ops');
 INSERT INTO PE_PE
 	VALUES ("ea1cff9b-9763-4dba-ac25-26540ad7b77d",
 	1,
@@ -2006,7 +2006,7 @@ INSERT INTO C_R_PROXY
 	'Ops',
 	'',
 	'Unnamed Interface',
-	'InteractiveTestbench::Port1::Ops',
+	'InteractiveTestbench::HROps::Ops',
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO C_P_PROXY
 	VALUES ("b738ee35-2e9d-421e-b69d-3017ffbef31d",
@@ -2020,7 +2020,7 @@ INSERT INTO C_SF
 	"41287efb-8074-47e1-b27d-0fff1ac1b588",
 	"1ba050a2-d419-4423-b771-96be8886d0a0",
 	'',
-	'pm::UI::Projects -o)- InteractiveTestbench::Port4::Projects');
+	'pm::UI::Projects -o)- InteractiveTestbench::Projects::Projects');
 INSERT INTO PE_PE
 	VALUES ("7250d073-d4d8-45f1-ad17-996e61efc62c",
 	1,
@@ -2032,7 +2032,7 @@ INSERT INTO C_R_PROXY
 	'Projects',
 	'',
 	'Unnamed Interface',
-	'InteractiveTestbench::Port4::Projects',
+	'InteractiveTestbench::Projects::Projects',
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO C_P_PROXY
 	VALUES ("1ba050a2-d419-4423-b771-96be8886d0a0",
@@ -2046,7 +2046,7 @@ INSERT INTO C_SF
 	"18c4d4a6-d6b8-4b33-a159-183a0f9f0485",
 	"84b7e49f-98e2-4539-b496-50575c189964",
 	'',
-	'fms::UI::Finance -o)- InteractiveTestbench::Port3::Finance');
+	'fms::UI::Finance -o)- InteractiveTestbench::Finance::Finance');
 INSERT INTO PE_PE
 	VALUES ("02de69d5-c2be-434c-bc3e-3de202061ca4",
 	1,
@@ -2058,7 +2058,7 @@ INSERT INTO C_R_PROXY
 	'Finance',
 	'',
 	'Unnamed Interface',
-	'InteractiveTestbench::Port3::Finance',
+	'InteractiveTestbench::Finance::Finance',
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO C_P_PROXY
 	VALUES ("84b7e49f-98e2-4539-b496-50575c189964",
@@ -2072,7 +2072,7 @@ INSERT INTO C_SF
 	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b",
 	"7a26de32-2a7f-4ded-892b-659b05817114",
 	'',
-	'hr::UI::Data -o)- InteractiveTestbench::Port2::Data');
+	'hr::UI::Data -o)- InteractiveTestbench::HRData::Data');
 INSERT INTO PE_PE
 	VALUES ("035f30be-e76e-47c8-88fd-8fde1952b4f3",
 	1,
@@ -2084,7 +2084,7 @@ INSERT INTO C_R_PROXY
 	'Data',
 	'',
 	'Unnamed Interface',
-	'InteractiveTestbench::Port2::Data',
+	'InteractiveTestbench::HRData::Data',
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO C_P_PROXY
 	VALUES ("7a26de32-2a7f-4ded-892b-659b05817114",
@@ -2098,7 +2098,7 @@ INSERT INTO C_SF
 	"4ca90748-af9d-4688-8702-4fdc3a5da33b",
 	"7f82e145-6d0b-4101-8f71-145c979ea70e",
 	'',
-	'Auth::UI::Authentication -o)- InteractiveTestbench::Port5::Authentication');
+	'Auth::UI::Authentication -o)- InteractiveTestbench::Auth::Authentication');
 INSERT INTO PE_PE
 	VALUES ("5f75dffa-fb2e-4472-bc9f-2febb089e95b",
 	1,
@@ -2110,7 +2110,7 @@ INSERT INTO C_R_PROXY
 	'Authentication',
 	'',
 	'Unnamed Interface',
-	'InteractiveTestbench::Port5::Authentication',
+	'InteractiveTestbench::Auth::Authentication',
 	'../Components/InteractiveTestbench/InteractiveTestbench.xtuml');
 INSERT INTO C_P_PROXY
 	VALUES ("7f82e145-6d0b-4101-8f71-145c979ea70e",

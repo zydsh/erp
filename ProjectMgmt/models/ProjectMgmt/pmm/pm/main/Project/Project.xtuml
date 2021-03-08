@@ -8,6 +8,27 @@ INSERT INTO O_OBJ
 	'A group of activities set to achieve an 
 outcome with a defined beginning and end ',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("bff85729-1116-417e-ab8b-801aa9f695ed",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	'AssignManger',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	3,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("38d1d29b-d996-432a-83d0-88d700460585",
+	"bff85729-1116-417e-ab8b-801aa9f695ed",
+	'AccountName',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("8f3b3ef7-4c30-489b-9029-e3c2cf675fa7",
 	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
@@ -116,6 +137,149 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
+INSERT INTO O_DBATTR
+	VALUES ("7d8ab722-2ba7-4d6c-868f-86a7ad2b082c",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	'',
+	3,
+	0);
+INSERT INTO O_BATTR
+	VALUES ("7d8ab722-2ba7-4d6c-868f-86a7ad2b082c",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("7d8ab722-2ba7-4d6c-868f-86a7ad2b082c",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"f8e9b143-60f9-418f-8181-65fdacbf19b6",
+	'Duration',
+	'',
+	'',
+	'Duration',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("7699ee40-d2fb-439e-bc81-d288731cc8fd",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("7699ee40-d2fb-439e-bc81-d288731cc8fd",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("7699ee40-d2fb-439e-bc81-d288731cc8fd",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"7d8ab722-2ba7-4d6c-868f-86a7ad2b082c",
+	'Manager',
+	'',
+	'',
+	'Manager',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("f04f3f32-3415-4ac0-9637-c61a71f6fe8b",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("f04f3f32-3415-4ac0-9637-c61a71f6fe8b",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("f04f3f32-3415-4ac0-9637-c61a71f6fe8b",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"7699ee40-d2fb-439e-bc81-d288731cc8fd",
+	'Owner',
+	'',
+	'',
+	'Owner',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("d9c4c399-9511-481c-aad5-5d06f8d71291",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("d9c4c399-9511-481c-aad5-5d06f8d71291",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("d9c4c399-9511-481c-aad5-5d06f8d71291",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"f04f3f32-3415-4ac0-9637-c61a71f6fe8b",
+	'Sponsor',
+	'',
+	'',
+	'Sponsor',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("d885b542-143b-407c-a950-c00a83ccdef8",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("d885b542-143b-407c-a950-c00a83ccdef8",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("d885b542-143b-407c-a950-c00a83ccdef8",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"d9c4c399-9511-481c-aad5-5d06f8d71291",
+	'StrategicObjective',
+	'Each project fulfill one strategic objective of the program ',
+	'',
+	'StrategicObjective',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("ed6bb19e-bd52-4f8d-9396-4b2916e0f890",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("ed6bb19e-bd52-4f8d-9396-4b2916e0f890",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("ed6bb19e-bd52-4f8d-9396-4b2916e0f890",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"d885b542-143b-407c-a950-c00a83ccdef8",
+	'Status',
+	'',
+	'',
+	'Status',
+	0,
+	"2db94ba6-aa01-4226-a672-b8f9c8080151",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("2db94ba6-aa01-4226-a672-b8f9c8080151",
+	"00000000-0000-0000-0000-000000000000",
+	'ProjectStatus',
+	'',
+	'',
+	'../../../../SharedTypes/SharedTypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("83e1000f-9e0c-47f5-89c6-09c0b9c4d751",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_BATTR
+	VALUES ("83e1000f-9e0c-47f5-89c6-09c0b9c4d751",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
+INSERT INTO O_ATTR
+	VALUES ("83e1000f-9e0c-47f5-89c6-09c0b9c4d751",
+	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c",
+	"ed6bb19e-bd52-4f8d-9396-4b2916e0f890",
+	'Phase',
+	'',
+	'',
+	'Phase',
+	0,
+	"9e6540f6-3ec3-425a-a564-237d23b0bc24",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("9e6540f6-3ec3-425a-a564-237d23b0bc24",
+	"00000000-0000-0000-0000-000000000000",
+	'ProjectPhase',
+	'',
+	'',
+	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_ID
 	VALUES (0,
 	"1a7b8fc0-77b8-40dd-8df7-4e42738a250c");
