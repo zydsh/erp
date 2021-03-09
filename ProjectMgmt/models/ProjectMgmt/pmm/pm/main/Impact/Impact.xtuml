@@ -22,9 +22,16 @@ INSERT INTO O_ATTR
 	'',
 	'Category',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"a614cec0-7753-41df-8879-a490b7b604cb",
 	'',
 	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("a614cec0-7753-41df-8879-a490b7b604cb",
+	"00000000-0000-0000-0000-000000000000",
+	'ImpactCategory',
+	'',
+	'',
+	'../../../../SharedTypes/SharedTypes.xtuml');
 INSERT INTO O_NBATTR
 	VALUES ("871774b2-3695-47b3-92b6-8fa1aa9183f0",
 	"9010fe93-b784-4ab7-991a-5371d6646935");
@@ -40,7 +47,7 @@ INSERT INTO O_ATTR
 	'',
 	'Details',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
 INSERT INTO O_ID

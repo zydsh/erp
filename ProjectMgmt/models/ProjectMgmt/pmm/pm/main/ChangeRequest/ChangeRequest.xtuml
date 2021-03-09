@@ -7,6 +7,18 @@ INSERT INTO O_OBJ
 	'ChangeRequest',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("af8aac51-67f7-4570-ad69-ab56f19ca201",
+	"9d8b135f-9d00-4814-b962-27b4ad4f37a9",
+	'Submit',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	3,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
 INSERT INTO O_NBATTR
 	VALUES ("21be7800-ae7f-47b9-ba1d-2d6ff8cac3fd",
 	"9d8b135f-9d00-4814-b962-27b4ad4f37a9");
@@ -22,7 +34,7 @@ INSERT INTO O_ATTR
 	'',
 	'Description',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -40,7 +52,7 @@ INSERT INTO O_ATTR
 	'',
 	'Justification',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
 INSERT INTO O_ID

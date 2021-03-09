@@ -3518,6 +3518,46 @@ INSERT INTO DIM_DIA
 	0.000000,
 	0.000000,
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT
+	VALUES ("67585e22-0a77-4ab6-9d04-39304a739980",
+	"00000000-0000-0000-0000-000000000000",
+	'inst_ref<BankAccount>',
+	'',
+	'');
+INSERT INTO S_IRDT
+	VALUES ("67585e22-0a77-4ab6-9d04-39304a739980",
+	0,
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO O_OBJ_PROXY
+	VALUES ("16f479df-52b5-4738-a0fd-28f7de018429",
+	'BankAccount',
+	15,
+	'BankAccount',
+	'A financial account that receives employee benefits through regular electronic transfers. ',
+	"00000000-0000-0000-0000-000000000000",
+	'./BankAccount/BankAccount.xtuml');
+INSERT INTO PE_PE
+	VALUES ("67585e22-0a77-4ab6-9d04-39304a739980",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	3);
+INSERT INTO S_DT
+	VALUES ("351fcb68-f62a-4fc3-b35c-ffe71a23af71",
+	"00000000-0000-0000-0000-000000000000",
+	'inst_ref_set<BankAccount>',
+	'',
+	'');
+INSERT INTO S_IRDT
+	VALUES ("351fcb68-f62a-4fc3-b35c-ffe71a23af71",
+	1,
+	"16f479df-52b5-4738-a0fd-28f7de018429");
+INSERT INTO PE_PE
+	VALUES ("351fcb68-f62a-4fc3-b35c-ffe71a23af71",
+	1,
+	"ac831a0f-6bd5-4f42-adf2-ae0c3dca57ca",
+	"00000000-0000-0000-0000-000000000000",
+	3);
 INSERT INTO R_ASSOC
 	VALUES ("20637019-8a2b-425f-9d48-7d5bec2c09ef");
 INSERT INTO R_REL
@@ -4430,7 +4470,7 @@ A department may be established
 without having departments within it
 and may not be part of another 
 department, such as the highest 
-office (i.e. the presidentâ€™s office).  ',
+office (i.e. the president’s office).  ',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO R_PART
 	VALUES ("e01e59b4-a14b-4f8e-9875-07022c90269e",
@@ -4598,14 +4638,6 @@ INSERT INTO R_OIR
 	"bb46e860-f4f7-456e-a6be-0c95b442c2a2",
 	"4d06e29e-cb47-4f06-92b8-d54cd117d9e7",
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_OBJ_PROXY
-	VALUES ("16f479df-52b5-4738-a0fd-28f7de018429",
-	'BankAccount',
-	15,
-	'BankAccount',
-	'A financial account that receives employee benefits through regular electronic transfers. ',
-	"00000000-0000-0000-0000-000000000000",
-	'./BankAccount/BankAccount.xtuml');
 INSERT INTO R_PART
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
 	"bb46e860-f4f7-456e-a6be-0c95b442c2a2",
