@@ -1,0 +1,66 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("d0074c44-bb29-46f4-9253-282d787f2a1e",
+	'ReadApprovedItems',
+	12,
+	'ReadApprovedItems',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("18de8e49-74a1-46d3-979c-a28059d867d4",
+	"d0074c44-bb29-46f4-9253-282d787f2a1e",
+	'run',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'select any read from instances of ReadApprovedItems;
+if (empty read)
+	create object instance read of ReadApprovedItems;
+	generate ReadApprovedItems1:InstanceInitialized to read ;
+end if;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_NBATTR
+	VALUES ("08ea5aff-58d5-49b0-a6cb-095bf3382bd3",
+	"d0074c44-bb29-46f4-9253-282d787f2a1e");
+INSERT INTO O_BATTR
+	VALUES ("08ea5aff-58d5-49b0-a6cb-095bf3382bd3",
+	"d0074c44-bb29-46f4-9253-282d787f2a1e");
+INSERT INTO O_ATTR
+	VALUES ("08ea5aff-58d5-49b0-a6cb-095bf3382bd3",
+	"d0074c44-bb29-46f4-9253-282d787f2a1e",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"d0074c44-bb29-46f4-9253-282d787f2a1e");
+INSERT INTO O_ID
+	VALUES (1,
+	"d0074c44-bb29-46f4-9253-282d787f2a1e");
+INSERT INTO O_ID
+	VALUES (2,
+	"d0074c44-bb29-46f4-9253-282d787f2a1e");
+INSERT INTO PE_PE
+	VALUES ("d0074c44-bb29-46f4-9253-282d787f2a1e",
+	1,
+	"f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("f958eedf-fee1-4752-8c8f-5f31af3d544f",
+	"00000000-0000-0000-0000-000000000000",
+	"e9af1555-bf5e-4176-a48b-88abbf636450",
+	'TestCases',
+	'',
+	0,
+	'../TestCases.xtuml');

@@ -41,7 +41,6 @@ INSERT INTO O_TFR
 	'select many amounts related by self->Amount[R40.''records''];
 
 for each amount in amounts
-	SQL::load_file( file:"" );
 	generate Amount4:PaymentRequested to amount; 
 end for;
 	

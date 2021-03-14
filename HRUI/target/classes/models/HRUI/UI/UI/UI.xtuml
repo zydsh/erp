@@ -3513,6 +3513,24 @@ INSERT INTO C_EP_PROXY
 	'PaySalary',
 	'',
 	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("60f7bb83-8ab4-4ce5-a42f-d8a2f4d3e5f0",
+	"80df410d-49f8-4e17-8c92-5c85b93bff92",
+	"8d04e32c-c0e0-4a8b-a383-19d5284b5624");
+INSERT INTO SPR_RS
+	VALUES ("60f7bb83-8ab4-4ce5-a42f-d8a2f4d3e5f0",
+	'PendingPay',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("80df410d-49f8-4e17-8c92-5c85b93bff92",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PendingPay',
+	'',
+	'../../../../../Finance/models/Finance/Interfaces/Finance/Finance.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	"00000000-0000-0000-0000-000000000000",

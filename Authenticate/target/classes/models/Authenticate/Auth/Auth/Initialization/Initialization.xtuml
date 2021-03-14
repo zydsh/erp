@@ -24,7 +24,7 @@ INSERT INTO GD_MD
 	0,
 	0,
 	0,
-	'',
+	'4.1.17',
 	'Authenticate::Auth::Auth::Initialization');
 INSERT INTO DIM_DIA
 	VALUES ("a45604f5-e1fd-4c49-ac81-2f7888f51705",
@@ -69,6 +69,9 @@ group.Description = "Given permission to access human resources to "+
 					"perform general functions such as add employee "+ 
 					"modify leave settings.";
 
+create object instance group of Group;
+group.Name = "Fin";
+group.Description = "Given permission to access finance";
 
 create object instance group of Group;
 group.Name = "Managers";
