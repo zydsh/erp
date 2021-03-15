@@ -2313,6 +2313,7 @@ for each employee in employees
 select many payments related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a''];
 
 for each payment in payments
+	//payment information sent by states
 	generate PayslipItem8:StatusRequested to payment;
 	
 end for;
