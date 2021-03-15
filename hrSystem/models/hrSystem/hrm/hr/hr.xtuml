@@ -1793,6 +1793,7 @@ where selected.Date == param.Date and selected.Amount == param.Amount;
 
 if (not empty payment)
 	generate PayslipItem1:Approve to payment;
+	
 end if;',
 	1,
 	0);
@@ -1829,29 +1830,11 @@ INSERT INTO SPR_PS
 	VALUES ("8dba4f38-b0a6-44ff-a3a8-5abaa85fe856",
 	'ReadPayItems',
 	'',
-	'Status =Payitem::Initial;
-select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
+	'select any employee from instances of Employee where selected.EmployeeID == param.EmployeeID;
 select many payments related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a''];
 
 for each payment in payments
-	select one approved related by payment->Employee[R27.''approved for''];	
-	select one held related by payment->Employee[R26.''held for''];
-	select one paid related by payment->Employee[R28.''paid for''];	
-	select one postponed related by payment->Employee[R29.''potsponed for''];	
-	select one suspended related by payment->Employee[R31.''is suspened''];	
-
-if (not empty approved)
-	Status =Payitem::Approved;
-elif (not empty held)
-		Status =Payitem::Hold;
-elif (not empty paid)
-	Status =Payitem::Paid;
-elif (not empty postponed)
-	Status =Payitem::Postponed;
-elif (not empty suspended)
-	Status =Payitem::Suspended;
-end if;
-	UI::SendPayItem(EmployeeID:employee.EmployeeID, Name:payment.Name, Date:payment.Date, Type:payment.Type, Amount:payment.Amount, Status:Status);
+	generate PayslipItem8:StatusRequested to payment;
 
 end for;
 
@@ -2324,32 +2307,14 @@ INSERT INTO SPR_PS
 	VALUES ("8a48c53d-bf40-4ab5-93f9-c93bbb1052ad",
 	'ReadAllPayItems',
 	'',
-	'Status =Payitem::Initial;
-select many employees from instances of Employee;
+	'select many employees from instances of Employee;
 
 for each employee in employees
 select many payments related by employee->PayslipItem[R13.''an earning or a deduction is recorded in a''];
 
 for each payment in payments
-	select one approved related by payment->Employee[R27.''approved for''];	
-	select one held related by payment->Employee[R26.''held for''];
-	select one paid related by payment->Employee[R28.''paid for''];	
-	select one postponed related by payment->Employee[R29.''potsponed for''];	
-	select one suspended related by payment->Employee[R31.''is suspened''];	
-
-if (not empty approved)
-	Status =Payitem::Approved;
-elif (not empty held)
-		Status =Payitem::Hold;
-elif (not empty paid)
-	Status =Payitem::Paid;
-elif (not empty postponed)
-	Status =Payitem::Postponed;
-elif (not empty suspended)
-	Status =Payitem::Suspended;
-end if;
-	UI::SendPayItem(EmployeeID:employee.EmployeeID, Name:payment.Name, Date:payment.Date, Type:payment.Type, Amount:payment.Amount, Status:Status);
-
+	generate PayslipItem8:StatusRequested to payment;
+	
 end for;
 end for;
 

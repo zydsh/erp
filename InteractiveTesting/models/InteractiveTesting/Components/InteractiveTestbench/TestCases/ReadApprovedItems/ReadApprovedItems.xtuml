@@ -18,6 +18,9 @@ INSERT INTO O_TFR
 if (empty read)
 	create object instance read of ReadApprovedItems;
 	generate ReadApprovedItems1:InstanceInitialized to read ;
+else 
+	generate ReadApprovedItems1:InstanceInitialized to read ;
+
 end if;',
 	1,
 	'',

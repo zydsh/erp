@@ -1529,13 +1529,23 @@ INSERT INTO SPR_RS
 	VALUES ("5d795cdd-6a05-49d2-8004-b1d0ed59fdd3",
 	'SendPayItem',
 	'',
-	'create object instance payitem  of UC4_Payitem;
-payitem.EmployeeID = param.EmployeeID;
-payitem.Name = param.Name;
-payitem.Date = param.Date;
-payitem.Type = param.Type;
-payitem.Amount = param.Amount;
-payitem.Status = param.Status;',
+	'select any payitemInstance from instances of UC4_Payitem 
+	where selected.EmployeeID==param.EmployeeID 
+	and selected.Amount==param.Amount
+	and selected.Name == param.Name
+	and selected.Date == param.Date;
+
+if (empty payitemInstance)
+	create object instance payitem  of UC4_Payitem;
+	payitem.EmployeeID = param.EmployeeID;
+	payitem.Name = param.Name;
+	payitem.Date = param.Date;
+	payitem.Type = param.Type;
+	payitem.Amount = param.Amount;
+	payitem.Status = param.Status;
+else 
+	payitemInstance.Status = param.Status;
+end if;',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
