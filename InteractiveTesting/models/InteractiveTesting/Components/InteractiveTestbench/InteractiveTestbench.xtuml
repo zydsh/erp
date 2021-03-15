@@ -1529,12 +1529,23 @@ INSERT INTO SPR_RS
 	VALUES ("5d795cdd-6a05-49d2-8004-b1d0ed59fdd3",
 	'SendPayItem',
 	'',
-	'create object instance payitem  of UC4_Payitem;
-payitem.Name = param.Name;
-payitem.Date = param.Date;
-payitem.Type = param.Type;
-payitem.Amount = param.Amount;
-payitem.Status = param.Status;',
+	'select any payitemInstance from instances of UC4_Payitem 
+	where selected.EmployeeID==param.EmployeeID 
+	and selected.Amount==param.Amount
+	and selected.Name == param.Name
+	and selected.Date == param.Date;
+
+if (empty payitemInstance)
+	create object instance payitem  of UC4_Payitem;
+	payitem.EmployeeID = param.EmployeeID;
+	payitem.Name = param.Name;
+	payitem.Date = param.Date;
+	payitem.Type = param.Type;
+	payitem.Amount = param.Amount;
+	payitem.Status = param.Status;
+else 
+	payitemInstance.Status = param.Status;
+end if;',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
@@ -1885,6 +1896,24 @@ INSERT INTO C_EP_PROXY
 	"e4418dca-a348-4559-93d1-2765b2e75800",
 	-1,
 	'SendFinanceMessage',
+	'',
+	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("bc533db1-4e4d-4f05-b9b7-6b1085bed264",
+	"fc6a9cff-c426-41d3-bd1a-d59848a2711c",
+	"b25b1693-7f8c-42a8-9a7d-60cc85e0b96b");
+INSERT INTO SPR_RS
+	VALUES ("bc533db1-4e4d-4f05-b9b7-6b1085bed264",
+	'ReadAllPayItems',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("fc6a9cff-c426-41d3-bd1a-d59848a2711c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadAllPayItems',
 	'',
 	'../../../../../hrSystem/models/hrSystem/Interfaces/Data/Data.xtuml');
 INSERT INTO C_I_PROXY
@@ -3133,7 +3162,7 @@ INSERT INTO SPR_RS
 	'PendingPay',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("80df410d-49f8-4e17-8c92-5c85b93bff92",

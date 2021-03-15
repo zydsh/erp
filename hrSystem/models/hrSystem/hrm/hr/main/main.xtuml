@@ -3663,7 +3663,7 @@ INSERT INTO R_PART
 	"530f1098-b3d4-41ce-9703-226713b24bac",
 	"8c1de359-49ae-4beb-8e76-7ac5ca017795",
 	0,
-	0,
+	1,
 	'records an earning or deduction to');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
@@ -4714,7 +4714,7 @@ INSERT INTO R_PART
 	"15ac0f83-a6a4-4e25-beeb-a94fceca07db",
 	"701529b3-8be7-4645-bc47-20c1355bd283",
 	0,
-	0,
+	1,
 	'held for');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
@@ -4761,7 +4761,7 @@ INSERT INTO R_PART
 	"dc39d973-92a1-4528-980b-6b8b3445ccde",
 	"4b14f1b9-9deb-41f7-bf7c-692ad5af95b2",
 	0,
-	0,
+	1,
 	'approved for');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
@@ -4808,7 +4808,7 @@ INSERT INTO R_PART
 	"e7fc25e7-18af-4a02-9843-bbff8f2d2739",
 	"d3468dcd-41ac-4c5c-95a3-79f1c77e4364",
 	0,
-	0,
+	1,
 	'paid for');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
@@ -4855,7 +4855,7 @@ INSERT INTO R_PART
 	"ce85e68a-0ca9-4234-b0ae-f69145fc67f7",
 	"eb362233-c689-4aed-8f3c-50b53c536214",
 	0,
-	0,
+	1,
 	'potsponed for');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",
@@ -4885,7 +4885,7 @@ INSERT INTO R_PART
 	"e28cc952-206e-40e1-9944-0627093fc887",
 	"22432c53-1f0f-4025-a99d-f4cc1f5338e9",
 	0,
-	0,
+	1,
 	'is suspened');
 INSERT INTO R_RTO
 	VALUES ("8d628b4f-d7b2-4646-bca8-47297794ec19",

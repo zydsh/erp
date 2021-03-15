@@ -16,7 +16,7 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("56018307-b3b2-4c6f-94bd-de83f881f4f6",
 	"79c253a3-0171-4c6e-b128-cbe4b9dd2097",
-	"00000000-0000-0000-0000-000000000000",
+	"96784e4e-720f-417d-a12b-54df0dee1ce9",
 	'Name',
 	'',
 	'',
@@ -111,6 +111,24 @@ INSERT INTO S_DT_PROXY
 	'',
 	'',
 	'../../../../../../../hrSystem/models/hrSystem/SharedTypes/SharedTypes.xtuml');
+INSERT INTO O_NBATTR
+	VALUES ("96784e4e-720f-417d-a12b-54df0dee1ce9",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_BATTR
+	VALUES ("96784e4e-720f-417d-a12b-54df0dee1ce9",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");
+INSERT INTO O_ATTR
+	VALUES ("96784e4e-720f-417d-a12b-54df0dee1ce9",
+	"79c253a3-0171-4c6e-b128-cbe4b9dd2097",
+	"00000000-0000-0000-0000-000000000000",
+	'EmployeeID',
+	'',
+	'',
+	'EmployeeID',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"79c253a3-0171-4c6e-b128-cbe4b9dd2097");

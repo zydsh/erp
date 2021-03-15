@@ -1937,6 +1937,18 @@ INSERT INTO C_PP
 	0,
 	'',
 	"f5492679-b595-4682-93f8-4f630cd3ea5e");
+INSERT INTO C_EP
+	VALUES ("fc6a9cff-c426-41d3-bd1a-d59848a2711c",
+	"e4418dca-a348-4559-93d1-2765b2e75800",
+	-1,
+	'ReadAllPayItems',
+	'');
+INSERT INTO C_AS
+	VALUES ("fc6a9cff-c426-41d3-bd1a-d59848a2711c",
+	'ReadAllPayItems',
+	'',
+	0,
+	"a3e3defe-d28f-49de-96bc-638b128fe8cb");
 INSERT INTO PE_PE
 	VALUES ("e4418dca-a348-4559-93d1-2765b2e75800",
 	1,
