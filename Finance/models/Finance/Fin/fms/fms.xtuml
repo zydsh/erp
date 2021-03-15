@@ -1371,24 +1371,8 @@ INSERT INTO SPR_PS
 	'',
 	'select any transfers from instances of Journal where selected.Name == "المناقلات";
 if (not empty transfers)
-	select any column related by transfers->Column[R120.''has''] where selected.Title == param.Column;
-	if (not empty column)
-	create object instance entry of Entry;
-		entry.Date = param.Date;
-		entry.Description = param.Description;
-		relate entry to transfers across R101.''made to'';
-	create object instance amount of Amount;
-		amount.Amount = param.Amount;
-		relate column to amount across R130.''holds'';
-		relate entry to amount across R40.''records'';
-	select one debit related by column->AccountSpecification[R140.''debits'']->Account[R170.''operates''];
-	select one credit related by column->AccountSpecification[R150.''credits'']->Account[R170.''operates''];
-	relate amount to debit across R240.''is debit transfer'';
-	relate amount to credit across R230.''is credit transfer'';
-	
-	end if;
-
-end if;
+	transfers.MakeTransferEntry( Column:param.Column, Date:param.Date, Description:param.Description, Amount:param.Amount );
+end if;	
 
 ',
 	1,
@@ -1826,19 +1810,7 @@ INSERT INTO SPR_PS
 	'',
 	'select any journal from instances of Journal where selected.Name == "المناقلات";
 if (not empty journal)
-	select any column related by journal->Column[R120.''has''] where selected.Title==param.Column;
-	if (not empty column)
-		select many amounts related by column->Amount[R130.''holds''];
-		for each amount in amounts
-			select one entry related by amount->Entry[R40.''recorded for''];
-			UI::SendJournal( Name:journal.Name, Description:journal.Description, ColumnTitle:column.Title, 
-			ColumnDescription:column.Description, EntryDate:entry.Date, EntryDescription:entry.Description, 
-			EntryAmount:amount.Amount);
-			UI::Reply( msg:"Sent journal amount for entry within salary journal", state:True );
-		end for;
-	end if;
-else
-		UI::Reply( msg:"Salary journal is not initiated", state:False );
+	journal.ReadTransfers( Column:param.Column);
 
 end if;
 ',

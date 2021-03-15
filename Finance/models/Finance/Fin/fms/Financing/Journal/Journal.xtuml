@@ -26,11 +26,11 @@ amount.Amount = param.Amount;
 relate entry to amount across R40;
 
 select one column related by self->Column[R160.''has single''];
-relate amount to column across R130;
 
-	if (not empty column)
+if (not empty column)
+		relate amount to column across R130;
 		generate Amount1:PaymentAssigned to amount;
-	end if;
+end if;
 ',
 	1,
 	'',
@@ -62,6 +62,106 @@ INSERT INTO O_TPARM
 	0,
 	'',
 	"9a118ede-86a0-4b66-93d0-fd87cf0a892f",
+	'');
+INSERT INTO O_TFR
+	VALUES ("2c4bff31-a5e9-4c82-b571-e0eef912f9e7",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	'MakeTransferEntry',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'	select any column related by self->Column[R120.''has''] where selected.Title == param.Column;
+if (not empty column)
+	create object instance entry of Entry;
+		entry.Date = param.Date;
+		entry.Description = param.Description;
+		relate entry to self across R101.''made to'';
+		
+	create object instance amount of Amount;
+		amount.Amount = param.Amount;
+		relate column to amount across R130.''holds'';
+		
+	relate entry to amount across R40.''records'';
+	generate Amount1:PaymentAssigned to amount;
+end if;
+
+
+
+
+
+',
+	1,
+	'',
+	"0612ac86-266f-48d1-8d85-7d9772c76c2c",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("59911150-6392-4cfd-b899-3a48ddf2e685",
+	"2c4bff31-a5e9-4c82-b571-e0eef912f9e7",
+	'Column',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("e717bde3-5df5-4879-8011-f7ef9b7f3464",
+	"2c4bff31-a5e9-4c82-b571-e0eef912f9e7",
+	'Date',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"59911150-6392-4cfd-b899-3a48ddf2e685",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("5b31bccf-19d4-4132-8ecc-41edf2d9a395",
+	"2c4bff31-a5e9-4c82-b571-e0eef912f9e7",
+	'Description',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"e717bde3-5df5-4879-8011-f7ef9b7f3464",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("9b4841e3-e07d-4a9b-924f-7950b3e035ec",
+	"2c4bff31-a5e9-4c82-b571-e0eef912f9e7",
+	'Amount',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"5b31bccf-19d4-4132-8ecc-41edf2d9a395",
+	'');
+INSERT INTO O_TFR
+	VALUES ("7d50f2c7-9149-4f26-8ef2-bfcea5852b81",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	'ReadTransfers',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'	select any column related by self->Column[R120.''has''] where selected.Title==param.Column;
+	if (not empty column)
+		select many amounts related by column->Amount[R130.''holds''];
+		for each amount in amounts
+		select one entry related by amount->Entry[R40.''recorded for''];
+			UI::SendJournal( Name:self.Name, Description:self.Description, 
+					ColumnTitle:column.Title, ColumnDescription:column.Title, 
+					EntryDate:entry.Date, EntryDescription:entry.Description, 
+					EntryAmount:amount.Amount );
+		end for;
+	else
+		UI::Reply( msg:"Salary journal is not initiated", state:False );
+	end if;',
+	1,
+	'',
+	"2c4bff31-a5e9-4c82-b571-e0eef912f9e7",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("aa48ae10-1ab8-452b-873c-34a570e5698d",
+	"7d50f2c7-9149-4f26-8ef2-bfcea5852b81",
+	'Column',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO O_NBATTR
 	VALUES ("89383897-e1e8-4eda-b97c-f46bebf138b1",
