@@ -7,6 +7,29 @@ INSERT INTO O_OBJ
 	'Amount',
 	'An amount for an transaction entry within a journal.',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("fd86b160-58ec-4a24-8eab-7bd1b11d2461",
+	"984907e3-7685-4dd3-bcec-0d191923ce57",
+	'sendamount',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'select one column related by self->Column[R130.''recorded under''];
+select one entry related by self->Entry[R40.''recorded for''];
+select one journal related by self->Entry[R40.''recorded for'']->Journal[R101.''made to'']; 
+
+if (not empty column) and (not empty entry) and (not empty journal)
+	UI::SendJournal( Name:journal.Name, Description:journal.Description, 
+					 ColumnTitle:column.Title, ColumnDescription:column.Title, 
+					EntryDate:entry.Date, EntryDescription:entry.Description, 
+					EntryAmount:self.Amount );
+	LOG::LogInfo( message:"Transfer sent successfuly" );
+end if;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
 INSERT INTO O_NBATTR
 	VALUES ("9988063b-1215-4f81-8132-794730f65801",
 	"984907e3-7685-4dd3-bcec-0d191923ce57");
