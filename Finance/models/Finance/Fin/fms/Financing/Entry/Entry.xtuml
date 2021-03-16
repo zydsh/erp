@@ -41,7 +41,7 @@ INSERT INTO O_TFR
 	'select many amounts related by self->Amount[R40.''records''];
 
 for each amount in amounts
-	generate Amount4:PaymentRequested to amount; 
+	generate Amount6:AmountRequested to amount; 
 end for;
 	
 ',

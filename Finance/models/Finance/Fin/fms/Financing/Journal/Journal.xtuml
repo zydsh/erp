@@ -82,7 +82,7 @@ if (not empty column)
 		relate column to amount across R130.''holds'';
 		
 	relate entry to amount across R40.''records'';
-	generate Amount1:PaymentAssigned to amount;
+	generate Amount5:TransferMade to amount;
 end if;
 
 
@@ -163,6 +163,27 @@ INSERT INTO O_TPARM
 	'',
 	"00000000-0000-0000-0000-000000000000",
 	'');
+INSERT INTO O_TFR
+	VALUES ("45765881-b4c2-40b7-959b-abe1e84d3665",
+	"ef105bc0-5a8d-470a-a53c-420b48c984f1",
+	'readPending',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'
+select many columns related by self->Column[R120.''has''];
+if (not empty columns)
+	for each column in columns
+		select many amounts related by column->Amount[R130.''holds''];
+		for each amount in amounts
+			generate Amount6:AmountRequested to amount;
+		end for;
+	end for;
+end if;',
+	1,
+	'',
+	"7d50f2c7-9149-4f26-8ef2-bfcea5852b81",
+	0);
 INSERT INTO O_NBATTR
 	VALUES ("89383897-e1e8-4eda-b97c-f46bebf138b1",
 	"ef105bc0-5a8d-470a-a53c-420b48c984f1");

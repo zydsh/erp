@@ -2123,6 +2123,57 @@ INSERT INTO C_AS
 	'',
 	0,
 	"94c5c798-cd59-4954-8dfc-deb2b48db517");
+INSERT INTO C_EP
+	VALUES ("67b89449-cdac-4c8d-9204-005216c0c726",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'ApproveTransfer',
+	'');
+INSERT INTO C_AS
+	VALUES ("67b89449-cdac-4c8d-9204-005216c0c726",
+	'ApproveTransfer',
+	'',
+	0,
+	"80df410d-49f8-4e17-8c92-5c85b93bff92");
+INSERT INTO C_PP
+	VALUES ("a4d82b07-8a42-4966-b6ad-a23885bd60fb",
+	"67b89449-cdac-4c8d-9204-005216c0c726",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Column',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("9a1b2ec0-0677-4c8f-92be-bcd7bff63118",
+	"67b89449-cdac-4c8d-9204-005216c0c726",
+	"ba5eda7a-def5-0000-0000-000000000003",
+	'Amount',
+	'',
+	0,
+	'',
+	"a4d82b07-8a42-4966-b6ad-a23885bd60fb");
+INSERT INTO C_PP
+	VALUES ("206accc0-5d08-4aba-9c46-5f4da8a6b9c4",
+	"67b89449-cdac-4c8d-9204-005216c0c726",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Date',
+	'',
+	0,
+	'',
+	"9a1b2ec0-0677-4c8f-92be-bcd7bff63118");
+INSERT INTO C_EP
+	VALUES ("b76b55d1-346e-4f6f-aaa6-1e3c06fe8237",
+	"4050d50b-4358-41d0-aaf7-7da0e117e17c",
+	-1,
+	'PendingTransfers',
+	'');
+INSERT INTO C_AS
+	VALUES ("b76b55d1-346e-4f6f-aaa6-1e3c06fe8237",
+	'PendingTransfers',
+	'',
+	0,
+	"67b89449-cdac-4c8d-9204-005216c0c726");
 INSERT INTO PE_PE
 	VALUES ("4050d50b-4358-41d0-aaf7-7da0e117e17c",
 	1,

@@ -22,6 +22,43 @@ once for account receivables account as debit, and another
 at the sales account as credit.   
 ',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("88937185-a8c4-41c5-8b1e-cc32ed3fc338",
+	"2243fe3d-0a95-4aa3-a947-24cff91ba626",
+	'ApproveTransfer',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'select many amounts related by self->Amount[R130.''holds''] where selected.Amount == param.Amount;
+for each amount in amounts 
+	select one entry related by amount->Entry[R40.''recorded for''] where selected.Date==param.Date;
+	if (not empty entry)
+		generate Amount7:TransferApproved to amount;
+	end if;
+end for;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("f5931e38-4406-472a-b949-5b2ff517153c",
+	"88937185-a8c4-41c5-8b1e-cc32ed3fc338",
+	'Date',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("a93dbb13-03ff-4172-81e5-73f73970f892",
+	"88937185-a8c4-41c5-8b1e-cc32ed3fc338",
+	'Amount',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"f5931e38-4406-472a-b949-5b2ff517153c",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("6ede1aaa-14ad-439f-92c1-8d9e85e6b5ba",
 	"2243fe3d-0a95-4aa3-a947-24cff91ba626");
