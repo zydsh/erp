@@ -10,9 +10,68 @@ of the accounting equations (i.e. assets). The current
 system only recognizes cash accounts.
 ',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("7b7da074-6e63-4856-9799-8233b062c8d2",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_BATTR
+	VALUES ("7b7da074-6e63-4856-9799-8233b062c8d2",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_ATTR
+	VALUES ("7b7da074-6e63-4856-9799-8233b062c8d2",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176",
+	"04c81d52-ef5d-4a4e-b821-94da0bdb3150",
+	'BankName',
+	'',
+	'',
+	'BankName',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("da8e08bb-483e-4fae-b1c2-bd4439e60701",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_BATTR
+	VALUES ("da8e08bb-483e-4fae-b1c2-bd4439e60701",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_ATTR
+	VALUES ("da8e08bb-483e-4fae-b1c2-bd4439e60701",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176",
+	"00000000-0000-0000-0000-000000000000",
+	'AccountNumber',
+	'A number between 8 to 12 digits that uniquely identifies a bank account',
+	'',
+	'AccountNumber',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("04c81d52-ef5d-4a4e-b821-94da0bdb3150",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_BATTR
+	VALUES ("04c81d52-ef5d-4a4e-b821-94da0bdb3150",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_ATTR
+	VALUES ("04c81d52-ef5d-4a4e-b821-94da0bdb3150",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176",
+	"da8e08bb-483e-4fae-b1c2-bd4439e60701",
+	'AccountName',
+	'',
+	'',
+	'AccountName',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
+INSERT INTO O_OIDA
+	VALUES ("da8e08bb-483e-4fae-b1c2-bd4439e60701",
+	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176",
+	0,
+	'AccountNumber');
 INSERT INTO O_ID
 	VALUES (1,
 	"dcadf9c7-f5d2-45cc-bbb9-1142bd2b9176");
